@@ -142,7 +142,7 @@ document.querySelectorAll('article.week-card,article.list-card,article.platform,
 
 (()=>{
 const RATINGS=window.SelectionTVRatings={"Le Parrain, épilogue : la mort de Michael Corleone":{"imdb":"7,5","sc":"7,6"},"Lost in Translation":{"imdb":"7,7","sc":"7,2"},"Paris, Texas":{"imdb":"8,1","sc":"8,0"},"Tár":{"imdb":"7,4","sc":"6,7"},"Sympathy for Mr. Vengeance":{"imdb":"7,5","sc":"7,3"},"A Scene at the Sea":{"imdb":"7,5","sc":"7,5"},"Le Jardin des Finzi-Contini":{"imdb":"7,2","sc":"7,1"},"Le Gouffre aux chimères":{"imdb":"8,0","sc":"8,0"},"Portier de nuit":{"imdb":"6,6","sc":"6,4"},"Doux oiseau de jeunesse":{"imdb":"7,1","sc":"6,8"},"Certains l’aiment chaud":{"imdb":"8,2","sc":"7,9"},"Caprice":{"imdb":"6,0","sc":"5,8"},"La Venue de l’avenir":{"imdb":"7,2","sc":"6,6"},"Le miroir se brisa":{"imdb":"6,2","sc":"5,8"},"Là où chantent les écrevisses":{"imdb":"7,2","sc":"6,4"},"Le prisonnier d’Alcatraz":{"imdb":"7,8","sc":"7,6"},"Le démon s’éveille la nuit":{"imdb":"7,0","sc":"6,5"},"Million Dollar Baby":{"imdb":"8,1","sc":"7,6"},"L’expérience":{"imdb":"7,7","sc":"7,1"},"Les ailes du désir":{"imdb":"7,9","sc":"7,5"},"L’Idiot":{"imdb":"7,1","sc":"6,9"},"Cette femme-là":{"imdb":"6,1","sc":"6,2"},"Eddington":{"imdb":"6,6","sc":"6,2"},"L’homme des hautes plaines":{"imdb":"7,4","sc":"7,3"},"Donbass":{"imdb":"6,6","sc":"6,2"},"Fight Club":{"imdb":"8,8","sc":"8,1"},"Woman and Child":{"imdb":"5,9","sc":"6,8"},"L’Affaire Bojarski":{"imdb":"7,0","sc":"6,5"},"L’amour qu’il nous reste":{"imdb":"6,8","sc":"6,6"},"Fragments d’un parcours amoureux":{"imdb":"7,1","sc":"6,7"},"La Bête aveugle":{"imdb":"7,0","sc":"7,3"},"Jeux dangereux":{"imdb":"8,1","sc":"8,2"},"Before Sunrise":{"imdb":"8,1","sc":"7,3"},"Tigre et dragon":{"imdb":"7,8","sc":"6,9"},"Volver":{"imdb":"7,6","sc":"7,1"},"American History X":{"imdb":"8,5","sc":"7,7"},"La Fureur de vivre":{"imdb":"7,6","sc":"7,3"},"Le Cercle des poètes disparus":{"imdb":"8,1","sc":"7,5"},"Fisher King : Le Roi pêcheur":{"imdb":"7,5","sc":"7,2"},"Miami Vice - Deux flics à Miami":{"imdb":"6,1","sc":"5,9"},"Arsenic et vieille dentelle":{"imdb":"7,9"}};
-const q=s=>encodeURIComponent((s||'').trim());
+const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
 const clean=s=>(s||'').replace(/<[^>]*>/g,'').replace(/\s+/g,' ').trim();
 const titleOf=el=>{
  if(el.matches('tr')) return clean(el.querySelector('.prog')?.childNodes?.[0]?.textContent||el.querySelector('.prog')?.textContent);
@@ -167,6 +167,7 @@ document.querySelectorAll('article.week-card,article.list-card,article.platform,
 
 
 (()=>{
+const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
 const clean=s=>(s||'').replace(/\s+/g,' ').trim();
 const titleOf=el=>{
  if(el.matches('tr')) return clean(el.querySelector('.prog')?.childNodes?.[0]?.textContent||el.querySelector('.prog')?.textContent);
