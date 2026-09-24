@@ -75,7 +75,9 @@ function linkEntries(L){
 }
 
 function mergedLinks(c){
- return {...(window.SELECTION_TV_VERIFIED_LINKS?.[norm(c.title)]||{}),...(window.SelectionTVDirectLinks?.[c.title]||{}),...(c.links||{})};
+ // Reserve/replacement cards obey the same canonical registry as normal cards.
+ // No candidate-local or generated URL may override a verified work page.
+ return {...(window.SELECTION_TV_VERIFIED_LINKS?.[norm(c.title)]||{})};
 }
 function addReserveRatings(el,c){
  const r=window.SelectionTVRatings?.[c.title]||c.ratings;if(!r||el.querySelector('.ratings'))return;
