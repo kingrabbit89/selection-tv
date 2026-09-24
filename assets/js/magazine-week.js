@@ -344,7 +344,7 @@ document.querySelectorAll(".replay-page article.list-card").forEach(el=>{
  if(!el.querySelector(".section-thumb")){const img=document.createElement("img");img.className="section-thumb";img.src=d.img;img.alt="Visuel de "+titleOf(el);img.loading="lazy";el.querySelector(".num")?.insertAdjacentElement("afterend",img)}
  addDirectLinks(el,d);addRatings(el,d);
 });
-document.querySelectorAll("article.platform").forEach(el=>{
+document.querySelectorAll(".page:not(.subscription-page) article.platform").forEach(el=>{
  const d=DATA[titleOf(el)];if(!d)return;
  if(!el.classList.contains("has-visual")){
    const kids=[...el.children];const copy=document.createElement("div");copy.className="platform-copy";kids.forEach(k=>copy.append(k));
@@ -425,8 +425,8 @@ const titleOf=el=>{
 };
 const labelFor=k=>({official:'Page officielle',allocine:'AlloCiné',imdb:'IMDb',sc:'SensCritique',wiki:'Wikipedia'}[k]||k);
 Promise.all([
- fetch('../../data/links.json?v=20260924-platformfilms1').then(r=>r.ok?r.json():{links:{}}),
- fetch('../../data/works.json?v=20260924-platformfilms1').then(r=>r.ok?r.json():{works:[]})
+ fetch('../../data/links.json?v=20260924-platformpages2').then(r=>r.ok?r.json():{links:{}}),
+ fetch('../../data/works.json?v=20260924-platformpages2').then(r=>r.ok?r.json():{works:[]})
 ]).then(([ld,wd])=>{
  const links=new Map(Object.entries(ld.links||{}).map(([k,v])=>[norm(k),v]));
  const works=new Map((wd.works||[]).map(x=>[norm(x.title),x]));
