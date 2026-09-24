@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sélection TV — À récupérer</title>
+<style>
+:root{--bg:#eef1f5;--paper:#fff;--ink:#172238;--muted:#6b7280;--accent:#e94f64;--line:#d9dee7;--green:#17623f}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:#20242a}
+header{background:var(--ink);color:#fff;padding:18px 24px}.wrap{max-width:1180px;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:18px}.brand{font-weight:900;letter-spacing:.08em}.nav a{color:#fff;text-decoration:none;margin-left:18px;font-weight:800;font-size:13px}
+main{max-width:1180px;margin:auto;padding:42px 24px 70px}h1{font-family:Georgia,serif;color:var(--ink);font-size:42px;margin:0 0 8px}.deck{color:var(--muted);font-size:16px;line-height:1.5;margin-bottom:26px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 26px}.toolbar button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:10px 12px;font-weight:800;cursor:pointer}.toolbar button:hover{border-color:var(--accent);color:var(--accent)}
+.counts{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}.chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 11px;font-size:12px;font-weight:800;color:var(--muted)}
+.list{background:#fff;border-radius:14px;border:1px solid var(--line);overflow:hidden}.item{display:grid;grid-template-columns:1fr auto;gap:20px;padding:20px;border-bottom:1px solid var(--line)}.item:last-child{border-bottom:0}.item.done{opacity:.58}.title{font-family:Georgia,serif;font-size:21px;color:var(--ink);font-weight:700}.meta{margin-top:5px;color:var(--muted);font-size:13px}.actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}.actions a,.actions button{font-size:12px;border:1px solid var(--line);background:white;color:var(--ink);text-decoration:none;padding:8px 10px;border-radius:7px;font-weight:800;cursor:pointer}.actions .donebtn{background:#edf8f2;border-color:#add5c0;color:var(--green)}.actions .remove{color:#9d2b3b}
+.empty{padding:55px 25px;text-align:center;color:var(--muted)}.empty b{display:block;color:var(--ink);font-family:Georgia,serif;font-size:24px;margin-bottom:8px}
+footer{max-width:1180px;margin:auto;padding:0 24px 40px;color:#7b8491;font-size:12px}
+@media(max-width:760px){h1{font-size:34px}.item{grid-template-columns:1fr}.actions{justify-content:flex-start}}
+</style></head>
+<body><header><div class="wrap top"><div class="brand">SÉLECTION TV</div><nav class="nav"><a href="./">Accueil</a><a href="a-recuperer.html">À récupérer</a></nav></div></header>
+<main><h1>À récupérer</h1><div class="deck">Les programmes que tu as repérés dans les numéros hebdomadaires. Cette liste est mémorisée uniquement dans ce navigateur.</div>
+<div class="counts"><span class="chip" id="todoCount">0 à récupérer</span><span class="chip" id="doneCount">0 récupéré</span></div>
+<div class="toolbar"><button id="exportCsv">Exporter en CSV</button><button id="hideDone">Masquer les récupérés</button><button id="clearDone">Supprimer les récupérés</button></div>
+<div class="list" id="list"></div></main>
+<footer>Les choix sont enregistrés dans le stockage local du navigateur. Ils ne sont pas envoyés à GitHub.</footer>
+<script>
+(()=>{
+const STORE='selectionTV_saved_v1';let hideDone=false;
+const load=()=>{try{return JSON.parse(localStorage.getItem(STORE)||'{}')}catch(e){return {}}};
+const save=o=>localStorage.setItem(STORE,JSON.stringify(o));
+const esc=s=>(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const render=()=>{
+ const all=load(), items=Object.entries(all).sort((a,b)=>(b[1].added||'').localeCompare(a[1].added||''));
+ const todo=items.filter(([,x])=>x.status!=='recupere').length, done=items.length-todo;
+ document.getElementById('todoCount').textContent=todo+' à récupérer';document.getElementById('doneCount').textContent=done+' récupéré'+(done>1?'s':'');
+ const shown=items.filter(([,x])=>!hideDone||x.status!=='recupere'), box=document.getElementById('list');
+ if(!shown.length){box.innerHTML='<div class="empty"><b>Aucun programme ici</b>Utilise le bouton « À récupérer » dans un numéro hebdomadaire.</div>';return}
+ box.innerHTML=shown.map(([k,x])=>`<div class="item ${x.status==='recupere'?'done':''}" data-key="${esc(k)}"><div><div class="title">${esc(x.title)}</div><div class="meta">${esc(x.context||'')}${x.badge?' · '+esc(x.badge):''}</div></div><div class="actions">${x.url?'<a href="'+esc(x.url)+'">Revoir dans le numéro</a>':''}<a target="_blank" rel="noopener" href="https://fr.wikipedia.org/w/index.php?search=${encodeURIComponent(x.title)}">Fiche</a><button class="donebtn">${x.status==='recupere'?'↩ À récupérer':'✓ Récupéré'}</button><button class="remove">Supprimer</button></div></div>`).join('');
+ box.querySelectorAll('.item').forEach(el=>{const k=el.dataset.key;el.querySelector('.donebtn').onclick=()=>{const a=load();if(a[k]){a[k].status=a[k].status==='recupere'?'a-recuperer':'recupere';save(a);render()}};el.querySelector('.remove').onclick=()=>{const a=load();delete a[k];save(a);render()}});
+};
+document.getElementById('hideDone').onclick=e=>{hideDone=!hideDone;e.currentTarget.textContent=hideDone?'Afficher les récupérés':'Masquer les récupérés';render()};
+document.getElementById('clearDone').onclick=()=>{const a=load();for(const k of Object.keys(a))if(a[k].status==='recupere')delete a[k];save(a);render()};
+document.getElementById('exportCsv').onclick=()=>{const rows=[['Titre','Diffusion / plateforme','Repère','Statut'],...Object.values(load()).map(x=>[x.title,x.context||'',x.badge||'',x.status||'a-recuperer'])];const csv=rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\n');const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='selection-tv-a-recuperer.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)};
+window.addEventListener('storage',render);render();
+})();
+</script></body></html>
