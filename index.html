@@ -55,16 +55,7 @@ h1{color:#fff;font-size:54px;line-height:.98;max-width:820px;text-shadow:0 8px 3
 <div style="background:#f8f4ec;color:#24262b;border-radius:14px;padding:18px;border-top:4px solid #4e698f"><b style="font-family:Georgia,serif;font-size:20px;color:#172238">Streaming & expirations</b><div style="font-size:13px;color:#6b6864;margin-top:5px">Arrivées importantes et films à voir avant leur retrait sont maintenant séparés.</div></div>
 <div style="background:#f8f4ec;color:#24262b;border-radius:14px;padding:18px;border-top:4px solid #2e7773"><b style="font-family:Georgia,serif;font-size:20px;color:#172238">Catalogue & calendrier</b><div style="font-size:13px;color:#6b6864;margin-top:5px">Recherche globale, historique des œuvres et chronologie des dates utiles.</div></div>
 </div><div class="section-title">Cette semaine</div>
-<article class="feature">
-<img src="https://fr.web.img2.acsta.net/c_310_420/img/45/70/45701998fb5c9eb310e407762a8066bb.jpg" alt="Paris, Texas">
-<div class="copy">
-<span class="badge">SEMAINE 40</span>
-<h2>26 septembre — 2 octobre 2026</h2>
-<div class="meta">Revue cinéma · sélection hebdomadaire</div>
-<p>Rendez-vous de la semaine, replay, plateformes, puis une double page par journée : choix développés et grille filtrée commentée.</p>
-<div style="display:flex;gap:10px;flex-wrap:wrap"><a class="button" href="semaines/2026-S40/">Ouvrir le numéro →</a><a class="button" style="background:#fff;color:var(--ink);border:1px solid var(--line)" href="a-recuperer.html">Retrouver mes choix</a></div>
-</div>
-</article>
+<div id="currentWeek"></div>
 
 <div class="section-title">Explorer</div>
 <div class="tool-grid">
@@ -77,38 +68,22 @@ h1{color:#fff;font-size:54px;line-height:.98;max-width:820px;text-shadow:0 8px 3
 <a class="tool-card" href="stats.html"><b>Tableau de bord</b><span>Vue d’ensemble des archives.</span></a>
 <a class="tool-card" href="a-recuperer.html"><b>Ma liste</b><span>À récupérer, récupéré, vu et priorités.</span></a>
 </div><div id="homeAlerts"></div><div class="section-title">Archives</div>
-<div class="archive">
-<div class="row">
-<div><b>S40 · 2026</b></div>
-<div><a href="semaines/2026-S40/">26 septembre — 2 octobre</a><div class="small">Sélection TV · replay · plateformes · radar 1080p</div></div>
-<div class="status">DISPONIBLE</div>
-</div>
-<div class="row">
-<div><b>S39 · 2026</b></div>
-<div><a href="semaines/2026-S39/">19 — 25 septembre</a><div class="small">Archive reconstruite · sélection cinéma & documentaires</div></div>
-<div class="status">DISPONIBLE</div>
-</div>
-<div class="row">
-<div><b>S38 · 2026</b></div>
-<div><a href="semaines/2026-S38/">12 — 18 septembre</a><div class="small">Archive reconstruite · sélection cinéma & documentaires</div></div>
-<div class="status">DISPONIBLE</div>
-</div>
-<div class="row">
-<div><b>S37 · 2026</b></div>
-<div><a href="semaines/2026-S37/">5 — 11 septembre</a><div class="small">Archive reconstruite · sélection cinéma & documentaires</div></div>
-<div class="status">DISPONIBLE</div>
-</div>
-</div>
+<div class="archive" id="archiveList"></div>
 
 <div class="note"><b>Archives :</b> les numéros restent accessibles ici semaine après semaine. La page d’accueil conserve toujours la même adresse.</div>
 </main>
 <footer>Sélection éditoriale non personnalisée · site personnel</footer>
 <script>
 (()=>{
-const STORE='selectionTV_saved_v1',norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+const STORE='selectionTV_saved_v1',norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim(),esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let saved={};try{saved=JSON.parse(localStorage.getItem(STORE)||'{}')}catch(e){}
 const titles=new Set(Object.values(saved).map(x=>norm(x.title)));
-fetch('data/releases.json').then(r=>r.json()).then(d=>{const hits=[];d.streaming.forEach(x=>titles.has(norm(x.work))&&hits.push(x.work+' arrive sur '+x.platform+' le '+x.date));d.physical.forEach(x=>titles.has(norm(x.work))&&hits.push(x.work+' : '+x.format+' le '+x.label));d.expirations.forEach(x=>titles.has(norm(x.work))&&hits.push(x.work+' quitte '+x.platform+' le '+x.date));if(hits.length)document.getElementById('homeAlerts').innerHTML='<div class="home-alert"><b>Alertes sur ta liste</b>'+hits.map(x=>'<div>'+x+'</div>').join('')+'</div>'})
+Promise.all([fetch('data/manifest.json').then(r=>r.json()),fetch('data/releases.json').then(r=>r.json())]).then(([m,d])=>{
+ const latest=m.weeks.find(w=>w.week===m.latest)||m.weeks[0];
+ document.getElementById('currentWeek').innerHTML='<article class="feature"><img src="'+esc(latest.hero_image)+'" alt="'+esc(latest.hero_title)+'"><div class="copy"><span class="badge">'+esc(latest.short)+'</span><h2>'+esc(latest.range)+'</h2><div class="meta">'+esc(latest.hero_title)+' · '+esc(latest.hero_meta)+'</div><p>Rendez-vous de la semaine, replay, plateformes, sorties physiques et streaming, radar 1080p, puis sélection jour par jour.</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="button" href="'+esc(latest.path)+'">Ouvrir le numéro →</a><a class="button" style="background:#fff;color:var(--ink);border:1px solid var(--line)" href="a-recuperer.html">Retrouver mes choix</a></div></div></article>';
+ document.getElementById('archiveList').innerHTML=m.weeks.map(w=>'<div class="row"><div><b>'+esc(w.short)+' · '+esc(w.week.slice(0,4))+'</b></div><div><a href="'+esc(w.path)+'">'+esc(w.range)+'</a><div class="small">'+w.page_count+' pages · '+(w.theme==='magazine'?'revue cinéma':'archive')+'</div></div><div class="status">DISPONIBLE</div></div>').join('');
+ const hits=[];d.streaming.forEach(x=>titles.has(norm(x.work))&&hits.push(x.work+' arrive sur '+x.platform+' le '+x.date));d.physical.forEach(x=>titles.has(norm(x.work))&&hits.push(x.work+' : '+x.format+' le '+x.label));d.expirations.forEach(x=>titles.has(norm(x.work))&&hits.push(x.work+' quitte '+x.platform+' le '+x.date));if(hits.length)document.getElementById('homeAlerts').innerHTML='<div class="home-alert"><b>Alertes sur ta liste</b>'+hits.map(x=>'<div>'+esc(x)+'</div>').join('')+'</div>';
+}).catch(()=>{document.getElementById('currentWeek').innerHTML='<div class="note">Impossible de charger le manifeste des numéros.</div>'});
 })();
 </script></body>
 </html>
