@@ -203,17 +203,17 @@ document.querySelectorAll('article.week-card,article.list-card,article.platform,
  el.querySelectorAll('.program-actions a').forEach(a=>{
    const label=clean(a.textContent).toLowerCase();
    let u=null;
-   if(label==='imdb') u=d.imdb;
-   else if(label==='senscritique') u=d.sc;
-   else if(label==='wikipedia') u=d.wiki;
-   else if(label==='allociné') u=d.allocine;
-   else if(label==='fiche') u=pref(d);
+   if(label==='imdb') u=d.imdb||('https://www.imdb.com/find/?q='+q(title));
+   else if(label==='senscritique') u=d.sc||('https://www.senscritique.com/recherche?query='+q(title));
+   else if(label==='wikipedia') u=d.wiki||('https://fr.wikipedia.org/w/index.php?search='+q(title));
+   else if(label==='allociné') u=d.allocine||('https://www.allocine.fr/rechercher/?q='+q(title));
+   else if(label==='fiche') u=pref(d)||('https://www.allocine.fr/rechercher/?q='+q(title));
    else if(label.startsWith('voir sur')) u=d.official;
    if(u) a.href=u; else a.remove();
  });
  el.querySelectorAll('.ratings a').forEach(a=>{
    const label=clean(a.textContent).toLowerCase();
-   const u=label.startsWith('imdb')?d.imdb:label.startsWith('senscritique')?d.sc:null;
+   const u=label.startsWith('imdb')?(d.imdb||('https://www.imdb.com/find/?q='+q(title))):label.startsWith('senscritique')?(d.sc||('https://www.senscritique.com/recherche?query='+q(title))):null;
    if(u) a.href=u; else a.remove();
  });
 });
@@ -436,7 +436,14 @@ Promise.all([
    if(!box){box=document.createElement('div');box.className='program-actions';const target=el.querySelector('.reason')||el.querySelector('.interest')||el;target.append(box)}
    const existing=new Set([...box.querySelectorAll('a')].map(a=>a.href));
    const order=['official','allocine','imdb','sc','wiki'];
-   order.forEach(k=>{const u=L[k];if(!u||existing.has(u))return;const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';a.textContent=labelFor(k);if(k==='official')a.className='official';const save=box.querySelector('button.save');save?box.insertBefore(a,save):box.append(a);existing.add(u)});
+   order.forEach(k=>{
+     let u=L[k];
+     if(k==='sc'&&!u)u='https://www.senscritique.com/recherche?query='+encodeURIComponent(title);
+     if(!u||existing.has(u))return;
+     if(k==='sc'&&[...box.querySelectorAll('a')].some(a=>a.textContent.trim()==='SensCritique'))return;
+     const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';a.textContent=labelFor(k);if(k==='official')a.className='official';
+     const save=box.querySelector('button.save');save?box.insertBefore(a,save):box.append(a);existing.add(u);
+   });
    if(W && !el.querySelector('.work-meta')){
      const bits=[W.director,W.year,W.country,W.genre].filter(Boolean);
      if(bits.length){
@@ -457,7 +464,7 @@ Promise.all([
        else {const wm=el.querySelector('.work-meta')||el.querySelector('.meta')||el.querySelector('h3');wm?.insertAdjacentElement('afterend',ratings)}
      }
      if(W.ratings.imdb && L.imdb && ![...ratings.children].some(x=>x.textContent.startsWith('IMDb'))){const a=document.createElement('a');a.className='rating-pill imdb';a.href=L.imdb;a.target='_blank';a.rel='noopener';a.textContent='IMDb '+W.ratings.imdb+'/10';ratings.append(a)}
-     if(W.ratings.senscritique && L.sc && ![...ratings.children].some(x=>x.textContent.startsWith('SensCritique'))){const a=document.createElement('a');a.className='rating-pill sc';a.href=L.sc;a.target='_blank';a.rel='noopener';a.textContent='SensCritique '+W.ratings.senscritique+'/10';ratings.append(a)}
+     if(W.ratings.senscritique && ![...ratings.children].some(x=>x.textContent.startsWith('SensCritique'))){const a=document.createElement('a');a.className='rating-pill sc';a.href=L.sc||('https://www.senscritique.com/recherche?query='+encodeURIComponent(title));a.target='_blank';a.rel='noopener';a.textContent='SensCritique '+W.ratings.senscritique+'/10';ratings.append(a)}
    }
  });
  const repairScheduleRows=()=>{
