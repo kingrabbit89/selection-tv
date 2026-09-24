@@ -9,6 +9,7 @@
   const SELECTOR='article.week-card,article.feature,article.list-card,article.platform,article.release-card,article.expire-card,article.radar-card,article.torrent-card,table.schedule tbody tr';
   const observed=new WeakSet();
   const keyToNodes=new Map();
+  const pendingVisible=new Map();
   let metadata={works:new Map(),links:new Map()};
   let observer=null,sendTimer=null,parentReady=false;
 
@@ -66,8 +67,9 @@
     }
   };
   const request=items=>{
-    if(!items.length)return;
+    if(!parentReady||!items.length)return false;
     PARENT.postMessage({type:'selection-tv:jellyfin-query',version:1,items},'*');
+    return true;
   };
   const observeElement=el=>{
     if(observed.has(el))return;observed.add(el);
@@ -84,8 +86,10 @@
         const batch=[];
         for(const e of entries){
           if(!e.isIntersecting)continue;
-          observer.unobserve(e.target);
-          const info=infoFor(e.target);if(info){remember(info,e.target);batch.push(info)}
+          const info=infoFor(e.target);if(!info)continue;
+          remember(info,e.target);
+          if(!parentReady){pendingVisible.set(info.key,info);continue}
+          observer.unobserve(e.target);batch.push(info);
         }
         request(batch);
       },{rootMargin:'1200px 0px'});
@@ -109,7 +113,11 @@
 
   window.addEventListener('message',e=>{
     if(e.source!==PARENT||!e.data)return;
-    if(e.data.type==='selection-tv:jellyfin-ready'){parentReady=true;scan(document)}
+    if(e.data.type==='selection-tv:jellyfin-ready'){
+      parentReady=true;
+      if(pendingVisible.size){request([...pendingVisible.values()]);pendingVisible.clear()}
+      scan(document);
+    }
     if(e.data.type==='selection-tv:jellyfin-result'&&Array.isArray(e.data.items))e.data.items.forEach(render);
   });
 })();
