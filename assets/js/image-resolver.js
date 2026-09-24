@@ -32,7 +32,6 @@ function bind(img,title,card,extra=[]){
    index++;
    if(index<list.length){img.src=list[index];return}
    fallbackFor(img,card,title);
-   setTimeout(()=>window.SelectionTVLayout?.schedule?.(),20);
  });
  return true;
 }
