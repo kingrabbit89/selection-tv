@@ -20,7 +20,7 @@ fetch(jsonUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.st
  window.imgFail=img=>img.closest('.visual')?.classList.add('broken');
  document.body.innerHTML=toolbar+book;
  await addScript(root+'assets/js/'+(d.theme==='magazine'?'magazine-week.js?v=20260924-imagecanon3':'archive-week.js?v=20260924-imagecanon3'));
- await addScript(root+'assets/js/image-resolver.js?v=20260924-imagecanon3');
+ await addScript(root+'assets/js/image-resolver.js?v=20260924-scrollfix1');
  if(window.SelectionTVImagesReady)await window.SelectionTVImagesReady;
  if(d.theme==='magazine'){
    const hydrateCandidates=()=>{
