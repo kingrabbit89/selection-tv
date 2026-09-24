@@ -23,5 +23,20 @@
     "page_capacity": 5,
     "desired_total_candidates": 20,
     "policy": "Conserver dix rendez-vous visibles non vus au total, répartis sur deux pages de cinq, en puisant dans une réserve éditoriale classée sans abaisser le seuil."
+  },
+  "radar_popularity": {
+    "target_visible": 5,
+    "desired_total_candidates": 10,
+    "minimum_total_candidates": 8,
+    "lookback_days": 42,
+    "policy": "Le classement public de la semaine reste prioritaire ; le réservoir remonte sur six semaines de signaux publics récents et conserve uniquement les meilleurs candidats éditoriaux. Aucun lien de téléchargement n’est stocké."
+  },
+  "radar_1080p": {
+    "target_visible": 10,
+    "page_capacity": 5,
+    "desired_total_candidates": 20,
+    "minimum_total_candidates": 16,
+    "lookback_days": 21,
+    "policy": "Conserver dix ajouts HD visibles sur deux pages de cinq et constituer une réserve profonde de restaurations, rééditions et réapparitions intéressantes. Les titres vus sont remplacés localement et le récapitulatif suit les dix titres effectivement affichés."
   }
 }
