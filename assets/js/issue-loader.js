@@ -19,7 +19,7 @@ fetch(jsonUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.st
  // Make the existing image fallback available before inserting remote images.
  window.imgFail=img=>img.closest('.visual')?.classList.add('broken');
  document.body.innerHTML=toolbar+book;
- await addScript(root+'assets/js/'+(d.theme==='magazine'?'magazine-week.js?v=20260924-imagecanon3':'archive-week.js?v=20260924-imagecanon3'));
+ await addScript(root+'assets/js/'+(d.theme==='magazine'?'magazine-week.js?v=20260924-toclinks1':'archive-week.js?v=20260924-imagecanon3'));
  await addScript(root+'assets/js/image-resolver.js?v=20260924-scrollfix2');
  if(window.SelectionTVImagesReady)await window.SelectionTVImagesReady;
  if(d.theme==='magazine'){
@@ -47,6 +47,6 @@ fetch(jsonUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.st
    }catch(e){}
    await addScript(root+'assets/js/seen-filter.js?v=20260924-imagecanon3');
  }
- await addScript(root+'assets/js/page-layout.js?v=20260924-scrollfix2');
+ await addScript(root+'assets/js/page-layout.js?v=20260924-toclinks1');
 }).catch(err=>{document.body.innerHTML='<div style="padding:3rem;font-family:Arial;color:white;background:#171c23;min-height:100vh"><h1>Impossible de charger ce numéro</h1><p>'+esc(err.message)+'</p><p><a style="color:white" href="../../">Retour à l’accueil</a></p></div>'});
 })();
