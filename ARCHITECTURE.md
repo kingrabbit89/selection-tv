@@ -23,6 +23,17 @@ Le contenu éditorial du numéro se trouve dans `data/weeks/YYYY-Sxx.json`.
 - `assets/js/magazine-week.js` : comportement commun des numéros actuels et futurs.
 - `assets/css/archive.css` et `assets/js/archive-week.js` : compatibilité avec S37 à S39.
 
+## Contrôles obligatoires avant publication
+
+Chaque push et pull request exécute deux niveaux de contrôle :
+
+- **données et politique éditoriale** : architecture, exhaustivité, réserves, couverture d'images, identifiants et liens exacts ;
+- **rendu navigateur réel (Chromium)** : numéro courant automatiquement détecté, régression S40 et archives de référence.
+
+Le contrôle navigateur vérifie notamment : sommaire intact après pagination, défilement jusqu'à la dernière page, absence de débordement écran/impression, comportement responsive, conservation des contenus et liens après reflow, présence d'un visuel ou fallback sur chaque carte visuelle, fonctionnement de « Vu », apparition d'une œuvre de réserve avec visuel, et exactitude des liens IMDb/SensCritique affichés dans les réserves comme dans les cartes normales.
+
+Un numéro ne doit pas être considéré prêt à publier si l'un de ces contrôles échoue.
+
 ## Règles pour une nouvelle semaine
 
 1. Ne jamais recopier le CSS ou le JavaScript dans le nouveau numéro.
