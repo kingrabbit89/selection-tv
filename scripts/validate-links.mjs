@@ -22,7 +22,7 @@ const forbidden=[
 
 function scanValue(value,path){
   if(typeof value==='string'){
-    const urls=value.match(/https?:\\/\\/[^"'<>\\s]+/g)||[];
+    const urls=value.match(/https?:\/\/[^"'<>\s]+/g)||[];
     for(const url of urls)if(forbidden.some(r=>r.test(url)))errors.push(`${path}: search-result URL forbidden: ${url}`);
     return;
   }
