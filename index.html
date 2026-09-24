@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sélection TV — Accueil</title>
+<style>
+:root{--bg:#eef1f5;--paper:#fff;--ink:#172238;--muted:#6b7280;--accent:#e94f64;--line:#d9dee7}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:#20242a}
+header{background:var(--ink);color:white;padding:18px 24px}header .wrap{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:900;letter-spacing:.08em}.sub{font-size:13px;opacity:.75}
+main{max-width:1180px;margin:0 auto;padding:44px 24px 70px}
+h1{font-family:Georgia,serif;color:var(--ink);font-size:42px;margin:0 0 8px}.deck{color:var(--muted);font-size:17px;max-width:780px;line-height:1.5;margin-bottom:34px}
+.section-title{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:900;margin:32px 0 12px}
+.feature{display:grid;grid-template-columns:minmax(280px,1.1fr) 1fr;background:var(--paper);border-radius:18px;overflow:hidden;box-shadow:0 10px 30px #17223814}
+.feature img{width:100%;height:360px;object-fit:cover;background:#111}.feature .copy{padding:34px;display:flex;flex-direction:column;justify-content:center}
+.badge{display:inline-block;align-self:flex-start;background:var(--accent);color:white;padding:6px 9px;border-radius:4px;font-size:11px;font-weight:900;letter-spacing:.08em}
+h2{font-family:Georgia,serif;font-size:34px;line-height:1.05;color:var(--ink);margin:12px 0}.meta{font-weight:800;font-size:14px;color:var(--muted);margin-bottom:15px}.copy p{line-height:1.55}
+.button{display:inline-block;align-self:flex-start;margin-top:14px;background:var(--ink);color:#fff;text-decoration:none;padding:12px 16px;border-radius:8px;font-weight:800}
+.archive{margin-top:16px;background:#fff;border-radius:14px;border:1px solid var(--line);overflow:hidden}
+.row{display:grid;grid-template-columns:150px 1fr 140px;gap:16px;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.row a{color:var(--ink);font-weight:900;text-decoration:none}.row a:hover{text-decoration:underline}.row .small{font-size:13px;color:var(--muted)}.status{text-align:right;font-size:12px;font-weight:900;color:var(--accent)}
+.note{margin-top:30px;padding:18px 20px;background:#fff;border-left:5px solid var(--accent);line-height:1.55;color:#4b5563}
+footer{max-width:1180px;margin:auto;padding:0 24px 40px;color:#7b8491;font-size:12px}
+@media(max-width:760px){.feature{grid-template-columns:1fr}.feature img{height:260px}.row{grid-template-columns:1fr}.status{text-align:left}h1{font-size:34px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div><div class="brand">SÉLECTION TV</div><div class="sub">Films · documentaires · replay · plateformes</div></div><div class="sub">Archive personnelle hebdomadaire</div></div></header>
+<main>
+<h1>Votre sélection de la semaine</h1>
+<div class="deck">Une revue hebdomadaire resserrée : seulement les programmes qui méritent un repérage, avec contexte, intérêt critique et accès aux archives.</div>
+
+<div class="section-title">Cette semaine</div>
+<article class="feature">
+<img src="https://fr.web.img2.acsta.net/c_310_420/img/45/70/45701998fb5c9eb310e407762a8066bb.jpg" alt="Paris, Texas">
+<div class="copy">
+<span class="badge">SEMAINE 40</span>
+<h2>26 septembre — 2 octobre 2026</h2>
+<div class="meta">Numéro pilote V2 · format magazine riche</div>
+<p>Rendez-vous de la semaine, replay, plateformes, puis une double page par journée : choix développés et grille filtrée commentée.</p>
+<a class="button" href="semaines/2026-S40/">Ouvrir le numéro →</a>
+</div>
+</article>
+
+<div class="section-title">Archives</div>
+<div class="archive">
+<div class="row">
+<div><b>S40 · 2026</b></div>
+<div><a href="semaines/2026-S40/">26 septembre — 2 octobre</a><div class="small">Premier numéro au format B</div></div>
+<div class="status">DISPONIBLE</div>
+</div>
+</div>
+
+<div class="note"><b>Principe :</b> chaque nouvelle semaine apparaîtra ici automatiquement dès qu’elle est ajoutée au dépôt. L’adresse de cette page ne changera jamais ; vous pourrez donc en faire un raccourci sur le Bureau.</div>
+</main>
+<footer>Sélection éditoriale non personnalisée · site personnel</footer>
+</body>
+</html>
