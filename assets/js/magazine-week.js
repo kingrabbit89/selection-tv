@@ -383,3 +383,43 @@ if(input&&results){
 }
 const compact=document.getElementById('compactToggle');if(compact)compact.onclick=()=>{document.body.classList.toggle('compact-mode');compact.textContent=document.body.classList.contains('compact-mode')?'Mode magazine':'Mode compact'};
 })();
+
+
+/* ---- data-driven exact links + metadata ---- */
+(()=>{
+const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+const titleOf=el=>{
+ if(el.matches('tr')) return (el.querySelector('.prog')?.childNodes?.[0]?.textContent||el.querySelector('.prog')?.textContent||'').trim();
+ return (el.querySelector('h3')?.textContent||'').trim();
+};
+const labelFor=k=>({official:'Page officielle',allocine:'AlloCiné',imdb:'IMDb',sc:'SensCritique',wiki:'Wikipedia'}[k]||k);
+Promise.all([
+ fetch('../../data/links.json').then(r=>r.ok?r.json():{links:{}}),
+ fetch('../../data/works.json').then(r=>r.ok?r.json():{works:[]})
+]).then(([ld,wd])=>{
+ const links=new Map(Object.entries(ld.links||{}).map(([k,v])=>[norm(k),v]));
+ const works=new Map((wd.works||[]).map(x=>[norm(x.title),x]));
+ document.querySelectorAll('article.week-card,article.list-card,article.platform,article.feature,article.radar-card,article.torrent-card,article.release-card,article.expire-card,table.schedule tbody tr').forEach(el=>{
+   const title=titleOf(el); if(!title)return; const key=norm(title), L=links.get(key)||{}, W=works.get(key);
+   let box=el.querySelector('.program-actions');
+   if(!box){box=document.createElement('div');box.className='program-actions';const target=el.querySelector('.reason')||el.querySelector('.interest')||el;target.append(box)}
+   const existing=new Set([...box.querySelectorAll('a')].map(a=>a.href));
+   const order=['official','allocine','imdb','sc','wiki'];
+   order.forEach(k=>{const u=L[k];if(!u||existing.has(u))return;const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';a.textContent=labelFor(k);if(k==='official')a.className='official';const save=box.querySelector('button.save');save?box.insertBefore(a,save):box.append(a);existing.add(u)});
+   if(W && !el.querySelector('.work-meta')){
+     const bits=[W.director,W.year,W.country,W.genre].filter(Boolean);
+     if(bits.length){
+       const meta=document.createElement('div');meta.className='work-meta';meta.textContent=bits.join(' · ');
+       const anchor=el.querySelector('.ratings')||el.querySelector('.meta')||el.querySelector('.where')||el.querySelector('.slot')||el.querySelector('h3')||el.querySelector('.prog');
+       if(anchor)anchor.insertAdjacentElement('afterend',meta);
+     }
+   }
+   if(W?.ratings){
+     let ratings=el.querySelector('.ratings');
+     if(!ratings){ratings=document.createElement('div');ratings.className='ratings';const wm=el.querySelector('.work-meta')||el.querySelector('.meta')||el.querySelector('h3')||el.querySelector('.prog');wm?.insertAdjacentElement('afterend',ratings)}
+     if(W.ratings.imdb && L.imdb && ![...ratings.children].some(x=>x.textContent.startsWith('IMDb'))){const a=document.createElement('a');a.className='rating-pill imdb';a.href=L.imdb;a.target='_blank';a.rel='noopener';a.textContent='IMDb '+W.ratings.imdb+'/10';ratings.append(a)}
+     if(W.ratings.senscritique && L.sc && ![...ratings.children].some(x=>x.textContent.startsWith('SensCritique'))){const a=document.createElement('a');a.className='rating-pill sc';a.href=L.sc;a.target='_blank';a.rel='noopener';a.textContent='SensCritique '+W.ratings.senscritique+'/10';ratings.append(a)}
+   }
+ });
+}).catch(()=>{});
+})();
