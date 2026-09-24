@@ -38,13 +38,11 @@ if(strict){
  if(!fs.existsSync(radarPath)){console.error('✗ Radar reserve data missing for '+latest);process.exitCode=1}
  else{
    const rr=read(radarPath);
-   const popular=rr.popular;
-   if(!popular){console.error('✗ Missing popularity radar reserve');process.exitCode=1}
-   else{
-     const n=(popular.candidates||[]).length;
-     if(popular.target!==pconfig.radar_popularity.target_visible){console.error('✗ Bad popularity radar target');process.exitCode=1}
-     if(n<pconfig.radar_popularity.minimum_total_candidates&&!popular.shortage_reason){console.error('✗ Popularity radar reserve too shallow');process.exitCode=1}
-   }
+   const scan=rr.popular_scan,deep=rr.popular_deep;
+   if(!scan){console.error('✗ Missing popularity radar scan');process.exitCode=1}
+   else if((scan.candidates||[]).length<pconfig.radar_popularity.scan_visible){console.error('✗ Popularity radar scan too shallow');process.exitCode=1}
+   if(!deep){console.error('✗ Missing popularity radar reserve');process.exitCode=1}
+   else if((deep.candidates||[]).length<pconfig.radar_popularity.minimum_reserve_candidates&&!deep.shortage_reason){console.error('✗ Popularity radar reserve too shallow');process.exitCode=1}
    for(const key of ['hd1','hd2']){
      const pool=rr[key];
      if(!pool){console.error('✗ Missing HD radar reserve '+key);process.exitCode=1;continue}
