@@ -85,10 +85,11 @@
     "fixed_page_rule": "Toute rubrique à page A4 fixe doit respecter une capacité conservatrice ; si le contenu enrichi dépasse cette capacité, la publication doit être bloquée par la validation plutôt que tronquée visuellement."
   },
   "radar_popularity": {
-    "signal_window_days": 42,
-    "source_policy": "Classement public hebdomadaire et archive publique récente.",
-    "editorial_rule": "Le signal de circulation ne vaut jamais recommandation en soi : filtrer par intérêt cinématographique, réception, auteur, singularité ou importance industrielle.",
-    "target_visible": 5,
+    "signal_window_days": 60,
+    "source_policy": "Classement public hebdomadaire + archive publique récente, sans reprendre de lien de téléchargement.",
+    "editorial_rule": "Le signal de circulation ne vaut jamais recommandation en soi : sélectionner 5 titres du classement courant, 5 titres de sillonnage élargi, puis constituer une réserve distincte au-dessus du même seuil éditorial.",
+    "primary_visible": 5,
+    "scan_visible": 5,
     "reserve_target": 5
   },
   "radar_1080p": {
