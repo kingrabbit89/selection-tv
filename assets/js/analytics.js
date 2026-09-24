@@ -19,8 +19,8 @@
 
     const s=document.createElement('script');
     s.async=true;
-    s.src='https://gc.zgo.at/count.v5.js';
-    s.dataset.goatcounter='https://'+code+'.goatcounter.com/count';
+    s.src='https://gc.zgo.at/count.js';
+    s.dataset.goatcounter=cfg.endpoint||('https://'+code+'.goatcounter.com/count');
     s.onload=()=>{
       document.addEventListener('click',e=>{
         const el=e.target.closest('button,a');
