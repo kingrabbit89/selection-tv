@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "editorial_mode": "inventory-first",
+  "scan_window": "00:00-23:59",
+  "overnight_rule": "Les programmes débutant entre 00:00 et 05:59 sont scannés sans exception et peuvent être rattachés éditorialement à la soirée précédente.",
+  "required_core_channels": [
+    "Arte",
+    "France 2",
+    "France 3",
+    "France 4",
+    "France 5",
+    "TV5MONDE",
+    "Canal+",
+    "Canal+ Cinéma",
+    "Canal+ Box Office",
+    "Canal+ Grand Écran",
+    "Ciné+ OCS",
+    "Ciné+ Classic",
+    "Ciné+ Festival",
+    "Ciné+ Emotion",
+    "Ciné+ Frisson",
+    "Ciné+ Family",
+    "TF1",
+    "M6",
+    "TMC",
+    "TFX",
+    "W9",
+    "6ter",
+    "Gulli",
+    "Paris Première",
+    "RTL9",
+    "Paramount Channel",
+    "TCM Cinéma",
+    "Action",
+    "RMC Story",
+    "RMC Découverte"
+  ],
+  "discovery_rule": "À chaque semaine, ajouter toute autre chaîne de films/documentaires repérée dans les guides, même si elle n’est pas dans la liste minimale.",
+  "candidate_types": [
+    "film",
+    "documentaire",
+    "série limitée ou épisode exceptionnel",
+    "spectacle ou concert à intérêt cinématographique/culturel fort"
+  ],
+  "workflow": [
+    "Inventorier les grilles complètes par jour et par chaîne, sans filtre critique.",
+    "Dédupliquer les rediffusions et variantes tout en conservant les horaires utiles.",
+    "Enrichir chaque candidat avec métadonnées, réception, festivals, rareté et contexte.",
+    "Appliquer ensuite seulement le filtre éditorial.",
+    "Conserver 3 choix développés par jour mais ne jamais plafonner la grille filtrée ; paginer si nécessaire.",
+    "Effectuer une passe de rappel indépendante avec au moins un second guide TV et un guide éditorial tel que Télérama pour détecter les omissions, sans copier son jugement.",
+    "Pour chaque titre retenu, rechercher au moins un lien direct exact ; pour un film, viser deux liens exacts quand disponibles.",
+    "Vérifier les horaires sensibles avec une source officielle ou deux grilles indépendantes."
+  ],
+  "link_priority": [
+    "page officielle diffuseur/plateforme",
+    "AlloCiné",
+    "IMDb",
+    "SensCritique",
+    "Wikipedia",
+    "page de programme exacte"
+  ],
+  "quality_gates": {
+    "days_scanned": 7,
+    "full_core_channel_matrix_required": true,
+    "exact_link_required_for_every_retained_item": true,
+    "direct_link_search_required_when_missing": true,
+    "link_exception_must_be_logged": true,
+    "no_search_result_urls": true,
+    "overflow_check_after_fonts_and_images": true
+  }
+}
