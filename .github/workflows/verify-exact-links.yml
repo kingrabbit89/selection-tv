@@ -1,0 +1,69 @@
+name: Verify exact links render
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save playwright
+      - run: npx playwright install chromium
+      - name: Verify S40 exact links
+        run: |
+          node --input-type=module <<'EOF'
+          import {chromium} from 'playwright';
+          import {createServer} from 'node:http';
+          import {readFile} from 'node:fs/promises';
+          import {resolve,extname} from 'node:path';
+          import assert from 'node:assert/strict';
+          const root=process.cwd();
+          const server=createServer(async(req,res)=>{
+            const path=resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/\/$/,'/index.html'));
+            try{res.setHeader('Content-Type',({'.js':'text/javascript','.css':'text/css','.json':'application/json','.html':'text/html'})[extname(path)]||'application/octet-stream');res.end(await readFile(path))}
+            catch{res.writeHead(404);res.end()}
+          });
+          await new Promise(r=>server.listen(4173,'127.0.0.1',r));
+          const browser=await chromium.launch({headless:true});
+          const page=await browser.newPage({viewport:{width:1440,height:900}});
+          await page.goto('http://127.0.0.1:4173/semaines/2026-S40/',{waitUntil:'domcontentloaded'});
+          await page.waitForFunction(()=>window.SelectionTVLayout);
+          await page.waitForTimeout(1800);
+          const check=await page.evaluate(()=>{
+            const anchors=[...document.querySelectorAll('a')];
+            const badSearch=anchors.filter(a=>/senscritique\.com\/recherche|imdb\.com\/find|imdb\.com\/search\/title|allocine\.fr\/rechercher|wikipedia\.org\/w\/index\.php\?search|google\.com\/search|\/search\?/.test(a.href)).map(a=>a.href);
+            const badImdb=anchors.filter(a=>a.textContent.trim().startsWith('IMDb')&&!/^https:\/\/www\.imdb\.com\/(?:fr\/)?title\/tt\d+\/?$/.test(a.href)).map(a=>({text:a.textContent,href:a.href}));
+            const badSc=anchors.filter(a=>a.textContent.trim().startsWith('SensCritique')&&!/^https:\/\/www\.senscritique\.com\/(?:film|serie)\/[^?#]+\/\d+\/?$/.test(a.href)).map(a=>({text:a.textContent,href:a.href}));
+            const byTitle=t=>[...document.querySelectorAll('article,tr')].find(e=>(e.querySelector('h3')?.textContent||e.querySelector('.prog')?.childNodes?.[0]?.textContent||'').trim()===t);
+            const href=(el,label)=>[...el?.querySelectorAll('.program-actions a,.ratings a')||[]].find(a=>a.textContent.trim().startsWith(label))?.href||null;
+            const cia=byTitle("CIA, les guerres secrètes de l’après-11 Septembre");
+            const boj=byTitle("L’Affaire Bojarski");
+            return {badSearch,badImdb,badSc,
+              ciaSc:href(cia,'SensCritique'),ciaImdb:href(cia,'IMDb'),
+              bojSc:href(boj,'SensCritique'),bojImdb:href(boj,'IMDb')};
+          });
+          console.log(JSON.stringify(check,null,2));
+          assert.deepEqual(check.badSearch,[]);
+          assert.deepEqual(check.badImdb,[]);
+          assert.deepEqual(check.badSc,[]);
+          assert.equal(check.ciaSc,'https://www.senscritique.com/serie/cia_les_guerres_secretes_de_l_apres_11_septembre/139451001');
+          assert.equal(check.ciaImdb,null);
+          assert.equal(check.bojSc,'https://www.senscritique.com/film/l_affaire_bojarski/105511237');
+          assert.equal(check.bojImdb,'https://www.imdb.com/title/tt35495035/');
+          // Force a reserve replacement, then apply the same invariant to generated cards.
+          const firstSeen=page.locator('#samedi-selection .seen-btn').first();
+          await firstSeen.click(); await page.waitForTimeout(500);
+          const reserve=await page.evaluate(()=>[...document.querySelectorAll('.replacement-generated a')].map(a=>({text:a.textContent.trim(),href:a.href})));
+          console.log('reserve',JSON.stringify(reserve,null,2));
+          for(const a of reserve){
+            if(a.text.startsWith('IMDb'))assert.match(a.href,/^https:\/\/www\.imdb\.com\/(?:fr\/)?title\/tt\d+\/?$/);
+            if(a.text.startsWith('SensCritique'))assert.match(a.href,/^https:\/\/www\.senscritique\.com\/(?:film|serie)\/[^?#]+\/\d+\/?$/);
+            assert(!/\/recherche|\/find\/\?q|\/search\?/.test(a.href));
+          }
+          await browser.close();await new Promise(r=>server.close(r));
+          EOF
