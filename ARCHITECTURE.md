@@ -101,3 +101,18 @@ Les deux radars utilisent la même logique locale de remplacement que les sélec
 - la page récapitulative est reconstruite dans le navigateur pour refléter les dix titres réellement affichés après personnalisation.
 
 Les réserves conservent les mêmes métadonnées, notes, liens de fiches et boutons personnels que les cartes principales. Elles sont stockées dans `data/radar-reserves/YYYY-Sxx.json` ; le JavaScript commun ne contient que la logique de remplacement. Le design Astra et la structure des pages restent inchangés.
+
+
+## Images et affiches
+
+`data/works.json` est la source canonique des visuels d’œuvre. Une œuvre affichée sous forme de carte visuelle ou placée dans une réserve éditoriale doit normalement posséder :
+- `image` : visuel principal ;
+- `image_source_url` : page/source ayant permis de vérifier le visuel ;
+- `image_checked` : date de la dernière vérification ;
+- `image_fallbacks` : URLs alternatives lorsqu’elles existent.
+
+La recherche suit une cascade : source officielle ou éditeur, base cinéma fiable, puis recherche d’images web ciblée (`titre + année + poster/affiche` ; pour une réédition, `titre + Blu-ray/4K cover`). Une miniature de moteur de recherche n’est pas considérée comme source canonique : elle sert à retrouver et vérifier le fichier/source d’origine.
+
+`assets/js/image-resolver.js` hydrate les cartes à partir du catalogue canonique et essaie automatiquement les URLs de secours si un hébergeur refuse le hotlink ou si une image disparaît. Les cartes générées dynamiquement par le système `Vu` bénéficient du même traitement.
+
+Une absence d’image n’est admise qu’avec `image_exception_reason`, par exemple pour une carte éditoriale d’agrégation sans œuvre unique. À partir de S41, la validation éditoriale bloque une publication qui contient une carte visuelle ou un candidat de réserve sans image ni exception documentée.

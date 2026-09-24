@@ -3,6 +3,8 @@ const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const manifest=read('data/manifest.json');
 const latest=manifest.latest;
 const links=read('data/links.json').links||{};
+const works=read('data/works.json').works||[];
+const worksByTitle=new Map(works.map(w=>[norm(w.title),w]));
 const config=read('data/editorial-config.json');
 const pconfig=read('data/personalization-config.json');
 const week=read('data/weeks/'+latest+'.json');
@@ -51,6 +53,23 @@ if(strict){
      if(n<Math.ceil(pconfig.radar_1080p.minimum_total_candidates/2)&&!pool.shortage_reason){console.error('✗ HD radar reserve too shallow for '+key);process.exitCode=1}
    }
  }
+ // Visual image coverage: no silent poster gaps from S41 onward.
+ const visualTitles=new Set();
+ const visualClass=/\b(?:week-card|feature|list-card|platform|release-card|expire-card|radar-card|torrent-card)\b/;
+ for(const page of week.pages||[]){
+   const re=/<article class="([^"]+)"[^>]*>([\s\S]*?)<\/article>/g;let m;
+   while((m=re.exec(page.html))){
+     if(!visualClass.test(m[1]))continue;
+     const t=(m[2].match(/<h3>([\s\S]*?)<\/h3>/)||[])[1]?.replace(/<[^>]+>/g,'').trim();
+     if(t)visualTitles.add(t);
+   }
+ }
+ if(fs.existsSync(radarPath)){
+   const rrImages=read(radarPath);
+   for(const key of ['popular_scan','popular_deep','hd1','hd2'])for(const c of rrImages[key]?.candidates||[])if(c.title)visualTitles.add(c.title);
+ }
+ const imageMissing=[...visualTitles].filter(title=>{const w=worksByTitle.get(norm(title));return !w||(!w.image&&!w.image_exception_reason)});
+ if(imageMissing.length){console.error('✗ Visual image coverage incomplete: '+imageMissing.join(' | '));process.exitCode=1}
  if(!fs.existsSync(covPath)){console.error('✗ Coverage audit missing for '+latest);process.exitCode=1}
  else{
    const cov=read(covPath);

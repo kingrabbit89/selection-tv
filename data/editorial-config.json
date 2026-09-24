@@ -99,5 +99,21 @@
     "target_visible": 10,
     "reserve_target": 10,
     "page_capacity": 5
+  },
+  "image_policy": {
+    "canonical_source": "data/works.json",
+    "required_for_visual_cards": true,
+    "web_image_fallback_required": true,
+    "lookup_sequence": [
+      "distributeur, éditeur, diffuseur ou plateforme officielle",
+      "AlloCiné, IMDb, SensCritique ou base cinéma fiable",
+      "recherche d’images web ciblée : titre + année + poster/affiche",
+      "pour une réédition : titre + année + Blu-ray/4K cover"
+    ],
+    "runtime_fallbacks": true,
+    "fallback_field": "image_fallbacks",
+    "exception_field": "image_exception_reason",
+    "validation_from_week": "2026-S41",
+    "policy": "Toute recommandation affichée sous forme de carte visuelle et tout candidat de réserve doit posséder un visuel canonique dans works.json. Une recherche d’images web doit être tentée avant toute exception. Une absence n’est autorisée que si image_exception_reason explique pourquoi aucun visuel unique et exact n’est approprié."
   }
 }
