@@ -86,7 +86,120 @@
 .back-toc{position:absolute;right:15mm;bottom:10.5mm;z-index:6;font-size:5.8pt;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);text-decoration:none}
 .back-toc:hover{color:var(--accent)}
 @media print{.back-toc{display:none}}
-</style></head><body><div class="toolbar"><b>SÉLECTION TV · FORMAT B</b><span>Version riche avec visuels réels, imprimable en A4 paysage</span><a class="navlink" href="../../">Accueil</a><a class="navlink" href="../../a-recuperer.html">À récupérer <span class="saved-count" id="savedCount">0</span></a><button onclick="window.print()">Imprimer / enregistrer en PDF</button></div><div class="book"><section class="page cover" id="couverture"><div class="topbar">Sélection TV<span class="issue">Semaine 40 · 26 septembre - 2 octobre 2026</span></div><div class="kicker">Numéro pilote V2 · format magazine riche</div><div class="h1">La semaine qui mérite vraiment votre attention</div><div class="deck">Films, documentaires et curiosités sélectionnés sur l’ensemble des chaînes et plateformes. Pas de grille exhaustive : uniquement ce qui justifie un repérage, avec une note sur le contenu et sur l’intérêt de chaque choix.</div><div class="cover-strip"><div class="big"><img src="https://fr.web.img2.acsta.net/c_310_420/img/45/70/45701998fb5c9eb310e407762a8066bb.jpg" alt="Paris, Texas"><div class="cover-badge">MAJEUR</div><div class="overlay"><div>00:02 · Ciné+ Classic</div><h2>Paris, Texas</h2><div>1984 · Wim Wenders · RFA/France · 2 h 28</div></div></div><div class="side"><img src="https://fr.web.img6.acsta.net/c_310_420/pictures/22/09/01/17/54/2341594.jpg" alt="Tár"><div class="cover-badge">TRÈS FORT</div><div class="overlay"><div>01:07 · Ciné+ OCS</div><h2>Tár</h2><div>2022 · Todd Field · États-Unis · 2 h 38</div></div></div><div class="side"><img src="https://fr.web.img6.acsta.net/c_310_420/pictures/20/07/06/14/08/3504586.jpg" alt="Le Jardin des Finzi-Contini"><div class="cover-badge">MAJEUR</div><div class="overlay"><div>22:45 · Ciné+ Classic</div><h2>Le Jardin des Finzi-Contini</h2><div>1970 · Vittorio De Sica · Italie/RFA · 1 h 34</div></div></div></div><div class="footer"><span>Sélection éditoriale non personnalisée · grilles arrêtées au 24/09/2026</span><span>1</span></div></section><section class="page" id="sommaire"><div class="topbar">Sommaire<span class="issue">Semaine 40 · 26 septembre - 2 octobre 2026</span></div><div class="kicker">Navigation</div><div class="h1">Sommaire</div><div class="deck">Cliquez sur une rubrique pour aller directement à la page correspondante. Les numéros restent indiqués pour l’impression ou l’export PDF.</div><div class="rule"></div><div class="toc-grid">
+
+/* --- V8 : direction artistique "revue cinéma" --- */
+.magazine-v2{
+  --paper:#f8f4ec;--ink:#22242a;--navy:#172033;--muted:#6e6b69;--line:#d9d1c4;
+  --accent:#b53d4b;--soft:#eee8de;
+  background:
+    radial-gradient(circle at 15% 10%,#3a4350 0,transparent 28%),
+    linear-gradient(180deg,#202630 0,#171c23 100%);
+}
+.magazine-v2 .book{padding:28px 0 42px}
+.magazine-v2 .page{
+  --section:#b53d4b;--section-soft:#efe1df;
+  background:
+    radial-gradient(circle at 85% 10%,rgba(181,61,75,.055),transparent 27%),
+    linear-gradient(180deg,#fbf8f2 0%,#f7f2e9 100%);
+  border:1px solid rgba(255,255,255,.28);
+  box-shadow:0 22px 60px rgba(0,0,0,.28),0 3px 10px rgba(0,0,0,.14);
+}
+.magazine-v2 .page>*{position:relative;z-index:2}
+.magazine-v2 .page-atmosphere{
+  position:absolute;z-index:0!important;right:-8mm;top:9mm;width:112mm;height:78mm;
+  background-size:cover;background-position:center 30%;opacity:.07;
+  filter:grayscale(.35) contrast(1.08);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 34%,#000 70%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0,#000 34%,#000 70%,transparent 100%);
+  pointer-events:none;
+}
+.magazine-v2 .page::after{
+  content:"";position:absolute;z-index:1;left:15mm;right:15mm;top:11.8mm;height:.22mm;
+  background:linear-gradient(90deg,var(--section),transparent 75%);opacity:.7
+}
+.magazine-v2 .topbar{
+  height:10mm;background:linear-gradient(90deg,#121a2a 0,#1d2738 72%,#202b3e 100%);
+  padding-top:3mm;border-bottom:1.1mm solid var(--section);font-size:9pt;letter-spacing:.09em;
+  box-shadow:0 2mm 5mm rgba(0,0,0,.08)
+}
+.magazine-v2 .issue{font-size:7.5pt;letter-spacing:.03em;opacity:.86}
+.magazine-v2 .kicker{color:var(--section);font-size:7.2pt;letter-spacing:.15em;margin-top:4.8mm}
+.magazine-v2 .h1,.magazine-v2 .h2,.magazine-v2 .grid-title{
+  color:#182238;letter-spacing:-.018em
+}
+.magazine-v2 .h1{font-size:28pt;line-height:1.01}
+.magazine-v2 .deck{color:#69635f}
+.magazine-v2 .rule{height:.8mm;background:linear-gradient(90deg,var(--section) 0,var(--section) 35%,transparent 92%);margin-top:3.5mm}
+.magazine-v2 .footer{border-top:.25mm solid #cfc6b7;color:#77716b}
+.magazine-v2 .hero,.magazine-v2 .week-card,.magazine-v2 .feature,.magazine-v2 .platform,.magazine-v2 .radar-card{
+  border-top-color:var(--section)
+}
+.magazine-v2 .week-card,.magazine-v2 .feature,.magazine-v2 .platform,.magazine-v2 .radar-card{
+  background:rgba(255,255,255,.42);border-radius:3mm;padding:3mm;
+  box-shadow:0 1.4mm 4mm rgba(31,38,48,.07)
+}
+.magazine-v2 .week-card img,.magazine-v2 .feature .visual,.magazine-v2 .radar-card img{
+  border-radius:2mm;box-shadow:0 1.2mm 3.2mm rgba(16,21,29,.16)
+}
+.magazine-v2 .list-card{
+  background:rgba(255,255,255,.42);border:.22mm solid rgba(185,174,159,.55);
+  border-left:1mm solid var(--section);border-radius:2.5mm;padding:3mm;min-height:unset
+}
+.magazine-v2 .list-card .num{color:color-mix(in srgb,var(--section) 22%,#d9d0c4);font-style:italic}
+.magazine-v2 .intro-note,.magazine-v2 .radar-note,.magazine-v2 .sources .note{
+  background:linear-gradient(90deg,var(--section-soft),rgba(255,255,255,.45));border-left-color:var(--section)
+}
+.magazine-v2 .schedule,.magazine-v2 .radar-table{
+  background:rgba(255,255,255,.42);border-radius:2.5mm;overflow:hidden;box-shadow:0 1mm 3.5mm rgba(25,31,41,.06)
+}
+.magazine-v2 .schedule th,.magazine-v2 .radar-table th{
+  background:#ece5da;color:#5f5b57;border-bottom:.45mm solid var(--section)
+}
+.magazine-v2 .schedule tbody tr:hover,.magazine-v2 .radar-table tbody tr:hover{background:rgba(181,61,75,.055)}
+.magazine-v2 .program-actions a,.magazine-v2 .program-actions button{
+  border-radius:999px;background:rgba(255,255,255,.72);border-color:#cbc3b8;
+  box-shadow:0 .5mm 1.2mm rgba(0,0,0,.035)
+}
+.magazine-v2 .program-actions .official{background:#182238;border-color:#182238;color:#fff}
+.magazine-v2 .rating-pill{box-shadow:0 .45mm 1mm rgba(0,0,0,.035)}
+.magazine-v2 .toc-group{
+  background:rgba(255,255,255,.42);padding:4mm;border-radius:3mm;
+  box-shadow:0 1.3mm 4mm rgba(31,38,48,.06)
+}
+.magazine-v2 .toc-group h3{border-bottom-color:var(--section)}
+.magazine-v2 .toc-page{color:var(--section)}
+.magazine-v2 #couverture{
+  background:
+    linear-gradient(140deg,rgba(19,28,43,.98) 0%,rgba(26,36,53,.94) 45%,rgba(64,31,38,.90) 100%);
+  color:#f7f1e8
+}
+.magazine-v2 #couverture .h1{color:#fff;font-size:36pt;max-width:230mm;text-shadow:0 2mm 7mm rgba(0,0,0,.2)}
+.magazine-v2 #couverture .deck{color:#ded8d0}
+.magazine-v2 #couverture .kicker{color:#ef9ca5}
+.magazine-v2 #couverture .cover-strip{box-shadow:0 4mm 12mm rgba(0,0,0,.26);border-radius:3mm;overflow:hidden}
+.magazine-v2 #couverture .cover-strip img{filter:saturate(.9) contrast(1.04)}
+.magazine-v2 #sommaire{--section:#a33e49;--section-soft:#efe0df}
+.magazine-v2 [id^="rendezvous"]{--section:#b84450;--section-soft:#f2e3e2}
+.magazine-v2 [id^="replay"]{--section:#2e7773;--section-soft:#e2efec}
+.magazine-v2 #plateformes-gratuites{--section:#547b55;--section-soft:#e8efe5}
+.magazine-v2 #plateformes-abonnement{--section:#6f5792;--section-soft:#ece6f2}
+.magazine-v2 [id^="radar"]{--section:#a46d1a;--section-soft:#f1e7d5}
+.magazine-v2 [id$="-selection"],.magazine-v2 [id$="-grille"]{--section:#405d87;--section-soft:#e5eaf1}
+.magazine-v2 #index{--section:#77624c;--section-soft:#eee7de}
+.magazine-v2 #methode{--section:#62696f;--section-soft:#e8eaeb}
+.magazine-v2 .toolbar{
+  background:rgba(11,16,24,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.09);
+  box-shadow:0 8px 24px rgba(0,0,0,.22)
+}
+.magazine-v2 .toolbar .navlink{background:rgba(255,255,255,.055)}
+.magazine-v2 .back-toc{
+  background:rgba(248,244,236,.86);padding:1mm 1.7mm;border-radius:999px;border:.2mm solid #d4ccbf
+}
+@media print{
+ .magazine-v2{background:white}.magazine-v2 .page{box-shadow:none;border:0}
+ .magazine-v2 .page-atmosphere{opacity:.035}
+}
+</style></head><body class="magazine-v2"><div class="toolbar"><b>SÉLECTION TV · FORMAT B</b><span>Version riche avec visuels réels, imprimable en A4 paysage</span><a class="navlink" href="../../">Accueil</a><a class="navlink" href="../../a-recuperer.html">À récupérer <span class="saved-count" id="savedCount">0</span></a><button onclick="window.print()">Imprimer / enregistrer en PDF</button></div><div class="book"><section class="page cover" id="couverture"><div class="topbar">Sélection TV<span class="issue">Semaine 40 · 26 septembre - 2 octobre 2026</span></div><div class="kicker">Numéro pilote V2 · format magazine riche</div><div class="h1">La semaine qui mérite vraiment votre attention</div><div class="deck">Films, documentaires et curiosités sélectionnés sur l’ensemble des chaînes et plateformes. Pas de grille exhaustive : uniquement ce qui justifie un repérage, avec une note sur le contenu et sur l’intérêt de chaque choix.</div><div class="cover-strip"><div class="big"><img src="https://fr.web.img2.acsta.net/c_310_420/img/45/70/45701998fb5c9eb310e407762a8066bb.jpg" alt="Paris, Texas"><div class="cover-badge">MAJEUR</div><div class="overlay"><div>00:02 · Ciné+ Classic</div><h2>Paris, Texas</h2><div>1984 · Wim Wenders · RFA/France · 2 h 28</div></div></div><div class="side"><img src="https://fr.web.img6.acsta.net/c_310_420/pictures/22/09/01/17/54/2341594.jpg" alt="Tár"><div class="cover-badge">TRÈS FORT</div><div class="overlay"><div>01:07 · Ciné+ OCS</div><h2>Tár</h2><div>2022 · Todd Field · États-Unis · 2 h 38</div></div></div><div class="side"><img src="https://fr.web.img6.acsta.net/c_310_420/pictures/20/07/06/14/08/3504586.jpg" alt="Le Jardin des Finzi-Contini"><div class="cover-badge">MAJEUR</div><div class="overlay"><div>22:45 · Ciné+ Classic</div><h2>Le Jardin des Finzi-Contini</h2><div>1970 · Vittorio De Sica · Italie/RFA · 1 h 34</div></div></div></div><div class="footer"><span>Sélection éditoriale non personnalisée · grilles arrêtées au 24/09/2026</span><span>1</span></div></section><section class="page" id="sommaire"><div class="topbar">Sommaire<span class="issue">Semaine 40 · 26 septembre - 2 octobre 2026</span></div><div class="kicker">Navigation</div><div class="h1">Sommaire</div><div class="deck">Cliquez sur une rubrique pour aller directement à la page correspondante. Les numéros restent indiqués pour l’impression ou l’export PDF.</div><div class="rule"></div><div class="toc-grid">
 <div class="toc-group"><h3>Le numéro</h3>
 <a class="toc-link" href="#rendezvous-1"><span class="toc-label">Les rendez-vous de la semaine<span class="toc-sub">10 programmes prioritaires</span></span><span class="toc-page">p. 3–4</span></a>
 <a class="toc-link" href="#replay-1"><span class="toc-label">À récupérer en replay<span class="toc-sub">Chaîne précise + service de rattrapage</span></span><span class="toc-page">p. 5–6</span></a>
