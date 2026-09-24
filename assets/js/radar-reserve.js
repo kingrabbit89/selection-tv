@@ -67,9 +67,9 @@ function applySection(key){
 function updateCopy(){
  const popular=document.getElementById('radar-torrent');
  if(popular){
-   const issue=popular.querySelector('.issue');if(issue)issue.textContent='TorrentFreak · fenêtre publique récente';
+   const issue=popular.querySelector('.issue');if(issue)issue.textContent='TorrentFreak · fenêtre publique de 6 semaines';
    const h=popular.querySelector('.h1');if(h)h.textContent='Cinq titres à retenir dans la circulation récente';
-   const deck=popular.querySelector('.deck');if(deck)deck.textContent='Le classement hebdomadaire reste le signal principal, mais une réserve parcourt aussi les semaines récentes afin de remplacer les œuvres déjà vues sans abaisser le seuil éditorial. Aucun lien de téléchargement n’est repris.';
+   const deck=popular.querySelector('.deck');if(deck)deck.textContent='Le classement hebdomadaire reste le signal principal, mais une réserve parcourt aussi six semaines de classements publics récents afin de remplacer les œuvres déjà vues sans abaisser le seuil éditorial.';
  }
  for(const id of ['radar-1','radar-2']){const p=document.getElementById(id),issue=p?.querySelector('.issue');if(issue)issue.textContent='Ajouts HD repérés sur les 21 derniers jours'}
 }
