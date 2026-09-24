@@ -53,7 +53,12 @@ function titleOf(el){return (el.dataset.title||el.querySelector('h3')?.textConte
 function syncSummary(){
  const body=document.querySelector('#radar-3 .radar-table tbody');if(!body)return;
  const cards=[...document.querySelectorAll('#radar-1 .radar-card:not(.seen-hidden),#radar-2 .radar-card:not(.seen-hidden)')];
- body.replaceChildren(...cards.map(x=>{const c=byTitle.get(norm(titleOf(x)))||{};const tr=document.createElement('tr');const vals=[titleOf(x),x.querySelector('.added')?.textContent||'',c.meta||x.querySelector('.meta2')?.textContent||'', '',[...x.querySelectorAll('.rating-pill')].map(y=>y.textContent.replace('/10','')).join(' · '),x.querySelector('.why2 p')?.textContent||''];vals.forEach((v,i)=>{const td=document.createElement('td');if(i===0)td.className='rt-title';td.textContent=v;tr.append(td)});return tr}));
+ const parse=txt=>{const out={};for(const part of txt.split(' · ')){const i=part.indexOf(':');if(i>0)out[part.slice(0,i).trim()]=part.slice(i+1).trim()}return out};
+ body.replaceChildren(...cards.map(x=>{
+   const c=byTitle.get(norm(titleOf(x)))||{},meta=parse(c.meta||x.querySelector('.meta2')?.textContent||''),tr=document.createElement('tr');
+   const vals=[titleOf(x),(x.querySelector('.added')?.textContent||'').replace('Ajout repéré · ',''),[meta['Réalisation'],meta['Sortie'],meta['Pays']].filter(Boolean).join(' · '),[meta['Durée'],meta['Genre']].filter(Boolean).join(' · '),[...x.querySelectorAll('.rating-pill')].map(y=>y.textContent.replace('/10','')).join(' · '),x.querySelector('.why2 p')?.textContent||''];
+   vals.forEach((v,i)=>{const td=document.createElement('td');if(i===0)td.className='rt-title';td.textContent=v;tr.append(td)});return tr;
+ }));
 }
 function applySection(key){
  const cfg=CFG[key];if(!cfg)return;
