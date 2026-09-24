@@ -417,3 +417,17 @@
 .grid-reserve-generated{background:rgba(96,117,139,.055)}
 .grid-reserve-generated .prog::after{content:"RÉSERVE";display:inline-block;margin-left:1.2mm;padding:.35mm .8mm;border-radius:999px;background:#edf1f3;color:#60758b;font:800 4.2pt Inter,Arial,sans-serif;letter-spacing:.06em;vertical-align:middle}
 .grid-seen-summary{margin-bottom:2mm}
+
+
+/* --- Plateformes avec abonnement : priorité films --- */
+.subscription-page .platform-grid{grid-template-columns:repeat(3,1fr);gap:3mm 5mm}
+.subscription-page .platform{min-height:34mm;padding-top:2mm}
+.subscription-page .platform h3{font-size:11.5pt;margin:.7mm 0 .5mm}
+.subscription-page .platform p{font-size:6.55pt;line-height:1.18}
+.subscription-page .platform .date{font-size:5.9pt;margin-bottom:.6mm}
+.subscription-page .platform .service{font-size:6.2pt}
+.subscription-page .platform.has-visual{grid-template-columns:24mm 1fr;gap:2.2mm;padding:2.1mm}
+.subscription-page .platform-thumb{width:24mm;height:29mm}
+.subscription-page .platform.has-visual h3{font-size:10.4pt}
+.subscription-page .platform.has-visual p{font-size:6.1pt}
+.subscription-page .series-exception{border-top-color:#60758b;background:rgba(96,117,139,.055)}
