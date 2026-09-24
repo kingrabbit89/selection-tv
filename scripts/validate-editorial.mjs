@@ -3,12 +3,12 @@ const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const manifest=read('data/manifest.json');
 const latest=manifest.latest;
 const links=read('data/links.json').links||{};
-const works=read('data/works.json').works||[];
-const worksByTitle=new Map(works.map(w=>[norm(w.title),w]));
 const config=read('data/editorial-config.json');
 const pconfig=read('data/personalization-config.json');
 const week=read('data/weeks/'+latest+'.json');
 const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+const works=read('data/works.json').works||[];
+const worksByTitle=new Map(works.map(w=>[norm(w.title),w]));
 const linkKeys=new Set(Object.keys(links).map(norm));
 const titles=new Set();
 for(const p of week.pages||[]){
