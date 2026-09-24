@@ -73,4 +73,4 @@ document.getElementById('sortMode').onchange=e=>{sortMode=e.target.value;render(
 document.getElementById('exportCsv').onclick=()=>{const rows=[['Titre','Diffusion / plateforme','Repère','Source','Statut','Priorité'],...Object.values(load()).map(x=>[x.title,x.context||'',x.badge||'',sourceOf(x),x.status||'a-recuperer',x.priority||1])];const csv=rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\n');const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='selection-tv-liste.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)};
 fetch('data/releases.json').then(r=>r.json()).then(d=>{RELEASES=d;render()}).catch(()=>render());window.addEventListener('storage',render);render();
 })();
-</script></body></html>
+</script><script defer src="assets/js/analytics.js?v=20260925-analytics1"></script></body></html>
