@@ -80,3 +80,22 @@ La hiérarchie est **film-first** :
 - privilégier les sorties de la semaine, puis les films arrivés récemment et encore disponibles ;
 - ne pas chercher à équilibrer artificiellement Netflix, CANAL+, Apple TV, Prime Video, HBO Max, etc. ;
 - une série n’entre dans la sélection que comme exception forte : reconnaissance critique établie, auteur ou distribution majeure, singularité formelle ou importance culturelle. Le simple fait d’être une nouveauté ne suffit pas.
+
+
+## Radars personnalisables
+
+Les deux radars utilisent la même logique locale de remplacement que les sélections quotidiennes, sans modifier la sélection publique canonique.
+
+### Radar de popularité
+- 5 titres visibles ;
+- 5 titres de réserve au minimum ;
+- inventaire sur une fenêtre glissante de 42 jours de classements publics récents, puis filtre éditorial ;
+- lorsqu’un titre visible est déjà marqué `Vu`, le meilleur candidat suivant prend sa place.
+
+### Radar 1080p
+- 10 titres visibles, répartis sur deux pages de cinq ;
+- objectif normal de 20 candidats au total, soit 10 choix publics et 10 choix de réserve ;
+- fenêtre de repérage de 21 jours pour les restaurations, rééditions, premières éditions HD et réapparitions intéressantes ;
+- la page récapitulative est reconstruite dans le navigateur pour refléter les dix titres réellement affichés après personnalisation.
+
+Les réserves conservent les mêmes métadonnées, notes, liens de fiches et boutons personnels que les cartes principales. Le design Astra et la structure des pages restent inchangés.
