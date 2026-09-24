@@ -278,6 +278,26 @@ function applyGridGroups(){
  }
 }
 
+function syncRadar1080pSummary(){
+ const body=document.querySelector('#radar-3 .radar-table tbody');if(!body)return;
+ const cards=[...document.querySelectorAll('#radar-1 .radar-card:not(.seen-hidden),#radar-2 .radar-card:not(.seen-hidden)')];
+ const parse=txt=>{const out={};for(const part of txt.split(' · ')){const i=part.indexOf(':');if(i>0)out[part.slice(0,i).trim()]=part.slice(i+1).trim()}return out};
+ body.replaceChildren(...cards.map(card=>{
+   const meta=parse(card.querySelector('.meta2')?.textContent?.trim()||''),tr=document.createElement('tr');
+   const vals=[
+     titleOf(card),
+     (card.querySelector('.added')?.textContent||'').replace('Ajout repéré · ',''),
+     [meta['Réalisation'],meta['Sortie'],meta['Pays']].filter(Boolean).join(' · '),
+     [meta['Durée'],meta['Genre']].filter(Boolean).join(' · '),
+     [...card.querySelectorAll('.rating-pill')].map(x=>x.textContent.replace('/10','')).join(' · '),
+     card.querySelector('.why2 p')?.textContent?.trim()||''
+   ];
+   vals.forEach((v,i)=>{const td=document.createElement('td');if(i===0)td.className='rt-title';td.textContent=v;tr.append(td)});return tr;
+ }));
+ const deck=document.querySelector('#radar-3 .deck');
+ if(deck&&hideSeen())deck.textContent='Vue condensée des dix titres effectivement affichés après remplacement des œuvres déjà vues.';
+}
+
 function updateSimpleSummaries(){
  for(const page of document.querySelectorAll('.page')){
    if(poolPageIds.has(page.id)||isDailyGridPageId(page.id))continue;
@@ -307,7 +327,7 @@ function apply(){
    if(!inPool&&!inDailyGrid)el.classList.toggle('seen-hidden',h&&isSeen(title,workIdForTitle(title)));
    attachSeenButton(el);
  }
- applyPools();applyGridGroups();updateSimpleSummaries();updateToggle();
+ applyPools();applyGridGroups();syncRadar1080pSummary();updateSimpleSummaries();updateToggle();
  const c=document.getElementById('savedCount');if(c)c.textContent=Object.values(loadStore()).filter(x=>(x.status||'a-recuperer')==='a-recuperer').length;
  setTimeout(()=>{try{window.dispatchEvent(new Event('resize'))}catch(e){}},20);
 }
