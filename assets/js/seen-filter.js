@@ -70,15 +70,15 @@ function attachSeenButton(el,explicitCandidate=null){
  b.onclick=()=>setSeen(title,wid,explicitCandidate?{context:[explicitCandidate.time,explicitCandidate.channel].filter(Boolean).join(' · '),badge:explicitCandidate.quality||''}:metaOf(el));
 }
 function linkEntries(L){
- const names={official:'Page officielle',allocine:'AlloCiné',imdb:'IMDb',sc:'SensCritique',wiki:'Wikipedia'};
- return ['official','allocine','imdb','sc','wiki'].filter(k=>L?.[k]).map(k=>[names[k],L[k]]);
+ const names={official:'Page officielle',allocine:'AlloCiné',imdb:'IMDb',sc:'SensCritique',wiki:'Wikipedia',source:'Source'};
+ return ['official','allocine','imdb','sc','wiki','source'].filter(k=>L?.[k]).map(k=>[names[k],L[k]]);
 }
 
 function mergedLinks(c){
  return {...(window.SelectionTVDirectLinks?.[c.title]||{}),...(c.links||{})};
 }
 function addReserveRatings(el,c){
- const r=window.SelectionTVRatings?.[c.title];if(!r||el.querySelector('.ratings'))return;
+ const r=window.SelectionTVRatings?.[c.title]||c.ratings;if(!r||el.querySelector('.ratings'))return;
  const box=document.createElement('div');box.className='ratings';
  const L=mergedLinks(c);
  if(r.imdb){
@@ -87,16 +87,17 @@ function addReserveRatings(el,c){
    if(L.imdb){x.href=L.imdb;x.target='_blank';x.rel='noopener'}
    box.append(x);
  }
- if(r.sc){
+ const sc=r.sc||r.senscritique;
+ if(sc){
    const x=L.sc?document.createElement('a'):document.createElement('span');
-   x.className='rating-pill sc';x.textContent='SensCritique '+r.sc+'/10';
+   x.className='rating-pill sc';x.textContent='SensCritique '+sc+'/10';
    if(L.sc){x.href=L.sc;x.target='_blank';x.rel='noopener'}
    box.append(x);
  }
  const d=document.createElement('span');d.className='rating-date';d.textContent='relevé 24/09/2026';box.append(d);
  if(el.matches('tr'))el.querySelector('.prog')?.append(box);
  else{
-   const anchor=el.querySelector('.work-meta')||el.querySelector('.slot')||el.querySelector('.where')||el.querySelector('h3');
+   const anchor=el.querySelector('.work-meta')||el.querySelector('.meta2')||el.querySelector('.torrent-meta')||el.querySelector('.slot')||el.querySelector('.where')||el.querySelector('h3');
    anchor?.insertAdjacentElement('afterend',box);
  }
 }
@@ -112,7 +113,21 @@ function actionBox(article,c){
  for(const [label,url] of linkEntries(mergedLinks(c))){const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';a.textContent=label;box.append(a)}
  article.append(box);saveButton(box,c);attachSeenButton(article,c);
 }
+function renderRadarCard(c,isTorrent=false){
+ const article=document.createElement('article');article.className=(isTorrent?'torrent-card':'radar-card')+' replacement-generated';article.dataset.title=c.title;article.dataset.workId=c.work_id||'';
+ if(c.image){const img=document.createElement('img');img.src=c.image;img.alt='Affiche de '+c.title;img.loading='lazy';img.onerror=()=>{const fb=document.createElement('div');fb.className='radar-reserve-fallback';fb.textContent=c.title;img.replaceWith(fb)};article.append(img)}
+ else{const fb=document.createElement('div');fb.className='radar-reserve-fallback';fb.textContent=c.title;article.append(fb)}
+ const signal=document.createElement('div');signal.className=isTorrent?'torrent-signal':'added';signal.textContent=c.signal||c.added||(isTorrent?'Circulation récente':'Ajout HD récent');article.append(signal);
+ const h3=document.createElement('h3');h3.textContent=c.title;article.append(h3);
+ if(c.meta){const meta=document.createElement('div');meta.className=isTorrent?'torrent-meta':'meta2';meta.textContent=c.meta;article.append(meta)}
+ addReserveRatings(article,c);
+ if(c.summary){const p=document.createElement('p');p.textContent=c.summary;article.append(p)}
+ const why=document.createElement('div');why.className='why2';const b=document.createElement('b');b.textContent='Pourquoi le retenir';const p=document.createElement('p');p.textContent=c.why||'Retenu dans la réserve éditoriale.';why.append(b,p);article.append(why);
+ actionBox(article,c);return article;
+}
 function renderReserve(c,cardType='feature'){
+ if(cardType==='radar-card')return renderRadarCard(c,false);
+ if(cardType==='torrent-card')return renderRadarCard(c,true);
  if(cardType==='week-card'){
    const article=document.createElement('article');article.className='week-card replacement-generated';article.dataset.title=c.title;article.dataset.workId=c.work_id||'';
    if(c.image){const img=document.createElement('img');img.src=c.image;img.alt='Visuel de '+c.title;img.loading='lazy';article.append(img)}
