@@ -6,10 +6,22 @@
   "default_hide_seen": true,
   "daily_developed": {
     "target": 3,
-    "desired_total_candidates": 10,
-    "minimum_total_candidates": 8,
-    "policy": "Classer tous les candidats au-dessus du seuil éditorial. Afficher les 3 premiers non vus. Si le réservoir contient moins de 8 candidats réellement recommandables, renseigner shortage_reason au lieu d’abaisser le seuil."
+    "desired_total_candidates": 15,
+    "minimum_total_candidates": 10,
+    "policy": "Classer tous les candidats au-dessus du seuil éditorial. Afficher les 3 premiers non vus. Constituer si possible un réservoir profond (objectif 15) sans jamais abaisser le seuil ; si le réservoir est plus court, renseigner shortage_reason."
   },
   "public_selection_rule": "La hiérarchie publique reste indépendante de l’historique Vu. La personnalisation ne se fait que dans le navigateur après publication.",
-  "sections_future": "Le même mécanisme peut être étendu aux rendez-vous, replay et plateformes en ajoutant des pools structurés sans modifier la sélection publique."
+  "sections_future": "Le moteur Vu est unique et s’applique à toutes les cartes recommandées. Les sections à pagination fixe doivent se repaginer après masquage ; les sections à quota utilisent un pool classé quand il existe.",
+  "commented_grid": {
+    "target_visible": 10,
+    "first_page_capacity": 6,
+    "desired_total_candidates": 15,
+    "policy": "La grille commentée est un ensemble logique unique, même lorsqu’elle est imprimée sur deux pages. Après masquage des vus, redistribuer automatiquement les titres restants à partir de la première page, supprimer la seconde page lorsqu’elle n’est plus nécessaire, puis compléter avec les candidats suivants du réservoir jusqu’à 10 titres non vus si le seuil éditorial le permet."
+  },
+  "weekly_rendezvous": {
+    "target_visible": 10,
+    "page_capacity": 5,
+    "desired_total_candidates": 20,
+    "policy": "Conserver dix rendez-vous visibles non vus au total, répartis sur deux pages de cinq, en puisant dans une réserve éditoriale classée sans abaisser le seuil."
+  }
 }
