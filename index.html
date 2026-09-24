@@ -90,5 +90,5 @@ Promise.all([fetch('data/manifest.json').then(r=>r.json()),fetch('data/releases.
  const hits=[];d.streaming.forEach(x=>titles.has(norm(x.work))&&hits.push(x.work+' arrive sur '+x.platform+' le '+x.date));d.physical.forEach(x=>titles.has(norm(x.work))&&hits.push(x.work+' : '+x.format+' le '+x.label));d.expirations.forEach(x=>titles.has(norm(x.work))&&hits.push(x.work+' quitte '+x.platform+' le '+x.date));if(hits.length)document.getElementById('homeAlerts').innerHTML='<div class="home-alert"><b>Alertes sur ta liste</b>'+hits.map(x=>'<div>'+esc(x)+'</div>').join('')+'</div>';
 }).catch(()=>{document.getElementById('currentWeek').innerHTML='<div class="note">Impossible de charger le manifeste des numéros.</div>'});
 })();
-</script></body>
+</script><script defer src="assets/js/analytics.js?v=20260925-analytics1"></script></body>
 </html>
