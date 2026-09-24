@@ -73,6 +73,8 @@ Les numéros magazine ne génèrent plus de page d’index alphabétique. Cette 
 
 La rubrique doit être plus fournie que les premières versions du magazine : cible normale de 9 recommandations, sans obligation de remplissage si le niveau éditorial n’est pas atteint.
 
+Les pages plateformes peuvent être multipliées : la lisibilité des métadonnées, notes et liens prime sur un nombre de pages fixe. Les fiches directes IMDb, SensCritique et AlloCiné doivent être conservées lorsqu’elles existent, avec les notes disponibles relevées à la date du numéro.
+
 La hiérarchie est **film-first** :
 - viser au moins 80 % de longs métrages lorsque l’offre de la semaine le permet ;
 - privilégier les sorties de la semaine, puis les films arrivés récemment et encore disponibles ;
