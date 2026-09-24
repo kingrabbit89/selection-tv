@@ -70,7 +70,13 @@
      const group=pages.filter(p=>p.id===first.id||p.id.startsWith(first.id+'-'));
      group.forEach((p,i)=>{const title=p.querySelector('.grid-title');if(title&&/\d+\/\d+\s*$/.test(title.textContent))set(title,title.textContent.replace(/\d+\/\d+\s*$/,`${i+1}/${group.length}`))});
    }
-   for(const a of document.querySelectorAll('.toc-link,.tocbox a')){const target=document.getElementById(a.hash.slice(1)),index=pages.indexOf(target);if(index>=0){const label=a.querySelector('.toc-page,span');if(label)set(label,label.textContent.replace(/\d+/,String(index+1)))}}
+   for(const a of document.querySelectorAll('.toc-link,.tocbox a')){
+     const target=document.getElementById(a.hash.slice(1)),index=pages.indexOf(target);
+     if(index<0)continue;
+     // Never touch the title/date span: only the dedicated folio marker may be renumbered.
+     const folio=a.querySelector('.toc-page');
+     if(folio)set(folio,folio.textContent.replace(/\d+/,String(index+1)));
+   }
  }
  function layout(){
    if(running)return;running=true;restore();
