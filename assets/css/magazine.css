@@ -445,3 +445,14 @@
 .subscription-page .platform .program-actions{margin-top:1mm;gap:.65mm}
 .subscription-page .platform .program-actions a,.subscription-page .platform .program-actions button{font-size:4.85pt;padding:.75mm 1mm}
 .subscription-page .series-exception{border-top-color:#60758b;background:rgba(96,117,139,.07)}
+
+
+/* --- Affiches : plateformes avec abonnement --- */
+.subscription-page .platform.has-poster{display:grid;grid-template-columns:25mm 1fr;gap:2.7mm;align-items:start;min-height:40mm}
+.subscription-page .platform-poster{width:25mm;height:36mm;object-fit:cover;object-position:center;border-radius:1.8mm;box-shadow:0 .8mm 2.4mm rgba(0,0,0,.16);background:#ddd}
+.subscription-page .platform.has-poster .platform-copy{min-width:0}
+.subscription-page .platform.has-poster h3{margin-top:.25mm}
+.subscription-page .platform.has-poster .work-meta{font-size:5.35pt;line-height:1.13;margin:.45mm 0}
+.subscription-page .platform.has-poster .ratings{margin:.45mm 0}
+.subscription-page .platform.has-poster p{font-size:6.55pt;line-height:1.16}
+.subscription-page .platform.has-poster .program-actions{margin-top:.6mm}
