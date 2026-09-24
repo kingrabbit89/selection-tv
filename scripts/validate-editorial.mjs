@@ -68,6 +68,8 @@ if(strict){
    const rrImages=read(radarPath);
    for(const key of ['popular_scan','popular_deep','hd1','hd2'])for(const c of rrImages[key]?.candidates||[])if(c.title)visualTitles.add(c.title);
  }
+ // Personalization candidates are visual recommendations too, even when they are not present in the canonical HTML.
+ for(const pool of Object.values(pers.pools||{}))for(const c of pool.candidates||[])if(c.title)visualTitles.add(c.title);
  const imageMissing=[...visualTitles].filter(title=>{const w=worksByTitle.get(norm(title));return !w||(!w.image&&!w.image_exception_reason)});
  if(imageMissing.length){console.error('✗ Visual image coverage incomplete: '+imageMissing.join(' | '));process.exitCode=1}
  if(!fs.existsSync(covPath)){console.error('✗ Coverage audit missing for '+latest);process.exitCode=1}
