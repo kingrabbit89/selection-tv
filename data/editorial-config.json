@@ -83,5 +83,20 @@
     "subscription_page_max_cards": 3,
     "subscription_page_policy": "Une page plateformes enrichie (affiche + métadonnées + notes + liens + boutons) ne peut contenir plus de 3 cartes. Ajouter une page plutôt que réduire la lisibilité.",
     "fixed_page_rule": "Toute rubrique à page A4 fixe doit respecter une capacité conservatrice ; si le contenu enrichi dépasse cette capacité, la publication doit être bloquée par la validation plutôt que tronquée visuellement."
+  },
+  "radar_popularity": {
+    "signal_window_days": 42,
+    "source_policy": "Classement public hebdomadaire et archive publique récente.",
+    "editorial_rule": "Le signal de circulation ne vaut jamais recommandation en soi : filtrer par intérêt cinématographique, réception, auteur, singularité ou importance industrielle.",
+    "target_visible": 5,
+    "reserve_target": 5
+  },
+  "radar_1080p": {
+    "signal_window_days": 21,
+    "source_policy": "Flux publics d’ajouts HD, calendriers Blu-ray/1080p, annonces d’éditeurs et sources de restauration.",
+    "editorial_rule": "Prioriser les nouveaux masters, restaurations, premières éditions HD et réapparitions de films importants ou singuliers ; éviter la simple exhaustivité technique.",
+    "target_visible": 10,
+    "reserve_target": 10,
+    "page_capacity": 5
   }
 }
