@@ -139,9 +139,105 @@ function applyPools(){
    }else if(note)note.remove();
  }
 }
+const GRID_DAYS=['samedi','dimanche','lundi','mardi','mercredi','jeudi','vendredi'];
+const gridState=new Map();
+const isDailyGridPageId=id=>GRID_DAYS.some(d=>id===d+'-grille'||id===d+'-grille-2');
+function ensureGridState(day){
+ if(gridState.has(day))return gridState.get(day);
+ const p1=document.getElementById(day+'-grille'),p2=document.getElementById(day+'-grille-2');
+ if(!p1||!p2)return null;
+ const b1=p1.querySelector('table.schedule tbody'),b2=p2.querySelector('table.schedule tbody');
+ if(!b1||!b2)return null;
+ const rows1=[...b1.querySelectorAll('tr')],rows2=[...b2.querySelectorAll('tr')];
+ const state={
+   day,p1,p2,b1,b2,
+   rows:[...rows1,...rows2],
+   firstCount:rows1.length,
+   title1:p1.querySelector('.grid-title')?.textContent||'',
+   title2:p2.querySelector('.grid-title')?.textContent||'',
+   generated:new Map()
+ };
+ gridState.set(day,state);return state;
+}
+function makeGridReserveRow(c){
+ const tr=document.createElement('tr');tr.className='grid-reserve-generated';tr.dataset.title=c.title;tr.dataset.workId=c.work_id||'';
+ const cls=String(c.quality||'À VOIR').replace(/\s+/g,'_');
+ tr.innerHTML='<td class="time">'+esc(c.time||'')+'</td><td class="chan">'+esc(c.channel||'')+'</td><td class="prog">'+esc(c.title)+'</td><td class="reason">'+esc(c.why||c.summary||'Retenu dans la réserve éditoriale de la journée.')+'</td><td class="rep"><span class="badge '+esc(cls)+'">'+esc(c.quality||'À VOIR')+'</span></td>';
+ const reason=tr.querySelector('.reason');
+ const box=document.createElement('div');box.className='program-actions';reason.append(box);
+ for(const [label,url] of linkEntries(c.links||{})){const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';a.textContent=label;box.append(a)}
+ saveButton(box,c);attachSeenButton(tr,c);
+ return tr;
+}
+function applyGridGroups(){
+ const personalized=hideSeen();
+ for(const day of GRID_DAYS){
+   const s=ensureGridState(day);if(!s)continue;
+   const pool=(WEEK.personalization?.pools||{})[day+'-selection'];
+   const originalByTitle=new Map(s.rows.map(r=>[norm(titleOf(r)),r]));
+   const title1=s.p1.querySelector('.grid-title'),title2=s.p2.querySelector('.grid-title');
+   let note=s.p1.querySelector('.grid-seen-summary');
+
+   if(!personalized){
+     s.b1.replaceChildren(...s.rows.slice(0,s.firstCount));
+     s.b2.replaceChildren(...s.rows.slice(s.firstCount));
+     for(const r of s.rows){r.classList.remove('seen-hidden');attachSeenButton(r)}
+     for(const r of s.generated.values())r.remove();
+     s.p2.classList.remove('seen-page-hidden');
+     if(title1)title1.textContent=s.title1;
+     if(title2)title2.textContent=s.title2;
+     if(note)note.remove();
+     continue;
+   }
+
+   const target=s.rows.length;
+   const selected=[],used=new Set();
+   const take=(row,c=null)=>{
+     const t=norm(c?.title||titleOf(row));if(!t||used.has(t))return;
+     const title=c?.title||titleOf(row),wid=c?.work_id||workIdForTitle(title);
+     if(isSeen(title,wid))return;
+     row.classList.remove('seen-hidden');attachSeenButton(row,c);
+     selected.push(row);used.add(t);
+   };
+
+   for(const c of pool?.candidates||[]){
+     if(selected.length>=target)break;
+     const key=norm(c.title);let row=originalByTitle.get(key);
+     if(!row){
+       row=s.generated.get(key);
+       if(!row){row=makeGridReserveRow(c);s.generated.set(key,row)}
+     }
+     take(row,c);
+   }
+   for(const row of s.rows){
+     if(selected.length>=target)break;
+     take(row);
+   }
+
+   s.b1.replaceChildren(...selected.slice(0,s.firstCount));
+   const rest=selected.slice(s.firstCount);
+   s.b2.replaceChildren(...rest);
+   const onePage=rest.length===0;
+   s.p2.classList.toggle('seen-page-hidden',onePage);
+   if(title1)title1.textContent=onePage?s.title1.replace(/\s*·\s*1\/2\s*$/,''):s.title1;
+   if(title2)title2.textContent=s.title2;
+
+   const hiddenOriginal=s.rows.filter(r=>isSeen(titleOf(r),workIdForTitle(titleOf(r)))).length;
+   const replacements=selected.filter(r=>r.classList.contains('grid-reserve-generated')).length;
+   if(hiddenOriginal||replacements||onePage){
+     if(!note){note=document.createElement('div');note.className='seen-summary grid-seen-summary';const anchor=s.p1.querySelector('.rule')||s.p1.querySelector('.topbar');anchor?.insertAdjacentElement('afterend',note)}
+     let msg=hiddenOriginal+' recommandation'+(hiddenOriginal>1?'s':'')+' déjà vue'+(hiddenOriginal>1?'s':'')+' masquée'+(hiddenOriginal>1?'s':'');
+     if(replacements)msg+=' · '+replacements+' remplacée'+(replacements>1?'s':'')+' par la réserve éditoriale';
+     if(onePage)msg+=' · les '+selected.length+' recommandations restantes sont regroupées sur une seule page';
+     else msg+=' · les recommandations restantes sont redistribuées automatiquement entre les deux pages';
+     note.textContent=msg+'.';
+   }else if(note)note.remove();
+ }
+}
+
 function updateSimpleSummaries(){
  for(const page of document.querySelectorAll('.page')){
-   if(poolPageIds.has(page.id))continue;
+   if(poolPageIds.has(page.id)||isDailyGridPageId(page.id))continue;
    const hidden=[...page.querySelectorAll('.seen-hidden')].filter(el=>candidates().includes(el)).length;
    let note=page.querySelector('.simple-seen-summary');
    if(hideSeen()&&hidden){
@@ -161,11 +257,13 @@ function apply(){
  const h=hideSeen();
  for(const el of candidates()){
    const title=titleOf(el);if(!title)continue;
-   const inPool=poolPageIds.has(el.closest('.page')?.id||'');
-   if(!inPool)el.classList.toggle('seen-hidden',h&&isSeen(title,workIdForTitle(title)));
+   const pageId=el.closest('.page')?.id||'';
+   const inPool=poolPageIds.has(pageId);
+   const inDailyGrid=el.matches('tr')&&isDailyGridPageId(pageId);
+   if(!inPool&&!inDailyGrid)el.classList.toggle('seen-hidden',h&&isSeen(title,workIdForTitle(title)));
    attachSeenButton(el);
  }
- applyPools();updateSimpleSummaries();updateToggle();
+ applyPools();applyGridGroups();updateSimpleSummaries();updateToggle();
  const c=document.getElementById('savedCount');if(c)c.textContent=Object.values(loadStore()).filter(x=>(x.status||'a-recuperer')==='a-recuperer').length;
  setTimeout(()=>{try{window.dispatchEvent(new Event('resize'))}catch(e){}},20);
 }
