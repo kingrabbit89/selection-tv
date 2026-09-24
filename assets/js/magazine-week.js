@@ -456,4 +456,5 @@ Promise.all([
 })();
 
 
-/* ---- couche personnelle : films déjà vus ----\n   Centralisée dans seen-filter.js pour éviter deux moteurs concurrents. */\n
+/* ---- couche personnelle : films déjà vus ----
+   Centralisée dans seen-filter.js pour éviter deux moteurs concurrents. */
