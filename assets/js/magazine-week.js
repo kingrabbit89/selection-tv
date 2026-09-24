@@ -167,34 +167,33 @@ document.querySelectorAll('article.week-card,article.list-card,article.platform,
 
 
 (()=>{
-const DIRECT=window.SelectionTVDirectLinks={"Lost in Translation":{"imdb":"https://www.imdb.com/title/tt0335266/","sc":"https://www.senscritique.com/film/-/472876","wiki":"https://fr.wikipedia.org/wiki/Lost_in_Translation","allocine":"https://www.allocine.fr/film/fichefilm_gen_cfilm=47395.html"},"Paris, Texas":{"imdb":"https://www.imdb.com/title/tt0087884/","sc":"https://www.senscritique.com/film/paris_texas/414147","wiki":"https://fr.wikipedia.org/wiki/Paris,_Texas","allocine":"https://www.allocine.fr/film/fichefilm_gen_cfilm=263.html"},"Tár":{"imdb":"https://www.imdb.com/title/tt14444726/","sc":"https://www.senscritique.com/film/tar/45408140"},"Sympathy for Mr. Vengeance":{"imdb":"https://www.imdb.com/title/tt0310775/","sc":"https://www.senscritique.com/film/sympathy_for_mister_vengeance/433650"},"A Scene at the Sea":{"imdb":"https://www.imdb.com/title/tt0103704/","sc":"https://www.senscritique.com/film/a_scene_at_the_sea/423974"},"Le Jardin des Finzi-Contini":{"imdb":"https://www.imdb.com/title/tt0065777/","sc":"https://www.senscritique.com/film/le_jardin_des_finzi_contini/484792"},"Le Gouffre aux chimères":{"imdb":"https://www.imdb.com/title/tt0043338/","sc":"https://www.senscritique.com/film/le_gouffre_aux_chimeres/366885"},"Portier de nuit":{"imdb":"https://www.imdb.com/title/tt0071910/","sc":"https://www.senscritique.com/film/portier_de_nuit/438107"},"Doux oiseau de jeunesse":{"imdb":"https://www.imdb.com/title/tt0056541/","sc":"https://www.senscritique.com/film/doux_oiseau_de_jeunesse/418145"},"Certains l’aiment chaud":{"imdb":"https://www.imdb.com/title/tt0053291/","sc":"https://www.senscritique.com/film/certains_l_aiment_chaud/460624"},"Le démon s’éveille la nuit":{"imdb":"https://www.imdb.com/title/tt0044502/","sc":"https://www.senscritique.com/film/le_demon_s_eveille_la_nuit/489937"},"Million Dollar Baby":{"imdb":"https://www.imdb.com/title/tt0405159/","sc":"https://www.senscritique.com/film/Million_Dollar_Baby/403401"},"Les ailes du désir":{"imdb":"https://www.imdb.com/title/tt0093191/"},"L’Idiot":{"imdb":"https://www.imdb.com/title/tt0043614/"},"L’homme des hautes plaines":{"imdb":"https://www.imdb.com/title/tt0068699/"},"La Bête aveugle":{"imdb":"https://www.imdb.com/title/tt0140384/"},"Donbass":{"imdb":"https://www.imdb.com/title/tt8282042/"},"Fragments d’un parcours amoureux":{"imdb":"https://www.imdb.com/title/tt28635725/"},"Fight Club":{"imdb":"https://www.imdb.com/title/tt0137523/","sc":"https://www.senscritique.com/film/fight_club/363185"},"Before Sunrise":{"imdb":"https://www.imdb.com/title/tt0112471/","sc":"https://www.senscritique.com/film/before_sunrise/470061"},"Volver":{"imdb":"https://www.imdb.com/title/tt0441909/","sc":"https://www.senscritique.com/film/volver/431177"},"Tigre et dragon":{"imdb":"https://www.imdb.com/title/tt0190332/","sc":"https://www.senscritique.com/film/tigre_et_dragon/424149"},"American History X":{"imdb":"https://www.imdb.com/title/tt0120586/","sc":"https://www.senscritique.com/film/american_history_x/392288"},"La Fureur de vivre":{"imdb":"https://www.imdb.com/title/tt0048545/","sc":"https://www.senscritique.com/film/la_fureur_de_vivre/373062"},"Le Cercle des poètes disparus":{"imdb":"https://www.imdb.com/title/tt0097165/","sc":"https://www.senscritique.com/film/le_cercle_des_poetes_disparus/363161"},"Fisher King : Le Roi pêcheur":{"imdb":"https://www.imdb.com/title/tt0101889/"},"Miami Vice - Deux flics à Miami":{"imdb":"https://www.imdb.com/title/tt0430357/"},"Arsenic et vieille dentelle":{"imdb":"https://www.imdb.com/title/tt0036613/","sc":"https://www.senscritique.com/film/arsenic_et_vieilles_dentelles/496973"},"Jeux dangereux":{"imdb":"https://www.imdb.com/title/tt0035446/","sc":"https://www.senscritique.com/film/jeux_dangereux/465400"},"Caprice":{"imdb":"https://www.imdb.com/title/tt3612984/"},"Eddington":{"imdb":"https://www.imdb.com/title/tt31176520/"},"Là où chantent les écrevisses":{"imdb":"https://www.imdb.com/title/tt9411972/"},"« Gomorra », manifeste antimafia":{"official":"https://www.arte.tv/fr/videos/123976-000-A/gomorra-manifeste-antimafia/"}};
 const clean=s=>(s||'').replace(/\s+/g,' ').trim();
 const titleOf=el=>{
  if(el.matches('tr')) return clean(el.querySelector('.prog')?.childNodes?.[0]?.textContent||el.querySelector('.prog')?.textContent);
  return clean(el.querySelector('h3')?.textContent);
 };
-const pref=d=>d&&(d.allocine||d.sc||d.imdb||d.wiki||d.official);
 document.querySelectorAll('article.week-card,article.list-card,article.platform,article.feature,article.radar-card,table.schedule tbody tr').forEach(el=>{
- const title=titleOf(el), d=DIRECT[title]||{};
+ const title=titleOf(el), V=window.SELECTION_TV_VERIFIED_LINKS?.[norm(title)]||{};
  const titleLink=el.querySelector('.program-title-link');
  if(titleLink){
-   const u=pref(d);
-   if(u){titleLink.href=u}else{const t=document.createTextNode(titleLink.textContent);titleLink.replaceWith(t)}
+   const u=V.allocine||V.sc||V.imdb||V.wiki||V.official||V.film_documentaire;
+   if(u)titleLink.href=u;else titleLink.replaceWith(document.createTextNode(titleLink.textContent));
  }
  el.querySelectorAll('.program-actions a').forEach(a=>{
    const label=clean(a.textContent).toLowerCase();
    let u=null;
-   const V=window.SELECTION_TV_VERIFIED_LINKS?.[norm(title)]||{}; if(label==='imdb') u=V.imdb||d.imdb;
-   else if(label==='senscritique') u=V.sc||d.sc;
-   else if(label==='wikipedia') u=V.wiki||d.wiki;
-   else if(label==='allociné') u=V.allocine||d.allocine;
-   else if(label==='fiche') u=V.allocine||V.sc||V.imdb||V.wiki||V.official||pref(d);
-   else if(label.startsWith('voir sur')) u=d.official;
-   if(u) a.href=u; else a.remove();
+   if(label==='imdb')u=V.imdb;
+   else if(label==='senscritique')u=V.sc;
+   else if(label==='wikipedia')u=V.wiki;
+   else if(label==='allociné'||label==='fiche allociné')u=V.allocine;
+   else if(label==='film-documentaire')u=V.film_documentaire;
+   else if(label==='fiche')u=V.allocine||V.sc||V.imdb||V.wiki||V.official||V.film_documentaire;
+   else if(label.startsWith('voir sur')||a.classList.contains('official'))u=V.official;
+   if(u)a.href=u;else a.remove();
  });
  el.querySelectorAll('.ratings a').forEach(a=>{
    const label=clean(a.textContent).toLowerCase();
-   const V=window.SELECTION_TV_VERIFIED_LINKS?.[norm(title)]||{}; const u=label.startsWith('imdb')?(V.imdb||d.imdb):label.startsWith('senscritique')?(V.sc||d.sc):null;
+   const u=label.startsWith('imdb')?V.imdb:label.startsWith('senscritique')?V.sc:null;
    if(u)a.href=u;else{const s=document.createElement('span');s.className=a.className;s.textContent=a.textContent;a.replaceWith(s)}
  });
 });
