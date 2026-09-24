@@ -8,6 +8,12 @@ const addScript=src=>new Promise((resolve,reject)=>{const s=document.createEleme
 const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 fetch(jsonUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}).then(async d=>{
  window.SELECTION_TV_WEEK_DATA=d;
+ try{
+   const lr=await fetch(root+'data/links.json?v=20260924-exactlinks1',{cache:'no-store'});
+   const ld=lr.ok?await lr.json():{links:{}};
+   const nk=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+   window.SELECTION_TV_VERIFIED_LINKS=Object.fromEntries(Object.entries(ld.links||{}).map(([k,v])=>[nk(k),v]));
+ }catch(e){window.SELECTION_TV_VERIFIED_LINKS={}}
  document.title=d.title||('Sélection TV — '+week);
  if(d.bodyClass)document.body.className=d.bodyClass;
  await addCss(root+'assets/css/'+(d.theme==='magazine'?'magazine.css?v=20260924-imagecanon3':'archive.css?v=20260924-imagecanon3'));
