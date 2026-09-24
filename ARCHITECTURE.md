@@ -59,6 +59,6 @@ Pour chaque journée :
 - minimum normal : 8 candidats ;
 - si moins de 8 programmes dépassent réellement le seuil éditorial, le JSON doit contenir `shortage_reason` plutôt que d’ajouter des recommandations médiocres.
 
-Au chargement, le navigateur conserve les choix principaux non vus et remplit les places libérées avec les meilleurs candidats suivants du réservoir. Le bouton « Afficher les vus » restaure l’affichage canonique. La grille filtrée, elle, reste la liste exhaustive des programmes ayant passé le seuil et masque simplement les titres déjà vus.
+Au chargement, le navigateur conserve les choix principaux non vus et remplit les places libérées avec les meilleurs candidats suivants du réservoir. Le bouton « Afficher les vus » restaure l’affichage canonique. Les grilles commentées constituent un ensemble logique unique par jour : après masquage, les lignes restantes sont repaginées depuis la première page, la seconde page disparaît lorsqu’elle n’est plus nécessaire et, si le pool contient des candidats supplémentaires au-dessus du seuil éditorial, ceux-ci complètent la grille jusqu’au quota prévu.
 
 Cette personnalisation reste locale : la tâche hebdomadaire ne lit jamais l’historique privé de l’utilisateur et le dépôt GitHub conserve toujours la sélection complète.
