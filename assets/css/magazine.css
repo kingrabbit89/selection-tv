@@ -394,3 +394,12 @@
 .toolbar .seen-toggle.showing-seen{background:#f8f4ec;color:#172238;border-color:#f8f4ec}
 .seen-summary{margin:2mm 0 2.5mm;padding:1.5mm 2.2mm;border-left:.8mm solid #6f8094;background:#eef1f2;color:#56616d;font-size:6.2pt;line-height:1.25}
 @media print{.seen-summary{display:none}.program-actions .seen-btn{display:none!important}}
+
+/* --- Réserve éditoriale : remplacements locaux des déjà-vus --- */
+.feature.replacement-generated{border-top-color:#60758b;background:linear-gradient(180deg,#fffdf9,#f4f0e8)}
+.feature.replacement-generated::after{content:"RÉSERVE ÉDITORIALE";position:absolute;right:2.5mm;top:2.5mm;font:800 4.6pt Inter,Arial,sans-serif;letter-spacing:.08em;color:#60758b;background:#eef2f4;padding:.7mm 1.1mm;border-radius:999px}
+.feature.replacement-generated{position:relative}
+.replacement-visual{background:#1b2637;overflow:hidden}
+.replacement-visual img{width:100%;height:100%;object-fit:cover}
+.replacement-fallback{width:100%;height:100%;display:flex;align-items:flex-end;padding:4mm;background:linear-gradient(145deg,#1b2637,#4b5969);color:#fff;font:700 14pt/1.05 Georgia,serif}
+.reserve-summary{border-left-color:#60758b!important;background:#edf1f3!important}
