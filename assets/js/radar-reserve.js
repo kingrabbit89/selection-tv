@@ -1,6 +1,6 @@
 (()=>{
 const WEEK=window.SELECTION_TV_WEEK_DATA||{};
-const CFG=WEEK.radar_reserves||{};
+const CFG=window.SELECTION_TV_RADAR_RESERVES||WEEK.radar_reserves||{};
 const STORE='selectionTV_saved_v1',SEEN='selectionTV_seen_v2',PREF='selectionTV_hide_seen_v1';
 const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
 const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -64,7 +64,7 @@ function applySection(key){
  let visible=originals.filter(x=>!x.classList.contains('seen-hidden')).length;
  for(const c of cfg.candidates||[]){if(visible>=cfg.target)break;if(isSeen(c))continue;if(originals.some(x=>norm(titleOf(x))===norm(c.title)))continue;box.append(card(c,cfg.type));visible++}
 }
-function apply(){applySection('torrent');applySection('hd1');applySection('hd2');syncSummary();setTimeout(()=>window.dispatchEvent(new Event('resize')),20)}
+function apply(){applySection('popular');applySection('hd1');applySection('hd2');syncSummary();setTimeout(()=>window.dispatchEvent(new Event('resize')),20)}
 document.addEventListener('selectiontv:seenchange',()=>setTimeout(apply,70));
 document.addEventListener('click',e=>{if(e.target?.id==='seenToggle')setTimeout(apply,70)});
 window.addEventListener('storage',e=>{if([STORE,SEEN,PREF].includes(e.key))apply()});
