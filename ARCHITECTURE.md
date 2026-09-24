@@ -18,6 +18,7 @@ Le contenu éditorial du numéro se trouve dans `data/weeks/YYYY-Sxx.json`.
 - `data/works.json` : catalogue permanent des œuvres et historique des apparitions.
 - `data/releases.json` : sorties physiques, arrivées streaming et expirations.
 - `data/weeks/*.json` : contenu propre à chaque numéro.
+- `data/radar-reserves/*.json` : réservoirs classés des deux radars, chargés comme données JSON sans déplacer la logique éditoriale dans le JavaScript.
 - `assets/css/magazine.css` : présentation commune des numéros actuels et futurs.
 - `assets/js/magazine-week.js` : comportement commun des numéros actuels et futurs.
 - `assets/css/archive.css` et `assets/js/archive-week.js` : compatibilité avec S37 à S39.
@@ -98,4 +99,4 @@ Les deux radars utilisent la même logique locale de remplacement que les sélec
 - fenêtre de repérage de 21 jours pour les restaurations, rééditions, premières éditions HD et réapparitions intéressantes ;
 - la page récapitulative est reconstruite dans le navigateur pour refléter les dix titres réellement affichés après personnalisation.
 
-Les réserves conservent les mêmes métadonnées, notes, liens de fiches et boutons personnels que les cartes principales. Le design Astra et la structure des pages restent inchangés.
+Les réserves conservent les mêmes métadonnées, notes, liens de fiches et boutons personnels que les cartes principales. Elles sont stockées dans `data/radar-reserves/YYYY-Sxx.json` ; le JavaScript commun ne contient que la logique de remplacement. Le design Astra et la structure des pages restent inchangés.
