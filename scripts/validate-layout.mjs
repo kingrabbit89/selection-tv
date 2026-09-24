@@ -96,10 +96,11 @@ try{
   const bottom=await page.evaluate(()=>({
    y:scrollY,
    max:document.documentElement.scrollHeight-innerHeight,
+   innerHeight,
    last:[...document.querySelectorAll('.book>.page')].filter(e=>getComputedStyle(e).display!=='none').at(-1)?.getBoundingClientRect().top
   }));
   assert(Math.abs(bottom.y-bottom.max)<=3,`${week}: cannot scroll to document bottom`);
-  assert(bottom.last<innerHeight,`${week}: last visible page is not reachable`);
+  assert(bottom.last<bottom.innerHeight,`${week}: last visible page is not reachable`);
   await page.evaluate(()=>window.scrollTo(0,0));
  };
 
