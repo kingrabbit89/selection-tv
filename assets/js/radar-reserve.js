@@ -64,7 +64,16 @@ function applySection(key){
  let visible=originals.filter(x=>!x.classList.contains('seen-hidden')).length;
  for(const c of cfg.candidates||[]){if(visible>=cfg.target)break;if(isSeen(c))continue;if(originals.some(x=>norm(titleOf(x))===norm(c.title)))continue;box.append(card(c,cfg.type));visible++}
 }
-function apply(){applySection('popular');applySection('hd1');applySection('hd2');syncSummary();setTimeout(()=>window.dispatchEvent(new Event('resize')),20)}
+function updateCopy(){
+ const popular=document.getElementById('radar-torrent');
+ if(popular){
+   const issue=popular.querySelector('.issue');if(issue)issue.textContent='TorrentFreak · fenêtre publique récente';
+   const h=popular.querySelector('.h1');if(h)h.textContent='Cinq titres à retenir dans la circulation récente';
+   const deck=popular.querySelector('.deck');if(deck)deck.textContent='Le classement hebdomadaire reste le signal principal, mais une réserve parcourt aussi les semaines récentes afin de remplacer les œuvres déjà vues sans abaisser le seuil éditorial. Aucun lien de téléchargement n’est repris.';
+ }
+ for(const id of ['radar-1','radar-2']){const p=document.getElementById(id),issue=p?.querySelector('.issue');if(issue)issue.textContent='Ajouts HD repérés sur les 21 derniers jours'}
+}
+function apply(){updateCopy();applySection('popular');applySection('hd1');applySection('hd2');syncSummary();setTimeout(()=>window.dispatchEvent(new Event('resize')),20)}
 document.addEventListener('selectiontv:seenchange',()=>setTimeout(apply,70));
 document.addEventListener('click',e=>{if(e.target?.id==='seenToggle')setTimeout(apply,70)});
 window.addEventListener('storage',e=>{if([STORE,SEEN,PREF].includes(e.key))apply()});
