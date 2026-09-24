@@ -131,9 +131,21 @@ window.SelectionTVImagesReady=(async()=>{
    hydrateTree(document);
    const book=document.querySelector('.book');
    if(book){
+     const unresolvedCardSelector=CARD_SELECTOR.split(',').map(s=>s.trim()+':not([data-image-resolved="1"])').join(',');
+     const needsHydration=node=>{
+       if(!(node instanceof Element))return false;
+       if(node.matches(unresolvedCardSelector)||node.matches('.coverhero:not([data-image-resolved="1"])'))return true;
+       return !!node.querySelector(unresolvedCardSelector+',.coverhero:not([data-image-resolved="1"])');
+     };
      const observer=new MutationObserver(records=>{
-       for(const rec of records)for(const node of rec.addedNodes)if(node instanceof Element)hydrateTree(node);
-       setTimeout(()=>window.SelectionTVLayout?.schedule?.(),20);
+       let hydrated=false;
+       for(const rec of records)for(const node of rec.addedNodes){
+         if(!needsHydration(node))continue;
+         hydrateTree(node);hydrated=true;
+       }
+       // Layout itself moves already-hydrated live nodes between pages. Do not
+       // schedule another layout for those moves or the two observers loop.
+       if(hydrated)setTimeout(()=>window.SelectionTVLayout?.schedule?.(),20);
      });
      observer.observe(book,{childList:true,subtree:true});
      window.SelectionTVImageObserver=observer;
