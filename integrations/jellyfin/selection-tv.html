@@ -1,0 +1,128 @@
+<style>
+.selectionTvHost{width:100%;height:calc(100vh - 92px);margin:0;padding:0}
+.selectionTvFrame{width:100%;height:100%;border:0;display:block;background:#111}
+</style>
+
+<div class="selectionTvHost">
+  <iframe
+    id="selectionTvFrame"
+    class="selectionTvFrame"
+    src="https://kingrabbit89.github.io/selection-tv/semaines/2026-S40/"
+    referrerpolicy="strict-origin-when-cross-origin">
+  </iframe>
+</div>
+
+<script>
+(()=>{
+  const CHILD_ORIGIN='https://kingrabbit89.github.io';
+  const frame=document.getElementById('selectionTvFrame');
+  if(!frame)return;
+
+  const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+  const cache=new Map();
+  const queue=[];
+  let active=0;
+  const MAX=6;
+
+  const api=()=>window.ApiClient||window.ServerConnections?.currentApiClient?.();
+  const quality=item=>{
+    const streams=[];
+    for(const src of item?.MediaSources||[])for(const s of src.MediaStreams||[])streams.push(s);
+    for(const s of item?.MediaStreams||[])streams.push(s);
+    const video=streams.filter(s=>String(s.Type||'').toLowerCase()==='video');
+    const height=Math.max(0,...video.map(s=>Number(s.Height)||0));
+    const width=Math.max(0,...video.map(s=>Number(s.Width)||0));
+    if(height>=2000||width>=3000)return '4K';
+    if(height>=1000||width>=1800)return '1080p';
+    if(height>=700||width>=1200)return '720p';
+    return '';
+  };
+  const imdbOf=item=>String(item?.ProviderIds?.Imdb||item?.ProviderIds?.IMDb||'').toLowerCase();
+  const exactTitle=(item,req)=>{
+    const wanted=norm(req.title);
+    const names=[item?.Name,item?.OriginalTitle].filter(Boolean).map(norm);
+    if(!names.includes(wanted))return false;
+    if(req.year&&String(item?.ProductionYear||'')!==String(req.year))return false;
+    return true;
+  };
+  const choose=(items,req)=>{
+    if(req.imdbId){
+      const wanted=req.imdbId.toLowerCase();
+      const hit=items.find(x=>imdbOf(x)===wanted);
+      if(hit)return hit;
+    }
+    const strict=items.filter(x=>exactTitle(x,req));
+    return strict.length===1?strict[0]:null;
+  };
+  const query=async(req)=>{
+    const a=api();if(!a||!a.getItems||!a.getCurrentUserId)return {key:req.key,found:false};
+    const cacheKey=req.imdbId||('title:'+norm(req.title)+'|'+(req.year||''));
+    if(cache.has(cacheKey))return {...cache.get(cacheKey),key:req.key};
+
+    const fields='ProviderIds,MediaSources,MediaStreams,OriginalTitle';
+    const base={
+      Recursive:true,
+      IncludeItemTypes:'Movie,Series',
+      Fields:fields,
+      EnableUserData:true,
+      Limit:40,
+      SearchTerm:req.title
+    };
+    let result=await a.getItems(a.getCurrentUserId(),base);
+    let hit=choose(result?.Items||[],req);
+
+    // Jellyfin 10.11 ignores provider-ID filtering, so when an exact IMDb ID
+    // exists but title search misses it, narrow rigorously by production year
+    // and verify the provider ID client-side.
+    if(!hit&&req.imdbId&&req.year){
+      result=await a.getItems(a.getCurrentUserId(),{
+        Recursive:true,
+        IncludeItemTypes:'Movie,Series',
+        Fields:fields,
+        EnableUserData:true,
+        Years:String(req.year),
+        Limit:600
+      });
+      hit=(result?.Items||[]).find(x=>imdbOf(x)===req.imdbId.toLowerCase())||null;
+    }
+
+    const out=hit?{
+      found:true,
+      itemId:hit.Id,
+      name:hit.Name||req.title,
+      year:hit.ProductionYear||'',
+      played:!!hit.UserData?.Played,
+      playCount:Number(hit.UserData?.PlayCount)||0,
+      quality:quality(hit)
+    }:{found:false};
+    cache.set(cacheKey,out);
+    return {...out,key:req.key};
+  };
+  const run=()=>{
+    while(active<MAX&&queue.length){
+      const job=queue.shift();active++;
+      query(job.req).then(job.resolve,()=>job.resolve({key:job.req.key,found:false})).finally(()=>{active--;run()});
+    }
+  };
+  const enqueue=req=>new Promise(resolve=>{queue.push({req,resolve});run()});
+  const send=payload=>frame.contentWindow?.postMessage(payload,CHILD_ORIGIN);
+
+  window.addEventListener('message',async e=>{
+    if(e.source!==frame.contentWindow||e.origin!==CHILD_ORIGIN||!e.data)return;
+    if(e.data.type==='selection-tv:jellyfin-query'&&Array.isArray(e.data.items)){
+      const unique=[...new Map(e.data.items.map(x=>[x.key,x])).values()];
+      const items=await Promise.all(unique.map(enqueue));
+      send({type:'selection-tv:jellyfin-result',version:1,items});
+    }
+    if(e.data.type==='selection-tv:jellyfin-open'&&e.data.itemId){
+      const a=api();
+      const serverId=a?.serverId?.();
+      window.location.href='#/details?id='+encodeURIComponent(e.data.itemId)+(serverId?'&serverId='+encodeURIComponent(serverId):'');
+    }
+  });
+
+  const ready=()=>send({type:'selection-tv:jellyfin-ready',version:1});
+  frame.addEventListener('load',ready);
+  setTimeout(ready,800);
+})();
+</script>
