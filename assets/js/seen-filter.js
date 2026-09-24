@@ -73,6 +73,33 @@ function linkEntries(L){
  const names={official:'Page officielle',allocine:'AlloCiné',imdb:'IMDb',sc:'SensCritique',wiki:'Wikipedia'};
  return ['official','allocine','imdb','sc','wiki'].filter(k=>L?.[k]).map(k=>[names[k],L[k]]);
 }
+
+function mergedLinks(c){
+ return {...(window.SelectionTVDirectLinks?.[c.title]||{}),...(c.links||{})};
+}
+function addReserveRatings(el,c){
+ const r=window.SelectionTVRatings?.[c.title];if(!r||el.querySelector('.ratings'))return;
+ const box=document.createElement('div');box.className='ratings';
+ const L=mergedLinks(c);
+ if(r.imdb){
+   const x=L.imdb?document.createElement('a'):document.createElement('span');
+   x.className='rating-pill imdb';x.textContent='IMDb '+r.imdb+'/10';
+   if(L.imdb){x.href=L.imdb;x.target='_blank';x.rel='noopener'}
+   box.append(x);
+ }
+ if(r.sc){
+   const x=L.sc?document.createElement('a'):document.createElement('span');
+   x.className='rating-pill sc';x.textContent='SensCritique '+r.sc+'/10';
+   if(L.sc){x.href=L.sc;x.target='_blank';x.rel='noopener'}
+   box.append(x);
+ }
+ const d=document.createElement('span');d.className='rating-date';d.textContent='relevé 24/09/2026';box.append(d);
+ if(el.matches('tr'))el.querySelector('.prog')?.append(box);
+ else{
+   const anchor=el.querySelector('.work-meta')||el.querySelector('.slot')||el.querySelector('.where')||el.querySelector('h3');
+   anchor?.insertAdjacentElement('afterend',box);
+ }
+}
 function saveButton(box,c){
  const key=norm(c.title);let b=box.querySelector('button.save');
  if(!b){b=document.createElement('button');b.type='button';b.className='save';box.append(b)}
@@ -80,8 +107,9 @@ function saveButton(box,c){
  b.onclick=()=>{const all=loadStore(),cur=all[key];if(cur?.status==='a-recuperer')delete all[key];else all[key]={...(cur||{}),title:c.title,work_id:c.work_id||null,context:[c.time,c.channel].filter(Boolean).join(' · '),badge:c.quality||'',page:document.title,url:location.href,added:new Date().toISOString(),status:'a-recuperer'};saveStore(all);refresh()};refresh();
 }
 function actionBox(article,c){
+ addReserveRatings(article,c);
  const box=document.createElement('div');box.className='program-actions';
- for(const [label,url] of linkEntries(c.links||{})){const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';a.textContent=label;box.append(a)}
+ for(const [label,url] of linkEntries(mergedLinks(c))){const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';a.textContent=label;box.append(a)}
  article.append(box);saveButton(box,c);attachSeenButton(article,c);
 }
 function renderReserve(c,cardType='feature'){
@@ -165,8 +193,8 @@ function makeGridReserveRow(c){
  tr.innerHTML='<td class="time">'+esc(c.time||'')+'</td><td class="chan">'+esc(c.channel||'')+'</td><td class="prog">'+esc(c.title)+'</td><td class="reason">'+esc(c.why||c.summary||'Retenu dans la réserve éditoriale de la journée.')+'</td><td class="rep"><span class="badge '+esc(cls)+'">'+esc(c.quality||'À VOIR')+'</span></td>';
  const reason=tr.querySelector('.reason');
  const box=document.createElement('div');box.className='program-actions';reason.append(box);
- for(const [label,url] of linkEntries(c.links||{})){const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';a.textContent=label;box.append(a)}
- saveButton(box,c);attachSeenButton(tr,c);
+ for(const [label,url] of linkEntries(mergedLinks(c))){const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';a.textContent=label;box.append(a)}
+ addReserveRatings(tr,c);saveButton(box,c);attachSeenButton(tr,c);
  return tr;
 }
 function applyGridGroups(){
