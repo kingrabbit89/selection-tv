@@ -410,3 +410,10 @@
 .week-card.replacement-generated::after{content:"RÉSERVE ÉDITORIALE";position:absolute;right:2mm;top:2mm;font:800 4.3pt Inter,Arial,sans-serif;letter-spacing:.07em;color:#60758b;background:#eef2f4;padding:.6mm 1mm;border-radius:999px;z-index:2}
 .rendezvous-page .week-card .rendezvous-fallback{height:60mm;border-radius:2mm;box-shadow:0 1mm 3mm rgba(0,0,0,.12)}
 @media(max-width:1000px){.rendezvous-page .week-card .rendezvous-fallback{height:44mm}}
+
+
+/* --- Grilles commentées : reflow après masquage des vus --- */
+.seen-page-hidden{display:none!important}
+.grid-reserve-generated{background:rgba(96,117,139,.055)}
+.grid-reserve-generated .prog::after{content:"RÉSERVE";display:inline-block;margin-left:1.2mm;padding:.35mm .8mm;border-radius:999px;background:#edf1f3;color:#60758b;font:800 4.2pt Inter,Arial,sans-serif;letter-spacing:.06em;vertical-align:middle}
+.grid-seen-summary{margin-bottom:2mm}
