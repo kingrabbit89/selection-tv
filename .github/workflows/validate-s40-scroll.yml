@@ -1,0 +1,54 @@
+name: Validate S40 scroll
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  scroll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save playwright
+      - run: npx playwright install chromium
+      - name: Test S40 bottom scroll
+        run: |
+          node --input-type=module <<'EOF'
+          import { chromium } from 'playwright';
+          import { createServer } from 'node:http';
+          import { readFile } from 'node:fs/promises';
+          import { resolve, extname } from 'node:path';
+          const root=process.cwd();
+          const server=createServer(async(req,res)=>{
+            const path=resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/\/$/,'/index.html'));
+            try{
+              res.setHeader('Content-Type',({'.js':'text/javascript','.css':'text/css','.json':'application/json','.html':'text/html'})[extname(path)]||'application/octet-stream');
+              res.end(await readFile(path));
+            }catch{res.writeHead(404);res.end()}
+          });
+          await new Promise(r=>server.listen(4173,'127.0.0.1',r));
+          const browser=await chromium.launch({headless:true});
+          const page=await browser.newPage({viewport:{width:1440,height:900}});
+          const errors=[]; page.on('pageerror',e=>errors.push(e.message));
+          await page.goto('http://127.0.0.1:4173/semaines/2026-S40/',{waitUntil:'domcontentloaded'});
+          await page.waitForFunction(()=>window.SelectionTVLayout);
+          await page.waitForTimeout(2500);
+          const before=await page.evaluate(()=>{
+            const get=id=>{const e=document.getElementById(id);if(!e)return null;const r=e.getBoundingClientRect();return {top:r.top+scrollY,bottom:r.bottom+scrollY,display:getComputedStyle(e).display}};
+            return {height:document.documentElement.scrollHeight,innerHeight,scrollY,p35:get('jeudi-grille'),p36:get('jeudi-grille-2'),p37:get('vendredi-selection'),p40:get('methode'),pages:[...document.querySelectorAll('.book>.page')].filter(e=>getComputedStyle(e).display!=='none').length,overflow:document.body.dataset.layoutOverflow||'',errors};
+          });
+          console.log('BEFORE',JSON.stringify(before));
+          if(!before.p36||!before.p37||!before.p40) throw new Error('Pages after 35 missing');
+          if(!(before.p36.top>before.p35.top && before.p37.top>before.p36.top && before.p40.top>before.p37.top)) throw new Error('Page order/geometry invalid');
+          await page.evaluate(()=>window.scrollTo(0,document.documentElement.scrollHeight));
+          await page.waitForTimeout(500);
+          const after=await page.evaluate(()=>({scrollY,max:document.documentElement.scrollHeight-innerHeight,methodTop:document.getElementById('methode').getBoundingClientRect().top}));
+          console.log('AFTER',JSON.stringify(after));
+          if(after.scrollY < after.max-5) throw new Error('Browser cannot reach document bottom');
+          if(after.methodTop > innerHeight) throw new Error('Last page not reachable in viewport');
+          if(errors.length) throw new Error('Page errors: '+errors.join(' | '));
+          await browser.close(); await new Promise(r=>server.close(r));
+          EOF
