@@ -38,6 +38,10 @@ Les nouveaux numéros réutilisent le même moteur de rendu et les mêmes contr�
 
 GitHub Actions vérifie automatiquement l’architecture et les données éditoriales, la politique de liens exacts, ainsi que le rendu réel dans Chromium : pagination, sommaire, défilement jusqu’à la dernière page, responsive, images, réserves et fonctionnement du système **Vu**.
 
+## Statistiques d’audience
+
+Le site est prêt pour une mesure d’audience légère avec **GoatCounter**. L’intégration est désactivée tant que `data/analytics.json` ne contient pas un code de site et `enabled: true`. Une fois activée, elle mesure les pages vues et permet également de compter les interactions générales avec **Vu** et **À récupérer**, sans envoyer les titres personnels enregistrés dans le navigateur.
+
 ## Lancer le site en local
 
 Le site charge des fichiers JSON avec `fetch()` : il faut donc le servir avec un petit serveur HTTP plutôt que d’ouvrir directement `index.html` en `file://`.
