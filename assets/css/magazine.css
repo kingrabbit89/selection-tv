@@ -403,3 +403,10 @@
 .replacement-visual img{width:100%;height:100%;object-fit:cover}
 .replacement-fallback{width:100%;height:100%;display:flex;align-items:flex-end;padding:4mm;background:linear-gradient(145deg,#1b2637,#4b5969);color:#fff;font:700 14pt/1.05 Georgia,serif}
 .reserve-summary{border-left-color:#60758b!important;background:#edf1f3!important}
+
+
+/* --- Correctif Vu S40 : réserve des rendez-vous + masquage uniforme --- */
+.week-card.replacement-generated{position:relative;border-top:.45mm solid #60758b;background:linear-gradient(180deg,#fffdf9,#f4f0e8)}
+.week-card.replacement-generated::after{content:"RÉSERVE ÉDITORIALE";position:absolute;right:2mm;top:2mm;font:800 4.3pt Inter,Arial,sans-serif;letter-spacing:.07em;color:#60758b;background:#eef2f4;padding:.6mm 1mm;border-radius:999px;z-index:2}
+.rendezvous-page .week-card .rendezvous-fallback{height:60mm;border-radius:2mm;box-shadow:0 1mm 3mm rgba(0,0,0,.12)}
+@media(max-width:1000px){.rendezvous-page .week-card .rendezvous-fallback{height:44mm}}
