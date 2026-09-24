@@ -34,20 +34,24 @@ if(strict){
      const ranks=new Set();for(const c of pool.candidates||[]){if(!c.title||!c.rank||ranks.has(c.rank)){console.error('✗ Invalid candidate ranking in '+day);process.exitCode=1}ranks.add(c.rank);if(!c.work_id)console.warn('! '+day+' candidate without stable work_id: '+c.title)}
    }
  }
- const rr=week.radar_reserves||{};
- const popular=rr.popular;
- if(!popular){console.error('✗ Missing popularity radar reserve');process.exitCode=1}
+ const radarPath='data/radar-reserves/'+latest+'.json';
+ if(!fs.existsSync(radarPath)){console.error('✗ Radar reserve data missing for '+latest);process.exitCode=1}
  else{
-   const n=(popular.candidates||[]).length;
-   if(popular.target!==pconfig.radar_popularity.target_visible){console.error('✗ Bad popularity radar target');process.exitCode=1}
-   if(n<pconfig.radar_popularity.minimum_total_candidates&&!popular.shortage_reason){console.error('✗ Popularity radar reserve too shallow');process.exitCode=1}
- }
- for(const key of ['hd1','hd2']){
-   const pool=rr[key];
-   if(!pool){console.error('✗ Missing HD radar reserve '+key);process.exitCode=1;continue}
-   const n=(pool.candidates||[]).length;
-   if(pool.target!==pconfig.radar_1080p.page_capacity){console.error('✗ Bad HD radar target for '+key);process.exitCode=1}
-   if(n<Math.ceil(pconfig.radar_1080p.minimum_total_candidates/2)&&!pool.shortage_reason){console.error('✗ HD radar reserve too shallow for '+key);process.exitCode=1}
+   const rr=read(radarPath);
+   const popular=rr.popular;
+   if(!popular){console.error('✗ Missing popularity radar reserve');process.exitCode=1}
+   else{
+     const n=(popular.candidates||[]).length;
+     if(popular.target!==pconfig.radar_popularity.target_visible){console.error('✗ Bad popularity radar target');process.exitCode=1}
+     if(n<pconfig.radar_popularity.minimum_total_candidates&&!popular.shortage_reason){console.error('✗ Popularity radar reserve too shallow');process.exitCode=1}
+   }
+   for(const key of ['hd1','hd2']){
+     const pool=rr[key];
+     if(!pool){console.error('✗ Missing HD radar reserve '+key);process.exitCode=1;continue}
+     const n=(pool.candidates||[]).length;
+     if(pool.target!==pconfig.radar_1080p.page_capacity){console.error('✗ Bad HD radar target for '+key);process.exitCode=1}
+     if(n<Math.ceil(pconfig.radar_1080p.minimum_total_candidates/2)&&!pool.shortage_reason){console.error('✗ HD radar reserve too shallow for '+key);process.exitCode=1}
+   }
  }
  if(!fs.existsSync(covPath)){console.error('✗ Coverage audit missing for '+latest);process.exitCode=1}
  else{
