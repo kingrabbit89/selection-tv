@@ -1,3 +1,32 @@
+/* ---- helper Vu : chargé avant tout le reste ---- */
+window.SelectionTVSeen=window.SelectionTVSeen||(()=>{
+ const STORE='selectionTV_saved_v1';
+ const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+ const load=()=>{try{return JSON.parse(localStorage.getItem(STORE)||'{}')}catch(e){return {}}};
+ const save=o=>{try{localStorage.setItem(STORE,JSON.stringify(o))}catch(e){}};
+ const attach=(box,title,metaFactory)=>{
+   if(!box||!title)return;
+   const key=norm(title);
+   let b=box.querySelector('button.seen-btn');
+   if(!b){b=document.createElement('button');b.type='button';b.className='seen-btn';box.append(b)}
+   const refresh=()=>{const item=load()[key],on=item?.status==='vu';b.textContent=on?'✓ Vu':'Vu';b.classList.toggle('seen-on',on);b.title=on?'Marqué comme vu — cliquer pour annuler':'Marquer comme déjà vu'};
+   b.onclick=()=>{
+     const all=load(),cur=all[key];
+     if(cur?.status==='vu'){
+       if(cur.previous_status){all[key]={...cur,status:cur.previous_status};delete all[key].previous_status}
+       else delete all[key];
+     }else{
+       const meta=typeof metaFactory==='function'?(metaFactory()||{}):{};
+       all[key]={...(cur||{}),...meta,title,previous_status:cur?.status||null,status:'vu',added:cur?.added||new Date().toISOString(),url:cur?.url||location.href,page:cur?.page||document.title};
+     }
+     save(all);refresh();
+     document.dispatchEvent(new CustomEvent('selectiontv:seenchange',{detail:{title}}));
+   };
+   refresh();
+ };
+ return {attach,load,norm};
+})();
+
 
 function imgFail(img){ const v=img.closest('.visual'); if(v) v.classList.add('broken'); }
 
@@ -49,7 +78,7 @@ const addActions=(el)=>{
  if(isDoc) box.append(makeA('Film-documentaire','https://www.google.com/search?q='+q('site:film-documentaire.fr "'+m.title+'"')));
  const b=document.createElement('button');b.type='button';b.className='save';
  const refresh=()=>{const item=load()[key];b.textContent=item&&(item.status||'a-recuperer')==='a-recuperer'?'✓ À récupérer':'＋ À récupérer';b.classList.toggle('saved',!!item&&(item.status||'a-recuperer')==='a-recuperer')};
- b.onclick=()=>{const all=load(); if(all[key]&&(all[key].status||'a-recuperer')==='a-recuperer') delete all[key]; else all[key]=m; save(all);refresh()};refresh();box.append(b);
+ b.onclick=()=>{const all=load(); if(all[key]&&(all[key].status||'a-recuperer')==='a-recuperer') delete all[key]; else all[key]=m; save(all);refresh()};refresh();box.append(b);window.SelectionTVSeen.attach(box,m.title,()=>m);
  const h=el.querySelector('h3'); if(h&&!h.querySelector('a')){const a=document.createElement('a');a.className='program-title-link';a.href=primary;a.target='_blank';a.rel='noopener';a.textContent=h.textContent;h.textContent='';h.append(a)}
  const target=el.querySelector('.reason')||el.querySelector('.interest')||el;
  target.append(box);
@@ -224,6 +253,7 @@ document.querySelectorAll('article.radar-card,article.torrent-card').forEach(car
    save(all);refresh();
  };
  refresh();
+ window.SelectionTVSeen.attach(box,title,()=>({title,context:(isTorrent?'Radar popularité torrent':'Radar 1080p')+' · '+signal,badge:isTorrent?'RADAR TORRENT':'RADAR 1080P'}));
 });
 })();
 
@@ -364,6 +394,7 @@ document.querySelectorAll('[data-title] button.save').forEach(b=>{
  const refresh=()=>{const a=load(),on=!!a[key]&&a[key].status!=='recupere'&&a[key].status!=='vu';b.textContent=on?'✓ À récupérer':'＋ À récupérer';b.classList.toggle('saved',on)};
  if(!b.dataset.bound){b.dataset.bound='1';b.onclick=()=>{const a=load();if(a[key]&&a[key].status==='a-recuperer')delete a[key];else a[key]={title,context:(el.closest('.physical')?'Blu-ray / UHD':el.closest('.streaming')?'Streaming':el.closest('.expiring')?'À voir avant disparition':'Sélection TV')+' · S40',badge:el.closest('.physical')?'BLU-RAY':el.closest('.streaming')?'STREAMING':el.closest('.expiring')?'EXPIRATION':'',page:document.title,url:location.href,added:new Date().toISOString(),status:'a-recuperer'};save(a);refresh()};}
  refresh();
+ window.SelectionTVSeen.attach(b.closest('.program-actions')||el,title,()=>({title,context:(el.closest('.physical')?'Blu-ray / UHD':el.closest('.streaming')?'Streaming':el.closest('.expiring')?'À voir avant disparition':'Sélection TV')+' · S40',badge:el.closest('.physical')?'BLU-RAY':el.closest('.streaming')?'STREAMING':el.closest('.expiring')?'EXPIRATION':''}));
 });
 const input=document.getElementById('issueSearch'),results=document.getElementById('searchResults');
 if(input&&results){
