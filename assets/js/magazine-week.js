@@ -425,8 +425,8 @@ const titleOf=el=>{
 };
 const labelFor=k=>({official:'Page officielle',allocine:'AlloCiné',imdb:'IMDb',sc:'SensCritique',wiki:'Wikipedia'}[k]||k);
 Promise.all([
- fetch('../../data/links.json').then(r=>r.ok?r.json():{links:{}}),
- fetch('../../data/works.json').then(r=>r.ok?r.json():{works:[]})
+ fetch('../../data/links.json?v=20260924-platformfilms1').then(r=>r.ok?r.json():{links:{}}),
+ fetch('../../data/works.json?v=20260924-platformfilms1').then(r=>r.ok?r.json():{works:[]})
 ]).then(([ld,wd])=>{
  const links=new Map(Object.entries(ld.links||{}).map(([k,v])=>[norm(k),v]));
  const works=new Map((wd.works||[]).map(x=>[norm(x.title),x]));
