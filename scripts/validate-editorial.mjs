@@ -55,7 +55,7 @@ if(strict){
  }
  // Visual image coverage: no silent poster gaps from S41 onward.
  const visualTitles=new Set();
- const visualClass=/\b(?:week-card|feature|list-card|platform|release-card|expire-card|radar-card|torrent-card)\b/;
+ const visualClass=/\b(?:week-card|feature|list-card|platform|release-card|expire-card|radar-card|torrent-card|card|listitem|radarcard)\b/;
  for(const page of week.pages||[]){
    const re=/<article class="([^"]+)"[^>]*>([\s\S]*?)<\/article>/g;let m;
    while((m=re.exec(page.html))){

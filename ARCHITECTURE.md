@@ -113,6 +113,6 @@ Les réserves conservent les mêmes métadonnées, notes, liens de fiches et bou
 
 La recherche suit une cascade : source officielle ou éditeur, base cinéma fiable, puis recherche d’images web ciblée (`titre + année + poster/affiche` ; pour une réédition, `titre + Blu-ray/4K cover`). Une miniature de moteur de recherche n’est pas considérée comme source canonique : elle sert à retrouver et vérifier le fichier/source d’origine.
 
-`assets/js/image-resolver.js` hydrate les cartes à partir du catalogue canonique et essaie automatiquement les URLs de secours si un hébergeur refuse le hotlink ou si une image disparaît. Les cartes générées dynamiquement par le système `Vu` bénéficient du même traitement.
+`assets/js/image-resolver.js` hydrate les cartes à partir du catalogue canonique et essaie automatiquement les URLs de secours si un hébergeur refuse le hotlink ou si une image disparaît. Les cartes générées dynamiquement par le système `Vu` bénéficient du même traitement. Les numéros d’archive S37 à S39 utilisent le même résolveur : les anciens `poster-fallback` sont remplacés à l’affichage dès qu’un visuel canonique existe dans `works.json`.
 
 Une absence d’image n’est admise qu’avec `image_exception_reason`, par exemple pour une carte éditoriale d’agrégation sans œuvre unique. À partir de S41, la validation éditoriale bloque une publication qui contient une carte visuelle ou un candidat de réserve sans image ni exception documentée.
