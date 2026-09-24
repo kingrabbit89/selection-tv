@@ -75,7 +75,7 @@ function linkEntries(L){
 }
 
 function mergedLinks(c){
- return {...(window.SelectionTVDirectLinks?.[c.title]||{}),...(c.links||{})};
+ return {...(window.SELECTION_TV_VERIFIED_LINKS?.[norm(c.title)]||{}),...(window.SelectionTVDirectLinks?.[c.title]||{}),...(c.links||{})};
 }
 function addReserveRatings(el,c){
  const r=window.SelectionTVRatings?.[c.title]||c.ratings;if(!r||el.querySelector('.ratings'))return;
