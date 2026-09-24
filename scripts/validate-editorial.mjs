@@ -4,6 +4,7 @@ const manifest=read('data/manifest.json');
 const latest=manifest.latest;
 const links=read('data/links.json').links||{};
 const config=read('data/editorial-config.json');
+const pconfig=read('data/personalization-config.json');
 const week=read('data/weeks/'+latest+'.json');
 const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
 const linkKeys=new Set(Object.keys(links).map(norm));
@@ -20,6 +21,19 @@ const strict=latest>='2026-S41';
 if(strict && missing.length){console.error('✗ Every retained item must have an exact direct link from S41 onward');process.exitCode=1}
 const covPath='data/coverage/'+latest+'.json';
 if(strict){
+ const pers=week.personalization;
+ if(!pers||pers.schema_version!==1||!pers.pools){console.error('✗ Personalization pools missing');process.exitCode=1}
+ else{
+   const days=['samedi','dimanche','lundi','mardi','mercredi','jeudi','vendredi'];
+   for(const day of days){
+     const pool=pers.pools[day+'-selection'];
+     if(!pool){console.error('✗ Missing reserve pool for '+day);process.exitCode=1;continue}
+     const n=(pool.candidates||[]).length;
+     if(pool.target!==pconfig.daily_developed.target){console.error('✗ Bad target for '+day);process.exitCode=1}
+     if(n<pconfig.daily_developed.minimum_total_candidates&&!pool.shortage_reason){console.error('✗ '+day+' reserve too shallow without shortage_reason');process.exitCode=1}
+     const ranks=new Set();for(const c of pool.candidates||[]){if(!c.title||!c.rank||ranks.has(c.rank)){console.error('✗ Invalid candidate ranking in '+day);process.exitCode=1}ranks.add(c.rank);if(!c.work_id)console.warn('! '+day+' candidate without stable work_id: '+c.title)}
+   }
+ }
  if(!fs.existsSync(covPath)){console.error('✗ Coverage audit missing for '+latest);process.exitCode=1}
  else{
    const cov=read(covPath);
