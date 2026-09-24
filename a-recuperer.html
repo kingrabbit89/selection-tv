@@ -26,31 +26,50 @@ h1{color:#fff;font-size:50px}.deck{color:#c8c2bb;max-width:760px}
 .item{border-bottom-color:#ddd4c8}.title{color:#172238}
 .actions a,.actions button{background:#fffdf9;border-color:#d5ccbf;border-radius:999px}
 footer{color:#a8a199}
+
+/* États & filtres */
+.item.recovered{opacity:.78}.item.seen{opacity:.55}
+.toolbar .filter.active{background:#b53d4b;color:#fff;border-color:#b53d4b}
+.statebar{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.statebar button{font-size:11px;border:1px solid var(--line);background:#fffdf9;color:var(--ink);padding:7px 9px;border-radius:999px;font-weight:800;cursor:pointer}
+.statebar .active{background:#172238;color:#fff;border-color:#172238}
+.source-tag{display:inline-block;margin-top:7px;padding:4px 7px;border-radius:999px;background:#ebe3d8;color:#665f57;font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.05em}
 </style></head>
 <body><header><div class="wrap top"><div class="brand">SÉLECTION TV</div><nav class="nav"><a href="./">Accueil</a><a href="a-recuperer.html">À récupérer</a></nav></div></header>
 <main><h1>À récupérer</h1><div class="deck">Les programmes que tu as repérés dans les numéros hebdomadaires. Cette liste est mémorisée uniquement dans ce navigateur.</div>
-<div class="counts"><span class="chip" id="todoCount">0 à récupérer</span><span class="chip" id="doneCount">0 récupéré</span></div>
-<div class="toolbar"><button id="exportCsv">Exporter en CSV</button><button id="hideDone">Masquer les récupérés</button><button id="clearDone">Supprimer les récupérés</button></div>
+<div class="counts"><span class="chip" id="todoCount">0 à récupérer</span><span class="chip" id="doneCount">0 récupéré</span><span class="chip" id="seenCount">0 vu</span></div>
+<div class="toolbar"><button data-filter="all" class="filter active">Tout</button><button data-filter="a-recuperer" class="filter">À récupérer</button><button data-filter="recupere" class="filter">Récupéré</button><button data-filter="vu" class="filter">Vu</button><button data-source="TV">TV</button><button data-source="Streaming">Streaming</button><button data-source="Blu-ray">Blu-ray / UHD</button><button data-source="Radar">Radar 1080p</button><button id="exportCsv">Exporter en CSV</button></div>
 <div class="list" id="list"></div></main>
 <footer>Les choix sont enregistrés dans le stockage local du navigateur. Ils ne sont pas envoyés à GitHub.</footer>
 <script>
 (()=>{
-const STORE='selectionTV_saved_v1';let hideDone=false;
+const STORE='selectionTV_saved_v1';let statusFilter='all',sourceFilter='';
 const load=()=>{try{return JSON.parse(localStorage.getItem(STORE)||'{}')}catch(e){return {}}};
-const save=o=>localStorage.setItem(STORE,JSON.stringify(o));
+const save=o=>{localStorage.setItem(STORE,JSON.stringify(o));render()};
 const esc=s=>(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const render=()=>{
- const all=load(), items=Object.entries(all).sort((a,b)=>(b[1].added||'').localeCompare(a[1].added||''));
- const todo=items.filter(([,x])=>x.status!=='recupere').length, done=items.length-todo;
- document.getElementById('todoCount').textContent=todo+' à récupérer';document.getElementById('doneCount').textContent=done+' récupéré'+(done>1?'s':'');
- const shown=items.filter(([,x])=>!hideDone||x.status!=='recupere'), box=document.getElementById('list');
- if(!shown.length){box.innerHTML='<div class="empty"><b>Aucun programme ici</b>Utilise le bouton « À récupérer » dans un numéro hebdomadaire.</div>';return}
- box.innerHTML=shown.map(([k,x])=>`<div class="item ${x.status==='recupere'?'done':''}" data-key="${esc(k)}"><div><div class="title">${esc(x.title)}</div><div class="meta">${esc(x.context||'')}${x.badge?' · '+esc(x.badge):''}</div></div><div class="actions">${x.url?'<a href="'+esc(x.url)+'">Revoir dans le numéro</a>':''}<a target="_blank" rel="noopener" href="https://fr.wikipedia.org/w/index.php?search=${encodeURIComponent(x.title)}">Fiche</a><button class="donebtn">${x.status==='recupere'?'↩ À récupérer':'✓ Récupéré'}</button><button class="remove">Supprimer</button></div></div>`).join('');
- box.querySelectorAll('.item').forEach(el=>{const k=el.dataset.key;el.querySelector('.donebtn').onclick=()=>{const a=load();if(a[k]){a[k].status=a[k].status==='recupere'?'a-recuperer':'recupere';save(a);render()}};el.querySelector('.remove').onclick=()=>{const a=load();delete a[k];save(a);render()}});
+const sourceOf=x=>{
+ const c=(x.context||'').toLowerCase();
+ if(c.includes('blu-ray')||c.includes('uhd'))return 'Blu-ray';
+ if(c.includes('radar'))return 'Radar';
+ if(c.includes('streaming')||c.includes('netflix')||c.includes('apple')||c.includes('prime')||c.includes('canal+'))return 'Streaming';
+ if(c.includes('replay'))return 'Replay';
+ return 'TV';
 };
-document.getElementById('hideDone').onclick=e=>{hideDone=!hideDone;e.currentTarget.textContent=hideDone?'Afficher les récupérés':'Masquer les récupérés';render()};
-document.getElementById('clearDone').onclick=()=>{const a=load();for(const k of Object.keys(a))if(a[k].status==='recupere')delete a[k];save(a);render()};
-document.getElementById('exportCsv').onclick=()=>{const rows=[['Titre','Diffusion / plateforme','Repère','Statut'],...Object.values(load()).map(x=>[x.title,x.context||'',x.badge||'',x.status||'a-recuperer'])];const csv=rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\n');const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='selection-tv-a-recuperer.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)};
+const render=()=>{
+ const all=load(),items=Object.entries(all).sort((a,b)=>(b[1].added||'').localeCompare(a[1].added||''));
+ const counts={todo:0,rec:0,vu:0};items.forEach(([,x])=>{const s=x.status||'a-recuperer';if(s==='vu')counts.vu++;else if(s==='recupere')counts.rec++;else counts.todo++});
+ document.getElementById('todoCount').textContent=counts.todo+' à récupérer';
+ document.getElementById('doneCount').textContent=counts.rec+' récupéré'+(counts.rec>1?'s':'');
+ document.getElementById('seenCount').textContent=counts.vu+' vu'+(counts.vu>1?'s':'');
+ const shown=items.filter(([,x])=>(statusFilter==='all'||(x.status||'a-recuperer')===statusFilter)&&(!sourceFilter||sourceOf(x)===sourceFilter));
+ const box=document.getElementById('list');
+ if(!shown.length){box.innerHTML='<div class="empty"><b>Aucun programme ici</b>Change le filtre ou ajoute un programme depuis un numéro hebdomadaire.</div>';return}
+ box.innerHTML=shown.map(([k,x])=>{const st=x.status||'a-recuperer',src=sourceOf(x);return `<div class="item ${st==='recupere'?'recovered':st==='vu'?'seen':''}" data-key="${esc(k)}"><div><div class="title">${esc(x.title)}</div><div class="meta">${esc(x.context||'')}${x.badge?' · '+esc(x.badge):''}</div><span class="source-tag">${src}</span><div class="statebar"><button data-state="a-recuperer" class="${st==='a-recuperer'?'active':''}">À récupérer</button><button data-state="recupere" class="${st==='recupere'?'active':''}">Récupéré</button><button data-state="vu" class="${st==='vu'?'active':''}">Vu</button></div></div><div class="actions">${x.url?'<a href="'+esc(x.url)+'">Revoir dans le numéro</a>':''}<button class="remove">Supprimer</button></div></div>`}).join('');
+ box.querySelectorAll('.item').forEach(el=>{const k=el.dataset.key;el.querySelectorAll('[data-state]').forEach(b=>b.onclick=()=>{const a=load();if(a[k]){a[k].status=b.dataset.state;save(a)}});el.querySelector('.remove').onclick=()=>{const a=load();delete a[k];save(a)}});
+};
+document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{statusFilter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('active',x===b));render()});
+document.querySelectorAll('[data-source]').forEach(b=>b.onclick=()=>{sourceFilter=sourceFilter===b.dataset.source?'':b.dataset.source;render()});
+document.getElementById('exportCsv').onclick=()=>{const rows=[['Titre','Diffusion / plateforme','Repère','Source','Statut'],...Object.values(load()).map(x=>[x.title,x.context||'',x.badge||'',sourceOf(x),x.status||'a-recuperer'])];const csv=rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\n');const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='selection-tv-liste.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)};
 window.addEventListener('storage',render);render();
 })();
 </script></body></html>
