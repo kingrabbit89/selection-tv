@@ -441,17 +441,32 @@ Promise.all([
      const bits=[W.director,W.year,W.country,W.genre].filter(Boolean);
      if(bits.length){
        const meta=document.createElement('div');meta.className='work-meta';meta.textContent=bits.join(' · ');
-       const anchor=el.querySelector('.ratings')||el.querySelector('.meta')||el.querySelector('.where')||el.querySelector('.slot')||el.querySelector('h3')||el.querySelector('.prog');
-       if(anchor)anchor.insertAdjacentElement('afterend',meta);
+       if(el.matches('tr')){
+         el.querySelector('.prog')?.append(meta);
+       }else{
+         const anchor=el.querySelector('.ratings')||el.querySelector('.meta')||el.querySelector('.where')||el.querySelector('.slot')||el.querySelector('h3');
+         if(anchor)anchor.insertAdjacentElement('afterend',meta);
+       }
      }
    }
    if(W?.ratings){
      let ratings=el.querySelector('.ratings');
-     if(!ratings){ratings=document.createElement('div');ratings.className='ratings';const wm=el.querySelector('.work-meta')||el.querySelector('.meta')||el.querySelector('h3')||el.querySelector('.prog');wm?.insertAdjacentElement('afterend',ratings)}
+     if(!ratings){
+       ratings=document.createElement('div');ratings.className='ratings';
+       if(el.matches('tr')) el.querySelector('.prog')?.append(ratings);
+       else {const wm=el.querySelector('.work-meta')||el.querySelector('.meta')||el.querySelector('h3');wm?.insertAdjacentElement('afterend',ratings)}
+     }
      if(W.ratings.imdb && L.imdb && ![...ratings.children].some(x=>x.textContent.startsWith('IMDb'))){const a=document.createElement('a');a.className='rating-pill imdb';a.href=L.imdb;a.target='_blank';a.rel='noopener';a.textContent='IMDb '+W.ratings.imdb+'/10';ratings.append(a)}
      if(W.ratings.senscritique && L.sc && ![...ratings.children].some(x=>x.textContent.startsWith('SensCritique'))){const a=document.createElement('a');a.className='rating-pill sc';a.href=L.sc;a.target='_blank';a.rel='noopener';a.textContent='SensCritique '+W.ratings.senscritique+'/10';ratings.append(a)}
    }
  });
+ const repairScheduleRows=()=>{
+   document.querySelectorAll('table.schedule tbody tr').forEach(row=>{
+     const prog=row.querySelector('.prog'); if(!prog)return;
+     [...row.children].filter(ch=>!ch.matches('td,th')).forEach(ch=>prog.append(ch));
+   });
+ };
+ repairScheduleRows();
 }).catch(()=>{});
 })();
 
