@@ -36,22 +36,10 @@ function imgFail(img){ const v=img.closest('.visual'); if(v) v.classList.add('br
 
 (()=>{
 const STORE='selectionTV_saved_v1';
-const q=s=>encodeURIComponent((s||'').trim());
 const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
 const load=()=>{try{return JSON.parse(localStorage.getItem(STORE)||'{}')}catch(e){return {}}};
 const save=o=>{localStorage.setItem(STORE,JSON.stringify(o));updateCount()};
 const updateCount=()=>{const el=document.getElementById('savedCount');if(el)el.textContent=Object.values(load()).filter(x=>(x.status||'a-recuperer')==='a-recuperer').length};
-const sourceSearch=(ctx,title)=>{
-  const t=q(title), c=(ctx||'').toLowerCase();
-  if(c.includes('arte')) return ['Voir sur Arte','https://www.arte.tv/fr/search/?q='+t];
-  if(c.includes('france.tv')||c.includes('france 2')||c.includes('france 3')||c.includes('france 4')||c.includes('france 5')) return ['Voir sur france.tv','https://www.france.tv/recherche/?q='+t];
-  if(c.includes('netflix')) return ['Voir sur Netflix','https://www.netflix.com/search?q='+t];
-  if(c.includes('prime')) return ['Voir sur Prime Video','https://www.primevideo.com/search/ref=atv_nb_sr?phrase='+t];
-  if(c.includes('apple')) return ['Voir sur Apple TV','https://tv.apple.com/search?term='+t];
-  if(c.includes('canal')) return ['Voir sur CANAL+','https://www.canalplus.com/recherche/?q='+t];
-  if(c.includes('mubi')) return ['Voir sur MUBI','https://mubi.com/fr/fr/search/films?query='+t];
-  return null;
-};
 const makeA=(label,url,cls='')=>{const a=document.createElement('a');a.textContent=label;a.href=url;a.target='_blank';a.rel='noopener';if(cls)a.className=cls;return a};
 const metaFrom=(el)=>{
  const title=(el.querySelector('h3')?.textContent||el.querySelector('.prog')?.childNodes?.[0]?.textContent||el.querySelector('.prog')?.textContent||'').trim();
@@ -66,20 +54,13 @@ const addActions=(el)=>{
  el.dataset.actionsAdded='1';
  const key=norm(m.title);
  const box=document.createElement('div');box.className='program-actions';
- const official=sourceSearch(m.context,m.title); if(official)box.append(makeA(official[0],official[1],'official'));
- const isDoc=/doc|documentaire/i.test(m.badge+' '+m.context+' '+el.textContent);
- const primary=isDoc
-   ? 'https://fr.wikipedia.org/w/index.php?search='+q(m.title)
-   : 'https://www.allocine.fr/rechercher/?q='+q(m.title);
- box.append(makeA('Fiche',primary));
- box.append(makeA('IMDb','https://www.imdb.com/find/?q='+q(m.title)));
- box.append(makeA('SensCritique','https://www.senscritique.com/recherche?query='+q(m.title)));
- box.append(makeA('Wikipedia','https://fr.wikipedia.org/w/index.php?search='+q(m.title)));
- if(isDoc) box.append(makeA('Film-documentaire','https://www.google.com/search?q='+q('site:film-documentaire.fr "'+m.title+'"')));
+ const L=window.SELECTION_TV_VERIFIED_LINKS?.[key]||{};
+ const exact=[['official','Page officielle','official'],['allocine','AlloCiné',''],['imdb','IMDb',''],['sc','SensCritique',''],['wiki','Wikipedia',''],['film_documentaire','Film-documentaire','']];
+ exact.forEach(([k,label,cls])=>{if(L[k])box.append(makeA(label,L[k],cls))});
  const b=document.createElement('button');b.type='button';b.className='save';
  const refresh=()=>{const item=load()[key];b.textContent=item&&(item.status||'a-recuperer')==='a-recuperer'?'✓ À récupérer':'＋ À récupérer';b.classList.toggle('saved',!!item&&(item.status||'a-recuperer')==='a-recuperer')};
  b.onclick=()=>{const all=load(); if(all[key]&&(all[key].status||'a-recuperer')==='a-recuperer') delete all[key]; else all[key]=m; save(all);refresh()};refresh();box.append(b);window.SelectionTVSeen.attach(box,m.title,()=>m);
- const h=el.querySelector('h3'); if(h&&!h.querySelector('a')){const a=document.createElement('a');a.className='program-title-link';a.href=primary;a.target='_blank';a.rel='noopener';a.textContent=h.textContent;h.textContent='';h.append(a)}
+ const h=el.querySelector('h3'); const primary=L.allocine||L.sc||L.imdb||L.wiki||L.official||L.film_documentaire; if(h&&primary&&!h.querySelector('a')){const a=document.createElement('a');a.className='program-title-link';a.href=primary;a.target='_blank';a.rel='noopener';a.textContent=h.textContent;h.textContent='';h.append(a)}
  const target=el.querySelector('.reason')||el.querySelector('.interest')||el;
  target.append(box);
 };
@@ -170,8 +151,8 @@ const titleOf=el=>{
 const add=el=>{
  const title=titleOf(el), r=RATINGS[title]; if(!r||el.querySelector('.ratings')) return;
  const box=document.createElement('div'); box.className='ratings';
- if(r.imdb){const a=document.createElement('a');a.className='rating-pill imdb';a.target='_blank';a.rel='noopener';a.href='https://www.imdb.com/find/?q='+q(title);a.textContent='IMDb '+r.imdb+'/10';box.append(a);}
- if(r.sc){const a=document.createElement('a');a.className='rating-pill sc';a.target='_blank';a.rel='noopener';a.href='https://www.senscritique.com/recherche?query='+q(title);a.textContent='SensCritique '+r.sc+'/10';box.append(a);}
+ const L=window.SELECTION_TV_VERIFIED_LINKS?.[norm(title)]||{}; if(r.imdb){const a=L.imdb?document.createElement('a'):document.createElement('span');a.className='rating-pill imdb';if(L.imdb){a.target='_blank';a.rel='noopener';a.href=L.imdb}a.textContent='IMDb '+r.imdb+'/10';box.append(a);}
+ if(r.sc){const a=L.sc?document.createElement('a'):document.createElement('span');a.className='rating-pill sc';if(L.sc){a.target='_blank';a.rel='noopener';a.href=L.sc}a.textContent='SensCritique '+r.sc+'/10';box.append(a);}
  const d=document.createElement('span');d.className='rating-date';d.textContent='relevé 24/09/2026';box.append(d);
  const meta=el.querySelector('.work-meta');
  if(meta) meta.insertAdjacentElement('afterend',box);
@@ -203,18 +184,18 @@ document.querySelectorAll('article.week-card,article.list-card,article.platform,
  el.querySelectorAll('.program-actions a').forEach(a=>{
    const label=clean(a.textContent).toLowerCase();
    let u=null;
-   if(label==='imdb') u=d.imdb||('https://www.imdb.com/find/?q='+q(title));
-   else if(label==='senscritique') u=d.sc||('https://www.senscritique.com/recherche?query='+q(title));
-   else if(label==='wikipedia') u=d.wiki||('https://fr.wikipedia.org/w/index.php?search='+q(title));
-   else if(label==='allociné') u=d.allocine||('https://www.allocine.fr/rechercher/?q='+q(title));
-   else if(label==='fiche') u=pref(d)||('https://www.allocine.fr/rechercher/?q='+q(title));
+   const V=window.SELECTION_TV_VERIFIED_LINKS?.[norm(title)]||{}; if(label==='imdb') u=V.imdb||d.imdb;
+   else if(label==='senscritique') u=V.sc||d.sc;
+   else if(label==='wikipedia') u=V.wiki||d.wiki;
+   else if(label==='allociné') u=V.allocine||d.allocine;
+   else if(label==='fiche') u=V.allocine||V.sc||V.imdb||V.wiki||V.official||pref(d);
    else if(label.startsWith('voir sur')) u=d.official;
    if(u) a.href=u; else a.remove();
  });
  el.querySelectorAll('.ratings a').forEach(a=>{
    const label=clean(a.textContent).toLowerCase();
-   const u=label.startsWith('imdb')?(d.imdb||('https://www.imdb.com/find/?q='+q(title))):label.startsWith('senscritique')?(d.sc||('https://www.senscritique.com/recherche?query='+q(title))):null;
-   if(u) a.href=u; else a.remove();
+   const V=window.SELECTION_TV_VERIFIED_LINKS?.[norm(title)]||{}; const u=label.startsWith('imdb')?(V.imdb||d.imdb):label.startsWith('senscritique')?(V.sc||d.sc):null;
+   if(u)a.href=u;else{const s=document.createElement('span');s.className=a.className;s.textContent=a.textContent;a.replaceWith(s)}
  });
 });
 document.querySelectorAll('.page:not(#couverture):not(#sommaire)').forEach(p=>{
@@ -437,8 +418,7 @@ Promise.all([
    const existing=new Set([...box.querySelectorAll('a')].map(a=>a.href));
    const order=['official','allocine','imdb','sc','wiki'];
    order.forEach(k=>{
-     let u=L[k];
-     if(k==='sc'&&!u)u='https://www.senscritique.com/recherche?query='+encodeURIComponent(title);
+     const u=L[k];
      if(!u||existing.has(u))return;
      if(k==='sc'&&[...box.querySelectorAll('a')].some(a=>a.textContent.trim()==='SensCritique'))return;
      const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';a.textContent=labelFor(k);if(k==='official')a.className='official';
@@ -464,7 +444,7 @@ Promise.all([
        else {const wm=el.querySelector('.work-meta')||el.querySelector('.meta')||el.querySelector('h3');wm?.insertAdjacentElement('afterend',ratings)}
      }
      if(W.ratings.imdb && L.imdb && ![...ratings.children].some(x=>x.textContent.startsWith('IMDb'))){const a=document.createElement('a');a.className='rating-pill imdb';a.href=L.imdb;a.target='_blank';a.rel='noopener';a.textContent='IMDb '+W.ratings.imdb+'/10';ratings.append(a)}
-     if(W.ratings.senscritique && ![...ratings.children].some(x=>x.textContent.startsWith('SensCritique'))){const a=document.createElement('a');a.className='rating-pill sc';a.href=L.sc||('https://www.senscritique.com/recherche?query='+encodeURIComponent(title));a.target='_blank';a.rel='noopener';a.textContent='SensCritique '+W.ratings.senscritique+'/10';ratings.append(a)}
+     if(W.ratings.senscritique && ![...ratings.children].some(x=>x.textContent.startsWith('SensCritique'))){const a=L.sc?document.createElement('a'):document.createElement('span');a.className='rating-pill sc';if(L.sc){a.href=L.sc;a.target='_blank';a.rel='noopener'}a.textContent='SensCritique '+W.ratings.senscritique+'/10';ratings.append(a)}
    }
  });
  const repairScheduleRows=()=>{
