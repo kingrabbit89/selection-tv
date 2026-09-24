@@ -11,7 +11,7 @@ const q=s=>encodeURIComponent((s||'').trim());
 const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
 const load=()=>{try{return JSON.parse(localStorage.getItem(STORE)||'{}')}catch(e){return {}}};
 const save=o=>{localStorage.setItem(STORE,JSON.stringify(o));updateCount()};
-const updateCount=()=>{const el=document.getElementById('savedCount');if(el)el.textContent=Object.values(load()).filter(x=>x.status!=='recupere').length};
+const updateCount=()=>{const el=document.getElementById('savedCount');if(el)el.textContent=Object.values(load()).filter(x=>(x.status||'a-recuperer')==='a-recuperer').length};
 const sourceSearch=(ctx,title)=>{
   const t=q(title), c=(ctx||'').toLowerCase();
   if(c.includes('arte')) return ['Voir sur Arte','https://www.arte.tv/fr/search/?q='+t];
@@ -48,8 +48,8 @@ const addActions=(el)=>{
  box.append(makeA('Wikipedia','https://fr.wikipedia.org/w/index.php?search='+q(m.title)));
  if(isDoc) box.append(makeA('Film-documentaire','https://www.google.com/search?q='+q('site:film-documentaire.fr "'+m.title+'"')));
  const b=document.createElement('button');b.type='button';b.className='save';
- const refresh=()=>{const item=load()[key];b.textContent=item&&item.status!=='recupere'?'✓ À récupérer':'＋ À récupérer';b.classList.toggle('saved',!!item&&item.status!=='recupere')};
- b.onclick=()=>{const all=load(); if(all[key]&&all[key].status!=='recupere') delete all[key]; else all[key]=m; save(all);refresh()};refresh();box.append(b);
+ const refresh=()=>{const item=load()[key];b.textContent=item&&(item.status||'a-recuperer')==='a-recuperer'?'✓ À récupérer':'＋ À récupérer';b.classList.toggle('saved',!!item&&(item.status||'a-recuperer')==='a-recuperer')};
+ b.onclick=()=>{const all=load(); if(all[key]&&(all[key].status||'a-recuperer')==='a-recuperer') delete all[key]; else all[key]=m; save(all);refresh()};refresh();box.append(b);
  const h=el.querySelector('h3'); if(h&&!h.querySelector('a')){const a=document.createElement('a');a.className='program-title-link';a.href=primary;a.target='_blank';a.rel='noopener';a.textContent=h.textContent;h.textContent='';h.append(a)}
  const target=el.querySelector('.reason')||el.querySelector('.interest')||el;
  target.append(box);
@@ -203,7 +203,7 @@ document.querySelectorAll('.page:not(#couverture):not(#sommaire)').forEach(p=>{
 const STORE='selectionTV_saved_v1';
 const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
 const load=()=>{try{return JSON.parse(localStorage.getItem(STORE)||'{}')}catch(e){return {}}};
-const save=o=>{localStorage.setItem(STORE,JSON.stringify(o));const c=document.getElementById('savedCount');if(c)c.textContent=Object.values(o).filter(x=>x.status!=='recupere').length};
+const save=o=>{localStorage.setItem(STORE,JSON.stringify(o));const c=document.getElementById('savedCount');if(c)c.textContent=Object.values(o).filter(x=>(x.status||'a-recuperer')==='a-recuperer').length};
 document.querySelectorAll('article.radar-card,article.torrent-card').forEach(card=>{
  if(card.dataset.saveAdded==='1') return;
  card.dataset.saveAdded='1';
@@ -216,10 +216,10 @@ document.querySelectorAll('article.radar-card,article.torrent-card').forEach(car
  if(!box){box=document.createElement('div');box.className='program-actions';card.append(box);}
  let b=box.querySelector('button.save');
  if(!b){b=document.createElement('button');b.type='button';b.className='save';box.append(b);}
- const refresh=()=>{const item=load()[key];const active=!!item&&item.status!=='recupere';b.textContent=active?'✓ À récupérer':'＋ À récupérer';b.classList.toggle('saved',active)};
+ const refresh=()=>{const item=load()[key];const active=!!item&&(item.status||'a-recuperer')==='a-recuperer';b.textContent=active?'✓ À récupérer':'＋ À récupérer';b.classList.toggle('saved',active)};
  b.onclick=()=>{
    const all=load();
-   if(all[key]&&all[key].status!=='recupere') delete all[key];
+   if(all[key]&&(all[key].status||'a-recuperer')==='a-recuperer') delete all[key];
    else all[key]={title,context:(isTorrent?'Radar popularité torrent':'Radar 1080p')+' · '+signal,badge:isTorrent?'RADAR TORRENT':'RADAR 1080P',page:document.title,url:location.href,added:new Date().toISOString(),status:'a-recuperer'};
    save(all);refresh();
  };
@@ -422,4 +422,83 @@ Promise.all([
    }
  });
 }).catch(()=>{});
+})();
+
+
+/* ---- couche personnelle : films déjà vus ---- */
+(()=>{
+const STORE='selectionTV_saved_v1';
+const PREF='selectionTV_hide_seen_v1';
+const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+const load=()=>{try{return JSON.parse(localStorage.getItem(STORE)||'{}')}catch(e){return {}}};
+const save=o=>localStorage.setItem(STORE,JSON.stringify(o));
+const hideSeen=()=>localStorage.getItem(PREF)!=='0';
+const setHide=v=>localStorage.setItem(PREF,v?'1':'0');
+const candidates=()=>[...document.querySelectorAll('article.week-card,article.feature,article.list-card,article.platform,article.radar-card,article.torrent-card,table.schedule tbody tr')];
+const titleOf=el=>{
+ if(el.matches('tr')) return (el.querySelector('.prog')?.childNodes?.[0]?.textContent||el.querySelector('.prog')?.textContent||'').trim();
+ return (el.dataset.title||el.querySelector('h3')?.textContent||'').trim();
+};
+const metaOf=el=>{
+ const title=titleOf(el);
+ const context=[el.querySelector('.slot')?.textContent,el.querySelector('.where')?.textContent,el.querySelector('.service')?.textContent,el.querySelector('.chan')?.textContent].filter(Boolean).join(' · ');
+ const badge=el.querySelector('.badge')?.textContent?.trim()||'';
+ return {title,context,badge,page:document.title,url:location.href,added:new Date().toISOString()};
+};
+const ensureButton=el=>{
+ const title=titleOf(el);if(!title)return;
+ const key=norm(title);
+ let box=el.querySelector('.program-actions');
+ if(!box){box=document.createElement('div');box.className='program-actions';const target=el.querySelector('.reason')||el.querySelector('.interest')||el;target.append(box)}
+ let b=box.querySelector('button.seen-btn');
+ if(!b){b=document.createElement('button');b.type='button';b.className='seen-btn';box.append(b)}
+ const refresh=()=>{const item=load()[key];const on=item?.status==='vu';b.textContent=on?'✓ Vu':'Vu';b.classList.toggle('seen-on',on);b.title=on?'Ce titre est masqué des recommandations':'Marquer comme déjà vu'};
+ b.onclick=()=>{
+   const all=load(),current=all[key];
+   if(current?.status==='vu'){
+     if(current.previous_status){all[key]={...current,status:current.previous_status};delete all[key].previous_status}
+     else delete all[key];
+   }else{
+     const m=metaOf(el);
+     all[key]={...(current||{}),...m,previous_status:current?.status||null,status:'vu'};
+   }
+   save(all);apply();
+ };
+ refresh();
+};
+const updatePageSummaries=()=>{
+ document.querySelectorAll('.page').forEach(page=>{
+   const hidden=[...page.querySelectorAll('.seen-hidden')].length;
+   let note=page.querySelector('.seen-summary');
+   if(hidden&&hideSeen()){
+     if(!note){note=document.createElement('div');note.className='seen-summary';const top=page.querySelector('.rule')||page.querySelector('.topbar');top?.insertAdjacentElement('afterend',note)}
+     if(note)note.textContent=hidden+' recommandation'+(hidden>1?'s':'')+' déjà vue'+(hidden>1?'s':'')+' masquée'+(hidden>1?'s':'')+' sur ce navigateur.';
+   }else if(note)note.remove();
+   page.querySelectorAll('.feature-columns').forEach(grid=>{
+     const visible=[...grid.children].filter(x=>!x.classList.contains('seen-hidden')).length;
+     grid.style.gridTemplateColumns=visible?('repeat('+Math.min(3,visible)+',1fr)'):'';
+   });
+ });
+};
+const updateToggle=()=>{
+ const b=document.getElementById('seenToggle');if(!b)return;
+ b.textContent=hideSeen()?'Afficher les vus':'Masquer les vus';
+ b.classList.toggle('showing-seen',!hideSeen());
+};
+function apply(){
+ const all=load(),hide=hideSeen();
+ candidates().forEach(el=>{
+   ensureButton(el);
+   const title=titleOf(el),item=all[norm(title)];
+   el.classList.toggle('seen-hidden',!!title&&hide&&item?.status==='vu');
+   const sb=el.querySelector('button.seen-btn');
+   if(sb){const on=item?.status==='vu';sb.textContent=on?'✓ Vu':'Vu';sb.classList.toggle('seen-on',on)}
+ });
+ updateToggle();updatePageSummaries();
+ const c=document.getElementById('savedCount');if(c)c.textContent=Object.values(all).filter(x=>(x.status||'a-recuperer')==='a-recuperer').length;
+}
+const toggle=document.getElementById('seenToggle');
+if(toggle)toggle.onclick=()=>{setHide(!hideSeen());apply()};
+window.addEventListener('storage',e=>{if(e.key===STORE||e.key===PREF)apply()});
+apply();
 })();
