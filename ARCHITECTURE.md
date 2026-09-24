@@ -40,9 +40,9 @@ Cette structure permet de conserver des centaines de numéros sans multiplier le
 
 ## Couche personnelle locale
 
-Le statut `Vu` reste privé dans `localStorage` (`selectionTV_saved_v1`). Il n’est jamais écrit dans GitHub. Les numéros publics restent donc éditorialement complets, mais `magazine-week.js` masque par défaut, lors du rendu dans le navigateur, les recommandations dont le titre est marqué `vu`.
+Le statut `Vu` reste privé dans `localStorage` (`selectionTV_seen_v2`, avec compatibilité `selectionTV_saved_v1`). Il n’est jamais écrit dans GitHub. Les numéros publics restent donc éditorialement complets, tandis que `seen-filter.js` masque par défaut, lors du rendu dans le navigateur, les recommandations déjà vues.
 
-La préférence `selectionTV_hide_seen_v1` contrôle ce comportement. L’utilisateur peut afficher temporairement les titres déjà vus. Le catalogue et la recherche permanente ne sont pas filtrés : seul l’affichage des recommandations hebdomadaires l’est.
+La préférence `selectionTV_hide_seen_v1` contrôle le masquage dans les numéros. Le catalogue, la recherche globale et chaque fiche permanente restent toujours consultables et servent aussi d’interface de gestion : un bouton permet d’y marquer une œuvre comme `Vu` ou d’annuler ce statut, ce qui permet de corriger facilement une erreur sans rechercher l’œuvre dans un numéro hebdomadaire.
 
 Conséquence : ce filtrage personnel fonctionne sur le navigateur qui possède les données locales ; il ne se synchronise pas entre appareils tant qu’aucun backend privé n’est ajouté.
 
@@ -62,3 +62,8 @@ Pour chaque journée :
 Au chargement, le navigateur conserve les choix principaux non vus et remplit les places libérées avec les meilleurs candidats suivants du réservoir. Le bouton « Afficher les vus » restaure l’affichage canonique. Les grilles commentées constituent un ensemble logique unique par jour : après masquage, les lignes restantes sont repaginées depuis la première page, la seconde page disparaît lorsqu’elle n’est plus nécessaire et, si le pool contient des candidats supplémentaires au-dessus du seuil éditorial, ceux-ci complètent la grille jusqu’au quota prévu.
 
 Cette personnalisation reste locale : la tâche hebdomadaire ne lit jamais l’historique privé de l’utilisateur et le dépôt GitHub conserve toujours la sélection complète.
+
+
+## Index hebdomadaire
+
+Les numéros magazine ne génèrent plus de page d’index alphabétique. Cette page doublonnait le catalogue et la recherche globale, devenait incomplète dès que plusieurs rubriques coexistaient et compliquait la pagination. Pour retrouver une œuvre, le point d’entrée canonique est `catalogue.html` ou `recherche.html`, puis `oeuvre.html` pour la fiche permanente.
