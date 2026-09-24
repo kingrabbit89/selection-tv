@@ -67,3 +67,14 @@ Cette personnalisation reste locale : la tâche hebdomadaire ne lit jamais l’h
 ## Index hebdomadaire
 
 Les numéros magazine ne génèrent plus de page d’index alphabétique. Cette page doublonnait le catalogue et la recherche globale, devenait incomplète dès que plusieurs rubriques coexistaient et compliquait la pagination. Pour retrouver une œuvre, le point d’entrée canonique est `catalogue.html` ou `recherche.html`, puis `oeuvre.html` pour la fiche permanente.
+
+
+## Plateformes avec abonnement
+
+La rubrique doit être plus fournie que les premières versions du magazine : cible normale de 9 recommandations, sans obligation de remplissage si le niveau éditorial n’est pas atteint.
+
+La hiérarchie est **film-first** :
+- viser au moins 80 % de longs métrages lorsque l’offre de la semaine le permet ;
+- privilégier les sorties de la semaine, puis les films arrivés récemment et encore disponibles ;
+- ne pas chercher à équilibrer artificiellement Netflix, CANAL+, Apple TV, Prime Video, HBO Max, etc. ;
+- une série n’entre dans la sélection que comme exception forte : reconnaissance critique établie, auteur ou distribution majeure, singularité formelle ou importance culturelle. Le simple fait d’être une nouveauté ne suffit pas.
