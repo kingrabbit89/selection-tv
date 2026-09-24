@@ -199,6 +199,74 @@
  .magazine-v2{background:white}.magazine-v2 .page{box-shadow:none;border:0}
  .magazine-v2 .page-atmosphere{opacity:.035}
 }
+
+/* --- V9 : finitions anti-débordement + cartes illustrées replay/plateformes --- */
+.magazine-v2 .page{padding-bottom:16mm}
+.magazine-v2 .footer{z-index:20;background:linear-gradient(180deg,rgba(248,244,236,0),rgba(248,244,236,.96) 28%,rgba(248,244,236,1) 55%);padding-top:3mm}
+.magazine-v2 .rendezvous-page .week-card img{height:47mm!important}
+.magazine-v2 .rendezvous-page .week-card{padding:2.6mm}
+.magazine-v2 .rendezvous-page .week-card h3{font-size:10.8pt;line-height:1.02;margin:1.4mm 0 .7mm}
+.magazine-v2 .rendezvous-page .week-card p{font-size:6.25pt;line-height:1.18;margin-top:.9mm}
+.magazine-v2 .rendezvous-page .work-meta{font-size:5.15pt;line-height:1.16;margin:.6mm 0 .8mm}
+.magazine-v2 .rendezvous-page .ratings{margin:.7mm 0}
+.magazine-v2 .rendezvous-page .rating-pill{font-size:4.7pt;padding:.65mm 1mm}
+.magazine-v2 .rendezvous-page .program-actions{gap:.6mm;margin-top:1mm}
+.magazine-v2 .rendezvous-page .program-actions a,.magazine-v2 .rendezvous-page .program-actions button{font-size:4.8pt;padding:.75mm 1mm}
+
+.magazine-v2 .feature .visual{height:46mm!important}
+.magazine-v2 .feature{padding:2.7mm}
+.magazine-v2 .feature h3{font-size:13pt;line-height:1.01;margin:1.3mm 0 .6mm}
+.magazine-v2 .feature .slot{margin-bottom:.6mm}
+.magazine-v2 .feature .work-meta{font-size:5.75pt;line-height:1.16;margin:.5mm 0 .7mm}
+.magazine-v2 .feature .ratings{margin:.65mm 0}
+.magazine-v2 .feature h4{font-size:5.9pt;margin:1.1mm 0 .45mm}
+.magazine-v2 .feature p{font-size:6.35pt;line-height:1.16}
+.magazine-v2 .feature .interest{margin-top:.8mm;padding-top:.8mm}
+.magazine-v2 .feature .program-actions{margin-top:.8mm;gap:.6mm}
+.magazine-v2 .feature .program-actions a,.magazine-v2 .feature .program-actions button{font-size:4.75pt;padding:.7mm 1mm}
+
+.replay-page .list-card{grid-template-columns:17mm 31mm 1fr!important;gap:2.4mm;align-items:start;padding:2.5mm;min-height:48mm}
+.replay-page .list-card .num{font-size:23pt}
+.section-thumb{width:31mm;height:35mm;object-fit:cover;border-radius:2mm;box-shadow:0 1mm 3mm rgba(0,0,0,.13);background:#ddd}
+.replay-page .list-card h3{font-size:10.8pt;line-height:1.02;margin:0 0 .5mm}
+.replay-page .list-card p{font-size:6.6pt;line-height:1.18}
+.replay-page .list-card .where{font-size:6.1pt;margin-bottom:.5mm}
+.replay-page .list-card .work-meta{font-size:5.25pt;line-height:1.15;margin:.5mm 0}
+.replay-page .list-card .ratings{margin:.55mm 0}
+.replay-page .list-card .program-actions{margin-top:.7mm;gap:.55mm}
+.replay-page .list-card .program-actions a,.replay-page .list-card .program-actions button{font-size:4.65pt;padding:.65mm .9mm}
+
+.platform.has-visual{display:grid;grid-template-columns:31mm 1fr;gap:3mm;align-items:start;padding:2.7mm;min-height:39mm}
+.platform-thumb{width:31mm;height:35mm;object-fit:cover;border-radius:2mm;box-shadow:0 1mm 3mm rgba(0,0,0,.13);background:#ddd}
+.platform-copy{min-width:0}
+.platform.has-visual h3{font-size:11.3pt;line-height:1.02;margin:.5mm 0}
+.platform.has-visual p{font-size:6.65pt;line-height:1.18}
+.platform.has-visual .work-meta{font-size:5.35pt;line-height:1.15;margin:.5mm 0}
+.platform.has-visual .program-actions{margin-top:.7mm;gap:.55mm}
+.platform.has-visual .program-actions a,.platform.has-visual .program-actions button{font-size:4.7pt;padding:.65mm .9mm}
+.platform.has-visual .ratings{margin:.55mm 0}
+.platform.has-visual .service{font-size:6.3pt}
+.platform.has-visual .date{font-size:5.9pt;margin-bottom:.5mm}
+
+.page.fit-tight .h1{font-size:25pt}
+.page.fit-tight .deck{font-size:8.8pt}
+.page.fit-tight .rule{margin:2.5mm 0 3.5mm}
+.page.fit-tight .week-grid,.page.fit-tight .feature-columns,.page.fit-tight .platform-grid,.page.fit-tight .list-2{gap:3mm}
+.page.fit-tight .schedule td{padding:1.7mm 1.6mm;font-size:6.5pt}
+.page.fit-tight .schedule .prog{font-size:7.4pt}
+.page.fit-tight .work-meta{line-height:1.12}
+.page.fit-tight .program-actions{margin-top:.55mm}
+.page.fit-tighter{padding-top:14mm;padding-bottom:17mm}
+.page.fit-tighter .h1{font-size:23pt}
+.page.fit-tighter .deck{font-size:8.2pt;line-height:1.22}
+.page.fit-tighter .feature .visual{height:42mm!important}
+.page.fit-tighter .feature p{font-size:6pt;line-height:1.12}
+.page.fit-tighter .rendezvous-page .week-card img,.page.fit-tighter.week-card img{height:43mm!important}
+.page.fit-tighter .schedule td{padding:1.4mm 1.4mm;font-size:6.1pt}
+.page.fit-tighter .program-actions a,.page.fit-tighter .program-actions button{padding:.55mm .8mm;font-size:4.45pt}
+@media print{
+ .magazine-v2 .footer{background:linear-gradient(180deg,rgba(248,244,236,0),#f8f4ec 35%)}
+}
 </style></head><body class="magazine-v2"><div class="toolbar"><b>SÉLECTION TV · FORMAT B</b><span>Version riche avec visuels réels, imprimable en A4 paysage</span><a class="navlink" href="../../">Accueil</a><a class="navlink" href="../../a-recuperer.html">À récupérer <span class="saved-count" id="savedCount">0</span></a><button onclick="window.print()">Imprimer / enregistrer en PDF</button></div><div class="book"><section class="page cover" id="couverture"><div class="topbar">Sélection TV<span class="issue">Semaine 40 · 26 septembre - 2 octobre 2026</span></div><div class="kicker">Numéro pilote V2 · format magazine riche</div><div class="h1">La semaine qui mérite vraiment votre attention</div><div class="deck">Films, documentaires et curiosités sélectionnés sur l’ensemble des chaînes et plateformes. Pas de grille exhaustive : uniquement ce qui justifie un repérage, avec une note sur le contenu et sur l’intérêt de chaque choix.</div><div class="cover-strip"><div class="big"><img src="https://fr.web.img2.acsta.net/c_310_420/img/45/70/45701998fb5c9eb310e407762a8066bb.jpg" alt="Paris, Texas"><div class="cover-badge">MAJEUR</div><div class="overlay"><div>00:02 · Ciné+ Classic</div><h2>Paris, Texas</h2><div>1984 · Wim Wenders · RFA/France · 2 h 28</div></div></div><div class="side"><img src="https://fr.web.img6.acsta.net/c_310_420/pictures/22/09/01/17/54/2341594.jpg" alt="Tár"><div class="cover-badge">TRÈS FORT</div><div class="overlay"><div>01:07 · Ciné+ OCS</div><h2>Tár</h2><div>2022 · Todd Field · États-Unis · 2 h 38</div></div></div><div class="side"><img src="https://fr.web.img6.acsta.net/c_310_420/pictures/20/07/06/14/08/3504586.jpg" alt="Le Jardin des Finzi-Contini"><div class="cover-badge">MAJEUR</div><div class="overlay"><div>22:45 · Ciné+ Classic</div><h2>Le Jardin des Finzi-Contini</h2><div>1970 · Vittorio De Sica · Italie/RFA · 1 h 34</div></div></div></div><div class="footer"><span>Sélection éditoriale non personnalisée · grilles arrêtées au 24/09/2026</span><span>1</span></div></section><section class="page" id="sommaire"><div class="topbar">Sommaire<span class="issue">Semaine 40 · 26 septembre - 2 octobre 2026</span></div><div class="kicker">Navigation</div><div class="h1">Sommaire</div><div class="deck">Cliquez sur une rubrique pour aller directement à la page correspondante. Les numéros restent indiqués pour l’impression ou l’export PDF.</div><div class="rule"></div><div class="toc-grid">
 <div class="toc-group"><h3>Le numéro</h3>
 <a class="toc-link" href="#rendezvous-1"><span class="toc-label">Les rendez-vous de la semaine<span class="toc-sub">10 programmes prioritaires</span></span><span class="toc-page">p. 3–4</span></a>
@@ -429,6 +497,123 @@ document.querySelectorAll('article.radar-card').forEach(card=>{
  };
  refresh();box.append(b);
 });
+})();
+</script>
+
+<script>
+(()=>{
+const DATA={
+"CIA, les guerres secrètes de l’après-11 Septembre":{
+ img:"https://commons.wikimedia.org/wiki/Special:FilePath/Seal_of_the_Central_Intelligence_Agency.jpg",
+ links:[["France Télévisions","https://www.francetvpro.fr/contenu-de-presse/77744639"]]
+},
+"Liberté, la statue qui voulait changer le monde":{
+ img:"https://cdn.mediatheque.epmoo.fr/link/3c9igq/kns1cy980bb59i8.jpg",
+ links:[["Voir sur ARTE","https://www.youtube.com/watch?v=yQ3JqnPsrh4"],["Musée d’Orsay","https://www.musee-orsay.fr/fr/programme/agenda/evenements/documentaire-liberte-la-statue-qui-voulait-changer-le-monde"]]
+},
+"Sophie Marceau, à voix haute":{
+ img:"https://media.senscritique.com/media/000024062662/0/sophie_marceau_a_voix_haute.jpg",
+ links:[["Voir sur ARTE","https://www.arte.tv/fr/videos/128041-000-A/sophie-marceau-a-voix-haute/"],["SensCritique","https://www.senscritique.com/film/sophie_marceau_a_voix_haute/139350990"]],
+ ratingText:["IMDb 5,5/10"]
+},
+"« Gomorra », manifeste antimafia":{
+ img:"https://i1.wp.com/erwanbizeul.com/wp-content/uploads/2026/02/6000-1.png?fit=1024%2C614&ssl=1",
+ links:[["Voir sur ARTE","https://www.arte.tv/fr/videos/123976-000-A/gomorra-manifeste-antimafia/"]]
+},
+"Horizons : Haïti, la rançon de l’indépendance":{
+ img:"https://commons.wikimedia.org/wiki/Special:FilePath/Citadelle_Laferri%C3%A8re.jpg",
+ links:[["France Télévisions","https://www.francetvpro.fr/contenu-de-presse/78546963"]]
+},
+"La soirée du court métrage":{
+ img:"https://commons.wikimedia.org/wiki/Special:FilePath/Clapperboard.svg",
+ links:[["France Télévisions","https://www.francetvpro.fr/contenu-de-presse/78473078"]]
+},
+"Cinéma + documentaires de la semaine":{
+ img:"https://cdn.mediatheque.epmoo.fr/link/3c9igq/kns1cy980bb59i8.jpg",
+ links:[["Liberté sur ARTE","https://www.youtube.com/watch?v=yQ3JqnPsrh4"],["Gomorra sur ARTE","https://www.arte.tv/fr/videos/123976-000-A/gomorra-manifeste-antimafia/"]]
+},
+"À l’est d’Éden":{
+ img:"https://img.youtube.com/vi/fdBr5KyUilU/maxresdefault.jpg",
+ links:[["Voir sur Netflix","https://www.netflix.com/title/81611854"],["SensCritique","https://www.senscritique.com/serie/east_of_eden/100082580"]]
+},
+"Paul, la série":{
+ img:"https://img.youtube.com/vi/5TThfFaagNY/maxresdefault.jpg",
+ links:[["AlloCiné","https://www.allocine.fr/series/ficheserie_gen_cserie=1000001829.html"],["Bande-annonce Prime Video","https://www.youtube.com/watch?v=5TThfFaagNY"]]
+},
+"The Last First : le K2 en hiver":{
+ img:"https://www.apple.com/tv-pr/shows-and-films/t/the-last-first-winter-k2/images/show-home-graphic-header/key-art-01/16x9/Apple_TV_The_Last_First_Winter_K2_key_art_graphic_header_16_9_show_home.jpg.large_2x.jpg",
+ links:[["Voir sur Apple TV","https://tv.apple.com/us/movie/the-last-first-winter-k2/umc.cmc.3qvemsb6f04actuyzdporeelt"],["IMDb","https://www.imdb.com/title/tt39150288/"]],
+ ratings:[["IMDb","8,2","https://www.imdb.com/title/tt39150288/ratings/"]]
+},
+"Ted Lasso — S4 E9":{
+ img:"https://www.apple.com/tv-pr/shows-and-films/t/ted-lasso/images/season-04/show-home-graphic-header/key-art-02/4x1/Apple_TV_Ted_Lasso_key_art_graphic_header_4_1_show_home.jpg.large_2x.jpg",
+ links:[["Voir sur Apple TV","https://tv.apple.com/fr/show/ted-lasso/umc.cmc.vtoh0mn0xn7t3c643xqonfzy?l=fr"],["IMDb","https://www.imdb.com/title/tt10986410/"],["SensCritique","https://www.senscritique.com/serie/ted_lasso/40564961"]],
+ ratings:[["IMDb","8,7","https://www.imdb.com/title/tt10986410/ratings/"],["SensCritique","7,6","https://www.senscritique.com/serie/ted_lasso/40564961"]]
+},
+"Apollo Has Fallen":{
+ img:"https://image.tmdb.org/t/p/w500/kSwGrjbLVNzDtEnjITa08jwEIxR.jpg",
+ links:[["Voir sur CANAL+","https://www.canalplus.com/series/has-fallen/h/26153428_50001"],["IMDb","https://www.imdb.com/fr/title/tt36350690/"],["AlloCiné","https://www.allocine.fr/series/ficheserie_gen_cserie=1000000714.html"]]
+}
+};
+const clean=s=>(s||"").replace(/\s+/g," ").trim();
+const titleOf=el=>clean(el.querySelector("h3")?.textContent);
+const addDirectLinks=(el,d)=>{
+ let box=el.querySelector(".program-actions");
+ if(!box){box=document.createElement("div");box.className="program-actions";el.append(box)}
+ // Remove leftover search-result buttons, keep save button.
+ box.querySelectorAll("a").forEach(a=>a.remove());
+ (d.links||[]).forEach(([label,url])=>{
+   const a=document.createElement("a");a.href=url;a.target="_blank";a.rel="noopener";a.textContent=label;
+   if(/^Voir sur/.test(label))a.className="official";
+   box.insertBefore(a,box.querySelector("button.save"));
+ });
+};
+const addRatings=(el,d)=>{
+ let box=el.querySelector(".ratings");
+ if(!box){box=document.createElement("div");box.className="ratings";
+   const meta=el.querySelector(".work-meta"); if(meta)meta.insertAdjacentElement("afterend",box); else el.querySelector("h3")?.insertAdjacentElement("afterend",box);
+ }else box.innerHTML="";
+ (d.ratings||[]).forEach(([name,val,url])=>{
+   const a=document.createElement("a");a.className="rating-pill "+(name==="IMDb"?"imdb":"sc");a.href=url;a.target="_blank";a.rel="noopener";a.textContent=name+" "+val+"/10";box.append(a);
+ });
+ (d.ratingText||[]).forEach(txt=>{const s=document.createElement("span");s.className="rating-pill imdb";s.textContent=txt;box.append(s)});
+ if((d.ratings||[]).length||(d.ratingText||[]).length){const s=document.createElement("span");s.className="rating-date";s.textContent="relevé 24/09/2026";box.append(s)}
+};
+document.querySelectorAll(".replay-page article.list-card").forEach(el=>{
+ const d=DATA[titleOf(el)];if(!d)return;
+ if(!el.querySelector(".section-thumb")){const img=document.createElement("img");img.className="section-thumb";img.src=d.img;img.alt="Visuel de "+titleOf(el);img.loading="lazy";el.querySelector(".num")?.insertAdjacentElement("afterend",img)}
+ addDirectLinks(el,d);addRatings(el,d);
+});
+document.querySelectorAll("article.platform").forEach(el=>{
+ const d=DATA[titleOf(el)];if(!d)return;
+ if(!el.classList.contains("has-visual")){
+   const kids=[...el.children];const copy=document.createElement("div");copy.className="platform-copy";kids.forEach(k=>copy.append(k));
+   const img=document.createElement("img");img.className="platform-thumb";img.src=d.img;img.alt="Visuel de "+titleOf({querySelector:()=>copy.querySelector("h3")});img.loading="lazy";
+   el.append(img,copy);el.classList.add("has-visual");
+ }
+ addDirectLinks(el,d);addRatings(el,d);
+});
+
+// Conservative automatic fit pass for every fixed page.
+const overlapsFooter=p=>{
+ const footer=p.querySelector(".footer");if(!footer)return false;
+ const fr=footer.getBoundingClientRect();
+ let max=-Infinity;
+ [...p.children].forEach(ch=>{
+   if(ch===footer||ch.classList.contains("topbar")||ch.classList.contains("page-atmosphere")||ch.classList.contains("back-toc"))return;
+   max=Math.max(max,ch.getBoundingClientRect().bottom);
+ });
+ return max>fr.top-4;
+};
+const fit=()=>{
+ document.querySelectorAll(".page").forEach(p=>{
+   p.classList.remove("fit-tight","fit-tighter");
+   if(overlapsFooter(p))p.classList.add("fit-tight");
+   if(overlapsFooter(p))p.classList.add("fit-tighter");
+ });
+};
+requestAnimationFrame(()=>requestAnimationFrame(fit));
+window.addEventListener("load",()=>setTimeout(fit,150));
 })();
 </script>
 </body></html>
