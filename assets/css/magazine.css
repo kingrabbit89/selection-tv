@@ -368,3 +368,20 @@
 .compact-mode .footer{position:static;margin-top:8mm;background:transparent}
 .search-hit{outline:1.2mm solid #d4a53f!important;outline-offset:1mm;transition:outline .2s}
 @media(max-width:1000px){.release-grid{grid-template-columns:repeat(2,1fr)}.expire-grid{grid-template-columns:1fr}.issue-search{min-width:150px}}
+
+/* --- Radar popularité torrent --- */
+.torrent-page{--section:#6e503b}
+.torrent-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:3.3mm}
+.torrent-card{background:rgba(255,255,255,.5);border-radius:3mm;padding:2.5mm;border-top:.45mm solid var(--section);box-shadow:0 1.2mm 4mm rgba(0,0,0,.07);min-width:0}
+.torrent-card img{width:100%;height:42mm;object-fit:cover;border-radius:2mm;background:#172238;box-shadow:0 1mm 3mm rgba(0,0,0,.12)}
+.torrent-card h3{font:700 10.6pt/1.03 Georgia,serif;color:#172238;margin:1.2mm 0 .6mm}
+.torrent-signal{font-size:5.4pt;font-weight:900;color:var(--section);text-transform:uppercase;letter-spacing:.05em;margin-top:1mm}
+.torrent-meta{font-size:4.9pt;line-height:1.15;color:var(--muted);margin:.55mm 0}
+.torrent-card .ratings{margin:.55mm 0}
+.torrent-card .why2{border-top:.2mm solid var(--line);padding-top:.7mm;margin-top:.7mm}
+.torrent-card .why2 b{font-size:4.9pt;color:var(--section);text-transform:uppercase;letter-spacing:.04em}
+.torrent-card .why2 p{font-size:5.55pt;line-height:1.12;margin:.55mm 0}
+.torrent-card .program-actions{margin-top:.6mm}
+.compact-mode .torrent-card .why2{display:none!important}
+.compact-mode .torrent-card img{height:32mm!important}
+@media(max-width:1000px){.torrent-grid{grid-template-columns:repeat(2,1fr)}}
