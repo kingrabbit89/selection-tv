@@ -385,3 +385,12 @@
 .compact-mode .torrent-card .why2{display:none!important}
 .compact-mode .torrent-card img{height:32mm!important}
 @media(max-width:1000px){.torrent-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* --- Déjà vus : couche personnelle locale --- */
+.seen-hidden{display:none!important}
+.program-actions .seen-btn{border:1px solid #b9aa9d;background:#fffdf8;color:#6c594b;border-radius:999px;padding:1mm 1.7mm;font-size:5.5pt;font-weight:850;cursor:pointer}
+.program-actions .seen-btn.seen-on{background:#314356;color:#fff;border-color:#314356}
+.toolbar .seen-toggle{margin-left:0;background:#ffffff10;color:#fff;border:1px solid #ffffff32}
+.toolbar .seen-toggle.showing-seen{background:#f8f4ec;color:#172238;border-color:#f8f4ec}
+.seen-summary{margin:2mm 0 2.5mm;padding:1.5mm 2.2mm;border-left:.8mm solid #6f8094;background:#eef1f2;color:#56616d;font-size:6.2pt;line-height:1.25}
+@media print{.seen-summary{display:none}.program-actions .seen-btn{display:none!important}}
