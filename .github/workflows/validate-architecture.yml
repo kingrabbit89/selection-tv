@@ -4,14 +4,30 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+
 jobs:
-  validate:
+  data-and-policy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - run: node scripts/validate-architecture.mjs
       - run: node scripts/validate-editorial.mjs
       - run: node scripts/validate-links.mjs
+
+  browser-presentation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install browser test runtime
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Validate rendered issues
+        run: node scripts/validate-layout.mjs
