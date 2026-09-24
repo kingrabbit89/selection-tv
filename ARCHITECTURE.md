@@ -88,10 +88,11 @@ La hiérarchie est **film-first** :
 Les deux radars utilisent la même logique locale de remplacement que les sélections quotidiennes, sans modifier la sélection publique canonique.
 
 ### Radar de popularité
-- 5 titres visibles ;
-- 5 titres de réserve au minimum ;
-- inventaire sur une fenêtre glissante de 42 jours de classements publics récents, puis filtre éditorial ;
-- lorsqu’un titre visible est déjà marqué `Vu`, le meilleur candidat suivant prend sa place.
+- page 1 : 5 titres issus du classement public courant ;
+- page 2 : 5 titres de **sillonnage élargi**, repérés dans une fenêtre glissante de 60 jours parmi les films récemment très circulants mais sortis du Top 10 courant ;
+- réserve distincte : au moins 5 candidats supplémentaires, afin que les choix de la page principale puissent être remplacés sans dupliquer la page de sillonnage ;
+- le même seuil éditorial s’applique aux trois niveaux : classement courant, sillonnage, réserve ;
+- lorsqu’un titre principal est déjà marqué `Vu`, le meilleur candidat suivant de la réserve prend sa place.
 
 ### Radar 1080p
 - 10 titres visibles, répartis sur deux pages de cinq ;
