@@ -456,3 +456,12 @@
 .subscription-page .platform.has-poster .ratings{margin:.45mm 0}
 .subscription-page .platform.has-poster p{font-size:6.55pt;line-height:1.16}
 .subscription-page .platform.has-poster .program-actions{margin-top:.6mm}
+
+
+/* --- layout-guard subscription pages: never squeeze rich cards --- */
+.subscription-page .platform-grid{grid-template-columns:1fr 1fr;gap:4mm 7mm;align-content:start}
+.subscription-page .platform-grid>.platform:last-child:nth-child(odd){grid-column:1/-1}
+.subscription-page .platform{min-height:48mm}
+.subscription-page .platform.has-poster{min-height:48mm}
+.subscription-page .platform-grid>.platform:last-child:nth-child(odd).has-poster{grid-template-columns:27mm 1fr}
+.subscription-page .platform-grid>.platform:last-child:nth-child(odd) .platform-poster{width:27mm;height:39mm}
