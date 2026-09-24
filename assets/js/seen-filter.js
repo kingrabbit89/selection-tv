@@ -281,6 +281,7 @@ function updateToggle(){
  b.onclick=()=>{setHide(!hideSeen());apply()};
 }
 function apply(){
+ window.SelectionTVLayout?.restore();
  migrateLegacy();
  const h=hideSeen();
  for(const el of candidates()){
