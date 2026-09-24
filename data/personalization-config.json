@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "seen_registry": "selectionTV_seen_v2",
+  "legacy_store": "selectionTV_saved_v1",
+  "preference": "selectionTV_hide_seen_v1",
+  "default_hide_seen": true,
+  "daily_developed": {
+    "target": 3,
+    "desired_total_candidates": 10,
+    "minimum_total_candidates": 8,
+    "policy": "Classer tous les candidats au-dessus du seuil éditorial. Afficher les 3 premiers non vus. Si le réservoir contient moins de 8 candidats réellement recommandables, renseigner shortage_reason au lieu d’abaisser le seuil."
+  },
+  "public_selection_rule": "La hiérarchie publique reste indépendante de l’historique Vu. La personnalisation ne se fait que dans le navigateur après publication.",
+  "sections_future": "Le même mécanisme peut être étendu aux rendez-vous, replay et plateformes en ajoutant des pools structurés sans modifier la sélection publique."
+}
