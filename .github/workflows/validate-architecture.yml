@@ -13,3 +13,4 @@ jobs:
         with:
           node-version: 20
       - run: node scripts/validate-architecture.mjs
+      - run: node scripts/validate-editorial.mjs
