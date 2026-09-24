@@ -22,7 +22,8 @@ const forbidden=[
 
 function scanValue(value,path){
   if(typeof value==='string'){
-    if(/^https?:\/\//.test(value)&&forbidden.some(r=>r.test(value)))errors.push(`${path}: search-result URL forbidden: ${value}`);
+    const urls=value.match(/https?:\\/\\/[^"'<>\\s]+/g)||[];
+    for(const url of urls)if(forbidden.some(r=>r.test(url)))errors.push(`${path}: search-result URL forbidden: ${url}`);
     return;
   }
   if(Array.isArray(value)){value.forEach((v,i)=>scanValue(v,`${path}[${i}]`));return}
