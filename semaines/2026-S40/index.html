@@ -290,4 +290,32 @@ document.querySelectorAll('.page:not(#couverture):not(#sommaire)').forEach(p=>{
 });
 })();
 </script>
+
+<script>
+(()=>{
+const STORE='selectionTV_saved_v1';
+const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+const load=()=>{try{return JSON.parse(localStorage.getItem(STORE)||'{}')}catch(e){return {}}};
+const save=o=>{localStorage.setItem(STORE,JSON.stringify(o));const c=document.getElementById('savedCount');if(c)c.textContent=Object.values(o).filter(x=>x.status!=='recupere').length};
+document.querySelectorAll('article.radar-card').forEach(card=>{
+ if(card.dataset.saveAdded==='1') return;
+ card.dataset.saveAdded='1';
+ const title=(card.querySelector('h3')?.textContent||'').trim();
+ if(!title) return;
+ const key=norm(title);
+ const added=(card.querySelector('.added')?.textContent||'Radar 1080p').trim();
+ let box=card.querySelector('.program-actions');
+ if(!box){box=document.createElement('div');box.className='program-actions';card.append(box);}
+ const b=document.createElement('button');b.type='button';b.className='save';
+ const refresh=()=>{const item=load()[key];const active=!!item&&item.status!=='recupere';b.textContent=active?'✓ À récupérer':'＋ À récupérer';b.classList.toggle('saved',active)};
+ b.onclick=()=>{
+   const all=load();
+   if(all[key]&&all[key].status!=='recupere') delete all[key];
+   else all[key]={title,context:'Radar 1080p · '+added,badge:'RADAR 1080P',page:document.title,url:location.href,added:new Date().toISOString(),status:'a-recuperer'};
+   save(all);refresh();
+ };
+ refresh();box.append(b);
+});
+})();
+</script>
 </body></html>
