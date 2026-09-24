@@ -45,3 +45,20 @@ Le statut `Vu` reste privé dans `localStorage` (`selectionTV_saved_v1`). Il n�
 La préférence `selectionTV_hide_seen_v1` contrôle ce comportement. L’utilisateur peut afficher temporairement les titres déjà vus. Le catalogue et la recherche permanente ne sont pas filtrés : seul l’affichage des recommandations hebdomadaires l’est.
 
 Conséquence : ce filtrage personnel fonctionne sur le navigateur qui possède les données locales ; il ne se synchronise pas entre appareils tant qu’aucun backend privé n’est ajouté.
+
+
+## Réservoir éditorial et remplacement des déjà-vus
+
+À partir de S41, chaque journée possède dans le JSON hebdomadaire un pool classé de candidats pour les choix développés. Le numéro public conserve sa hiérarchie éditoriale : les trois premiers restent les trois choix officiels. Le navigateur applique ensuite l’historique privé `Vu`.
+
+Le moteur utilise un registre stable `selectionTV_seen_v2` fondé autant que possible sur les `work_id` de `data/works.json`. Les anciens statuts `vu` de `selectionTV_saved_v1` sont migrés automatiquement lorsqu’un identifiant stable est disponible.
+
+Pour chaque journée :
+- objectif d’affichage : 3 choix développés ;
+- objectif de réservoir : 10 candidats classés ;
+- minimum normal : 8 candidats ;
+- si moins de 8 programmes dépassent réellement le seuil éditorial, le JSON doit contenir `shortage_reason` plutôt que d’ajouter des recommandations médiocres.
+
+Au chargement, le navigateur conserve les choix principaux non vus et remplit les places libérées avec les meilleurs candidats suivants du réservoir. Le bouton « Afficher les vus » restaure l’affichage canonique. La grille filtrée, elle, reste la liste exhaustive des programmes ayant passé le seuil et masque simplement les titres déjà vus.
+
+Cette personnalisation reste locale : la tâche hebdomadaire ne lit jamais l’historique privé de l’utilisateur et le dépôt GitHub conserve toujours la sélection complète.
