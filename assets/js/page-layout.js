@@ -82,7 +82,8 @@
  function schedule(){if(running)return;clearTimeout(timer);timer=setTimeout(layout,60)}
  window.SelectionTVLayout={restore,schedule,layout};
  window.addEventListener('resize',schedule);window.addEventListener('beforeprint',layout);window.addEventListener('afterprint',schedule);
- document.addEventListener('load',e=>{if(e.target.matches?.('img'))schedule()},true);
- document.addEventListener('error',e=>{if(e.target.matches?.('img'))schedule()},true);
+ // Images in magazine layouts have explicit CSS geometry. Re-running the
+ // whole 40-page pagination on every lazy image load/error causes scroll
+ // anchoring to fight the user near the end of long issues.
  document.fonts?.ready.then(schedule);schedule();
 })();
