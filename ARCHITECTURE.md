@@ -36,3 +36,12 @@ Le contenu éditorial du numéro se trouve dans `data/weeks/YYYY-Sxx.json`.
 ## Pourquoi
 
 Cette structure permet de conserver des centaines de numéros sans multiplier les copies de CSS et JavaScript. Un changement de design ou de comportement peut être appliqué à tous les numéros magazine en modifiant un seul fichier.
+
+
+## Couche personnelle locale
+
+Le statut `Vu` reste privé dans `localStorage` (`selectionTV_saved_v1`). Il n’est jamais écrit dans GitHub. Les numéros publics restent donc éditorialement complets, mais `magazine-week.js` masque par défaut, lors du rendu dans le navigateur, les recommandations dont le titre est marqué `vu`.
+
+La préférence `selectionTV_hide_seen_v1` contrôle ce comportement. L’utilisateur peut afficher temporairement les titres déjà vus. Le catalogue et la recherche permanente ne sont pas filtrés : seul l’affichage des recommandations hebdomadaires l’est.
+
+Conséquence : ce filtrage personnel fonctionne sur le navigateur qui possède les données locales ; il ne se synchronise pas entre appareils tant qu’aucun backend privé n’est ajouté.
