@@ -26,3 +26,20 @@ public sealed class ForumUploadsEnvelope
     public int SourceCount { get; set; }
     public IReadOnlyList<ForumUploadItem> Items { get; set; } = Array.Empty<ForumUploadItem>();
 }
+
+
+public sealed class MetadataEnrichmentRequest
+{
+    public string Title { get; set; } = "";
+    public int? Year { get; set; }
+    public string? ImdbId { get; set; }
+}
+
+public sealed class MetadataEnrichmentResult
+{
+    public string? ImdbUrl { get; set; }
+    public string? ImdbRating { get; set; }
+    public string? SensCritiqueUrl { get; set; }
+    public string? SensCritiqueRating { get; set; }
+    public string? ImageUrl { get; set; }
+}
