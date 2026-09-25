@@ -222,6 +222,20 @@
         workId:'',
         source:'library'
       };
+
+      // The Selection TV iframe is HTTPS. A poster served by a local HTTP
+      // Jellyfin server is blocked as mixed content, so prefer a public HTTPS
+      // poster from Jellyfin's remote metadata providers when available.
+      if(!/^https:/i.test(base.image||'')){
+        var posterRemote=await remoteSearch(a,guess,year);
+        if(posterRemote){
+          var posterUrl=posterRemote.ImageUrl||posterRemote.imageUrl||'';
+          if(/^https:/i.test(posterUrl))base.image=posterUrl;
+          var posterIds=providerIds(posterRemote);
+          ids={...posterIds,...ids};
+          base.links={...providerLink(posterIds),...(base.links||{})};
+        }
+      }
     }else{
       var remote=await remoteSearch(a,guess,year);
       if(remote){
@@ -265,7 +279,8 @@
     if(strictSc)exLinks.sc=strictSc;
     base.links=exLinks;
     var strictImage=extra.ImageUrl||extra.imageUrl||'';
-    if(strictImage && (base.source!=='library'||!base.image))base.image=strictImage;
+    if(/^https:/i.test(strictImage))base.image=strictImage;
+    else if(/^http:/i.test(base.image||''))base.image='';
     if(base.source==='unresolved'&&(extra.MatchedTitle||extra.matchedTitle)){
       base.title=extra.MatchedTitle||extra.matchedTitle;
     }
@@ -353,16 +368,38 @@
         status.textContent=initialBase+' · uploads '+provisional.length+' · enrichissement…';
       }
 
-      var items=await mapLimited(sourceItems,3,enrichOne);
+      var items=provisional.slice();
+      var nextIndex=0;
+      var completed=0;
 
-      sendPrivate({
-        type:'selection-tv:jellyfin-private-uploads',
-        version:2,
-        phase:'enriched',
-        generatedAt:feed.GeneratedAt||feed.generatedAt||new Date().toISOString(),
-        windowHours:feed.WindowHours||feed.windowHours||24,
-        items:items
-      });
+      async function worker(){
+        while(true){
+          var i=nextIndex++;
+          if(i>=sourceItems.length)return;
+          try{
+            items[i]=await enrichOne(sourceItems[i]);
+          }catch(e){
+            console.warn('Selection TV enrichment failed for item',i,e);
+          }
+          completed++;
+          sendPrivate({
+            type:'selection-tv:jellyfin-private-uploads',
+            version:3,
+            phase:completed===sourceItems.length?'enriched':'progress',
+            completed:completed,
+            total:sourceItems.length,
+            generatedAt:feed.GeneratedAt||feed.generatedAt||new Date().toISOString(),
+            windowHours:feed.WindowHours||feed.windowHours||24,
+            items:items
+          });
+          if(status){
+            var progressBase=(status.textContent||'').replace(/ · uploads.*$/,'');
+            status.textContent=progressBase+' · uploads '+sourceItems.length+' · '+completed+'/'+sourceItems.length+' enrichis';
+          }
+        }
+      }
+
+      await Promise.all(Array.from({length:Math.min(4,sourceItems.length)},worker));
 
       if(status&&items.length){
         var base=(status.textContent||'').replace(/ · uploads.*$/,'');
