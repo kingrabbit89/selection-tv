@@ -6,6 +6,31 @@
   var privateBusy=false;
   var lastPrivatePayload=null;
   var localSearchCache=new Map();
+  var PRIVATE_CACHE_KEY='selectionTv_private_enriched_v1';
+
+  function loadEnrichedCache(){
+    try{
+      var parsed=JSON.parse(sessionStorage.getItem(PRIVATE_CACHE_KEY)||'{}');
+      return parsed&&typeof parsed==='object'?parsed:{};
+    }catch(e){return {}}
+  }
+
+  function saveEnrichedCache(cache){
+    try{sessionStorage.setItem(PRIVATE_CACHE_KEY,JSON.stringify(cache))}catch(e){}
+  }
+
+  function uploadCacheKey(upload){
+    var url=upload.topicUrl||upload.TopicUrl||'';
+    var at=upload.activityAt||upload.ActivityAt||'';
+    return String(url)+'|'+String(at);
+  }
+
+  function hostActive(){
+    if(!frame||!document.body.contains(frame))return false;
+    var r=frame.getBoundingClientRect();
+    var cs=getComputedStyle(frame);
+    return cs.display!=='none'&&cs.visibility!=='hidden'&&r.width>0&&r.height>0;
+  }
 
   if(!frame)return;
 
@@ -35,7 +60,7 @@
     par.forEach(add);
     add(raw.replace(/\s*\([^()]+\)\s*/g,' ').replace(/\s+/g,' '));
     if(/\s+-\s+/.test(raw))add(raw.split(/\s+-\s+/)[0]);
-    return out.slice(0,4);
+    return out.slice(0,2);
   }
 
   function pget(o,a,b){
@@ -84,7 +109,7 @@
             SearchTerm:candidates[ci],
             Fields:'ProviderIds,OriginalTitle,Genres,Overview,People',
             EnableTotalRecordCount:false,
-            Limit:20
+            Limit:10
           });
           all=all.concat(pget(r,'Items','items')||[]);
         }catch(e){}
@@ -181,7 +206,7 @@
     var names=[remote.Name,remote.name,remote.OriginalTitle,remote.originalTitle].filter(Boolean);
     var all=[];
 
-    for(var i=0;i<Math.min(names.length,3);i++){
+    for(var i=0;i<Math.min(names.length,2);i++){
       try{
         var r=await a.getItems(a.getCurrentUserId(),{
           Recursive:true,
@@ -189,7 +214,7 @@
           SearchTerm:names[i],
           Fields:'ProviderIds,OriginalTitle,Genres,Overview,People',
           EnableTotalRecordCount:false,
-          Limit:30
+          Limit:12
         });
         all=all.concat(pget(r,'Items','items')||[]);
       }catch(e){}
@@ -381,7 +406,7 @@
   }
 
   async function loadPrivateUploads(){
-    if(privateBusy)return;
+    if(privateBusy||!hostActive())return;
     var a=api();
     if(!a)return;
     privateBusy=true;
@@ -433,23 +458,50 @@
         status.textContent=initialBase+' · uploads '+provisional.length+' · enrichissement…';
       }
 
+      var cache=loadEnrichedCache();
       var items=provisional.slice();
+      var pending=[];
+
+      sourceItems.forEach(function(upload,i){
+        var cached=cache[uploadCacheKey(upload)];
+        if(cached){
+          items[i]=cached;
+        }else{
+          pending.push(i);
+        }
+      });
+
+      if(pending.length!==sourceItems.length){
+        sendPrivate({
+          type:'selection-tv:jellyfin-private-uploads',
+          version:4,
+          phase:'cached',
+          generatedAt:feed.GeneratedAt||feed.generatedAt||new Date().toISOString(),
+          windowHours:feed.WindowHours||feed.windowHours||24,
+          items:items
+        });
+      }
+
       var nextIndex=0;
-      var completed=0;
+      var completed=sourceItems.length-pending.length;
 
       async function worker(){
         while(true){
-          var i=nextIndex++;
-          if(i>=sourceItems.length)return;
+          if(!hostActive())return;
+          var p=nextIndex++;
+          if(p>=pending.length)return;
+          var i=pending[p];
           try{
             items[i]=await enrichOne(sourceItems[i]);
+            cache[uploadCacheKey(sourceItems[i])]=items[i];
+            saveEnrichedCache(cache);
           }catch(e){
             console.warn('Selection TV enrichment failed for item',i,e);
           }
           completed++;
           sendPrivate({
             type:'selection-tv:jellyfin-private-uploads',
-            version:3,
+            version:4,
             phase:completed===sourceItems.length?'enriched':'progress',
             changedIndex:i,
             completed:completed,
@@ -465,7 +517,7 @@
         }
       }
 
-      await Promise.all(Array.from({length:Math.min(4,sourceItems.length)},worker));
+      await Promise.all(Array.from({length:Math.min(2,pending.length)},worker));
 
       if(status&&items.length){
         var base=(status.textContent||'').replace(/ · uploads.*$/,'');
