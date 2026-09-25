@@ -197,24 +197,61 @@ public sealed class PublicMetadataService
         string imdbId,
         CancellationToken cancellationToken)
     {
-        var url = $"https://www.imdb.com/title/{imdbId}/";
-        var html = await client.GetStringAsync(url, cancellationToken).ConfigureAwait(false);
-        var page = ParseJsonLdMovie(html);
+        FilmPage? best = null;
 
-        if (page is null)
+        foreach (var url in new[]
         {
-            page = new FilmPage
+            $"https://www.imdb.com/title/{imdbId}/",
+            $"https://www.imdb.com/title/{imdbId}/reference/",
+            $"https://www.imdb.com/title/{imdbId}/ratings/"
+        })
+        {
+            try
             {
-                Title = Meta(html, "og:title")?.Replace(" - IMDb", "", StringComparison.OrdinalIgnoreCase),
-                Image = Meta(html, "og:image"),
-                Rating = FirstRegex(html, @"""ratingValue""\s*:\s*""?(?<v>\d+(?:\.\d+)?)", "v")
-            };
+                var html = await client.GetStringAsync(url, cancellationToken).ConfigureAwait(false);
+                var page = ParseJsonLdMovie(html) ?? new FilmPage();
+
+                page.Title ??= Meta(html, "og:title")?
+                    .Replace(" - IMDb", "", StringComparison.OrdinalIgnoreCase)
+                    .Trim();
+
+                page.Image ??= Meta(html, "og:image");
+
+                page.Rating ??=
+                    FirstRegex(html, @"""ratingValue""\s*:\s*""?(?<v>\d+(?:\.\d+)?)", "v")
+                    ?? FirstRegex(html, @"""aggregateRating""\s*:\s*(?<v>\d+(?:\.\d+)?)", "v")
+                    ?? FirstRegex(html, @"""aggregateRating""\s*:\s*\{[^{}]{0,300}?""value""\s*:\s*(?<v>\d+(?:\.\d+)?)", "v");
+
+                if (best is null
+                    || (!string.IsNullOrWhiteSpace(page.Rating) && string.IsNullOrWhiteSpace(best.Rating))
+                    || (!string.IsNullOrWhiteSpace(page.Image) && string.IsNullOrWhiteSpace(best.Image)))
+                {
+                    best = page;
+                }
+
+                if (!string.IsNullOrWhiteSpace(best.Rating)
+                    && !string.IsNullOrWhiteSpace(best.Image)
+                    && !string.IsNullOrWhiteSpace(best.Title))
+                {
+                    break;
+                }
+            }
+            catch
+            {
+                // Try the next IMDb surface. Some endpoints are more tolerant
+                // of server-side requests than the main title page.
+            }
         }
 
-        page.ImdbId = imdbId;
-        page.CanonicalUrl = $"https://www.imdb.com/title/{imdbId}/";
-        page.Image = CleanImageUrl(page.Image);
-        return page;
+        if (best is null)
+        {
+            return null;
+        }
+
+        best.ImdbId = imdbId;
+        best.CanonicalUrl = $"https://www.imdb.com/title/{imdbId}/";
+        best.Image = CleanImageUrl(best.Image);
+        return best;
     }
 
     private async Task<FilmPage?> ResolveSensCritiqueAsync(
@@ -234,6 +271,7 @@ public sealed class PublicMetadataService
 
             foreach (var searchUrl in new[]
             {
+                "https://www.senscritique.com/search?q=" + Uri.EscapeDataString(title),
                 "https://www.google.com/search?q=" + Uri.EscapeDataString(q),
                 "https://www.bing.com/search?q=" + Uri.EscapeDataString(q),
                 "https://html.duckduckgo.com/html/?q=" + Uri.EscapeDataString(q)
@@ -656,6 +694,19 @@ public sealed class PublicMetadataService
             if (found.Add(u))
             {
                 yield return u;
+            }
+        }
+
+        foreach (Match m in Regex.Matches(
+            html,
+            @"href=[""'](?<v>/film/[a-zA-Z0-9_%\-]+/\d+)(?:[/?#][^""']*)?[""']",
+            RegexOptions.IgnoreCase))
+        {
+            var decoded = "https://www.senscritique.com" + m.Groups["v"].Value;
+            decoded = NormalizeSensCritiqueUrl(decoded);
+            if (found.Add(decoded))
+            {
+                yield return decoded;
             }
         }
 
