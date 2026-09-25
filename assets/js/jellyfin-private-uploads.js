@@ -451,6 +451,7 @@
             type:'selection-tv:jellyfin-private-uploads',
             version:3,
             phase:completed===sourceItems.length?'enriched':'progress',
+            changedIndex:i,
             completed:completed,
             total:sourceItems.length,
             generatedAt:feed.GeneratedAt||feed.generatedAt||new Date().toISOString(),
