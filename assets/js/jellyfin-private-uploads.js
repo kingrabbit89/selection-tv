@@ -4,8 +4,7 @@
   var status=document.getElementById('selectionTvBridgeStatus');
   var privateTimer=null;
   var privateBusy=false;
-  var privateLibraryPromise=null;
-  var privateLibrary=[];
+  var localSearchCache=new Map();
 
   if(!frame)return;
 
@@ -54,50 +53,39 @@
     return q.join(' · ');
   }
 
-  async function loadPrivateLibrary(){
-    if(privateLibraryPromise)return privateLibraryPromise;
-    privateLibraryPromise=(async function(){
-      var a=api();
-      if(!a||typeof a.getItems!=='function')return [];
-      var start=0,limit=500,total=null,all=[];
-      do{
+  async function localSearch(a,title,year){
+    var key=norm(title)+'|'+String(year||'');
+    if(localSearchCache.has(key))return localSearchCache.get(key);
+
+    var promise=(async function(){
+      try{
         var r=await a.getItems(a.getCurrentUserId(),{
           Recursive:true,
           IncludeItemTypes:'Movie',
+          SearchTerm:title,
           Fields:'ProviderIds,OriginalTitle,Genres,Overview,People',
-          EnableTotalRecordCount:true,
-          StartIndex:start,
-          Limit:limit
+          EnableTotalRecordCount:false,
+          Limit:20
         });
         var items=pget(r,'Items','items')||[];
-        all=all.concat(items);
-        if(total===null)total=Number(pget(r,'TotalRecordCount','totalRecordCount'));
-        start+=items.length;
-        if(!items.length)break;
-      }while(Number.isFinite(total)?start<total:all.length<15000);
-      privateLibrary=all;
-      return all;
-    })().catch(function(){
-      privateLibraryPromise=null;
-      return [];
-    });
-    return privateLibraryPromise;
-  }
+        var nt=norm(title);
+        var scored=items.map(function(x){
+          var names=[x.Name,x.name,x.OriginalTitle,x.originalTitle].filter(Boolean).map(norm);
+          var y=Number(x.ProductionYear||x.productionYear)||0;
+          var score=0;
+          if(names.indexOf(nt)!==-1)score+=100;
+          else if(names.some(function(n){return n.includes(nt)||nt.includes(n);}))score+=40;
+          if(year&&y===Number(year))score+=30;
+          return {item:x,score:score};
+        }).sort(function(a1,b1){return b1.score-a1.score;});
+        return scored.length&&scored[0].score>=70?scored[0].item:null;
+      }catch(e){
+        return null;
+      }
+    })();
 
-  function localMatch(upload){
-    var title=norm(upload.titleGuess||upload.TitleGuess||upload.topicTitle||upload.TopicTitle);
-    var year=Number(upload.year||upload.Year)||0;
-    var exact=privateLibrary.filter(function(x){
-      var y=Number(x.ProductionYear||x.productionYear)||0;
-      var names=[x.Name,x.name,x.OriginalTitle,x.originalTitle].filter(Boolean).map(norm);
-      return names.indexOf(title)!==-1 && (!year||!y||year===y);
-    });
-    if(exact.length===1)return exact[0];
-    if(exact.length>1&&year){
-      var yhit=exact.find(function(x){return Number(x.ProductionYear||x.productionYear)===year;});
-      if(yhit)return yhit;
-    }
-    return null;
+    localSearchCache.set(key,promise);
+    return promise;
   }
 
   function directorOf(item){
@@ -165,7 +153,7 @@
     var year=Number(upload.year||upload.Year)||null;
     var activityAt=upload.activityAt||upload.ActivityAt||null;
     var author=upload.author||upload.Author||null;
-    var local=localMatch(upload);
+    var local=await localSearch(a,guess,year);
 
     if(local){
       var ids=providerIds(local);
@@ -258,7 +246,6 @@
     if(!a)return;
     privateBusy=true;
     try{
-      await loadPrivateLibrary();
       var feed=await a.ajax({
         type:'GET',
         url:a.getUrl('SelectionTv/Uploads',{hours:24}),
