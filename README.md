@@ -34,6 +34,78 @@ Le site est statique et fonctionne sans backend applicatif.
 
 Les nouveaux numéros réutilisent le même moteur de rendu et les mêmes contrôles de qualité.
 
+## Intégration Jellyfin
+
+Sélection TV peut être intégré directement dans **Jellyfin Web** comme page utilisateur. L'objectif est de conserver l'expérience éditoriale du site tout en la rapprochant de la médiathèque personnelle : une œuvre présente dans Jellyfin peut ensuite être reconnue et ouverte depuis Sélection TV.
+
+> **Statut : intégration optionnelle et expérimentale.**  
+> L'affichage dans Jellyfin est fonctionnel. Le pont avec la bibliothèque Jellyfin (détection des œuvres, ouverture de la fiche, puis à terme état *Vu* et qualité disponible) est encore en cours de stabilisation.
+
+### Configuration testée
+
+La procédure ci-dessous a été testée avec :
+
+- Jellyfin Server / Web **10.11.11** ;
+- **File Transformation 3.0.1.0** ;
+- **Plugin Pages 3.0.1.0**.
+
+Les deux plugins tiers sont publiés par [IAmParadox27](https://github.com/IAmParadox27).
+
+### Installation
+
+1. Ajouter le dépôt de plugins suivant dans Jellyfin :
+
+   ```text
+   https://www.iamparadox.dev/jellyfin/plugins/manifest.json
+   ```
+
+2. Installer **File Transformation** puis **Plugin Pages**, et redémarrer Jellyfin.
+
+3. Copier le fichier fourni dans ce dépôt :
+
+   ```text
+   integrations/jellyfin/selection-tv.html
+   ```
+
+   dans le répertoire `jellyfin-web` de l'installation Jellyfin.
+
+   Sous Windows, l'emplacement courant est :
+
+   ```text
+   C:\Program Files\Jellyfin\Server\jellyfin-web\selection-tv.html
+   ```
+
+4. Créer le fichier de configuration de Plugin Pages :
+
+   ```text
+   C:\ProgramData\Jellyfin\Server\plugins\configurations\Jellyfin.Plugin.PluginPages\config.json
+   ```
+
+   avec :
+
+   ```json
+   {
+     "pages": [
+       {
+         "Id": "selection-tv",
+         "Url": "selection-tv.html",
+         "DisplayText": "Sélection TV",
+         "Icon": "live_tv"
+       }
+     ]
+   }
+   ```
+
+5. Redémarrer Jellyfin. Une entrée **Sélection TV** doit apparaître dans le menu utilisateur.
+
+### Cache Jellyfin Web
+
+Après une mise à jour de **File Transformation**, **Plugin Pages** ou du fichier `selection-tv.html`, Jellyfin Web peut continuer à utiliser d'anciens bundles en cache. Si l'entrée apparaît mais ouvre une page introuvable ou une ancienne version, vider les données du site dans le navigateur ou tester dans une fenêtre privée permet de confirmer rapidement un problème de cache.
+
+### Sécurité
+
+Aucune clé API Jellyfin ne doit être placée dans le site GitHub Pages public. L'intégration est conçue pour utiliser le contexte de la session Jellyfin côté page locale.
+
 ## Contrôles avant publication
 
 GitHub Actions vérifie automatiquement l’architecture et les données éditoriales, la politique de liens exacts, ainsi que le rendu réel dans Chromium : pagination, sommaire, défilement jusqu’à la dernière page, responsive, images, réserves et fonctionnement du système **Vu**.
