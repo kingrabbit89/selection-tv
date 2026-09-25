@@ -29,8 +29,9 @@ public sealed class ForumUploadsService
     {
         var cfg = LoadConfig();
         var hours = Math.Clamp(requestedHours ?? cfg.WindowHours, 1, 168);
+        var fresh = _cache is not null && DateTimeOffset.UtcNow - _cacheAt < TimeSpan.FromMinutes(8);
 
-        if (_cache is not null && DateTimeOffset.UtcNow - _cacheAt < TimeSpan.FromMinutes(8))
+        if (fresh && _cache!.WindowHours >= hours)
         {
             return FilterEnvelope(_cache, hours);
         }
@@ -38,9 +39,10 @@ public sealed class ForumUploadsService
         await _refreshLock.WaitAsync(cancellationToken).ConfigureAwait(false);
         try
         {
-            if (_cache is null || DateTimeOffset.UtcNow - _cacheAt >= TimeSpan.FromMinutes(8))
+            fresh = _cache is not null && DateTimeOffset.UtcNow - _cacheAt < TimeSpan.FromMinutes(8);
+            if (!fresh || _cache!.WindowHours < hours)
             {
-                _cache = await RefreshAsync(cfg, cancellationToken).ConfigureAwait(false);
+                _cache = await RefreshAsync(cfg, hours, cancellationToken).ConfigureAwait(false);
                 _cacheAt = DateTimeOffset.UtcNow;
             }
 
@@ -71,7 +73,10 @@ public sealed class ForumUploadsService
         return cfg;
     }
 
-    private async Task<ForumUploadsEnvelope> RefreshAsync(PrivateUploadsConfig cfg, CancellationToken cancellationToken)
+    private async Task<ForumUploadsEnvelope> RefreshAsync(
+        PrivateUploadsConfig cfg,
+        int crawlHours,
+        CancellationToken cancellationToken)
     {
         var baseUri = new Uri(cfg.ForumUrl.TrimEnd('/') + "/");
         var cookieJar = new CookieContainer();
@@ -86,30 +91,29 @@ public sealed class ForumUploadsService
             BaseAddress = baseUri,
             Timeout = TimeSpan.FromSeconds(30)
         };
-        client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("SelectionTV-Jellyfin", "0.1"));
+        client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("SelectionTV-Jellyfin", "0.2"));
         client.DefaultRequestHeaders.AcceptLanguage.ParseAdd("fr-FR,fr;q=0.9,en;q=0.5");
 
         await LoginAsync(client, cfg, cancellationToken).ConfigureAwait(false);
 
         var all = new List<ForumUploadItem>();
-        var forumPath = $"f{cfg.ForumId}-";
-        var cutoff = DateTimeOffset.Now.AddHours(-Math.Clamp(cfg.WindowHours, 1, 168));
-        var forumHtml = "";
+        var cutoff = DateTimeOffset.Now.AddHours(-crawlHours);
+        var current = new Uri(baseUri, $"f{cfg.ForumId}-");
+        var visited = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
         for (var page = 0; page < 10; page++)
         {
-            var path = page == 0 ? forumPath : $"{forumPath}?start={page * 50}";
-            var forumResponse = await client.GetAsync(path, cancellationToken).ConfigureAwait(false);
+            if (!visited.Add(current.PathAndQuery))
+            {
+                break;
+            }
+
+            var forumResponse = await client.GetAsync(current, cancellationToken).ConfigureAwait(false);
             var html = await forumResponse.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
             if (LooksLikeLogin(forumResponse.RequestMessage?.RequestUri, html))
             {
                 throw new InvalidOperationException("Connexion Forumactif refusée ou session non authentifiée.");
-            }
-
-            if (page == 0)
-            {
-                forumHtml = html;
             }
 
             var parsedPage = ParseForumHtml(baseUri, html)
@@ -125,62 +129,27 @@ public sealed class ForumUploadsService
             all.AddRange(parsedPage);
 
             var dated = parsedPage.Where(x => x.ActivityAt.HasValue).ToList();
-            if (dated.Count > 0 && dated.Min(x => x.ActivityAt!.Value) < cutoff)
+            if (dated.Count > 0 && dated.Max(x => x.ActivityAt!.Value) < cutoff)
             {
                 break;
             }
 
-            // Forumactif typically uses 50 topics per page. If a short page is
-            // returned, there is no next page to inspect.
-            if (parsedPage.Count < 45)
+            var next = FindNextForumPage(baseUri, html, cfg.ForumId, current);
+            if (next is null)
             {
                 break;
             }
+
+            current = next;
         }
 
-        // Protected Forumactif forums can expose an RSS endpoint while returning
-        // no <item> at all, even for an authenticated session. Prefer the HTML
-        // topic list in that case.
-        try
-        {
-            var feedPath = $"feed/?f={cfg.ForumId}";
-            var xml = await client.GetStringAsync(feedPath, cancellationToken).ConfigureAwait(false);
-            var doc = XDocument.Parse(xml, LoadOptions.PreserveWhitespace);
-
-            foreach (var node in doc.Descendants().Where(x => x.Name.LocalName == "item"))
-            {
-                var topicTitle = WebUtility.HtmlDecode(Value(node, "title")).Trim();
-                var url = Value(node, "link").Trim();
-                var pub = ParseDate(Value(node, "pubDate"));
-                var author = Value(node, "creator").Trim();
-                if (string.IsNullOrWhiteSpace(topicTitle) || string.IsNullOrWhiteSpace(url))
-                {
-                    continue;
-                }
-
-                var parsed = ParseReleaseTitle(topicTitle);
-                all.Add(new ForumUploadItem
-                {
-                    TopicTitle = topicTitle,
-                    TopicUrl = url,
-                    TitleGuess = parsed.Title,
-                    Year = parsed.Year,
-                    ActivityAt = pub,
-                    Author = string.IsNullOrWhiteSpace(author) ? null : author
-                });
-            }
-        }
-        catch (Exception ex)
-        {
-            _logger.LogDebug(ex, "Selection TV: authenticated Forumactif RSS unavailable.");
-        }
-
+        // Last-resort compatibility fallback. Some Forumactif boards expose a
+        // usable authenticated RSS feed even when the HTML template changes.
         if (all.Count == 0)
         {
             try
             {
-                var feedPath = $"feed/?f={cfg.ForumId}";
-                var xml = await client.GetStringAsync(feedPath, cancellationToken).ConfigureAwait(false);
+                var xml = await client.GetStringAsync($"feed/?f={cfg.ForumId}", cancellationToken).ConfigureAwait(false);
                 var doc = XDocument.Parse(xml, LoadOptions.PreserveWhitespace);
 
                 foreach (var node in doc.Descendants().Where(x => x.Name.LocalName == "item"))
@@ -212,24 +181,87 @@ public sealed class ForumUploadsService
             }
         }
 
-        _logger.LogInformation("Selection TV: parsed {Count} topics from authenticated forum pages.", all.Count);
-
         all = all
             .GroupBy(x => TopicIdOf(x.TopicUrl) ?? x.TopicUrl, StringComparer.OrdinalIgnoreCase)
             .Select(g => g.OrderByDescending(x => x.ActivityAt ?? DateTimeOffset.MinValue).First())
             .OrderByDescending(x => x.ActivityAt ?? DateTimeOffset.MinValue)
-            .Take(100)
+            .Take(500)
             .ToList();
 
-        _logger.LogInformation("Selection TV: {Count} authenticated forum feed items loaded.", all.Count);
+        _logger.LogInformation(
+            "Selection TV: parsed {Count} authenticated forum topics across {PageCount} page(s).",
+            all.Count,
+            visited.Count);
 
         return new ForumUploadsEnvelope
         {
             GeneratedAt = DateTimeOffset.UtcNow,
-            WindowHours = cfg.WindowHours,
+            WindowHours = crawlHours,
             SourceCount = all.Count,
             Items = all
         };
+    }
+
+    private static Uri? FindNextForumPage(Uri baseUri, string html, int forumId, Uri current)
+    {
+        var currentStart = ForumPageStart(current);
+        var candidates = new List<(int Start, Uri Uri)>();
+
+        foreach (Match m in Regex.Matches(
+            html,
+            @"<a\b[^>]*\bhref\s*=\s*(?:""(?<href>[^""]+)""|'(?<href>[^']+)')[^>]*>",
+            RegexOptions.IgnoreCase | RegexOptions.Singleline))
+        {
+            var href = WebUtility.HtmlDecode(m.Groups["href"].Value).Trim();
+            if (string.IsNullOrWhiteSpace(href))
+            {
+                continue;
+            }
+
+            Uri uri;
+            try
+            {
+                uri = new Uri(baseUri, href);
+            }
+            catch
+            {
+                continue;
+            }
+
+            var path = uri.PathAndQuery;
+            var fm = Regex.Match(path, $@"(?:^|/)f{forumId}p(?<start>\d+)-", RegexOptions.IgnoreCase);
+            var qm = Regex.Match(path, @"[?&]start=(?<start>\d+)", RegexOptions.IgnoreCase);
+            var sm = fm.Success ? fm : qm;
+            if (!sm.Success)
+            {
+                continue;
+            }
+
+            var start = int.Parse(sm.Groups["start"].Value, CultureInfo.InvariantCulture);
+            if (start > currentStart)
+            {
+                candidates.Add((start, uri));
+            }
+        }
+
+        return candidates
+            .OrderBy(x => x.Start)
+            .Select(x => x.Uri)
+            .FirstOrDefault();
+    }
+
+    private static int ForumPageStart(Uri uri)
+    {
+        var fm = Regex.Match(uri.PathAndQuery, @"/f\d+p(?<start>\d+)-", RegexOptions.IgnoreCase);
+        if (fm.Success)
+        {
+            return int.Parse(fm.Groups["start"].Value, CultureInfo.InvariantCulture);
+        }
+
+        var qm = Regex.Match(uri.Query, @"(?:^|[?&])start=(?<start>\d+)", RegexOptions.IgnoreCase);
+        return qm.Success
+            ? int.Parse(qm.Groups["start"].Value, CultureInfo.InvariantCulture)
+            : 0;
     }
 
     private static async Task LoginAsync(HttpClient client, PrivateUploadsConfig cfg, CancellationToken cancellationToken)
