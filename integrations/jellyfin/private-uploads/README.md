@@ -39,10 +39,10 @@ Le projet cible .NET 9 et les packages Jellyfin 10.11.0, comme les plugins compa
 
 ```powershell
 dotnet restore .\Jellyfin.Plugin.SelectionTvPrivate.csproj
-dotnet publish .\Jellyfin.Plugin.SelectionTvPrivate.csproj -c Release
+dotnet build .\Jellyfin.Plugin.SelectionTvPrivate.csproj -c Release
 ```
 
-Copier ensuite les DLL produites dans un dossier de plugin Jellyfin dédié puis redémarrer le serveur.
+Copier uniquement `Jellyfin.Plugin.SelectionTvPrivate.dll` dans un dossier de plugin Jellyfin dédié puis redémarrer le serveur.
 
 ## Rafraîchissement
 
