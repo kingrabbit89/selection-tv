@@ -4,6 +4,7 @@
   var status=document.getElementById('selectionTvBridgeStatus');
   var privateTimer=null;
   var privateBusy=false;
+  var lastPrivatePayload=null;
   var localSearchCache=new Map();
 
   if(!frame)return;
@@ -293,7 +294,10 @@
   }
 
   function sendPrivate(payload){
-    if(frame.contentWindow)frame.contentWindow.postMessage(payload,CHILD_ORIGIN);
+    if(payload)lastPrivatePayload=payload;
+    if(frame.contentWindow&&lastPrivatePayload){
+      frame.contentWindow.postMessage(lastPrivatePayload,CHILD_ORIGIN);
+    }
   }
 
   async function loadPrivateUploads(){
@@ -376,8 +380,21 @@
     privateTimer=setInterval(loadPrivateUploads,10*60*1000);
   }
 
+  window.addEventListener('message',function(e){
+    if(e.source!==frame.contentWindow||!e.data)return;
+    if(e.data.type==='selection-tv:jellyfin-private-ready'){
+      if(lastPrivatePayload)sendPrivate();
+      else loadPrivateUploads();
+    }
+  });
+
   frame.addEventListener('load',function(){
-    setTimeout(loadPrivateUploads,2400);
+    [250,900,2200].forEach(function(delay){
+      setTimeout(function(){
+        if(lastPrivatePayload)sendPrivate();
+        else loadPrivateUploads();
+      },delay);
+    });
     schedule();
   });
 
