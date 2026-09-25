@@ -216,11 +216,12 @@
     refresh();box.append(b);
     window.SelectionTVSeen?.attach(box,item.title,()=>({title:item.title,context:'Vos Uploads · dernières 24 h',badge:'UPLOAD FORUM',url:item.topicUrl||location.href}));
   };
-  const makeCard=item=>{
+  const makeCard=(item,index)=>{
     const article=document.createElement('article');
     article.className='platform has-poster jellyfin-private-upload';
     article.dataset.title=item.title||item.titleGuess||item.topicTitle||'';
     article.dataset.privateJellyfin='1';
+    if(Number.isInteger(index))article.dataset.privateIndex=String(index);
     if(item.workId)article.dataset.workId=item.workId;
 
     const imgUrl=safeUrl(item.image);
@@ -268,6 +269,15 @@
       ['sc','SensCritique',links.sc,''],
       ['tmdb','TMDb',links.tmdb,'']
     ].forEach(([,label,url,cls])=>{const a=makeLink(label,url,cls);if(a)actions.append(a)});
+
+    if(item.jellyfinItemId){
+      const j=document.createElement('div');j.className='jellyfin-actions';
+      const badge=document.createElement('span');badge.className='jellyfin-pill';badge.textContent='Dans Jellyfin';j.append(badge);
+      const open=document.createElement('button');open.type='button';open.className='jellyfin-open';open.textContent='Ouvrir dans Jellyfin';
+      open.onclick=()=>PARENT.postMessage({type:'selection-tv:jellyfin-open',itemId:item.jellyfinItemId},'*');
+      j.append(open);actions.append(j);
+    }
+
     saveControl(actions,item);
     copy.append(actions);
     article.append(copy);
@@ -285,12 +295,28 @@
     const method=[...group.querySelectorAll('.toc-link')].find(x=>x.getAttribute('href')==='#methode');
     method?group.insertBefore(a,method):group.append(a);
   };
+  const patchPrivate=(items)=>{
+    const cards=[...document.querySelectorAll('.jellyfin-private-upload[data-private-index]')];
+    if(cards.length!==items.length)return false;
+    items.forEach((item,index)=>{
+      const current=document.querySelector('.jellyfin-private-upload[data-private-index="'+index+'"]');
+      if(current)current.replaceWith(makeCard(item,index));
+    });
+    return true;
+  };
+
   const renderPrivate=async payload=>{
-    removeOld();
     const raw=(payload.items||[]).filter(x=>x&&(x.title||x.titleGuess||x.topicTitle));
     if(!raw.length)return;
     const catalog=await catalogPromise;
     const items=raw.map(x=>hydrateFromCatalog(x,catalog));
+
+    if(payload.phase!=='provisional' && patchPrivate(items)){
+      document.dispatchEvent(new CustomEvent('selectiontv:privateuploadsrendered',{detail:{count:items.length,phase:payload.phase||''}}));
+      return;
+    }
+
+    removeOld();
     ensureStyle();addToc();
     const book=document.querySelector('.book');if(!book)return;
     const firstDaily=book.querySelector('[id$="-selection"]');
@@ -304,7 +330,7 @@
       const h=document.createElement('div');h.className='h1';h.textContent=pageNo===1?'Les uploads des dernières 24 heures':'Vos Uploads — suite';page.append(h);
       const deck=document.createElement('div');deck.className='deck';deck.textContent='Les sujets récents du forum sont identifiés comme œuvres et enrichis par les métadonnées disponibles dans Jellyfin.';page.append(deck);
       const rule=document.createElement('div');rule.className='rule';page.append(rule);
-      const grid=document.createElement('div');grid.className='platform-grid';items.slice(start,start+perPage).forEach(x=>grid.append(makeCard(x)));page.append(grid);
+      const grid=document.createElement('div');grid.className='platform-grid';items.slice(start,start+perPage).forEach((x,offset)=>grid.append(makeCard(x,start+offset)));page.append(grid);
       if(pageNo===1){
         const note=document.createElement('div');note.className='jellyfin-private-note';
         note.textContent='Cette rubrique n’existe que dans l’intégration Jellyfin. Les données du forum ne sont pas inscrites dans les fichiers publics de Sélection TV.';
