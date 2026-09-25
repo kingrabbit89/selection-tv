@@ -343,6 +343,45 @@
     return bestScore>=50?best:null;
   }
 
+  async function localSearchByProvider(a,remote,year){
+    if(!remote)return null;
+    var ids=providerIds(remote);
+    var imdb=String(ids.Imdb||ids.IMDb||ids.imdb||'').toLowerCase();
+    var tmdb=String(ids.Tmdb||ids.TMDb||ids.tmdb||'');
+    var names=[remote.Name,remote.name,remote.OriginalTitle,remote.originalTitle].filter(Boolean);
+    var all=[];
+
+    for(var i=0;i<Math.min(names.length,3);i++){
+      try{
+        var r=await a.getItems(a.getCurrentUserId(),{
+          Recursive:true,
+          IncludeItemTypes:'Movie',
+          SearchTerm:names[i],
+          Fields:'ProviderIds,OriginalTitle,Genres,Overview,People',
+          EnableTotalRecordCount:false,
+          Limit:30
+        });
+        all=all.concat(pget(r,'Items','items')||[]);
+      }catch(e){}
+    }
+
+    var exact=all.find(function(x){
+      var p=providerIds(x);
+      var xi=String(p.Imdb||p.IMDb||p.imdb||'').toLowerCase();
+      var xt=String(p.Tmdb||p.TMDb||p.tmdb||'');
+      return (imdb&&xi===imdb)||(tmdb&&xt===tmdb);
+    });
+    if(exact)return exact;
+
+    var targetNames=names.map(norm);
+    return all.find(function(x){
+      var y=Number(x.ProductionYear||x.productionYear)||0;
+      var n=[x.Name,x.name,x.OriginalTitle,x.originalTitle].filter(Boolean).map(norm);
+      return (!year||!y||Math.abs(Number(year)-y)<=1)
+        && n.some(function(v){return targetNames.indexOf(v)!==-1;});
+    })||null;
+  }
+
   async function publicEnrichment(a,title,year,director,topicTitle,ids){
     try{
       return await a.ajax({
@@ -390,7 +429,8 @@
         quality:qualityFromTopic(topicTitle),
         jellyfinItemId:local.Id||local.id,
         workId:'',
-        source:'library'
+        source:'library',
+        ratings:{jellyfin:(local.CommunityRating||local.communityRating||'')}
       };
 
       // The Selection TV iframe is HTTPS. A poster served by a local HTTP
@@ -409,22 +449,46 @@
     }else{
       var remote=await remoteSearch(a,guess,year);
       if(remote){
-        ids=providerIds(remote);
-        base={
-          topicTitle:topicTitle,topicUrl:topicUrl,activityAt:activityAt,author:author,
-          title:remote.Name||remote.name||guess,
-          titleGuess:guess,
-          year:remote.ProductionYear||remote.productionYear||year,
-          director:'',
-          genre:'',
-          overview:remote.Overview||remote.overview||'',
-          image:remote.ImageUrl||remote.imageUrl||'',
-          links:providerLink(ids),
-          quality:qualityFromTopic(topicTitle),
-          jellyfinItemId:'',
-          workId:'',
-          source:'remote'
-        };
+        var secondLocal=await localSearchByProvider(a,remote,year);
+        if(secondLocal){
+          local=secondLocal;
+          ids=providerIds(local);
+          base={
+            topicTitle:topicTitle,topicUrl:topicUrl,activityAt:activityAt,author:author,
+            title:local.Name||local.name||remote.Name||remote.name||guess,
+            titleGuess:guess,
+            year:local.ProductionYear||local.productionYear||remote.ProductionYear||remote.productionYear||year,
+            director:directorOf(local),
+            genre:arr(local.Genres||local.genres).join(' / '),
+            overview:local.Overview||local.overview||remote.Overview||remote.overview||'',
+            image:localImage(a,local),
+            links:{...providerLink(providerIds(remote)),...providerLink(ids)},
+            quality:qualityFromTopic(topicTitle),
+            jellyfinItemId:local.Id||local.id,
+            workId:'',
+            source:'library',
+            ratings:{jellyfin:(local.CommunityRating||local.communityRating||'')}
+          };
+          var secondPoster=remote.ImageUrl||remote.imageUrl||'';
+          if(/^https:/i.test(secondPoster))base.image=secondPoster;
+        }else{
+          ids=providerIds(remote);
+          base={
+            topicTitle:topicTitle,topicUrl:topicUrl,activityAt:activityAt,author:author,
+            title:remote.Name||remote.name||guess,
+            titleGuess:guess,
+            year:remote.ProductionYear||remote.productionYear||year,
+            director:'',
+            genre:'',
+            overview:remote.Overview||remote.overview||'',
+            image:remote.ImageUrl||remote.imageUrl||'',
+            links:providerLink(ids),
+            quality:qualityFromTopic(topicTitle),
+            jellyfinItemId:'',
+            workId:'',
+            source:'remote'
+          };
+        }
       }else{
         base={
           topicTitle:topicTitle,topicUrl:topicUrl,activityAt:activityAt,author:author,
@@ -456,6 +520,7 @@
     }
     base.director=base.director||directorGuess||'';
     base.ratings={
+      ...(base.ratings||{}),
       imdb:extra.ImdbRating||extra.imdbRating||'',
       senscritique:extra.SensCritiqueRating||extra.sensCritiqueRating||''
     };
