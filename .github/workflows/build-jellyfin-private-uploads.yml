@@ -1,0 +1,36 @@
+name: Build Jellyfin private uploads plugin
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "integrations/jellyfin/private-uploads/**"
+      - ".github/workflows/build-jellyfin-private-uploads.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "9.0.x"
+
+      - name: Restore
+        run: dotnet restore integrations/jellyfin/private-uploads/Jellyfin.Plugin.SelectionTvPrivate.csproj
+
+      - name: Publish
+        run: dotnet publish integrations/jellyfin/private-uploads/Jellyfin.Plugin.SelectionTvPrivate.csproj -c Release -o dist/SelectionTvPrivate
+
+      - name: Upload plugin artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SelectionTvPrivate-Jellyfin-10.11
+          path: dist/SelectionTvPrivate/
+          if-no-files-found: error
