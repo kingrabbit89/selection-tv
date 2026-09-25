@@ -68,13 +68,48 @@ public sealed class PublicMetadataService
 
         var result = new MetadataEnrichmentResult();
 
-        var imdb = await ResolveImdbAsync(
+        FilmPage? imdb = null;
+
+        // Jellyfin/remote metadata often already gives us the canonical IMDb
+        // id. Cinemeta accepts IMDb ids directly and exposes imdbRating, which
+        // is a much more stable fallback than scraping IMDb's changing HTML.
+        if (!string.IsNullOrWhiteSpace(suppliedImdb))
+        {
+            imdb = await LoadCinemetaPageAsync(
+                client,
+                suppliedImdb,
+                cancellationToken).ConfigureAwait(false);
+        }
+
+        imdb ??= await ResolveImdbAsync(
             client,
             candidates,
             year,
             director,
             suppliedImdb,
             cancellationToken).ConfigureAwait(false);
+
+        // If IMDb identified the work but its HTML yielded no rating, ask
+        // Cinemeta for the same canonical IMDb id and merge the missing data.
+        if (imdb is not null
+            && !string.IsNullOrWhiteSpace(imdb.ImdbId)
+            && string.IsNullOrWhiteSpace(imdb.Rating))
+        {
+            var cinemeta = await LoadCinemetaPageAsync(
+                client,
+                imdb.ImdbId,
+                cancellationToken).ConfigureAwait(false);
+
+            if (cinemeta is not null)
+            {
+                imdb.Rating ??= cinemeta.Rating;
+                imdb.Image ??= cinemeta.Image;
+                imdb.Title ??= cinemeta.Title;
+                imdb.AlternateTitle ??= cinemeta.AlternateTitle;
+                imdb.Year ??= cinemeta.Year;
+                imdb.Director ??= cinemeta.Director;
+            }
+        }
 
         if (imdb is not null)
         {
@@ -106,6 +141,88 @@ public sealed class PublicMetadataService
 
         _cache[key] = new CacheEntry(DateTimeOffset.UtcNow, result);
         return result;
+    }
+
+    private async Task<FilmPage?> LoadCinemetaPageAsync(
+        HttpClient client,
+        string imdbId,
+        CancellationToken cancellationToken)
+    {
+        imdbId = NormalizeImdbId(imdbId) ?? "";
+        if (string.IsNullOrWhiteSpace(imdbId))
+        {
+            return null;
+        }
+
+        try
+        {
+            var url = $"https://v3-cinemeta.strem.io/meta/movie/{imdbId}.json";
+            var json = await client.GetStringAsync(url, cancellationToken).ConfigureAwait(false);
+            using var doc = JsonDocument.Parse(json);
+
+            if (!doc.RootElement.TryGetProperty("meta", out var meta)
+                || meta.ValueKind != JsonValueKind.Object)
+            {
+                return null;
+            }
+
+            var id = StringProp(meta, "id") ?? imdbId;
+            if (!string.Equals(
+                NormalizeImdbId(id),
+                imdbId,
+                StringComparison.OrdinalIgnoreCase))
+            {
+                return null;
+            }
+
+            var page = new FilmPage
+            {
+                Title = StringProp(meta, "name"),
+                AlternateTitle = StringProp(meta, "originalName"),
+                Rating = StringProp(meta, "imdbRating"),
+                Image = StringProp(meta, "poster"),
+                ImdbId = imdbId,
+                CanonicalUrl = $"https://www.imdb.com/title/{imdbId}/"
+            };
+
+            var release = StringProp(meta, "releaseInfo");
+            if (!string.IsNullOrWhiteSpace(release))
+            {
+                var ym = Regex.Match(release, @"\b(19\d{2}|20\d{2})\b");
+                if (ym.Success)
+                {
+                    page.Year = int.Parse(ym.Value, CultureInfo.InvariantCulture);
+                }
+            }
+
+            if (meta.TryGetProperty("director", out var directors))
+            {
+                if (directors.ValueKind == JsonValueKind.String)
+                {
+                    page.Director = directors.GetString();
+                }
+                else if (directors.ValueKind == JsonValueKind.Array)
+                {
+                    page.Director = string.Join(", ", directors.EnumerateArray()
+                        .Where(x => x.ValueKind == JsonValueKind.String)
+                        .Select(x => x.GetString())
+                        .Where(x => !string.IsNullOrWhiteSpace(x)));
+                }
+            }
+
+            page.Rating = NormalizeRating(page.Rating);
+            page.Image = CleanImageUrl(page.Image);
+
+            return page;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogDebug(
+                ex,
+                "Selection TV: Cinemeta fallback failed for {ImdbId}",
+                imdbId);
+            return null;
+        }
     }
 
     private async Task<FilmPage?> ResolveImdbAsync(
