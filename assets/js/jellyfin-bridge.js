@@ -321,4 +321,13 @@
     if(e.source!==PARENT||!e.data)return;
     if(e.data.type==='selection-tv:jellyfin-private-uploads')renderPrivate(e.data);
   });
+
+  // Explicit handshake: Plugin Pages may finish its own script before or
+  // after this iframe bridge. Tell the parent exactly when private payloads
+  // can safely be delivered.
+  try{
+    PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},'*');
+    setTimeout(()=>PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},'*'),500);
+    setTimeout(()=>PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},'*'),1800);
+  }catch{}
 })();
