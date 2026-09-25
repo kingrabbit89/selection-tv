@@ -22,6 +22,21 @@
 
   function arr(v){ return Array.isArray(v)?v:[]; }
 
+  function titleCandidates(title){
+    var raw=String(title||'').trim();
+    var out=[];
+    function add(v){
+      v=String(v||'').replace(/\s+/g,' ').trim().replace(/^[\-–—:;,\s]+|[\-–—:;,\s]+$/g,'');
+      if(v&&out.map(norm).indexOf(norm(v))===-1)out.push(v);
+    }
+    add(raw);
+    var par=[...raw.matchAll(/\(([^()]{2,100})\)/g)].map(function(m){return m[1]});
+    par.forEach(add);
+    add(raw.replace(/\s*\([^()]+\)\s*/g,' ').replace(/\s+/g,' '));
+    if(/\s+-\s+/.test(raw))add(raw.split(/\s+-\s+/)[0]);
+    return out.slice(0,4);
+  }
+
   function pget(o,a,b){
     if(!o)return undefined;
     return o[a]!==undefined?o[a]:o[b];
@@ -54,37 +69,47 @@
   }
 
   async function localSearch(a,title,year){
-    var key=norm(title)+'|'+String(year||'');
-    if(localSearchCache.has(key))return localSearchCache.get(key);
+    var candidates=titleCandidates(title);
+    var cacheKey=candidates.map(norm).join('|')+'|'+String(year||'');
+    if(localSearchCache.has(cacheKey))return localSearchCache.get(cacheKey);
 
     var promise=(async function(){
-      try{
-        var r=await a.getItems(a.getCurrentUserId(),{
-          Recursive:true,
-          IncludeItemTypes:'Movie',
-          SearchTerm:title,
-          Fields:'ProviderIds,OriginalTitle,Genres,Overview,People',
-          EnableTotalRecordCount:false,
-          Limit:20
-        });
-        var items=pget(r,'Items','items')||[];
-        var nt=norm(title);
-        var scored=items.map(function(x){
-          var names=[x.Name,x.name,x.OriginalTitle,x.originalTitle].filter(Boolean).map(norm);
-          var y=Number(x.ProductionYear||x.productionYear)||0;
-          var score=0;
-          if(names.indexOf(nt)!==-1)score+=100;
-          else if(names.some(function(n){return n.includes(nt)||nt.includes(n);}))score+=40;
-          if(year&&y===Number(year))score+=30;
-          return {item:x,score:score};
-        }).sort(function(a1,b1){return b1.score-a1.score;});
-        return scored.length&&scored[0].score>=70?scored[0].item:null;
-      }catch(e){
-        return null;
+      var all=[];
+      for(var ci=0;ci<candidates.length;ci++){
+        try{
+          var r=await a.getItems(a.getCurrentUserId(),{
+            Recursive:true,
+            IncludeItemTypes:'Movie',
+            SearchTerm:candidates[ci],
+            Fields:'ProviderIds,OriginalTitle,Genres,Overview,People',
+            EnableTotalRecordCount:false,
+            Limit:20
+          });
+          all=all.concat(pget(r,'Items','items')||[]);
+        }catch(e){}
       }
+      var seen={};
+      all=all.filter(function(x){
+        var id=x.Id||x.id||JSON.stringify([x.Name,x.ProductionYear]);
+        if(seen[id])return false;seen[id]=1;return true;
+      });
+      var norms=candidates.map(norm);
+      var scored=all.map(function(x){
+        var names=[x.Name,x.name,x.OriginalTitle,x.originalTitle].filter(Boolean).map(norm);
+        var y=Number(x.ProductionYear||x.productionYear)||0;
+        var score=0;
+        norms.forEach(function(nt,idx){
+          if(names.indexOf(nt)!==-1)score=Math.max(score,110-idx*8);
+          else if(names.some(function(n){return n.includes(nt)||nt.includes(n);}))score=Math.max(score,55-idx*5);
+        });
+        if(year&&y===Number(year))score+=35;
+        else if(year&&y&&Math.abs(y-Number(year))<=1)score+=8;
+        return {item:x,score:score};
+      }).sort(function(a1,b1){return b1.score-a1.score;});
+      return scored.length&&scored[0].score>=80?scored[0].item:null;
     })();
 
-    localSearchCache.set(key,promise);
+    localSearchCache.set(cacheKey,promise);
     return promise;
   }
 
@@ -108,40 +133,60 @@
   }
 
   async function remoteSearch(a,title,year){
-    if(!title)return null;
+    var candidates=titleCandidates(title);
+    var best=null,bestScore=-1;
+    for(var ci=0;ci<candidates.length;ci++){
+      try{
+        var body={
+          SearchInfo:{
+            Name:candidates[ci],
+            Year:year||null,
+            MetadataLanguage:'fr',
+            MetadataCountryCode:'FR',
+            ProviderIds:{}
+          },
+          IncludeDisabledProviders:true
+        };
+        var results=await a.ajax({
+          type:'POST',
+          url:a.getUrl('Items/RemoteSearch/Movie'),
+          data:JSON.stringify(body),
+          contentType:'application/json',
+          dataType:'json'
+        });
+        results=arr(results);
+        var nt=norm(candidates[ci]);
+        results.forEach(function(r){
+          var score=0;
+          var rn=norm(r.Name||r.name);
+          var ry=Number(r.ProductionYear||r.productionYear)||0;
+          if(rn===nt)score+=95-ci*6;
+          else if(rn.includes(nt)||nt.includes(rn))score+=45-ci*4;
+          if(year&&ry===Number(year))score+=35;
+          else if(year&&ry&&Math.abs(ry-Number(year))<=1)score+=8;
+          if(score>bestScore){bestScore=score;best=r;}
+        });
+      }catch(e){}
+      if(bestScore>=120)break;
+    }
+    return bestScore>=50?best:null;
+  }
+
+  async function publicEnrichment(a,title,year,ids){
     try{
-      var body={
-        SearchInfo:{
-          Name:title,
-          Year:year||null,
-          MetadataLanguage:'fr',
-          MetadataCountryCode:'FR',
-          ProviderIds:{}
-        },
-        IncludeDisabledProviders:true
-      };
-      var results=await a.ajax({
+      return await a.ajax({
         type:'POST',
-        url:a.getUrl('Items/RemoteSearch/Movie'),
-        data:JSON.stringify(body),
+        url:a.getUrl('SelectionTv/Enrich'),
+        data:JSON.stringify({
+          title:title,
+          year:year||null,
+          imdbId:(ids&&((ids.Imdb||ids.IMDb||ids.imdb)))||null
+        }),
         contentType:'application/json',
         dataType:'json'
       });
-      results=arr(results);
-      if(!results.length)return null;
-      var nt=norm(title);
-      var scored=results.map(function(r){
-        var score=0;
-        var rn=norm(r.Name||r.name);
-        var ry=Number(r.ProductionYear||r.productionYear)||0;
-        if(rn===nt)score+=80;
-        else if(rn.includes(nt)||nt.includes(rn))score+=35;
-        if(year&&ry===Number(year))score+=30;
-        return {r:r,score:score};
-      }).sort(function(a1,b1){return b1.score-a1.score;});
-      return scored[0].score>=35?scored[0].r:null;
     }catch(e){
-      return null;
+      return {};
     }
   }
 
@@ -154,14 +199,12 @@
     var activityAt=upload.activityAt||upload.ActivityAt||null;
     var author=upload.author||upload.Author||null;
     var local=await localSearch(a,guess,year);
+    var base=null,ids={};
 
     if(local){
-      var ids=providerIds(local);
-      return {
-        topicTitle:topicTitle,
-        topicUrl:topicUrl,
-        activityAt:activityAt,
-        author:author,
+      ids=providerIds(local);
+      base={
+        topicTitle:topicTitle,topicUrl:topicUrl,activityAt:activityAt,author:author,
         title:local.Name||local.name||guess,
         titleGuess:guess,
         year:local.ProductionYear||local.productionYear||year,
@@ -175,49 +218,45 @@
         workId:'',
         source:'library'
       };
+    }else{
+      var remote=await remoteSearch(a,guess,year);
+      if(remote){
+        ids=providerIds(remote);
+        base={
+          topicTitle:topicTitle,topicUrl:topicUrl,activityAt:activityAt,author:author,
+          title:remote.Name||remote.name||guess,
+          titleGuess:guess,
+          year:remote.ProductionYear||remote.productionYear||year,
+          director:'',
+          genre:'',
+          overview:remote.Overview||remote.overview||'',
+          image:remote.ImageUrl||remote.imageUrl||'',
+          links:providerLink(ids),
+          quality:qualityFromTopic(topicTitle),
+          jellyfinItemId:'',
+          workId:'',
+          source:'remote'
+        };
+      }else{
+        base={
+          topicTitle:topicTitle,topicUrl:topicUrl,activityAt:activityAt,author:author,
+          title:titleCandidates(guess)[0]||guess,titleGuess:guess,year:year,director:'',genre:'',overview:'',image:'',
+          links:{},quality:qualityFromTopic(topicTitle),jellyfinItemId:'',workId:'',source:'unresolved'
+        };
+      }
     }
 
-    var remote=await remoteSearch(a,guess,year);
-    if(remote){
-      var rids=providerIds(remote);
-      return {
-        topicTitle:topicTitle,
-        topicUrl:topicUrl,
-        activityAt:activityAt,
-        author:author,
-        title:remote.Name||remote.name||guess,
-        titleGuess:guess,
-        year:remote.ProductionYear||remote.productionYear||year,
-        director:'',
-        genre:'',
-        overview:remote.Overview||remote.overview||'',
-        image:remote.ImageUrl||remote.imageUrl||'',
-        links:providerLink(rids),
-        quality:qualityFromTopic(topicTitle),
-        jellyfinItemId:'',
-        workId:'',
-        source:'remote'
-      };
-    }
-
-    return {
-      topicTitle:topicTitle,
-      topicUrl:topicUrl,
-      activityAt:activityAt,
-      author:author,
-      title:guess,
-      titleGuess:guess,
-      year:year,
-      director:'',
-      genre:'',
-      overview:'',
-      image:'',
-      links:{},
-      quality:qualityFromTopic(topicTitle),
-      jellyfinItemId:'',
-      workId:'',
-      source:'unresolved'
+    var extra=await publicEnrichment(a,base.title||guess,base.year||year,ids);
+    var exLinks=base.links||{};
+    if(!exLinks.imdb&&(extra.ImdbUrl||extra.imdbUrl))exLinks.imdb=extra.ImdbUrl||extra.imdbUrl;
+    if(!exLinks.sc&&(extra.SensCritiqueUrl||extra.sensCritiqueUrl))exLinks.sc=extra.SensCritiqueUrl||extra.sensCritiqueUrl;
+    base.links=exLinks;
+    if(!base.image)base.image=extra.ImageUrl||extra.imageUrl||'';
+    base.ratings={
+      imdb:extra.ImdbRating||extra.imdbRating||'',
+      senscritique:extra.SensCritiqueRating||extra.sensCritiqueRating||''
     };
+    return base;
   }
 
   async function mapLimited(items,limit,fn){
