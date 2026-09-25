@@ -172,7 +172,7 @@
     return bestScore>=50?best:null;
   }
 
-  async function publicEnrichment(a,title,year,ids){
+  async function publicEnrichment(a,title,year,director,topicTitle,ids){
     try{
       return await a.ajax({
         type:'POST',
@@ -180,6 +180,8 @@
         data:JSON.stringify({
           title:title,
           year:year||null,
+          director:director||null,
+          topicTitle:topicTitle||null,
           imdbId:(ids&&((ids.Imdb||ids.IMDb||ids.imdb)))||null
         }),
         contentType:'application/json',
@@ -198,6 +200,7 @@
     var year=Number(upload.year||upload.Year)||null;
     var activityAt=upload.activityAt||upload.ActivityAt||null;
     var author=upload.author||upload.Author||null;
+    var directorGuess=upload.directorGuess||upload.DirectorGuess||null;
     var local=await localSearch(a,guess,year);
     var base=null,ids={};
 
@@ -246,12 +249,26 @@
       }
     }
 
-    var extra=await publicEnrichment(a,base.title||guess,base.year||year,ids);
+    var extra=await publicEnrichment(
+      a,
+      base.title||guess,
+      base.year||year,
+      base.director||directorGuess,
+      topicTitle,
+      ids
+    );
     var exLinks=base.links||{};
-    if(!exLinks.imdb&&(extra.ImdbUrl||extra.imdbUrl))exLinks.imdb=extra.ImdbUrl||extra.imdbUrl;
-    if(!exLinks.sc&&(extra.SensCritiqueUrl||extra.sensCritiqueUrl))exLinks.sc=extra.SensCritiqueUrl||extra.sensCritiqueUrl;
+    var strictImdb=extra.ImdbUrl||extra.imdbUrl;
+    var strictSc=extra.SensCritiqueUrl||extra.sensCritiqueUrl;
+    if(strictImdb)exLinks.imdb=strictImdb;
+    if(strictSc)exLinks.sc=strictSc;
     base.links=exLinks;
-    if(!base.image)base.image=extra.ImageUrl||extra.imageUrl||'';
+    var strictImage=extra.ImageUrl||extra.imageUrl||'';
+    if(strictImage && (base.source!=='library'||!base.image))base.image=strictImage;
+    if(base.source==='unresolved'&&(extra.MatchedTitle||extra.matchedTitle)){
+      base.title=extra.MatchedTitle||extra.matchedTitle;
+    }
+    base.director=base.director||directorGuess||'';
     base.ratings={
       imdb:extra.ImdbRating||extra.imdbRating||'',
       senscritique:extra.SensCritiqueRating||extra.sensCritiqueRating||''
