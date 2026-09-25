@@ -1,7 +1,7 @@
 <style>
 .selectionTvHost{position:relative;width:100%;height:calc(100vh - 92px);margin:0;padding:0}
 .selectionTvFrame{width:100%;height:100%;border:0;display:block;background:#111}
-.selectionTvBridgeStatus{position:absolute;right:12px;top:10px;z-index:20;padding:5px 8px;background:#20262d;color:#ddd;border:1px solid #4b5560;font:12px Arial,sans-serif;opacity:.92;pointer-events:none}
+.selectionTvBridgeStatus{position:absolute;right:12px;top:10px;z-index:20;padding:5px 8px;background:#20262d;color:#ddd;border:1px solid #4b5560;font:12px Arial,sans-serif;opacity:.94;pointer-events:none}
 .selectionTvBridgeStatus.ok{background:#183629;border-color:#3f7c5a;color:#dff5e7}
 .selectionTvBridgeStatus.err{background:#4a2424;border-color:#8a4d4d;color:#ffdede}
 </style>
@@ -21,6 +21,12 @@
   var CHILD_ORIGIN='https://kingrabbit89.github.io';
   var frame=document.getElementById('selectionTvFrame');
   var status=document.getElementById('selectionTvBridgeStatus');
+  var libraryPromise=null;
+  var library=[];
+  var byImdb=new Map();
+  var byTitleYear=new Map();
+  var queriesReceived=0;
+  var matchesFound=0;
   if(!frame)return;
 
   function norm(s){
@@ -42,57 +48,96 @@
     var ids=item&&item.ProviderIds||{};
     return String(ids.Imdb||ids.IMDb||'').toLowerCase();
   }
-  function exactTitle(item,req){
-    var wanted=norm(req.title);
-    var names=[item&&item.Name,item&&item.OriginalTitle].filter(Boolean).map(norm);
-    if(names.indexOf(wanted)===-1)return false;
-    if(req.year&&String(item&&item.ProductionYear||'')!==String(req.year))return false;
-    return true;
-  }
-  function choose(items,req){
-    if(req.imdbId){
-      var wanted=String(req.imdbId).toLowerCase();
-      var exactImdb=items.find(function(x){return imdbOf(x)===wanted});
-      if(exactImdb)return exactImdb;
-    }
-    var strict=items.filter(function(x){return exactTitle(x,req)});
-    return strict.length===1?strict[0]:null;
-  }
-  async function queryOne(req){
-    var a=api();
-    if(!a||typeof a.getItems!=='function'||typeof a.getCurrentUserId!=='function'){
-      setStatus('API Jellyfin indisponible','err');
-      return {key:req.key,found:false};
-    }
-    var result=await a.getItems(a.getCurrentUserId(),{
-      Recursive:true,
-      IncludeItemTypes:'Movie,Series',
-      Fields:'ProviderIds,OriginalTitle',
-      Limit:30,
-      SearchTerm:req.title
+  function indexItem(item){
+    var imdb=imdbOf(item);
+    if(imdb&&!byImdb.has(imdb))byImdb.set(imdb,item);
+    var year=String(item&&item.ProductionYear||'');
+    [item&&item.Name,item&&item.OriginalTitle].filter(Boolean).forEach(function(name){
+      var key=norm(name)+'|'+year;
+      if(!byTitleYear.has(key))byTitleYear.set(key,[]);
+      byTitleYear.get(key).push(item);
     });
-    var hit=choose(result&&result.Items||[],req);
-    return hit?{key:req.key,found:true,itemId:hit.Id,name:hit.Name||req.title}:{key:req.key,found:false};
+  }
+  async function loadLibrary(){
+    if(libraryPromise)return libraryPromise;
+    libraryPromise=(async function(){
+      var a=api();
+      if(!a||typeof a.getItems!=='function'||typeof a.getCurrentUserId!=='function'){
+        throw new Error('API Jellyfin indisponible');
+      }
+      setStatus('Lecture de la bibliothèque Jellyfin…','ok');
+      var start=0;
+      var limit=500;
+      var total=null;
+      var all=[];
+      do{
+        var result=await a.getItems(a.getCurrentUserId(),{
+          Recursive:true,
+          IncludeItemTypes:'Movie,Series',
+          Fields:'ProviderIds,OriginalTitle',
+          EnableTotalRecordCount:true,
+          StartIndex:start,
+          Limit:limit
+        });
+        var items=result&&result.Items||[];
+        all=all.concat(items);
+        if(total===null)total=Number(result&&result.TotalRecordCount);
+        start+=items.length;
+        if(!items.length)break;
+      }while(Number.isFinite(total)?start<total:all.length<10000);
+
+      library=all;
+      byImdb.clear();
+      byTitleYear.clear();
+      library.forEach(indexItem);
+      setStatus('Jellyfin connecté · '+library.length+' titres indexés','ok');
+      return library;
+    })().catch(function(err){
+      libraryPromise=null;
+      setStatus('Erreur bibliothèque Jellyfin','err');
+      throw err;
+    });
+    return libraryPromise;
+  }
+  function choose(req){
+    if(req.imdbId){
+      var hit=byImdb.get(String(req.imdbId).toLowerCase());
+      if(hit)return hit;
+    }
+    if(req.year){
+      var strict=byTitleYear.get(norm(req.title)+'|'+String(req.year))||[];
+      if(strict.length===1)return strict[0];
+    }
+    return null;
   }
   function send(payload){
     if(frame.contentWindow)frame.contentWindow.postMessage(payload,CHILD_ORIGIN);
   }
-  window.addEventListener('message',async function(e){
+  async function handleQueries(items){
+    queriesReceived+=items.length;
+    await loadLibrary();
+    var unique=[];
+    var seen={};
+    items.forEach(function(x){
+      if(x&&x.key&&!seen[x.key]){seen[x.key]=1;unique.push(x)}
+    });
+    var results=unique.map(function(req){
+      var hit=choose(req);
+      if(hit){
+        matchesFound++;
+        return {key:req.key,found:true,itemId:hit.Id,name:hit.Name||req.title};
+      }
+      return {key:req.key,found:false};
+    });
+    setStatus('Jellyfin · '+library.length+' titres · '+matchesFound+' trouvé'+(matchesFound>1?'s':'')+' / '+queriesReceived+' testé'+(queriesReceived>1?'s':''),'ok');
+    send({type:'selection-tv:jellyfin-result',version:1,items:results});
+  }
+
+  window.addEventListener('message',function(e){
     if(e.source!==frame.contentWindow||e.origin!==CHILD_ORIGIN||!e.data)return;
 
     if(e.data.type==='selection-tv:jellyfin-query'&&Array.isArray(e.data.items)){
-      setStatus('Jellyfin connecté','ok');
-      var unique=[];
-      var seen={};
-      e.data.items.forEach(function(x){
-        if(x&&x.key&&!seen[x.key]){seen[x.key]=1;unique.push(x)}
-      });
-      var results=[];
-      for(var i=0;i<unique.length;i++){
-        try{results.push(await queryOne(unique[i]))}
-        catch(err){results.push({key:unique[i].key,found:false})}
-      }
-      send({type:'selection-tv:jellyfin-result',version:1,items:results});
+      handleQueries(e.data.items).catch(function(){});
     }
 
     if(e.data.type==='selection-tv:jellyfin-open'&&e.data.itemId){
@@ -104,10 +149,20 @@
 
   function ready(){
     var a=api();
-    setStatus(a?'Jellyfin connecté':'API Jellyfin indisponible',a?'ok':'err');
+    if(!a){
+      setStatus('API Jellyfin indisponible','err');
+      return;
+    }
+    setStatus('Jellyfin connecté · attente de Sélection TV…','ok');
     send({type:'selection-tv:jellyfin-ready',version:1});
   }
-  frame.addEventListener('load',ready);
-  setTimeout(ready,700);
+
+  frame.addEventListener('load',function(){
+    ready();
+    setTimeout(ready,600);
+    setTimeout(ready,1800);
+  });
+  setTimeout(ready,800);
+  setTimeout(ready,2200);
 })();
 </script>
