@@ -9,5 +9,6 @@ public sealed class PluginServiceRegistrator : IPluginServiceRegistrator
     public void RegisterServices(IServiceCollection serviceCollection, IServerApplicationHost applicationHost)
     {
         serviceCollection.AddSingleton<ForumUploadsService>();
+        serviceCollection.AddSingleton<PublicMetadataService>();
     }
 }
