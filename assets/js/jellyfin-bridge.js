@@ -141,6 +141,52 @@
     const u=safeUrl(url);if(!u)return null;
     const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';a.textContent=label;if(cls)a.className=cls;return a;
   };
+  const catalogPromise=Promise.all([
+    fetch(new URL('../../data/links.json?v=20260925-private',document.currentScript?.src||location.href),{cache:'no-store'}).then(r=>r.ok?r.json():{links:{}}),
+    fetch(new URL('../../data/works.json?v=20260925-private',document.currentScript?.src||location.href),{cache:'no-store'}).then(r=>r.ok?r.json():{works:[]})
+  ]).then(([ld,wd])=>({
+    links:new Map(Object.entries(ld.links||{}).map(([k,v])=>[norm(k),v])),
+    works:new Map((wd.works||[]).map(w=>[norm(w.title),w]))
+  })).catch(()=>({links:new Map(),works:new Map()}));
+
+  const ratingBox=(ratings,links)=>{
+    const r=ratings||{};
+    if(!r.imdb&&!r.senscritique&&!r.sc)return null;
+    const box=document.createElement('div');box.className='ratings';
+    if(r.imdb){
+      const a=links?.imdb?makeLink('IMDb '+r.imdb+'/10',links.imdb,'rating-pill imdb'):null;
+      if(a)box.append(a);else{const s=document.createElement('span');s.className='rating-pill imdb';s.textContent='IMDb '+r.imdb+'/10';box.append(s)}
+    }
+    const sc=r.senscritique||r.sc;
+    if(sc){
+      const a=links?.sc?makeLink('SensCritique '+sc+'/10',links.sc,'rating-pill sc'):null;
+      if(a)box.append(a);else{const s=document.createElement('span');s.className='rating-pill sc';s.textContent='SensCritique '+sc+'/10';box.append(s)}
+    }
+    if(box.children.length){
+      const d=document.createElement('span');d.className='rating-date';d.textContent='relevé automatiquement';box.append(d);
+      return box;
+    }
+    return null;
+  };
+
+  const hydrateFromCatalog=(item,catalog)=>{
+    const key=norm(item.title||item.titleGuess||item.topicTitle);
+    const W=catalog.works.get(key)||null;
+    const L=catalog.links.get(key)||{};
+    const out={...item,links:{...L,...(item.links||{})}};
+    if(W){
+      if(!out.image&&W.image)out.image=W.image;
+      if(!out.director&&W.director)out.director=W.director;
+      if(!out.year&&W.year)out.year=W.year;
+      if(!out.genre&&W.genre)out.genre=W.genre;
+      out.workId=out.workId||W.id||'';
+      out.ratings={
+        ...(W.ratings||{}),
+        ...(out.ratings||{})
+      };
+    }
+    return out;
+  };
   const ensureStyle=()=>{
     if(document.getElementById('selectionTvPrivateUploadsStyle'))return;
     const s=document.createElement('style');s.id='selectionTvPrivateUploadsStyle';s.textContent=`
@@ -180,6 +226,7 @@
     const imgUrl=safeUrl(item.image);
     if(imgUrl){
       const img=document.createElement('img');img.className='platform-poster';img.src=imgUrl;img.alt='Affiche de '+article.dataset.title;img.loading='lazy';
+      img.onerror=()=>{img.remove();if(!article.querySelector('.private-unresolved')){const fb=document.createElement('div');fb.className='private-unresolved';fb.textContent=article.dataset.title||'Film à identifier';article.prepend(fb)}};
       article.append(img);
     }else{
       const fb=document.createElement('div');fb.className='private-unresolved';fb.textContent=article.dataset.title||'Film à identifier';article.append(fb);
@@ -198,6 +245,9 @@
     if(item.genre)bits.push(item.genre);
     if(item.quality)bits.push(item.quality);
     if(bits.length){const meta=document.createElement('div');meta.className='work-meta';meta.textContent=bits.join(' · ');copy.append(meta)}
+
+    const rbox=ratingBox(item.ratings,item.links||{});
+    if(rbox)copy.append(rbox);
 
     if(item.overview){const p=document.createElement('p');p.className='private-overview';p.textContent=item.overview;copy.append(p)}
 
@@ -235,10 +285,12 @@
     const method=[...group.querySelectorAll('.toc-link')].find(x=>x.getAttribute('href')==='#methode');
     method?group.insertBefore(a,method):group.append(a);
   };
-  const renderPrivate=payload=>{
+  const renderPrivate=async payload=>{
     removeOld();
-    const items=(payload.items||[]).filter(x=>x&&(x.title||x.titleGuess||x.topicTitle));
-    if(!items.length)return;
+    const raw=(payload.items||[]).filter(x=>x&&(x.title||x.titleGuess||x.topicTitle));
+    if(!raw.length)return;
+    const catalog=await catalogPromise;
+    const items=raw.map(x=>hydrateFromCatalog(x,catalog));
     ensureStyle();addToc();
     const book=document.querySelector('.book');if(!book)return;
     const firstDaily=book.querySelector('[id$="-selection"]');
