@@ -2,6 +2,7 @@ using System.Globalization;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Text.Json;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using MediaBrowser.Common.Configuration;
@@ -98,35 +99,54 @@ public sealed class ForumUploadsService
             throw new InvalidOperationException("Connexion Forumactif refusée ou session non authentifiée.");
         }
 
-        var feedPath = $"feed/?f={cfg.ForumId}";
-        var xml = await client.GetStringAsync(feedPath, cancellationToken).ConfigureAwait(false);
-        var doc = XDocument.Parse(xml, LoadOptions.PreserveWhitespace);
         var all = new List<ForumUploadItem>();
 
-        foreach (var node in doc.Descendants().Where(x => x.Name.LocalName == "item"))
+        // Protected Forumactif forums can expose an RSS endpoint while returning
+        // no <item> at all, even for an authenticated session. Prefer the HTML
+        // topic list in that case.
+        try
         {
-            var topicTitle = WebUtility.HtmlDecode(Value(node, "title")).Trim();
-            var url = Value(node, "link").Trim();
-            var pub = ParseDate(Value(node, "pubDate"));
-            var author = Value(node, "creator").Trim();
-            if (string.IsNullOrWhiteSpace(topicTitle) || string.IsNullOrWhiteSpace(url))
-            {
-                continue;
-            }
+            var feedPath = $"feed/?f={cfg.ForumId}";
+            var xml = await client.GetStringAsync(feedPath, cancellationToken).ConfigureAwait(false);
+            var doc = XDocument.Parse(xml, LoadOptions.PreserveWhitespace);
 
-            var parsed = ParseReleaseTitle(topicTitle);
-            all.Add(new ForumUploadItem
+            foreach (var node in doc.Descendants().Where(x => x.Name.LocalName == "item"))
             {
-                TopicTitle = topicTitle,
-                TopicUrl = url,
-                TitleGuess = parsed.Title,
-                Year = parsed.Year,
-                ActivityAt = pub,
-                Author = string.IsNullOrWhiteSpace(author) ? null : author
-            });
+                var topicTitle = WebUtility.HtmlDecode(Value(node, "title")).Trim();
+                var url = Value(node, "link").Trim();
+                var pub = ParseDate(Value(node, "pubDate"));
+                var author = Value(node, "creator").Trim();
+                if (string.IsNullOrWhiteSpace(topicTitle) || string.IsNullOrWhiteSpace(url))
+                {
+                    continue;
+                }
+
+                var parsed = ParseReleaseTitle(topicTitle);
+                all.Add(new ForumUploadItem
+                {
+                    TopicTitle = topicTitle,
+                    TopicUrl = url,
+                    TitleGuess = parsed.Title,
+                    Year = parsed.Year,
+                    ActivityAt = pub,
+                    Author = string.IsNullOrWhiteSpace(author) ? null : author
+                });
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogDebug(ex, "Selection TV: authenticated Forumactif RSS unavailable.");
+        }
+
+        if (all.Count == 0)
+        {
+            all = ParseForumHtml(baseUri, forumHtml);
+            _logger.LogInformation("Selection TV: RSS empty; parsed {Count} topics from authenticated forum HTML.", all.Count);
         }
 
         all = all
+            .GroupBy(x => TopicIdOf(x.TopicUrl) ?? x.TopicUrl, StringComparer.OrdinalIgnoreCase)
+            .Select(g => g.OrderByDescending(x => x.ActivityAt ?? DateTimeOffset.MinValue).First())
             .OrderByDescending(x => x.ActivityAt ?? DateTimeOffset.MinValue)
             .Take(100)
             .ToList();
@@ -193,6 +213,224 @@ public sealed class ForumUploadsService
         }
 
         return Regex.IsMatch(html, @"<title>\s*Connexion\s*</title>", RegexOptions.IgnoreCase);
+    }
+
+    private static List<ForumUploadItem> ParseForumHtml(Uri baseUri, string html)
+    {
+        var items = new List<ForumUploadItem>();
+        var anchorRx = new Regex(
+            @"<a\b(?=[^>]*\bclass\s*=\s*(?:""[^""]*\btopictitle\b[^""]*""|'[^']*\btopictitle\b[^']*'))[^>]*\bhref\s*=\s*(?:""(?<href>[^""]+)""|'(?<href>[^']+)')[^>]*>(?<title>.*?)</a>",
+            RegexOptions.IgnoreCase | RegexOptions.Singleline);
+
+        foreach (Match m in anchorRx.Matches(html))
+        {
+            var href = WebUtility.HtmlDecode(m.Groups["href"].Value).Trim();
+            if (!Regex.IsMatch(href, @"(?:^|/)t\d+(?:p\d+)?-", RegexOptions.IgnoreCase))
+            {
+                continue;
+            }
+
+            var title = CleanHtmlText(m.Groups["title"].Value);
+            if (string.IsNullOrWhiteSpace(title))
+            {
+                continue;
+            }
+
+            var container = FindTopicContainer(html, m.Index);
+            var activity = ParseForumActivity(container);
+            var author = ParseLastPostAuthor(container);
+            var url = new Uri(baseUri, href).ToString();
+            var parsed = ParseReleaseTitle(title);
+
+            items.Add(new ForumUploadItem
+            {
+                TopicTitle = title,
+                TopicUrl = url,
+                TitleGuess = parsed.Title,
+                Year = parsed.Year,
+                ActivityAt = activity,
+                Author = author
+            });
+        }
+
+        // Some customized Forumactif templates drop the topictitle class.
+        // Fallback: accept h2.topic-title anchors that point to a /t123- topic.
+        if (items.Count == 0)
+        {
+            var h2Rx = new Regex(
+                @"<h2\b[^>]*\bclass\s*=\s*(?:""[^""]*\btopic-title\b[^""]*""|'[^']*\btopic-title\b[^']*')[^>]*>(?<body>.*?)</h2>",
+                RegexOptions.IgnoreCase | RegexOptions.Singleline);
+
+            foreach (Match h2 in h2Rx.Matches(html))
+            {
+                var am = Regex.Match(
+                    h2.Groups["body"].Value,
+                    @"<a\b[^>]*\bhref\s*=\s*(?:""(?<href>[^""]+)""|'(?<href>[^']+)')[^>]*>(?<title>.*?)</a>",
+                    RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                if (!am.Success)
+                {
+                    continue;
+                }
+
+                var href = WebUtility.HtmlDecode(am.Groups["href"].Value).Trim();
+                if (!Regex.IsMatch(href, @"(?:^|/)t\d+(?:p\d+)?-", RegexOptions.IgnoreCase))
+                {
+                    continue;
+                }
+
+                var title = CleanHtmlText(am.Groups["title"].Value);
+                var container = FindTopicContainer(html, h2.Index);
+                var parsed = ParseReleaseTitle(title);
+                items.Add(new ForumUploadItem
+                {
+                    TopicTitle = title,
+                    TopicUrl = new Uri(baseUri, href).ToString(),
+                    TitleGuess = parsed.Title,
+                    Year = parsed.Year,
+                    ActivityAt = ParseForumActivity(container),
+                    Author = ParseLastPostAuthor(container)
+                });
+            }
+        }
+
+        return items;
+    }
+
+    private static string FindTopicContainer(string html, int index)
+    {
+        foreach (var tag in new[] { "tr", "li" })
+        {
+            var start = html.LastIndexOf("<" + tag, index, StringComparison.OrdinalIgnoreCase);
+            if (start < 0)
+            {
+                continue;
+            }
+
+            var end = html.IndexOf("</" + tag + ">", index, StringComparison.OrdinalIgnoreCase);
+            if (end > start && end - start < 30000)
+            {
+                return html.Substring(start, end + tag.Length + 3 - start);
+            }
+        }
+
+        var left = Math.Max(0, index - 3000);
+        var len = Math.Min(html.Length - left, 9000);
+        return html.Substring(left, len);
+    }
+
+    private static string CleanHtmlText(string html)
+    {
+        var s = Regex.Replace(html, @"<br\s*/?>", " ", RegexOptions.IgnoreCase);
+        s = Regex.Replace(s, @"<[^>]+>", " ");
+        s = WebUtility.HtmlDecode(s);
+        return Regex.Replace(s, @"\s+", " ").Trim();
+    }
+
+    private static DateTimeOffset? ParseForumActivity(string container)
+    {
+        var text = CleanHtmlText(container);
+        var now = DateTimeOffset.Now;
+
+        var today = Regex.Match(
+            text,
+            @"Aujourd['’]hui\s+(?:à|-)\s*(?<h>\d{1,2}):(?<m>\d{2})",
+            RegexOptions.IgnoreCase);
+        if (today.Success)
+        {
+            return new DateTimeOffset(
+                now.Year, now.Month, now.Day,
+                int.Parse(today.Groups["h"].Value, CultureInfo.InvariantCulture),
+                int.Parse(today.Groups["m"].Value, CultureInfo.InvariantCulture),
+                0,
+                now.Offset);
+        }
+
+        var yesterday = Regex.Match(
+            text,
+            @"Hier\s+(?:à|-)\s*(?<h>\d{1,2}):(?<m>\d{2})",
+            RegexOptions.IgnoreCase);
+        if (yesterday.Success)
+        {
+            var d = now.Date.AddDays(-1);
+            return new DateTimeOffset(
+                d.Year, d.Month, d.Day,
+                int.Parse(yesterday.Groups["h"].Value, CultureInfo.InvariantCulture),
+                int.Parse(yesterday.Groups["m"].Value, CultureInfo.InvariantCulture),
+                0,
+                now.Offset);
+        }
+
+        var dated = Regex.Match(
+            text,
+            @"(?:(?:lun|mar|mer|jeu|ven|sam|dim)[a-zéû]*\.?\s+)?(?<d>\d{1,2})\s+(?<mon>jan(?:v)?|fév(?:r)?|fev(?:r)?|mar(?:s)?|avr|mai|juin|juil(?:l)?|ao[uû]t|sept?|oct|nov|déc|dec)\.?\s+(?<y>\d{4})\s*(?:-|à)\s*(?<h>\d{1,2}):(?<m>\d{2})",
+            RegexOptions.IgnoreCase);
+
+        if (dated.Success)
+        {
+            var month = ForumMonth(dated.Groups["mon"].Value);
+            if (month > 0)
+            {
+                return new DateTimeOffset(
+                    int.Parse(dated.Groups["y"].Value, CultureInfo.InvariantCulture),
+                    month,
+                    int.Parse(dated.Groups["d"].Value, CultureInfo.InvariantCulture),
+                    int.Parse(dated.Groups["h"].Value, CultureInfo.InvariantCulture),
+                    int.Parse(dated.Groups["m"].Value, CultureInfo.InvariantCulture),
+                    0,
+                    now.Offset);
+            }
+        }
+
+        return null;
+    }
+
+    private static int ForumMonth(string value)
+    {
+        var s = value.ToLowerInvariant()
+            .Normalize(NormalizationForm.FormD);
+        s = new string(s.Where(c => CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark).ToArray())
+            .Replace(".", "", StringComparison.Ordinal);
+
+        if (s.StartsWith("jan", StringComparison.Ordinal)) return 1;
+        if (s.StartsWith("fev", StringComparison.Ordinal)) return 2;
+        if (s.StartsWith("mar", StringComparison.Ordinal)) return 3;
+        if (s.StartsWith("avr", StringComparison.Ordinal)) return 4;
+        if (s.StartsWith("mai", StringComparison.Ordinal)) return 5;
+        if (s.StartsWith("juin", StringComparison.Ordinal)) return 6;
+        if (s.StartsWith("juil", StringComparison.Ordinal)) return 7;
+        if (s.StartsWith("aou", StringComparison.Ordinal)) return 8;
+        if (s.StartsWith("sep", StringComparison.Ordinal)) return 9;
+        if (s.StartsWith("oct", StringComparison.Ordinal)) return 10;
+        if (s.StartsWith("nov", StringComparison.Ordinal)) return 11;
+        if (s.StartsWith("dec", StringComparison.Ordinal)) return 12;
+        return 0;
+    }
+
+    private static string? ParseLastPostAuthor(string container)
+    {
+        var lastPost = Regex.Match(
+            container,
+            @"(?:lastpost|postdetails)[^>]*>(?<body>.*?)</(?:span|div|dd|td)>",
+            RegexOptions.IgnoreCase | RegexOptions.Singleline);
+        var scope = lastPost.Success ? lastPost.Groups["body"].Value : container;
+
+        var users = Regex.Matches(
+            scope,
+            @"<a\b[^>]*href\s*=\s*(?:""[^""]*/u\d+[^""]*""|'[^']*/u\d+[^']*')[^>]*>(?<name>.*?)</a>",
+            RegexOptions.IgnoreCase | RegexOptions.Singleline);
+        if (users.Count == 0)
+        {
+            return null;
+        }
+
+        var name = CleanHtmlText(users[^1].Groups["name"].Value);
+        return string.IsNullOrWhiteSpace(name) ? null : name;
+    }
+
+    private static string? TopicIdOf(string url)
+    {
+        var m = Regex.Match(url, @"/t(?<id>\d+)", RegexOptions.IgnoreCase);
+        return m.Success ? m.Groups["id"].Value : null;
     }
 
     private static string Value(XElement node, string localName)
