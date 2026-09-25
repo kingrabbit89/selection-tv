@@ -10,10 +10,12 @@ namespace Jellyfin.Plugin.SelectionTvPrivate;
 public sealed class SelectionTvController : ControllerBase
 {
     private readonly ForumUploadsService _service;
+    private readonly PublicMetadataService _metadata;
 
-    public SelectionTvController(ForumUploadsService service)
+    public SelectionTvController(ForumUploadsService service, PublicMetadataService metadata)
     {
         _service = service;
+        _metadata = metadata;
     }
 
     [HttpGet("Uploads")]
@@ -34,4 +36,18 @@ public sealed class SelectionTvController : ControllerBase
                 statusCode: StatusCodes.Status503ServiceUnavailable);
         }
     }
+    [HttpPost("Enrich")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<ActionResult<MetadataEnrichmentResult>> Enrich(
+        [FromBody] MetadataEnrichmentRequest request,
+        CancellationToken cancellationToken = default)
+    {
+        if (string.IsNullOrWhiteSpace(request.Title) && string.IsNullOrWhiteSpace(request.ImdbId))
+        {
+            return BadRequest();
+        }
+
+        return Ok(await _metadata.EnrichAsync(request, cancellationToken).ConfigureAwait(false));
+    }
+
 }
