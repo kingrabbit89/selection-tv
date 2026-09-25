@@ -259,7 +259,8 @@
         quality:qualityFromTopic(topicTitle),
         jellyfinItemId:local.Id||local.id,
         workId:'',
-        source:'library'
+        source:'library',
+        ratings:{jellyfin:(local.CommunityRating||local.communityRating||'')}
       };
 
       // The Selection TV iframe is HTTPS. A poster served by a local HTTP
