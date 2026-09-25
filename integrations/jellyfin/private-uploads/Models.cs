@@ -15,6 +15,7 @@ public sealed class ForumUploadItem
     public string TopicUrl { get; set; } = "";
     public string TitleGuess { get; set; } = "";
     public int? Year { get; set; }
+    public string? DirectorGuess { get; set; }
     public DateTimeOffset? ActivityAt { get; set; }
     public string? Author { get; set; }
 }
@@ -32,11 +33,15 @@ public sealed class MetadataEnrichmentRequest
 {
     public string Title { get; set; } = "";
     public int? Year { get; set; }
+    public string? Director { get; set; }
+    public string? TopicTitle { get; set; }
     public string? ImdbId { get; set; }
 }
 
 public sealed class MetadataEnrichmentResult
 {
+    public string? MatchedTitle { get; set; }
+    public string? ImdbId { get; set; }
     public string? ImdbUrl { get; set; }
     public string? ImdbRating { get; set; }
     public string? SensCritiqueUrl { get; set; }
