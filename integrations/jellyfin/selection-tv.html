@@ -21,17 +21,18 @@
   var CHILD_ORIGIN='https://kingrabbit89.github.io';
   var frame=document.getElementById('selectionTvFrame');
   var status=document.getElementById('selectionTvBridgeStatus');
-  var libraryPromise=null;
-  var library=[];
-  var byImdb=new Map();
-  var byTitleYear=new Map();
-  var queriesReceived=0;
-  var matchesFound=0;
+  var lookupCache=new Map();
+  var inflight=0;
+  var maxConcurrent=4;
+  var queue=[];
+  var tested=0;
+  var found=0;
   if(!frame)return;
 
   function norm(s){
     return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
   }
+
   function api(){
     if(window.ApiClient)return window.ApiClient;
     if(window.ServerConnections&&typeof window.ServerConnections.currentApiClient==='function'){
@@ -39,98 +40,166 @@
     }
     return null;
   }
+
   function setStatus(text,kind){
     if(!status)return;
     status.textContent=text;
     status.className='selectionTvBridgeStatus'+(kind?' '+kind:'');
   }
-  function imdbOf(item){
-    var ids=item&&item.ProviderIds||{};
-    return String(ids.Imdb||ids.IMDb||'').toLowerCase();
-  }
-  function indexItem(item){
-    var imdb=imdbOf(item);
-    if(imdb&&!byImdb.has(imdb))byImdb.set(imdb,item);
-    var year=String(item&&item.ProductionYear||'');
-    [item&&item.Name,item&&item.OriginalTitle].filter(Boolean).forEach(function(name){
-      var key=norm(name)+'|'+year;
-      if(!byTitleYear.has(key))byTitleYear.set(key,[]);
-      byTitleYear.get(key).push(item);
-    });
-  }
-  async function loadLibrary(){
-    if(libraryPromise)return libraryPromise;
-    libraryPromise=(async function(){
-      var a=api();
-      if(!a||typeof a.getItems!=='function'||typeof a.getCurrentUserId!=='function'){
-        throw new Error('API Jellyfin indisponible');
-      }
-      setStatus('Lecture de la bibliothèque Jellyfin…','ok');
-      var start=0;
-      var limit=500;
-      var total=null;
-      var all=[];
-      do{
-        var result=await a.getItems(a.getCurrentUserId(),{
-          Recursive:true,
-          IncludeItemTypes:'Movie,Series',
-          Fields:'ProviderIds,OriginalTitle',
-          EnableTotalRecordCount:true,
-          StartIndex:start,
-          Limit:limit
-        });
-        var items=result&&result.Items||[];
-        all=all.concat(items);
-        if(total===null)total=Number(result&&result.TotalRecordCount);
-        start+=items.length;
-        if(!items.length)break;
-      }while(Number.isFinite(total)?start<total:all.length<10000);
 
-      library=all;
-      byImdb.clear();
-      byTitleYear.clear();
-      library.forEach(indexItem);
-      setStatus('Jellyfin connecté · '+library.length+' titres indexés','ok');
-      return library;
-    })().catch(function(err){
-      libraryPromise=null;
-      setStatus('Erreur bibliothèque Jellyfin','err');
-      throw err;
+  function providerIds(item){
+    return item&&item.ProviderIds||item&&item.providerIds||{};
+  }
+
+  function imdbOf(item){
+    var ids=providerIds(item);
+    return String(ids.Imdb||ids.IMDb||ids.imdb||'').toLowerCase();
+  }
+
+  function titleCandidates(title){
+    var raw=String(title||'').trim();
+    var out=[];
+    function add(v){
+      v=String(v||'').replace(/\s+/g,' ').trim();
+      if(v&&out.map(norm).indexOf(norm(v))===-1)out.push(v);
+    }
+    add(raw);
+    var par=[...raw.matchAll(/\(([^()]{2,100})\)/g)].map(function(m){return m[1]});
+    par.forEach(add);
+    add(raw.replace(/\s*\([^()]+\)\s*/g,' ').replace(/\s+/g,' '));
+    return out.slice(0,4);
+  }
+
+  function scoreItem(item,req){
+    var score=0;
+    var targetNames=titleCandidates(req.title).map(norm);
+    var names=[item.Name,item.name,item.OriginalTitle,item.originalTitle].filter(Boolean).map(norm);
+    var itemYear=Number(item.ProductionYear||item.productionYear)||0;
+    var reqYear=Number(req.year)||0;
+    var itemImdb=imdbOf(item);
+
+    if(req.imdbId&&itemImdb&&itemImdb===String(req.imdbId).toLowerCase())score+=200;
+
+    targetNames.forEach(function(t,idx){
+      if(names.indexOf(t)!==-1)score=Math.max(score,120-idx*8);
+      else if(names.some(function(n){return n.includes(t)||t.includes(n)}))score=Math.max(score,60-idx*5);
     });
-    return libraryPromise;
+
+    if(reqYear&&itemYear===reqYear)score+=40;
+    else if(reqYear&&itemYear&&Math.abs(itemYear-reqYear)<=1)score+=8;
+
+    return score;
   }
-  function choose(req){
-    if(req.imdbId){
-      var hit=byImdb.get(String(req.imdbId).toLowerCase());
-      if(hit)return hit;
+
+  async function targetedLookup(req){
+    var a=api();
+    if(!a||typeof a.getItems!=='function'||typeof a.getCurrentUserId!=='function'){
+      throw new Error('API Jellyfin indisponible');
     }
-    if(req.year){
-      var strict=byTitleYear.get(norm(req.title)+'|'+String(req.year))||[];
-      if(strict.length===1)return strict[0];
-    }
-    return null;
+
+    var key=req.key||[norm(req.title),req.year||'',req.imdbId||''].join('|');
+    if(lookupCache.has(key))return lookupCache.get(key);
+
+    var promise=(async function(){
+      var candidates=titleCandidates(req.title);
+      var all=[];
+      var seen={};
+
+      for(var i=0;i<candidates.length;i++){
+        try{
+          var r=await a.getItems(a.getCurrentUserId(),{
+            Recursive:true,
+            IncludeItemTypes:'Movie,Series',
+            SearchTerm:candidates[i],
+            Fields:'ProviderIds,OriginalTitle,UserData,MediaSources',
+            EnableTotalRecordCount:false,
+            Limit:25
+          });
+          var items=r&&r.Items||r&&r.items||[];
+          items.forEach(function(item){
+            var id=item.Id||item.id||JSON.stringify([item.Name,item.ProductionYear]);
+            if(!seen[id]){
+              seen[id]=1;
+              all.push(item);
+            }
+          });
+        }catch(e){}
+      }
+
+      var ranked=all.map(function(item){
+        return {item:item,score:scoreItem(item,req)};
+      }).sort(function(a1,b1){return b1.score-a1.score});
+
+      var best=ranked.length&&ranked[0].score>=85?ranked[0].item:null;
+      if(!best)return {key:key,found:false};
+
+      var media=best.MediaSources||best.mediaSources||[];
+      var quality='';
+      if(media.length){
+        var m=media[0]||{};
+        var w=Number(m.Width||m.width)||0;
+        if(w>=3800)quality='4K';
+        else if(w>=1900)quality='1080p';
+        else if(w>=1200)quality='720p';
+      }
+
+      return {
+        key:key,
+        found:true,
+        itemId:best.Id||best.id,
+        name:best.Name||best.name||req.title,
+        played:!!((best.UserData||best.userData||{}).Played),
+        quality:quality
+      };
+    })().catch(function(){return {key:key,found:false}});
+
+    lookupCache.set(key,promise);
+    return promise;
   }
+
   function send(payload){
-    if(frame.contentWindow)frame.contentWindow.postMessage(payload,CHILD_ORIGIN);
+    if(frame&&frame.contentWindow){
+      frame.contentWindow.postMessage(payload,CHILD_ORIGIN);
+    }
   }
+
+  function pump(){
+    while(inflight<maxConcurrent&&queue.length){
+      var job=queue.shift();
+      inflight++;
+      targetedLookup(job.req).then(function(result){
+        tested++;
+        if(result.found)found++;
+        job.resolve(result);
+      }).finally(function(){
+        inflight--;
+        setStatus('Jellyfin · '+found+' trouvé'+(found>1?'s':'')+' / '+tested+' testé'+(tested>1?'s':''),'ok');
+        pump();
+      });
+    }
+  }
+
+  function queuedLookup(req){
+    return new Promise(function(resolve){
+      queue.push({req:req,resolve:resolve});
+      pump();
+    });
+  }
+
   async function handleQueries(items){
-    queriesReceived+=items.length;
-    await loadLibrary();
     var unique=[];
     var seen={};
-    items.forEach(function(x){
-      if(x&&x.key&&!seen[x.key]){seen[x.key]=1;unique.push(x)}
-    });
-    var results=unique.map(function(req){
-      var hit=choose(req);
-      if(hit){
-        matchesFound++;
-        return {key:req.key,found:true,itemId:hit.Id,name:hit.Name||req.title};
+    (items||[]).forEach(function(x){
+      if(x&&x.key&&!seen[x.key]){
+        seen[x.key]=1;
+        unique.push(x);
       }
-      return {key:req.key,found:false};
     });
-    setStatus('Jellyfin · '+library.length+' titres · '+matchesFound+' trouvé'+(matchesFound>1?'s':'')+' / '+queriesReceived+' testé'+(queriesReceived>1?'s':''),'ok');
-    send({type:'selection-tv:jellyfin-result',version:1,items:results});
+
+    if(!unique.length)return;
+
+    var results=await Promise.all(unique.map(queuedLookup));
+    send({type:'selection-tv:jellyfin-result',version:2,items:results});
   }
 
   window.addEventListener('message',function(e){
@@ -153,18 +222,20 @@
       setStatus('API Jellyfin indisponible','err');
       return;
     }
-    setStatus('Jellyfin connecté · attente de Sélection TV…','ok');
-    send({type:'selection-tv:jellyfin-ready',version:1});
+    setStatus('Jellyfin connecté · recherches ciblées','ok');
+    send({type:'selection-tv:jellyfin-ready',version:2});
   }
 
   frame.addEventListener('load',function(){
     ready();
-    setTimeout(ready,600);
-    setTimeout(ready,1800);
+    setTimeout(ready,500);
+    setTimeout(ready,1500);
   });
-  setTimeout(ready,800);
-  setTimeout(ready,2200);
+
+  setTimeout(ready,700);
+  setTimeout(ready,1800);
 })();
+
 
 
 /* ---- Jellyfin-only private uploads (inlined for Plugin Pages) ---- */
@@ -650,7 +721,14 @@
 
   function schedule(){
     clearInterval(privateTimer);
-    privateTimer=setInterval(loadPrivateUploads,10*60*1000);
+    privateTimer=setInterval(function(){
+      if(!document.body.contains(frame)){
+        clearInterval(privateTimer);
+        privateTimer=null;
+        return;
+      }
+      loadPrivateUploads();
+    },10*60*1000);
   }
 
   window.addEventListener('message',function(e){
