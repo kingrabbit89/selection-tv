@@ -121,3 +121,152 @@
     if(e.data.type==='selection-tv:jellyfin-result'&&Array.isArray(e.data.items))e.data.items.forEach(render);
   });
 })();
+
+/* ---- Jellyfin-only private forum uploads ---- */
+(()=>{
+  if(window.parent===window)return;
+  const PARENT=window.parent;
+  const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+  const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const fmtDate=value=>{
+    if(!value)return '';
+    const d=new Date(value);if(Number.isNaN(d.getTime()))return '';
+    try{return new Intl.DateTimeFormat('fr-FR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}).format(d)}
+    catch{return ''}
+  };
+  const safeUrl=u=>{
+    try{const x=new URL(u,location.href);return /^https?:$/.test(x.protocol)?x.href:''}catch{return ''}
+  };
+  const makeLink=(label,url,cls='')=>{
+    const u=safeUrl(url);if(!u)return null;
+    const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';a.textContent=label;if(cls)a.className=cls;return a;
+  };
+  const ensureStyle=()=>{
+    if(document.getElementById('selectionTvPrivateUploadsStyle'))return;
+    const s=document.createElement('style');s.id='selectionTvPrivateUploadsStyle';s.textContent=`
+      .jellyfin-private-uploads-page{--section:#76563e}
+      .jellyfin-private-upload .private-topic-title{font:6.4pt/1.35 var(--sans);color:var(--muted);margin-top:1.5mm;overflow-wrap:anywhere}
+      .jellyfin-private-upload .private-topic-title b{color:var(--section);text-transform:uppercase;letter-spacing:.05em}
+      .jellyfin-private-upload .private-source{font:700 6.5pt var(--sans);color:var(--section);letter-spacing:.04em;text-transform:uppercase;margin-bottom:1mm}
+      .jellyfin-private-upload .private-overview{margin-top:1.5mm}
+      .jellyfin-private-upload .private-unresolved{display:flex;width:29mm;height:43mm;align-items:flex-end;padding:2.5mm;background:#172f43;color:white;font:700 8pt/1.15 var(--serif)}
+      .jellyfin-private-note{margin-top:3mm;padding:2.5mm 3.5mm;border-left:.65mm solid var(--section);background:var(--section-soft);font:7.5pt/1.4 var(--serif)}
+      @media screen and (max-width:680px){.jellyfin-private-upload .private-topic-title{font-size:9pt}.jellyfin-private-upload .private-source{font-size:9pt}}
+    `;document.head.append(s);
+  };
+  const saveControl=(box,item)=>{
+    const STORE='selectionTV_saved_v1';
+    const key=norm(item.title);
+    const load=()=>{try{return JSON.parse(localStorage.getItem(STORE)||'{}')}catch{return {}}};
+    const save=o=>{try{localStorage.setItem(STORE,JSON.stringify(o))}catch{}};
+    const b=document.createElement('button');b.type='button';b.className='save';
+    const refresh=()=>{const x=load()[key],on=!!x&&(x.status||'a-recuperer')==='a-recuperer';b.textContent=on?'✓ À récupérer':'＋ À récupérer';b.classList.toggle('saved',on)};
+    b.onclick=()=>{
+      const all=load();
+      if(all[key]&&(all[key].status||'a-recuperer')==='a-recuperer')delete all[key];
+      else all[key]={title:item.title,context:'Vos Uploads · dernières 24 h',badge:'UPLOAD FORUM',page:document.title,url:item.topicUrl||location.href,added:new Date().toISOString(),status:'a-recuperer'};
+      save(all);refresh();
+    };
+    refresh();box.append(b);
+    window.SelectionTVSeen?.attach(box,item.title,()=>({title:item.title,context:'Vos Uploads · dernières 24 h',badge:'UPLOAD FORUM',url:item.topicUrl||location.href}));
+  };
+  const makeCard=item=>{
+    const article=document.createElement('article');
+    article.className='platform has-poster jellyfin-private-upload';
+    article.dataset.title=item.title||item.titleGuess||item.topicTitle||'';
+    article.dataset.privateJellyfin='1';
+    if(item.workId)article.dataset.workId=item.workId;
+
+    const imgUrl=safeUrl(item.image);
+    if(imgUrl){
+      const img=document.createElement('img');img.className='platform-poster';img.src=imgUrl;img.alt='Affiche de '+article.dataset.title;img.loading='lazy';
+      article.append(img);
+    }else{
+      const fb=document.createElement('div');fb.className='private-unresolved';fb.textContent=article.dataset.title||'Film à identifier';article.append(fb);
+    }
+
+    const copy=document.createElement('div');copy.className='platform-copy';
+    const source=document.createElement('div');source.className='private-source';
+    source.textContent='Upload forum'+(item.activityAt?' · '+fmtDate(item.activityAt):'');
+    copy.append(source);
+
+    const h3=document.createElement('h3');h3.textContent=article.dataset.title;copy.append(h3);
+
+    const bits=[];
+    if(item.director)bits.push('Réalisation : '+item.director);
+    if(item.year)bits.push(String(item.year));
+    if(item.genre)bits.push(item.genre);
+    if(item.quality)bits.push(item.quality);
+    if(bits.length){const meta=document.createElement('div');meta.className='work-meta';meta.textContent=bits.join(' · ');copy.append(meta)}
+
+    if(item.overview){const p=document.createElement('p');p.className='private-overview';p.textContent=item.overview;copy.append(p)}
+
+    const original=document.createElement('div');original.className='private-topic-title';
+    original.innerHTML='<b>Sujet</b> · '+esc(item.topicTitle||'');
+    copy.append(original);
+
+    const actions=document.createElement('div');actions.className='program-actions';
+    const V=window.SELECTION_TV_VERIFIED_LINKS?.[norm(article.dataset.title)]||{};
+    const links={...(item.links||{})};
+    if(!links.imdb&&V.imdb)links.imdb=V.imdb;
+    if(!links.sc&&V.sc)links.sc=V.sc;
+    if(!links.allocine&&V.allocine)links.allocine=V.allocine;
+    [
+      ['topic','Voir le topic',item.topicUrl,'official'],
+      ['allocine','AlloCiné',links.allocine,''],
+      ['imdb','IMDb',links.imdb,''],
+      ['sc','SensCritique',links.sc,''],
+      ['tmdb','TMDb',links.tmdb,'']
+    ].forEach(([,label,url,cls])=>{const a=makeLink(label,url,cls);if(a)actions.append(a)});
+    saveControl(actions,item);
+    copy.append(actions);
+    article.append(copy);
+    return article;
+  };
+  const removeOld=()=>{
+    document.querySelectorAll('.jellyfin-private-uploads-page').forEach(x=>x.remove());
+    document.querySelectorAll('.toc-link[data-jellyfin-private="1"]').forEach(x=>x.remove());
+  };
+  const addToc=()=>{
+    const group=document.querySelector('#sommaire .toc-group');
+    if(!group||group.querySelector('[data-jellyfin-private="1"]'))return;
+    const a=document.createElement('a');a.className='toc-link';a.href='#jellyfin-uploads-1';a.dataset.jellyfinPrivate='1';
+    a.innerHTML='<span class="toc-label">Vos Uploads<span class="toc-sub">24 dernières heures · privé Jellyfin</span></span><span class="toc-page">Jellyfin</span>';
+    const method=[...group.querySelectorAll('.toc-link')].find(x=>x.getAttribute('href')==='#methode');
+    method?group.insertBefore(a,method):group.append(a);
+  };
+  const renderPrivate=payload=>{
+    removeOld();
+    const items=(payload.items||[]).filter(x=>x&&(x.title||x.titleGuess||x.topicTitle));
+    if(!items.length)return;
+    ensureStyle();addToc();
+    const book=document.querySelector('.book');if(!book)return;
+    const firstDaily=book.querySelector('[id$="-selection"]');
+    const perPage=4;
+    for(let start=0,pageNo=1;start<items.length;start+=perPage,pageNo++){
+      const page=document.createElement('section');
+      page.className='page jellyfin-private-uploads-page';
+      page.id='jellyfin-uploads-'+pageNo;
+      const top=document.createElement('div');top.className='topbar';top.innerHTML='Vos Uploads<span class="issue">Rubrique privée Jellyfin</span>';page.append(top);
+      const kicker=document.createElement('div');kicker.className='kicker';kicker.textContent='Disponibilités récentes';page.append(kicker);
+      const h=document.createElement('div');h.className='h1';h.textContent=pageNo===1?'Les uploads des dernières 24 heures':'Vos Uploads — suite';page.append(h);
+      const deck=document.createElement('div');deck.className='deck';deck.textContent='Les sujets récents du forum sont identifiés comme œuvres et enrichis par les métadonnées disponibles dans Jellyfin.';page.append(deck);
+      const rule=document.createElement('div');rule.className='rule';page.append(rule);
+      const grid=document.createElement('div');grid.className='platform-grid';items.slice(start,start+perPage).forEach(x=>grid.append(makeCard(x)));page.append(grid);
+      if(pageNo===1){
+        const note=document.createElement('div');note.className='jellyfin-private-note';
+        note.textContent='Cette rubrique n’existe que dans l’intégration Jellyfin. Les données du forum ne sont pas inscrites dans les fichiers publics de Sélection TV.';
+        page.append(note);
+      }
+      const back=document.createElement('a');back.className='back-toc';back.href='#sommaire';back.textContent='↑ Sommaire';page.append(back);
+      const footer=document.createElement('div');footer.className='footer';
+      footer.innerHTML='<span>Flux privé · actualisation Jellyfin</span><span>J</span>';page.append(footer);
+      firstDaily?book.insertBefore(page,firstDaily):book.append(page);
+    }
+    document.dispatchEvent(new CustomEvent('selectiontv:privateuploadsrendered',{detail:{count:items.length}}));
+  };
+  window.addEventListener('message',e=>{
+    if(e.source!==PARENT||!e.data)return;
+    if(e.data.type==='selection-tv:jellyfin-private-uploads')renderPrivate(e.data);
+  });
+})();
