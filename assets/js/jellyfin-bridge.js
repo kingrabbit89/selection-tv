@@ -301,12 +301,30 @@
     const method=[...group.querySelectorAll('.toc-link')].find(x=>x.getAttribute('href')==='#methode');
     method?group.insertBefore(a,method):group.append(a);
   };
-  const patchPrivate=(items)=>{
+  const patchPrivate=(items,changedIndex)=>{
     const cards=[...document.querySelectorAll('.jellyfin-private-upload[data-private-index]')];
     if(cards.length!==items.length)return false;
-    items.forEach((item,index)=>{
+
+    const indexes=Number.isInteger(changedIndex)
+      ? [changedIndex]
+      : items.map((_,index)=>index);
+
+    indexes.forEach(index=>{
+      const item=items[index];
       const current=document.querySelector('.jellyfin-private-upload[data-private-index="'+index+'"]');
-      if(current)current.replaceWith(makeCard(item,index));
+      if(!current||!item)return;
+
+      const existingJellyfin=current.querySelector('.jellyfin-actions');
+      const replacement=makeCard(item,index);
+
+      // The general Jellyfin bridge may have found this title independently
+      // from the private metadata pass. Keep that verified local-library
+      // action instead of erasing it during progressive metadata updates.
+      if(existingJellyfin&&!replacement.querySelector('.jellyfin-actions')){
+        replacement.querySelector('.program-actions')?.append(existingJellyfin);
+      }
+
+      current.replaceWith(replacement);
     });
     return true;
   };
@@ -317,7 +335,7 @@
     const catalog=await catalogPromise;
     const items=raw.map(x=>hydrateFromCatalog(x,catalog));
 
-    if(payload.phase!=='provisional' && patchPrivate(items)){
+    if(payload.phase!=='provisional' && patchPrivate(items,Number.isInteger(payload.changedIndex)?payload.changedIndex:null)){
       document.dispatchEvent(new CustomEvent('selectiontv:privateuploadsrendered',{detail:{count:items.length,phase:payload.phase||''}}));
       return;
     }
