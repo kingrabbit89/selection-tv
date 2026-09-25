@@ -170,6 +170,7 @@ public sealed class ForumUploadsService
                         TopicUrl = url,
                         TitleGuess = parsed.Title,
                         Year = parsed.Year,
+                        DirectorGuess = parsed.Director,
                         ActivityAt = pub,
                         Author = string.IsNullOrWhiteSpace(author) ? null : author
                     });
@@ -350,6 +351,7 @@ public sealed class ForumUploadsService
                 TopicUrl = url,
                 TitleGuess = parsed.Title,
                 Year = parsed.Year,
+                DirectorGuess = parsed.Director,
                 ActivityAt = activity,
                 Author = author
             });
@@ -552,12 +554,14 @@ public sealed class ForumUploadsService
         return null;
     }
 
-    private static (string Title, int? Year) ParseReleaseTitle(string raw)
+    private static (string Title, int? Year, string? Director) ParseReleaseTitle(string raw)
     {
         var s = WebUtility.HtmlDecode(raw);
         s = Regex.Replace(s, @"^\s*(?:\[[^\]]+\]\s*)+", "");
         s = s.Replace('_', ' ').Trim();
 
+        // Remove the release/codec tail while keeping editorial information
+        // such as "title - year - director" intact.
         var tech = new Regex(
             @"(?ix)
               \s+(?=
@@ -572,21 +576,54 @@ public sealed class ForumUploadsService
         s = tech.Replace(s, "");
 
         int? year = null;
+        string? director = null;
+        var title = s;
+
         var ym = Regex.Match(s, @"\b(19\d{2}|20\d{2})\b");
         if (ym.Success)
         {
             year = int.Parse(ym.Value, CultureInfo.InvariantCulture);
+
             var before = s[..ym.Index].Trim(' ', '.', '-', '–', '—');
             if (before.Length >= 2)
             {
-                s = before;
+                title = before;
+            }
+
+            var after = s[(ym.Index + ym.Length)..].Trim(' ', '.', '-', '–', '—', ':', ';');
+            if (!string.IsNullOrWhiteSpace(after))
+            {
+                // Topic conventions frequently put the director immediately
+                // after the year, followed by language/edition notes.
+                after = Regex.Replace(
+                    after,
+                    @"\s*\((?:vostfr|vo(?:\s+ou\s+vf)?|vf|multi|truefrench|french|subfrench|téléfilm|telefilm)[^)]*\)\s*$",
+                    "",
+                    RegexOptions.IgnoreCase);
+                after = Regex.Replace(
+                    after,
+                    @"\s+(?:vostfr|vo(?:\s+ou\s+vf)?|vf|multi|truefrench|french|subfrench)\b.*$",
+                    "",
+                    RegexOptions.IgnoreCase);
+                after = after.Trim(' ', '.', '-', '–', '—', ':', ';');
+
+                // Do not promote obvious release vocabulary to a director.
+                if (after.Length >= 3
+                    && after.Length <= 90
+                    && !Regex.IsMatch(
+                        after,
+                        @"\b(?:1080p|720p|2160p|4k|bluray|blu-ray|web[- .]?dl|remux|x26[45]|hevc|hdr|vostfr|french|multi)\b",
+                        RegexOptions.IgnoreCase))
+                {
+                    director = after;
+                }
             }
         }
 
-        s = Regex.Replace(s, @"[.]+", " ");
-        s = Regex.Replace(s, @"\s{2,}", " ").Trim(' ', '-', '–', '—', '.');
+        title = Regex.Replace(title, @"[.]+", " ");
+        title = Regex.Replace(title, @"\s{2,}", " ").Trim(' ', '-', '–', '—', '.');
 
-        return (string.IsNullOrWhiteSpace(s) ? raw.Trim() : s, year);
+        return (string.IsNullOrWhiteSpace(title) ? raw.Trim() : title, year, director);
     }
 
     private static ForumUploadsEnvelope FilterEnvelope(ForumUploadsEnvelope source, int hours)
