@@ -154,7 +154,7 @@
 
   const ratingBox=(ratings,links)=>{
     const r=ratings||{};
-    if(!r.imdb&&!r.senscritique&&!r.sc&&!r.jellyfin)return null;
+    if(!r.imdb&&!r.senscritique&&!r.sc)return null;
     const box=document.createElement('div');box.className='ratings';
     if(r.imdb){
       const a=links?.imdb?makeLink('IMDb '+r.imdb+'/10',links.imdb,'rating-pill imdb'):null;
@@ -164,9 +164,6 @@
     if(sc){
       const a=links?.sc?makeLink('SensCritique '+sc+'/10',links.sc,'rating-pill sc'):null;
       if(a)box.append(a);else{const s=document.createElement('span');s.className='rating-pill sc';s.textContent='SensCritique '+sc+'/10';box.append(s)}
-    }
-    if(!r.imdb&&!sc&&r.jellyfin){
-      const s=document.createElement('span');s.className='rating-pill imdb';s.textContent='Jellyfin '+String(r.jellyfin).replace('.',',')+'/10';box.append(s);
     }
     if(box.children.length){
       const d=document.createElement('span');d.className='rating-date';d.textContent='relevé automatiquement';box.append(d);
