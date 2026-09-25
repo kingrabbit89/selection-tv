@@ -308,14 +308,58 @@
         dataType:'json'
       });
       var sourceItems=arr(feed.Items||feed.items);
-      var items=await mapLimited(sourceItems,3,enrichOne);
+
+      // Show the private section immediately. Exact metadata enrichment can
+      // take time for obscure films and must never hide the whole section.
+      var provisional=sourceItems.map(function(upload){
+        var topicTitle=upload.topicTitle||upload.TopicTitle||'';
+        var guess=upload.titleGuess||upload.TitleGuess||topicTitle;
+        return {
+          topicTitle:topicTitle,
+          topicUrl:upload.topicUrl||upload.TopicUrl||'',
+          activityAt:upload.activityAt||upload.ActivityAt||null,
+          author:upload.author||upload.Author||null,
+          title:guess,
+          titleGuess:guess,
+          year:Number(upload.year||upload.Year)||null,
+          director:upload.directorGuess||upload.DirectorGuess||'',
+          genre:'',
+          overview:'',
+          image:'',
+          links:{},
+          ratings:{},
+          quality:qualityFromTopic(topicTitle),
+          jellyfinItemId:'',
+          workId:'',
+          source:'pending'
+        };
+      });
+
       sendPrivate({
         type:'selection-tv:jellyfin-private-uploads',
-        version:1,
+        version:2,
+        phase:'provisional',
+        generatedAt:feed.GeneratedAt||feed.generatedAt||new Date().toISOString(),
+        windowHours:feed.WindowHours||feed.windowHours||24,
+        items:provisional
+      });
+
+      if(status&&provisional.length){
+        var initialBase=(status.textContent||'').replace(/ · uploads.*$/,'');
+        status.textContent=initialBase+' · uploads '+provisional.length+' · enrichissement…';
+      }
+
+      var items=await mapLimited(sourceItems,3,enrichOne);
+
+      sendPrivate({
+        type:'selection-tv:jellyfin-private-uploads',
+        version:2,
+        phase:'enriched',
         generatedAt:feed.GeneratedAt||feed.generatedAt||new Date().toISOString(),
         windowHours:feed.WindowHours||feed.windowHours||24,
         items:items
       });
+
       if(status&&items.length){
         var base=(status.textContent||'').replace(/ · uploads.*$/,'');
         status.textContent=base+' · uploads '+items.length;
