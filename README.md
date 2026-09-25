@@ -98,6 +98,31 @@ Les deux plugins tiers sont publiés par [IAmParadox27](https://github.com/IAmPa
 
 5. Redémarrer Jellyfin. Une entrée **Sélection TV** doit apparaître dans le menu utilisateur.
 
+### Rubrique privée « Vos Uploads »
+
+Une extension optionnelle permet d'ajouter au numéro affiché dans Jellyfin une rubrique **Vos Uploads — dernières 24 heures**, sans publier les données du forum dans GitHub Pages.
+
+Le composant serveur se trouve dans :
+
+```text
+integrations/jellyfin/private-uploads/
+```
+
+Son fonctionnement est séparé du site public :
+
+1. Jellyfin se connecte au forum côté serveur avec un compte autorisé ;
+2. il récupère le flux du sous-forum dans cette session authentifiée ;
+3. le titre technique de chaque topic est nettoyé pour en déduire le film et son année ;
+4. l'intégration utilise d'abord la bibliothèque Jellyfin puis la recherche distante de métadonnées de Jellyfin pour identifier l'œuvre et récupérer notamment son affiche ;
+5. le numéro reçoit les fiches privées par `postMessage` uniquement lorsqu'il est chargé dans Jellyfin ;
+6. chaque fiche conserve le lien vers le topic d'origine et les commandes personnelles de Sélection TV.
+
+L'endpoint `/SelectionTv/Uploads` est protégé par l'authentification Jellyfin. Aucun JSON contenant les topics privés n'est écrit dans le site public.
+
+Le plugin est compilé automatiquement par GitHub Actions sous le nom d'artefact **SelectionTvPrivate-Jellyfin-10.11**. Sa configuration locale est documentée dans `integrations/jellyfin/private-uploads/README.md`.
+
+Les identifiants du forum ne doivent jamais être inscrits dans le dépôt. Ils sont placés uniquement dans le fichier de configuration local du serveur Jellyfin.
+
 ### Cache Jellyfin Web
 
 Après une mise à jour de **File Transformation**, **Plugin Pages** ou du fichier `selection-tv.html`, Jellyfin Web peut continuer à utiliser d'anciens bundles en cache. Si l'entrée apparaît mais ouvre une page introuvable ou une ancienne version, vider les données du site dans le navigateur ou tester dans une fenêtre privée permet de confirmer rapidement un problème de cache.
