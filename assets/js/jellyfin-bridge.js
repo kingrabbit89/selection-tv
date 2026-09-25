@@ -135,7 +135,10 @@
     catch{return ''}
   };
   const safeUrl=u=>{
-    try{const x=new URL(u,location.href);return /^https?:$/.test(x.protocol)?x.href:''}catch{return ''}
+    if(u==null)return '';
+    const raw=String(u).trim();
+    if(!raw||/^(?:undefined|null)$/i.test(raw))return '';
+    try{const x=new URL(raw,location.href);return /^https?:$/.test(x.protocol)?x.href:''}catch{return ''}
   };
   const makeLink=(label,url,cls='')=>{
     const u=safeUrl(url);if(!u)return null;
