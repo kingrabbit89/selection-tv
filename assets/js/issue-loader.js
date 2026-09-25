@@ -26,7 +26,7 @@ fetch(jsonUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.st
  window.imgFail=img=>img.closest('.visual')?.classList.add('broken');
  document.body.innerHTML=toolbar+book;
  await addScript(root+'assets/js/analytics.js?v=20260925-analytics1');
- await addScript(root+'assets/js/jellyfin-bridge.js?v=20260925-jellyfin8');
+ await addScript(root+'assets/js/jellyfin-bridge.js?v=20260925-jellyfin9');
  await addScript(root+'assets/js/'+(d.theme==='magazine'?'magazine-week.js?v=20260924-exactlinks4':'archive-week.js?v=20260924-exactlinks4'));
  await addScript(root+'assets/js/image-resolver.js?v=20260924-exactlinks4');
  if(window.SelectionTVImagesReady)await window.SelectionTVImagesReady;
