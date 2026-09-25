@@ -23,7 +23,7 @@
   var status=document.getElementById('selectionTvBridgeStatus');
   var lookupCache=new Map();
   var inflight=0;
-  var maxConcurrent=4;
+  var maxConcurrent=2;
   var queue=[];
   var tested=0;
   var found=0;
@@ -67,7 +67,7 @@
     var par=[...raw.matchAll(/\(([^()]{2,100})\)/g)].map(function(m){return m[1]});
     par.forEach(add);
     add(raw.replace(/\s*\([^()]+\)\s*/g,' ').replace(/\s+/g,' '));
-    return out.slice(0,4);
+    return out.slice(0,2);
   }
 
   function scoreItem(item,req){
@@ -113,7 +113,7 @@
             SearchTerm:candidates[i],
             Fields:'ProviderIds,OriginalTitle,UserData,MediaSources',
             EnableTotalRecordCount:false,
-            Limit:25
+            Limit:12
           });
           var items=r&&r.Items||r&&r.items||[];
           items.forEach(function(item){
@@ -163,7 +163,15 @@
     }
   }
 
+  function selectionHostActive(){
+    if(!frame||!document.body.contains(frame))return false;
+    var r=frame.getBoundingClientRect();
+    var cs=getComputedStyle(frame);
+    return cs.display!=='none'&&cs.visibility!=='hidden'&&r.width>0&&r.height>0;
+  }
+
   function pump(){
+    if(!selectionHostActive())return;
     while(inflight<maxConcurrent&&queue.length){
       var job=queue.shift();
       inflight++;
