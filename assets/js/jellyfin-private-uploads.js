@@ -295,7 +295,8 @@
             quality:qualityFromTopic(topicTitle),
             jellyfinItemId:local.Id||local.id,
             workId:'',
-            source:'library'
+            source:'library',
+            ratings:{jellyfin:(local.CommunityRating||local.communityRating||'')}
           };
           var secondPoster=remote.ImageUrl||remote.imageUrl||'';
           if(/^https:/i.test(secondPoster))base.image=secondPoster;
@@ -348,6 +349,7 @@
     }
     base.director=base.director||directorGuess||'';
     base.ratings={
+      ...(base.ratings||{}),
       imdb:extra.ImdbRating||extra.imdbRating||'',
       senscritique:extra.SensCritiqueRating||extra.sensCritiqueRating||''
     };
