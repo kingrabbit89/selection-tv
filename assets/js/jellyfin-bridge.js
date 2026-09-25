@@ -6,7 +6,7 @@
   const ROOT=new URL('../../',script?.src||location.href);
   const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
   const clean=s=>String(s||'').replace(/\s+/g,' ').trim();
-  const SELECTOR='article.week-card,article.feature,article.list-card,article.platform,article.release-card,article.expire-card,article.radar-card,article.torrent-card,table.schedule tbody tr';
+  const SELECTOR='article.week-card,article.feature,article.list-card,article.platform:not(.jellyfin-private-upload),article.release-card,article.expire-card,article.radar-card,article.torrent-card,table.schedule tbody tr';
   const observed=new WeakSet();
   const keyToNodes=new Map();
   const pendingVisible=new Map();
@@ -92,7 +92,7 @@
           observer.unobserve(e.target);batch.push(info);
         }
         request(batch);
-      },{rootMargin:'1200px 0px'});
+      },{rootMargin:'350px 0px'});
     }
     scan(document);
     new MutationObserver(records=>{
