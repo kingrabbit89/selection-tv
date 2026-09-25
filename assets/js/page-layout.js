@@ -70,12 +70,26 @@
      const group=pages.filter(p=>p.id===first.id||p.id.startsWith(first.id+'-'));
      group.forEach((p,i)=>{const title=p.querySelector('.grid-title');if(title&&/\d+\/\d+\s*$/.test(title.textContent))set(title,title.textContent.replace(/\d+\/\d+\s*$/,`${i+1}/${group.length}`))});
    }
-   for(const a of document.querySelectorAll('.toc-link,.tocbox a')){
-     const target=document.getElementById(a.hash.slice(1)),index=pages.indexOf(target);
-     if(index<0)continue;
-     // Never touch the title/date span: only the dedicated folio marker may be renumbered.
-     const folio=a.querySelector('.toc-page');
-     if(folio)set(folio,folio.textContent.replace(/\d+/,String(index+1)));
+   const tocEntries=[...document.querySelectorAll('.toc-link,.tocbox a')]
+     .map(a=>{
+       const id=(a.hash||'').slice(1);
+       const target=id?document.getElementById(id):null;
+       return {a,target,index:target?pages.indexOf(target):-1};
+     })
+     .filter(x=>x.index>=0)
+     .sort((x,y)=>x.index-y.index);
+
+   // Rebuild every folio from the live document order instead of replacing
+   // only the first number of an old static range. This keeps ranges correct
+   // when Jellyfin injects a variable number of private pages.
+   const uniqueStarts=[...new Set(tocEntries.map(x=>x.index))].sort((a,b)=>a-b);
+   for(const entry of tocEntries){
+     const folio=entry.a.querySelector('.toc-page');
+     if(!folio)continue;
+     const next=uniqueStarts.find(x=>x>entry.index);
+     const startNo=entry.index+1;
+     const endNo=next==null?pages.length:next;
+     set(folio,endNo>startNo?'p. '+startNo+'–'+endNo:'p. '+startNo);
    }
  }
  function layout(){
