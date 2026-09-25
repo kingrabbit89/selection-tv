@@ -91,15 +91,52 @@ public sealed class ForumUploadsService
 
         await LoginAsync(client, cfg, cancellationToken).ConfigureAwait(false);
 
-        var forumPath = $"f{cfg.ForumId}-";
-        var forumResponse = await client.GetAsync(forumPath, cancellationToken).ConfigureAwait(false);
-        var forumHtml = await forumResponse.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-        if (LooksLikeLogin(forumResponse.RequestMessage?.RequestUri, forumHtml))
-        {
-            throw new InvalidOperationException("Connexion Forumactif refusée ou session non authentifiée.");
-        }
-
         var all = new List<ForumUploadItem>();
+        var forumPath = $"f{cfg.ForumId}-";
+        var cutoff = DateTimeOffset.Now.AddHours(-Math.Clamp(cfg.WindowHours, 1, 168));
+        var forumHtml = "";
+
+        for (var page = 0; page < 10; page++)
+        {
+            var path = page == 0 ? forumPath : $"{forumPath}?start={page * 50}";
+            var forumResponse = await client.GetAsync(path, cancellationToken).ConfigureAwait(false);
+            var html = await forumResponse.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+
+            if (LooksLikeLogin(forumResponse.RequestMessage?.RequestUri, html))
+            {
+                throw new InvalidOperationException("Connexion Forumactif refusée ou session non authentifiée.");
+            }
+
+            if (page == 0)
+            {
+                forumHtml = html;
+            }
+
+            var parsedPage = ParseForumHtml(baseUri, html)
+                .GroupBy(x => TopicIdOf(x.TopicUrl) ?? x.TopicUrl, StringComparer.OrdinalIgnoreCase)
+                .Select(g => g.OrderByDescending(x => x.ActivityAt ?? DateTimeOffset.MinValue).First())
+                .ToList();
+
+            if (parsedPage.Count == 0)
+            {
+                break;
+            }
+
+            all.AddRange(parsedPage);
+
+            var dated = parsedPage.Where(x => x.ActivityAt.HasValue).ToList();
+            if (dated.Count > 0 && dated.Min(x => x.ActivityAt!.Value) < cutoff)
+            {
+                break;
+            }
+
+            // Forumactif typically uses 50 topics per page. If a short page is
+            // returned, there is no next page to inspect.
+            if (parsedPage.Count < 45)
+            {
+                break;
+            }
+        }
 
         // Protected Forumactif forums can expose an RSS endpoint while returning
         // no <item> at all, even for an authenticated session. Prefer the HTML
@@ -140,9 +177,42 @@ public sealed class ForumUploadsService
 
         if (all.Count == 0)
         {
-            all = ParseForumHtml(baseUri, forumHtml);
-            _logger.LogInformation("Selection TV: RSS empty; parsed {Count} topics from authenticated forum HTML.", all.Count);
+            try
+            {
+                var feedPath = $"feed/?f={cfg.ForumId}";
+                var xml = await client.GetStringAsync(feedPath, cancellationToken).ConfigureAwait(false);
+                var doc = XDocument.Parse(xml, LoadOptions.PreserveWhitespace);
+
+                foreach (var node in doc.Descendants().Where(x => x.Name.LocalName == "item"))
+                {
+                    var topicTitle = WebUtility.HtmlDecode(Value(node, "title")).Trim();
+                    var url = Value(node, "link").Trim();
+                    var pub = ParseDate(Value(node, "pubDate"));
+                    var author = Value(node, "creator").Trim();
+                    if (string.IsNullOrWhiteSpace(topicTitle) || string.IsNullOrWhiteSpace(url))
+                    {
+                        continue;
+                    }
+
+                    var parsed = ParseReleaseTitle(topicTitle);
+                    all.Add(new ForumUploadItem
+                    {
+                        TopicTitle = topicTitle,
+                        TopicUrl = url,
+                        TitleGuess = parsed.Title,
+                        Year = parsed.Year,
+                        ActivityAt = pub,
+                        Author = string.IsNullOrWhiteSpace(author) ? null : author
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogDebug(ex, "Selection TV: authenticated Forumactif RSS unavailable.");
+            }
         }
+
+        _logger.LogInformation("Selection TV: parsed {Count} topics from authenticated forum pages.", all.Count);
 
         all = all
             .GroupBy(x => TopicIdOf(x.TopicUrl) ?? x.TopicUrl, StringComparer.OrdinalIgnoreCase)
