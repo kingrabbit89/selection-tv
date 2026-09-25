@@ -5,6 +5,9 @@ on:
   push:
     paths:
       - "integrations/jellyfin/private-uploads/**"
+      - "assets/js/jellyfin-private-uploads.js"
+      - "assets/js/jellyfin-bridge.js"
+      - "integrations/jellyfin/selection-tv.html"
       - ".github/workflows/build-jellyfin-private-uploads.yml"
 
 permissions:
@@ -22,11 +25,23 @@ jobs:
         with:
           dotnet-version: "9.0.x"
 
+      - name: Check Jellyfin JavaScript
+        run: |
+          node --check assets/js/jellyfin-bridge.js
+          node --check assets/js/jellyfin-private-uploads.js
+
       - name: Restore
         run: dotnet restore integrations/jellyfin/private-uploads/Jellyfin.Plugin.SelectionTvPrivate.csproj
 
-      - name: Publish
-        run: dotnet publish integrations/jellyfin/private-uploads/Jellyfin.Plugin.SelectionTvPrivate.csproj -c Release -o dist/SelectionTvPrivate
+      - name: Build
+        run: dotnet build integrations/jellyfin/private-uploads/Jellyfin.Plugin.SelectionTvPrivate.csproj -c Release --no-restore
+
+      - name: Stage plugin
+        run: |
+          mkdir -p dist/SelectionTvPrivate
+          cp integrations/jellyfin/private-uploads/bin/Release/net9.0/Jellyfin.Plugin.SelectionTvPrivate.dll dist/SelectionTvPrivate/
+          cp integrations/jellyfin/private-uploads/config.example.json dist/SelectionTvPrivate/config.example.json
+          cp integrations/jellyfin/private-uploads/README.md dist/SelectionTvPrivate/README.md
 
       - name: Upload plugin artifact
         uses: actions/upload-artifact@v4
