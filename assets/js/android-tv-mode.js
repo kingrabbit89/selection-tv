@@ -421,6 +421,29 @@
     }
   };
 
+  const queueDeep=model=>{
+    if(!model||model.state==='found'||model.state==='missing'||model._deepQueued||deepActive.has(model.key))return;
+    model._deepQueued=true;
+    model.state='queued';
+    updateTile(model);renderStatus();
+    deepQueue.push(model);
+    pumpDeep();
+  };
+  const pumpDeep=()=>{
+    if(!libraryReady||quickInflight>0||quickQueue.length>0)return;
+    while(deepInflight<DEEP_CONCURRENCY&&deepQueue.length){
+      const model=deepQueue.shift();if(!model)continue;
+      if(model.state==='found'||model.state==='missing')continue;
+      deepInflight++;deepActive.add(model.key);
+      model.state='checking';updateTile(model);renderStatus();
+      try{window.SelectionTvAndroid?.lookup?.(JSON.stringify(requestFor(model)))}
+      catch{
+        deepActive.delete(model.key);deepInflight=Math.max(0,deepInflight-1);
+        model.state='unknown';updateTile(model);renderStatus();
+      }
+    }
+  };
+
   window.SelectionTvAndroidLibraryReady=count=>{
     libraryReady=true;libraryCount=Number(count)||0;renderStatus();
     models.forEach(queueQuick);pumpQuick();
