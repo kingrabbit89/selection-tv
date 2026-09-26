@@ -208,6 +208,13 @@
     open.dataset.key=req.key;
     open.onclick=()=>{
       open.textContent='Recherche…';open.dataset.state='searching';
+      const token=String(Date.now());open.dataset.lookupToken=token;
+      setTimeout(()=>{
+        if(open.dataset.lookupToken===token&&open.dataset.state==='searching'){
+          open.textContent='Réessayer dans Jellyfin';
+          open.dataset.state='';
+        }
+      },20000);
       location.href=commandUrl(req);
     };
     return {box,open};
@@ -269,8 +276,9 @@
     for(const el of nodes){
       const open=[...el.querySelectorAll('button.stv-tv-open')].find(x=>x.dataset.key===result.key)||el.querySelector('button.stv-tv-open');
       if(!open)continue;
+      open.dataset.lookupToken='';
       if(result.error){
-        open.textContent='Réessayer dans Jellyfin';open.dataset.state='';
+        open.textContent=result.errorType==='Timeout'?'Recherche trop longue — réessayer':'Réessayer dans Jellyfin';open.dataset.state='';
       }else if(result.found){
         open.textContent='Ouvrir dans Jellyfin';open.dataset.state='found';
       }else{
