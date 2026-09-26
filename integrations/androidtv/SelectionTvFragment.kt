@@ -60,6 +60,7 @@ class SelectionTvFragment : Fragment() {
 		val year: Int?,
 		val imdbId: String?,
 		val tmdbId: String?,
+		val aliases: List<String> = emptyList(),
 	)
 
 	private inner class SelectionTvJavascriptBridge {
@@ -246,6 +247,11 @@ class SelectionTvFragment : Fragment() {
 			year = uri.getQueryParameter("year")?.toIntOrNull(),
 			imdbId = uri.getQueryParameter("imdbId")?.takeIf { it.isNotBlank() },
 			tmdbId = uri.getQueryParameter("tmdbId")?.takeIf { it.isNotBlank() },
+			aliases = uri.getQueryParameter("aliases")
+				.orEmpty()
+				.split("\n")
+				.map { it.trim() }
+				.filter { it.isNotBlank() },
 		).takeIf { it.key.isNotBlank() && it.title.isNotBlank() } ?: return
 
 		lifecycleScope.launch {
@@ -301,12 +307,22 @@ class SelectionTvFragment : Fragment() {
 		val key = json.optString("key").trim()
 		if (title.isEmpty() || key.isEmpty()) return null
 
+		val aliases = buildList {
+			val array = json.optJSONArray("aliases")
+			if (array != null) {
+				for (index in 0 until array.length()) {
+					array.optString(index).trim().takeIf { it.isNotBlank() }?.let(::add)
+				}
+			}
+		}
+
 		LookupRequest(
 			key = key,
 			title = title,
 			year = json.optString("year").toIntOrNull(),
 			imdbId = json.optString("imdbId").takeIf { it.isNotBlank() },
 			tmdbId = json.optString("tmdbId").takeIf { it.isNotBlank() },
+			aliases = aliases,
 		)
 	}.getOrNull()
 
@@ -324,7 +340,7 @@ class SelectionTvFragment : Fragment() {
 			while (startIndex < MAX_LIBRARY_ITEMS) {
 				val result = api.itemsApi.getItems(
 					recursive = true,
-					includeItemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES),
+					includeItemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES, BaseItemKind.VIDEO),
 					fields = setOf(
 						ItemFields.PROVIDER_IDS,
 						ItemFields.ORIGINAL_TITLE,
@@ -387,7 +403,7 @@ class SelectionTvFragment : Fragment() {
 			}?.let { return it }
 		}
 
-		val targetNames = titleCandidates(request.title)
+		val targetNames = requestTitleCandidates(request)
 			.map(::normalizeTitle)
 			.filter { it.isNotBlank() }
 			.toSet()
@@ -416,13 +432,24 @@ class SelectionTvFragment : Fragment() {
 		val all = linkedMapOf<UUID, BaseItemDto>()
 		var successfulSearches = 0
 
-		for (term in titleCandidates(request.title).take(3)) {
-			val result = searchRepository.search(
+		for (term in requestTitleCandidates(request).take(MAX_SEARCH_TERMS)) {
+			// Normal identified film/series libraries.
+			searchRepository.search(
 				searchTerm = term,
 				itemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES),
-			)
+			).getOrNull()?.let { items ->
+				successfulSearches++
+				items.forEach { all[it.id] = it }
+			}
 
-			result.getOrNull()?.let { items ->
+			// A small number of personal-library entries (obscure TV docs,
+			// unmatched files, etc.) are exposed by Jellyfin as generic Video.
+			// Search those separately because SearchRepository has a dedicated
+			// VIDEO request shape.
+			searchRepository.search(
+				searchTerm = term,
+				itemTypes = setOf(BaseItemKind.VIDEO),
+			).getOrNull()?.let { items ->
 				successfulSearches++
 				items.forEach { all[it.id] = it }
 			}
@@ -439,7 +466,7 @@ class SelectionTvFragment : Fragment() {
 
 	private fun browserStyleScore(item: BaseItemDto, request: LookupRequest): Int {
 		var score = 0
-		val targetNames = titleCandidates(request.title).map(::normalizeTitle)
+		val targetNames = requestTitleCandidates(request).map(::normalizeTitle)
 		val names = itemNames(item).map(::normalizeTitle)
 		val itemYear = item.productionYear
 		val reqYear = request.year
@@ -477,6 +504,12 @@ class SelectionTvFragment : Fragment() {
 
 	private fun itemNames(item: BaseItemDto): List<String> =
 		listOfNotNull(item.name, item.originalTitle).filter { it.isNotBlank() }
+
+	private fun requestTitleCandidates(request: LookupRequest): List<String> =
+		linkedSetOf<String>().apply {
+			addAll(titleCandidates(request.title))
+			request.aliases.forEach { alias -> addAll(titleCandidates(alias)) }
+		}.take(MAX_SEARCH_TERMS)
 
 	private fun titleCandidates(title: String): List<String> {
 		val raw = title.trim()
@@ -563,6 +596,7 @@ class SelectionTvFragment : Fragment() {
 		const val MAX_LIBRARY_ITEMS = 50_000
 		const val MATCH_THRESHOLD = 300
 		const val FALLBACK_MATCH_THRESHOLD = 150
+		const val MAX_SEARCH_TERMS = 6
 		const val LOOKUP_TIMEOUT_MS = 15_000L
 		const val QUICK_LOOKUP_TIMEOUT_MS = 8_000L
 	}
