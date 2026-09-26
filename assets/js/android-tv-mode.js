@@ -513,13 +513,15 @@
     requestAnimationFrame(()=>{rebuildNeighbors();if(models[0])focusModel(models[0])});
   };
 
+  const pendingKey=(model,kind)=>model.key+'|'+kind;
   const beginPending=(model,kind,timeoutMs)=>{
-    const previous=pendingLookups.get(model.key);
+    const key=pendingKey(model,kind);
+    const previous=pendingLookups.get(key);
     if(previous?.timer)clearTimeout(previous.timer);
     const token={kind,timer:null};
     token.timer=setTimeout(()=>{
-      if(pendingLookups.get(model.key)!==token)return;
-      pendingLookups.delete(model.key);
+      if(pendingLookups.get(key)!==token)return;
+      pendingLookups.delete(key);
       if(kind==='quick'){
         quickInflight=Math.max(0,quickInflight-1);
         model.state='queued';
@@ -531,21 +533,22 @@
         deepActive.delete(model.key);
         deepInflight=Math.max(0,deepInflight-1);
         model._deepQueued=false;
-        model.state='unknown';
+        if(model.state!=='found'&&model.state!=='missing')model.state='unknown';
         updateTile(model);scheduleStatus();
         deepTimer=setTimeout(pumpDeep,320);
       }else if(kind==='manual'){
-        model.state='unknown';
+        if(model.state!=='found'&&model.state!=='missing')model.state='unknown';
         updateTile(model);scheduleStatus();
       }
     },timeoutMs);
-    pendingLookups.set(model.key,token);
+    pendingLookups.set(key,token);
   };
   const finishPending=(model,kind)=>{
-    const pending=pendingLookups.get(model.key);
-    if(!pending||pending.kind!==kind)return false;
+    const key=pendingKey(model,kind);
+    const pending=pendingLookups.get(key);
+    if(!pending)return false;
     clearTimeout(pending.timer);
-    pendingLookups.delete(model.key);
+    pendingLookups.delete(key);
     return true;
   };
 
