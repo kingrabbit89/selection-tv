@@ -417,8 +417,9 @@
       const model=quickQueue.shift();if(!model)continue;
       quickInflight++;model.state='checking';updateTile(model);renderStatus();
       try{window.SelectionTvAndroid?.lookupQuick?.(JSON.stringify(requestFor(model)))}
-      catch{quickInflight--;model.state='unknown';updateTile(model)}
+      catch{quickInflight--;model.state='unknown';updateTile(model);queueDeep(model)}
     }
+    if(quickInflight===0&&quickQueue.length===0)pumpDeep();
   };
 
   const queueDeep=model=>{
@@ -451,20 +452,25 @@
   window.SelectionTvAndroidResult=result=>{
     if(typeof result==='string'){try{result=JSON.parse(result)}catch{return}}
     const model=byKey.get(result?.key);if(!model)return;
+
     if(result.quick)quickInflight=Math.max(0,quickInflight-1);
+    if(deepActive.delete(model.key))deepInflight=Math.max(0,deepInflight-1);
+
     if(result.error){
       model.state='unknown';
     }else if(result.found){
       model.state='found';model.itemId=result.itemId||'';model.jellyfinName=result.name||'';
       rememberFound(model,model.itemId,model.jellyfinName);
+    }else if(result.quick){
+      model.state='queued';
+      queueDeep(model);
     }else{
-      // A quick miss only means "not proven by provider/title index".
-      // Keep it manually searchable instead of declaring it absent.
-      model.state=result.quick?'unknown':'missing';
-      if(!result.quick)rememberMissing(model);
+      model.state='missing';
+      rememberMissing(model);
     }
+
     if(Number.isFinite(Number(result.libraryCount)))libraryCount=Number(result.libraryCount);
-    updateTile(model);renderStatus();pumpQuick();
+    updateTile(model);renderStatus();pumpQuick();pumpDeep();
   };
   window.SelectionTvAndroidOpenResult=result=>{
     if(typeof result==='string'){try{result=JSON.parse(result)}catch{return}}
