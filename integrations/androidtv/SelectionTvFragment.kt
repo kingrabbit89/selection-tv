@@ -26,9 +26,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
-import org.jellyfin.androidtv.auth.repository.SessionRepository
 import org.jellyfin.androidtv.ui.navigation.Destinations
 import org.jellyfin.androidtv.ui.navigation.NavigationRepository
+import org.jellyfin.androidtv.ui.search.SearchRepository
 import org.jellyfin.androidtv.ui.shared.toolbar.MainToolbar
 import org.jellyfin.androidtv.ui.shared.toolbar.MainToolbarActiveButton
 import org.jellyfin.sdk.api.client.ApiClient
@@ -43,8 +43,8 @@ import java.util.UUID
 
 class SelectionTvFragment : Fragment() {
 	private val api by inject<ApiClient>()
-	private val sessionRepository by inject<SessionRepository>()
 	private val navigationRepository by inject<NavigationRepository>()
+	private val searchRepository by inject<SearchRepository>()
 	private val indexMutex = Mutex()
 
 	private var webView: WebView? = null
@@ -230,10 +230,6 @@ class SelectionTvFragment : Fragment() {
 		)
 	}.getOrNull()
 
-	private fun currentUserId(): UUID = checkNotNull(sessionRepository.currentSession.value?.userId) {
-		"No active Jellyfin session"
-	}
-
 	private suspend fun ensureLibraryIndex(): List<BaseItemDto> {
 		libraryIndex?.let { return it }
 
@@ -247,7 +243,6 @@ class SelectionTvFragment : Fragment() {
 
 			while (startIndex < MAX_LIBRARY_ITEMS) {
 				val result = api.itemsApi.getItems(
-					userId = currentUserId(),
 					recursive = true,
 					includeItemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES),
 					fields = setOf(
@@ -284,13 +279,21 @@ class SelectionTvFragment : Fragment() {
 	}
 
 	private suspend fun findLibraryItem(request: LookupRequest): BaseItemDto? {
+		// First use the exact same search repository as Jellyfin Android TV's own
+		// "Rechercher" screen. This avoids subtle differences in request scoping on Fire TV.
+		val nativeSearch = searchRepository.search(
+			searchTerm = request.title,
+			itemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES),
+		).getOrNull().orEmpty()
+
+		bestMatch(nativeSearch, request, FALLBACK_MATCH_THRESHOLD)?.let { return it }
+
+		// Then use the compact full-library index for provider-id / alternate-title matches.
 		val items = ensureLibraryIndex()
 		bestMatch(items, request, MATCH_THRESHOLD)?.let { return it }
 
-		// Fallback for titles that differ from Jellyfin's local/original title.
-		// This runs only when the compact full-library index could not identify the work.
+		// Last chance: Jellyfin API title search with provider/original-title fields.
 		val search = api.itemsApi.getItems(
-			userId = currentUserId(),
 			searchTerm = request.title,
 			recursive = true,
 			includeItemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES),
