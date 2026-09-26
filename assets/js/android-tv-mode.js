@@ -6,8 +6,9 @@
   const SELECTOR='article.week-card,article.feature,article.list-card,article.platform:not(.jellyfin-private-upload),article.release-card,article.expire-card,article.radar-card,article.torrent-card,table.schedule tbody tr';
   const CACHE_KEY='selectionTv_androidtv_matches_v2';
   const POSITIVE_TTL=30*24*60*60*1000;
-  const NEGATIVE_TTL=6*60*60*1000;
+  const NEGATIVE_TTL=24*60*60*1000;
   const QUICK_CONCURRENCY=4;
+  const DEEP_CONCURRENCY=2;
 
   document.documentElement.classList.add('android-tv-mode');
   document.body.classList.add('android-tv-mode');
@@ -123,8 +124,10 @@
   const cache=readCache();
 
   let models=[],rows=[],current=null,works=new Map(),links=new Map();
-  let libraryReady=false,libraryCount=0,quickInflight=0;
+  let libraryReady=false,libraryCount=0,quickInflight=0,deepInflight=0;
   const quickQueue=[];
+  const deepQueue=[];
+  const deepActive=new Set();
   const byKey=new Map();
 
   const titleOf=el=>{
