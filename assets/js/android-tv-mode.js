@@ -4,7 +4,8 @@
   const clean=s=>String(s||'').replace(/\s+/g,' ').trim();
   const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
   const SELECTOR='article.week-card,article.feature,article.list-card,article.platform:not(.jellyfin-private-upload),article.release-card,article.expire-card,article.radar-card,article.torrent-card,table.schedule tbody tr';
-  const CACHE_KEY='selectionTv_androidtv_matches_v2';
+  const CACHE_KEY='selectionTv_androidtv_matches_v3';
+  const LEGACY_CACHE_KEY='selectionTv_androidtv_matches_v2';
   const POSITIVE_TTL=30*24*60*60*1000;
   const NEGATIVE_TTL=24*60*60*1000;
   const QUICK_CONCURRENCY=2;
@@ -119,7 +120,17 @@
   const linksPromise=fetch('../../data/links.json',{cache:'no-store'}).then(r=>r.ok?r.json():{links:{}}).catch(()=>({links:{}}));
 
   const readCache=()=>{
-    try{return JSON.parse(localStorage.getItem(CACHE_KEY)||'{}')||{}}catch{return {}}
+    try{
+      const current=JSON.parse(localStorage.getItem(CACHE_KEY)||'{}')||{};
+      if(Object.keys(current).length)return current;
+      const legacy=JSON.parse(localStorage.getItem(LEGACY_CACHE_KEY)||'{}')||{};
+      const migrated={};
+      for(const [key,value] of Object.entries(legacy)){
+        if(value?.found&&value?.itemId)migrated[key]=value;
+      }
+      if(Object.keys(migrated).length)localStorage.setItem(CACHE_KEY,JSON.stringify(migrated));
+      return migrated;
+    }catch{return {}}
   };
   const writeCache=cache=>{try{localStorage.setItem(CACHE_KEY,JSON.stringify(cache))}catch{}};
   const cache=readCache();
