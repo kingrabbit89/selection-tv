@@ -1,0 +1,64 @@
+name: Android TV / Build Sélection TV prototype
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "integrations/androidtv/**"
+      - ".github/workflows/build-selection-tv-androidtv.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build experimental APK
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout Sélection TV
+        uses: actions/checkout@v4
+
+      - name: Clone frozen Jellyfin Android TV base
+        run: |
+          git clone --depth 1 --branch v0.20.0-beta.3 \
+            https://github.com/jellyfin/jellyfin-androidtv.git \
+            upstream-jellyfin-androidtv
+
+      - name: Apply minimal Sélection TV overlay
+        run: |
+          python integrations/androidtv/apply_patch.py upstream-jellyfin-androidtv
+          grep -R "Sélection TV" -n upstream-jellyfin-androidtv/app/src/main/java/org/jellyfin/androidtv/ui | head
+          grep -n 'applicationIdSuffix = ".selectiontv"' upstream-jellyfin-androidtv/app/build.gradle.kts
+
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Assemble experimental debug APK
+        working-directory: upstream-jellyfin-androidtv
+        run: ./gradlew assembleDebug --stacktrace
+
+      - name: Stage APK
+        run: |
+          mkdir -p dist
+          APK="$(find upstream-jellyfin-androidtv/app/build/outputs/apk -type f -name '*debug*.apk' | head -n 1)"
+          test -n "$APK"
+          cp "$APK" dist/Jellyfin-Selection-TV-AndroidTV.apk
+          ls -lh dist/Jellyfin-Selection-TV-AndroidTV.apk
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Jellyfin-Selection-TV-AndroidTV
+          retention-days: 30
+          if-no-files-found: error
+          path: dist/Jellyfin-Selection-TV-AndroidTV.apk
