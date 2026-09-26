@@ -91,7 +91,7 @@ public sealed class ForumUploadsService
             BaseAddress = baseUri,
             Timeout = TimeSpan.FromSeconds(30)
         };
-        client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("SelectionTV-Jellyfin", "0.2"));
+        client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("SelectionTV-Jellyfin", "0.3"));
         client.DefaultRequestHeaders.AcceptLanguage.ParseAdd("fr-FR,fr;q=0.9,en;q=0.5");
 
         await LoginAsync(client, cfg, cancellationToken).ConfigureAwait(false);
@@ -189,8 +189,17 @@ public sealed class ForumUploadsService
         all = all
             .GroupBy(x => TopicIdOf(x.TopicUrl) ?? x.TopicUrl, StringComparer.OrdinalIgnoreCase)
             .Select(g => g.OrderByDescending(x => x.ActivityAt ?? DateTimeOffset.MinValue).First())
-            .OrderByDescending(x => x.ActivityAt ?? DateTimeOffset.MinValue)
             .Take(500)
+            .ToList();
+
+        // A Forumactif theme may expose the topic title correctly while the
+        // "last post" timestamp sits outside the DOM fragment we parsed.
+        // Verify only those ambiguous rows against the topic itself. This is
+        // deliberately capped so a template regression cannot hammer the forum.
+        await ResolveAmbiguousActivitiesAsync(client, baseUri, all, cancellationToken).ConfigureAwait(false);
+
+        all = all
+            .OrderByDescending(x => x.ActivityAt ?? DateTimeOffset.MinValue)
             .ToList();
 
         _logger.LogInformation(
@@ -435,61 +444,233 @@ public sealed class ForumUploadsService
     }
 
     private static DateTimeOffset? ParseForumActivity(string container)
-    {
-        var text = CleanHtmlText(container);
-        var now = DateTimeOffset.Now;
+        => ParseForumActivities(container).OrderByDescending(x => x).FirstOrDefault();
 
-        var today = Regex.Match(
+    private static IReadOnlyList<DateTimeOffset> ParseForumActivities(string htmlOrText)
+    {
+        var text = CleanHtmlText(htmlOrText);
+        var now = DateTimeOffset.Now;
+        var found = new List<DateTimeOffset>();
+
+        foreach (Match m in Regex.Matches(
             text,
             @"Aujourd['’]hui\s+(?:à|-)\s*(?<h>\d{1,2}):(?<m>\d{2})",
-            RegexOptions.IgnoreCase);
-        if (today.Success)
+            RegexOptions.IgnoreCase))
         {
-            return new DateTimeOffset(
+            found.Add(new DateTimeOffset(
                 now.Year, now.Month, now.Day,
-                int.Parse(today.Groups["h"].Value, CultureInfo.InvariantCulture),
-                int.Parse(today.Groups["m"].Value, CultureInfo.InvariantCulture),
+                int.Parse(m.Groups["h"].Value, CultureInfo.InvariantCulture),
+                int.Parse(m.Groups["m"].Value, CultureInfo.InvariantCulture),
                 0,
-                now.Offset);
+                now.Offset));
         }
 
-        var yesterday = Regex.Match(
+        foreach (Match m in Regex.Matches(
             text,
             @"Hier\s+(?:à|-)\s*(?<h>\d{1,2}):(?<m>\d{2})",
-            RegexOptions.IgnoreCase);
-        if (yesterday.Success)
+            RegexOptions.IgnoreCase))
         {
             var d = now.Date.AddDays(-1);
-            return new DateTimeOffset(
+            found.Add(new DateTimeOffset(
                 d.Year, d.Month, d.Day,
-                int.Parse(yesterday.Groups["h"].Value, CultureInfo.InvariantCulture),
-                int.Parse(yesterday.Groups["m"].Value, CultureInfo.InvariantCulture),
+                int.Parse(m.Groups["h"].Value, CultureInfo.InvariantCulture),
+                int.Parse(m.Groups["m"].Value, CultureInfo.InvariantCulture),
                 0,
-                now.Offset);
+                now.Offset));
         }
 
-        var dated = Regex.Match(
+        // Forumactif topic pages commonly render post dates as
+        // "Sam 19 Sep - 11:49", i.e. without a year. Infer the current year
+        // and roll back one year only when that would otherwise be in future.
+        foreach (Match m in Regex.Matches(
             text,
-            @"(?:(?:lun|mar|mer|jeu|ven|sam|dim)[a-zéû]*\.?\s+)?(?<d>\d{1,2})\s+(?<mon>jan(?:v)?|fév(?:r)?|fev(?:r)?|mar(?:s)?|avr|mai|juin|juil(?:l)?|ao[uû]t|sept?|oct|nov|déc|dec)\.?\s+(?<y>\d{4})\s*(?:-|à)\s*(?<h>\d{1,2}):(?<m>\d{2})",
-            RegexOptions.IgnoreCase);
-
-        if (dated.Success)
+            @"(?:(?:lun|mar|mer|jeu|ven|sam|dim)[a-zéû]*\.?\s+)?(?<d>\d{1,2})\s+(?<mon>jan(?:v)?|fév(?:r)?|fev(?:r)?|mar(?:s)?|avr|mai|juin|juil(?:l)?|ao[uû]t|sept?|oct|nov|déc|dec)\.?\s*(?:(?<y>\d{4})\s*)?(?:-|à)\s*(?<h>\d{1,2}):(?<m>\d{2})",
+            RegexOptions.IgnoreCase))
         {
-            var month = ForumMonth(dated.Groups["mon"].Value);
-            if (month > 0)
+            var month = ForumMonth(m.Groups["mon"].Value);
+            if (month <= 0)
             {
-                return new DateTimeOffset(
-                    int.Parse(dated.Groups["y"].Value, CultureInfo.InvariantCulture),
+                continue;
+            }
+
+            var year = m.Groups["y"].Success
+                ? int.Parse(m.Groups["y"].Value, CultureInfo.InvariantCulture)
+                : now.Year;
+
+            DateTimeOffset candidate;
+            try
+            {
+                candidate = new DateTimeOffset(
+                    year,
                     month,
-                    int.Parse(dated.Groups["d"].Value, CultureInfo.InvariantCulture),
-                    int.Parse(dated.Groups["h"].Value, CultureInfo.InvariantCulture),
-                    int.Parse(dated.Groups["m"].Value, CultureInfo.InvariantCulture),
+                    int.Parse(m.Groups["d"].Value, CultureInfo.InvariantCulture),
+                    int.Parse(m.Groups["h"].Value, CultureInfo.InvariantCulture),
+                    int.Parse(m.Groups["m"].Value, CultureInfo.InvariantCulture),
                     0,
                     now.Offset);
             }
+            catch (ArgumentOutOfRangeException)
+            {
+                continue;
+            }
+
+            if (!m.Groups["y"].Success && candidate > now.AddDays(2))
+            {
+                candidate = candidate.AddYears(-1);
+            }
+
+            found.Add(candidate);
         }
 
-        return null;
+        return found;
+    }
+
+    private async Task ResolveAmbiguousActivitiesAsync(
+        HttpClient client,
+        Uri baseUri,
+        List<ForumUploadItem> items,
+        CancellationToken cancellationToken)
+    {
+        const int maxDirectChecks = 32;
+        var ambiguous = items
+            .Where(x => !x.ActivityAt.HasValue && !string.IsNullOrWhiteSpace(x.TopicUrl))
+            .Take(maxDirectChecks)
+            .ToList();
+
+        if (ambiguous.Count == 0)
+        {
+            return;
+        }
+
+        var gate = new SemaphoreSlim(4, 4);
+        var resolved = 0;
+
+        await Task.WhenAll(ambiguous.Select(async item =>
+        {
+            await gate.WaitAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                var activity = await FetchLatestTopicActivityAsync(
+                    client,
+                    baseUri,
+                    item.TopicUrl,
+                    cancellationToken).ConfigureAwait(false);
+
+                if (activity.HasValue)
+                {
+                    item.ActivityAt = activity.Value;
+                    Interlocked.Increment(ref resolved);
+                }
+            }
+            catch (Exception ex) when (ex is not OperationCanceledException)
+            {
+                _logger.LogDebug(ex, "Selection TV: unable to verify activity for {TopicUrl}.", item.TopicUrl);
+            }
+            finally
+            {
+                gate.Release();
+            }
+        })).ConfigureAwait(false);
+
+        _logger.LogInformation(
+            "Selection TV: directly verified {Resolved}/{Checked} ambiguous forum topic date(s).",
+            resolved,
+            ambiguous.Count);
+    }
+
+    private async Task<DateTimeOffset?> FetchLatestTopicActivityAsync(
+        HttpClient client,
+        Uri baseUri,
+        string topicUrl,
+        CancellationToken cancellationToken)
+    {
+        var topicUri = new Uri(topicUrl, UriKind.Absolute);
+        var response = await client.GetAsync(topicUri, cancellationToken).ConfigureAwait(false);
+        response.EnsureSuccessStatusCode();
+        var html = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+
+        if (LooksLikeLogin(response.RequestMessage?.RequestUri, html))
+        {
+            return null;
+        }
+
+        var topicId = TopicIdOf(topicUri.ToString());
+        var lastPage = topicId is null ? null : FindLastTopicPage(baseUri, html, topicId, topicUri);
+
+        if (lastPage is not null &&
+            !string.Equals(lastPage.PathAndQuery, topicUri.PathAndQuery, StringComparison.OrdinalIgnoreCase))
+        {
+            var lastResponse = await client.GetAsync(lastPage, cancellationToken).ConfigureAwait(false);
+            lastResponse.EnsureSuccessStatusCode();
+            var lastHtml = await lastResponse.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+            if (!LooksLikeLogin(lastResponse.RequestMessage?.RequestUri, lastHtml))
+            {
+                html = lastHtml;
+            }
+        }
+
+        return ParseForumActivities(html)
+            .OrderByDescending(x => x)
+            .FirstOrDefault();
+    }
+
+    private static Uri? FindLastTopicPage(Uri baseUri, string html, string topicId, Uri current)
+    {
+        var candidates = new List<(int Start, Uri Uri)>
+        {
+            (TopicPageStart(current, topicId), current)
+        };
+
+        foreach (Match m in Regex.Matches(
+            html,
+            @"<a\b[^>]*\bhref\s*=\s*(?:""(?<href>[^""]+)""|'(?<href>[^']+)')[^>]*>",
+            RegexOptions.IgnoreCase | RegexOptions.Singleline))
+        {
+            var href = WebUtility.HtmlDecode(m.Groups["href"].Value).Trim();
+            if (string.IsNullOrWhiteSpace(href))
+            {
+                continue;
+            }
+
+            Uri uri;
+            try
+            {
+                uri = new Uri(baseUri, href);
+            }
+            catch
+            {
+                continue;
+            }
+
+            var rx = Regex.Match(
+                uri.PathAndQuery,
+                $@"/t{Regex.Escape(topicId)}p(?<start>\d+)-",
+                RegexOptions.IgnoreCase);
+            if (!rx.Success)
+            {
+                continue;
+            }
+
+            candidates.Add((
+                int.Parse(rx.Groups["start"].Value, CultureInfo.InvariantCulture),
+                uri));
+        }
+
+        return candidates
+            .OrderByDescending(x => x.Start)
+            .Select(x => x.Uri)
+            .FirstOrDefault();
+    }
+
+    private static int TopicPageStart(Uri uri, string topicId)
+    {
+        var m = Regex.Match(
+            uri.PathAndQuery,
+            $@"/t{Regex.Escape(topicId)}p(?<start>\d+)-",
+            RegexOptions.IgnoreCase);
+        return m.Success
+            ? int.Parse(m.Groups["start"].Value, CultureInfo.InvariantCulture)
+            : 0;
     }
 
     private static int ForumMonth(string value)
