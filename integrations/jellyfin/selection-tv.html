@@ -56,6 +56,11 @@
     return String(ids.Imdb||ids.IMDb||ids.imdb||'').toLowerCase();
   }
 
+  function tmdbOf(item){
+    var ids=providerIds(item);
+    return String(ids.Tmdb||ids.TMDb||ids.tmdb||'');
+  }
+
   function titleCandidates(title){
     var raw=String(title||'').trim();
     var out=[];
@@ -67,8 +72,165 @@
     var par=[...raw.matchAll(/\(([^()]{2,100})\)/g)].map(function(m){return m[1]});
     par.forEach(add);
     add(raw.replace(/\s*\([^()]+\)\s*/g,' ').replace(/\s+/g,' '));
-    return out.slice(0,2);
+    if(/\s+-\s+/.test(raw))add(raw.split(/\s+-\s+/)[0]);
+    return out.slice(0,3);
   }
+
+  var libraryIndexPromise=null;
+  var libraryDetailCache=new Map();
+
+  function pushMap(map,key,item){
+    if(!key)return;
+    var list=map.get(key);
+    if(!list){list=[];map.set(key,list)}
+    list.push(item);
+  }
+
+  async function buildLibraryIndex(){
+    var a=api();
+    if(!a||typeof a.getItems!=='function'||typeof a.getCurrentUserId!=='function'){
+      throw new Error('API Jellyfin indisponible');
+    }
+
+    var all=[];
+    var startIndex=0;
+    var pageSize=1000;
+    var userId=a.getCurrentUserId();
+
+    do{
+      var r=await a.getItems(userId,{
+        Recursive:true,
+        IncludeItemTypes:'Movie,Series',
+        Fields:'ProviderIds,OriginalTitle',
+        EnableTotalRecordCount:true,
+        StartIndex:startIndex,
+        Limit:pageSize
+      });
+      var batch=r&&r.Items||r&&r.items||[];
+      all=all.concat(batch);
+      startIndex+=batch.length;
+      var total=Number(r&&r.TotalRecordCount||r&&r.totalRecordCount)||0;
+      if(!batch.length||batch.length<pageSize||(total&&startIndex>=total))break;
+    }while(startIndex<20000);
+
+    var index={
+      items:all,
+      byImdb:new Map(),
+      byTmdb:new Map(),
+      byName:new Map()
+    };
+
+    all.forEach(function(item){
+      var imdb=imdbOf(item);
+      var tmdb=tmdbOf(item);
+      if(imdb)pushMap(index.byImdb,imdb,item);
+      if(tmdb)pushMap(index.byTmdb,tmdb,item);
+      [item.Name,item.name,item.OriginalTitle,item.originalTitle].filter(Boolean).forEach(function(name){
+        pushMap(index.byName,norm(name),item);
+      });
+    });
+
+    return index;
+  }
+
+  function ensureLibraryIndex(){
+    if(libraryIndexPromise)return libraryIndexPromise;
+    setStatus('Jellyfin · indexation légère de la bibliothèque…','ok');
+    libraryIndexPromise=buildLibraryIndex().then(function(index){
+      setStatus('Jellyfin · index prêt · '+index.items.length+' œuvres','ok');
+      return index;
+    }).catch(function(err){
+      libraryIndexPromise=null;
+      throw err;
+    });
+    return libraryIndexPromise;
+  }
+
+  function uniqueItems(items){
+    var seen={};
+    return (items||[]).filter(function(item){
+      var id=item.Id||item.id||'';
+      if(!id||seen[id])return false;
+      seen[id]=1;
+      return true;
+    });
+  }
+
+  function exactIndexMatch(index,req){
+    var reqImdb=String(req.imdbId||'').toLowerCase();
+    var reqTmdb=String(req.tmdbId||'');
+
+    if(reqImdb){
+      var byImdb=uniqueItems(index.byImdb.get(reqImdb));
+      if(byImdb.length)return byImdb[0];
+    }
+    if(reqTmdb){
+      var byTmdb=uniqueItems(index.byTmdb.get(reqTmdb));
+      if(byTmdb.length)return byTmdb[0];
+    }
+
+    var names=titleCandidates(req.title).map(norm).filter(Boolean);
+    var candidates=[];
+    names.forEach(function(name){
+      candidates=candidates.concat(index.byName.get(name)||[]);
+    });
+    candidates=uniqueItems(candidates);
+    if(!candidates.length)return null;
+
+    var reqYear=Number(req.year)||0;
+    if(reqYear){
+      var exactYear=candidates.filter(function(item){
+        return Number(item.ProductionYear||item.productionYear)||0===reqYear;
+      });
+      if(exactYear.length)return exactYear[0];
+
+      var nearYear=candidates.filter(function(item){
+        var y=Number(item.ProductionYear||item.productionYear)||0;
+        return y&&Math.abs(y-reqYear)<=1;
+      });
+      if(nearYear.length===1)return nearYear[0];
+      return null;
+    }
+
+    return candidates.length===1?candidates[0]:null;
+  }
+
+  async function hydrateLibraryItem(item){
+    if(!item)return null;
+    var a=api();
+    var id=item.Id||item.id;
+    if(!id)return item;
+    if(libraryDetailCache.has(id))return libraryDetailCache.get(id);
+
+    var promise=(async function(){
+      try{
+        var r=await a.getItems(a.getCurrentUserId(),{
+          Ids:id,
+          Fields:'ProviderIds,OriginalTitle,UserData,MediaSources,Genres,Overview,People,CommunityRating,ImageTags',
+          EnableTotalRecordCount:false,
+          Limit:1
+        });
+        var items=r&&r.Items||r&&r.items||[];
+        return items[0]||item;
+      }catch(e){
+        return item;
+      }
+    })();
+
+    libraryDetailCache.set(id,promise);
+    return promise;
+  }
+
+  async function findLibraryItem(req){
+    var index=await ensureLibraryIndex();
+    var match=exactIndexMatch(index,req);
+    return match?hydrateLibraryItem(match):null;
+  }
+
+  // Reused by the private-upload enrichment below. It returns a Jellyfin
+  // BaseItemDto, not just a yes/no badge, so one compact index can serve both
+  // the magazine and the private section.
+  window.SelectionTvFindLibraryItem=findLibraryItem;
 
   function scoreItem(item,req){
     var score=0;
@@ -77,18 +239,79 @@
     var itemYear=Number(item.ProductionYear||item.productionYear)||0;
     var reqYear=Number(req.year)||0;
     var itemImdb=imdbOf(item);
+    var itemTmdb=tmdbOf(item);
 
-    if(req.imdbId&&itemImdb&&itemImdb===String(req.imdbId).toLowerCase())score+=200;
+    if(req.imdbId&&itemImdb&&itemImdb===String(req.imdbId).toLowerCase())score+=1000;
+    if(req.tmdbId&&itemTmdb&&itemTmdb===String(req.tmdbId))score+=900;
 
     targetNames.forEach(function(t,idx){
-      if(names.indexOf(t)!==-1)score=Math.max(score,120-idx*8);
-      else if(names.some(function(n){return n.includes(t)||t.includes(n)}))score=Math.max(score,60-idx*5);
+      if(names.indexOf(t)!==-1)score=Math.max(score,160-idx*8);
+      else if(names.some(function(n){return n.includes(t)||t.includes(n)}))score=Math.max(score,55-idx*5);
     });
 
-    if(reqYear&&itemYear===reqYear)score+=40;
-    else if(reqYear&&itemYear&&Math.abs(itemYear-reqYear)<=1)score+=8;
+    if(reqYear&&itemYear===reqYear)score+=60;
+    else if(reqYear&&itemYear&&Math.abs(itemYear-reqYear)<=1)score+=10;
 
     return score;
+  }
+
+  async function fallbackSearch(req){
+    var a=api();
+    var candidates=titleCandidates(req.title);
+    var all=[];
+    var seen={};
+    var successful=0;
+
+    for(var i=0;i<candidates.length;i++){
+      try{
+        var r=await a.getItems(a.getCurrentUserId(),{
+          Recursive:true,
+          IncludeItemTypes:'Movie,Series',
+          SearchTerm:candidates[i],
+          Fields:'ProviderIds,OriginalTitle',
+          EnableTotalRecordCount:false,
+          Limit:16
+        });
+        successful++;
+        var items=r&&r.Items||r&&r.items||[];
+        items.forEach(function(item){
+          var id=item.Id||item.id||JSON.stringify([item.Name,item.ProductionYear]);
+          if(!seen[id]){seen[id]=1;all.push(item)}
+        });
+      }catch(e){}
+    }
+
+    if(!successful)throw new Error('Recherche Jellyfin temporairement indisponible');
+
+    var ranked=all.map(function(item){
+      return {item:item,score:scoreItem(item,req)};
+    }).sort(function(a1,b1){return b1.score-a1.score});
+
+    var best=ranked.length&&ranked[0].score>=150?ranked[0].item:null;
+    return best?hydrateLibraryItem(best):null;
+  }
+
+  function resultFromItem(key,req,item){
+    if(!item)return {key:key,found:false};
+
+    var media=item.MediaSources||item.mediaSources||[];
+    var quality='';
+    if(media.length){
+      var m=media[0]||{};
+      var w=Number(m.Width||m.width)||0;
+      if(w>=3800)quality='4K';
+      else if(w>=1900)quality='1080p';
+      else if(w>=1200)quality='720p';
+    }
+
+    return {
+      key:key,
+      found:true,
+      itemId:item.Id||item.id,
+      name:item.Name||item.name||req.title,
+      played:!!((item.UserData||item.userData||{}).Played),
+      quality:quality
+    };
   }
 
   async function targetedLookup(req){
@@ -97,61 +320,26 @@
       throw new Error('API Jellyfin indisponible');
     }
 
-    var key=req.key||[norm(req.title),req.year||'',req.imdbId||''].join('|');
+    var key=req.key||[norm(req.title),req.year||'',req.imdbId||'',req.tmdbId||''].join('|');
     if(lookupCache.has(key))return lookupCache.get(key);
 
     var promise=(async function(){
-      var candidates=titleCandidates(req.title);
-      var all=[];
-      var seen={};
-
-      for(var i=0;i<candidates.length;i++){
-        try{
-          var r=await a.getItems(a.getCurrentUserId(),{
-            Recursive:true,
-            IncludeItemTypes:'Movie,Series',
-            SearchTerm:candidates[i],
-            Fields:'ProviderIds,OriginalTitle,UserData,MediaSources',
-            EnableTotalRecordCount:false,
-            Limit:12
-          });
-          var items=r&&r.Items||r&&r.items||[];
-          items.forEach(function(item){
-            var id=item.Id||item.id||JSON.stringify([item.Name,item.ProductionYear]);
-            if(!seen[id]){
-              seen[id]=1;
-              all.push(item);
-            }
-          });
-        }catch(e){}
+      var item=null;
+      try{
+        item=await findLibraryItem(req);
+      }catch(e){
+        // If the lightweight index itself fails, retain the targeted-search
+        // fallback rather than turning a transient API problem into "absent".
       }
 
-      var ranked=all.map(function(item){
-        return {item:item,score:scoreItem(item,req)};
-      }).sort(function(a1,b1){return b1.score-a1.score});
-
-      var best=ranked.length&&ranked[0].score>=85?ranked[0].item:null;
-      if(!best)return {key:key,found:false};
-
-      var media=best.MediaSources||best.mediaSources||[];
-      var quality='';
-      if(media.length){
-        var m=media[0]||{};
-        var w=Number(m.Width||m.width)||0;
-        if(w>=3800)quality='4K';
-        else if(w>=1900)quality='1080p';
-        else if(w>=1200)quality='720p';
-      }
-
-      return {
-        key:key,
-        found:true,
-        itemId:best.Id||best.id,
-        name:best.Name||best.name||req.title,
-        played:!!((best.UserData||best.userData||{}).Played),
-        quality:quality
-      };
-    })().catch(function(){return {key:key,found:false}});
+      if(!item)item=await fallbackSearch(req);
+      return resultFromItem(key,req,item);
+    })().catch(function(){
+      // Negative cache entries are useful only after a successful lookup.
+      // A transient API failure is deliberately not remembered.
+      lookupCache.delete(key);
+      return {key:key,found:false,transient:true};
+    });
 
     lookupCache.set(key,promise);
     return promise;
@@ -230,8 +418,11 @@
       setStatus('API Jellyfin indisponible','err');
       return;
     }
-    setStatus('Jellyfin connecté · recherches ciblées','ok');
-    send({type:'selection-tv:jellyfin-ready',version:2});
+    setStatus('Jellyfin connecté · préparation de l’index…','ok');
+    ensureLibraryIndex().catch(function(){
+      setStatus('Jellyfin connecté · recherche ciblée de secours','ok');
+    });
+    send({type:'selection-tv:jellyfin-ready',version:3});
   }
 
   frame.addEventListener('load',function(){
@@ -349,6 +540,13 @@
     if(localSearchCache.has(cacheKey))return localSearchCache.get(cacheKey);
 
     var promise=(async function(){
+      if(typeof window.SelectionTvFindLibraryItem==='function'){
+        try{
+          var indexed=await window.SelectionTvFindLibraryItem({title:title,year:year});
+          if(indexed)return indexed;
+        }catch(e){}
+      }
+
       var all=[];
       for(var ci=0;ci<candidates.length;ci++){
         try{
