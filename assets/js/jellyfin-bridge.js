@@ -67,7 +67,11 @@
       if(item.played){const seen=document.createElement('span');seen.className='jellyfin-pill played';seen.textContent='✓ Vu dans Jellyfin';box.append(seen)}
       if(item.quality){const q=document.createElement('span');q.className='jellyfin-pill quality';q.textContent=item.quality;box.append(q)}
       const open=document.createElement('button');open.type='button';open.className='jellyfin-open';open.textContent='Ouvrir dans Jellyfin';
-      open.onclick=()=>PARENT.postMessage({type:'selection-tv:jellyfin-open',itemId:item.itemId},'*');
+      open.onclick=()=>PARENT.postMessage({
+        type:'selection-tv:jellyfin-open',
+        itemId:item.itemId,
+        request:infoFor(el)
+      },'*');
       box.append(open);
     }
   };
