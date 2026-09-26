@@ -235,9 +235,9 @@
     if(entry.found&&entry.itemId&&age<POSITIVE_TTL){
       model.state='found';model.itemId=entry.itemId;model.jellyfinName=entry.name||'';
       model.sessionVerified=false;model.fromPositiveCache=true;
-    }else if(entry.found===false&&entry.definitive&&age<NEGATIVE_TTL){
-      model.state='missing';
     }else{
+      // Absence is never durable: the user may add the film to Jellyfin at
+      // any moment. Keep only positive matches across sessions.
       delete cache[model.key];
     }
   };
@@ -247,7 +247,8 @@
     writeCache(cache);
   };
   const rememberMissing=model=>{
-    cache[model.key]={found:false,definitive:true,savedAt:Date.now()};
+    // Session-only state. Do not persist negatives across app launches.
+    delete cache[model.key];
     writeCache(cache);
   };
 
@@ -511,7 +512,7 @@
   };
 
   const queueQuick=model=>{
-    if(model._queued||model.state==='missing')return;
+    if(model._queued)return;
     if(model.state==='found'&&model.sessionVerified)return;
     model._queued=true;quickQueue.push(model);pumpQuick();
   };
