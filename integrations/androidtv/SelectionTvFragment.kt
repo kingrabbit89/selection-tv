@@ -211,6 +211,10 @@ class SelectionTvFragment : Fragment() {
 								else -> null
 							} ?: return@setOnKeyListener false
 
+							// Fire TV emits repeated ACTION_DOWN events while a direction is held.
+							// Consume those repeats instead of turning one press into several jumps.
+							if (event.repeatCount > 0) return@setOnKeyListener true
+
 							view.evaluateJavascript(
 								"window.SelectionTvTvRemote && window.SelectionTvTvRemote('$command');",
 								null,
