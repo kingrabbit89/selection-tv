@@ -35,11 +35,11 @@ fetch(jsonUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.st
    // TV gets its metadata directly from works.json/links.json. Skip the browser
    // magazine enhancers, image hydrator, analytics and layout engine: on Fire TV
    // those scripts only mutated a hidden DOM and decoded images we never display.
-   await addScript(root+'assets/js/android-tv-mode.js?v=20260926-tv17');
+   await addScript(root+'assets/js/android-tv-mode.js?v=20260926-tv18');
    return;
  }
  await addScript(root+'assets/js/analytics.js?v=20260925-analytics1');
- await addScript(root+'assets/js/jellyfin-bridge.js?v=20260926-jellyfin15');
+ await addScript(root+'assets/js/jellyfin-bridge.js?v=20260926-jellyfin16');
  await addScript(root+'assets/js/'+(d.theme==='magazine'?'magazine-week.js?v=20260924-exactlinks4':'archive-week.js?v=20260924-exactlinks4'));
  await addScript(root+'assets/js/image-resolver.js?v=20260924-exactlinks4');
  if(window.SelectionTVImagesReady)await window.SelectionTVImagesReady;
