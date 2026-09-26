@@ -340,7 +340,7 @@
     removeOld();
     ensureStyle();addToc();
     const book=document.querySelector('.book');if(!book)return;
-    const firstDaily=book.querySelector('[id$="-selection"]');
+    const methodPage=book.querySelector('#methode');
     const perPage=4;
     for(let start=0,pageNo=1;start<items.length;start+=perPage,pageNo++){
       const page=document.createElement('section');
@@ -360,7 +360,7 @@
       const back=document.createElement('a');back.className='back-toc';back.href='#sommaire';back.textContent='↑ Sommaire';page.append(back);
       const footer=document.createElement('div');footer.className='footer';
       footer.innerHTML='<span>Flux privé · actualisation Jellyfin</span><span>J</span>';page.append(footer);
-      firstDaily?book.insertBefore(page,firstDaily):book.append(page);
+      methodPage?book.insertBefore(page,methodPage):book.append(page);
     }
     document.dispatchEvent(new CustomEvent('selectiontv:privateuploadsrendered',{detail:{count:items.length}}));
   };
