@@ -293,10 +293,14 @@ class SelectionTvFragment : Fragment() {
 				)
 				navigationRepository.navigate(Destinations.itemDetails(item.id))
 			} else {
+				val diagnostic = withContext(Dispatchers.IO) {
+					diagnosticCandidates(request)
+				}
 				deliverOpenResult(
 					JSONObject().apply {
 						put("key", request.key)
 						put("found", false)
+						put("diagnostic", diagnostic)
 					}.toString()
 				)
 			}
@@ -531,22 +535,30 @@ class SelectionTvFragment : Fragment() {
 			longer.contains(" $shorter ")
 	}
 
+	private fun jellyfinSearchTerms(request: LookupRequest): List<String> =
+		linkedSetOf<String>().apply {
+			for (candidate in requestTitleCandidates(request)) {
+				add(candidate)
+				val simplified = candidate
+					.replace(Regex("[\\p{Punct}«»“”„’‘]+"), " ")
+					.replace(Regex("\\s+"), " ")
+					.trim()
+				if (simplified.isNotBlank()) add(simplified)
+			}
+		}.take(MAX_SEARCH_TERMS)
+
 	private suspend fun fallbackSearch(request: LookupRequest): BaseItemDto? {
 		val all = linkedMapOf<UUID, BaseItemDto>()
 		var successfulSearches = 0
 
-		for (term in requestTitleCandidates(request).take(MAX_SEARCH_TERMS)) {
-			// Mirror the Jellyfin Web bridge instead of routing through
-			// SearchRepository. The latter has a special "Video" request shape
-			// that excludes some video item kinds and made one-off TV
-			// documentaries behave differently on Android TV.
+		for (term in jellyfinSearchTerms(request)) {
+			// Final fallback deliberately has NO item-kind/media-type filter.
+			// The Web bridge can find certain one-off documentaries that the
+			// Android client exposes under an unexpected Jellyfin kind. We only
+			// accept the result afterwards if the title/provider score is high.
 			runCatching {
 				api.itemsApi.getItems(
 					recursive = true,
-					// Search the same broad universe as the Web client: any
-					// video media item. This avoids missing documentaries that
-					// Jellyfin typed as something other than Movie/Video.
-					mediaTypes = listOf(MediaType.VIDEO),
 					searchTerm = term,
 					fields = setOf(
 						ItemFields.PROVIDER_IDS,
@@ -570,6 +582,31 @@ class SelectionTvFragment : Fragment() {
 			.maxByOrNull { it.second }
 			?.takeIf { it.second >= FALLBACK_MATCH_THRESHOLD }
 			?.first
+	}
+
+	private suspend fun diagnosticCandidates(request: LookupRequest): String {
+		val all = linkedMapOf<UUID, BaseItemDto>()
+		for (term in jellyfinSearchTerms(request).take(2)) {
+			runCatching {
+				api.itemsApi.getItems(
+					recursive = true,
+					searchTerm = term,
+					fields = setOf(
+						ItemFields.PROVIDER_IDS,
+						ItemFields.ORIGINAL_TITLE,
+					),
+					limit = 8,
+					enableImages = false,
+					enableUserData = false,
+					enableTotalRecordCount = false,
+				).content.items
+			}.getOrNull()?.forEach { all[it.id] = it }
+		}
+		return all.values
+			.take(5)
+			.joinToString(" | ") { item ->
+				"${item.name ?: "?"} [type=${item.type}, media=${item.mediaType}, year=${item.productionYear ?: "?"}]"
+			}
 	}
 
 	private fun browserStyleScore(item: BaseItemDto, request: LookupRequest): Int {
