@@ -74,6 +74,8 @@
     body.android-tv-mode button.stv-tv-open:focus{
       outline:4px solid #fff;outline-offset:4px;background:#3a5870
     }
+    body.android-tv-mode button.stv-tv-open[data-state="found"]{border-color:#7fa48d;background:#284636}
+    body.android-tv-mode button.stv-tv-open[data-state="missing"]{border-color:#8d7f69;background:#40372c}
     body.android-tv-mode a{color:inherit!important;text-decoration:none!important}
     @media(max-width:1400px){
       body.android-tv-mode .week-grid,body.android-tv-mode .week-grid-five,
@@ -161,19 +163,49 @@
     let nodes=keyNodes.get(key);if(!nodes){nodes=new Set();keyNodes.set(key,nodes)}
     nodes.add(el);
   };
-  const render=result=>{
-    const nodes=keyNodes.get(result.key);if(!nodes)return;
-    for(const el of nodes){
-      el.querySelector('.stv-tv-jellyfin')?.remove();
-      if(!result.found)continue;
-      const box=document.createElement('div');box.className='stv-tv-jellyfin';
-      const pill=document.createElement('span');pill.className='stv-tv-present';pill.textContent='Dans Jellyfin';box.append(pill);
-      const open=document.createElement('button');open.type='button';open.className='stv-tv-open';open.textContent='Ouvrir dans Jellyfin';
-      open.onclick=()=>window.SelectionTvAndroid?.openItem?.(String(result.itemId||''));
-      box.append(open);
+  const commandUrl=req=>{
+    const q=new URLSearchParams();
+    q.set('key',req.key);q.set('title',req.title);
+    if(req.year)q.set('year',req.year);
+    if(req.imdbId)q.set('imdbId',req.imdbId);
+    if(req.tmdbId)q.set('tmdbId',req.tmdbId);
+    return 'selectiontv://open?'+q.toString();
+  };
+  const ensureAction=(el,req)=>{
+    let box=el.querySelector('.stv-tv-jellyfin');
+    if(!box){
+      box=document.createElement('div');box.className='stv-tv-jellyfin';
       const anchor=el.querySelector('.ratings')||el.querySelector('.work-meta,.meta2,.torrent-meta,.slot,.where,.service')||el.querySelector('h3');
       if(anchor)anchor.insertAdjacentElement('afterend',box);
       else (el.matches('tr')?(el.querySelector('.prog')||el.cells[0]):el).append(box);
+    }
+    let open=box.querySelector('button.stv-tv-open');
+    if(!open){
+      open=document.createElement('button');open.type='button';open.className='stv-tv-open';
+      open.textContent='Chercher dans Jellyfin';
+      box.append(open);
+    }
+    open.dataset.key=req.key;
+    open.onclick=()=>{
+      open.textContent='Recherche…';open.dataset.state='searching';
+      location.href=commandUrl(req);
+    };
+    return {box,open};
+  };
+  const render=result=>{
+    const nodes=keyNodes.get(result.key);if(!nodes)return;
+    const req=requests.get(result.key);
+    for(const el of nodes){
+      const action=req?ensureAction(el,req):null;
+      if(!action)continue;
+      action.box.querySelector('.stv-tv-present')?.remove();
+      if(result.found){
+        const pill=document.createElement('span');pill.className='stv-tv-present';pill.textContent='Dans Jellyfin';
+        action.box.insertBefore(pill,action.open);
+        action.open.textContent='Ouvrir dans Jellyfin';action.open.dataset.state='found';
+      }else{
+        action.open.textContent='Chercher dans Jellyfin';action.open.dataset.state='';
+      }
     }
   };
 
@@ -200,9 +232,29 @@
     if(sent.has(key)||!hasBridge())return;
     sent.add(key);
     const req={requestId:++seq,key,title,year,imdbId:ids.imdbId,tmdbId:ids.tmdbId};
-    requests.set(key,req);pending.add(key);updateStatus();armTimeout();
+    requests.set(key,req);
+    ensureAction(el,req);
+    if(!hasBridge())return;
+    pending.add(key);updateStatus();armTimeout();
     try{window.SelectionTvAndroid.lookup(JSON.stringify(req))}
     catch{window.SelectionTvAndroidResult({key,error:true})}
+  };
+
+  window.SelectionTvAndroidOpenResult=result=>{
+    if(typeof result==='string'){try{result=JSON.parse(result)}catch{return}}
+    if(!result?.key)return;
+    const nodes=keyNodes.get(result.key);if(!nodes)return;
+    for(const el of nodes){
+      const open=[...el.querySelectorAll('button.stv-tv-open')].find(x=>x.dataset.key===result.key)||el.querySelector('button.stv-tv-open');
+      if(!open)continue;
+      if(result.error){
+        open.textContent='Réessayer dans Jellyfin';open.dataset.state='';
+      }else if(result.found){
+        open.textContent='Ouvrir dans Jellyfin';open.dataset.state='found';
+      }else{
+        open.textContent='Non trouvé dans Jellyfin';open.dataset.state='missing';
+      }
+    }
   };
 
   retry.onclick=()=>{
