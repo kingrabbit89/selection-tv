@@ -131,6 +131,16 @@ Après une mise à jour de **File Transformation**, **Plugin Pages** ou du fichi
 
 Aucune clé API Jellyfin ne doit être placée dans le site GitHub Pages public. L'intégration est conçue pour utiliser le contexte de la session Jellyfin côté page locale.
 
+## Prototype Android TV
+
+Une APK expérimentale basée sur Jellyfin Android TV est compilée automatiquement depuis `integrations/androidtv/`. Elle utilise un package distinct et peut cohabiter avec l'application Jellyfin officielle.
+
+La page de téléchargement permanente est :
+
+`https://kingrabbit89.github.io/selection-tv/androidtv/`
+
+Le workflow publie également l'APK sous un asset GitHub Release stable nommé `Jellyfin-Selection-TV-AndroidTV.apk`.
+
 ## Contrôles avant publication
 
 GitHub Actions vérifie automatiquement l’architecture et les données éditoriales, la politique de liens exacts, ainsi que le rendu réel dans Chromium : pagination, sommaire, défilement jusqu’à la dernière page, responsive, images, réserves et fonctionnement du système **Vu**.
