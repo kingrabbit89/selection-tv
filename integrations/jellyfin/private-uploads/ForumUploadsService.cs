@@ -145,8 +145,12 @@ public sealed class ForumUploadsService
 
         // Last-resort compatibility fallback. Some Forumactif boards expose a
         // usable authenticated RSS feed even when the HTML template changes.
-        if (all.Count == 0)
+        if (all.Count == 0 || all.All(x => !x.ActivityAt.HasValue))
         {
+            // If the HTML template was parsed but no activity timestamp could
+            // be recovered, those rows cannot safely be treated as recent.
+            // Prefer the authenticated RSS fallback, which carries pubDate.
+            all.Clear();
             try
             {
                 var xml = await client.GetStringAsync($"feed/?f={cfg.ForumId}", cancellationToken).ConfigureAwait(false);
@@ -630,8 +634,8 @@ public sealed class ForumUploadsService
     {
         var cutoff = DateTimeOffset.UtcNow.AddHours(-hours);
         var filtered = source.Items
-            .Where(x => x.ActivityAt is null || x.ActivityAt >= cutoff)
-            .OrderByDescending(x => x.ActivityAt ?? DateTimeOffset.MinValue)
+            .Where(x => x.ActivityAt.HasValue && x.ActivityAt.Value >= cutoff)
+            .OrderByDescending(x => x.ActivityAt!.Value)
             .ToList();
 
         return new ForumUploadsEnvelope
