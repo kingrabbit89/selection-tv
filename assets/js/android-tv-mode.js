@@ -368,7 +368,14 @@
     const wrap=document.createElement('div');wrap.className='stv-tv-poster-wrap';
     if(model.image){
       const img=document.createElement('img');img.className='stv-tv-poster';img.src=model.image;img.alt='';img.loading='lazy';
-      img.onerror=()=>{img.remove();const p=document.createElement('div');p.className='stv-tv-placeholder';p.textContent=model.title;wrap.prepend(p)};
+      img.onerror=()=>{
+        if(model.imageFallback&&img.src!==model.imageFallback){
+          img.src=model.imageFallback;
+          return;
+        }
+        img.remove();
+        const p=document.createElement('div');p.className='stv-tv-placeholder';p.textContent=model.title;wrap.prepend(p);
+      };
       wrap.append(img);
     }else{
       const p=document.createElement('div');p.className='stv-tv-placeholder';p.textContent=model.title;wrap.append(p);
@@ -497,9 +504,12 @@
       let model=byKey.get(key);
       if(!model){
         const work=works.get(norm(title))||{};
+        const sourceImage=imageOf(source);
         model={
           key,title,year,imdbId:ids.imdbId,tmdbId:ids.tmdbId,
-          image:imageOf(source)||work.image||'',meta:metaTexts(source),ratings:ratingsOf(source),
+          image:sourceImage||work.image||'',
+          imageFallback:sourceImage&&work.image&&sourceImage!==work.image?work.image:'',
+          meta:metaTexts(source),ratings:ratingsOf(source),
           description:descOf(source),state:'unknown',itemId:'',source
         };
         loadCachedState(model);
