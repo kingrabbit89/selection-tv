@@ -67,6 +67,49 @@ class SelectionTvFragment : Fragment() {
 		fun isLibraryReady(): Boolean = libraryIndex != null
 
 		@JavascriptInterface
+		fun lookupQuick(payload: String) {
+			val request = parseLookup(payload) ?: return
+			lifecycleScope.launch {
+				val item = try {
+					withTimeout(QUICK_LOOKUP_TIMEOUT_MS) {
+						withContext(Dispatchers.IO) {
+							exactIndexMatch(ensureLibraryIndex(), request)
+						}
+					}
+				} catch (timeout: TimeoutCancellationException) {
+					deliverResult(JSONObject().apply {
+						put("key", request.key)
+						put("error", "Vérification Jellyfin expirée.")
+						put("errorType", "Timeout")
+						put("quick", true)
+					}.toString())
+					return@launch
+				} catch (cancelled: CancellationException) {
+					throw cancelled
+				} catch (error: Exception) {
+					deliverResult(JSONObject().apply {
+						put("key", request.key)
+						put("error", "Vérification Jellyfin impossible.")
+						put("errorType", error.javaClass.simpleName)
+						put("quick", true)
+					}.toString())
+					return@launch
+				}
+
+				deliverResult(JSONObject().apply {
+					put("key", request.key)
+					put("found", item != null)
+					put("quick", true)
+					put("libraryCount", libraryIndex?.size ?: 0)
+					if (item != null) {
+						put("itemId", item.id.toString())
+						put("name", item.name ?: "")
+					}
+				}.toString())
+			}
+		}
+
+		@JavascriptInterface
 		fun lookup(payload: String) {
 			val request = parseLookup(payload) ?: return
 			lifecycleScope.launch {
@@ -517,5 +560,6 @@ class SelectionTvFragment : Fragment() {
 		const val MATCH_THRESHOLD = 300
 		const val FALLBACK_MATCH_THRESHOLD = 150
 		const val LOOKUP_TIMEOUT_MS = 15_000L
+		const val QUICK_LOOKUP_TIMEOUT_MS = 8_000L
 	}
 }
