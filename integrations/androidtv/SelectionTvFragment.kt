@@ -130,6 +130,10 @@ class SelectionTvFragment : Fragment() {
 								request: WebResourceRequest?,
 							): Boolean {
 								val uri = request?.url ?: return true
+								if (uri.scheme == SELECTION_TV_SCHEME && uri.host == "open") {
+									handleOpenCommand(uri)
+									return true
+								}
 								return !isAllowedSelectionTvUrl(uri)
 							}
 						}
@@ -138,6 +142,51 @@ class SelectionTvFragment : Fragment() {
 					}
 				},
 			)
+		}
+	}
+
+	private fun handleOpenCommand(uri: Uri) {
+		val request = LookupRequest(
+			key = uri.getQueryParameter("key").orEmpty(),
+			title = uri.getQueryParameter("title").orEmpty(),
+			year = uri.getQueryParameter("year")?.toIntOrNull(),
+			imdbId = uri.getQueryParameter("imdbId")?.takeIf { it.isNotBlank() },
+			tmdbId = uri.getQueryParameter("tmdbId")?.takeIf { it.isNotBlank() },
+		).takeIf { it.key.isNotBlank() && it.title.isNotBlank() } ?: return
+
+		lifecycleScope.launch {
+			val item = try {
+				withContext(Dispatchers.IO) { findLibraryItem(request) }
+			} catch (cancelled: CancellationException) {
+				throw cancelled
+			} catch (error: Exception) {
+				deliverOpenResult(
+					JSONObject().apply {
+						put("key", request.key)
+						put("error", true)
+						put("errorType", error.javaClass.simpleName)
+					}.toString()
+				)
+				return@launch
+			}
+
+			if (item != null) {
+				deliverOpenResult(
+					JSONObject().apply {
+						put("key", request.key)
+						put("found", true)
+						put("itemId", item.id.toString())
+					}.toString()
+				)
+				navigationRepository.navigate(Destinations.itemDetails(item.id))
+			} else {
+				deliverOpenResult(
+					JSONObject().apply {
+						put("key", request.key)
+						put("found", false)
+					}.toString()
+				)
+			}
 		}
 	}
 
@@ -308,6 +357,13 @@ class SelectionTvFragment : Fragment() {
 		}
 	}
 
+	private fun deliverOpenResult(json: String) {
+		val script = "window.SelectionTvAndroidOpenResult && window.SelectionTvAndroidOpenResult($json);"
+		webView?.post {
+			webView?.evaluateJavascript(script, null)
+		}
+	}
+
 	private fun isAllowedSelectionTvUrl(uri: Uri): Boolean =
 		uri.scheme == "https" &&
 			uri.host == "kingrabbit89.github.io" &&
@@ -326,6 +382,7 @@ class SelectionTvFragment : Fragment() {
 
 	private companion object {
 		const val JS_BRIDGE_NAME = "SelectionTvAndroid"
+		const val SELECTION_TV_SCHEME = "selectiontv"
 		const val SELECTION_TV_URL = "https://kingrabbit89.github.io/selection-tv/latest.html?tv=1"
 		const val LIBRARY_PAGE_SIZE = 200
 		const val MAX_LIBRARY_ITEMS = 50_000
