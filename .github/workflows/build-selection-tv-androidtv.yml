@@ -10,7 +10,7 @@ on:
       - ".github/workflows/build-selection-tv-androidtv.yml"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -62,3 +62,13 @@ jobs:
           retention-days: 30
           if-no-files-found: error
           path: dist/Jellyfin-Selection-TV-AndroidTV.apk
+
+      - name: Publish stable Android TV download
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! gh release view androidtv-latest >/dev/null 2>&1; then
+            gh release create androidtv-latest               --target "$GITHUB_SHA"               --title "Sélection TV Android TV — dernière version"               --notes "Prototype Android TV de Sélection TV. Cette release est mise à jour automatiquement avec le dernier APK compilé."
+          fi
+
+          gh release upload androidtv-latest             dist/Jellyfin-Selection-TV-AndroidTV.apk             --clobber
