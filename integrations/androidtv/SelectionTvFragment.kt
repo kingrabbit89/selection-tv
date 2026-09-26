@@ -3,6 +3,7 @@ package org.jellyfin.androidtv.ui.selectiontv
 import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -138,7 +139,31 @@ class SelectionTvFragment : Fragment() {
 							}
 						}
 						view.webChromeClient = WebChromeClient()
+						view.setOnKeyListener { _, keyCode, event ->
+							if (event.action != KeyEvent.ACTION_DOWN) return@setOnKeyListener false
+
+							val command = when (keyCode) {
+								KeyEvent.KEYCODE_DPAD_UP -> "up"
+								KeyEvent.KEYCODE_DPAD_DOWN -> "down"
+								KeyEvent.KEYCODE_DPAD_LEFT -> "left"
+								KeyEvent.KEYCODE_DPAD_RIGHT -> "right"
+								KeyEvent.KEYCODE_DPAD_CENTER,
+								KeyEvent.KEYCODE_ENTER,
+								KeyEvent.KEYCODE_NUMPAD_ENTER,
+								KeyEvent.KEYCODE_BUTTON_A -> "activate"
+								else -> null
+							} ?: return@setOnKeyListener false
+
+							view.evaluateJavascript(
+								"window.SelectionTvTvRemote && window.SelectionTvTvRemote('$command');",
+								null,
+							)
+							true
+						}
 						view.loadUrl(SELECTION_TV_URL)
+						view.post {
+							view.requestFocus()
+						}
 					}
 				},
 			)
