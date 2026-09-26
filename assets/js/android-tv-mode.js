@@ -234,6 +234,7 @@
     const age=Date.now()-(Number(entry.savedAt)||0);
     if(entry.found&&entry.itemId&&age<POSITIVE_TTL){
       model.state='found';model.itemId=entry.itemId;model.jellyfinName=entry.name||'';
+      model.sessionVerified=false;model.fromPositiveCache=true;
     }else if(entry.found===false&&entry.definitive&&age<NEGATIVE_TTL){
       model.state='missing';
     }else{
@@ -241,6 +242,7 @@
     }
   };
   const rememberFound=(model,itemId,name)=>{
+    model.sessionVerified=true;model.fromPositiveCache=false;
     cache[model.key]={found:true,itemId,name:name||'',savedAt:Date.now()};
     writeCache(cache);
   };
@@ -332,7 +334,9 @@
   };
 
   const manualOpen=model=>{
-    if(model.state==='found'&&model.itemId){
+    // A cached Jellyfin UUID can die when a file is replaced. Only use the
+    // direct fast path after this session has revalidated the match.
+    if(model.state==='found'&&model.itemId&&model.sessionVerified){
       try{window.SelectionTvAndroid?.openItem?.(String(model.itemId));return}catch{}
     }
     model.state='checking';updateTile(model);scheduleStatus();
@@ -507,14 +511,17 @@
   };
 
   const queueQuick=model=>{
-    if(model.state==='found'||model.state==='missing'||model._queued)return;
+    if(model._queued||model.state==='missing')return;
+    if(model.state==='found'&&model.sessionVerified)return;
     model._queued=true;quickQueue.push(model);pumpQuick();
   };
   const pumpQuick=()=>{
     if(!libraryReady)return;
     while(quickInflight<QUICK_CONCURRENCY&&quickQueue.length){
       const model=quickQueue.shift();if(!model)continue;
-      quickInflight++;model.state='checking';updateTile(model);scheduleStatus();
+      const keepCachedBadge=model.state==='found'&&!model.sessionVerified;
+      quickInflight++;
+      if(!keepCachedBadge){model.state='checking';updateTile(model);scheduleStatus()}
       try{window.SelectionTvAndroid?.lookupQuick?.(JSON.stringify(requestFor(model)))}
       catch{quickInflight--;model.state='unknown';updateTile(model);queueDeep(model)}
     }
@@ -564,6 +571,7 @@
       model.state='unknown';
     }else if(result.found){
       model.state='found';model.itemId=result.itemId||'';model.jellyfinName=result.name||'';
+      model.sessionVerified=true;
       rememberFound(model,model.itemId,model.jellyfinName);
     }else if(result.quick){
       model.state='queued';
