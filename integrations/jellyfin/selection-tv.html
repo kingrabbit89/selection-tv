@@ -30,7 +30,16 @@
   if(!frame)return;
 
   function norm(s){
-    return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+    return String(s||'')
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g,'')
+      .replace(/[^a-z0-9]+/g,' ')
+      .replace(/\bmr\b/g,'mister')
+      .replace(/\bmrs\b/g,'missus')
+      .replace(/\bdr\b/g,'doctor')
+      .replace(/\s+/g,' ')
+      .trim();
   }
 
   function api(){
@@ -93,9 +102,11 @@
     }
 
     var all=[];
+    var seenIds={};
     var startIndex=0;
-    var pageSize=1000;
+    var pageSize=200;
     var userId=a.getCurrentUserId();
+    var expectedTotal=0;
 
     do{
       var r=await a.getItems(userId,{
@@ -103,15 +114,39 @@
         IncludeItemTypes:'Movie,Series',
         Fields:'ProviderIds,OriginalTitle',
         EnableTotalRecordCount:true,
+        EnableImages:false,
+        EnableUserData:false,
         StartIndex:startIndex,
         Limit:pageSize
       });
       var batch=r&&r.Items||r&&r.items||[];
-      all=all.concat(batch);
+      expectedTotal=Number(r&&r.TotalRecordCount||r&&r.totalRecordCount)||expectedTotal;
+
+      var added=0;
+      batch.forEach(function(item){
+        var id=item.Id||item.id||'';
+        if(!id||seenIds[id])return;
+        seenIds[id]=1;
+        all.push(item);
+        added++;
+      });
+
+      if(!batch.length)break;
       startIndex+=batch.length;
-      var total=Number(r&&r.TotalRecordCount||r&&r.totalRecordCount)||0;
-      if(!batch.length||batch.length<pageSize||(total&&startIndex>=total))break;
-    }while(startIndex<20000);
+
+      // Jellyfin may clamp a requested Limit to a lower server-side value.
+      // Never infer "last page" merely because batch.length < pageSize when
+      // TotalRecordCount says more items still exist.
+      if(expectedTotal&&startIndex>=expectedTotal)break;
+
+      // Safety against a server/client that ignores StartIndex and keeps
+      // returning the same page.
+      if(!added)break;
+
+      // When TotalRecordCount is unavailable, a short page is the only useful
+      // end-of-list signal.
+      if(!expectedTotal&&batch.length<pageSize)break;
+    }while(startIndex<50000);
 
     var index={
       items:all,
