@@ -23,6 +23,9 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
@@ -407,30 +410,29 @@ class SelectionTvFragment : Fragment() {
 	}
 
 	private suspend fun findLibraryItemForOpen(request: LookupRequest): BaseItemDto? {
-		// The UI may hold a positive match for 30 days. Replacing a media file
-		// can give the same movie a new Jellyfin UUID, so never navigate from a
-		// stale index entry without checking that UUID still exists server-side.
+		// Fast path: use an indexed hit only after verifying that its UUID is
+		// still live. If there is no hit (or the UUID died), immediately run
+		// Jellyfin's live search. Rebuilding the whole library first used to
+		// consume most of the lookup timeout for obscure documentaries.
 		val currentIndex = ensureLibraryIndex()
 		val indexed = exactIndexMatch(currentIndex, request)
 			?: conservativeIndexMatch(currentIndex, request)
 
 		if (indexed != null) {
 			liveItemById(indexed.id)?.let { return it }
+		}
 
-			// The old UUID disappeared (typical remove + re-add / quality upgrade).
-			// Rebuild the index now, then resolve the same editorial work again.
+		fallbackSearch(request)?.let { return it }
+
+		// Last-resort index refresh only after live search failed. This keeps
+		// stale-ID recovery without delaying the normal manual lookup path.
+		if (indexed != null) {
 			val refreshed = refreshLibraryIndex()
 			exactIndexMatch(refreshed, request)?.let { return it }
 			conservativeIndexMatch(refreshed, request)?.let { return it }
-			return fallbackSearch(request)
 		}
 
-		// No hit in the snapshot. The library may have changed since this
-		// fragment was opened, so refresh once before falling back to search.
-		val refreshed = refreshLibraryIndex()
-		exactIndexMatch(refreshed, request)?.let { return it }
-		conservativeIndexMatch(refreshed, request)?.let { return it }
-		return fallbackSearch(request)
+		return null
 	}
 
 	private suspend fun liveItemById(id: UUID): BaseItemDto? = runCatching {
@@ -558,39 +560,58 @@ class SelectionTvFragment : Fragment() {
 			}
 		}.take(MAX_SEARCH_TERMS)
 
-	private suspend fun nativeSearchCandidates(request: LookupRequest): List<BaseItemDto> {
-		val all = linkedMapOf<UUID, BaseItemDto>()
-		val groups = listOf(
-			setOf(BaseItemKind.MOVIE),
-			setOf(BaseItemKind.SERIES),
-			setOf(BaseItemKind.EPISODE),
-			setOf(BaseItemKind.VIDEO),
-			setOf(BaseItemKind.LIVE_TV_PROGRAM),
-			setOf(BaseItemKind.LIVE_TV_CHANNEL),
-			setOf(BaseItemKind.PLAYLIST),
-			setOf(BaseItemKind.BOX_SET),
-		)
+	private val nativeSearchGroups = listOf(
+		setOf(BaseItemKind.MOVIE),
+		setOf(BaseItemKind.SERIES),
+		setOf(BaseItemKind.EPISODE),
+		setOf(BaseItemKind.VIDEO),
+		setOf(BaseItemKind.LIVE_TV_PROGRAM),
+		setOf(BaseItemKind.LIVE_TV_CHANNEL),
+		setOf(BaseItemKind.PLAYLIST),
+		setOf(BaseItemKind.BOX_SET),
+	)
 
-		for (term in jellyfinSearchTerms(request)) {
-			for (group in groups) {
+	private suspend fun nativeSearchWave(term: String): List<BaseItemDto> = coroutineScope {
+		nativeSearchGroups.map { group ->
+			async {
 				searchRepository.search(
 					searchTerm = term,
 					itemTypes = group,
-				).getOrNull()?.forEach { item ->
-					all[item.id] = item
-				}
+				).getOrNull().orEmpty()
 			}
+		}.awaitAll()
+			.flatten()
+			.distinctBy { it.id }
+	}
+
+	private suspend fun fallbackSearch(request: LookupRequest): BaseItemDto? {
+		val accumulated = linkedMapOf<UUID, BaseItemDto>()
+
+		for (term in jellyfinSearchTerms(request)) {
+			nativeSearchWave(term).forEach { item -> accumulated[item.id] = item }
+
+			// Do not discard a match already returned by Jellyfin while waiting
+			// for every alternate title. The old code could find the film in the
+			// first request, then time out during later sequential requests.
+			val best = accumulated.values
+				.map { item -> item to browserStyleScore(item, request) }
+				.maxByOrNull { it.second }
+
+			if (best != null && best.second >= FALLBACK_MATCH_THRESHOLD) {
+				return best.first
+			}
+		}
+
+		return null
+	}
+
+	private suspend fun nativeSearchCandidates(request: LookupRequest): List<BaseItemDto> {
+		val all = linkedMapOf<UUID, BaseItemDto>()
+		for (term in jellyfinSearchTerms(request).take(DIAGNOSTIC_SEARCH_TERMS)) {
+			nativeSearchWave(term).forEach { item -> all[item.id] = item }
 		}
 		return all.values.toList()
 	}
-
-	private suspend fun fallbackSearch(request: LookupRequest): BaseItemDto? =
-		nativeSearchCandidates(request)
-			.map { item -> item to browserStyleScore(item, request) }
-			.maxByOrNull { it.second }
-			?.takeIf { it.second >= FALLBACK_MATCH_THRESHOLD }
-			?.first
-
 
 	private suspend fun diagnosticCandidates(request: LookupRequest): String {
 		val ranked = nativeSearchCandidates(request)
@@ -741,7 +762,8 @@ class SelectionTvFragment : Fragment() {
 		const val FALLBACK_MATCH_THRESHOLD = 150
 		const val FALLBACK_SEARCH_LIMIT = 25
 		const val MAX_SEARCH_TERMS = 6
-		const val LOOKUP_TIMEOUT_MS = 15_000L
+		const val DIAGNOSTIC_SEARCH_TERMS = 2
+		const val LOOKUP_TIMEOUT_MS = 20_000L
 		const val QUICK_LOOKUP_TIMEOUT_MS = 8_000L
 	}
 }
