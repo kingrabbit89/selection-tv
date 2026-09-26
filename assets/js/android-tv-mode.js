@@ -154,13 +154,32 @@
     });
     return out.join(' ');
   };
-  const ratingsOf=el=>{
+  const ratingsOf=(el,title)=>{
     const out=[];
-    el.querySelectorAll('.rating-pill').forEach(x=>{
-      const t=clean(x.textContent).replace(/relevé.*$/i,'').trim();
-      if(t&&!out.includes(t))out.push(t);
-    });
+    const add=value=>{const t=clean(value).replace(/relevé.*$/i,'').trim();if(t&&!out.includes(t))out.push(t)};
+    el.querySelectorAll('.rating-pill').forEach(x=>add(x.textContent));
+
+    const runtime=window.SelectionTVRatings?.[title]||null;
+    if(runtime?.imdb)add('IMDb '+runtime.imdb+'/10');
+    if(runtime?.sc)add('SensCritique '+runtime.sc+'/10');
+
+    const w=works.get(norm(title));
+    if(w?.ratings?.imdb)add('IMDb '+w.ratings.imdb+'/10');
+    if(w?.ratings?.senscritique)add('SensCritique '+w.ratings.senscritique+'/10');
+    if(w?.ratings?.sc)add('SensCritique '+w.ratings.sc+'/10');
     return out;
+  };
+
+  const posterCandidatesOf=(el,title)=>{
+    const w=works.get(norm(title))||{};
+    const source=imageOf(el);
+    const fromResolver=window.SelectionTVImageSources?.(title,source?[source]:[])||[];
+    return [...new Set([
+      ...fromResolver,
+      source,
+      w.image,
+      ...(w.image_fallbacks||[])
+    ].filter(Boolean))];
   };
   const imageOf=el=>{
     const img=el.querySelector('img');
@@ -385,16 +404,17 @@
   const makeTile=model=>{
     const b=document.createElement('button');b.type='button';b.className='stv-tv-tile';b.tabIndex=-1;
     const wrap=document.createElement('div');wrap.className='stv-tv-poster-wrap';
-    if(model.image){
-      const img=document.createElement('img');img.className='stv-tv-poster';img.src=model.image;img.alt='';img.loading='lazy';img.decoding='async';try{img.fetchPriority='low'}catch{}
+    if(model.imageCandidates?.length){
+      const img=document.createElement('img');img.className='stv-tv-poster';img.alt='';img.loading='lazy';img.decoding='async';try{img.fetchPriority='low'}catch{}
+      let imageIndex=0;
+      const tryImage=()=>{img.src=model.imageCandidates[imageIndex]||''};
       img.onerror=()=>{
-        if(model.imageFallback&&img.src!==model.imageFallback){
-          img.src=model.imageFallback;
-          return;
-        }
+        imageIndex++;
+        if(imageIndex<model.imageCandidates.length){tryImage();return}
         img.remove();
         const p=document.createElement('div');p.className='stv-tv-placeholder';p.textContent=model.title;wrap.prepend(p);
       };
+      tryImage();
       wrap.append(img);
     }else{
       const p=document.createElement('div');p.className='stv-tv-placeholder';p.textContent=model.title;wrap.append(p);
@@ -526,18 +546,28 @@
       const year=yearFor(source,title),ids=idsFor(title);
       const key=cacheKeyFor(title,year,ids);
       let model=byKey.get(key);
+      const sourcePosters=posterCandidatesOf(source,title);
+      const sourceRatings=ratingsOf(source,title);
+      const sourceMeta=metaTexts(source);
+      const sourceDescription=descOf(source);
+
       if(!model){
-        const work=works.get(norm(title))||{};
-        const sourceImage=imageOf(source);
         model={
           key,title,year,imdbId:ids.imdbId,tmdbId:ids.tmdbId,
-          image:sourceImage||work.image||'',
-          imageFallback:sourceImage&&work.image&&sourceImage!==work.image?work.image:'',
-          meta:metaTexts(source),ratings:ratingsOf(source),
-          description:descOf(source),state:'unknown',itemId:'',source
+          imageCandidates:sourcePosters,
+          meta:sourceMeta,ratings:sourceRatings,
+          description:sourceDescription,state:'unknown',itemId:'',source
         };
         loadCachedState(model);
         byKey.set(key,model);models.push(model);
+      }else{
+        // A title can occur in several editorial sections. Merge the richest
+        // metadata from all occurrences instead of depending on whichever one
+        // happened to appear first in the HTML.
+        model.imageCandidates=[...new Set([...(model.imageCandidates||[]),...sourcePosters])];
+        model.ratings=[...new Set([...(model.ratings||[]),...sourceRatings])];
+        if(sourceMeta.length>model.meta.length)model.meta=sourceMeta;
+        if(sourceDescription.length>(model.description||'').length)model.description=sourceDescription;
       }
       const page=source.closest('.page')||document.body;
       if(!model._grouped){
