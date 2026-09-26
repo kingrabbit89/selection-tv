@@ -7,8 +7,8 @@
   const CACHE_KEY='selectionTv_androidtv_matches_v2';
   const POSITIVE_TTL=30*24*60*60*1000;
   const NEGATIVE_TTL=24*60*60*1000;
-  const QUICK_CONCURRENCY=4;
-  const DEEP_CONCURRENCY=2;
+  const QUICK_CONCURRENCY=2;
+  const DEEP_CONCURRENCY=1;
 
   document.documentElement.classList.add('android-tv-mode');
   document.body.classList.add('android-tv-mode');
@@ -69,8 +69,9 @@
       display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden
     }
     .stv-tv-tile.is-focused{
-      transform:scale(1.055);z-index:25;
-      box-shadow:0 0 0 4px #fff,0 0 0 7px #587896,0 10px 24px rgba(0,0,0,.46);
+      transform:scale(1.035);z-index:25;
+      outline:4px solid #fff;outline-offset:3px;
+      box-shadow:0 8px 16px rgba(0,0,0,.28);
       background:#253443
     }
     .stv-tv-tile.is-focused .stv-tv-tile-title{color:#fff}
@@ -125,9 +126,11 @@
 
   let models=[],rows=[],current=null,works=new Map(),links=new Map();
   let libraryReady=false,libraryCount=0,quickInflight=0,deepInflight=0;
+  let lastNavigationAt=0,deepTimer=null,positionRaf=0;
   const quickQueue=[];
   const deepQueue=[];
   const deepActive=new Set();
+  const neighborMap=new Map();
   const byKey=new Map();
 
   const titleOf=el=>{
@@ -316,27 +319,38 @@
     requestAnimationFrame(positionInfo);
   };
 
-  const visibleTiles=()=>models.filter(m=>m.tile&&m.tile.offsetParent!==null);
+  const rebuildNeighbors=()=>{
+    neighborMap.clear();
+    const tiles=models.filter(m=>m.tile&&m.tile.offsetParent!==null);
+    const points=tiles.map(model=>{
+      const r=model.tile.getBoundingClientRect();
+      return {model,x:r.left+r.width/2+window.scrollX,y:r.top+r.height/2+window.scrollY};
+    });
+    for(const p of points){
+      const next={left:null,right:null,up:null,down:null};
+      const scores={left:Infinity,right:Infinity,up:Infinity,down:Infinity};
+      for(const q of points){
+        if(q===p)continue;
+        const dx=q.x-p.x,dy=q.y-p.y;
+        const tests=[
+          ['left',dx<-8,-dx,Math.abs(dy),3.2],
+          ['right',dx>8,dx,Math.abs(dy),3.2],
+          ['up',dy<-8,-dy,Math.abs(dx),4.2],
+          ['down',dy>8,dy,Math.abs(dx),4.2]
+        ];
+        for(const [dir,ok,primary,secondary,weight] of tests){
+          if(!ok)continue;
+          const score=primary+secondary*weight;
+          if(score<scores[dir]){scores[dir]=score;next[dir]=q.model}
+        }
+      }
+      neighborMap.set(p.model,next);
+    }
+  };
   const spatialMove=dir=>{
     if(!current){focusModel(models[0]);return true}
-    const cr=current.tile.getBoundingClientRect();
-    const cx=cr.left+cr.width/2,cy=cr.top+cr.height/2;
-    let best=null,bestScore=Infinity;
-    for(const model of visibleTiles()){
-      if(model===current)continue;
-      const r=model.tile.getBoundingClientRect();
-      const x=r.left+r.width/2,y=r.top+r.height/2;
-      const dx=x-cx,dy=y-cy;
-      let primary=0,secondary=0,ok=false;
-      if(dir==='left'){ok=dx<-8;primary=-dx;secondary=Math.abs(dy)}
-      else if(dir==='right'){ok=dx>8;primary=dx;secondary=Math.abs(dy)}
-      else if(dir==='up'){ok=dy<-8;primary=-dy;secondary=Math.abs(dx)}
-      else if(dir==='down'){ok=dy>8;primary=dy;secondary=Math.abs(dx)}
-      if(!ok)continue;
-      const score=primary+secondary*(dir==='up'||dir==='down'?4.2:3.2);
-      if(score<bestScore){bestScore=score;best=model}
-    }
-    if(best)focusModel(best);
+    const next=neighborMap.get(current)?.[dir];
+    if(next)focusModel(next);
     return true;
   };
 
@@ -346,6 +360,7 @@
     if(['left','right','up','down'].includes(command)){
       if(now<navLockedUntil)return true;
       navLockedUntil=now+110;
+      lastNavigationAt=Date.now();
       return spatialMove(command);
     }
     if(command==='activate'||command==='center'||command==='enter'){
@@ -360,14 +375,18 @@
     const c=map[e.key];if(!c)return;
     if(window.SelectionTvTvRemote(c)){e.preventDefault();e.stopPropagation()}
   },true);
-  window.addEventListener('scroll',()=>{if(current)requestAnimationFrame(positionInfo)},{passive:true});
-  window.addEventListener('resize',()=>{if(current)requestAnimationFrame(positionInfo)});
+  const scheduleInfoPosition=()=>{
+    if(positionRaf)return;
+    positionRaf=requestAnimationFrame(()=>{positionRaf=0;if(current)positionInfo()});
+  };
+  window.addEventListener('scroll',scheduleInfoPosition,{passive:true});
+  window.addEventListener('resize',()=>{rebuildNeighbors();scheduleInfoPosition()});
 
   const makeTile=model=>{
     const b=document.createElement('button');b.type='button';b.className='stv-tv-tile';b.tabIndex=-1;
     const wrap=document.createElement('div');wrap.className='stv-tv-poster-wrap';
     if(model.image){
-      const img=document.createElement('img');img.className='stv-tv-poster';img.src=model.image;img.alt='';img.loading='lazy';
+      const img=document.createElement('img');img.className='stv-tv-poster';img.src=model.image;img.alt='';img.loading='lazy';img.decoding='async';try{img.fetchPriority='low'}catch{}
       img.onerror=()=>{
         if(model.imageFallback&&img.src!==model.imageFallback){
           img.src=model.imageFallback;
@@ -411,7 +430,7 @@
 
     document.body.append(shell);
     renderStatus();
-    if(models[0])setTimeout(()=>focusModel(models[0]),80);
+    requestAnimationFrame(()=>{rebuildNeighbors();if(models[0])focusModel(models[0])});
   };
 
   const queueQuick=model=>{
@@ -438,17 +457,22 @@
     pumpDeep();
   };
   const pumpDeep=()=>{
-    if(!libraryReady||quickInflight>0||quickQueue.length>0)return;
-    while(deepInflight<DEEP_CONCURRENCY&&deepQueue.length){
-      const model=deepQueue.shift();if(!model)continue;
-      if(model.state==='found'||model.state==='missing')continue;
-      deepInflight++;deepActive.add(model.key);
-      model.state='checking';updateTile(model);renderStatus();
-      try{window.SelectionTvAndroid?.lookup?.(JSON.stringify(requestFor(model)))}
-      catch{
-        deepActive.delete(model.key);deepInflight=Math.max(0,deepInflight-1);
-        model.state='unknown';updateTile(model);renderStatus();
-      }
+    clearTimeout(deepTimer);
+    if(!libraryReady||quickInflight>0||quickQueue.length>0||deepInflight>=DEEP_CONCURRENCY||!deepQueue.length)return;
+    const idleFor=Date.now()-lastNavigationAt;
+    if(idleFor<850){
+      deepTimer=setTimeout(pumpDeep,900-idleFor);
+      return;
+    }
+    const model=deepQueue.shift();if(!model)return;
+    if(model.state==='found'||model.state==='missing'){deepTimer=setTimeout(pumpDeep,80);return}
+    deepInflight++;deepActive.add(model.key);
+    model.state='checking';updateTile(model);renderStatus();
+    try{window.SelectionTvAndroid?.lookup?.(JSON.stringify(requestFor(model)))}
+    catch{
+      deepActive.delete(model.key);deepInflight=Math.max(0,deepInflight-1);
+      model.state='unknown';updateTile(model);renderStatus();
+      deepTimer=setTimeout(pumpDeep,180);
     }
   };
 
@@ -477,7 +501,7 @@
     }
 
     if(Number.isFinite(Number(result.libraryCount)))libraryCount=Number(result.libraryCount);
-    updateTile(model);renderStatus();pumpQuick();pumpDeep();
+    updateTile(model);renderStatus();pumpQuick();deepTimer=setTimeout(pumpDeep,180);
   };
   window.SelectionTvAndroidOpenResult=result=>{
     if(typeof result==='string'){try{result=JSON.parse(result)}catch{return}}
