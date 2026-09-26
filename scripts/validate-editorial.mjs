@@ -10,6 +10,7 @@ const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,
 const works=read('data/works.json').works||[];
 const worksByTitle=new Map(works.map(w=>[norm(w.title),w]));
 const linkKeys=new Set(Object.keys(links).map(norm));
+const linksByTitle=new Map(Object.entries(links).map(([title,value])=>[norm(title),value||{}]));
 const titles=new Set();
 for(const p of week.pages||[]){
  if(!/-selection$|-grille(?:-2)?$/.test(p.id))continue;
@@ -19,8 +20,28 @@ for(const p of week.pages||[]){
 const missing=[...titles].filter(t=>!linkKeys.has(norm(t)));
 console.log('Latest:',latest,'retained daily titles:',titles.size,'without central exact link:',missing.length);
 if(missing.length)console.log('Missing links:',missing.join(' | '));
+// Ratings are central catalogue data. Do not let presentation depend on
+// whichever occurrence of a title happened to include hardcoded pills.
+const ratingCandidates=new Set();
+for(const p of week.pages||[]){
+  let m;
+  const visual=/<article class="[^"]*\b(?:week-card|feature|list-card|platform|release-card|expire-card|radar-card|torrent-card)\b[^"]*"[^>]*>[\s\S]*?<h3>([\s\S]*?)<\/h3>/g;
+  while((m=visual.exec(p.html||'')))ratingCandidates.add(m[1].replace(/<[^>]+>/g,'').trim());
+  const grid=/<td class="prog">([^<]+)<\/td>/g;
+  while((m=grid.exec(p.html||'')))ratingCandidates.add(m[1].trim());
+}
+const ratingMissing=[...ratingCandidates].filter(title=>{
+  const key=norm(title),w=worksByTitle.get(key),l=linksByTitle.get(key)||{};
+  const ratingSource=!!(l.imdb||l.sc);
+  return ratingSource && !w?.ratings && !w?.ratings_unavailable_reason;
+});
+if(ratingMissing.length){
+  console.warn('! Central ratings missing: '+ratingMissing.join(' | '));
+}
+
 const strict=latest>='2026-S41';
 if(strict && missing.length){console.error('✗ Every retained item must have an exact direct link from S41 onward');process.exitCode=1}
+if(strict && ratingMissing.length){console.error('✗ Every rated work with IMDb/SensCritique links must carry central ratings or an explicit unavailable reason from S41 onward');process.exitCode=1}
 const covPath='data/coverage/'+latest+'.json';
 if(strict){
  const pers=week.personalization;
