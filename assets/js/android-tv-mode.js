@@ -78,6 +78,9 @@
       border:1px solid #6e8798;background:#20303a;color:#eaf5f7;
       font:700 14px/1.1 Arial,sans-serif
     }
+    body.android-tv-mode .stv-tv-present.stv-tv-absent{
+      border-color:#625f5a;background:#252a30;color:#aaa59c
+    }
     body.android-tv-mode button.stv-tv-open{
       appearance:none;border:2px solid #8197aa;background:#25394a;color:white;
       padding:9px 13px;font:700 15px/1.1 Arial,sans-serif;border-radius:3px
@@ -136,6 +139,11 @@
   const results=new Map();
   const pending=new Set();
   const requests=new Map();
+  const autoQueue=[];
+  const autoActive=new Set();
+  const AUTO_CONCURRENCY=2;
+  let autoInflight=0;
+  let nativeLibraryReady=false;
   const status=document.createElement('div');
   status.id='stv-tv-status';status.setAttribute('role','status');
   status.style.cssText='padding:16px 54px;background:#20303a;color:#fff;font:16px/1.5 Arial,sans-serif';
@@ -144,17 +152,25 @@
   document.body.prepend(status);
   let completed=0,found=0,failed=0,libraryCount=null,lastError='',timeout;
   const hasBridge=()=>typeof window.SelectionTvAndroid?.lookup==='function';
+  const nativeReadyNow=()=>{
+    if(nativeLibraryReady)return true;
+    try{nativeLibraryReady=window.SelectionTvAndroid?.isLibraryReady?.()===true}catch{}
+    return nativeLibraryReady;
+  };
   const updateStatus=()=>{
     if(!hasBridge()){
       statusText.textContent='Connexion native Jellyfin indisponible dans cet écran.';retry.hidden=false;return;
     }
+    if(!nativeReadyNow()){
+      statusText.textContent='Jellyfin · préparation de la bibliothèque…';retry.hidden=true;return;
+    }
     const count=libraryCount===null?'':` · ${libraryCount} films et séries accessibles`;
     statusText.textContent=failed
-      ? `Jellyfin : ${failed} recherche(s) en erreur${lastError?' ('+lastError+')':''}. Vérifiez la connexion au serveur.`
-      : pending.size
-        ? `Recherche dans Jellyfin… ${completed}/${sent.size}${count}`
-        : `Jellyfin : ${found} œuvre(s) reconnue(s)${count}`;
-    retry.hidden=pending.size>0||(!failed&&found>0);
+      ? `Jellyfin : ${failed} recherche(s) en erreur${lastError?' ('+lastError+')':''}.`
+      : (pending.size||autoQueue.length)
+        ? `Analyse Jellyfin… ${completed}/${sent.size}${count}`
+        : `Jellyfin : ${found} œuvre(s) présente(s) sur ${completed} vérifiée(s)${count}`;
+    retry.hidden=pending.size>0||autoQueue.length>0||(!failed&&completed>0);
   };
   const armTimeout=()=>{
     clearTimeout(timeout);
@@ -239,9 +255,32 @@
         action.box.insertBefore(pill,action.open);
         action.open.textContent='Ouvrir dans Jellyfin';action.open.dataset.state='found';
       }else{
-        action.open.textContent='Chercher dans Jellyfin';action.open.dataset.state='';
+        const absent=document.createElement('span');absent.className='stv-tv-present stv-tv-absent';absent.textContent='Pas dans Jellyfin';
+        action.box.insertBefore(absent,action.open);
+        action.open.textContent='Rechercher à nouveau';action.open.dataset.state='missing';
       }
     }
+  };
+
+  const pumpAutoScan=()=>{
+    if(!hasBridge()||!nativeReadyNow())return;
+    while(autoInflight<AUTO_CONCURRENCY&&autoQueue.length){
+      const req=autoQueue.shift();
+      if(!req||results.has(req.key))continue;
+      autoInflight++;
+      autoActive.add(req.key);
+      pending.add(req.key);
+      updateStatus();armTimeout();
+      try{window.SelectionTvAndroid.lookup(JSON.stringify(req))}
+      catch{window.SelectionTvAndroidResult({key:req.key,error:true})}
+    }
+  };
+
+  window.SelectionTvAndroidLibraryReady=count=>{
+    nativeLibraryReady=true;
+    if(Number.isFinite(Number(count)))libraryCount=Number(count);
+    updateStatus();
+    pumpAutoScan();
   };
 
   window.SelectionTvAndroidResult=result=>{
@@ -254,8 +293,10 @@
     }
     if(Number.isFinite(result.libraryCount))libraryCount=result.libraryCount;
     if(!result.error){results.set(result.key,result);render(result)}
+    if(autoActive.delete(result.key))autoInflight=Math.max(0,autoInflight-1);
     if(!pending.size)clearTimeout(timeout);
     updateStatus();
+    pumpAutoScan();
   };
 
   const queryElement=el=>{
@@ -272,9 +313,9 @@
     if(results.has(key)){render(results.get(key));return}
     if(sent.has(key)||!hasBridge())return;
     sent.add(key);
-    pending.add(key);updateStatus();armTimeout();
-    try{window.SelectionTvAndroid.lookup(JSON.stringify(req))}
-    catch{window.SelectionTvAndroidResult({key,error:true})}
+    autoQueue.push(req);
+    updateStatus();
+    pumpAutoScan();
   };
 
   window.SelectionTvAndroidOpenResult=result=>{
@@ -420,9 +461,18 @@
   },true);
 
   retry.onclick=()=>{
-    sent.clear();pending.clear();results.clear();requests.clear();completed=0;found=0;failed=0;
-    document.querySelectorAll(SELECTOR).forEach(queryElement);updateStatus();
+    sent.clear();pending.clear();results.clear();requests.clear();autoQueue.length=0;autoActive.clear();autoInflight=0;
+    completed=0;found=0;failed=0;
+    document.querySelectorAll(SELECTOR).forEach(queryElement);updateStatus();pumpAutoScan();
   };
+
+  const readyPoll=setInterval(()=>{
+    if(nativeReadyNow()){
+      clearInterval(readyPoll);
+      updateStatus();
+      pumpAutoScan();
+    }
+  },500);
 
   Promise.all([
     fetch('../../data/works.json',{cache:'no-store'}).then(r=>r.ok?r.json():{works:[]}).catch(()=>({works:[]})),
