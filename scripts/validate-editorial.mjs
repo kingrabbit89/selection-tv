@@ -31,17 +31,16 @@ for(const p of week.pages||[]){
   while((m=grid.exec(p.html||'')))ratingCandidates.add(m[1].trim());
 }
 const ratingMissing=[...ratingCandidates].filter(title=>{
-  const key=norm(title),w=worksByTitle.get(key),l=linksByTitle.get(key)||{};
-  const ratingSource=!!(l.imdb||l.sc);
-  return ratingSource && !w?.ratings && !w?.ratings_unavailable_reason;
+  const key=norm(title),w=worksByTitle.get(key);
+  return !w?.ratings && !w?.ratings_unavailable_reason;
 });
 if(ratingMissing.length){
-  console.warn('! Central ratings missing: '+ratingMissing.join(' | '));
+  console.warn('! Central ratings or explicit unavailable reason missing: '+ratingMissing.join(' | '));
 }
 
 const strict=latest>='2026-S41';
 if(strict && missing.length){console.error('✗ Every retained item must have an exact direct link from S41 onward');process.exitCode=1}
-if(strict && ratingMissing.length){console.error('✗ Every rated work with IMDb/SensCritique links must carry central ratings or an explicit unavailable reason from S41 onward');process.exitCode=1}
+if(strict && ratingMissing.length){console.error('✗ Every visual work must carry central ratings or an explicit ratings_unavailable_reason from S41 onward');process.exitCode=1}
 const covPath='data/coverage/'+latest+'.json';
 if(strict){
  const pers=week.personalization;
