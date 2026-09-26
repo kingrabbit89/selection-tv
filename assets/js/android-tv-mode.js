@@ -71,8 +71,10 @@
       appearance:none;border:2px solid #8197aa;background:#25394a;color:white;
       padding:9px 13px;font:700 15px/1.1 Arial,sans-serif;border-radius:3px
     }
-    body.android-tv-mode button.stv-tv-open:focus{
-      outline:4px solid #fff;outline-offset:4px;background:#3a5870
+    body.android-tv-mode button.stv-tv-open:focus,
+    body.android-tv-mode button.stv-tv-open.stv-tv-focused{
+      outline:5px solid #fff;outline-offset:5px;background:#3a5870;
+      transform:scale(1.04)
     }
     body.android-tv-mode button.stv-tv-open[data-state="found"]{border-color:#7fa48d;background:#284636}
     body.android-tv-mode button.stv-tv-open[data-state="missing"]{border-color:#8d7f69;background:#40372c}
@@ -181,7 +183,8 @@
     }
     let open=box.querySelector('button.stv-tv-open');
     if(!open){
-      open=document.createElement('button');open.type='button';open.className='stv-tv-open';
+      open=document.createElement('button');open.type='button';open.className='stv-tv-open';open.tabIndex=0;
+      open.setAttribute('aria-label','Chercher cette œuvre dans Jellyfin');
       open.textContent='Chercher dans Jellyfin';
       box.append(open);
     }
@@ -258,6 +261,76 @@
       }
     }
   };
+
+  const focusableControls=()=>[...document.querySelectorAll('button.stv-tv-open:not([hidden])')].filter(el=>{
+    const r=el.getBoundingClientRect();
+    const cs=getComputedStyle(el);
+    return r.width>0&&r.height>0&&cs.visibility!=='hidden'&&cs.display!=='none'&&!el.disabled;
+  });
+  const focusControl=el=>{
+    if(!el)return false;
+    document.querySelectorAll('.stv-tv-focused').forEach(x=>x.classList.remove('stv-tv-focused'));
+    el.classList.add('stv-tv-focused');
+    try{el.focus({preventScroll:true})}catch{try{el.focus()}catch{}}
+    try{el.scrollIntoView({behavior:'smooth',block:'center',inline:'nearest'})}catch{el.scrollIntoView()}
+    return true;
+  };
+  const moveFocus=direction=>{
+    const controls=focusableControls();
+    if(!controls.length)return false;
+    let current=document.activeElement;
+    if(!controls.includes(current)){
+      current=controls.find(el=>el.getBoundingClientRect().top>=0)||controls[0];
+      return focusControl(current);
+    }
+
+    const cr=current.getBoundingClientRect();
+    const cx=cr.left+cr.width/2,cy=cr.top+cr.height/2;
+    let best=null,bestScore=Infinity;
+    for(const el of controls){
+      if(el===current)continue;
+      const r=el.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;
+      const dx=x-cx,dy=y-cy;
+      let primary,secondary,ok=false;
+      if(direction==='right'){ok=dx>8;primary=dx;secondary=Math.abs(dy)}
+      else if(direction==='left'){ok=dx<-8;primary=-dx;secondary=Math.abs(dy)}
+      else if(direction==='down'){ok=dy>8;primary=dy;secondary=Math.abs(dx)}
+      else if(direction==='up'){ok=dy<-8;primary=-dy;secondary=Math.abs(dx)}
+      if(!ok)continue;
+      const score=primary+(secondary*2.4);
+      if(score<bestScore){bestScore=score;best=el}
+    }
+
+    if(!best){
+      const i=controls.indexOf(current);
+      if(direction==='down'||direction==='right')best=controls[Math.min(controls.length-1,i+1)];
+      else best=controls[Math.max(0,i-1)];
+    }
+    return focusControl(best);
+  };
+  const activateFocused=()=>{
+    const controls=focusableControls();
+    const current=controls.includes(document.activeElement)?document.activeElement:controls[0];
+    if(!current)return false;
+    focusControl(current);
+    current.click();
+    return true;
+  };
+  window.SelectionTvTvRemote=command=>{
+    if(command==='activate'||command==='center'||command==='enter')return activateFocused();
+    if(['up','down','left','right'].includes(command))return moveFocus(command);
+    if(command==='first')return focusControl(focusableControls()[0]);
+    return false;
+  };
+  document.addEventListener('keydown',event=>{
+    const map={ArrowUp:'up',ArrowDown:'down',ArrowLeft:'left',ArrowRight:'right',Enter:'activate',' ':'activate'};
+    const command=map[event.key];
+    if(!command)return;
+    if(window.SelectionTvTvRemote(command)){
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  },true);
 
   retry.onclick=()=>{
     sent.clear();pending.clear();results.clear();requests.clear();completed=0;found=0;failed=0;
