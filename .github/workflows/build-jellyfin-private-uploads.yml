@@ -29,6 +29,16 @@ jobs:
         run: |
           node --check assets/js/jellyfin-bridge.js
           node --check assets/js/jellyfin-private-uploads.js
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          html = Path("integrations/jellyfin/selection-tv.html").read_text(encoding="utf-8")
+          scripts = re.findall(r"<script[^>]*>(.*?)</script>", html, flags=re.S|re.I)
+          if not scripts:
+              raise SystemExit("No inline script found in selection-tv.html")
+          Path("/tmp/selection-tv-inline.js").write_text("\n".join(scripts), encoding="utf-8")
+          PY
+          node --check /tmp/selection-tv-inline.js
 
       - name: Restore
         run: dotnet restore integrations/jellyfin/private-uploads/Jellyfin.Plugin.SelectionTvPrivate.csproj
@@ -42,6 +52,7 @@ jobs:
           cp integrations/jellyfin/private-uploads/bin/Release/net9.0/Jellyfin.Plugin.SelectionTvPrivate.dll dist/SelectionTvPrivate/
           cp integrations/jellyfin/private-uploads/config.example.json dist/SelectionTvPrivate/config.example.json
           cp integrations/jellyfin/private-uploads/README.md dist/SelectionTvPrivate/README.md
+          cp integrations/jellyfin/selection-tv.html dist/SelectionTvPrivate/selection-tv.html
 
       - name: Upload plugin artifact
         uses: actions/upload-artifact@v4
