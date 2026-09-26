@@ -86,13 +86,172 @@
   }
 
   var libraryIndexPromise=null;
+  var libraryIndexCurrent=null;
+  var libraryIndexRefreshPromise=null;
   var libraryDetailCache=new Map();
+  var persistentMatches=null;
+  var LIBRARY_CACHE_VERSION=3;
+  var LIBRARY_CACHE_TTL=12*60*60*1000;
+  var MATCH_CACHE_TTL=30*24*60*60*1000;
+
+  function cacheIdentity(){
+    var a=api();
+    var server='';
+    try{server=typeof a.serverId==='function'?a.serverId():''}catch(e){}
+    if(!server){
+      try{server=String(a.serverAddress&&a.serverAddress()||location.origin)}catch(e){server=location.origin}
+    }
+    var user='';
+    try{user=String(a.getCurrentUserId&&a.getCurrentUserId()||'')}catch(e){}
+    return norm(server)+'|'+user;
+  }
+
+  function libraryCacheKey(){
+    return 'selectionTv_library_index_v'+LIBRARY_CACHE_VERSION+'|'+cacheIdentity();
+  }
+
+  function matchCacheKey(){
+    return 'selectionTv_library_matches_v'+LIBRARY_CACHE_VERSION+'|'+cacheIdentity();
+  }
+
+  function compactItem(item){
+    var ids=providerIds(item);
+    return [
+      item.Id||item.id||'',
+      item.Name||item.name||'',
+      item.OriginalTitle||item.originalTitle||'',
+      Number(item.ProductionYear||item.productionYear)||0,
+      String(ids.Imdb||ids.IMDb||ids.imdb||''),
+      String(ids.Tmdb||ids.TMDb||ids.tmdb||''),
+      item.Type||item.type||''
+    ];
+  }
+
+  function inflateItem(row){
+    return {
+      Id:row[0]||'',
+      Name:row[1]||'',
+      OriginalTitle:row[2]||'',
+      ProductionYear:Number(row[3])||0,
+      ProviderIds:{Imdb:row[4]||'',Tmdb:row[5]||''},
+      Type:row[6]||''
+    };
+  }
 
   function pushMap(map,key,item){
     if(!key)return;
     var list=map.get(key);
     if(!list){list=[];map.set(key,list)}
     list.push(item);
+  }
+
+  function makeLibraryIndex(items){
+    var index={
+      items:items||[],
+      byImdb:new Map(),
+      byTmdb:new Map(),
+      byName:new Map()
+    };
+
+    index.items.forEach(function(item){
+      var imdb=imdbOf(item);
+      var tmdb=tmdbOf(item);
+      if(imdb)pushMap(index.byImdb,imdb,item);
+      if(tmdb)pushMap(index.byTmdb,tmdb,item);
+      [item.Name,item.name,item.OriginalTitle,item.originalTitle].filter(Boolean).forEach(function(name){
+        pushMap(index.byName,norm(name),item);
+      });
+    });
+
+    return index;
+  }
+
+  function loadLibraryCache(){
+    try{
+      var raw=localStorage.getItem(libraryCacheKey());
+      if(!raw)return null;
+      var parsed=JSON.parse(raw);
+      if(!parsed||parsed.version!==LIBRARY_CACHE_VERSION||!Array.isArray(parsed.items))return null;
+      return {
+        savedAt:Number(parsed.savedAt)||0,
+        index:makeLibraryIndex(parsed.items.map(inflateItem))
+      };
+    }catch(e){
+      return null;
+    }
+  }
+
+  function loadPersistentMatches(){
+    if(persistentMatches)return persistentMatches;
+    try{
+      var parsed=JSON.parse(localStorage.getItem(matchCacheKey())||'{}');
+      persistentMatches=parsed&&typeof parsed==='object'?parsed:{};
+    }catch(e){
+      persistentMatches={};
+    }
+    return persistentMatches;
+  }
+
+  function savePersistentMatches(){
+    try{localStorage.setItem(matchCacheKey(),JSON.stringify(loadPersistentMatches()))}catch(e){}
+  }
+
+  function prunePersistentMatches(index){
+    var valid=new Set(index.items.map(function(item){return item.Id||item.id||''}).filter(Boolean));
+    var matches=loadPersistentMatches();
+    var changed=false;
+    Object.keys(matches).forEach(function(key){
+      var m=matches[key];
+      if(!m||!valid.has(m.itemId)||Date.now()-(Number(m.savedAt)||0)>MATCH_CACHE_TTL){
+        delete matches[key];
+        changed=true;
+      }
+    });
+    if(changed)savePersistentMatches();
+  }
+
+  function saveLibraryCache(index){
+    try{
+      localStorage.setItem(libraryCacheKey(),JSON.stringify({
+        version:LIBRARY_CACHE_VERSION,
+        savedAt:Date.now(),
+        items:index.items.map(compactItem)
+      }));
+      prunePersistentMatches(index);
+    }catch(e){}
+  }
+
+  function rememberPositiveMatch(key,result){
+    if(!result||!result.found||!result.itemId)return;
+    var matches=loadPersistentMatches();
+    matches[key]={
+      itemId:result.itemId,
+      name:result.name||'',
+      played:!!result.played,
+      quality:result.quality||'',
+      savedAt:Date.now()
+    };
+    savePersistentMatches();
+  }
+
+  function cachedPositiveMatch(key){
+    var matches=loadPersistentMatches();
+    var m=matches[key];
+    if(!m||!m.itemId)return null;
+    if(Date.now()-(Number(m.savedAt)||0)>MATCH_CACHE_TTL){
+      delete matches[key];
+      savePersistentMatches();
+      return null;
+    }
+    return {
+      key:key,
+      found:true,
+      itemId:m.itemId,
+      name:m.name||'',
+      played:!!m.played,
+      quality:m.quality||'',
+      cached:true
+    };
   }
 
   async function buildLibraryIndex(){
@@ -133,50 +292,54 @@
 
       if(!batch.length)break;
       startIndex+=batch.length;
-
-      // Jellyfin may clamp a requested Limit to a lower server-side value.
-      // Never infer "last page" merely because batch.length < pageSize when
-      // TotalRecordCount says more items still exist.
       if(expectedTotal&&startIndex>=expectedTotal)break;
-
-      // Safety against a server/client that ignores StartIndex and keeps
-      // returning the same page.
       if(!added)break;
-
-      // When TotalRecordCount is unavailable, a short page is the only useful
-      // end-of-list signal.
       if(!expectedTotal&&batch.length<pageSize)break;
     }while(startIndex<50000);
 
-    var index={
-      items:all,
-      byImdb:new Map(),
-      byTmdb:new Map(),
-      byName:new Map()
-    };
+    return makeLibraryIndex(all);
+  }
 
-    all.forEach(function(item){
-      var imdb=imdbOf(item);
-      var tmdb=tmdbOf(item);
-      if(imdb)pushMap(index.byImdb,imdb,item);
-      if(tmdb)pushMap(index.byTmdb,tmdb,item);
-      [item.Name,item.name,item.OriginalTitle,item.originalTitle].filter(Boolean).forEach(function(name){
-        pushMap(index.byName,norm(name),item);
-      });
+  function refreshLibraryIndex(background){
+    if(libraryIndexRefreshPromise)return libraryIndexRefreshPromise;
+    if(!background)setStatus('Jellyfin · préparation de l’index…','ok');
+
+    libraryIndexRefreshPromise=buildLibraryIndex().then(function(index){
+      libraryIndexCurrent=index;
+      saveLibraryCache(index);
+      setStatus('Jellyfin · bibliothèque synchronisée · '+index.items.length+' œuvres','ok');
+      return index;
+    }).catch(function(err){
+      if(!libraryIndexCurrent)setStatus('Jellyfin · recherche ciblée de secours','ok');
+      throw err;
+    }).finally(function(){
+      libraryIndexRefreshPromise=null;
     });
 
-    return index;
+    return libraryIndexRefreshPromise;
   }
 
   function ensureLibraryIndex(){
+    if(libraryIndexCurrent)return Promise.resolve(libraryIndexCurrent);
     if(libraryIndexPromise)return libraryIndexPromise;
-    setStatus('Jellyfin · indexation légère de la bibliothèque…','ok');
-    libraryIndexPromise=buildLibraryIndex().then(function(index){
-      setStatus('Jellyfin · index prêt · '+index.items.length+' œuvres','ok');
-      return index;
-    }).catch(function(err){
+
+    var cached=loadLibraryCache();
+    if(cached&&cached.index.items.length){
+      libraryIndexCurrent=cached.index;
+      libraryIndexPromise=Promise.resolve(libraryIndexCurrent);
+      var age=Date.now()-cached.savedAt;
+      setStatus('Jellyfin · cache bibliothèque · '+libraryIndexCurrent.items.length+' œuvres','ok');
+
+      if(age>LIBRARY_CACHE_TTL){
+        setTimeout(function(){
+          refreshLibraryIndex(true).catch(function(){});
+        },1200);
+      }
+      return libraryIndexPromise;
+    }
+
+    libraryIndexPromise=refreshLibraryIndex(false).finally(function(){
       libraryIndexPromise=null;
-      throw err;
     });
     return libraryIndexPromise;
   }
@@ -256,15 +419,19 @@
     return promise;
   }
 
-  async function findLibraryItem(req){
+  async function findLibraryIndexItem(req){
     var index=await ensureLibraryIndex();
-    var match=exactIndexMatch(index,req);
+    return exactIndexMatch(index,req);
+  }
+
+  async function findLibraryItem(req){
+    var match=await findLibraryIndexItem(req);
     return match?hydrateLibraryItem(match):null;
   }
 
   // Reused by the private-upload enrichment below. It returns a Jellyfin
-  // BaseItemDto, not just a yes/no badge, so one compact index can serve both
-  // the magazine and the private section.
+  // BaseItemDto, not just a yes/no badge, so one compact persistent index can
+  // serve both the static magazine and the changing private upload section.
   window.SelectionTvFindLibraryItem=findLibraryItem;
 
   function scoreItem(item,req){
@@ -358,20 +525,42 @@
     var key=req.key||[norm(req.title),req.year||'',req.imdbId||'',req.tmdbId||''].join('|');
     if(lookupCache.has(key))return lookupCache.get(key);
 
+    var persisted=cachedPositiveMatch(key);
+    if(persisted){
+      // Return immediately so "Dans Jellyfin" and "Ouvrir dans Jellyfin"
+      // appear without rescanning the library. Refresh user/quality details
+      // quietly in the background because those can change independently.
+      (async function(){
+        try{
+          var detail=await hydrateLibraryItem({Id:persisted.itemId,Name:persisted.name});
+          var fresh=resultFromItem(key,req,detail);
+          if(fresh.found){
+            rememberPositiveMatch(key,fresh);
+            send({type:'selection-tv:jellyfin-result',version:3,items:[fresh]});
+          }
+        }catch(e){}
+      })();
+      return persisted;
+    }
+
     var promise=(async function(){
       var item=null;
       try{
-        item=await findLibraryItem(req);
-      }catch(e){
-        // If the lightweight index itself fails, retain the targeted-search
-        // fallback rather than turning a transient API problem into "absent".
-      }
+        item=await findLibraryIndexItem(req);
+        if(item){
+          // The compact index already contains the stable Jellyfin ID. Return
+          // a verified match after one tiny detail lookup, not a full search.
+          item=await hydrateLibraryItem(item);
+        }
+      }catch(e){}
 
       if(!item)item=await fallbackSearch(req);
-      return resultFromItem(key,req,item);
+      var result=resultFromItem(key,req,item);
+      if(result.found)rememberPositiveMatch(key,result);
+      return result;
     })().catch(function(){
-      // Negative cache entries are useful only after a successful lookup.
-      // A transient API failure is deliberately not remembered.
+      // Never persist or retain a negative result caused by a transient API
+      // failure. A later opening/query gets a clean retry.
       lookupCache.delete(key);
       return {key:key,found:false,transient:true};
     });
@@ -453,11 +642,10 @@
       setStatus('API Jellyfin indisponible','err');
       return;
     }
-    setStatus('Jellyfin connecté · préparation de l’index…','ok');
     ensureLibraryIndex().catch(function(){
       setStatus('Jellyfin connecté · recherche ciblée de secours','ok');
     });
-    send({type:'selection-tv:jellyfin-ready',version:3});
+    send({type:'selection-tv:jellyfin-ready',version:4});
   }
 
   frame.addEventListener('load',function(){
