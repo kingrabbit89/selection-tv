@@ -11,7 +11,6 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.weight
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.fragment.app.Fragment
@@ -34,9 +33,7 @@ class SelectionTvFragment : Fragment() {
 			MainToolbar(MainToolbarActiveButton.SelectionTv)
 
 			AndroidView(
-				modifier = Modifier
-					.weight(1f)
-					.fillMaxSize(),
+				modifier = Modifier.fillMaxSize(),
 				factory = { context ->
 					WebView(context).also { view ->
 						webView = view
