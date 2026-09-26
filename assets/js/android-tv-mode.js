@@ -33,17 +33,28 @@
     body.android-tv-mode h2,body.android-tv-mode .grid-title{font-size:30px!important}
     body.android-tv-mode h3{font-size:23px!important;line-height:1.15!important}
     body.android-tv-mode p,body.android-tv-mode .reason,body.android-tv-mode .why2,
-    body.android-tv-mode .interest,body.android-tv-mode .deck{font-size:17px!important;line-height:1.45!important;color:#ddd7cd!important}
+    body.android-tv-mode .interest,body.android-tv-mode .deck{font-size:18px!important;line-height:1.46!important;color:#ddd7cd!important}
     body.android-tv-mode .work-meta,body.android-tv-mode .meta2,body.android-tv-mode .torrent-meta,
     body.android-tv-mode .slot,body.android-tv-mode .where,body.android-tv-mode .service{font-size:14px!important;line-height:1.4!important;color:#aaa59c!important}
     body.android-tv-mode .week-grid,body.android-tv-mode .week-grid-five,
-    body.android-tv-mode .radar-grid,body.android-tv-mode .torrent-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:26px!important}
-    body.android-tv-mode .feature-columns,body.android-tv-mode .hero-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:28px!important}
-    body.android-tv-mode .list-2,body.android-tv-mode .platform-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:28px 36px!important}
-    body.android-tv-mode .release-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:28px!important}
+    body.android-tv-mode .radar-grid,body.android-tv-mode .torrent-grid,
+    body.android-tv-mode .feature-columns,body.android-tv-mode .hero-grid,
+    body.android-tv-mode .list-2,body.android-tv-mode .platform-grid,
+    body.android-tv-mode .release-grid{
+      grid-template-columns:repeat(2,minmax(0,1fr))!important;
+      gap:36px 44px!important;
+      align-items:start!important
+    }
     body.android-tv-mode .week-card,body.android-tv-mode .feature,body.android-tv-mode .list-card,
     body.android-tv-mode .platform,body.android-tv-mode .release-card,body.android-tv-mode .radar-card,
-    body.android-tv-mode .torrent-card{border-color:#47505d!important}
+    body.android-tv-mode .torrent-card{
+      border-color:#47505d!important;
+      padding:18px!important;
+      min-width:0!important;
+      height:auto!important;
+      max-height:none!important;
+      overflow:visible!important
+    }
     body.android-tv-mode img{background:#171d26!important}
     body.android-tv-mode .rating-pill{
       display:inline-flex!important;align-items:center!important;
@@ -84,35 +95,16 @@
       scroll-margin-top:28px;scroll-margin-bottom:40px;
       transition:transform .12s ease,box-shadow .12s ease,background .12s ease
     }
-    body.android-tv-mode .week-card>p,
-    body.android-tv-mode .release-card>p,
-    body.android-tv-mode .radar-card p,
-    body.android-tv-mode .torrent-card p,
-    body.android-tv-mode .platform>p,
-    body.android-tv-mode .list-card>p,
-    body.android-tv-mode .feature>p,
-    body.android-tv-mode .feature .interest p,
-    body.android-tv-mode .why2 p{
-      display:-webkit-box!important;
-      -webkit-box-orient:vertical!important;
-      -webkit-line-clamp:5!important;
-      overflow:hidden!important
-    }
     body.android-tv-mode .stv-tv-focusable.stv-tv-card-focused,
     body.android-tv-mode .stv-tv-focusable:focus{
-      box-shadow:0 0 0 5px #fff,0 0 0 9px #3a5870!important;
-      background:#17212c!important;transform:scale(1.018);z-index:3
+      box-shadow:inset 0 0 0 5px #fff,0 0 0 3px #3a5870!important;
+      background:#17212c!important;z-index:3
     }
     body.android-tv-mode .stv-tv-focusable.stv-tv-card-focused button.stv-tv-open,
     body.android-tv-mode .stv-tv-focusable:focus button.stv-tv-open{
       background:#3a5870;border-color:#fff
     }
     body.android-tv-mode a{color:inherit!important;text-decoration:none!important}
-    @media(max-width:1400px){
-      body.android-tv-mode .week-grid,body.android-tv-mode .week-grid-five,
-      body.android-tv-mode .radar-grid,body.android-tv-mode .torrent-grid,
-      body.android-tv-mode .release-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
-    }
   `;
   document.head.append(style);
 
@@ -337,6 +329,28 @@
     revealCard(el);
     return true;
   };
+  const scrollInsideCurrentCard=(current,direction)=>{
+    const r=current.getBoundingClientRect();
+    const safeTop=28;
+    const safeBottom=Math.max(safeTop+160,window.innerHeight-40);
+    const step=Math.max(140,Math.floor((safeBottom-safeTop)*0.62));
+
+    if(direction==='down'&&r.bottom>safeBottom+16){
+      const amount=Math.min(step,r.bottom-safeBottom);
+      try{window.scrollBy({top:amount,left:0,behavior:'smooth'})}
+      catch{window.scrollBy(0,amount)}
+      return true;
+    }
+
+    if(direction==='up'&&r.top<safeTop-16){
+      const amount=Math.min(step,safeTop-r.top);
+      try{window.scrollBy({top:-amount,left:0,behavior:'smooth'})}
+      catch{window.scrollBy(0,-amount)}
+      return true;
+    }
+
+    return false;
+  };
   const moveFocus=direction=>{
     const controls=focusableCards();
     if(!controls.length)return false;
@@ -345,6 +359,8 @@
       current=controls.find(el=>el.getBoundingClientRect().top>=0)||controls[0];
       return focusCard(current);
     }
+
+    if((direction==='down'||direction==='up')&&scrollInsideCurrentCard(current,direction))return true;
 
     const cr=current.getBoundingClientRect();
     const cx=cr.left+cr.width/2,cy=cr.top+cr.height/2;
@@ -359,7 +375,7 @@
       else if(direction==='down'){ok=dy>8;primary=dy;secondary=Math.abs(dx)}
       else if(direction==='up'){ok=dy<-8;primary=-dy;secondary=Math.abs(dx)}
       if(!ok)continue;
-      const score=primary+(secondary*3.2);
+      const score=primary+(secondary*4.5);
       if(score<bestScore){bestScore=score;best=el}
     }
 
