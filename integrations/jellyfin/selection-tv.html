@@ -180,7 +180,7 @@
     var reqYear=Number(req.year)||0;
     if(reqYear){
       var exactYear=candidates.filter(function(item){
-        return Number(item.ProductionYear||item.productionYear)||0===reqYear;
+        return (Number(item.ProductionYear||item.productionYear)||0)===reqYear;
       });
       if(exactYear.length)return exactYear[0];
 
@@ -205,7 +205,7 @@
     var promise=(async function(){
       try{
         var r=await a.getItems(a.getCurrentUserId(),{
-          Ids:id,
+          Ids:[id],
           Fields:'ProviderIds,OriginalTitle,UserData,MediaSources,Genres,Overview,People,CommunityRating,ImageTags',
           EnableTotalRecordCount:false,
           Limit:1
