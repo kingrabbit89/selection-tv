@@ -9,7 +9,10 @@ fetch('data/manifest.json',{cache:'no-store'})
  .then(m=>{
    const w=(m.weeks||[]).find(x=>x.week===m.latest)||(m.weeks||[])[0];
    if(!w?.path)throw new Error('Numéro introuvable');
-   location.replace(new URL(w.path,location.href).href);
+   const target=new URL(w.path,location.href);
+   const params=new URLSearchParams(location.search);
+   if(params.get('tv')==='1')target.searchParams.set('tv','1');
+   location.replace(target.href);
  })
  .catch(()=>{location.replace('./')});
 </script>
