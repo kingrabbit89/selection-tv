@@ -291,12 +291,12 @@
     document.querySelectorAll('.toc-link[data-jellyfin-private="1"]').forEach(x=>x.remove());
   };
   const addToc=()=>{
-    const group=document.querySelector('#sommaire .toc-group');
-    if(!group||group.querySelector('[data-jellyfin-private="1"]'))return;
+    const groups=[...document.querySelectorAll('#sommaire .toc-group')];
+    const group=groups.find(g=>g.querySelector('.toc-link[href$="-selection"]'))||groups.at(-1);
+    if(!group||document.querySelector('#sommaire [data-jellyfin-private="1"]'))return;
     const a=document.createElement('a');a.className='toc-link';a.href='#jellyfin-uploads-1';a.dataset.jellyfinPrivate='1';
     a.innerHTML='<span class="toc-label">Vos Uploads<span class="toc-sub">24 dernières heures · privé Jellyfin</span></span><span class="toc-page">Jellyfin</span>';
-    const method=[...group.querySelectorAll('.toc-link')].find(x=>x.getAttribute('href')==='#methode');
-    method?group.insertBefore(a,method):group.append(a);
+    group.append(a);
   };
   const patchPrivate=(items,changedIndex)=>{
     const cards=[...document.querySelectorAll('.jellyfin-private-upload[data-private-index]')];
