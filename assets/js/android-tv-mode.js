@@ -78,6 +78,19 @@
     }
     body.android-tv-mode button.stv-tv-open[data-state="found"]{border-color:#7fa48d;background:#284636}
     body.android-tv-mode button.stv-tv-open[data-state="missing"]{border-color:#8d7f69;background:#40372c}
+    body.android-tv-mode .stv-tv-focusable{
+      position:relative;outline:none!important;border-radius:5px;
+      transition:transform .12s ease,box-shadow .12s ease,background .12s ease
+    }
+    body.android-tv-mode .stv-tv-focusable.stv-tv-card-focused,
+    body.android-tv-mode .stv-tv-focusable:focus{
+      box-shadow:0 0 0 5px #fff,0 0 0 9px #3a5870!important;
+      background:#17212c!important;transform:scale(1.018);z-index:3
+    }
+    body.android-tv-mode .stv-tv-focusable.stv-tv-card-focused button.stv-tv-open,
+    body.android-tv-mode .stv-tv-focusable:focus button.stv-tv-open{
+      background:#3a5870;border-color:#fff
+    }
     body.android-tv-mode a{color:inherit!important;text-decoration:none!important}
     @media(max-width:1400px){
       body.android-tv-mode .week-grid,body.android-tv-mode .week-grid-five,
@@ -188,6 +201,10 @@
       open.textContent='Chercher dans Jellyfin';
       box.append(open);
     }
+    el.classList.add('stv-tv-focusable');
+    el.tabIndex=0;
+    el.setAttribute('role','button');
+    el.setAttribute('aria-label',titleOf(el)+' — ouvrir dans Jellyfin');
     open.dataset.key=req.key;
     open.onclick=()=>{
       open.textContent='Recherche…';open.dataset.state='searching';
@@ -262,26 +279,27 @@
     }
   };
 
-  const focusableControls=()=>[...document.querySelectorAll('button.stv-tv-open:not([hidden])')].filter(el=>{
+  const focusableCards=()=>[...document.querySelectorAll('.stv-tv-focusable')].filter(el=>{
     const r=el.getBoundingClientRect();
     const cs=getComputedStyle(el);
-    return r.width>0&&r.height>0&&cs.visibility!=='hidden'&&cs.display!=='none'&&!el.disabled;
+    return r.width>0&&r.height>0&&cs.visibility!=='hidden'&&cs.display!=='none';
   });
-  const focusControl=el=>{
+  const focusCard=el=>{
     if(!el)return false;
+    document.querySelectorAll('.stv-tv-card-focused').forEach(x=>x.classList.remove('stv-tv-card-focused'));
     document.querySelectorAll('.stv-tv-focused').forEach(x=>x.classList.remove('stv-tv-focused'));
-    el.classList.add('stv-tv-focused');
+    el.classList.add('stv-tv-card-focused');
     try{el.focus({preventScroll:true})}catch{try{el.focus()}catch{}}
     try{el.scrollIntoView({behavior:'smooth',block:'center',inline:'nearest'})}catch{el.scrollIntoView()}
     return true;
   };
   const moveFocus=direction=>{
-    const controls=focusableControls();
+    const controls=focusableCards();
     if(!controls.length)return false;
     let current=document.activeElement;
     if(!controls.includes(current)){
       current=controls.find(el=>el.getBoundingClientRect().top>=0)||controls[0];
-      return focusControl(current);
+      return focusCard(current);
     }
 
     const cr=current.getBoundingClientRect();
@@ -306,22 +324,31 @@
       if(direction==='down'||direction==='right')best=controls[Math.min(controls.length-1,i+1)];
       else best=controls[Math.max(0,i-1)];
     }
-    return focusControl(best);
+    return focusCard(best);
   };
   const activateFocused=()=>{
-    const controls=focusableControls();
+    const controls=focusableCards();
     const current=controls.includes(document.activeElement)?document.activeElement:controls[0];
     if(!current)return false;
-    focusControl(current);
-    current.click();
+    focusCard(current);
+    const open=current.querySelector('button.stv-tv-open');
+    if(!open)return false;
+    open.click();
     return true;
   };
   window.SelectionTvTvRemote=command=>{
     if(command==='activate'||command==='center'||command==='enter')return activateFocused();
     if(['up','down','left','right'].includes(command))return moveFocus(command);
-    if(command==='first')return focusControl(focusableControls()[0]);
+    if(command==='first')return focusCard(focusableCards()[0]);
     return false;
   };
+  document.addEventListener('click',event=>{
+    const card=event.target?.closest?.('.stv-tv-focusable');
+    if(!card||event.target?.closest?.('button.stv-tv-open'))return;
+    const open=card.querySelector('button.stv-tv-open');
+    if(open)open.click();
+  },true);
+
   document.addEventListener('keydown',event=>{
     const map={ArrowUp:'up',ArrowDown:'down',ArrowLeft:'left',ArrowRight:'right',Enter:'activate',' ':'activate'};
     const command=map[event.key];
