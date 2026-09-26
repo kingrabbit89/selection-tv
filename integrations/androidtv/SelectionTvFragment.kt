@@ -74,7 +74,8 @@ class SelectionTvFragment : Fragment() {
 				val item = try {
 					withTimeout(QUICK_LOOKUP_TIMEOUT_MS) {
 						withContext(Dispatchers.IO) {
-							exactIndexMatch(ensureLibraryIndex(), request)
+							val index = ensureLibraryIndex()
+							exactIndexMatch(index, request) ?: conservativeIndexMatch(index, request)
 						}
 					}
 				} catch (timeout: TimeoutCancellationException) {
@@ -341,7 +342,7 @@ class SelectionTvFragment : Fragment() {
 			while (startIndex < MAX_LIBRARY_ITEMS) {
 				val result = api.itemsApi.getItems(
 					recursive = true,
-					includeItemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES, BaseItemKind.VIDEO),
+					includeItemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES, BaseItemKind.VIDEO, BaseItemKind.EPISODE),
 					fields = setOf(
 						ItemFields.PROVIDER_IDS,
 						ItemFields.ORIGINAL_TITLE,
@@ -405,8 +406,11 @@ class SelectionTvFragment : Fragment() {
 			return fallbackSearch(request)
 		}
 
-		// No hit in the snapshot: targeted search is live and can see an item
-		// added after the snapshot was built.
+		// No hit in the snapshot. The library may have changed since this
+		// fragment was opened, so refresh once before falling back to search.
+		val refreshed = refreshLibraryIndex()
+		exactIndexMatch(refreshed, request)?.let { return it }
+		conservativeIndexMatch(refreshed, request)?.let { return it }
 		return fallbackSearch(request)
 	}
 
@@ -528,23 +532,30 @@ class SelectionTvFragment : Fragment() {
 		var successfulSearches = 0
 
 		for (term in requestTitleCandidates(request).take(MAX_SEARCH_TERMS)) {
-			// Normal identified film/series libraries.
-			searchRepository.search(
-				searchTerm = term,
-				itemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES),
-			).getOrNull()?.let { items ->
-				successfulSearches++
-				items.forEach { all[it.id] = it }
-			}
-
-			// A small number of personal-library entries (obscure TV docs,
-			// unmatched files, etc.) are exposed by Jellyfin as generic Video.
-			// Search those separately because SearchRepository has a dedicated
-			// VIDEO request shape.
-			searchRepository.search(
-				searchTerm = term,
-				itemTypes = setOf(BaseItemKind.VIDEO),
-			).getOrNull()?.let { items ->
+			// Mirror the Jellyfin Web bridge instead of routing through
+			// SearchRepository. The latter has a special "Video" request shape
+			// that excludes some video item kinds and made one-off TV
+			// documentaries behave differently on Android TV.
+			runCatching {
+				api.itemsApi.getItems(
+					recursive = true,
+					includeItemTypes = setOf(
+						BaseItemKind.MOVIE,
+						BaseItemKind.SERIES,
+						BaseItemKind.VIDEO,
+						BaseItemKind.EPISODE,
+					),
+					searchTerm = term,
+					fields = setOf(
+						ItemFields.PROVIDER_IDS,
+						ItemFields.ORIGINAL_TITLE,
+					),
+					limit = FALLBACK_SEARCH_LIMIT,
+					enableImages = false,
+					enableUserData = false,
+					enableTotalRecordCount = false,
+				).content.items
+			}.getOrNull()?.let { items ->
 				successfulSearches++
 				items.forEach { all[it.id] = it }
 			}
@@ -693,6 +704,7 @@ class SelectionTvFragment : Fragment() {
 		const val MAX_LIBRARY_ITEMS = 50_000
 		const val MATCH_THRESHOLD = 300
 		const val FALLBACK_MATCH_THRESHOLD = 150
+		const val FALLBACK_SEARCH_LIMIT = 25
 		const val MAX_SEARCH_TERMS = 6
 		const val LOOKUP_TIMEOUT_MS = 15_000L
 		const val QUICK_LOOKUP_TIMEOUT_MS = 8_000L
