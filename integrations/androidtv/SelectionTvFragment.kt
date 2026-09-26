@@ -311,7 +311,8 @@ class SelectionTvFragment : Fragment() {
 			val array = json.optJSONArray("aliases")
 			if (array != null) {
 				for (index in 0 until array.length()) {
-					array.optString(index).trim().takeIf { it.isNotBlank() }?.let(::add)
+					val value = array.optString(index).trim()
+					if (value.isNotBlank()) add(value)
 				}
 			}
 		}
