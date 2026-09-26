@@ -21,11 +21,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.compose.content
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeout
 import org.jellyfin.androidtv.ui.navigation.Destinations
 import org.jellyfin.androidtv.ui.navigation.NavigationRepository
 import org.jellyfin.androidtv.ui.search.SearchRepository
@@ -66,7 +68,16 @@ class SelectionTvFragment : Fragment() {
 			val request = parseLookup(payload) ?: return
 			lifecycleScope.launch {
 				val item = try {
-					withContext(Dispatchers.IO) { findLibraryItem(request) }
+					withTimeout(LOOKUP_TIMEOUT_MS) {
+						withContext(Dispatchers.IO) { findLibraryItem(request) }
+					}
+				} catch (timeout: TimeoutCancellationException) {
+					deliverResult(JSONObject().apply {
+						put("key", request.key)
+						put("error", "La recherche Jellyfin a expiré. Réessayez.")
+						put("errorType", "Timeout")
+					}.toString())
+					return@launch
 				} catch (cancelled: CancellationException) {
 					throw cancelled
 				} catch (error: Exception) {
@@ -181,7 +192,18 @@ class SelectionTvFragment : Fragment() {
 
 		lifecycleScope.launch {
 			val item = try {
-				withContext(Dispatchers.IO) { findLibraryItem(request) }
+				withTimeout(LOOKUP_TIMEOUT_MS) {
+					withContext(Dispatchers.IO) { findLibraryItem(request) }
+				}
+			} catch (timeout: TimeoutCancellationException) {
+				deliverOpenResult(
+					JSONObject().apply {
+						put("key", request.key)
+						put("error", true)
+						put("errorType", "Timeout")
+					}.toString()
+				)
+				return@launch
 			} catch (cancelled: CancellationException) {
 				throw cancelled
 			} catch (error: Exception) {
@@ -416,5 +438,6 @@ class SelectionTvFragment : Fragment() {
 		const val MAX_LIBRARY_ITEMS = 50_000
 		const val MATCH_THRESHOLD = 300
 		const val FALLBACK_MATCH_THRESHOLD = 150
+		const val LOOKUP_TIMEOUT_MS = 15_000L
 	}
 }
