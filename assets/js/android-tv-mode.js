@@ -467,9 +467,10 @@
       const key=cacheKeyFor(title,year,ids);
       let model=byKey.get(key);
       if(!model){
+        const work=works.get(norm(title))||{};
         model={
           key,title,year,imdbId:ids.imdbId,tmdbId:ids.tmdbId,
-          image:imageOf(source),meta:metaTexts(source),ratings:ratingsOf(source),
+          image:imageOf(source)||work.image||'',meta:metaTexts(source),ratings:ratingsOf(source),
           description:descOf(source),state:'unknown',itemId:'',source
         };
         loadCachedState(model);
