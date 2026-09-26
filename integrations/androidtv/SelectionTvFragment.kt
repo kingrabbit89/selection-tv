@@ -64,6 +64,9 @@ class SelectionTvFragment : Fragment() {
 
 	private inner class SelectionTvJavascriptBridge {
 		@JavascriptInterface
+		fun isLibraryReady(): Boolean = libraryIndex != null
+
+		@JavascriptInterface
 		fun lookup(payload: String) {
 			val request = parseLookup(payload) ?: return
 			lifecycleScope.launch {
@@ -181,6 +184,7 @@ class SelectionTvFragment : Fragment() {
 						// before the user opens a card.
 						lifecycleScope.launch(Dispatchers.IO) {
 							runCatching { ensureLibraryIndex() }
+								.onSuccess { deliverLibraryReady(it.size) }
 						}
 					}
 				},
@@ -465,6 +469,13 @@ class SelectionTvFragment : Fragment() {
 			.replace(Regex("\\bdr\\b"), "doctor")
 
 		return text
+	}
+
+	private fun deliverLibraryReady(count: Int) {
+		val script = "window.SelectionTvAndroidLibraryReady && window.SelectionTvAndroidLibraryReady($count);"
+		webView?.post {
+			webView?.evaluateJavascript(script, null)
+		}
 	}
 
 	private fun deliverResult(json: String) {
