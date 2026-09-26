@@ -9,7 +9,7 @@
   const POSITIVE_TTL=30*24*60*60*1000;
   const NEGATIVE_TTL=24*60*60*1000;
   const QUICK_CONCURRENCY=2;
-  const DEEP_CONCURRENCY=1;
+  const DEEP_CONCURRENCY=2;
 
   document.documentElement.classList.add('android-tv-mode');
   document.body.classList.add('android-tv-mode');
@@ -323,11 +323,15 @@
   const renderStatus=()=>{
     const found=models.filter(x=>x.state==='found').length;
     const missing=models.filter(x=>x.state==='missing').length;
-    const unresolved=models.filter(x=>x.state==='unknown'||x.state==='queued'||x.state==='checking').length;
+    const checking=models.filter(x=>x.state==='checking').length;
+    const queued=models.filter(x=>x.state==='unknown'||x.state==='queued').length;
     const el=document.querySelector('.stv-tv-statusbar');
     if(!el)return;
     el.innerHTML=libraryReady
-      ? '<strong>Jellyfin</strong> · '+found+' présents · '+missing+' absents'+(unresolved?' · '+unresolved+' en cours':'')+(libraryCount?' · '+libraryCount+' éléments indexés':'')
+      ? '<strong>Jellyfin</strong> · '+found+' présents · '+missing+' absents'
+        +(checking?' · '+checking+' analysé'+(checking>1?'s':''):'')
+        +(queued?' · '+queued+' à vérifier':'')
+        +(libraryCount?' · '+libraryCount+' éléments indexés':'')
       : '<strong>Jellyfin</strong> · préparation de la bibliothèque…';
   };
   const scheduleStatus=()=>{
@@ -524,6 +528,7 @@
       pendingLookups.delete(key);
       if(kind==='quick'){
         quickInflight=Math.max(0,quickInflight-1);
+        model._queued=false;
         model.state='queued';
         model._deepQueued=false;
         updateTile(model);scheduleStatus();
@@ -535,7 +540,7 @@
         model._deepQueued=false;
         if(model.state!=='found'&&model.state!=='missing')model.state='unknown';
         updateTile(model);scheduleStatus();
-        deepTimer=setTimeout(pumpDeep,320);
+        deepTimer=setTimeout(pumpDeep,80);
       }else if(kind==='manual'){
         if(model.state!=='found'&&model.state!=='missing')model.state='unknown';
         updateTile(model);scheduleStatus();
@@ -615,15 +620,19 @@
     const model=byKey.get(result?.key);if(!model)return;
 
     if(result.quick){
+      model._queued=false;
       if(finishPending(model,'quick'))quickInflight=Math.max(0,quickInflight-1);
-    }else if(finishPending(model,'deep')){
-      deepActive.delete(model.key);
-      deepInflight=Math.max(0,deepInflight-1);
+    }else{
+      model._deepQueued=false;
+      if(finishPending(model,'deep')){
+        deepActive.delete(model.key);
+        deepInflight=Math.max(0,deepInflight-1);
+      }
     }
 
     if(result.error){
-      model._deepQueued=false;
       model.state='unknown';
+      if(result.quick)queueDeep(model);
     }else if(result.found){
       model.state='found';model.itemId=result.itemId||'';model.jellyfinName=result.name||'';
       model.sessionVerified=true;
@@ -710,5 +719,15 @@
         }
       }catch{}
     },500);
+
+    // Belt-and-braces background scheduler. It is intentionally cheap: it
+    // only wakes the existing pumps and never starts more than the configured
+    // concurrency limits.
+    setInterval(()=>{
+      if(!libraryReady)return;
+      pumpQuick();
+      pumpDeep();
+      scheduleStatus();
+    },2000);
   });
 })();
