@@ -257,7 +257,7 @@ class SelectionTvFragment : Fragment() {
 		lifecycleScope.launch {
 			val item = try {
 				withTimeout(LOOKUP_TIMEOUT_MS) {
-					withContext(Dispatchers.IO) { findLibraryItem(request) }
+					withContext(Dispatchers.IO) { findLibraryItemForOpen(request) }
 				}
 			} catch (timeout: TimeoutCancellationException) {
 				deliverOpenResult(
@@ -384,6 +384,51 @@ class SelectionTvFragment : Fragment() {
 		exactIndexMatch(index, request)?.let { return it }
 		conservativeIndexMatch(index, request)?.let { return it }
 		return fallbackSearch(request)
+	}
+
+	private suspend fun findLibraryItemForOpen(request: LookupRequest): BaseItemDto? {
+		// The UI may hold a positive match for 30 days. Replacing a media file
+		// can give the same movie a new Jellyfin UUID, so never navigate from a
+		// stale index entry without checking that UUID still exists server-side.
+		val currentIndex = ensureLibraryIndex()
+		val indexed = exactIndexMatch(currentIndex, request)
+			?: conservativeIndexMatch(currentIndex, request)
+
+		if (indexed != null) {
+			liveItemById(indexed.id)?.let { return it }
+
+			// The old UUID disappeared (typical remove + re-add / quality upgrade).
+			// Rebuild the index now, then resolve the same editorial work again.
+			val refreshed = refreshLibraryIndex()
+			exactIndexMatch(refreshed, request)?.let { return it }
+			conservativeIndexMatch(refreshed, request)?.let { return it }
+			return fallbackSearch(request)
+		}
+
+		// No hit in the snapshot: targeted search is live and can see an item
+		// added after the snapshot was built.
+		return fallbackSearch(request)
+	}
+
+	private suspend fun liveItemById(id: UUID): BaseItemDto? = runCatching {
+		api.itemsApi.getItems(
+			ids = setOf(id),
+			fields = setOf(
+				ItemFields.PROVIDER_IDS,
+				ItemFields.ORIGINAL_TITLE,
+			),
+			limit = 1,
+			enableImages = false,
+			enableUserData = false,
+			enableTotalRecordCount = false,
+		).content.items.firstOrNull { it.id == id }
+	}.getOrNull()
+
+	private suspend fun refreshLibraryIndex(): List<BaseItemDto> {
+		indexMutex.withLock {
+			libraryIndex = null
+		}
+		return ensureLibraryIndex()
 	}
 
 	private fun exactIndexMatch(
