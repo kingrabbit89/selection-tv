@@ -35,7 +35,7 @@ fetch(jsonUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.st
    // TV gets its metadata directly from works.json/links.json. Skip the browser
    // magazine enhancers, image hydrator, analytics and layout engine: on Fire TV
    // those scripts only mutated a hidden DOM and decoded images we never display.
-   await addScript(root+'assets/js/android-tv-mode.js?v=20260926-tv19');
+   await addScript(root+'assets/js/android-tv-mode.js?v=20260926-tv20');
    return;
  }
  await addScript(root+'assets/js/analytics.js?v=20260925-analytics1');
