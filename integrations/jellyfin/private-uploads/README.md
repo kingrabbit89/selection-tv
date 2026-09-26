@@ -4,6 +4,11 @@ Ce composant optionnel ajoute un endpoint **authentifié par Jellyfin** pour ali
 
 Il ne publie jamais les topics ou les identifiants dans GitHub Pages.
 
+
+### Fenêtre temporelle
+
+La rubrique applique une fenêtre glissante stricte (24 h par défaut). La date utilisée est l’activité du dernier message du topic. Si cette date n’est pas lisible dans la liste du sous-forum, le plugin vérifie directement le topic (et sa dernière page lorsqu’elle est paginée). Un sujet dont la date reste indéterminable est exclu au lieu d’être considéré comme récent.
+
 ## Principe
 
 1. Le plugin Jellyfin se connecte au forum côté serveur.
