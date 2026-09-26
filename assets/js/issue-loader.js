@@ -56,7 +56,7 @@ fetch(jsonUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.st
    }catch(e){}
    if(!androidTv)await addScript(root+'assets/js/seen-filter.js?v=20260924-exactlinks4');
  }
- if(androidTv)await addScript(root+'assets/js/android-tv-mode.js?v=20260926-tv13');
+ if(androidTv)await addScript(root+'assets/js/android-tv-mode.js?v=20260926-tv14');
  else await addScript(root+'assets/js/page-layout.js?v=20260926-jellyfin-scroll3');
 }).catch(err=>{document.body.innerHTML='<div style="padding:3rem;font-family:Arial;color:white;background:#171c23;min-height:100vh"><h1>Impossible de charger ce numéro</h1><p>'+esc(err.message)+'</p><p><a style="color:white" href="../../">Retour à l’accueil</a></p></div>'});
 })();
