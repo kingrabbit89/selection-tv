@@ -175,6 +175,13 @@ class SelectionTvFragment : Fragment() {
 						view.post {
 							view.requestFocus()
 						}
+
+						// Mirror the browser integration: build the compact provider/title
+						// index once in the background so exact IMDb/TMDb matches are ready
+						// before the user opens a card.
+						lifecycleScope.launch(Dispatchers.IO) {
+							runCatching { ensureLibraryIndex() }
+						}
 					}
 				},
 			)
@@ -301,146 +308,149 @@ class SelectionTvFragment : Fragment() {
 	}
 
 	private suspend fun findLibraryItem(request: LookupRequest): BaseItemDto? {
-		// First use the exact same search repository as Jellyfin Android TV's own
-		// "Rechercher" screen. Try a few safe alternate forms because catalogue titles
-		// often differ from editorial/broadcast titles (cuts, translated titles, "Mr"/"Mister", etc.).
-		val searchTerms = buildSearchTerms(request)
-		val nativeCandidates = linkedMapOf<UUID, BaseItemDto>()
-		for (term in searchTerms.take(MAX_SEARCH_TERMS)) {
-			searchRepository.search(
-				searchTerm = term,
-				itemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES),
-			).getOrNull().orEmpty().forEach { nativeCandidates[it.id] = it }
-		}
-
-		bestMatch(nativeCandidates.values, request, FALLBACK_MATCH_THRESHOLD)?.let { return it }
-
-		// Then use the compact full-library index for provider-id / original-title matches.
-		val items = ensureLibraryIndex()
-		bestMatch(items, request, MATCH_THRESHOLD)?.let { return it }
-
-		// Last chance: Jellyfin API title searches that explicitly return provider/original-title fields.
-		val apiCandidates = linkedMapOf<UUID, BaseItemDto>()
-		for (term in searchTerms.take(MAX_SEARCH_TERMS)) {
-			api.itemsApi.getItems(
-				searchTerm = term,
-				recursive = true,
-				includeItemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES),
-				fields = setOf(
-					ItemFields.PROVIDER_IDS,
-					ItemFields.ORIGINAL_TITLE,
-				),
-				limit = 20,
-				enableImages = false,
-				enableUserData = false,
-				enableTotalRecordCount = false,
-			).content.items.forEach { apiCandidates[it.id] = it }
-		}
-
-		return bestMatch(apiCandidates.values, request, FALLBACK_MATCH_THRESHOLD)
+		// Same order as the browser bridge that is already reliable:
+		// 1) compact library index, exact provider IDs first;
+		// 2) exact title/original-title (+ year disambiguation);
+		// 3) conservative targeted Jellyfin search.
+		val index = ensureLibraryIndex()
+		exactIndexMatch(index, request)?.let { return it }
+		return fallbackSearch(request)
 	}
 
-	private fun buildSearchTerms(request: LookupRequest): List<String> {
-		val terms = linkedSetOf<String>()
-		fun add(value: String?) {
-			val clean = value?.trim()?.replace(Regex("\\s+"), " ").orEmpty()
-			if (clean.length >= 2) terms += clean
-		}
-
-		add(request.title)
-
-		// Common editorial subtitles/cut labels: try the stable leading title too.
-		request.title
-			.split(Regex("\\s*[:–—]\\s*|\\s*,\\s*"))
-			.firstOrNull()
-			?.takeIf { it.split(Regex("\\s+")).size >= 2 }
-			?.let(::add)
-
-		// Known alternate/canonical titles for editions sharing the same underlying work.
-		KNOWN_ALIASES[request.imdbId]?.forEach(::add)
-
-		return terms.toList()
-	}
-
-	private fun bestMatch(
+	private fun exactIndexMatch(
 		items: Collection<BaseItemDto>,
 		request: LookupRequest,
-		threshold: Int,
 	): BaseItemDto? {
-		var best: BaseItemDto? = null
-		var bestScore = Int.MIN_VALUE
+		val reqImdb = request.imdbId?.lowercase().orEmpty()
+		val reqTmdb = request.tmdbId.orEmpty()
 
-		for (item in items) {
-			val score = score(item, request)
-			if (score > bestScore) {
-				best = item
-				bestScore = score
+		if (reqImdb.isNotBlank()) {
+			items.firstOrNull { item ->
+				providerId(item, "imdb").lowercase() == reqImdb
+			}?.let { return it }
+		}
+
+		if (reqTmdb.isNotBlank()) {
+			items.firstOrNull { item ->
+				providerId(item, "tmdb") == reqTmdb
+			}?.let { return it }
+		}
+
+		val targetNames = titleCandidates(request.title)
+			.map(::normalizeTitle)
+			.filter { it.isNotBlank() }
+			.toSet()
+
+		val candidates = items.filter { item ->
+			itemNames(item).any { normalizeTitle(it) in targetNames }
+		}
+
+		if (candidates.isEmpty()) return null
+
+		val reqYear = request.year
+		if (reqYear != null) {
+			candidates.firstOrNull { it.productionYear == reqYear }?.let { return it }
+
+			val near = candidates.filter { item ->
+				item.productionYear?.let { kotlin.math.abs(it - reqYear) <= 1 } == true
+			}
+			if (near.size == 1) return near.first()
+			return null
+		}
+
+		return candidates.singleOrNull()
+	}
+
+	private suspend fun fallbackSearch(request: LookupRequest): BaseItemDto? {
+		val all = linkedMapOf<UUID, BaseItemDto>()
+		var successfulSearches = 0
+
+		for (term in titleCandidates(request.title).take(3)) {
+			val result = searchRepository.search(
+				searchTerm = term,
+				itemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES),
+			)
+
+			result.getOrNull()?.let { items ->
+				successfulSearches++
+				items.forEach { all[it.id] = it }
 			}
 		}
 
-		return best?.takeIf { bestScore >= threshold }
+		if (successfulSearches == 0) return null
+
+		return all.values
+			.map { item -> item to browserStyleScore(item, request) }
+			.maxByOrNull { it.second }
+			?.takeIf { it.second >= FALLBACK_MATCH_THRESHOLD }
+			?.first
 	}
 
-	private fun score(item: BaseItemDto, request: LookupRequest): Int {
-		val providers = item.providerIds.orEmpty()
-		val imdb = providers.entries.firstOrNull { it.key.equals("imdb", ignoreCase = true) }?.value
-		val tmdb = providers.entries.firstOrNull { it.key.equals("tmdb", ignoreCase = true) }?.value
+	private fun browserStyleScore(item: BaseItemDto, request: LookupRequest): Int {
+		var score = 0
+		val targetNames = titleCandidates(request.title).map(::normalizeTitle)
+		val names = itemNames(item).map(::normalizeTitle)
+		val itemYear = item.productionYear
+		val reqYear = request.year
+		val itemImdb = providerId(item, "imdb").lowercase()
+		val itemTmdb = providerId(item, "tmdb")
 
-		if (!request.imdbId.isNullOrBlank() && imdb.equals(request.imdbId, ignoreCase = true)) return 10_000
-		if (!request.tmdbId.isNullOrBlank() && tmdb == request.tmdbId) return 9_000
+		if (!request.imdbId.isNullOrBlank() && itemImdb.isNotBlank() &&
+			itemImdb == request.imdbId.lowercase()
+		) score += 1000
 
-		val wanted = normalizeTitle(request.title)
-		if (wanted.isEmpty()) return Int.MIN_VALUE
+		if (!request.tmdbId.isNullOrBlank() && itemTmdb.isNotBlank() &&
+			itemTmdb == request.tmdbId
+		) score += 900
 
-		val aliases = KNOWN_ALIASES[request.imdbId].orEmpty().map(::normalizeTitle)
-		val names = listOfNotNull(item.name, item.originalTitle)
-			.map(::normalizeTitle)
-			.filter { it.isNotEmpty() }
-
-		// Exact canonical/alternate title is strong enough even when an alternate cut
-		// carries a different year (e.g. a 2020 recut of a 1990 film).
-		if (names.any { it == wanted }) return 500 + yearBonus(request.year, item.productionYear)
-		if (aliases.isNotEmpty() && names.any { it in aliases }) return 475
-
-		var titleScore = 0
-		for (name in names) {
-			titleScore = maxOf(titleScore, when {
-				name.contains(wanted) || wanted.contains(name) -> 260
-				else -> fuzzyTitleScore(wanted, name)
-			})
+		targetNames.forEachIndexed { index, target ->
+			score = when {
+				names.contains(target) -> maxOf(score, 160 - index * 8)
+				names.any { it.contains(target) || target.contains(it) } ->
+					maxOf(score, 55 - index * 5)
+				else -> score
+			}
 		}
 
-		return titleScore + yearBonus(request.year, item.productionYear)
+		if (reqYear != null && itemYear == reqYear) score += 60
+		else if (reqYear != null && itemYear != null && kotlin.math.abs(itemYear - reqYear) <= 1) score += 10
+
+		return score
 	}
 
-	private fun yearBonus(requestYear: Int?, itemYear: Int?): Int {
-		if (requestYear == null || itemYear == null) return 0
-		return when {
-			requestYear == itemYear -> 90
-			kotlin.math.abs(requestYear - itemYear) == 1 -> 20
-			else -> -40
+	private fun providerId(item: BaseItemDto, key: String): String =
+		item.providerIds.orEmpty().entries
+			.firstOrNull { it.key.equals(key, ignoreCase = true) }
+			?.value
+			.orEmpty()
+
+	private fun itemNames(item: BaseItemDto): List<String> =
+		listOfNotNull(item.name, item.originalTitle).filter { it.isNotBlank() }
+
+	private fun titleCandidates(title: String): List<String> {
+		val raw = title.trim()
+		val out = linkedSetOf<String>()
+
+		fun add(value: String) {
+			val cleaned = value.replace(Regex("\\s+"), " ").trim()
+			if (cleaned.isNotBlank()) out += cleaned
 		}
+
+		add(raw)
+
+		Regex("\\(([^()]{2,100})\\)")
+			.findAll(raw)
+			.map { it.groupValues[1] }
+			.forEach(::add)
+
+		add(raw.replace(Regex("\\s*\\([^()]+\\)\\s*"), " ").replace(Regex("\\s+"), " "))
+
+		if (Regex("\\s+-\\s+").containsMatchIn(raw)) {
+			add(raw.split(Regex("\\s+-\\s+"), limit = 2).first())
+		}
+
+		return out.take(3)
 	}
-
-	private fun fuzzyTitleScore(a: String, b: String): Int {
-		val left = meaningfulTokens(a)
-		val right = meaningfulTokens(b)
-		if (left.isEmpty() || right.isEmpty()) return 0
-
-		val common = left.intersect(right)
-		if (common.isEmpty()) return 0
-
-		val coverageSmall = common.size.toDouble() / minOf(left.size, right.size)
-		val coverageLarge = common.size.toDouble() / maxOf(left.size, right.size)
-		val prefixBonus = if (left.firstOrNull() == right.firstOrNull()) 35 else 0
-
-		return ((coverageSmall * 170) + (coverageLarge * 110)).toInt() + prefixBonus
-	}
-
-	private fun meaningfulTokens(value: String): Set<String> = normalizeTitle(value)
-		.split(' ')
-		.filter { it.length > 1 && it !in TITLE_STOP_WORDS }
-		.toSet()
 
 	private fun normalizeTitle(value: String): String {
 		var text = Normalizer.normalize(value.lowercase(), Normalizer.Form.NFD)
@@ -494,27 +504,7 @@ class SelectionTvFragment : Fragment() {
 		const val LIBRARY_PAGE_SIZE = 200
 		const val MAX_LIBRARY_ITEMS = 50_000
 		const val MATCH_THRESHOLD = 300
-		const val FALLBACK_MATCH_THRESHOLD = 165
+		const val FALLBACK_MATCH_THRESHOLD = 150
 		const val LOOKUP_TIMEOUT_MS = 15_000L
-		const val MAX_SEARCH_TERMS = 4
-
-		val TITLE_STOP_WORDS = setOf(
-			"le", "la", "les", "un", "une", "des", "du", "de", "d", "l",
-			"the", "a", "an", "of", "for", "and", "et",
-		)
-
-		val KNOWN_ALIASES = mapOf(
-			"tt0099674" to listOf(
-				"Le Parrain III",
-				"Le Parrain 3",
-				"The Godfather Part III",
-				"The Godfather Coda: The Death of Michael Corleone",
-			),
-			"tt0310775" to listOf(
-				"Sympathy for Mister Vengeance",
-				"Mr. Vengeance",
-				"Boksuneun naui geot",
-			),
-		)
 	}
 }
