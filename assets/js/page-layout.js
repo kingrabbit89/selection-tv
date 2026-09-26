@@ -3,8 +3,17 @@
 (()=>{
  const gridSelector='.week-grid,.radar-grid,.torrent-grid,.feature-columns,.hero-grid,.list-2,.platform-grid,.release-grid,.expire-grid,.cards5,.radargrid,.list2,.indexcols';
  let moves=[],styles=new Map(),labels=new Map(),continuations=[],timer,running=false;
- const originalPages=[...document.querySelectorAll('.book>.page')];
- const observer=new MutationObserver(()=>schedule());
+ const originalPages=[...document.querySelectorAll('.book>.page:not(.jellyfin-private-uploads-page)')];
+ const observer=new MutationObserver(records=>{
+   // Private upload cards are progressively enriched one by one. Their
+   // replacement must not trigger a full reflow of a very long issue, which
+   // otherwise fights native scroll anchoring near the end of the magazine.
+   const onlyPrivateInternal=records.length&&records.every(r=>{
+     const target=r.target instanceof Element?r.target:r.target?.parentElement;
+     return !!target?.closest?.('.jellyfin-private-uploads-page');
+   });
+   if(!onlyPrivateInternal)schedule();
+ });
  const observe=()=>observer.observe(document.querySelector('.book'),{childList:true,subtree:true});
  function rememberMove(node,parent,before=null){
    if(!moves.some(x=>x.node===node)){const marker=document.createComment('layout origin');node.before(marker);moves.push({node,marker})}
