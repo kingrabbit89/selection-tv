@@ -613,6 +613,56 @@
     return promise;
   }
 
+  async function liveItemById(itemId){
+    var a=api();
+    if(!a||!itemId)return null;
+    try{
+      var r=await a.getItems(a.getCurrentUserId(),{
+        Ids:[itemId],
+        Fields:'ProviderIds,OriginalTitle',
+        EnableTotalRecordCount:false,
+        EnableImages:false,
+        EnableUserData:false,
+        Limit:1
+      });
+      var items=r&&r.Items||r&&r.items||[];
+      return items.find(function(item){return String(item.Id||item.id||'')===String(itemId)})||null;
+    }catch(e){
+      return null;
+    }
+  }
+
+  async function resolveForOpen(req,staleItemId){
+    var live=await liveItemById(staleItemId);
+    if(live)return live;
+    if(!req||!req.title)return null;
+
+    var key=req.key||[norm(req.title),req.year||'',req.imdbId||'',req.tmdbId||''].join('|');
+    lookupCache.delete(key);
+    libraryDetailCache.delete(staleItemId);
+
+    var matches=loadPersistentMatches();
+    if(matches[key]){
+      delete matches[key];
+      savePersistentMatches();
+    }
+
+    // Force a fresh snapshot: remove+readd quality upgrades commonly assign
+    // a new Jellyfin item ID while keeping title/provider metadata identical.
+    try{await refreshLibraryIndex(false)}catch(e){}
+
+    var item=null;
+    try{item=await findLibraryIndexItem(req)}catch(e){}
+    if(!item){
+      try{item=await fallbackSearch(req)}catch(e){}
+    }
+    if(item){
+      var result=resultFromItem(key,req,item);
+      if(result.found)rememberPositiveMatch(key,result);
+    }
+    return item;
+  }
+
   function send(payload){
     if(frame&&frame.contentWindow){
       frame.contentWindow.postMessage(payload,CHILD_ORIGIN);
@@ -674,9 +724,17 @@
     }
 
     if(e.data.type==='selection-tv:jellyfin-open'&&e.data.itemId){
-      var a=api();
-      var serverId=a&&typeof a.serverId==='function'?a.serverId():'';
-      window.location.href='#/details?id='+encodeURIComponent(e.data.itemId)+(serverId?'&serverId='+encodeURIComponent(serverId):'');
+      (async function(){
+        var item=await resolveForOpen(e.data.request||null,e.data.itemId);
+        var itemId=item&&(item.Id||item.id);
+        if(!itemId){
+          setStatus('Jellyfin · ancien fichier supprimé, correspondance à recalculer','err');
+          return;
+        }
+        var a=api();
+        var serverId=a&&typeof a.serverId==='function'?a.serverId():'';
+        window.location.href='#/details?id='+encodeURIComponent(itemId)+(serverId?'&serverId='+encodeURIComponent(serverId):'');
+      })();
     }
   });
 
