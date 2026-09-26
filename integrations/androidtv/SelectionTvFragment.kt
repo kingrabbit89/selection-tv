@@ -302,34 +302,64 @@ class SelectionTvFragment : Fragment() {
 
 	private suspend fun findLibraryItem(request: LookupRequest): BaseItemDto? {
 		// First use the exact same search repository as Jellyfin Android TV's own
-		// "Rechercher" screen. This avoids subtle differences in request scoping on Fire TV.
-		val nativeSearch = searchRepository.search(
-			searchTerm = request.title,
-			itemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES),
-		).getOrNull().orEmpty()
+		// "Rechercher" screen. Try a few safe alternate forms because catalogue titles
+		// often differ from editorial/broadcast titles (cuts, translated titles, "Mr"/"Mister", etc.).
+		val searchTerms = buildSearchTerms(request)
+		val nativeCandidates = linkedMapOf<UUID, BaseItemDto>()
+		for (term in searchTerms.take(MAX_SEARCH_TERMS)) {
+			searchRepository.search(
+				searchTerm = term,
+				itemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES),
+			).getOrNull().orEmpty().forEach { nativeCandidates[it.id] = it }
+		}
 
-		bestMatch(nativeSearch, request, FALLBACK_MATCH_THRESHOLD)?.let { return it }
+		bestMatch(nativeCandidates.values, request, FALLBACK_MATCH_THRESHOLD)?.let { return it }
 
-		// Then use the compact full-library index for provider-id / alternate-title matches.
+		// Then use the compact full-library index for provider-id / original-title matches.
 		val items = ensureLibraryIndex()
 		bestMatch(items, request, MATCH_THRESHOLD)?.let { return it }
 
-		// Last chance: Jellyfin API title search with provider/original-title fields.
-		val search = api.itemsApi.getItems(
-			searchTerm = request.title,
-			recursive = true,
-			includeItemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES),
-			fields = setOf(
-				ItemFields.PROVIDER_IDS,
-				ItemFields.ORIGINAL_TITLE,
-			),
-			limit = 20,
-			enableImages = false,
-			enableUserData = false,
-			enableTotalRecordCount = false,
-		).content
+		// Last chance: Jellyfin API title searches that explicitly return provider/original-title fields.
+		val apiCandidates = linkedMapOf<UUID, BaseItemDto>()
+		for (term in searchTerms.take(MAX_SEARCH_TERMS)) {
+			api.itemsApi.getItems(
+				searchTerm = term,
+				recursive = true,
+				includeItemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES),
+				fields = setOf(
+					ItemFields.PROVIDER_IDS,
+					ItemFields.ORIGINAL_TITLE,
+				),
+				limit = 20,
+				enableImages = false,
+				enableUserData = false,
+				enableTotalRecordCount = false,
+			).content.items.forEach { apiCandidates[it.id] = it }
+		}
 
-		return bestMatch(search.items, request, FALLBACK_MATCH_THRESHOLD)
+		return bestMatch(apiCandidates.values, request, FALLBACK_MATCH_THRESHOLD)
+	}
+
+	private fun buildSearchTerms(request: LookupRequest): List<String> {
+		val terms = linkedSetOf<String>()
+		fun add(value: String?) {
+			val clean = value?.trim()?.replace(Regex("\\s+"), " ").orEmpty()
+			if (clean.length >= 2) terms += clean
+		}
+
+		add(request.title)
+
+		// Common editorial subtitles/cut labels: try the stable leading title too.
+		request.title
+			.split(Regex("\\s*[:–—]\\s*|\\s*,\\s*"))
+			.firstOrNull()
+			?.takeIf { it.split(Regex("\\s+")).size >= 2 }
+			?.let(::add)
+
+		// Known alternate/canonical titles for editions sharing the same underlying work.
+		KNOWN_ALIASES[request.imdbId]?.forEach(::add)
+
+		return terms.toList()
 	}
 
 	private fun bestMatch(
@@ -362,28 +392,55 @@ class SelectionTvFragment : Fragment() {
 		val wanted = normalizeTitle(request.title)
 		if (wanted.isEmpty()) return Int.MIN_VALUE
 
+		val aliases = KNOWN_ALIASES[request.imdbId].orEmpty().map(::normalizeTitle)
 		val names = listOfNotNull(item.name, item.originalTitle)
 			.map(::normalizeTitle)
 			.filter { it.isNotEmpty() }
 
-		var score = when {
-			names.any { it == wanted } -> 300
-			names.any { it.contains(wanted) || wanted.contains(it) } -> 150
-			else -> 0
+		// Exact canonical/alternate title is strong enough even when an alternate cut
+		// carries a different year (e.g. a 2020 recut of a 1990 film).
+		if (names.any { it == wanted }) return 500 + yearBonus(request.year, item.productionYear)
+		if (aliases.isNotEmpty() && names.any { it in aliases }) return 475
+
+		var titleScore = 0
+		for (name in names) {
+			titleScore = maxOf(titleScore, when {
+				name.contains(wanted) || wanted.contains(name) -> 260
+				else -> fuzzyTitleScore(wanted, name)
+			})
 		}
 
-		val requestYear = request.year
-		val itemYear = item.productionYear
-		if (requestYear != null && itemYear != null) {
-			score += when {
-				requestYear == itemYear -> 80
-				kotlin.math.abs(requestYear - itemYear) == 1 -> 15
-				else -> -80
-			}
-		}
-
-		return score
+		return titleScore + yearBonus(request.year, item.productionYear)
 	}
+
+	private fun yearBonus(requestYear: Int?, itemYear: Int?): Int {
+		if (requestYear == null || itemYear == null) return 0
+		return when {
+			requestYear == itemYear -> 90
+			kotlin.math.abs(requestYear - itemYear) == 1 -> 20
+			else -> -40
+		}
+	}
+
+	private fun fuzzyTitleScore(a: String, b: String): Int {
+		val left = meaningfulTokens(a)
+		val right = meaningfulTokens(b)
+		if (left.isEmpty() || right.isEmpty()) return 0
+
+		val common = left.intersect(right)
+		if (common.isEmpty()) return 0
+
+		val coverageSmall = common.size.toDouble() / minOf(left.size, right.size)
+		val coverageLarge = common.size.toDouble() / maxOf(left.size, right.size)
+		val prefixBonus = if (left.firstOrNull() == right.firstOrNull()) 35 else 0
+
+		return ((coverageSmall * 170) + (coverageLarge * 110)).toInt() + prefixBonus
+	}
+
+	private fun meaningfulTokens(value: String): Set<String> = normalizeTitle(value)
+		.split(' ')
+		.filter { it.length > 1 && it !in TITLE_STOP_WORDS }
+		.toSet()
 
 	private fun normalizeTitle(value: String): String {
 		var text = Normalizer.normalize(value.lowercase(), Normalizer.Form.NFD)
@@ -437,7 +494,27 @@ class SelectionTvFragment : Fragment() {
 		const val LIBRARY_PAGE_SIZE = 200
 		const val MAX_LIBRARY_ITEMS = 50_000
 		const val MATCH_THRESHOLD = 300
-		const val FALLBACK_MATCH_THRESHOLD = 150
+		const val FALLBACK_MATCH_THRESHOLD = 165
 		const val LOOKUP_TIMEOUT_MS = 15_000L
+		const val MAX_SEARCH_TERMS = 4
+
+		val TITLE_STOP_WORDS = setOf(
+			"le", "la", "les", "un", "une", "des", "du", "de", "d", "l",
+			"the", "a", "an", "of", "for", "and", "et",
+		)
+
+		val KNOWN_ALIASES = mapOf(
+			"tt0099674" to listOf(
+				"Le Parrain III",
+				"Le Parrain 3",
+				"The Godfather Part III",
+				"The Godfather Coda: The Death of Michael Corleone",
+			),
+			"tt0310775" to listOf(
+				"Sympathy for Mister Vengeance",
+				"Mr. Vengeance",
+				"Boksuneun naui geot",
+			),
+		)
 	}
 }
