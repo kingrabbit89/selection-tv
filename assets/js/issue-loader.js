@@ -26,7 +26,7 @@ fetch(jsonUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.st
  window.imgFail=img=>img.closest('.visual')?.classList.add('broken');
  document.body.innerHTML=toolbar+book;
  await addScript(root+'assets/js/analytics.js?v=20260925-analytics1');
- await addScript(root+'assets/js/jellyfin-bridge.js?v=20260926-jellyfin13');
+ await addScript(root+'assets/js/jellyfin-bridge.js?v=20260926-jellyfin14');
  await addScript(root+'assets/js/'+(d.theme==='magazine'?'magazine-week.js?v=20260924-exactlinks4':'archive-week.js?v=20260924-exactlinks4'));
  await addScript(root+'assets/js/image-resolver.js?v=20260924-exactlinks4');
  if(window.SelectionTVImagesReady)await window.SelectionTVImagesReady;
@@ -55,6 +55,6 @@ fetch(jsonUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.st
    }catch(e){}
    await addScript(root+'assets/js/seen-filter.js?v=20260924-exactlinks4');
  }
- await addScript(root+'assets/js/page-layout.js?v=20260925-jellyfin-toc2');
+ await addScript(root+'assets/js/page-layout.js?v=20260926-jellyfin-scroll3');
 }).catch(err=>{document.body.innerHTML='<div style="padding:3rem;font-family:Arial;color:white;background:#171c23;min-height:100vh"><h1>Impossible de charger ce numéro</h1><p>'+esc(err.message)+'</p><p><a style="color:white" href="../../">Retour à l’accueil</a></p></div>'});
 })();
