@@ -38,6 +38,7 @@ import org.jellyfin.sdk.api.client.extensions.itemsApi
 import org.jellyfin.sdk.model.api.BaseItemDto
 import org.jellyfin.sdk.model.api.BaseItemKind
 import org.jellyfin.sdk.model.api.ItemFields
+import org.jellyfin.sdk.model.api.MediaType
 import org.json.JSONObject
 import org.koin.android.ext.android.inject
 import java.text.Normalizer
@@ -342,7 +343,10 @@ class SelectionTvFragment : Fragment() {
 			while (startIndex < MAX_LIBRARY_ITEMS) {
 				val result = api.itemsApi.getItems(
 					recursive = true,
-					includeItemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES, BaseItemKind.VIDEO, BaseItemKind.EPISODE),
+					// Index every video-backed item, regardless of Jellyfin's
+					// concrete BaseItemKind. One-off documentaries are often
+					// classified differently from ordinary movies.
+					mediaTypes = listOf(MediaType.VIDEO),
 					fields = setOf(
 						ItemFields.PROVIDER_IDS,
 						ItemFields.ORIGINAL_TITLE,
@@ -539,12 +543,10 @@ class SelectionTvFragment : Fragment() {
 			runCatching {
 				api.itemsApi.getItems(
 					recursive = true,
-					includeItemTypes = setOf(
-						BaseItemKind.MOVIE,
-						BaseItemKind.SERIES,
-						BaseItemKind.VIDEO,
-						BaseItemKind.EPISODE,
-					),
+					// Search the same broad universe as the Web client: any
+					// video media item. This avoids missing documentaries that
+					// Jellyfin typed as something other than Movie/Video.
+					mediaTypes = listOf(MediaType.VIDEO),
 					searchTerm = term,
 					fields = setOf(
 						ItemFields.PROVIDER_IDS,
