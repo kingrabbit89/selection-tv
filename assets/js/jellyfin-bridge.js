@@ -327,8 +327,20 @@
   };
 
   const renderPrivate=async payload=>{
-    const raw=(payload.items||[]).filter(x=>x&&(x.title||x.titleGuess||x.topicTitle));
-    if(!raw.length)return;
+    const hours=Math.max(1,Math.min(168,Number(payload.windowHours)||24));
+    const cutoff=Date.now()-hours*60*60*1000;
+    const futureGrace=Date.now()+10*60*1000;
+    const raw=(payload.items||[]).filter(x=>{
+      if(!x||(x.title||x.titleGuess||x.topicTitle)==null)return false;
+      const value=x.activityAt||x.ActivityAt||'';
+      const at=Date.parse(value);
+      return Number.isFinite(at)&&at>=cutoff&&at<=futureGrace;
+    });
+    if(!raw.length){
+      removeOld();
+      document.dispatchEvent(new CustomEvent('selectiontv:privateuploadsrendered',{detail:{count:0,phase:payload.phase||''}}));
+      return;
+    }
     const catalog=await catalogPromise;
     const items=raw.map(x=>hydrateFromCatalog(x,catalog));
 
