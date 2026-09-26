@@ -227,7 +227,8 @@
   const stateLabel=model=>{
     if(model.state==='found')return 'Dans Jellyfin';
     if(model.state==='missing')return 'Pas dans Jellyfin';
-    if(model.state==='checking')return 'Vérification…';
+    if(model.state==='checking')return 'Analyse…';
+    if(model.state==='queued')return 'À vérifier';
     return 'À vérifier';
   };
   const updateTile=model=>{
@@ -276,11 +277,12 @@
 
   const renderStatus=()=>{
     const found=models.filter(x=>x.state==='found').length;
-    const unresolved=models.filter(x=>x.state==='unknown'||x.state==='checking').length;
+    const missing=models.filter(x=>x.state==='missing').length;
+    const unresolved=models.filter(x=>x.state==='unknown'||x.state==='queued'||x.state==='checking').length;
     const el=document.querySelector('.stv-tv-statusbar');
     if(!el)return;
     el.innerHTML=libraryReady
-      ? '<strong>Jellyfin</strong> · '+found+' dans la bibliothèque'+(unresolved?' · '+unresolved+' à vérifier':'')+(libraryCount?' · '+libraryCount+' éléments indexés':'')
+      ? '<strong>Jellyfin</strong> · '+found+' présents · '+missing+' absents'+(unresolved?' · '+unresolved+' en cours':'')+(libraryCount?' · '+libraryCount+' éléments indexés':'')
       : '<strong>Jellyfin</strong> · préparation de la bibliothèque…';
   };
 
