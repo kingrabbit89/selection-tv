@@ -27,14 +27,19 @@
     const u=metadata.links.get(norm(title))?.imdb||'';
     return u.match(/\/title\/(tt\d+)/i)?.[1]||'';
   };
+  const tmdbOf=title=>{
+    const u=metadata.links.get(norm(title))?.tmdb||'';
+    return u.match(/\/movie\/(\d+)/i)?.[1]||'';
+  };
   const infoFor=el=>{
     const title=titleOf(el);if(!title)return null;
     const work=metadata.works.get(norm(title));
     const workId=el.dataset.workId||work?.id||'';
     const year=yearOf(el,title);
     const imdbId=imdbOf(title);
-    const key=workId||imdbId||('title:'+norm(title)+'|'+year);
-    return {key,title,year,imdbId,workId};
+    const tmdbId=tmdbOf(title);
+    const key=workId||imdbId||tmdbId||('title:'+norm(title)+'|'+year);
+    return {key,title,year,imdbId,tmdbId,workId};
   };
   const remember=(info,el)=>{
     let set=keyToNodes.get(info.key);if(!set){set=new Set();keyToNodes.set(info.key,set)}
