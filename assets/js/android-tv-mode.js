@@ -228,13 +228,15 @@
     const year=yearOf(el,title),ids=idsOf(title);
     const key=ids.imdbId?('imdb:'+ids.imdbId):ids.tmdbId?('tmdb:'+ids.tmdbId):('title:'+norm(title)+'|'+year);
     addNode(key,el);
+    let req=requests.get(key);
+    if(!req){
+      req={requestId:++seq,key,title,year,imdbId:ids.imdbId,tmdbId:ids.tmdbId};
+      requests.set(key,req);
+    }
+    ensureAction(el,req);
     if(results.has(key)){render(results.get(key));return}
     if(sent.has(key)||!hasBridge())return;
     sent.add(key);
-    const req={requestId:++seq,key,title,year,imdbId:ids.imdbId,tmdbId:ids.tmdbId};
-    requests.set(key,req);
-    ensureAction(el,req);
-    if(!hasBridge())return;
     pending.add(key);updateStatus();armTimeout();
     try{window.SelectionTvAndroid.lookup(JSON.stringify(req))}
     catch{window.SelectionTvAndroidResult({key,error:true})}
