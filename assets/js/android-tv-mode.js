@@ -349,7 +349,7 @@
     }
     model.debug='';
     model.state='checking';updateTile(model);scheduleStatus();
-    beginPending(model,'manual',20000);
+    beginPending(model,'manual',26000);
     try{
       if(window.SelectionTvAndroid?.lookupAndOpen){
         window.SelectionTvAndroid.lookupAndOpen(JSON.stringify(requestFor(model)));
@@ -610,7 +610,7 @@
     if(model.state==='found'||model.state==='missing'){deepTimer=setTimeout(pumpDeep,80);return}
     deepInflight++;deepActive.add(model.key);
     model.state='checking';updateTile(model);scheduleStatus();
-    beginPending(model,'deep',20000);
+    beginPending(model,'deep',26000);
     try{window.SelectionTvAndroid?.lookup?.(JSON.stringify(requestFor(model)))}
     catch{
       finishPending(model,'deep');
@@ -641,6 +641,9 @@
     }
 
     if(result.error){
+      model.debug=result.quick
+        ? ''
+        : 'Échec recherche Jellyfin : '+String(result.errorType||result.error||'erreur inconnue');
       model.state='unknown';
       if(result.quick)queueDeep(model);
     }else if(result.found){
@@ -664,7 +667,7 @@
     const model=byKey.get(result?.key);if(!model)return;
     finishPending(model,'manual');
     if(result.error){
-      model.debug='';
+      model.debug='Échec recherche Jellyfin : '+String(result.errorType||result.error||'erreur inconnue');
       model.state='unknown';
     }else if(result.found){
       model.debug='';
