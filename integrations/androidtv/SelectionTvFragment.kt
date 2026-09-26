@@ -151,6 +151,12 @@ class SelectionTvFragment : Fragment() {
 		}
 
 		@JavascriptInterface
+		fun lookupAndOpen(payload: String) {
+			val request = parseLookup(payload) ?: return
+			launchOpenLookup(request)
+		}
+
+		@JavascriptInterface
 		fun openItem(itemId: String) {
 			val id = runCatching { UUID.fromString(itemId) }.getOrNull() ?: return
 			activity?.runOnUiThread {
@@ -256,6 +262,10 @@ class SelectionTvFragment : Fragment() {
 				.filter { it.isNotBlank() },
 		).takeIf { it.key.isNotBlank() && it.title.isNotBlank() } ?: return
 
+		launchOpenLookup(request)
+	}
+
+	private fun launchOpenLookup(request: LookupRequest) {
 		lifecycleScope.launch {
 			val item = try {
 				withTimeout(LOOKUP_TIMEOUT_MS) {
@@ -289,6 +299,7 @@ class SelectionTvFragment : Fragment() {
 						put("key", request.key)
 						put("found", true)
 						put("itemId", item.id.toString())
+						put("name", item.name ?: "")
 					}.toString()
 				)
 				navigationRepository.navigate(Destinations.itemDetails(item.id))
@@ -547,66 +558,51 @@ class SelectionTvFragment : Fragment() {
 			}
 		}.take(MAX_SEARCH_TERMS)
 
-	private suspend fun fallbackSearch(request: LookupRequest): BaseItemDto? {
+	private suspend fun nativeSearchCandidates(request: LookupRequest): List<BaseItemDto> {
 		val all = linkedMapOf<UUID, BaseItemDto>()
-		var successfulSearches = 0
+		val groups = listOf(
+			setOf(BaseItemKind.MOVIE),
+			setOf(BaseItemKind.SERIES),
+			setOf(BaseItemKind.EPISODE),
+			setOf(BaseItemKind.VIDEO),
+			setOf(BaseItemKind.LIVE_TV_PROGRAM),
+			setOf(BaseItemKind.LIVE_TV_CHANNEL),
+			setOf(BaseItemKind.PLAYLIST),
+			setOf(BaseItemKind.BOX_SET),
+		)
 
 		for (term in jellyfinSearchTerms(request)) {
-			// Final fallback deliberately has NO item-kind/media-type filter.
-			// The Web bridge can find certain one-off documentaries that the
-			// Android client exposes under an unexpected Jellyfin kind. We only
-			// accept the result afterwards if the title/provider score is high.
-			runCatching {
-				api.itemsApi.getItems(
-					recursive = true,
+			for (group in groups) {
+				searchRepository.search(
 					searchTerm = term,
-					fields = setOf(
-						ItemFields.PROVIDER_IDS,
-						ItemFields.ORIGINAL_TITLE,
-					),
-					limit = FALLBACK_SEARCH_LIMIT,
-					enableImages = false,
-					enableUserData = false,
-					enableTotalRecordCount = false,
-				).content.items
-			}.getOrNull()?.let { items ->
-				successfulSearches++
-				items.forEach { all[it.id] = it }
+					itemTypes = group,
+				).getOrNull()?.forEach { item ->
+					all[item.id] = item
+				}
 			}
 		}
+		return all.values.toList()
+	}
 
-		if (successfulSearches == 0) return null
-
-		return all.values
+	private suspend fun fallbackSearch(request: LookupRequest): BaseItemDto? =
+		nativeSearchCandidates(request)
 			.map { item -> item to browserStyleScore(item, request) }
 			.maxByOrNull { it.second }
 			?.takeIf { it.second >= FALLBACK_MATCH_THRESHOLD }
 			?.first
-	}
+
 
 	private suspend fun diagnosticCandidates(request: LookupRequest): String {
-		val all = linkedMapOf<UUID, BaseItemDto>()
-		for (term in jellyfinSearchTerms(request).take(2)) {
-			runCatching {
-				api.itemsApi.getItems(
-					recursive = true,
-					searchTerm = term,
-					fields = setOf(
-						ItemFields.PROVIDER_IDS,
-						ItemFields.ORIGINAL_TITLE,
-					),
-					limit = 8,
-					enableImages = false,
-					enableUserData = false,
-					enableTotalRecordCount = false,
-				).content.items
-			}.getOrNull()?.forEach { all[it.id] = it }
-		}
-		return all.values
+		val ranked = nativeSearchCandidates(request)
+			.map { item -> item to browserStyleScore(item, request) }
+			.sortedByDescending { it.second }
 			.take(5)
-			.joinToString(" | ") { item ->
-				"${item.name ?: "?"} [type=${item.type}, media=${item.mediaType}, year=${item.productionYear ?: "?"}]"
-			}
+
+		if (ranked.isEmpty()) return "aucun résultat renvoyé par la recherche native Jellyfin"
+
+		return ranked.joinToString(" | ") { (item, score) ->
+			"${item.name ?: "?"} [type=${item.type}, media=${item.mediaType}, year=${item.productionYear ?: "?"}, score=$score]"
+		}
 	}
 
 	private fun browserStyleScore(item: BaseItemDto, request: LookupRequest): Int {
