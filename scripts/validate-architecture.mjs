@@ -41,5 +41,41 @@ for(const entry of manifest.weeks||[]){
  ok(entry.week+' : '+data.pages.length+' pages, coquille '+Buffer.byteLength(html)+' octets');
 }
 if(!seen.has(manifest.latest))fail('latest ne correspond à aucune semaine du manifeste');
+
+// Cross-client routing contract: GitHub Pages, Jellyfin Web and Android TV must
+// all follow manifest.latest instead of pinning a specific week.
+const latestEntry=(manifest.weeks||[]).find(x=>x.week===manifest.latest);
+if(latestEntry){
+ const latestShellPath=path.join(root,latestEntry.path,'index.html');
+ if(!fs.existsSync(latestShellPath))fail('Coquille du dernier numéro manquante : '+latestShellPath);
+ else{
+   const latestShell=fs.readFileSync(latestShellPath,'utf8');
+   const bodyWeek=(latestShell.match(/<body[^>]*data-week=["']([^"']+)["']/i)||[])[1];
+   if(bodyWeek!==manifest.latest)fail('La coquille du dernier numéro pointe vers '+(bodyWeek||'aucune semaine')+' au lieu de '+manifest.latest);
+ }
+}
+
+const latestRouterPath=path.join(root,'latest.html');
+const jellyfinWebPath=path.join(root,'integrations','jellyfin','selection-tv.html');
+const androidPath=path.join(root,'integrations','androidtv','SelectionTvFragment.kt');
+for(const required of [latestRouterPath,jellyfinWebPath,androidPath]){
+ if(!fs.existsSync(required))fail(required+' manquant');
+}
+if(fs.existsSync(latestRouterPath)){
+ const latestRouter=fs.readFileSync(latestRouterPath,'utf8');
+ if(!latestRouter.includes("fetch('data/manifest.json',{cache:'no-store'})"))fail('latest.html doit résoudre manifest.latest sans cache');
+ if(!latestRouter.includes("params.get('tv')==='1'"))fail('latest.html doit préserver le mode tv=1');
+}
+if(fs.existsSync(jellyfinWebPath)){
+ const jellyfinWeb=fs.readFileSync(jellyfinWebPath,'utf8');
+ if(!/selection-tv\/latest\.html/.test(jellyfinWeb))fail('Jellyfin Web doit charger latest.html, pas une semaine figée');
+}
+if(fs.existsSync(androidPath)){
+ const android=fs.readFileSync(androidPath,'utf8');
+ if(!/SELECTION_TV_URL\s*=\s*"https:\/\/kingrabbit89\.github\.io\/selection-tv\/latest\.html\?tv=1"/.test(android)){
+   fail('Android TV doit charger latest.html?tv=1, pas une semaine figée');
+ }
+}
+
 if(process.exitCode)process.exit(process.exitCode);
 ok('Architecture valide');
