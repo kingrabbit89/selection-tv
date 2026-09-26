@@ -424,8 +424,39 @@
     return exactIndexMatch(index,req);
   }
 
+  function conservativeIndexMatch(index,req){
+    var targets=titleCandidates(req.title).map(norm).filter(Boolean);
+    var candidates=uniqueItems(index.items.filter(function(item){
+      return [item.Name,item.name,item.OriginalTitle,item.originalTitle].filter(Boolean).some(function(name){
+        return targets.some(function(target){return strongTitleContainment(name,target)});
+      });
+    }));
+    if(!candidates.length)return null;
+
+    var reqYear=Number(req.year)||0;
+    if(reqYear){
+      var exact=candidates.filter(function(item){
+        return (Number(item.ProductionYear||item.productionYear)||0)===reqYear;
+      });
+      if(exact.length===1)return exact[0];
+
+      var near=candidates.filter(function(item){
+        var y=Number(item.ProductionYear||item.productionYear)||0;
+        return y&&Math.abs(y-reqYear)<=1;
+      });
+      if(near.length===1)return near[0];
+
+      if(candidates.length===1 && !(Number(candidates[0].ProductionYear||candidates[0].productionYear)||0)){
+        return candidates[0];
+      }
+      return null;
+    }
+    return candidates.length===1?candidates[0]:null;
+  }
+
   async function findLibraryItem(req){
-    var match=await findLibraryIndexItem(req);
+    var index=await ensureLibraryIndex();
+    var match=exactIndexMatch(index,req)||conservativeIndexMatch(index,req);
     return match?hydrateLibraryItem(match):null;
   }
 
@@ -433,6 +464,19 @@
   // BaseItemDto, not just a yes/no badge, so one compact persistent index can
   // serve both the static magazine and the changing private upload section.
   window.SelectionTvFindLibraryItem=findLibraryItem;
+
+  function strongTitleContainment(left,right){
+    left=norm(left);right=norm(right);
+    if(!left||!right)return false;
+    if(left===right)return true;
+    var shorter=left.length<=right.length?left:right;
+    var longer=left.length>right.length?left:right;
+    var tokenCount=shorter.split(' ').filter(Boolean).length;
+    if(shorter.length<14||tokenCount<3)return false;
+    return longer.indexOf(shorter+' ')===0 ||
+      longer.lastIndexOf(' '+shorter)===longer.length-shorter.length-1 ||
+      longer.indexOf(' '+shorter+' ')!==-1;
+  }
 
   function scoreItem(item,req){
     var score=0;
@@ -448,6 +492,7 @@
 
     targetNames.forEach(function(t,idx){
       if(names.indexOf(t)!==-1)score=Math.max(score,160-idx*8);
+      else if(names.some(function(n){return strongTitleContainment(n,t)}))score=Math.max(score,155-idx*5);
       else if(names.some(function(n){return n.includes(t)||t.includes(n)}))score=Math.max(score,55-idx*5);
     });
 
