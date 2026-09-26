@@ -32,6 +32,7 @@ import org.jellyfin.sdk.api.client.ApiClient
 import org.jellyfin.sdk.api.client.extensions.itemsApi
 import org.jellyfin.sdk.model.api.BaseItemDto
 import org.jellyfin.sdk.model.api.BaseItemKind
+import org.jellyfin.sdk.model.api.ItemFields
 import org.json.JSONObject
 import org.koin.android.ext.android.inject
 import java.text.Normalizer
@@ -155,6 +156,10 @@ class SelectionTvFragment : Fragment() {
 				val result = api.itemsApi.getItems(
 					recursive = true,
 					includeItemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES),
+					fields = setOf(
+						ItemFields.PROVIDER_IDS,
+						ItemFields.ORIGINAL_TITLE,
+					),
 					startIndex = startIndex,
 					limit = LIBRARY_PAGE_SIZE,
 					enableImages = false,
@@ -186,6 +191,32 @@ class SelectionTvFragment : Fragment() {
 
 	private suspend fun findLibraryItem(request: LookupRequest): BaseItemDto? {
 		val items = ensureLibraryIndex()
+		bestMatch(items, request, MATCH_THRESHOLD)?.let { return it }
+
+		// Fallback for titles that differ from Jellyfin's local/original title.
+		// This runs only when the compact full-library index could not identify the work.
+		val search = api.itemsApi.getItems(
+			searchTerm = request.title,
+			recursive = true,
+			includeItemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES),
+			fields = setOf(
+				ItemFields.PROVIDER_IDS,
+				ItemFields.ORIGINAL_TITLE,
+			),
+			limit = 20,
+			enableImages = false,
+			enableUserData = false,
+			enableTotalRecordCount = false,
+		).content
+
+		return bestMatch(search.items, request, FALLBACK_MATCH_THRESHOLD)
+	}
+
+	private fun bestMatch(
+		items: Collection<BaseItemDto>,
+		request: LookupRequest,
+		threshold: Int,
+	): BaseItemDto? {
 		var best: BaseItemDto? = null
 		var bestScore = Int.MIN_VALUE
 
@@ -197,7 +228,7 @@ class SelectionTvFragment : Fragment() {
 			}
 		}
 
-		return best?.takeIf { bestScore >= MATCH_THRESHOLD }
+		return best?.takeIf { bestScore >= threshold }
 	}
 
 	private fun score(item: BaseItemDto, request: LookupRequest): Int {
@@ -278,5 +309,6 @@ class SelectionTvFragment : Fragment() {
 		const val LIBRARY_PAGE_SIZE = 200
 		const val MAX_LIBRARY_ITEMS = 50_000
 		const val MATCH_THRESHOLD = 300
+		const val FALLBACK_MATCH_THRESHOLD = 150
 	}
 }
