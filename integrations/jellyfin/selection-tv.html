@@ -270,7 +270,7 @@
     do{
       var r=await a.getItems(userId,{
         Recursive:true,
-        IncludeItemTypes:'Movie,Series',
+        IncludeItemTypes:'Movie,Series,Video',
         Fields:'ProviderIds,OriginalTitle',
         EnableTotalRecordCount:true,
         EnableImages:false,
@@ -421,7 +421,7 @@
 
   async function findLibraryIndexItem(req){
     var index=await ensureLibraryIndex();
-    return exactIndexMatch(index,req);
+    return exactIndexMatch(index,req)||conservativeIndexMatch(index,req);
   }
 
   function conservativeIndexMatch(index,req){
@@ -455,8 +455,7 @@
   }
 
   async function findLibraryItem(req){
-    var index=await ensureLibraryIndex();
-    var match=exactIndexMatch(index,req)||conservativeIndexMatch(index,req);
+    var match=await findLibraryIndexItem(req);
     return match?hydrateLibraryItem(match):null;
   }
 
@@ -513,7 +512,7 @@
       try{
         var r=await a.getItems(a.getCurrentUserId(),{
           Recursive:true,
-          IncludeItemTypes:'Movie,Series',
+          IncludeItemTypes:'Movie,Series,Video',
           SearchTerm:candidates[i],
           Fields:'ProviderIds,OriginalTitle',
           EnableTotalRecordCount:false,
