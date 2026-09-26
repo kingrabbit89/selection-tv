@@ -311,11 +311,13 @@
     const jf=document.createElement('span');jf.className='stv-tv-info-badge '+infoClass(model);
     jf.textContent=stateLabel(model);badges.append(jf);
     panel.querySelector('.stv-tv-info-desc').textContent=model.description||'';
-    panel.querySelector('.stv-tv-info-hint').textContent=model.state==='found'
-      ? 'OK : ouvrir la fiche Jellyfin'
-      : model.state==='missing'
-        ? 'OK : relancer une recherche Jellyfin'
-        : 'OK : rechercher dans Jellyfin';
+    panel.querySelector('.stv-tv-info-hint').textContent=model.debug
+      ? 'Diagnostic Jellyfin : '+model.debug
+      : model.state==='found'
+        ? 'OK : ouvrir la fiche Jellyfin'
+        : model.state==='missing'
+          ? 'OK : relancer une recherche Jellyfin'
+          : 'OK : rechercher dans Jellyfin';
     panel.classList.add('visible');
     requestAnimationFrame(positionInfo);
   };
@@ -634,6 +636,7 @@
       model.state='unknown';
       if(result.quick)queueDeep(model);
     }else if(result.found){
+      model.debug='';
       model.state='found';model.itemId=result.itemId||'';model.jellyfinName=result.name||'';
       model.sessionVerified=true;
       rememberFound(model,model.itemId,model.jellyfinName);
@@ -652,10 +655,14 @@
     if(typeof result==='string'){try{result=JSON.parse(result)}catch{return}}
     const model=byKey.get(result?.key);if(!model)return;
     finishPending(model,'manual');
-    if(result.error){model.state='unknown'}
-    else if(result.found){
+    if(result.error){
+      model.debug='';
+      model.state='unknown';
+    }else if(result.found){
+      model.debug='';
       model.state='found';model.itemId=result.itemId||'';rememberFound(model,model.itemId,'');
     }else{
+      model.debug=String(result.diagnostic||'aucun candidat renvoyé par Jellyfin');
       model.state='missing';rememberMissing(model);
     }
     updateTile(model);scheduleStatus();
