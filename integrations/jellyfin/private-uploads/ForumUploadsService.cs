@@ -444,7 +444,10 @@ public sealed class ForumUploadsService
     }
 
     private static DateTimeOffset? ParseForumActivity(string container)
-        => ParseForumActivities(container).OrderByDescending(x => x).FirstOrDefault();
+    {
+        var dates = ParseForumActivities(container);
+        return dates.Count == 0 ? null : dates.Max();
+    }
 
     private static IReadOnlyList<DateTimeOffset> ParseForumActivities(string htmlOrText)
     {
@@ -609,9 +612,8 @@ public sealed class ForumUploadsService
             }
         }
 
-        return ParseForumActivities(html)
-            .OrderByDescending(x => x)
-            .FirstOrDefault();
+        var dates = ParseForumActivities(html);
+        return dates.Count == 0 ? null : dates.Max();
     }
 
     private static Uri? FindLastTopicPage(Uri baseUri, string html, string topicId, Uri current)
