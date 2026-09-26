@@ -238,11 +238,17 @@
 
   const requestFor=model=>({
     key:model.key,title:model.title,year:model.year,
-    imdbId:model.imdbId,tmdbId:model.tmdbId
+    imdbId:model.imdbId,tmdbId:model.tmdbId,
+    aliases:model.aliases||[]
   });
   const commandUrl=model=>{
-    const q=new URLSearchParams(requestFor(model));
-    [...q.entries()].forEach(([k,v])=>{if(!v)q.delete(k)});
+    const req=requestFor(model);
+    const q=new URLSearchParams();
+    q.set('key',req.key);q.set('title',req.title);
+    if(req.year)q.set('year',req.year);
+    if(req.imdbId)q.set('imdbId',req.imdbId);
+    if(req.tmdbId)q.set('tmdbId',req.tmdbId);
+    if(req.aliases?.length)q.set('aliases',req.aliases.join('\n'));
     return 'selectiontv://open?'+q.toString();
   };
 
@@ -552,8 +558,10 @@
       const sourceDescription=descOf(source);
 
       if(!model){
+        const work=works.get(norm(title))||{};
         model={
           key,title,year,imdbId:ids.imdbId,tmdbId:ids.tmdbId,
+          aliases:Array.isArray(work.aliases)?[...work.aliases]:[],
           imageCandidates:sourcePosters,
           meta:sourceMeta,ratings:sourceRatings,
           description:sourceDescription,state:'unknown',itemId:'',source
@@ -564,6 +572,8 @@
         // A title can occur in several editorial sections. Merge the richest
         // metadata from all occurrences instead of depending on whichever one
         // happened to appear first in the HTML.
+        const work=works.get(norm(title))||{};
+        model.aliases=[...new Set([...(model.aliases||[]),...(Array.isArray(work.aliases)?work.aliases:[])])];
         model.imageCandidates=[...new Set([...(model.imageCandidates||[]),...sourcePosters])];
         model.ratings=[...new Set([...(model.ratings||[]),...sourceRatings])];
         if(sourceMeta.length>model.meta.length)model.meta=sourceMeta;
