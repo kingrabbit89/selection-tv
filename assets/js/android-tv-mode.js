@@ -143,6 +143,7 @@
   const quickQueue=[];
   const deepQueue=[];
   const deepActive=new Set();
+  const pendingLookups=new Map();
   const neighborMap=new Map();
   const byKey=new Map();
 
@@ -341,6 +342,7 @@
       try{window.SelectionTvAndroid?.openItem?.(String(model.itemId));return}catch{}
     }
     model.state='checking';updateTile(model);scheduleStatus();
+    beginPending(model,'manual',20000);
     location.href=commandUrl(model);
   };
 
@@ -511,6 +513,42 @@
     requestAnimationFrame(()=>{rebuildNeighbors();if(models[0])focusModel(models[0])});
   };
 
+  const beginPending=(model,kind,timeoutMs)=>{
+    const previous=pendingLookups.get(model.key);
+    if(previous?.timer)clearTimeout(previous.timer);
+    const token={kind,timer:null};
+    token.timer=setTimeout(()=>{
+      if(pendingLookups.get(model.key)!==token)return;
+      pendingLookups.delete(model.key);
+      if(kind==='quick'){
+        quickInflight=Math.max(0,quickInflight-1);
+        model.state='queued';
+        model._deepQueued=false;
+        updateTile(model);scheduleStatus();
+        queueDeep(model);
+        pumpQuick();
+      }else if(kind==='deep'){
+        deepActive.delete(model.key);
+        deepInflight=Math.max(0,deepInflight-1);
+        model._deepQueued=false;
+        model.state='unknown';
+        updateTile(model);scheduleStatus();
+        deepTimer=setTimeout(pumpDeep,320);
+      }else if(kind==='manual'){
+        model.state='unknown';
+        updateTile(model);scheduleStatus();
+      }
+    },timeoutMs);
+    pendingLookups.set(model.key,token);
+  };
+  const finishPending=(model,kind)=>{
+    const pending=pendingLookups.get(model.key);
+    if(!pending||pending.kind!==kind)return false;
+    clearTimeout(pending.timer);
+    pendingLookups.delete(model.key);
+    return true;
+  };
+
   const queueQuick=model=>{
     if(model._queued)return;
     if(model.state==='found'&&model.sessionVerified)return;
@@ -523,8 +561,13 @@
       const keepCachedBadge=model.state==='found'&&!model.sessionVerified;
       quickInflight++;
       if(!keepCachedBadge){model.state='checking';updateTile(model);scheduleStatus()}
+      beginPending(model,'quick',12000);
       try{window.SelectionTvAndroid?.lookupQuick?.(JSON.stringify(requestFor(model)))}
-      catch{quickInflight--;model.state='unknown';updateTile(model);queueDeep(model)}
+      catch{
+        finishPending(model,'quick');
+        quickInflight=Math.max(0,quickInflight-1);
+        model.state='unknown';updateTile(model);queueDeep(model)
+      }
     }
     if(quickInflight===0&&quickQueue.length===0)pumpDeep();
   };
@@ -549,9 +592,12 @@
     if(model.state==='found'||model.state==='missing'){deepTimer=setTimeout(pumpDeep,80);return}
     deepInflight++;deepActive.add(model.key);
     model.state='checking';updateTile(model);scheduleStatus();
+    beginPending(model,'deep',20000);
     try{window.SelectionTvAndroid?.lookup?.(JSON.stringify(requestFor(model)))}
     catch{
+      finishPending(model,'deep');
       deepActive.delete(model.key);deepInflight=Math.max(0,deepInflight-1);
+      model._deepQueued=false;
       model.state='unknown';updateTile(model);scheduleStatus();
       deepTimer=setTimeout(pumpDeep,320);
     }
@@ -565,10 +611,15 @@
     if(typeof result==='string'){try{result=JSON.parse(result)}catch{return}}
     const model=byKey.get(result?.key);if(!model)return;
 
-    if(result.quick)quickInflight=Math.max(0,quickInflight-1);
-    if(deepActive.delete(model.key))deepInflight=Math.max(0,deepInflight-1);
+    if(result.quick){
+      if(finishPending(model,'quick'))quickInflight=Math.max(0,quickInflight-1);
+    }else if(finishPending(model,'deep')){
+      deepActive.delete(model.key);
+      deepInflight=Math.max(0,deepInflight-1);
+    }
 
     if(result.error){
+      model._deepQueued=false;
       model.state='unknown';
     }else if(result.found){
       model.state='found';model.itemId=result.itemId||'';model.jellyfinName=result.name||'';
@@ -588,6 +639,7 @@
   window.SelectionTvAndroidOpenResult=result=>{
     if(typeof result==='string'){try{result=JSON.parse(result)}catch{return}}
     const model=byKey.get(result?.key);if(!model)return;
+    finishPending(model,'manual');
     if(result.error){model.state='unknown'}
     else if(result.found){
       model.state='found';model.itemId=result.itemId||'';rememberFound(model,model.itemId,'');
