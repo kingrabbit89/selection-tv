@@ -382,6 +382,7 @@ class SelectionTvFragment : Fragment() {
 		// 3) conservative targeted Jellyfin search.
 		val index = ensureLibraryIndex()
 		exactIndexMatch(index, request)?.let { return it }
+		conservativeIndexMatch(index, request)?.let { return it }
 		return fallbackSearch(request)
 	}
 
@@ -427,6 +428,54 @@ class SelectionTvFragment : Fragment() {
 		}
 
 		return candidates.singleOrNull()
+	}
+
+	private fun conservativeIndexMatch(
+		items: Collection<BaseItemDto>,
+		request: LookupRequest,
+	): BaseItemDto? {
+		val targets = requestTitleCandidates(request)
+			.map(::normalizeTitle)
+			.filter { it.isNotBlank() }
+
+		val candidates = items.filter { item ->
+			itemNames(item)
+				.map(::normalizeTitle)
+				.any { name -> targets.any { target -> strongTitleContainment(name, target) } }
+		}
+
+		if (candidates.isEmpty()) return null
+
+		val reqYear = request.year
+		if (reqYear != null) {
+			val exactYear = candidates.filter { it.productionYear == reqYear }
+			if (exactYear.size == 1) return exactYear.first()
+
+			val nearYear = candidates.filter { item ->
+				item.productionYear?.let { kotlin.math.abs(it - reqYear) <= 1 } == true
+			}
+			if (nearYear.size == 1) return nearYear.first()
+
+			// Metadata for obscure TV documentaries is often missing a year in
+			// Jellyfin. A single distinctive long-title candidate is still safe.
+			if (candidates.size == 1 && candidates.first().productionYear == null) {
+				return candidates.first()
+			}
+			return null
+		}
+
+		return candidates.singleOrNull()
+	}
+
+	private fun strongTitleContainment(left: String, right: String): Boolean {
+		if (left == right) return true
+		val shorter = if (left.length <= right.length) left else right
+		val longer = if (left.length > right.length) left else right
+		val tokenCount = shorter.split(" ").count { it.isNotBlank() }
+		if (shorter.length < 14 || tokenCount < 3) return false
+		return longer.startsWith("$shorter ") ||
+			longer.endsWith(" $shorter") ||
+			longer.contains(" $shorter ")
 	}
 
 	private suspend fun fallbackSearch(request: LookupRequest): BaseItemDto? {
@@ -485,6 +534,8 @@ class SelectionTvFragment : Fragment() {
 		targetNames.forEachIndexed { index, target ->
 			score = when {
 				names.contains(target) -> maxOf(score, 160 - index * 8)
+				names.any { strongTitleContainment(it, target) } ->
+					maxOf(score, 155 - index * 5)
 				names.any { it.contains(target) || target.contains(it) } ->
 					maxOf(score, 55 - index * 5)
 				else -> score
