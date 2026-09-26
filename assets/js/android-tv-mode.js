@@ -108,6 +108,36 @@
   const SELECTOR='article.week-card,article.feature,article.list-card,article.platform:not(.jellyfin-private-upload),article.release-card,article.expire-card,article.radar-card,article.torrent-card,table.schedule tbody tr';
   const keyNodes=new Map();
   const sent=new Set();
+  const results=new Map();
+  const pending=new Set();
+  const requests=new Map();
+  const status=document.createElement('div');
+  status.id='stv-tv-status';status.setAttribute('role','status');
+  status.style.cssText='padding:16px 54px;background:#20303a;color:#fff;font:16px/1.5 Arial,sans-serif';
+  const statusText=document.createElement('span');status.append(statusText);
+  const retry=document.createElement('button');retry.type='button';retry.textContent='Réessayer';retry.className='stv-tv-open';retry.style.marginLeft='16px';retry.hidden=true;status.append(retry);
+  document.body.prepend(status);
+  let completed=0,found=0,failed=0,libraryCount=null,lastError='',timeout;
+  const hasBridge=()=>typeof window.SelectionTvAndroid?.lookup==='function';
+  const updateStatus=()=>{
+    if(!hasBridge()){
+      statusText.textContent='Connexion native Jellyfin indisponible dans cet écran.';retry.hidden=false;return;
+    }
+    const count=libraryCount===null?'':` · ${libraryCount} films et séries accessibles`;
+    statusText.textContent=failed
+      ? `Jellyfin : ${failed} recherche(s) en erreur${lastError?' ('+lastError+')':''}. Vérifiez la connexion au serveur.`
+      : pending.size
+        ? `Recherche dans Jellyfin… ${completed}/${sent.size}${count}`
+        : `Jellyfin : ${found} œuvre(s) reconnue(s)${count}`;
+    retry.hidden=pending.size>0||(!failed&&found>0);
+  };
+  const armTimeout=()=>{
+    clearTimeout(timeout);
+    timeout=setTimeout(()=>{
+      if(pending.size){statusText.textContent='Jellyfin ne répond pas encore. Vous pouvez relancer la recherche.';retry.hidden=false}
+    },45000);
+  };
+  updateStatus();
   let works=new Map(),links=new Map(),seq=0;
 
   const titleOf=el=>{
@@ -135,31 +165,49 @@
     const nodes=keyNodes.get(result.key);if(!nodes)return;
     for(const el of nodes){
       el.querySelector('.stv-tv-jellyfin')?.remove();
-      if(!result.found)return;
+      if(!result.found)continue;
       const box=document.createElement('div');box.className='stv-tv-jellyfin';
       const pill=document.createElement('span');pill.className='stv-tv-present';pill.textContent='Dans Jellyfin';box.append(pill);
       const open=document.createElement('button');open.type='button';open.className='stv-tv-open';open.textContent='Ouvrir dans Jellyfin';
       open.onclick=()=>window.SelectionTvAndroid?.openItem?.(String(result.itemId||''));
       box.append(open);
       const anchor=el.querySelector('.ratings')||el.querySelector('.work-meta,.meta2,.torrent-meta,.slot,.where,.service')||el.querySelector('h3');
-      (anchor||el).insertAdjacentElement?.('afterend',box) || el.append(box);
+      if(anchor)anchor.insertAdjacentElement('afterend',box);
+      else (el.matches('tr')?(el.querySelector('.prog')||el.cells[0]):el).append(box);
     }
   };
 
   window.SelectionTvAndroidResult=result=>{
     if(typeof result==='string'){try{result=JSON.parse(result)}catch{return}}
-    if(result?.key)render(result);
+    if(!result?.key||!requests.has(result.key))return;
+    if(pending.delete(result.key)){
+      completed++;
+      if(result.error){failed++;lastError=String(result.errorType||'')}
+      else if(result.found)found++;
+    }
+    if(Number.isFinite(result.libraryCount))libraryCount=result.libraryCount;
+    if(!result.error){results.set(result.key,result);render(result)}
+    if(!pending.size)clearTimeout(timeout);
+    updateStatus();
   };
 
   const queryElement=el=>{
     const title=titleOf(el);if(!title)return;
     const year=yearOf(el,title),ids=idsOf(title);
-    const key=ids.imdbId||ids.tmdbId||('title:'+norm(title)+'|'+year);
+    const key=ids.imdbId?('imdb:'+ids.imdbId):ids.tmdbId?('tmdb:'+ids.tmdbId):('title:'+norm(title)+'|'+year);
     addNode(key,el);
-    if(sent.has(key))return;
+    if(results.has(key)){render(results.get(key));return}
+    if(sent.has(key)||!hasBridge())return;
     sent.add(key);
     const req={requestId:++seq,key,title,year,imdbId:ids.imdbId,tmdbId:ids.tmdbId};
-    try{window.SelectionTvAndroid?.lookup?.(JSON.stringify(req))}catch{}
+    requests.set(key,req);pending.add(key);updateStatus();armTimeout();
+    try{window.SelectionTvAndroid.lookup(JSON.stringify(req))}
+    catch{window.SelectionTvAndroidResult({key,error:true})}
+  };
+
+  retry.onclick=()=>{
+    sent.clear();pending.clear();results.clear();requests.clear();completed=0;found=0;failed=0;
+    document.querySelectorAll(SELECTOR).forEach(queryElement);updateStatus();
   };
 
   Promise.all([

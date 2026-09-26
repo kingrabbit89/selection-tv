@@ -20,11 +20,18 @@ Le workflow clone exactement ce tag puis applique uniquement les modifications c
 
 Le reste du client Jellyfin Android TV reste celui du projet officiel.
 
-## Limite volontaire du premier prototype
+## Liaison aux fiches Jellyfin
 
-Ce premier APK sert à valider l'installation parallèle, la connexion au serveur Jellyfin, la navigation à la télécommande et l'affichage de Sélection TV sur un téléviseur.
+Le pont natif recherche les œuvres avec la session et l’identifiant de l’utilisateur connecté.
+Les boutons « Ouvrir dans Jellyfin » ouvrent la fiche native dans la navigation existante.
+Un bandeau indique l’avancement, le nombre de films et séries accessibles et les erreurs,
+avec une possibilité de relancer la recherche. Les jetons ne sont pas transmis au JavaScript.
+Les résultats sont conservés pour les cartes ajoutées dynamiquement ; le WebView recharge
+les scripts sans cache. La rubrique privée `Vos Uploads` reste à raccorder sur Android TV.
 
-L'écran Sélection TV n'exploite pas encore la session native Jellyfin pour les badges « Dans Jellyfin », l'ouverture native des fiches ou `Vos Uploads`. Ces ponts seront ajoutés seulement après validation de ce premier palier.
+Validation du correctif : tests du rendu avec réponses simulées (œuvre trouvée, absente,
+erreur, pont absent et carte ajoutée après réception), validation de l’architecture et compilation CI.
+Le fonctionnement avec le serveur et la télécommande réels nécessite un essai sur la TV.
 
 ## Build
 

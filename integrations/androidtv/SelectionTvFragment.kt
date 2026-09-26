@@ -19,11 +19,13 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.fragment.app.Fragment
 import androidx.fragment.compose.content
 import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
+import org.jellyfin.androidtv.auth.repository.SessionRepository
 import org.jellyfin.androidtv.ui.navigation.Destinations
 import org.jellyfin.androidtv.ui.navigation.NavigationRepository
 import org.jellyfin.androidtv.ui.shared.toolbar.MainToolbar
@@ -40,6 +42,7 @@ import java.util.UUID
 
 class SelectionTvFragment : Fragment() {
 	private val api by inject<ApiClient>()
+	private val sessionRepository by inject<SessionRepository>()
 	private val navigationRepository by inject<NavigationRepository>()
 	private val indexMutex = Mutex()
 
@@ -61,10 +64,22 @@ class SelectionTvFragment : Fragment() {
 		fun lookup(payload: String) {
 			val request = parseLookup(payload) ?: return
 			lifecycleScope.launch {
-				val item = withContext(Dispatchers.IO) { findLibraryItem(request) }
+				val item = try {
+					withContext(Dispatchers.IO) { findLibraryItem(request) }
+				} catch (cancelled: CancellationException) {
+					throw cancelled
+				} catch (error: Exception) {
+					deliverResult(JSONObject().apply {
+						put("key", request.key)
+						put("error", "Recherche Jellyfin impossible. Vérifiez la connexion au serveur, puis réessayez.")
+						put("errorType", error.javaClass.simpleName)
+					}.toString())
+					return@launch
+				}
 				val result = JSONObject().apply {
 					put("key", request.key)
 					put("found", item != null)
+					put("libraryCount", libraryIndex?.size ?: 0)
 					if (item != null) {
 						put("itemId", item.id.toString())
 						put("name", item.name ?: "")
@@ -103,7 +118,7 @@ class SelectionTvFragment : Fragment() {
 						view.isFocusableInTouchMode = true
 						view.settings.javaScriptEnabled = true
 						view.settings.domStorageEnabled = true
-						view.settings.cacheMode = WebSettings.LOAD_DEFAULT
+						view.settings.cacheMode = WebSettings.LOAD_NO_CACHE
 						view.settings.mediaPlaybackRequiresUserGesture = true
 						view.settings.useWideViewPort = true
 						view.settings.loadWithOverviewMode = true
@@ -141,6 +156,10 @@ class SelectionTvFragment : Fragment() {
 		)
 	}.getOrNull()
 
+	private fun currentUserId(): UUID = checkNotNull(sessionRepository.currentSession.value?.userId) {
+		"No active Jellyfin session"
+	}
+
 	private suspend fun ensureLibraryIndex(): List<BaseItemDto> {
 		libraryIndex?.let { return it }
 
@@ -154,6 +173,7 @@ class SelectionTvFragment : Fragment() {
 
 			while (startIndex < MAX_LIBRARY_ITEMS) {
 				val result = api.itemsApi.getItems(
+					userId = currentUserId(),
 					recursive = true,
 					includeItemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES),
 					fields = setOf(
@@ -196,6 +216,7 @@ class SelectionTvFragment : Fragment() {
 		// Fallback for titles that differ from Jellyfin's local/original title.
 		// This runs only when the compact full-library index could not identify the work.
 		val search = api.itemsApi.getItems(
+			userId = currentUserId(),
 			searchTerm = request.title,
 			recursive = true,
 			includeItemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES),
