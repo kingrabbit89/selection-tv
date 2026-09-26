@@ -347,8 +347,16 @@
     if(model.state==='found'&&model.itemId&&model.sessionVerified){
       try{window.SelectionTvAndroid?.openItem?.(String(model.itemId));return}catch{}
     }
+    model.debug='';
     model.state='checking';updateTile(model);scheduleStatus();
     beginPending(model,'manual',20000);
+    try{
+      if(window.SelectionTvAndroid?.lookupAndOpen){
+        window.SelectionTvAndroid.lookupAndOpen(JSON.stringify(requestFor(model)));
+        return;
+      }
+    }catch{}
+    // Compatibility fallback for older APKs.
     location.href=commandUrl(model);
   };
 
