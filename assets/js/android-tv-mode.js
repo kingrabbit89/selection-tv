@@ -78,9 +78,25 @@
     }
     body.android-tv-mode button.stv-tv-open[data-state="found"]{border-color:#7fa48d;background:#284636}
     body.android-tv-mode button.stv-tv-open[data-state="missing"]{border-color:#8d7f69;background:#40372c}
+    body.android-tv-mode{scroll-padding-top:28px;scroll-padding-bottom:40px}
     body.android-tv-mode .stv-tv-focusable{
       position:relative;outline:none!important;border-radius:5px;
+      scroll-margin-top:28px;scroll-margin-bottom:40px;
       transition:transform .12s ease,box-shadow .12s ease,background .12s ease
+    }
+    body.android-tv-mode .week-card>p,
+    body.android-tv-mode .release-card>p,
+    body.android-tv-mode .radar-card p,
+    body.android-tv-mode .torrent-card p,
+    body.android-tv-mode .platform>p,
+    body.android-tv-mode .list-card>p,
+    body.android-tv-mode .feature>p,
+    body.android-tv-mode .feature .interest p,
+    body.android-tv-mode .why2 p{
+      display:-webkit-box!important;
+      -webkit-box-orient:vertical!important;
+      -webkit-line-clamp:5!important;
+      overflow:hidden!important
     }
     body.android-tv-mode .stv-tv-focusable.stv-tv-card-focused,
     body.android-tv-mode .stv-tv-focusable:focus{
@@ -292,13 +308,33 @@
     const cs=getComputedStyle(el);
     return r.width>0&&r.height>0&&cs.visibility!=='hidden'&&cs.display!=='none';
   });
+  const revealCard=el=>{
+    const r=el.getBoundingClientRect();
+    const safeTop=28;
+    const safeBottom=Math.max(safeTop+120,window.innerHeight-40);
+    const available=safeBottom-safeTop;
+    let delta=0;
+
+    if(r.height<=available){
+      if(r.top<safeTop)delta=r.top-safeTop;
+      else if(r.bottom>safeBottom)delta=r.bottom-safeBottom;
+    }else if(r.top<safeTop||r.top>safeTop+80){
+      // Oversized card: anchor its beginning instead of centering it and cutting both ends.
+      delta=r.top-safeTop;
+    }
+
+    if(Math.abs(delta)>1){
+      try{window.scrollBy({top:delta,left:0,behavior:'smooth'})}
+      catch{window.scrollBy(0,delta)}
+    }
+  };
   const focusCard=el=>{
     if(!el)return false;
     document.querySelectorAll('.stv-tv-card-focused').forEach(x=>x.classList.remove('stv-tv-card-focused'));
     document.querySelectorAll('.stv-tv-focused').forEach(x=>x.classList.remove('stv-tv-focused'));
     el.classList.add('stv-tv-card-focused');
     try{el.focus({preventScroll:true})}catch{try{el.focus()}catch{}}
-    try{el.scrollIntoView({behavior:'smooth',block:'center',inline:'nearest'})}catch{el.scrollIntoView()}
+    revealCard(el);
     return true;
   };
   const moveFocus=direction=>{
@@ -323,7 +359,7 @@
       else if(direction==='down'){ok=dy>8;primary=dy;secondary=Math.abs(dx)}
       else if(direction==='up'){ok=dy<-8;primary=-dy;secondary=Math.abs(dx)}
       if(!ok)continue;
-      const score=primary+(secondary*2.4);
+      const score=primary+(secondary*3.2);
       if(score<bestScore){bestScore=score;best=el}
     }
 
