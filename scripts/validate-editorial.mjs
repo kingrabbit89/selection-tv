@@ -187,6 +187,49 @@ if(strict){
      }
    }
 
+   // Android TV turns every row of the commented schedules into a visual,
+   // focusable Jellyfin card. These rows therefore need the same canonical
+   // catalogue quality as ordinary visual articles; treating them as text-only
+   // was the root cause of blank posters, missing ratings and weak Jellyfin
+   // matching in S41.
+   const androidGridTitles=[...new Set(
+     pages
+       .filter(p=>/-grille(?:-2)?$/.test(p.id))
+       .flatMap(p=>[...String(p.html||'').matchAll(/<td class="prog">([^<]+)<\/td>/g)])
+       .map(m=>clean(m[1]))
+       .filter(Boolean)
+   )];
+   for(const title of androidGridTitles){
+     const key=norm(title),w=worksByTitle.get(key);
+     if(!w){failPub(entry.week,'Android TV grid title absent from works.json: '+title);continue}
+     if(!String(w.image||'').trim()){
+       failPub(entry.week,'Android TV grid title has no real image: '+title);
+     }
+     if(!String(w.year||'').trim()){
+       failPub(entry.week,'Android TV grid title has no year: '+title);
+     }
+     if(!String(w.director||w.creator||'').trim()){
+       failPub(entry.week,'Android TV grid title has no director/creator: '+title);
+     }
+     if(!w.ratings && !String(w.ratings_unavailable_reason||'').trim()){
+       failPub(entry.week,'Android TV grid title has neither ratings nor a specific unavailable reason: '+title);
+     }
+
+     const central=linksByTitle.get(key)||{};
+     const local=w.links||{};
+     const imdb=central.imdb||local.imdb||'';
+     const tmdb=central.tmdb||local.tmdb||'';
+     const sc=central.sc||local.sc||'';
+     const official=central.official||local.official||'';
+     const exactImdb=/^https:\/\/www\.imdb\.com\/(?:fr\/)?title\/tt\d+\/?$/.test(imdb);
+     const exactTmdb=/^https:\/\/www\.themoviedb\.org\/(?:movie|tv)\/\d+(?:-[^?#/]+)?\/?$/.test(tmdb);
+     const exactSc=/^https:\/\/www\.senscritique\.com\/(?:film|serie)\/[^?#]+\/\d+\/?$/.test(sc);
+     const exactOfficial=official&&!/(?:tv-programme\.com|programme-tv\.com|programme-television\.org|linternaute\.com\/television|television\.telerama\.fr|forums\.lenodal\.com)/i.test(official);
+     if(!exactImdb&&!exactTmdb&&!exactSc&&!exactOfficial){
+       failPub(entry.week,'Android TV grid title lacks a strong exact identity link for Jellyfin matching: '+title);
+     }
+   }
+
    const publicTitles=[];
    for(const day of dayIds){
      const p=byId.get(day+'-selection');
