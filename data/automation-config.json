@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "timezone": "Europe/Paris",
+  "generation": {
+    "orchestrator": "external-research-agent",
+    "scheduled_day": "Sunday",
+    "scheduled_time_local": "08:00",
+    "target_rule": "Generate the next Saturday-Friday issue after manifest.latest.",
+    "branch_prefix": "auto/",
+    "candidate_manifest_status": "draft",
+    "candidate_publication_status": "draft",
+    "never_promote_before_green_ci": true
+  },
+  "review": {
+    "scheduled_day": "Sunday",
+    "scheduled_time_local": "15:00",
+    "merge_only_when_required_checks_green": true
+  },
+  "required_outputs": [
+    "data/inventory/YYYY-Sxx.json",
+    "data/coverage/YYYY-Sxx.json",
+    "data/weeks/YYYY-Sxx.json",
+    "data/radar-reserves/YYYY-Sxx.json",
+    "semaines/YYYY-Sxx/index.html",
+    "data/works.json",
+    "data/links.json",
+    "data/releases.json",
+    "data/manifest.json"
+  ],
+  "candidate_validation": {
+    "week_env": "SELECTION_TV_VALIDATE_WEEK",
+    "candidate_flag_env": "SELECTION_TV_CANDIDATE",
+    "minimum_raw_inventory_items_per_day": 30,
+    "minimum_source_pages_per_day": 2,
+    "minimum_overnight_items_per_day": 1,
+    "required_checks": [
+      "validate-architecture",
+      "validate-publication-candidate",
+      "validate-editorial",
+      "validate-links",
+      "validate-freshness",
+      "validate-reserves",
+      "validate-image-sources",
+      "validate-layout",
+      "validate-automation"
+    ]
+  },
+  "promotion": {
+    "mode": "post-merge-controlled-promotion",
+    "candidate_merge_keeps_issue_private": true,
+    "promotion_updates_manifest_latest": true,
+    "promotion_updates_manifest_status": "published",
+    "promotion_updates_week_publication_status": "published"
+  },
+  "android_tv": {
+    "bridge_protocol": 2,
+    "minimum_supported_bridge_protocol": 2,
+    "weekly_content_requires_apk_rebuild": false
+  }
+}
