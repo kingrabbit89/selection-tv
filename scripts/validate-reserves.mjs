@@ -192,6 +192,15 @@ if(sectionStrict){
         }
         if(!strongIdentity(cand.title,work))failures.push(label+': aucun lien d’identité exact fort');
 
+        // S42 readiness is shared by all cards that can enter the viewport,
+        // including physical releases (the browser uses the same thresholds).
+        if(strict){
+          for(const field of ['country','duration','genre']){
+            if(!String(work[field]||'').trim())failures.push(label+': '+field+' absent');
+          }
+          if(String(cand.summary||'').trim().length<45)failures.push(label+': synopsis absent/trop court');
+          if(String(cand.why||'').trim().length<45)failures.push(label+': justification absente/trop courte');
+        }
         if(Number(cand.rank)>target){
           if(cardType==='week-card'){
             if(!String(cand.time||'').trim()||!String(cand.channel||'').trim())failures.push(label+': horaire/chaîne absents pour une réserve rendez-vous');

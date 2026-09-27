@@ -1,3 +1,4 @@
+import {dailyReserveCandidates} from './editorial-contracts.mjs';
 import fs from 'node:fs';
 
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
@@ -37,9 +38,7 @@ function publicCore(issue){
 
 function reserveCore(issue){
   const out=new Set();
-  for(const pool of Object.values(issue.personalization?.pools||{})){
-    for(const c of pool?.candidates||[])if(c?.title)out.add(norm(c.title));
-  }
+  for(const c of dailyReserveCandidates(issue))if(c?.title)out.add(norm(c.title));
   return out;
 }
 
