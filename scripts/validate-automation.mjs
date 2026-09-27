@@ -18,6 +18,7 @@ const required=[
   '.github/workflows/validate-architecture.yml',
   '.github/workflows/promote-validated-week.yml',
   '.github/workflows/weekly-automation-watchdog.yml',
+  '.github/workflows/guard-direct-publication.yml',
   'AUTOMATION.md'
 ];
 for(const p of required)if(!fs.existsSync(p))bad('missing automation component: '+p);
@@ -69,6 +70,12 @@ if(fs.existsSync('.github/workflows/promote-validated-week.yml')){
   const wf=read('.github/workflows/promote-validated-week.yml');
   for(const token of ['validate-image-sources.mjs','validate-layout.mjs','promote-week.mjs','git push origin HEAD:main','verify-public-deployment.mjs']){
     if(!wf.includes(token))bad('promotion workflow missing '+token);
+  }
+}
+if(fs.existsSync('.github/workflows/guard-direct-publication.yml')){
+  const wf=read('.github/workflows/guard-direct-publication.yml');
+  for(const token of ["github.actor != 'github-actions[bot]'",'git checkout "$BEFORE" -- data/manifest.json','git push origin HEAD:main']){
+    if(!wf.includes(token))bad('direct-publication guard missing '+token);
   }
 }
 if(fs.existsSync('.github/workflows/weekly-automation-watchdog.yml')){
