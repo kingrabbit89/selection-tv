@@ -46,11 +46,19 @@
     ]
   },
   "promotion": {
-    "mode": "post-merge-controlled-promotion",
+    "mode": "two-stage-protected-pr",
     "candidate_merge_keeps_issue_private": true,
+    "post_merge_validation_workflow": "promote-validated-week.yml",
+    "promotion_branch_prefix": "promote/",
+    "promotion_pr_only": true,
+    "promotion_pr_allowed_files": [
+      "data/manifest.json",
+      "data/weeks/YYYY-Sxx.json"
+    ],
     "promotion_updates_manifest_latest": true,
     "promotion_updates_manifest_status": "published",
-    "promotion_updates_week_publication_status": "published"
+    "promotion_updates_week_publication_status": "published",
+    "direct_main_push_required": false
   },
   "android_tv": {
     "bridge_protocol": 2,
