@@ -156,7 +156,7 @@ try{
 
   // Simulate a stale persisted UUID while keeping the exact request metadata
   // emitted by the real child bridge. The wrapper must recover the live item.
-  await child.locator('article.feature .jellyfin-open').evaluate(button=>{
+  await child.locator('article.feature .jellyfin-open').first().evaluate(button=>{
     const original=button.onclick;
     button.onclick=null;
     parent.postMessage({
