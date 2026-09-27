@@ -264,7 +264,8 @@
   const requestFor=model=>({
     key:model.key,title:model.title,year:model.year,
     imdbId:model.imdbId,tmdbId:model.tmdbId,
-    aliases:model.aliases||[]
+    aliases:model.aliases||[],
+    needPlayed:model.fromPool===true
   });
   const commandUrl=model=>{
     const req=requestFor(model);
