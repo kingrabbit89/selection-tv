@@ -142,5 +142,29 @@
     "exception_field": "image_exception_reason",
     "validation_from_week": "2026-S41",
     "policy": "Toute recommandation affichée sous forme de carte visuelle et tout candidat de réserve doit posséder un visuel canonique dans works.json. Une recherche d’images web doit être tentée avant toute exception. Une absence n’est autorisée que si image_exception_reason explique pourquoi aucun visuel unique et exact n’est approprié."
+  },
+  "documentary_discovery": {
+    "effective_from_week": "2026-S42",
+    "policy": "Élargir fortement la prospection films et documentaires avant sélection ; augmenter les propositions solides, jamais remplir un quota de publication.",
+    "priority_scan": [
+      "Arte : grille complète, replay, avant-premières et exclusivités numériques",
+      "France 5 : grille complète et replay",
+      "France 2, France 3 et France 4 : documentaires unitaires, collections et offres régionales pertinentes",
+      "france.tv : catalogue documentaire, nouveautés et programmes bientôt indisponibles",
+      "TV5MONDE et autres diffuseurs pertinents découverts pendant le scan"
+    ],
+    "themes": [
+      "cinéma, arts, musique et littérature",
+      "histoire et archives",
+      "société et enquêtes",
+      "sciences, nature et environnement",
+      "documentaire de création et regards internationaux"
+    ],
+    "research_pass": "Effectuer une passe documentaire distincte de la recherche cinéma et des moteurs de notes. Vérifier les offres officielles et croiser les découvertes avec une source critique indépendante ; distinguer documentaire, fiction, concert et magazine. Un épisode de magazine exige un titre/sujet et une justification propres.",
+    "critical_filter": "Privilégier les critiques indépendantes argumentées et convergentes. Séparer disponibilité, discours promotionnel, critique professionnelle, prix/sélection en festival et notes publiques. Une chaîne réputée, un sujet séduisant, une nouveauté ou une audience élevée ne suffisent pas à recommander.",
+    "unrated_rule": "Ne pas exclure automatiquement un documentaire TV sans IMDb/SensCritique. Rechercher réellement sa réception et consigner cette recherche. À défaut, exiger des éléments vérifiables et précis sur le film (archives, démarche, réalisation, enquête, distinction), expliciter le niveau de confiance et le présenter comme découverte motivée, sans inventer une réception favorable. L’absence de preuve suffisante maintient le candidat hors sélection.",
+    "balance_rule": "Conserver une dominante cinéma et une diversité de sujets/diffuseurs. Aucun quota de documentaires ou de chaîne, aucun plafond qui éliminerait une œuvre exceptionnelle. Contrôler après déduplication les choix principaux, grilles, replay et réserves ; une collection ou ses épisodes ne doivent pas saturer le numéro.",
+    "volume_rule": "Conserver trois choix développés par jour, viser les quinze candidats complets déjà prévus quand l’offre le permet, étoffer les grilles filtrées/replay et réserves avec les autres recommandations solides ; paginer. Ne pas confondre minima existants et plafonds. Ne pas gonfler le volume si la qualité ou les données ne suivent pas.",
+    "coverage_evidence": "Dans data/coverage/YYYY-Sxx.json, documenter la passe documentaire : sources réellement consultées par diffuseur et mode de disponibilité, titres examinés, type, décision retenu/réserve/écarté/à vérifier, motifs et preuves critiques exactes, limites et bilan de répartition des titres distincts. Les pages officielles prouvent les dates/droits, pas une réception critique indépendante. Ne jamais inventer des consultations pour remplir ce bilan."
   }
 }
