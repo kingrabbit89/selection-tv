@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import {allowedPaths,digest} from './editorial-handoff.mjs';
+const week=process.argv[2];
+if(!process.argv.includes('--review-completed'))throw Error('Run only after the factual/editorial review; supply --review-completed explicitly.');
+const file=`data/research/${week}.json`;
+const previous=fs.existsSync(file)?JSON.parse(fs.readFileSync(file)):{};
+if(!Array.isArray(previous.remaining)||previous.remaining.length)throw Error('Set remaining to [] only after resolving each unfinished item.');
+const reviewed_files=Object.fromEntries([...allowedPaths(week)].filter(p=>p!==file).map(p=>[p,digest(fs.readFileSync(p,'utf8'))]));
+fs.mkdirSync('data/research',{recursive:true});
+fs.writeFileSync(file,JSON.stringify({...previous,week,stage:'ready',editorial_review_completed:true,reviewed_at:new Date().toISOString(),reviewed_files},null,2)+'\n');
+console.log('Review recorded. CI gates still required; this marker does not prove source accuracy.');

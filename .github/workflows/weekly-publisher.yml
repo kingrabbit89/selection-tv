@@ -1,0 +1,36 @@
+name: Weekly protected publisher
+on:
+  schedule:
+    - cron: '25,55 * * * 5,6'
+  workflow_dispatch:
+  workflow_run:
+    workflows: ['Validate architecture', 'Validate merged weekly issue for promotion']
+    types: [completed]
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+  checks: read
+  statuses: read
+  pages: write
+concurrency:
+  group: weekly-protected-publisher
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # Never check out or execute the triggering PR. Only protected main code.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Advance one verified publication stage
+        env:
+          GH_TOKEN: ${{ secrets.WEEKLY_PUBLISH_TOKEN || github.token }}
+        run: node scripts/weekly-publisher.mjs

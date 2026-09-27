@@ -95,5 +95,18 @@
     "scheduled_day": "Saturday",
     "scheduled_time_utc": "10:00",
     "purpose": "Confirm the Saturday-Friday issue is publicly promoted after the retry window or surface a blocking alert."
+  },
+  "hybrid": {
+    "handoff_schema_version": 1,
+    "instructions": "docs/HYBRID-WORKFLOW.md",
+    "chat_runtime_migration_verified": false,
+    "automatic_quota_failover": false,
+    "research_checkpoint": "data/research/YYYY-Sxx.json",
+    "import_workflow": "import-editorial-handoff.yml",
+    "prepare_workflow": "prepare-editorial-handoff.yml",
+    "publisher_workflow": "weekly-publisher.yml",
+    "publisher_secret_optional": "WEEKLY_PUBLISH_TOKEN",
+    "built_in_token_may_require_workflow_approval": true,
+    "keep_agent_fallback_until_full_cycle_verified": true
   }
 }

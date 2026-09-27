@@ -1,0 +1,16 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {calendarTarget} from './week-calendar.mjs';
+import {allowedPaths,digest} from './editorial-handoff.mjs';
+import {github,readContent,branchSha} from './github-weekly-api.mjs';
+const api=github(),week=calendarTarget().week,base=branchSha(api,'auto/'+week)||branchSha(api,'main');
+const manifest=JSON.parse(readContent(api,base,'data/manifest.json'));
+assert(manifest.weeks.find(w=>w.week===week)?.status!=='published','Current calendar issue is already published; prepare the next cycle when its window starts.');
+const files=[...allowedPaths(week)].map(p=>{const content=readContent(api,base,p);return {path:p,base_sha256:digest(content),content:content??''};});
+const progress=files.find(f=>f.path===`data/research/${week}.json`);
+const state=progress.content?JSON.parse(progress.content):{};
+const bundle={schema_version:1,week,base_sha:base,stage:state.stage||'inventory',remaining:state.remaining||['Terminer la recherche, la sélection et la revue éditoriale.'],files:files.filter(f=>f.content)};
+fs.mkdirSync('handoff-context',{recursive:true});
+fs.writeFileSync(`handoff-context/${week}.json`,JSON.stringify(bundle,null,2)+'\n');
+fs.writeFileSync('handoff-context/context.json',JSON.stringify({week,base_sha:base,available_files:files.map(({path,base_sha256})=>({path,base_sha256})),instructions:Object.fromEntries(['AUTOMATION.md','docs/HYBRID-WORKFLOW.md','ARCHITECTURE.md','data/editorial-config.json','data/personalization-config.json'].map(p=>[p,readContent(api,base,p)]))},null,2)+'\n');
+console.log('Context exported from immutable '+base+' for '+week);
