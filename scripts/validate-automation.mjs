@@ -14,6 +14,7 @@ const required=[
   'scripts/promote-week.mjs',
   'scripts/generation-report.mjs',
   'scripts/verify-public-deployment.mjs',
+  'scripts/validate-jellyfin-web.mjs',
   '.github/workflows/validate-architecture.yml',
   '.github/workflows/promote-validated-week.yml',
   '.github/workflows/weekly-automation-watchdog.yml',
