@@ -1229,6 +1229,337 @@
           }
         ],
         "shortage_reason": "Huit candidats vérifiés ont été conservés ; la grille ne sera pas artificiellement remplie au-delà du seuil."
+      },
+      "rendezvous-1": {
+        "page_id": "rendezvous-1",
+        "container_selector": ".week-grid",
+        "primary_selector": "article.week-card:not(.replacement-generated)",
+        "card_type": "week-card",
+        "target": 5,
+        "desired_reserve": 7,
+        "candidates": [
+          {
+            "title": "Le Samouraï",
+            "work_id": "le-samourai-1967",
+            "rank": 1,
+            "quality": "MAJEUR",
+            "time": "01:17",
+            "channel": "Ciné+ Classic",
+            "meta": "1967 · Jean-Pierre Melville · France / Italie · 1 h 45",
+            "summary": "Jef Costello, tueur à gages solitaire, tente d’échapper à la police après un contrat qui a laissé un témoin derrière lui.",
+            "why": "Melville pousse le polar vers l’épure : décors froids, gestes ritualisés, silence et solitude composent un personnage presque abstrait. Le film reste une matrice du cinéma criminel moderne.",
+            "image": "https://g123-media.sos-ch-gva-2.exoscale-cdn.com/filer_public_thumbnails/filer_public/5d/fe/5dfeb56a-dd8b-4493-80a7-1339689e9354/le-samourai-y020400-affiche-ancienne.jpg__960x0_q85_subsampling-2_upscale.jpg",
+            "links": {
+              "allocine": "https://www.allocine.fr/film/fichefilm_gen_cfilm%3D4924.html",
+              "imdb": "https://www.imdb.com/title/tt0062229/",
+              "sc": "https://www.senscritique.com/film/le_samourai/485189"
+            }
+          },
+          {
+            "title": "Casino",
+            "work_id": "casino-1995",
+            "rank": 2,
+            "quality": "MAJEUR",
+            "time": "20:50",
+            "channel": "TCM Cinéma",
+            "meta": "1995 · Martin Scorsese · États-Unis / France · 2 h 58",
+            "summary": "À Las Vegas, un spécialiste des paris prend la direction d’un casino contrôlé par la mafia tandis que son amitié avec un homme de main et son mariage se désagrègent.",
+            "why": "Scorsese filme simultanément une machine économique, une histoire d’amour toxique et la fin d’un système mafieux. La durée permet au monde du casino de se construire puis de se décomposer sous nos yeux.",
+            "image": "https://printedoriginals.com/cdn/shop/files/casi1_7a9d0734-ec8d-4091-9542-bf8296494b02.jpg?v=1745484379",
+            "links": {
+              "imdb": "https://www.imdb.com/title/tt0112641/"
+            }
+          },
+          {
+            "title": "La Garçonnière",
+            "work_id": "la-garconniere-1960",
+            "rank": 3,
+            "quality": "MAJEUR",
+            "time": "20:50",
+            "channel": "Ciné+ Classic",
+            "meta": "1960 · Billy Wilder · États-Unis · 2 h 05",
+            "summary": "Un employé new-yorkais prête son appartement à ses supérieurs pour leurs liaisons, espérant accélérer sa carrière, jusqu’au jour où il découvre qui fréquente son patron.",
+            "why": "Wilder réussit à faire tenir dans la même mécanique la satire du bureau, la solitude urbaine et une histoire d’amour sans mièvrerie. L’un des sommets de la comédie américaine.",
+            "image": "https://pics.filmaffinity.com/The_Apartment-932077756-large.jpg",
+            "links": {
+              "imdb": "https://www.imdb.com/title/tt0053604/"
+            }
+          },
+          {
+            "title": "Zero Dark Thirty",
+            "work_id": "zero-dark-thirty-2012",
+            "rank": 4,
+            "quality": "MAJEUR",
+            "time": "21:00",
+            "channel": "Arte",
+            "meta": "2012 · Kathryn Bigelow · États-Unis · 2 h 37",
+            "summary": "Une analyste de la CIA consacre des années à la traque d’Oussama ben Laden, depuis les interrogatoires de l’après-11-Septembre jusqu’au raid d’Abbottabad.",
+            "why": "Bigelow filme la guerre contre le terrorisme comme un travail de renseignement obsessionnel et bureaucratique. Le film est passionnant précisément parce qu’il laisse ouvertes des questions morales inconfortables.",
+            "image": "https://i.ebayimg.com/images/g/cbMAAMXQUY1RAMw7/s-l1200.jpg",
+            "links": {
+              "imdb": "https://www.imdb.com/title/tt1790885/"
+            }
+          },
+          {
+            "title": "She Said",
+            "work_id": "she-said-2022",
+            "rank": 5,
+            "quality": "TRÈS FORT",
+            "time": "21:05",
+            "channel": "France 5",
+            "meta": "2022 · Maria Schrader · États-Unis · 2 h 09",
+            "summary": "Les journalistes Jodi Kantor et Megan Twohey enquêtent sur les accusations visant Harvey Weinstein et cherchent des témoignages publiables malgré les pressions et les accords de silence.",
+            "why": "Le film s’intéresse moins au scandale lui-même qu’au travail patient permettant de transformer des récits individuels en enquête démontrable. Une mise en scène volontairement sobre de la pratique journalistique.",
+            "image": "https://i0.wp.com/mediamikes.com/wp-content/uploads/2023/05/shesaidposter.jpg?ssl=1&w=700",
+            "links": {
+              "imdb": "https://www.imdb.com/title/tt14807308/"
+            }
+          },
+          {
+            "title": "L'Emploi du temps",
+            "work_id": "l-emploi-du-temps-2001",
+            "rank": 6,
+            "quality": "TRÈS FORT",
+            "time": "22:32",
+            "channel": "Ciné+ Festival",
+            "meta": "2001 · Laurent Cantet · France / Canada · 2 h 12",
+            "summary": "Vincent, licencié, cache la perte de son emploi à sa famille et invente une nouvelle activité professionnelle jusqu’à s’enfermer dans son mensonge.",
+            "why": "Cantet utilise le mensonge moins comme ressort de suspense que comme révélateur de ce que le travail produit dans l’identité sociale. Une œuvre centrale de son cinéma.",
+            "image": "https://www.athinorama.gr/Content/ImagesDatabase/lmnts/events/cinema/1006884/Poster.jpg",
+            "links": {
+              "imdb": "https://www.imdb.com/title/tt0279065/"
+            }
+          },
+          {
+            "title": "Million Dollar Baby",
+            "work_id": "million-dollar-baby",
+            "rank": 7,
+            "quality": "MAJEUR",
+            "time": "22:26",
+            "channel": "Ciné+ Festival",
+            "meta": "2004 · Clint Eastwood · États-Unis · 2 h 12",
+            "summary": "Une serveuse obstinée convainc un vieil entraîneur de boxe de la prendre sous son aile et construit avec lui une relation qui dépasse rapidement le sport.",
+            "why": "Eastwood part du film de boxe pour aller vers un drame moral d’une extrême simplicité formelle. Le rapport entre les personnages compte davantage que la performance sportive.",
+            "image": "https://www.originalfilmart.com/cdn/shop/products/million_dollar_baby_2004_original_film_art_5000x.jpg?v=1578282906",
+            "links": {
+              "imdb": "https://www.imdb.com/title/tt0405159/",
+              "sc": "https://www.senscritique.com/film/Million_Dollar_Baby/403401"
+            }
+          },
+          {
+            "title": "Été précoce",
+            "work_id": "ete-precoce-1951",
+            "rank": 8,
+            "quality": "MAJEUR",
+            "time": "01:43",
+            "channel": "Ciné+ Classic",
+            "meta": "1951 · Yasujirō Ozu · Japon · 2 h 05",
+            "summary": "À Tokyo, la famille Mamiya s’inquiète de voir Noriko toujours célibataire et cherche à organiser son mariage, tandis qu’elle prend elle-même une décision inattendue.",
+            "why": "Ozu fait d’une décision matrimoniale un bouleversement discret de tout un équilibre familial. Les ellipses, les conversations quotidiennes et le cadre fixe produisent une émotion sans effets.",
+            "image": "https://m.media-amazon.com/images/M/MV5BMDE3MjAwZTAtYjNjZC00ZDRjLWE3ODgtZWQ0Y2Y4YzI3M2Y2XkEyXkFqcGc%40._V1_.jpg",
+            "links": {
+              "imdb": "https://www.imdb.com/title/tt0043313/"
+            }
+          },
+          {
+            "title": "Roubaix, une lumière",
+            "work_id": "roubaix-une-lumiere-2019",
+            "rank": 9,
+            "quality": "TRÈS FORT",
+            "time": "22:48",
+            "channel": "Ciné+ OCS",
+            "meta": "2019 · Arnaud Desplechin · France · 1 h 59",
+            "summary": "À Roubaix, un commissaire et son jeune collègue enquêtent sur le meurtre d’une vieille femme tandis que deux voisines deviennent les principales suspectes.",
+            "why": "Desplechin part d’un fait divers réel et travaille moins le suspense que l’écoute des suspects, la texture de la ville et la manière dont la parole se forme sous interrogatoire.",
+            "image": "https://www.culturoscope.ch/uploads/1500_1500_CS-gzE6587Dkk-697.jpeg",
+            "links": {
+              "imdb": "https://www.imdb.com/title/tt8359840/"
+            }
+          },
+          {
+            "title": "Misery",
+            "work_id": "misery-1990",
+            "rank": 10,
+            "quality": "TRÈS FORT",
+            "time": "21:00",
+            "channel": "France 4",
+            "meta": "1990 · Rob Reiner · États-Unis · 1 h 47",
+            "summary": "Après un accident de voiture, un romancier est recueilli par une admiratrice qui refuse bientôt de le laisser repartir et exige qu’il ressuscite son héroïne favorite.",
+            "why": "Le film tient presque entièrement sur un rapport de force entre deux personnages et un espace fermé. Kathy Bates y construit une menace d’autant plus efficace qu’elle reste imprévisible.",
+            "image": "https://www.originalfilmart.com/cdn/shop/products/Misery_1990_original_film_art_5000x.webp?v=1657309167",
+            "links": {
+              "imdb": "https://www.imdb.com/title/tt0100157/"
+            }
+          },
+          {
+            "title": "Prisoners",
+            "work_id": "prisoners-2013",
+            "rank": 11,
+            "quality": "TRÈS FORT",
+            "time": "20:55",
+            "channel": "T18",
+            "meta": "2013 · Denis Villeneuve · États-Unis · 2 h 33",
+            "summary": "Deux fillettes disparaissent. Persuadé qu’un suspect relâché faute de preuves est coupable, le père de l’une d’elles décide de mener sa propre enquête.",
+            "why": "Villeneuve pousse le thriller de disparition vers un dilemme moral très noir : que devient la recherche de justice lorsqu’elle est contaminée par la certitude et la peur ?",
+            "image": "https://3.bp.blogspot.com/-ZYCKEJERmrg/UsE_JAEyHnI/AAAAAAAACEE/5od98O8fEa0/s1600/Prisoners_2013_Movie_Poster.jpg",
+            "links": {
+              "imdb": "https://www.imdb.com/title/tt1392214/"
+            }
+          },
+          {
+            "title": "Stillwater",
+            "work_id": "stillwater-2021",
+            "rank": 12,
+            "quality": "TRÈS FORT",
+            "time": "21:10",
+            "channel": "M6",
+            "meta": "2021 · Tom McCarthy · États-Unis · 2 h 19",
+            "summary": "Un ouvrier de l’Oklahoma se rend régulièrement à Marseille où sa fille est emprisonnée pour meurtre et tente de faire rouvrir l’enquête qui pourrait l’innocenter.",
+            "why": "McCarthy évite progressivement le thriller judiciaire attendu pour observer un homme confronté à une culture et à des relations qu’il ne maîtrise pas. Matt Damon y est volontairement opaque.",
+            "image": "https://dx35vtwkllhj9.cloudfront.net/eone/stillwater/images/regions/gb/onesheet.jpg",
+            "links": {
+              "imdb": "https://www.imdb.com/title/tt10696896/"
+            }
+          }
+        ]
+      },
+      "sorties-physiques": {
+        "page_id": "sorties-physiques",
+        "container_selector": ".release-grid",
+        "primary_selector": "article.release-card:not(.replacement-generated)",
+        "card_type": "release-card",
+        "target": 4,
+        "desired_reserve": 4,
+        "candidates": [
+          {
+            "title": "Gurren Lagann : The Movies",
+            "work_id": "gurren-lagann-the-movies",
+            "rank": 1,
+            "quality": "TRÈS FORT",
+            "release_date": "2026-09-23",
+            "release_label": "23 septembre 2026 · UHD 4K",
+            "format": "UHD 4K",
+            "editor": "All The Anime",
+            "price": "59,99 €",
+            "restoration": "Passage en UHD 4K",
+            "bonuses": "Édition physique de catalogue",
+            "release_url": "https://www.fnac.com/a23320118/Gurren-Lagann-The-Movies-Blu-ray-4K-Ultra-HD-Blu-ray-4K",
+            "summary": "",
+            "why": "Édition physique de catalogue"
+          },
+          {
+            "title": "Star Wars : The Mandalorian And Grogu",
+            "work_id": "star-wars-the-mandalorian-and-grogu",
+            "rank": 2,
+            "quality": "TRÈS FORT",
+            "release_date": "2026-09-30",
+            "release_label": "30 septembre 2026 · UHD 4K + Blu-ray",
+            "format": "UHD 4K + Blu-ray",
+            "editor": "Walt Disney",
+            "price": "",
+            "restoration": "Édition 4K",
+            "bonuses": "Bonus de fabrication + commentaire audio Jon Favreau",
+            "release_url": "https://www.fnac.com/a22774112/Star-Wars-The-Mandalorian-And-Grogu-Edition-Limitee-SteelBook-Blu-ray-4K-Ultra-HD-Pedro-Pascal-Blu-ray-4K",
+            "summary": "",
+            "why": "Bonus de fabrication + commentaire audio Jon Favreau"
+          },
+          {
+            "title": "Pour une poignée de dollars",
+            "work_id": "pour-une-poignee-de-dollars-1964",
+            "rank": 3,
+            "quality": "TRÈS FORT",
+            "release_date": "2026-09-09",
+            "release_label": "9 septembre 2026 · SteelBook UHD 4K",
+            "format": "SteelBook UHD 4K",
+            "editor": "ESC Films",
+            "price": "34,99 €",
+            "restoration": "Restauration 4K",
+            "bonuses": "Édition collector limitée",
+            "release_url": "https://www.fnac.com/a23121777/Pour-une-poignee-de-dollars-Edition-Collector-Limitee-SteelBook-Blu-ray-4K-Ultra-HD-Clint-Eastwood-Blu-ray-4K",
+            "summary": "",
+            "why": "Édition collector limitée"
+          },
+          {
+            "title": "28 jours plus tard",
+            "work_id": "28-jours-plus-tard-2002",
+            "rank": 4,
+            "quality": "TRÈS FORT",
+            "release_date": "2026-09-02",
+            "release_label": "2 septembre 2026 · SteelBook UHD 4K",
+            "format": "SteelBook UHD 4K",
+            "editor": "SPHE",
+            "price": "29,99 €",
+            "restoration": "Première édition UHD française suivie",
+            "bonuses": "Édition limitée",
+            "release_url": "https://www.fnac.com/a21507011/28-jours-plus-tard-Edition-Limitee-Steelbook-Blu-ray-4K-Ultra-HD-Cillian-Murphy-Blu-ray-4K",
+            "summary": "",
+            "why": "Édition limitée"
+          },
+          {
+            "title": "Mortal Kombat II",
+            "work_id": "mortal-kombat-ii-2026",
+            "rank": 5,
+            "quality": "À VOIR",
+            "release_date": "2026-09-16",
+            "release_label": "16 septembre 2026 · SteelBook UHD 4K + Blu-ray",
+            "format": "SteelBook UHD 4K + Blu-ray",
+            "editor": "WBS",
+            "price": "34,99 €",
+            "restoration": "Nouvelle édition 4K",
+            "bonuses": "SteelBook avec Blu-ray inclus",
+            "release_url": "https://www.fnac.com/a23056057/Mortal-Kombat-II-SteelBook-Blu-ray-4K-Ultra-HD-Jessica-McNamee-Blu-ray-4K",
+            "summary": "",
+            "why": "SteelBook avec Blu-ray inclus"
+          },
+          {
+            "title": "Police fédérale, Los Angeles",
+            "work_id": "police-federale-los-angeles-1985",
+            "rank": 6,
+            "quality": "À VOIR",
+            "release_date": "2026-09-15",
+            "release_label": "15 septembre 2026 · Steelcase UHD 4K + Blu-ray",
+            "format": "Steelcase UHD 4K + Blu-ray",
+            "editor": "BubbelPop",
+            "price": "34,99 €",
+            "restoration": "Édition 4K",
+            "bonuses": "Édition spéciale Fnac Steelcase",
+            "release_url": "https://www.fnac.com/a22897785/Police-federale-Los-Angeles-Edition-Speciale-Fnac-Steelcase-Blu-ray-4K-Ultra-HD-William-Petersen-Blu-ray-4K",
+            "summary": "À Los Angeles, un agent fédéral obsédé par la capture d’un faussaire franchit progressivement les limites de la loi et entraîne son partenaire dans une traque de plus en plus dangereuse.",
+            "why": "La ressortie 4K remet en avant l’un des polars les plus nerveux de Friedkin, remarquable pour sa sécheresse morale, sa photographie urbaine et une poursuite automobile restée célèbre."
+          },
+          {
+            "title": "Les Ensorceleuses",
+            "work_id": "les-ensorceleuses-1998",
+            "rank": 7,
+            "quality": "À VOIR",
+            "release_date": "2026-09-30",
+            "release_label": "30 septembre 2026 · SteelBook UHD 4K",
+            "format": "SteelBook UHD 4K",
+            "editor": "WBS",
+            "price": "34,99 €",
+            "restoration": "Passage en UHD 4K",
+            "bonuses": "Édition SteelBook",
+            "release_url": "https://www.fnac.com/a23233411/Les-Ensorceleuses-SteelBook-Blu-ray-4K-Ultra-HD-Nicole-Kidman-Blu-ray-4K",
+            "summary": "Deux sœurs issues d’une lignée de sorcières tentent de construire leur vie amoureuse malgré une malédiction familiale et les conséquences d’un événement qui les réunit.",
+            "why": "La nouvelle édition 4K remet en circulation cette comédie fantastique devenue culte, portée par le duo Sandra Bullock–Nicole Kidman et une tonalité très singulière entre romance et surnaturel."
+          },
+          {
+            "title": "Van Helsing",
+            "work_id": "van-helsing-2004",
+            "rank": 8,
+            "quality": "À VOIR",
+            "release_date": "2026-10-07",
+            "release_label": "7 octobre 2026 · SteelBook UHD 4K + Blu-ray",
+            "format": "SteelBook UHD 4K + Blu-ray",
+            "editor": "Universal",
+            "price": "29,99 €",
+            "restoration": "Nouvelle édition UHD 4K",
+            "bonuses": "Édition limitée SteelBook",
+            "release_url": "https://www.fnac.com/a23339565/Van-Helsing-Edition-Limitee-SteelBook-Blu-ray-4K-Ultra-HD-Richard-Roxburgh-Blu-ray-4K",
+            "summary": "Le chasseur de monstres Van Helsing est envoyé en Transylvanie pour affronter Dracula, un loup-garou et les expériences héritées du docteur Frankenstein.",
+            "why": "L’édition 4K permet de revisiter un blockbuster gothique très représentatif du cinéma d’aventure fantastique des années 2000, avec un goût assumé pour le grand spectacle monstrueux."
+          }
+        ]
       }
     }
   }

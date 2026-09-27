@@ -78,5 +78,21 @@
     "require_editorial_why": true,
     "require_time_and_channel": true,
     "policy": "Un candidat de réserve est une recommandation susceptible de devenir visible immédiatement si un choix principal est déjà vu. Il doit donc être recherché et enrichi avant publication au même niveau qu'une carte principale : identité canonique, affiche réelle, métadonnées, note(s) ou raison spécifique d'indisponibilité, synopsis, justification éditoriale, horaire/chaîne et liens exacts. La réserve n'est jamais un inventaire brut ni un espace où reporter la recherche à l'exécution."
+  },
+  "section_reserve_pools": {
+    "enabled_from_week": "2026-S41",
+    "policy": "Toute rubrique à quota explicitement couverte ici doit conserver son nombre de recommandations visibles après masquage des œuvres déjà vues. Chaque page doit posséder un pool classé de candidats de même nature, enrichis avant publication ; le runtime ne doit jamais remplacer une sortie physique par un programme TV ou inversement.",
+    "sections": {
+      "weekly_rendezvous": {
+        "page_id_prefix": "rendezvous-",
+        "card_type": "week-card",
+        "minimum_reserve_per_page": 5
+      },
+      "physical_releases": {
+        "page_id_prefix": "sorties-physiques",
+        "card_type": "release-card",
+        "minimum_reserve_per_page": 2
+      }
+    }
   }
 }
