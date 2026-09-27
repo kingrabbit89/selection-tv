@@ -2,6 +2,12 @@ name: Android TV / Build Sélection TV prototype
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "integrations/androidtv/**"
+      - ".github/workflows/build-selection-tv-androidtv.yml"
   push:
     branches:
       - main
@@ -64,6 +70,7 @@ jobs:
           path: dist/Jellyfin-Selection-TV-AndroidTV.apk
 
       - name: Publish stable Android TV download
+        if: github.event_name != 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
