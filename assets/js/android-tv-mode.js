@@ -1,6 +1,12 @@
 (()=>{
   if(new URLSearchParams(location.search).get('tv')!=='1')return;
 
+  const REQUIRED_ANDROID_PROTOCOL=2;
+  const detectedAndroidProtocol=(()=>{try{return Number(window.SelectionTvAndroid?.protocolVersion?.()||0)}catch{return 0}})();
+  const androidBridgeCompatible=detectedAndroidProtocol>=REQUIRED_ANDROID_PROTOCOL;
+  window.SelectionTvAndroidRequiredProtocol=REQUIRED_ANDROID_PROTOCOL;
+  window.SelectionTvAndroidDetectedProtocol=detectedAndroidProtocol;
+
   const clean=s=>String(s||'').replace(/\s+/g,' ').trim();
   const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
   const SELECTOR='article.week-card,article.feature,article.list-card,article.platform:not(.jellyfin-private-upload),article.release-card,article.expire-card,article.radar-card,article.torrent-card,table.schedule tbody tr';
@@ -339,7 +345,9 @@
     const queued=statusModels.filter(x=>x.state==='unknown'||x.state==='queued').length;
     const el=document.querySelector('.stv-tv-statusbar');
     if(!el)return;
-    const html=libraryReady
+    const html=!androidBridgeCompatible
+      ? '<strong>APK Sélection TV à mettre à jour</strong> · protocole natif '+detectedAndroidProtocol+' / requis '+REQUIRED_ANDROID_PROTOCOL
+      : libraryReady
       ? '<strong>Jellyfin</strong> · '+found+' présents · '+missing+' absents'
         +(checking?' · '+checking+' analysé'+(checking>1?'s':''):'')
         +(queued?' · '+queued+' à vérifier':'')

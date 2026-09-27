@@ -80,6 +80,9 @@ class SelectionTvFragment : Fragment() {
 
 	private inner class SelectionTvJavascriptBridge {
 		@JavascriptInterface
+		fun protocolVersion(): Int = BRIDGE_PROTOCOL_VERSION
+
+		@JavascriptInterface
 		fun isLibraryReady(): Boolean = libraryIndex != null
 
 		@JavascriptInterface
@@ -899,6 +902,7 @@ class SelectionTvFragment : Fragment() {
 
 	private companion object {
 		const val JS_BRIDGE_NAME = "SelectionTvAndroid"
+		const val BRIDGE_PROTOCOL_VERSION = 2
 		const val SELECTION_TV_SCHEME = "selectiontv"
 		const val SELECTION_TV_URL = "https://kingrabbit89.github.io/selection-tv/latest.html?tv=1"
 		const val LIBRARY_PAGE_SIZE = 200

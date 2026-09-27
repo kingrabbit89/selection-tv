@@ -2,6 +2,8 @@
   if(window.parent===window)return;
 
   const PARENT=window.parent;
+  const PARENT_ORIGIN=(()=>{try{return document.referrer?new URL(document.referrer).origin:''}catch{return ''}})();
+  const TARGET_ORIGIN=PARENT_ORIGIN||'*';
   const script=document.currentScript;
   const ROOT=new URL('../../',script?.src||location.href);
   const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
@@ -71,13 +73,13 @@
         type:'selection-tv:jellyfin-open',
         itemId:item.itemId,
         request:infoFor(el)
-      },'*');
+      },TARGET_ORIGIN);
       box.append(open);
     }
   };
   const request=items=>{
     if(!parentReady||!items.length)return false;
-    PARENT.postMessage({type:'selection-tv:jellyfin-query',version:1,items},'*');
+    PARENT.postMessage({type:'selection-tv:jellyfin-query',version:1,items},TARGET_ORIGIN);
     return true;
   };
   const observeElement=el=>{
@@ -121,7 +123,7 @@
   });
 
   window.addEventListener('message',e=>{
-    if(e.source!==PARENT||!e.data)return;
+    if(e.source!==PARENT||(PARENT_ORIGIN&&e.origin!==PARENT_ORIGIN)||!e.data)return;
     if(e.data.type==='selection-tv:jellyfin-ready'){
       parentReady=true;
       if(pendingVisible.size){request([...pendingVisible.values()]);pendingVisible.clear()}
@@ -135,6 +137,8 @@
 (()=>{
   if(window.parent===window)return;
   const PARENT=window.parent;
+  const PARENT_ORIGIN=(()=>{try{return document.referrer?new URL(document.referrer).origin:''}catch{return ''}})();
+  const TARGET_ORIGIN=PARENT_ORIGIN||'*';
   const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
   const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const fmtDate=value=>{
@@ -286,7 +290,7 @@
       const j=document.createElement('div');j.className='jellyfin-actions';
       const badge=document.createElement('span');badge.className='jellyfin-pill';badge.textContent='Dans Jellyfin';j.append(badge);
       const open=document.createElement('button');open.type='button';open.className='jellyfin-open';open.textContent='Ouvrir dans Jellyfin';
-      open.onclick=()=>PARENT.postMessage({type:'selection-tv:jellyfin-open',itemId:item.jellyfinItemId},'*');
+      open.onclick=()=>PARENT.postMessage({type:'selection-tv:jellyfin-open',itemId:item.jellyfinItemId},TARGET_ORIGIN);
       j.append(open);actions.append(j);
     }
 
@@ -386,7 +390,7 @@
     document.dispatchEvent(new CustomEvent('selectiontv:privateuploadsrendered',{detail:{count:items.length}}));
   };
   window.addEventListener('message',e=>{
-    if(e.source!==PARENT||!e.data)return;
+    if(e.source!==PARENT||(PARENT_ORIGIN&&e.origin!==PARENT_ORIGIN)||!e.data)return;
     if(e.data.type==='selection-tv:jellyfin-private-uploads')renderPrivate(e.data);
   });
 
@@ -394,8 +398,8 @@
   // after this iframe bridge. Tell the parent exactly when private payloads
   // can safely be delivered.
   try{
-    PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},'*');
-    setTimeout(()=>PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},'*'),500);
-    setTimeout(()=>PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},'*'),1800);
+    PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},TARGET_ORIGIN);
+    setTimeout(()=>PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},TARGET_ORIGIN),500);
+    setTimeout(()=>PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},TARGET_ORIGIN),1800);
   }catch{}
 })();

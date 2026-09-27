@@ -182,24 +182,47 @@ Le contrôle CI `scripts/validate-freshness.mjs` compare le numéro candidat aux
 
 ## Publication transactionnelle et contrôle qualité
 
-À partir de S41, une nouvelle édition ne doit **jamais** être écrite directement sur `main`.
-Le générateur crée une branche `auto/YYYY-Sxx`, construit le numéro complet, met sur cette
-branche le statut publié et `manifest.latest`, puis ouvre une pull request. La branche
-`main` conserve le dernier numéro validé tant que tous les contrôles GitHub Actions ne sont
-pas verts. Une PR rouge ne doit pas être fusionnée.
+À partir de S42, une nouvelle édition suit un protocole **en deux phases**.
 
-Une semaine incomplète peut rester dans le dépôt avec `status: "draft"` dans
-`data/manifest.json` et `publication_status: "draft"` dans son JSON. Les pages d'accueil
-et `latest.html` ne doivent jamais la promouvoir.
+Le producteur éditorial est un agent de recherche externe disposant du Web et de GitHub. Il
+calcule la semaine cible avec `scripts/next-target.mjs`, crée une branche
+`auto/YYYY-Sxx`, construit le numéro complet et ouvre une pull request. Pendant toute cette
+phase, la nouvelle entrée reste `status: "draft"`, son JSON reste
+`publication_status: "draft"` et **`manifest.latest` n'est pas modifié**.
+
+Les validateurs reçoivent `SELECTION_TV_VALIDATE_WEEK` et peuvent donc contrôler
+explicitement le brouillon comme futur numéro sans le rendre public. Pour les tests
+navigateur, `issue-loader.js` autorise un rendu `preview=1` uniquement sur localhost.
+
+Après fusion d'une PR `auto/YYYY-Sxx`, la semaine est encore privée dans le flux public.
+`.github/workflows/promote-validated-week.yml` rejoue alors les contrôles de données, la
+santé distante des images et les tests Chromium/Fire TV. Ce n'est qu'après ce second passage
+vert que `scripts/promote-week.mjs` met à jour `manifest.latest` et les statuts
+`published`. Un échec laisse automatiquement le dernier numéro validé en production.
 
 La collecte « inventory-first » doit être auditable. Toute semaine candidate à la publication
 conserve son inventaire brut dans `data/inventory/YYYY-Sxx.json` : 7 jours, programmes
-horodatés, chaîne et source (ou URL de source) pour chaque entrée. `data/coverage/` est un
-résumé de contrôle ; il ne remplace pas cet inventaire.
+horodatés, chaîne, source/URL, pages consultées, matrice des chaînes et décomptes par chaîne.
+`data/coverage/` est un résumé de contrôle ; il ne remplace pas cet inventaire. À partir de
+S42, le minimum normal est de 30 lignes brutes par jour avant filtre éditorial.
 
 Les validations de publication bloquent notamment : rubriques factices ou vides sans
 `section_shortages` motivé, texte générique de remplissage, répétition d'un même gabarit
 horaire/chaîne sur plusieurs jours, identifiants d'œuvres non canoniques, choix quotidiens
-dupliqués par rediffusion, couverture d'affiches/métadonnées/notes insuffisante et image
-héro absente. Le principe est **fail closed** : mieux vaut conserver le numéro précédent
-que publier une édition artificiellement complète mais non vérifiée.
+dupliqués par rediffusion, couverture d'affiches/métadonnées/notes insuffisante, réserves
+incomplètes, recyclage inter-numéros excessif et image héro absente.
+
+Le principe est **fail closed** : mieux vaut conserver le numéro précédent que publier une
+édition artificiellement complète mais non vérifiée. Le contrat complet du producteur est
+documenté dans `AUTOMATION.md` et `data/automation-config.json`.
+
+## Compatibilité Android TV / Fire TV
+
+Le contenu hebdomadaire reste distant : une nouvelle semaine éditoriale ne nécessite pas une
+nouvelle APK. En revanche, le pont Kotlin est versionné. `SelectionTvFragment.kt`,
+`assets/js/android-tv-mode.js` et `data/automation-config.json` doivent annoncer la même
+version minimale de protocole. Si le site nécessite un pont plus récent que celui de l'APK
+installée, le mode TV affiche explicitement qu'une mise à jour de l'APK est nécessaire.
+
+Les modifications natives Android TV sont compilées sur pull request avant fusion ; le
+workflow de build ne publie la release stable qu'en dehors des PR.
