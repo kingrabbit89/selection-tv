@@ -287,7 +287,7 @@ try{
    };
  });
  await tvStable.goto(`${origin}/semaines/${latest}/${tvQuery}`,{waitUntil:'domcontentloaded'});
- await tvStable.waitForFunction(()=>window.SelectionTvAndroidModels?.filter(m=>!m.isReserve).every(m=>m.sessionVerified));
+ await tvStable.waitForFunction(()=>window.SelectionTvAndroidModels?.filter(m=>!m.isReserve&&m.tile?.isConnected).every(m=>m.sessionVerified));
  const beforeIdle=await tvStable.evaluate(()=>({calls:tvFixture.calls.length,rows:SelectionTvAndroidPersonalizedRows.map(r=>r.activeModels.map(m=>m.key))}));
  await tvStable.clock.fastForward(61000);
  const afterIdle=await tvStable.evaluate(()=>({calls:tvFixture.calls.length,rows:SelectionTvAndroidPersonalizedRows.map(r=>r.activeModels.map(m=>m.key))}));
