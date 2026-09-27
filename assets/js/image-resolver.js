@@ -32,7 +32,7 @@ function bind(img,title,card,extra=[]){
  const list=sources(title,[...extra,img.getAttribute('src')]);
  if(!list.length)return false;
  img.removeAttribute('onerror');
- img.loading='lazy';
+ if(!img.hasAttribute('loading'))img.loading='lazy';
 
  let index=0;
  let finished=false;
