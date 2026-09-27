@@ -56,7 +56,17 @@ try{
       getUrl:(path)=>'/'+String(path||'').replace(/^\//,''),
       ajax:async opts=>{
         const url=String(opts?.url||'');
-        if(url.includes('SelectionTv/Uploads'))return {Items:[],WindowHours:24,GeneratedAt:new Date().toISOString()};
+        if(url.includes('SelectionTv/Uploads'))return {
+          Items:[{
+            TopicTitle:'Paris Texas 1984 1080p',
+            TitleGuess:'Paris, Texas',
+            TopicUrl:'https://forum.example.test/paris-texas',
+            ActivityAt:new Date().toISOString(),
+            Year:1984
+          }],
+          WindowHours:24,
+          GeneratedAt:new Date().toISOString()
+        };
         if(url.includes('SelectionTv/Enrich'))return {};
         if(url.includes('Items/RemoteSearch'))return [];
         return {};
@@ -76,14 +86,28 @@ try{
 
   const childHtml=`<!doctype html><meta charset="utf-8">
     <style>body{margin:0}.feature{width:240px}.program-actions{min-height:20px}</style>
-    <article class="feature" data-title="Paris, Texas">
-      <h3>Paris, Texas</h3>
-      <div class="work-meta">1984 · Wim Wenders</div>
-      <div class="program-actions"></div>
-    </article>
+    <div id="sommaire"><div class="toc-group"><a class="toc-link" href="#samedi-selection">Samedi</a></div></div>
+    <div class="book">
+      <section id="samedi-selection">
+        <article class="feature" data-title="Paris, Texas">
+          <h3>Paris, Texas</h3>
+          <div class="work-meta">1984 · Wim Wenders</div>
+          <div class="program-actions"></div>
+        </article>
+      </section>
+      <section id="methode"></section>
+    </div>
     <script src="https://kingrabbit89.github.io/selection-tv/assets/js/jellyfin-bridge.js"><\/script>`;
 
+  const weeklyUrl='https://kingrabbit89.github.io/selection-tv/semaines/2026-S41/';
   await page.route('https://kingrabbit89.github.io/selection-tv/latest.html',route=>
+    route.fulfill({
+      status:200,
+      contentType:'text/html; charset=utf-8',
+      body:'<!doctype html><meta charset="utf-8"><script>location.replace('+JSON.stringify(weeklyUrl)+')<\\/script>'
+    })
+  );
+  await page.route(weeklyUrl,route=>
     route.fulfill({status:200,contentType:'text/html; charset=utf-8',body:childHtml})
   );
   await page.route('https://kingrabbit89.github.io/selection-tv/assets/js/jellyfin-bridge.js',route=>
@@ -101,17 +125,22 @@ try{
   await page.locator('#selectionTvFrame').waitFor({state:'attached'});
   let child=null;
   for(let attempt=0;attempt<50;attempt++){
-    child=page.frames().find(f=>f!==page.mainFrame()&&f.url().startsWith('https://kingrabbit89.github.io/selection-tv/latest.html'))||null;
+    child=page.frames().find(f=>f!==page.mainFrame()&&f.url().startsWith(weeklyUrl))||null;
     if(child)break;
     await page.waitForTimeout(100);
   }
-  assert(child,'Jellyfin iframe fixture did not navigate to the intercepted public origin');
+  assert(child,'Jellyfin iframe fixture did not navigate through latest.html to the weekly page');
+  const childReferrer=await child.evaluate(()=>document.referrer);
+  assert.match(childReferrer,/kingrabbit89\.github\.io\/selection-tv\/latest\.html/,'weekly page must reproduce the same-origin latest.html referrer');
 
   await child.locator('.jellyfin-actions').waitFor({state:'attached'});
   await child.locator('.jellyfin-pill.played').waitFor({state:'visible'});
   assert.equal(await child.locator('.jellyfin-pill.played').textContent(),'✓ Vu dans Jellyfin');
   assert.equal(await child.locator('.jellyfin-pill.quality').textContent(),'1080p');
   assert.equal(await child.locator('.jellyfin-open').textContent(),'Ouvrir dans Jellyfin');
+
+  await child.locator('.jellyfin-private-uploads-page').waitFor({state:'attached'});
+  assert.match(await child.locator('.jellyfin-private-uploads-page').first().textContent(),/Vos Uploads|uploads des dernières 24 heures/,'private uploads section must survive the latest.html redirect handshake');
 
   // Simulate a stale persisted UUID while keeping the exact request metadata
   // emitted by the real child bridge. The wrapper must recover the live item.
