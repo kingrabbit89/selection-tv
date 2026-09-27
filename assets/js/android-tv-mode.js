@@ -555,7 +555,7 @@
         if(m.played===true)continue;
         if(m.state==='found'&&m.played===false){take(m);continue}
         if(m.state==='missing'){take(m);continue}
-        if((m.state==='unknown'||m.state==='queued')&&!m._queued&&!m._deepQueued&&queued<2){
+        if(m.played==null&&(m.state==='found'||m.state==='unknown'||m.state==='queued')&&!m._queued&&!m._deepQueued&&queued<2){
           queueQuick(m);queued++;
         }
       }
