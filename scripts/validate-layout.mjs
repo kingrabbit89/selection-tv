@@ -208,6 +208,35 @@ try{
  }
  console.log(`✓ ${latest}: Android TV commented grids inherit posters, metadata, ratings and provider IDs`);
 
+ // Fire TV reserve regression: TV mode used to return before seen-filter.js,
+ // so the ranked pools existed in JSON but were completely absent from the
+ // APK. Verify every daily selection exposes prepared reserves and that a
+ // Jellyfin-played primary can be replaced by one of them.
+ const tvReserve=await page.evaluate(()=>{
+   const rows=window.SelectionTvAndroidPersonalizedRows||[];
+   const target=rows.find(r=>(r.reserveModels||[]).length>0);
+   if(!target)return {rowCount:rows.length,replaced:false,reserveCount:0};
+   const original=target.baseModels?.[0];
+   const reserve=target.reserveModels?.[0];
+   if(!original||!reserve)return {rowCount:rows.length,replaced:false,reserveCount:target.reserveModels?.length||0};
+   original.state='found';original.played=true;
+   reserve.state='missing';reserve.played=false;
+   window.SelectionTvAndroidRefreshPersonalizedRows?.();
+   const visible=[...target.grid.querySelectorAll('.stv-tv-tile-title')].map(x=>x.textContent.trim());
+   return {
+     rowCount:rows.length,
+     reserveCount:target.reserveModels.length,
+     replaced:visible.includes(reserve.title)&&!visible.includes(original.title),
+     reserveTitle:reserve.title,
+     reserveTagged:!![...target.grid.querySelectorAll('.stv-tv-tile')].find(x=>x.querySelector('.stv-tv-tile-title')?.textContent.trim()===reserve.title)?.querySelector('.stv-tv-reserve-tag')
+   };
+ });
+ assert.equal(tvReserve.rowCount,7,`${latest}: Fire TV must expose reserve pools for all 7 daily selections`);
+ assert(tvReserve.reserveCount>0,`${latest}: Fire TV daily reserve pool is empty`);
+ assert(tvReserve.replaced,`${latest}: Jellyfin-played primary was not replaced by reserve: ${JSON.stringify(tvReserve)}`);
+ assert(tvReserve.reserveTagged,`${latest}: Fire TV replacement is not identified as reserve`);
+ console.log(`✓ ${latest}: Fire TV daily reserves replace Jellyfin-watched primaries`);
+
  // Functional gate on the current issue: save/seen state and reserve replacement.
  await page.goto(`${origin}/semaines/${latest}/`,{waitUntil:'domcontentloaded'});
  await settle();
