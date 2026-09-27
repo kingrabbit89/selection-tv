@@ -58,6 +58,9 @@ class SelectionTvFragment : Fragment() {
 	@Volatile
 	private var libraryIndex: List<BaseItemDto>? = null
 
+	@Volatile
+	private var libraryLookupIndex: LibraryLookupIndex? = null
+
 	private data class LookupRequest(
 		val key: String,
 		val title: String,
@@ -65,6 +68,13 @@ class SelectionTvFragment : Fragment() {
 		val imdbId: String?,
 		val tmdbId: String?,
 		val aliases: List<String> = emptyList(),
+	)
+
+	private data class LibraryLookupIndex(
+		val items: List<BaseItemDto>,
+		val byImdb: Map<String, BaseItemDto>,
+		val byTmdb: Map<String, BaseItemDto>,
+		val byName: Map<String, List<BaseItemDto>>,
 	)
 
 	private inner class SelectionTvJavascriptBridge {
@@ -81,12 +91,12 @@ class SelectionTvFragment : Fragment() {
 				val item = try {
 					withTimeout(QUICK_LOOKUP_TIMEOUT_MS) {
 						withContext(Dispatchers.IO) {
-							// Do not block every uncached card behind a full library scan.
-							// When the compact index is already ready, use it. Otherwise,
-							// perform a conservative targeted Jellyfin search immediately.
-							val index = libraryIndex
+							// Once the library scan is ready, use immutable hash indexes
+							// instead of rescanning every Jellyfin item for every TV card.
+							// Before that, keep the targeted live-search fast path.
+							val index = libraryLookupIndex
 							if (index != null) {
-								exactIndexMatch(index, request) ?: conservativeIndexMatch(index, request)
+								exactLookupMatch(index, request) ?: conservativeLookupMatch(index, request)
 							} else {
 								fallbackSearch(request)
 							}
@@ -404,25 +414,59 @@ class SelectionTvFragment : Fragment() {
 				if (expectedTotal <= 0 && batch.size < LIBRARY_PAGE_SIZE) break
 			}
 
-			all.also { libraryIndex = it }
+			val frozen = all.toList()
+			val lookup = buildLibraryLookupIndex(frozen)
+			libraryLookupIndex = lookup
+			libraryIndex = frozen
+			frozen
 		}
 	}
 
+	private fun buildLibraryLookupIndex(items: List<BaseItemDto>): LibraryLookupIndex {
+		val byImdb = linkedMapOf<String, BaseItemDto>()
+		val byTmdb = linkedMapOf<String, BaseItemDto>()
+		val byName = linkedMapOf<String, MutableList<BaseItemDto>>()
+
+		for (item in items) {
+			providerId(item, "imdb")
+				.lowercase()
+				.takeIf { it.isNotBlank() }
+				?.let { byImdb.putIfAbsent(it, item) }
+
+			providerId(item, "tmdb")
+				.takeIf { it.isNotBlank() }
+				?.let { byTmdb.putIfAbsent(it, item) }
+
+			itemNames(item)
+				.asSequence()
+				.map(::normalizeTitle)
+				.filter { it.isNotBlank() }
+				.distinct()
+				.forEach { name -> byName.getOrPut(name) { mutableListOf() }.add(item) }
+		}
+
+		return LibraryLookupIndex(
+			items = items,
+			byImdb = byImdb.toMap(),
+			byTmdb = byTmdb.toMap(),
+			byName = byName.mapValues { (_, values) -> values.toList() },
+		)
+	}
+
 	private suspend fun findLibraryItem(request: LookupRequest): BaseItemDto? {
-		// If the background index is ready, exact provider/title matching remains
-		// the fastest route. While it is still building, search Jellyfin directly
-		// instead of making the card wait for the entire library scan.
-		libraryIndex?.let { index ->
-			exactIndexMatch(index, request)?.let { return it }
-			conservativeIndexMatch(index, request)?.let { return it }
+		// Exact provider/title hits are O(1) after preparation. This matters on
+		// Fire TV because dozens of cards can be reconciled at once.
+		libraryLookupIndex?.let { index ->
+			exactLookupMatch(index, request)?.let { return it }
+			conservativeLookupMatch(index, request)?.let { return it }
 		}
 		fallbackSearch(request)?.let { return it }
 
-		// Last resort: if targeted search did not find the item, wait for/build
-		// the index and retry exact/conservative matching.
-		val index = ensureLibraryIndex()
-		exactIndexMatch(index, request)?.let { return it }
-		return conservativeIndexMatch(index, request)
+		// Last resort: wait for/build the complete index and retry locally.
+		ensureLibraryIndex()
+		val index = libraryLookupIndex ?: return null
+		exactLookupMatch(index, request)?.let { return it }
+		return conservativeLookupMatch(index, request)
 	}
 
 	private suspend fun findLibraryItemForOpen(request: LookupRequest): BaseItemDto? {
@@ -468,8 +512,74 @@ class SelectionTvFragment : Fragment() {
 	private suspend fun refreshLibraryIndex(): List<BaseItemDto> {
 		indexMutex.withLock {
 			libraryIndex = null
+			libraryLookupIndex = null
 		}
 		return ensureLibraryIndex()
+	}
+
+	private fun exactLookupMatch(
+		index: LibraryLookupIndex,
+		request: LookupRequest,
+	): BaseItemDto? {
+		val reqImdb = request.imdbId?.lowercase().orEmpty()
+		if (reqImdb.isNotBlank()) {
+			index.byImdb[reqImdb]?.let { return it }
+		}
+
+		val reqTmdb = request.tmdbId.orEmpty()
+		if (reqTmdb.isNotBlank()) {
+			index.byTmdb[reqTmdb]?.let { return it }
+		}
+
+		val candidates = requestTitleCandidates(request)
+			.asSequence()
+			.map(::normalizeTitle)
+			.filter { it.isNotBlank() }
+			.flatMap { index.byName[it].orEmpty().asSequence() }
+			.distinctBy { it.id }
+			.toList()
+
+		return chooseByYear(candidates, request.year)
+	}
+
+	private fun conservativeLookupMatch(
+		index: LibraryLookupIndex,
+		request: LookupRequest,
+	): BaseItemDto? {
+		val targets = requestTitleCandidates(request)
+			.map(::normalizeTitle)
+			.filter { it.isNotBlank() }
+
+		if (targets.isEmpty()) return null
+
+		val ids = linkedSetOf<UUID>()
+		val candidates = mutableListOf<BaseItemDto>()
+		for ((name, items) in index.byName) {
+			if (targets.none { target -> strongTitleContainment(name, target) }) continue
+			for (item in items) {
+				if (ids.add(item.id)) candidates += item
+			}
+		}
+
+		return chooseByYear(candidates, request.year)
+	}
+
+	private fun chooseByYear(
+		candidates: List<BaseItemDto>,
+		year: Int?,
+	): BaseItemDto? {
+		if (candidates.isEmpty()) return null
+		if (year == null) return candidates.singleOrNull()
+
+		candidates.firstOrNull { it.productionYear == year }?.let { return it }
+		val near = candidates.filter { item ->
+			item.productionYear?.let { kotlin.math.abs(it - year) <= 1 } == true
+		}
+		if (near.size == 1) return near.first()
+		if (candidates.size == 1 && candidates.first().productionYear == null) {
+			return candidates.first()
+		}
+		return null
 	}
 
 	private fun exactIndexMatch(
@@ -577,14 +687,20 @@ class SelectionTvFragment : Fragment() {
 		}.take(MAX_SEARCH_TERMS)
 
 	private val nativeSearchGroups = listOf(
-		setOf(BaseItemKind.MOVIE),
-		setOf(BaseItemKind.SERIES),
-		setOf(BaseItemKind.EPISODE),
-		setOf(BaseItemKind.VIDEO),
-		setOf(BaseItemKind.LIVE_TV_PROGRAM),
-		setOf(BaseItemKind.LIVE_TV_CHANNEL),
-		setOf(BaseItemKind.PLAYLIST),
-		setOf(BaseItemKind.BOX_SET),
+		// SearchRepository accepts several item kinds in one request. Collapsing
+		// eight parallel calls to two removes a large burst of work on Fire TV.
+		setOf(
+			BaseItemKind.MOVIE,
+			BaseItemKind.SERIES,
+			BaseItemKind.EPISODE,
+			BaseItemKind.VIDEO,
+		),
+		setOf(
+			BaseItemKind.LIVE_TV_PROGRAM,
+			BaseItemKind.LIVE_TV_CHANNEL,
+			BaseItemKind.PLAYLIST,
+			BaseItemKind.BOX_SET,
+		),
 	)
 
 	private suspend fun nativeSearchWave(term: String): List<BaseItemDto> = coroutineScope {
