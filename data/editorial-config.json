@@ -78,7 +78,24 @@
     "no_repeated_daily_schedule_template": true,
     "publication_via_green_pr_only": true,
     "raw_inventory_source_pages_min": 2,
-    "raw_inventory_requires_channels_scanned": true
+    "raw_inventory_requires_channels_scanned": true,
+    "strict_inventory_from_week": "2026-S42",
+    "strict_inventory_min_items_per_day": 30,
+    "strict_inventory_requires_channel_sources": true,
+    "strict_inventory_requires_channel_counts": true,
+    "strict_inventory_min_overnight_items_per_day": 1,
+    "remote_image_health_from_week": "2026-S42",
+    "strict_section_targets_from_week": "2026-S42",
+    "strict_section_targets": {
+      "rendezvous-1": 10,
+      "replay-1": 2,
+      "plateformes-gratuites": 2,
+      "plateformes-abonnement": 9,
+      "sorties-physiques": 2,
+      "sorties-streaming": 3,
+      "radar-torrent": 5,
+      "radar-1": 10
+    }
   },
   "subscription_platforms": {
     "target_recommendations": 9,
