@@ -50,11 +50,28 @@ fetch(jsonUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.st
  if(window.SelectionTVImagesReady)await window.SelectionTVImagesReady;
  if(d.theme==='magazine'){
    const hydrateCandidates=()=>{
+     // Reserve candidates can become visible instantly after a "Vu" action.
+     // Treat the permanent works catalogue as their canonical metadata source,
+     // not only as an image lookup. This also repairs older S41 pool entries
+     // whose weekly snapshot contained only "Diffusion vérifiée S41".
      for(const pool of Object.values(d.personalization?.pools||{})){
        for(const c of pool.candidates||[]){
          const w=window.SelectionTVImageFor?.(c.title);
-         if(w?.image&&!c.image)c.image=w.image;
-         if(w?.image_fallbacks?.length&&!c.image_fallbacks)c.image_fallbacks=[...w.image_fallbacks];
+         if(!w)continue;
+         if(w.image)c.image=w.image;
+         if(w.image_fallbacks?.length)c.image_fallbacks=[...w.image_fallbacks];
+         if(w.ratings)c.ratings={...w.ratings};
+         if(Array.isArray(w.aliases))c.aliases=[...w.aliases];
+         const bits=[w.year,w.director||w.creator,w.country,w.duration,w.genre].filter(Boolean);
+         if(bits.length>=2)c.meta=bits.join(' · ');
+         c.canonical_metadata={
+           director:w.director||w.creator||'',
+           year:w.year||'',
+           country:w.country||'',
+           duration:w.duration||'',
+           genre:w.genre||'',
+           ratings_unavailable_reason:w.ratings_unavailable_reason||''
+         };
        }
      }
    };
