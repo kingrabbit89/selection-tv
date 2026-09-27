@@ -102,5 +102,155 @@ if(strict){
    for(const day of days){const got=new Set((day.channels_scanned||[]).map(norm));const miss=[...req].filter(x=>!got.has(x));if(miss.length){console.error('✗ '+day.date+' missing required channels: '+miss.join(', '));process.exitCode=1}}
  }
 }
+
+/* Publication gate: from S41 onward, a week may exist as a draft, but it
+ * cannot be promoted unless the editorial payload itself is demonstrably
+ * complete. Structural validity alone is not sufficient. */
+{
+ const publishable=(manifest.weeks||[]).filter(e=>e.week>='2026-S41'&&e.status!=='draft');
+ const q=config.quality_gates||{};
+ const minImage=Number(q.published_daily_image_ratio_min??0.80);
+ const minMeta=Number(q.published_daily_metadata_ratio_min??0.80);
+ const minRatings=Number(q.published_daily_ratings_ratio_min??0.55);
+ const minInventory=Number(q.raw_inventory_min_items_per_day??90);
+ const dayIds=['samedi','dimanche','lundi','mardi','mercredi','jeudi','vendredi'];
+ const banned=[
+   /Rubrique conservée\s*;\s*publication prudente/i,
+   /Au-dessus du seuil éditorial de la semaine/i,
+   /Retenu après inventaire et filtre éditorial/i,
+   /Retenu pour son intérêt cinématographique,\s*sa singularité ou sa valeur patrimoniale/i
+ ];
+ const clean=s=>String(s||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+ const articleCount=html=>(String(html||'').match(/<article\b/gi)||[]).length;
+ const h3Titles=html=>[...String(html||'').matchAll(/<h3[^>]*>([\s\S]*?)<\/h3>/gi)]
+   .map(m=>clean(m[1])).filter(Boolean);
+ const failPub=(week,msg)=>{console.error('✗ '+week+' publication gate: '+msg);process.exitCode=1};
+
+ for(const entry of publishable){
+   const candidate=read('data/weeks/'+entry.week+'.json');
+   const pages=candidate.pages||[];
+   const byId=new Map(pages.map(p=>[p.id,p]));
+   const allHtml=pages.map(p=>p.html||'').join('\n');
+
+   if(candidate.publication_status==='draft')failPub(entry.week,'manifest says published but week JSON is draft');
+   for(const re of banned)if(re.test(allHtml))failPub(entry.week,'placeholder/generic copy detected: '+re);
+   if(!String(entry.hero_image||'').trim()||!String(candidate.hero_image||'').trim()){
+     failPub(entry.week,'hero image missing');
+   }
+
+   const front=[
+     ['rendezvous-1',5],['replay-1',2],['plateformes-gratuites',1],
+     ['plateformes-abonnement',3],['sorties-physiques',1],
+     ['sorties-streaming',2],['avant-disparition',1],
+     ['radar-torrent',3],['radar-1',3]
+   ];
+   const toc=byId.get('sommaire')?.html||'';
+   for(const id of [...front.map(x=>x[0]),...dayIds.map(d=>d+'-selection')]){
+     if(!toc.includes('href="#'+id+'"')&&!toc.includes("href='#"+id+"'")){
+       failPub(entry.week,'TOC missing #'+id);
+     }
+   }
+   for(const [base,min] of front){
+     const html=pages.filter(p=>p.id===base||p.id.startsWith(base+'-')).map(p=>p.html||'').join('\n');
+     const shortage=candidate.section_shortages?.[base];
+     if(articleCount(html)<min&&!shortage){
+       failPub(entry.week,base+' has '+articleCount(html)+' cards; expected '+min+' or an explicit section_shortages reason');
+     }
+   }
+
+   const publicTitles=[];
+   for(const day of dayIds){
+     const p=byId.get(day+'-selection');
+     if(!p){failPub(entry.week,'missing '+day+'-selection');continue}
+     const ts=h3Titles(p.html).slice(0,3);
+     if(ts.length!==3)failPub(entry.week,day+' must expose exactly 3 developed choices, found '+ts.length);
+     publicTitles.push(...ts);
+   }
+
+   // Repeated daily headliners are normally reruns and should have been
+   // deduplicated during the inventory/filter stage.
+   const counts=new Map();
+   for(const t of publicTitles)counts.set(norm(t),(counts.get(norm(t))||0)+1);
+   const duplicates=[...counts.entries()].filter(([,n])=>n>1).map(([k,n])=>k+' ×'+n);
+   if(duplicates.length)failPub(entry.week,'developed daily choices repeat across days: '+duplicates.join(', '));
+
+   const unique=[...new Set(publicTitles.map(norm))];
+   let withImage=0,withMeta=0,withRatings=0,known=0;
+   for(const key of unique){
+     const w=worksByTitle.get(key);
+     if(!w){failPub(entry.week,'daily developed title absent from works.json: '+key);continue}
+     known++;
+     if(String(w.image||'').trim())withImage++;
+     if(String(w.director||w.creator||'').trim()&&String(w.year||'').trim())withMeta++;
+     if(w.ratings&&(w.ratings.imdb||w.ratings.senscritique))withRatings++;
+   }
+   const ratio=(n,d)=>d?n/d:0;
+   if(ratio(withImage,known)<minImage){
+     failPub(entry.week,'real image coverage too low for daily choices: '+withImage+'/'+known+' < '+Math.round(minImage*100)+'%');
+   }
+   if(ratio(withMeta,known)<minMeta){
+     failPub(entry.week,'director/year metadata coverage too low: '+withMeta+'/'+known+' < '+Math.round(minMeta*100)+'%');
+   }
+   if(ratio(withRatings,known)<minRatings){
+     failPub(entry.week,'verified ratings coverage too low: '+withRatings+'/'+known+' < '+Math.round(minRatings*100)+'%');
+   }
+
+   // Reserve candidates must point to canonical catalogue records and must
+   // carry real editorial reasons rather than a template sentence.
+   const fingerprints=[];
+   for(const day of dayIds){
+     const pool=candidate.personalization?.pools?.[day+'-selection'];
+     if(!pool)continue;
+     const cs=pool.candidates||[];
+     for(const c of cs){
+       const canonical=worksByTitle.get(norm(c.title));
+       if(canonical&&c.work_id!==canonical.id){
+         failPub(entry.week,day+' uses non-canonical work_id for '+c.title+' ('+c.work_id+' instead of '+canonical.id+')');
+       }
+       for(const re of banned)if(re.test(String(c.why||''))){
+         failPub(entry.week,day+' reserve contains generic rationale for '+c.title);
+       }
+     }
+     fingerprints.push(cs.slice(0,10).map(c=>(c.time||'')+'|'+(c.channel||'')).join(' > '));
+   }
+   const fpCounts=new Map();
+   for(const fp of fingerprints)if(fp)fpCounts.set(fp,(fpCounts.get(fp)||0)+1);
+   const repeated=Math.max(0,...fpCounts.values());
+   if(repeated>=4){
+     failPub(entry.week,'same ranked time/channel template reused on '+repeated+' days; probable synthetic schedule');
+   }
+
+   // A coverage declaration is not evidence of an inventory. Keep the raw
+   // collected schedule so the "inventory-first" claim can be audited.
+   if(q.raw_inventory_required!==false){
+     const invPath='data/inventory/'+entry.week+'.json';
+     if(!fs.existsSync(invPath)){
+       failPub(entry.week,'raw inventory file missing: '+invPath);
+     }else{
+       const inv=read(invPath);
+       if(!Array.isArray(inv.days)||inv.days.length!==7){
+         failPub(entry.week,'raw inventory must contain 7 days');
+       }else{
+         for(const day of inv.days){
+           const items=day.items||[];
+           if(items.length<minInventory){
+             failPub(entry.week,'raw inventory '+(day.date||'?')+' too shallow: '+items.length+' items < '+minInventory);
+           }
+           const channels=new Set(items.map(x=>norm(x.channel)));
+           const missing=config.required_core_channels.filter(ch=>!channels.has(norm(ch)));
+           if(missing.length){
+             failPub(entry.week,'raw inventory '+(day.date||'?')+' missing channels: '+missing.join(', '));
+           }
+           const malformed=items.filter(x=>!x.title||!x.channel||!x.start||!(x.source||x.source_url));
+           if(malformed.length){
+             failPub(entry.week,'raw inventory '+(day.date||'?')+' has '+malformed.length+' items without title/channel/start/source evidence');
+           }
+         }
+       }
+     }
+   }
+ }
+}
+
 if(process.exitCode)process.exit(process.exitCode);
 console.log('✓ Editorial validation passed');
