@@ -58,7 +58,7 @@ if(fs.existsSync('.github/workflows/validate-architecture.yml')){
 }
 if(fs.existsSync('.github/workflows/promote-validated-week.yml')){
   const wf=read('.github/workflows/promote-validated-week.yml');
-  for(const token of ['validate-image-sources.mjs','validate-layout.mjs','promote-week.mjs','git push origin HEAD:main']){
+  for(const token of ['validate-image-sources.mjs','validate-layout.mjs','promote-week.mjs','git push origin HEAD:main','verify-public-deployment.mjs']){
     if(!wf.includes(token))bad('promotion workflow missing '+token);
   }
 }
