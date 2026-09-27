@@ -139,6 +139,23 @@ Une `image_exception_reason` de type « candidat de réserve » n'est jamais suf
 
 Le contrôle éditorial vérifie ces invariants et le contrôle navigateur charge réellement le mode `?tv=1` pour confirmer que les modèles Fire TV héritent des affiches, métadonnées, notes et identifiants fournisseurs. Le contrôle réseau des images inclut également les titres des grilles.
 
+## Fraîcheur éditoriale inter-numéros
+
+À partir de S42, les propositions centrales doivent éviter l'impression de recyclage d'un numéro au suivant.
+
+Le périmètre contrôlé comprend les Rendez-vous de la semaine, les trois choix développés de chaque jour, les grilles commentées et les pools de réserve quotidiens. Les rubriques intrinsèquement événementielles (Replay, arrivées plateformes, sorties, expirations) et les radars conservent leur logique propre.
+
+Règles par défaut :
+- aucune œuvre de la sélection publique centrale du numéro immédiatement précédent ne peut revenir dans la sélection publique centrale suivante ;
+- au moins 85 % des titres publics centraux doivent être absents des quatre numéros précédents ;
+- au moins 80 % des titres des pools de réserve doivent être absents des quatre numéros précédents ;
+- au maximum 10 % d'un pool de réserve peut provenir du numéro immédiatement précédent ;
+- lors du classement éditorial, consulter jusqu'à huit numéros d'historique et privilégier les œuvres jamais vues récemment ; les titres vus il y a 5 à 8 numéros reçoivent seulement une pénalité légère.
+
+Une répétition peut être admise uniquement via `freshness_exceptions`, avec un contexte explicitement nouveau (nouvelle arrivée de plateforme, nouvelle restauration/édition, diffusion rare nouvelle, changement matériel de disponibilité ou événement éditorial majeur) et une justification précise. L'exception ne doit jamais servir à remplir artificiellement un quota.
+
+Le contrôle CI `scripts/validate-freshness.mjs` compare le numéro candidat aux numéros précédents et bloque la publication si les seuils sont dépassés.
+
 ## Publication transactionnelle et contrôle qualité
 
 À partir de S41, une nouvelle édition ne doit **jamais** être écrite directement sur `main`.
