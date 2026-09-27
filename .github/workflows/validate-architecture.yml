@@ -16,6 +16,7 @@ jobs:
       - run: node scripts/validate-architecture.mjs
       - run: node scripts/validate-editorial.mjs
       - run: node scripts/validate-links.mjs
+      - run: node scripts/validate-freshness.mjs
       - name: Validate remote image sources for candidate
         if: github.event_name == 'pull_request'
         run: node scripts/validate-image-sources.mjs
