@@ -54,6 +54,7 @@ class SelectionTvFragment : Fragment() {
 	private val indexMutex = Mutex()
 
 	private var webView: WebView? = null
+	private var refreshOnResume = false
 
 	@Volatile
 	private var libraryIndex: List<BaseItemDto>? = null
@@ -105,7 +106,7 @@ class SelectionTvFragment : Fragment() {
 								fallbackSearch(request)
 							}
 							if (request.needPlayed && matched != null) {
-								liveItemById(matched.id) ?: matched
+								requireLivePlayed(matched)
 							} else {
 								matched
 							}
@@ -139,7 +140,7 @@ class SelectionTvFragment : Fragment() {
 					if (item != null) {
 						put("itemId", item.id.toString())
 						put("name", item.name ?: "")
-						put("played", item.userData?.played == true)
+						put("played", item.userData?.played ?: JSONObject.NULL)
 					}
 				}.toString())
 			}
@@ -153,7 +154,7 @@ class SelectionTvFragment : Fragment() {
 					withTimeout(LOOKUP_TIMEOUT_MS) {
 						withContext(Dispatchers.IO) {
 							val matched = findLibraryItem(request)
-							if (request.needPlayed && matched != null) liveItemById(matched.id) ?: matched else matched
+							if (request.needPlayed && matched != null) requireLivePlayed(matched) else matched
 						}
 					}
 				} catch (timeout: TimeoutCancellationException) {
@@ -180,7 +181,7 @@ class SelectionTvFragment : Fragment() {
 					if (item != null) {
 						put("itemId", item.id.toString())
 						put("name", item.name ?: "")
-						put("played", item.userData?.played == true)
+						put("played", item.userData?.played ?: JSONObject.NULL)
 					}
 				}
 				deliverResult(result.toString())
@@ -337,7 +338,7 @@ class SelectionTvFragment : Fragment() {
 						put("found", true)
 						put("itemId", item.id.toString())
 						put("name", item.name ?: "")
-						put("played", item.userData?.played == true)
+						put("played", item.userData?.played ?: JSONObject.NULL)
 					}.toString()
 				)
 				navigationRepository.navigate(Destinations.itemDetails(item.id))
@@ -511,6 +512,13 @@ class SelectionTvFragment : Fragment() {
 		return null
 	}
 
+	private suspend fun requireLivePlayed(matched: BaseItemDto): BaseItemDto {
+		val live = liveItemById(matched.id)
+			?: throw java.io.IOException("Live Jellyfin detail unavailable")
+		if (live.userData?.played == null) throw java.io.IOException("Jellyfin played state unknown")
+		return live
+	}
+
 	private suspend fun liveItemById(id: UUID): BaseItemDto? = runCatching {
 		api.itemsApi.getItems(
 			ids = setOf(id),
@@ -587,7 +595,9 @@ class SelectionTvFragment : Fragment() {
 		if (candidates.isEmpty()) return null
 		if (year == null) return candidates.singleOrNull()
 
-		candidates.firstOrNull { it.productionYear == year }?.let { return it }
+		candidates.filter { it.productionYear == year }.let { exact ->
+			if (exact.isNotEmpty()) return exact.singleOrNull()
+		}
 		val near = candidates.filter { item ->
 			item.productionYear?.let { kotlin.math.abs(it - year) <= 1 } == true
 		}
@@ -630,7 +640,9 @@ class SelectionTvFragment : Fragment() {
 
 		val reqYear = request.year
 		if (reqYear != null) {
-			candidates.firstOrNull { it.productionYear == reqYear }?.let { return it }
+			candidates.filter { it.productionYear == reqYear }.let { exact ->
+				if (exact.isNotEmpty()) return exact.singleOrNull()
+			}
 
 			val near = candidates.filter { item ->
 				item.productionYear?.let { kotlin.math.abs(it - reqYear) <= 1 } == true
@@ -889,6 +901,32 @@ class SelectionTvFragment : Fragment() {
 			uri.host == "kingrabbit89.github.io" &&
 			(uri.path ?: "").startsWith("/selection-tv/")
 
+	override fun onPause() {
+		refreshOnResume = true
+		webView?.onPause()
+		super.onPause()
+	}
+
+	override fun onResume() {
+		super.onResume()
+		webView?.onResume()
+		if (refreshOnResume) {
+			refreshOnResume = false
+			// A new JS session drops all mutable played states and old callbacks.
+			// Rebuild the account-bound index before serving its next lookups.
+			lifecycleScope.launch {
+				indexMutex.withLock {
+					libraryIndex = null
+					libraryLookupIndex = null
+				}
+				webView?.reload()
+				withContext(Dispatchers.IO) {
+					runCatching { ensureLibraryIndex() }.onSuccess { deliverLibraryReady(it.size) }
+				}
+			}
+		}
+	}
+
 	override fun onDestroyView() {
 		webView?.apply {
 			removeJavascriptInterface(JS_BRIDGE_NAME)
@@ -897,12 +935,14 @@ class SelectionTvFragment : Fragment() {
 			destroy()
 		}
 		webView = null
+		libraryIndex = null
+		libraryLookupIndex = null
 		super.onDestroyView()
 	}
 
 	private companion object {
 		const val JS_BRIDGE_NAME = "SelectionTvAndroid"
-		const val BRIDGE_PROTOCOL_VERSION = 2
+		const val BRIDGE_PROTOCOL_VERSION = 3
 		const val SELECTION_TV_SCHEME = "selectiontv"
 		const val SELECTION_TV_URL = "https://kingrabbit89.github.io/selection-tv/latest.html?tv=1"
 		const val LIBRARY_PAGE_SIZE = 200

@@ -216,7 +216,7 @@ try{
  // APK. Verify every daily selection exposes prepared reserves and that a
  // Jellyfin-played primary can be replaced by one of them.
  const tvReserve=await page.evaluate(()=>{
-   const rows=window.SelectionTvAndroidPersonalizedRows||[];
+   const rows=(window.SelectionTvAndroidPersonalizedRows||[]).filter(r=>/-selection$/.test(r.pageId));
    const target=rows.find(r=>(r.reserveModels||[]).length>0);
    if(!target)return {rowCount:rows.length,replaced:false,reserveCount:0};
    const original=target.baseModels?.[0];
@@ -239,6 +239,33 @@ try{
  assert(tvReserve.replaced,`${latest}: Jellyfin-played primary was not replaced by reserve: ${JSON.stringify(tvReserve)}`);
  assert(tvReserve.reserveTagged,`${latest}: Fire TV replacement is not identified as reserve`);
  console.log(`✓ ${latest}: Fire TV daily reserves replace Jellyfin-watched primaries`);
+
+ // Exercise callbacks with absent played state and errors, plus section pools.
+ const tvSafety=await page.evaluate(()=>{
+   const rows=window.SelectionTvAndroidPersonalizedRows||[];
+   const sectionIds=rows.map(r=>r.pageId);
+   const results=[];
+   for(const id of ['rendezvous-1','sorties-physiques']){
+     const row=rows.find(r=>r.pageId===id);
+     if(!row)continue;
+     const originals=row.baseModels.slice(0,2), reserves=row.reserveModels.slice(0,2);
+     originals.forEach(m=>{m.played=true;m.state='found'});
+     reserves.forEach(m=>window.SelectionTvAndroidResult({key:m.key,found:true,itemId:'fixture-'+m.key}));
+     const unknown=reserves.every(m=>m.played===null&&!row.activeModels.includes(m));
+     reserves.forEach(m=>window.SelectionTvAndroidResult({key:m.key,found:true,itemId:'fixture-'+m.key,played:false}));
+     const replaced=reserves.every(m=>row.activeModels.includes(m));
+     if(reserves[0])window.SelectionTvAndroidResult({key:reserves[0].key,error:'offline'});
+     const failedUnknown=!reserves[0]||reserves[0].played===null;
+     results.push({id,unknown,replaced,failedUnknown,count:reserves.length});
+   }
+   return {sectionIds,results,uploads:document.querySelectorAll('.stv-tv-shell .jellyfin-private-upload').length};
+ });
+ if(latest==='2026-S41')for(const id of ['rendezvous-1','sorties-physiques'])assert(tvSafety.sectionIds.includes(id),'Missing TV section pool '+id);
+ for(const result of tvSafety.results){
+   assert(result.count>0&&result.unknown&&result.replaced&&result.failedUnknown,JSON.stringify(result));
+ }
+ assert.equal(tvSafety.uploads,0,'Vos Uploads must remain Web-only');
+ console.log('✓ TV callbacks retain unknown state; section reserves replace multiple played items');
 
  // Functional gate on the current issue: save/seen state and reserve replacement.
  const desktopQuery=process.env.SELECTION_TV_VALIDATE_WEEK?'?preview=1':'';

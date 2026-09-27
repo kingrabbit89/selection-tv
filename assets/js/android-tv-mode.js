@@ -1,7 +1,7 @@
 (()=>{
   if(new URLSearchParams(location.search).get('tv')!=='1')return;
 
-  const REQUIRED_ANDROID_PROTOCOL=2;
+  const REQUIRED_ANDROID_PROTOCOL=3;
   const detectedAndroidProtocol=(()=>{try{return Number(window.SelectionTvAndroid?.protocolVersion?.()||0)}catch{return 0}})();
   const androidBridgeCompatible=detectedAndroidProtocol>=REQUIRED_ANDROID_PROTOCOL;
   window.SelectionTvAndroidRequiredProtocol=REQUIRED_ANDROID_PROTOCOL;
@@ -132,21 +132,11 @@
   const worksPromise=fetch('../../data/works.json',{cache:'no-store'}).then(r=>r.ok?r.json():{works:[]}).catch(()=>({works:[]}));
   const linksPromise=fetch('../../data/links.json',{cache:'no-store'}).then(r=>r.ok?r.json():{links:{}}).catch(()=>({links:{}}));
 
-  const readCache=()=>{
-    try{
-      const current=JSON.parse(localStorage.getItem(CACHE_KEY)||'{}')||{};
-      if(Object.keys(current).length)return current;
-      const legacy=JSON.parse(localStorage.getItem(LEGACY_CACHE_KEY)||'{}')||{};
-      const migrated={};
-      for(const [key,value] of Object.entries(legacy)){
-        if(value?.found&&value?.itemId)migrated[key]=value;
-      }
-      if(Object.keys(migrated).length)localStorage.setItem(CACHE_KEY,JSON.stringify(migrated));
-      return migrated;
-    }catch{return {}}
-  };
-  const writeCache=cache=>{try{localStorage.setItem(CACHE_KEY,JSON.stringify(cache))}catch{}};
-  const cache=readCache();
+  // Matches belong to the current native account/session only. Never restore
+  // UUIDs belonging to another server or user from shared WebView storage.
+  const cache={};
+  const writeCache=()=>{};
+  const sessionId=String(Date.now())+'-'+Math.random().toString(36).slice(2);
 
   let models=[],rows=[],personalizedRows=[],current=null,works=new Map(),links=new Map();
   let libraryReady=false,libraryCount=0,quickInflight=0,deepInflight=0;
@@ -158,6 +148,8 @@
   const deepQueue=[];
   const deepActive=new Set();
   const pendingLookups=new Map();
+  const wireRequests=new Map();
+  let requestSequence=0;
   const neighborMap=new Map();
   const byKey=new Map();
 
@@ -238,9 +230,9 @@
     };
   };
   const cacheKeyFor=(title,year,ids)=>{
-    if(ids.imdbId)return 'imdb:'+ids.imdbId.toLowerCase();
-    if(ids.tmdbId)return 'tmdb:'+ids.tmdbId;
-    return 'title:'+norm(title)+'|'+year;
+    if(ids.imdbId)return sessionId+'|imdb:'+ids.imdbId.toLowerCase();
+    if(ids.tmdbId)return sessionId+'|tmdb:'+ids.tmdbId;
+    return sessionId+'|title:'+norm(title)+'|'+year;
   };
 
   const loadCachedState=model=>{
@@ -268,7 +260,7 @@
   };
 
   const requestFor=model=>({
-    key:model.key,title:model.title,year:model.year,
+    key:model.requestKey||model.key,title:model.title,year:model.year,
     imdbId:model.imdbId,tmdbId:model.tmdbId,
     aliases:model.aliases||[],
     needPlayed:model.fromPool===true
@@ -531,21 +523,22 @@
   const renderRowModels=(row,next)=>{
     if(!row?.grid)return;
     if(rowSignature(row.activeModels||[])===rowSignature(next))return;
+    const lostFocus=current&&row.activeModels?.includes(current)&&!next.includes(current);
     row.activeModels=[...next];
     row.grid.replaceChildren(...next.map(m=>{
       m.row=row;
       return m.tile||makeTile(m);
     }));
-    requestAnimationFrame(rebuildNeighbors);
+    requestAnimationFrame(()=>{rebuildNeighbors();if(lostFocus&&next[0])focusModel(next[0])});
     scheduleStatus();
   };
-  const refreshPersonalizedRow=row=>{
+  const refreshPersonalizedRow=(row,claimed=new Set())=>{
     if(!row?.personalized||!row.grid)return;
     const target=Number(row.target||3);
     const selected=[];
     const used=new Set();
     const take=m=>{
-      if(!m||used.has(m.titleKey))return false;
+      if(!m||used.has(m.titleKey)||claimed.has(m.titleKey))return false;
       selected.push(m);used.add(m.titleKey);return true;
     };
 
@@ -578,9 +571,10 @@
         take(m);
       }
     }
+    selected.forEach(m=>claimed.add(m.titleKey));
     renderRowModels(row,selected.slice(0,target));
   };
-  const refreshPersonalizedRows=()=>personalizedRows.forEach(refreshPersonalizedRow);
+  const refreshPersonalizedRows=()=>{const families=new Map();for(const row of personalizedRows){const key=row.family||row.pageId;if(!families.has(key))families.set(key,new Set());refreshPersonalizedRow(row,families.get(key))}};
 
   const buildShell=()=>{
     const shell=document.createElement('main');shell.className='stv-tv-shell';
@@ -613,10 +607,11 @@
     const key=pendingKey(model,kind);
     const previous=pendingLookups.get(key);
     if(previous?.timer)clearTimeout(previous.timer);
-    const token={kind,timer:null};
+    const token={kind,timer:null,wireKey:model.key+'|request:'+String(++requestSequence)};
+    model.requestKey=token.wireKey;wireRequests.set(token.wireKey,model);
     token.timer=setTimeout(()=>{
       if(pendingLookups.get(key)!==token)return;
-      pendingLookups.delete(key);
+      pendingLookups.delete(key);wireRequests.delete(token.wireKey);
       if(kind==='quick'){
         quickInflight=Math.max(0,quickInflight-1);
         model._queued=false;
@@ -644,13 +639,13 @@
     const pending=pendingLookups.get(key);
     if(!pending)return false;
     clearTimeout(pending.timer);
-    pendingLookups.delete(key);
+    pendingLookups.delete(key);wireRequests.delete(pending.wireKey);
     return true;
   };
 
   const queueQuick=model=>{
-    if(model._queued)return;
-    if(model.state==='found'&&model.sessionVerified)return;
+    if(!androidBridgeCompatible||model._queued||Date.now()<(model.retryAfter||0))return;
+    if(model.state==='found'&&model.sessionVerified&&(!model.fromPool||model.played!==null))return;
     model._queued=true;quickQueue.push(model);pumpQuick();
   };
   const supportsLiveQuick=()=>{
@@ -729,7 +724,7 @@
   };
   window.SelectionTvAndroidResult=result=>{
     if(typeof result==='string'){try{result=JSON.parse(result)}catch{return}}
-    const model=byKey.get(result?.key);if(!model)return;
+    const model=wireRequests.get(result?.key)||byKey.get(result?.key);if(!model)return;
 
     if(result.quick){
       model._queued=false;
@@ -743,6 +738,7 @@
     }
 
     if(result.error){
+      model.played=null;model.sessionVerified=false;model.retryAfter=Date.now()+60000;
       model.debug=result.quick
         ? ''
         : 'Échec recherche Jellyfin : '+String(result.errorType||result.error||'erreur inconnue');
@@ -751,8 +747,9 @@
     }else if(result.found){
       model.debug='';
       model.state='found';model.itemId=result.itemId||'';model.jellyfinName=result.name||'';
-      model.played=result.played===true;
+      model.played=typeof result.played==='boolean'?result.played:null;
       model.sessionVerified=true;
+      model.retryAfter=model.played===null?Date.now()+60000:0;
       rememberFound(model,model.itemId,model.jellyfinName);
     }else if(result.quick){
       model.state='queued';
@@ -768,14 +765,14 @@
   };
   window.SelectionTvAndroidOpenResult=result=>{
     if(typeof result==='string'){try{result=JSON.parse(result)}catch{return}}
-    const model=byKey.get(result?.key);if(!model)return;
+    const model=wireRequests.get(result?.key)||byKey.get(result?.key);if(!model)return;
     finishPending(model,'manual');
     if(result.error){
       model.debug='Échec recherche Jellyfin : '+String(result.errorType||result.error||'erreur inconnue');
       model.state='unknown';
     }else if(result.found){
       model.debug='';
-      model.state='found';model.itemId=result.itemId||'';model.played=result.played===true;rememberFound(model,model.itemId,'');
+      model.state='found';model.itemId=result.itemId||'';model.played=typeof result.played==='boolean'?result.played:null;rememberFound(model,model.itemId,'');
     }else{
       model.debug=String(result.diagnostic||'aucun candidat renvoyé par Jellyfin');
       model.state='missing';model.played=false;rememberMissing(model);
@@ -869,7 +866,7 @@
         key,title,titleKey:norm(title),year,imdbId:ids.imdbId,tmdbId:ids.tmdbId,
         aliases:Array.isArray(w.aliases)?[...w.aliases]:[],
         imageCandidates:[...new Set([c.image,w.image,...(c.image_fallbacks||[]),...(w.image_fallbacks||[])].filter(Boolean))],
-        meta,ratings,
+        meta:[...meta,...(c.release_label?[c.release_label,c.format,c.editor].filter(Boolean):[c.time,c.channel].filter(Boolean))],ratings,
         description:[c.summary,c.why].filter(Boolean).join(' '),
         state:'unknown',itemId:'',played:null,source:null,
         isReserve,fromPool:true,poolId,rank:Number(c.rank)||0
@@ -884,7 +881,7 @@
     // TV can replace Jellyfin-watched primaries with researched alternatives.
     const pools=window.SELECTION_TV_WEEK_DATA?.personalization?.pools||{};
     for(const [poolId,pool] of Object.entries(pools)){
-      if(!/-selection$/.test(poolId))continue;
+      if(!['feature','week-card','release-card'].includes(pool.card_type))continue;
       const pageId=pool.page_id||poolId;
       let row=rows.find(r=>r.pageId===pageId);
       if(!row){
@@ -904,6 +901,7 @@
         row.baseModels=base;
         row.reserveModels=reserve;
         row.target=target;
+        row.family=pageId.replace(/-\d+$/,'');
         row.personalized=reserve.length>0;
         if(row.personalized)personalizedRows.push(row);
       }
@@ -926,7 +924,7 @@
     // On recent APKs, start the cheap targeted checks immediately instead of
     // leaving uncached grid titles at "À vérifier" while a large Jellyfin
     // library is still being indexed in the background.
-    if(supportsLiveQuick())models.filter(m=>!m.isReserve&&m.tile?.isConnected).forEach(queueQuick);
+    if(androidBridgeCompatible&&supportsLiveQuick())models.filter(m=>!m.isReserve&&m.tile?.isConnected).forEach(queueQuick);
 
     const readyPoll=setInterval(()=>{
       try{
@@ -936,6 +934,8 @@
         }
       }catch{}
     },500);
+
+    setInterval(()=>{if(document.hidden||!androidBridgeCompatible)return;for(const m of models){if(m.fromPool&&(m.tile?.isConnected||m.retryAfter)&&!m._queued&&!m._deepQueued&&Date.now()>=(m.retryAfter||0)){m.sessionVerified=false;m.played=null;queueQuick(m)}}},60000);
 
     // Belt-and-braces recovery only while there is actual background work.
     // Once preparation and reconciliation are finished, the TV UI becomes

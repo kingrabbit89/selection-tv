@@ -166,12 +166,12 @@ function testCandidateTransaction(){
 
     execFileSync(process.execPath,[path.resolve('scripts/validate-publication-candidate.mjs')],{
       cwd:dir,stdio:'pipe',
-      env:{...process.env,SELECTION_TV_VALIDATE_WEEK:'2026-S42',SELECTION_TV_CANDIDATE:'1',GITHUB_HEAD_REF:'auto/2026-S42'}
+      env:{...process.env,SELECTION_TV_TODAY:'2026-10-08',SELECTION_TV_VALIDATE_WEEK:'2026-S42',SELECTION_TV_CANDIDATE:'1',GITHUB_HEAD_REF:'auto/2026-S42'}
     });
     const before=JSON.parse(fs.readFileSync(path.join(dir,'data/manifest.json'),'utf8'));
     if(before.latest!=='2026-S41'||before.weeks[0].status!=='draft')bad('candidate validator mutated publication state');
 
-    execFileSync(process.execPath,[path.resolve('scripts/promote-week.mjs'),'2026-S42'],{cwd:dir,stdio:'pipe',env:process.env});
+    execFileSync(process.execPath,[path.resolve('scripts/promote-week.mjs'),'2026-S42'],{cwd:dir,stdio:'pipe',env:{...process.env,SELECTION_TV_TODAY:'2026-10-08'}});
     const after=JSON.parse(fs.readFileSync(path.join(dir,'data/manifest.json'),'utf8'));
     const promoted=JSON.parse(fs.readFileSync(path.join(dir,'data/weeks/2026-S42.json'),'utf8'));
     if(after.latest!=='2026-S42'||after.weeks[0].status!=='published'||promoted.publication_status!=='published'){

@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {validateCandidateCalendar} from './week-calendar.mjs';
 
 const target=process.env.SELECTION_TV_VALIDATE_WEEK||'';
 if(!target){
@@ -36,13 +37,10 @@ const required=[
 ];
 for(const p of required)if(!exists(p))bad('required candidate artifact missing: '+p);
 
-if(current?.from&&entry?.from){
-  const addDays=(s,n)=>new Date(new Date(s+'T12:00:00Z').getTime()+n*86400000).toISOString().slice(0,10);
-  const expectedFrom=addDays(current.from,7);
-  const expectedTo=addDays(current.from,13);
-  if(entry.from!==expectedFrom)bad('candidate from='+entry.from+'; expected '+expectedFrom);
-  if(entry.to!==expectedTo)bad('candidate to='+entry.to+'; expected '+expectedTo);
-}
+try {
+  const skipped=validateCandidateCalendar(current,entry);
+  if(skipped.length)console.log('Calendar recovery: unpublished cycles skipped: '+skipped.join(', '));
+}catch(error){bad(error.message)}
 
 if(exists('data/weeks/'+target+'.json')){
   const week=read('data/weeks/'+target+'.json');

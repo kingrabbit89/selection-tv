@@ -37,8 +37,10 @@ jobs:
           node-version: 22
 
       - name: Revalidate merged draft
+        id: data
         run: |
           node scripts/validate-automation.mjs
+          node scripts/validate-canonical-identities.mjs
           node scripts/validate-architecture.mjs
           node scripts/validate-publication-candidate.mjs
           node scripts/validate-editorial.mjs
@@ -46,7 +48,6 @@ jobs:
           node scripts/validate-freshness.mjs
           node scripts/validate-reserves.mjs
           node scripts/validate-image-sources.mjs
-          node scripts/generation-report.mjs
 
       - name: Install browser test runtime
         run: |
@@ -54,6 +55,7 @@ jobs:
           npx playwright install --with-deps chromium
 
       - name: Revalidate browser, Jellyfin Web and Fire TV model
+        id: browser
         run: |
           node scripts/validate-layout.mjs
           node scripts/validate-jellyfin-web.mjs
@@ -62,6 +64,7 @@ jobs:
         run: node scripts/promote-week.mjs "$SELECTION_TV_VALIDATE_WEEK"
 
       - name: Validate simulated promoted state
+        id: promoted
         shell: bash
         run: |
           PROMOTION_WEEK="$SELECTION_TV_VALIDATE_WEEK"
@@ -104,3 +107,11 @@ jobs:
           name: promotion-ready-${{ env.SELECTION_TV_VALIDATE_WEEK }}
           path: promotion-ready.json
           retention-days: 14
+
+      - name: Promotion run summary
+        if: always()
+        env:
+          STEPS_JSON: ${{ toJSON(steps) }}
+        run: |
+          node scripts/generation-report.mjs
+          node -e 'const fs=require("fs"); const s=JSON.parse(process.env.STEPS_JSON); fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,"\n## Gates\n"+Object.entries(s).map(([k,v])=>"- "+k+": "+v.outcome).join("\n"));'
