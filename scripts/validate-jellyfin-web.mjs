@@ -104,7 +104,7 @@ try{
     route.fulfill({
       status:200,
       contentType:'text/html; charset=utf-8',
-      body:'<!doctype html><meta charset="utf-8"><script>location.replace('+JSON.stringify(weeklyUrl)+')<\\/script>'
+      body:'<!doctype html><meta charset="utf-8"><script>location.replace('+JSON.stringify(weeklyUrl)+')</script>'
     })
   );
   await page.route(weeklyUrl,route=>
