@@ -98,8 +98,14 @@ try{
   await page.route('https://images.example.test/**',route=>route.abort());
 
   await page.goto(origin+'/integrations/jellyfin/selection-tv.html',{waitUntil:'domcontentloaded'});
-  const child=page.frames().find(f=>f.url().startsWith('https://kingrabbit89.github.io/selection-tv/latest.html'));
-  assert(child,'Jellyfin iframe fixture did not load');
+  await page.locator('#selectionTvFrame').waitFor({state:'attached'});
+  let child=null;
+  for(let attempt=0;attempt<50;attempt++){
+    child=page.frames().find(f=>f!==page.mainFrame()&&f.url().startsWith('https://kingrabbit89.github.io/selection-tv/latest.html'))||null;
+    if(child)break;
+    await page.waitForTimeout(100);
+  }
+  assert(child,'Jellyfin iframe fixture did not navigate to the intercepted public origin');
 
   await child.locator('.jellyfin-actions').waitFor({state:'attached'});
   await child.locator('.jellyfin-pill.played').waitFor({state:'visible'});
