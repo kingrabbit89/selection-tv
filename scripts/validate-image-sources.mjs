@@ -8,12 +8,11 @@ const week=read('data/weeks/'+manifest.latest+'.json');
 const works=read('data/works.json').works||[];
 const byTitle=new Map(works.map(w=>[norm(w.title),w]));
 const from=config.quality_gates?.remote_image_health_from_week||'9999-S99';
+const legacyGridOnly=manifest.latest<from;
 
-if(manifest.latest<from){
-  console.log('✓ Remote image health check skipped before '+from);
-  process.exit(0);
-}
-
+// S41 predates the global remote-image gate, but Android TV turns its
+// commented-grid rows into poster cards. Probe those rows now so the current
+// Fire TV fix cannot ship with another set of dead poster URLs.
 const visualTitles=new Set();
 const visualClass=/\b(?:week-card|feature|list-card|platform|release-card|expire-card|radar-card|torrent-card|card|listitem|radarcard)\b/;
 for(const page of week.pages||[]){
@@ -21,8 +20,10 @@ for(const page of week.pages||[]){
   const re=/<article class="([^"]+)"[^>]*>([\s\S]*?)<\/article>/g;let m;
   while((m=re.exec(html))){
     if(!visualClass.test(m[1]))continue;
-    const title=(m[2].match(/<h3>([\s\S]*?)<\/h3>/)||[])[1]?.replace(/<[^>]+>/g,'').trim();
-    if(title)visualTitles.add(title);
+    if(!legacyGridOnly){
+      const title=(m[2].match(/<h3>([\s\S]*?)<\/h3>/)||[])[1]?.replace(/<[^>]+>/g,'').trim();
+      if(title)visualTitles.add(title);
+    }
   }
   // Android TV promotes each commented-grid table row to a poster tile.
   // Probe those canonical images too, even though the desktop magazine keeps
@@ -34,14 +35,16 @@ for(const page of week.pages||[]){
     }
   }
 }
-for(const pool of Object.values(week.personalization?.pools||{})){
-  for(const c of pool.candidates||[])if(c.title)visualTitles.add(c.title);
-}
-const radarPath='data/radar-reserves/'+manifest.latest+'.json';
-if(fs.existsSync(radarPath)){
-  const rr=read(radarPath);
-  for(const key of ['popular_scan','popular_deep','hd1','hd2']){
-    for(const c of rr[key]?.candidates||[])if(c.title)visualTitles.add(c.title);
+if(!legacyGridOnly){
+  for(const pool of Object.values(week.personalization?.pools||{})){
+    for(const c of pool.candidates||[])if(c.title)visualTitles.add(c.title);
+  }
+  const radarPath='data/radar-reserves/'+manifest.latest+'.json';
+  if(fs.existsSync(radarPath)){
+    const rr=read(radarPath);
+    for(const key of ['popular_scan','popular_deep','hd1','hd2']){
+      for(const c of rr[key]?.candidates||[])if(c.title)visualTitles.add(c.title);
+    }
   }
 }
 
@@ -99,4 +102,4 @@ if(failed.length){
   console.error('✗ Remote image health: '+failed.length+'/'+results.length+' visual works have no usable source');
   process.exit(1);
 }
-console.log('✓ Remote image health: '+results.length+' visual works have at least one usable source or a documented exception');
+console.log('✓ Remote image health: '+results.length+(legacyGridOnly?' Android TV grid':' visual')+' works have at least one usable source or a documented exception');
