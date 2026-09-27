@@ -160,7 +160,8 @@ try{
  const imageRecovery=await page.evaluate(async()=>{
    const card=document.createElement('article');
    card.className='feature';
-   card.innerHTML='<div class="visual broken"><img class="poster" src="/__already-failed.png" alt=""><div class="fallback">Resolver fixture</div></div><h3>Resolver fixture</h3>';
+   card.style.cssText='position:fixed;left:0;top:0;width:100px;height:120px;z-index:-1';
+   card.innerHTML='<div class="visual broken"><img class="poster" loading="eager" src="/__already-failed.png" alt=""><div class="fallback">Resolver fixture</div></div><h3>Resolver fixture</h3>';
    document.body.append(card);
    const img=card.querySelector('img');
    await new Promise(r=>setTimeout(r,80));
