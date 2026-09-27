@@ -1,0 +1,60 @@
+name: Weekly automation watchdog
+
+on:
+  schedule:
+    - cron: "0 17 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+  issues: write
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Resolve upcoming issue
+        id: target
+        run: node scripts/next-target.mjs --github-output
+
+      - name: Verify weekly candidate/publication exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WEEK: ${{ steps.target.outputs.week }}
+          BRANCH: ${{ steps.target.outputs.branch }}
+          ALREADY_PRESENT: ${{ steps.target.outputs.already_present }}
+          EXISTING_STATUS: ${{ steps.target.outputs.existing_status }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$ALREADY_PRESENT" == "true" && "$EXISTING_STATUS" == "published" ]]; then
+            echo "$WEEK is already published."
+            exit 0
+          fi
+
+          PR_URL="$(gh pr list --state open --head "$BRANCH" --json url --jq '.[0].url // empty')"
+          if [[ -n "$PR_URL" ]]; then
+            echo "Candidate PR exists: $PR_URL"
+            exit 0
+          fi
+
+          if [[ "$ALREADY_PRESENT" == "true" ]]; then
+            TITLE="Sélection TV automation: $WEEK draft is stuck"
+            BODY="The upcoming issue $WEEK exists on main with status '$EXISTING_STATUS', but no open auto/$WEEK pull request remains and it has not been promoted. Inspect the promotion workflow and validations."
+          else
+            TITLE="Sélection TV automation: $WEEK generation missing"
+            BODY="No published issue and no open auto/$WEEK pull request were found for the upcoming Saturday-Friday issue. The external research-agent generator should create this candidate before publication."
+          fi
+
+          EXISTING="$(gh issue list --state open --search "$TITLE in:title" --json number --jq '.[0].number // empty')"
+          if [[ -z "$EXISTING" ]]; then
+            gh issue create --title "$TITLE" --body "$BODY"
+          else
+            echo "Existing alert issue #$EXISTING"
+          fi
