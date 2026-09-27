@@ -10,6 +10,8 @@
   const NEGATIVE_TTL=24*60*60*1000;
   const QUICK_CONCURRENCY=2;
   const DEEP_CONCURRENCY=2;
+  const NAVIGATION_QUIET_MS=420;
+  const QUICK_PUMP_GAP_MS=55;
 
   document.documentElement.classList.add('android-tv-mode');
   document.body.classList.add('android-tv-mode');
@@ -137,7 +139,8 @@
 
   let models=[],rows=[],current=null,works=new Map(),links=new Map();
   let libraryReady=false,libraryCount=0,quickInflight=0,deepInflight=0;
-  let lastNavigationAt=0,deepTimer=null,positionRaf=0,statusRaf=0;
+  let lastNavigationAt=0,quickTimer=null,deepTimer=null,positionRaf=0,statusRaf=0;
+  let lastStatusHtml='';
   const posterModels=new WeakMap();
   let posterObserver=null;
   const quickQueue=[];
@@ -329,12 +332,15 @@
     const queued=models.filter(x=>x.state==='unknown'||x.state==='queued').length;
     const el=document.querySelector('.stv-tv-statusbar');
     if(!el)return;
-    el.innerHTML=libraryReady
+    const html=libraryReady
       ? '<strong>Jellyfin</strong> · '+found+' présents · '+missing+' absents'
         +(checking?' · '+checking+' analysé'+(checking>1?'s':''):'')
         +(queued?' · '+queued+' à vérifier':'')
         +(libraryCount?' · '+libraryCount+' éléments indexés':'')
       : '<strong>Jellyfin</strong> · préparation de la bibliothèque…';
+    if(html===lastStatusHtml)return;
+    lastStatusHtml=html;
+    el.innerHTML=html;
   };
   const scheduleStatus=()=>{
     if(statusRaf)return;
@@ -546,7 +552,7 @@
         model._deepQueued=false;
         updateTile(model);scheduleStatus();
         queueDeep(model);
-        pumpQuick();
+        scheduleQuick();
       }else if(kind==='deep'){
         deepActive.delete(model.key);
         deepInflight=Math.max(0,deepInflight-1);
@@ -578,11 +584,24 @@
   const supportsLiveQuick=()=>{
     try{return window.SelectionTvAndroid?.supportsLiveQuick?.()===true}catch{return false}
   };
+  const scheduleQuick=(delay=QUICK_PUMP_GAP_MS)=>{
+    clearTimeout(quickTimer);
+    quickTimer=setTimeout(()=>{quickTimer=null;pumpQuick()},delay);
+  };
   const pumpQuick=()=>{
     // New APKs can query Jellyfin directly before the full library index is
     // ready. Older APKs do not expose supportsLiveQuick(), so they keep the
     // previous safe behaviour and wait for libraryReady.
     if(!libraryReady&&!supportsLiveQuick())return;
+
+    // Never start fresh background work while the user is actively moving the
+    // Fire TV focus. In-flight checks may finish, but navigation gets priority.
+    const idleFor=Date.now()-lastNavigationAt;
+    if(lastNavigationAt&&idleFor<NAVIGATION_QUIET_MS){
+      scheduleQuick(NAVIGATION_QUIET_MS-idleFor+20);
+      return;
+    }
+
     while(quickInflight<QUICK_CONCURRENCY&&quickQueue.length){
       const model=quickQueue.shift();if(!model)continue;
       const keepCachedBadge=model.state==='found'&&!model.sessionVerified;
@@ -669,7 +688,7 @@
     }
 
     if(Number.isFinite(Number(result.libraryCount)))libraryCount=Number(result.libraryCount);
-    updateTile(model);scheduleStatus();pumpQuick();deepTimer=setTimeout(pumpDeep,320);
+    updateTile(model);scheduleStatus();scheduleQuick();deepTimer=setTimeout(pumpDeep,320);
   };
   window.SelectionTvAndroidOpenResult=result=>{
     if(typeof result==='string'){try{result=JSON.parse(result)}catch{return}}
@@ -756,14 +775,15 @@
       }catch{}
     },500);
 
-    // Belt-and-braces background scheduler. It is intentionally cheap: it
-    // only wakes the existing pumps and never starts more than the configured
-    // concurrency limits.
+    // Belt-and-braces recovery only while there is actual background work.
+    // Once preparation and reconciliation are finished, the TV UI becomes
+    // event-driven and stops rewriting the status bar every two seconds.
     setInterval(()=>{
       if(!libraryReady)return;
+      const busy=quickInflight>0||quickQueue.length>0||deepInflight>0||deepQueue.length>0||pendingLookups.size>0;
+      if(!busy)return;
       pumpQuick();
       pumpDeep();
-      scheduleStatus();
-    },2000);
+    },5000);
   });
 })();
