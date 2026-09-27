@@ -236,10 +236,15 @@ if(strict){
            if(items.length<minInventory){
              failPub(entry.week,'raw inventory '+(day.date||'?')+' too shallow: '+items.length+' items < '+minInventory);
            }
-           const channels=new Set(items.map(x=>norm(x.channel)));
-           const missing=config.required_core_channels.filter(ch=>!channels.has(norm(ch)));
+           const scanned=new Set((day.channels_scanned||[]).map(norm));
+           const missing=config.required_core_channels.filter(ch=>!scanned.has(norm(ch)));
            if(missing.length){
-             failPub(entry.week,'raw inventory '+(day.date||'?')+' missing channels: '+missing.join(', '));
+             failPub(entry.week,'raw inventory '+(day.date||'?')+' missing scanned channels: '+missing.join(', '));
+           }
+           const sourcePages=day.source_pages||[];
+           const minSources=Number(q.raw_inventory_source_pages_min??2);
+           if(sourcePages.length<minSources){
+             failPub(entry.week,'raw inventory '+(day.date||'?')+' lacks source pages: '+sourcePages.length+' < '+minSources);
            }
            const malformed=items.filter(x=>!x.title||!x.channel||!x.start||!(x.source||x.source_url));
            if(malformed.length){
