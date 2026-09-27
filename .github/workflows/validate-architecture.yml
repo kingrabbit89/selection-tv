@@ -59,3 +59,5 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Validate rendered issues
         run: node scripts/validate-layout.mjs
+      - name: Validate Jellyfin Web bridge
+        run: node scripts/validate-jellyfin-web.mjs
