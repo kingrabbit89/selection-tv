@@ -11,6 +11,7 @@ const required=[
   'scripts/validate-publication-candidate.mjs',
   'scripts/promote-week.mjs',
   'scripts/generation-report.mjs',
+  'scripts/verify-public-deployment.mjs',
   '.github/workflows/validate-architecture.yml',
   '.github/workflows/promote-validated-week.yml',
   '.github/workflows/weekly-automation-watchdog.yml',
