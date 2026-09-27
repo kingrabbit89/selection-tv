@@ -2,7 +2,20 @@
   if(window.parent===window)return;
 
   const PARENT=window.parent;
-  const PARENT_ORIGIN=(()=>{try{return document.referrer?new URL(document.referrer).origin:''}catch{return ''}})();
+  const PARENT_ORIGIN=(()=>{
+    try{
+      const ancestor=location.ancestorOrigins?.[0]||'';
+      if(ancestor&&ancestor!=='null')return ancestor;
+      if(document.referrer){
+        const ref=new URL(document.referrer);
+        // latest.html redirects inside the GitHub Pages origin before the
+        // weekly page loads. That same-origin referrer is NOT the Jellyfin
+        // parent and must never be used as postMessage targetOrigin.
+        if(/^https?:$/.test(ref.protocol)&&ref.origin!==location.origin&&ref.origin!=='null')return ref.origin;
+      }
+    }catch{}
+    return '';
+  })();
   const TARGET_ORIGIN=PARENT_ORIGIN||'*';
   const script=document.currentScript;
   const ROOT=new URL('../../',script?.src||location.href);
@@ -137,7 +150,20 @@
 (()=>{
   if(window.parent===window)return;
   const PARENT=window.parent;
-  const PARENT_ORIGIN=(()=>{try{return document.referrer?new URL(document.referrer).origin:''}catch{return ''}})();
+  const PARENT_ORIGIN=(()=>{
+    try{
+      const ancestor=location.ancestorOrigins?.[0]||'';
+      if(ancestor&&ancestor!=='null')return ancestor;
+      if(document.referrer){
+        const ref=new URL(document.referrer);
+        // latest.html redirects inside the GitHub Pages origin before the
+        // weekly page loads. That same-origin referrer is NOT the Jellyfin
+        // parent and must never be used as postMessage targetOrigin.
+        if(/^https?:$/.test(ref.protocol)&&ref.origin!==location.origin&&ref.origin!=='null')return ref.origin;
+      }
+    }catch{}
+    return '';
+  })();
   const TARGET_ORIGIN=PARENT_ORIGIN||'*';
   const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
   const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
