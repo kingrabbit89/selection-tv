@@ -6,6 +6,9 @@ import assert from 'node:assert/strict';
 
 const {chromium}=createRequire(import.meta.url)('playwright');
 const root=resolve(import.meta.dirname,'..');
+const bridgeSource=await readFile(resolve(root,'assets/js/jellyfin-bridge.js'),'utf8');
+const worksSource=await readFile(resolve(root,'data/works.json'),'utf8');
+const linksSource=await readFile(resolve(root,'data/links.json'),'utf8');
 
 const server=createServer(async(req,res)=>{
   const u=new URL(req.url,'http://localhost');
@@ -71,23 +74,26 @@ try{
     };
   },{fixture:item});
 
-  const childHtml=`<!doctype html><meta charset="utf-8"><body>fixture<script>
-    window.received=[];
-    window.addEventListener('message',function(e){
-      if(e.data&&e.data.type==='selection-tv:jellyfin-ready'){
-        parent.postMessage({type:'selection-tv:jellyfin-query',version:1,items:[{
-          key:'imdb:tt0087884',title:'Paris, Texas',year:'1984',imdbId:'tt0087884',tmdbId:'655'
-        }]},'*');
-      }
-      if(e.data&&e.data.type==='selection-tv:jellyfin-result'){
-        window.received.push(e.data);
-        document.body.dataset.result=JSON.stringify(e.data.items&&e.data.items[0]||{});
-      }
-    });
-  <\/script></body>`;
+  const childHtml=`<!doctype html><meta charset="utf-8">
+    <style>body{margin:0}.feature{width:240px}.program-actions{min-height:20px}</style>
+    <article class="feature" data-title="Paris, Texas">
+      <h3>Paris, Texas</h3>
+      <div class="work-meta">1984 · Wim Wenders</div>
+      <div class="program-actions"></div>
+    </article>
+    <script src="https://kingrabbit89.github.io/selection-tv/assets/js/jellyfin-bridge.js"><\/script>`;
 
   await page.route('https://kingrabbit89.github.io/selection-tv/latest.html',route=>
     route.fulfill({status:200,contentType:'text/html; charset=utf-8',body:childHtml})
+  );
+  await page.route('https://kingrabbit89.github.io/selection-tv/assets/js/jellyfin-bridge.js',route=>
+    route.fulfill({status:200,contentType:'text/javascript; charset=utf-8',body:bridgeSource})
+  );
+  await page.route(/https:\/\/kingrabbit89\.github\.io\/selection-tv\/data\/works\.json.*/,route=>
+    route.fulfill({status:200,contentType:'application/json',body:worksSource})
+  );
+  await page.route(/https:\/\/kingrabbit89\.github\.io\/selection-tv\/data\/links\.json.*/,route=>
+    route.fulfill({status:200,contentType:'application/json',body:linksSource})
   );
   await page.route('https://images.example.test/**',route=>route.abort());
 
@@ -95,25 +101,31 @@ try{
   const child=page.frames().find(f=>f.url().startsWith('https://kingrabbit89.github.io/selection-tv/latest.html'));
   assert(child,'Jellyfin iframe fixture did not load');
 
-  await child.waitForFunction(()=>document.body.dataset.result);
-  const result=JSON.parse(await child.getAttribute('body','data-result'));
-  assert.equal(result.found,true,'canonical IMDb/title match must be found');
-  assert.equal(result.itemId,'jf-paris-texas');
-  assert.equal(result.played,true,'Jellyfin UserData.Played must propagate');
-  assert.equal(result.quality,'1080p','Jellyfin media width must hydrate quality');
+  await child.locator('.jellyfin-actions').waitFor({state:'attached'});
+  await child.locator('.jellyfin-pill.played').waitFor({state:'visible'});
+  assert.equal(await child.locator('.jellyfin-pill.played').textContent(),'✓ Vu dans Jellyfin');
+  assert.equal(await child.locator('.jellyfin-pill.quality').textContent(),'1080p');
+  assert.equal(await child.locator('.jellyfin-open').textContent(),'Ouvrir dans Jellyfin');
 
-  await child.evaluate(()=>{
+  // Simulate a stale persisted UUID while keeping the exact request metadata
+  // emitted by the real child bridge. The wrapper must recover the live item.
+  await child.locator('.jellyfin-open').evaluate(button=>{
+    const original=button.onclick;
+    button.onclick=null;
     parent.postMessage({
       type:'selection-tv:jellyfin-open',
       itemId:'stale-id',
       request:{key:'imdb:tt0087884',title:'Paris, Texas',year:'1984',imdbId:'tt0087884',tmdbId:'655'}
-    },'*');
+    },window.__selectionTvTestParentOrigin||'*');
+    button.onclick=original;
   });
   await page.waitForFunction(()=>location.hash.includes('details?id=jf-paris-texas'));
   assert.match(page.url(),/#\/details\?id=jf-paris-texas&serverId=fixture-server$/,'stale cached ID must recover to the live Jellyfin item');
 
+  const status=await page.locator('#selectionTvBridgeStatus').textContent();
+  assert.match(status,/Jellyfin/);
   assert.deepEqual(errors,[],'Jellyfin Web bridge page errors: '+errors.join(' | '));
-  console.log('✓ Jellyfin Web bridge: indexed match, played, quality, origin-gated messaging and stale-ID recovery');
+  console.log('✓ Jellyfin Web bridge: real child bridge, indexed match, played, 1080p and stale-ID recovery');
 }finally{
   await browser?.close();
   await new Promise(r=>server.close(r));
