@@ -32,6 +32,12 @@ jobs:
       - name: Generation audit summary
         if: always()
         run: node scripts/generation-report.mjs
+      - name: Smoke-test current public deployment
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          CURRENT="$(node -e "const m=require('./data/manifest.json'); process.stdout.write(m.latest)")"
+          node scripts/verify-public-deployment.mjs "$CURRENT"
 
   browser-presentation:
     runs-on: ubuntu-latest
