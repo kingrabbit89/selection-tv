@@ -226,3 +226,7 @@ installée, le mode TV affiche explicitement qu'une mise à jour de l'APK est n�
 
 Les modifications natives Android TV sont compilées sur pull request avant fusion ; le
 workflow de build ne publie la release stable qu'en dehors des PR.
+
+## Version des assets communs
+
+Après toute modification sous assets/js ou assets/css, lancer `node scripts/sync-asset-versions.mjs`. Le hash du contenu est appliqué au chargeur et aux coquilles de toutes les semaines ; `data-and-policy` refuse un hash périmé. Cela remplace les bumps manuels indépendants. Le cache HTTP de la coquille HTML conserve néanmoins sa durée de vie côté hébergeur : une page déjà ouverte nécessite un rechargement. Les JSON éditoriaux restent chargés sans cache.

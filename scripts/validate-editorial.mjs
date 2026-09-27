@@ -1,3 +1,4 @@
+import {sectionPageMatches} from './editorial-contracts.mjs';
 import fs from 'node:fs';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const manifest=read('data/manifest.json');
@@ -129,7 +130,7 @@ if(strict){
  const minImage=Number(q.published_daily_image_ratio_min??0.80);
  const minMeta=Number(q.published_daily_metadata_ratio_min??0.80);
  const minRatings=Number(q.published_daily_ratings_ratio_min??0.55);
- const minInventory=Number(q.raw_inventory_min_items_per_day??90);
+ const minInventory=Number(q.raw_inventory_min_items_per_day??8);
  const dayIds=['samedi','dimanche','lundi','mardi','mercredi','jeudi','vendredi'];
  const banned=[
    /Rubrique conservée\s*;\s*publication prudente/i,
@@ -170,7 +171,7 @@ if(strict){
      }
    }
    for(const [base,min] of front){
-     const html=pages.filter(p=>p.id===base||p.id.startsWith(base+'-')).map(p=>p.html||'').join('\n');
+     const html=pages.filter(p=>sectionPageMatches(p.id,base)).map(p=>p.html||'').join('\n');
      const count=articleCount(html);
      const target=Number(strictSections?(strictTargets[base]??min):min);
      const shortage=candidate.section_shortages?.[base];

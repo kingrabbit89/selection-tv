@@ -1,3 +1,4 @@
+import {probeRemoteImage,hasImageSignature} from './image-health.mjs';
 import fs from 'node:fs';
 
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
@@ -49,27 +50,13 @@ if(!legacyGridOnly){
   }
 }
 
-const UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/136 Safari/537.36';
 async function probe(url){
   if(!/^https?:\/\//i.test(url)){
     const path=url.replace(/^\.\//,'');
-    return fs.existsSync(path)?{ok:true,url,why:'local'}:{ok:false,url,why:'missing local file'};
+    const ok=fs.existsSync(path)&&hasImageSignature(fs.readFileSync(path));
+    return {ok,url,why:ok?'local image':'missing/non-image local file'};
   }
-  const ctrl=new AbortController();
-  const timer=setTimeout(()=>ctrl.abort(),8000);
-  try{
-    const res=await fetch(url,{
-      redirect:'follow',
-      signal:ctrl.signal,
-      headers:{'User-Agent':UA,'Accept':'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8'}
-    });
-    const type=(res.headers.get('content-type')||'').toLowerCase();
-    const ok=res.ok&&(type.startsWith('image/')||/\.(?:jpe?g|png|webp|gif|svg)(?:[?#]|$)/i.test(res.url));
-    try{await res.body?.cancel()}catch{}
-    return {ok,url,status:res.status,type,final:res.url,why:ok?'ok':'non-image or HTTP error'};
-  }catch(err){
-    return {ok:false,url,why:err?.name==='AbortError'?'timeout':String(err?.message||err)};
-  }finally{clearTimeout(timer)}
+  return probeRemoteImage(url);
 }
 
 async function runOne(title){
