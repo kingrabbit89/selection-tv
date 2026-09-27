@@ -36,6 +36,9 @@ if(fs.existsSync('data/automation-config.json')){
   const j=Number((tvjs.match(/REQUIRED_ANDROID_PROTOCOL\s*=\s*(\d+)/)||[])[1]);
   const c=Number(cfg.android_tv?.minimum_supported_bridge_protocol);
   if(!k||!j||!c||k!==j||j!==c)bad('Android TV bridge protocol mismatch: kotlin='+k+', js='+j+', config='+c);
+  const androidWorkflow=fs.existsSync('.github/workflows/build-selection-tv-androidtv.yml')?read('.github/workflows/build-selection-tv-androidtv.yml'):'';
+  const pinned=String(cfg.android_tv?.upstream_tag||'');
+  if(!pinned||!androidWorkflow.includes('branch '+pinned))bad('Android TV workflow pin does not match automation-config upstream_tag '+pinned);
 }
 
 for(const p of [
