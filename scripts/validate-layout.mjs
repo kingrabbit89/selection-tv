@@ -365,6 +365,64 @@ try{
   console.log(`✓ ${latest}: Seen replacement, reserve visual and reserve links`);
  }
 
+ // Section reserve regression: S41 exposed a generic "seen hidden" notice on
+ // weekly rendezvous and physical releases but did not refill the page. Recreate
+ // the exact failure: four seen rendezvous must still leave five visible cards,
+ // and two seen physical releases must still leave four visible cards.
+ await page.evaluate(()=>localStorage.clear());
+ const sectionReservePools=await page.evaluate(()=>{
+   const pools=window.SELECTION_TV_WEEK_DATA?.personalization?.pools||{};
+   return !!(pools['rendezvous-1']&&pools['sorties-physiques']);
+ });
+ if(sectionReservePools){
+   await page.evaluate(()=>{
+     const pools=window.SELECTION_TV_WEEK_DATA.personalization.pools;
+     const seen={};
+     for(const c of (pools['rendezvous-1'].candidates||[]).slice(0,4)){
+       seen[c.work_id||('title:'+c.title)]={title:c.title,work_id:c.work_id||null,seen_at:new Date().toISOString()};
+     }
+     for(const c of (pools['sorties-physiques'].candidates||[]).slice(0,2)){
+       seen[c.work_id||('title:'+c.title)]={title:c.title,work_id:c.work_id||null,seen_at:new Date().toISOString()};
+     }
+     localStorage.setItem('selectionTV_seen_v2',JSON.stringify(seen));
+     localStorage.setItem('selectionTV_hide_seen_v1','1');
+   });
+   await page.reload({waitUntil:'domcontentloaded'});
+   await settle();
+   await page.waitForTimeout(500);
+
+   const sectionReserveState=await page.evaluate(()=>{
+     const visible=(root,selector)=>[...root.querySelectorAll(selector)].filter(el=>{
+       const cs=getComputedStyle(el),r=el.getBoundingClientRect();
+       return !el.classList.contains('seen-hidden')&&cs.display!=='none'&&cs.visibility!=='hidden'&&r.width>0&&r.height>0;
+     });
+     const rendezvous=document.getElementById('rendezvous-1');
+     const physical=document.getElementById('sorties-physiques');
+     if(!rendezvous||!physical)return {missing:true};
+     const rv=visible(rendezvous,'article.week-card');
+     const ph=visible(physical,'article.release-card');
+     return {
+       missing:false,
+       rendezvousVisible:rv.length,
+       rendezvousReplacements:rv.filter(x=>x.classList.contains('replacement-generated')).length,
+       rendezvousSummary:rendezvous.querySelector('.reserve-summary')?.textContent||'',
+       physicalVisible:ph.length,
+       physicalReplacements:ph.filter(x=>x.classList.contains('replacement-generated')).length,
+       physicalSummary:physical.querySelector('.reserve-summary')?.textContent||'',
+       physicalReplacementTypes:ph.filter(x=>x.classList.contains('replacement-generated')).map(x=>x.className)
+     };
+   });
+   assert.equal(sectionReserveState.missing,false,latest+': section reserve pages missing');
+   assert.equal(sectionReserveState.rendezvousVisible,5,latest+': four seen weekly rendezvous must be refilled to five: '+JSON.stringify(sectionReserveState));
+   assert(sectionReserveState.rendezvousReplacements>=4,latest+': weekly rendezvous did not draw four replacements: '+JSON.stringify(sectionReserveState));
+   assert.match(sectionReserveState.rendezvousSummary,/4 remplacées par la réserve éditoriale/,latest+': weekly rendezvous replacement summary is wrong');
+   assert.equal(sectionReserveState.physicalVisible,4,latest+': two seen physical releases must be refilled to four: '+JSON.stringify(sectionReserveState));
+   assert(sectionReserveState.physicalReplacements>=2,latest+': physical releases did not draw two replacements: '+JSON.stringify(sectionReserveState));
+   assert(sectionReserveState.physicalReplacementTypes.every(x=>/release-card/.test(x)),latest+': physical reserve rendered with the wrong card type');
+   assert.match(sectionReserveState.physicalSummary,/2 remplacées par la réserve éditoriale/,latest+': physical release replacement summary is wrong');
+   console.log('✓ '+latest+': weekly rendezvous and physical-release reserves preserve section targets');
+ }
+
  // Permanent state still propagates between catalogue and work page.
  await page.evaluate(()=>localStorage.clear());
  await page.goto(`${origin}/catalogue.html`,{waitUntil:'domcontentloaded'});
