@@ -714,7 +714,9 @@
 
   window.SelectionTvAndroidLibraryReady=count=>{
     libraryReady=true;libraryCount=Number(count)||0;scheduleStatus();
-    models.forEach(queueQuick);pumpQuick();
+    models.filter(m=>!m.isReserve).forEach(queueQuick);
+    refreshPersonalizedRows();
+    pumpQuick();
   };
   window.SelectionTvAndroidResult=result=>{
     if(typeof result==='string'){try{result=JSON.parse(result)}catch{return}}
@@ -740,6 +742,7 @@
     }else if(result.found){
       model.debug='';
       model.state='found';model.itemId=result.itemId||'';model.jellyfinName=result.name||'';
+      model.played=result.played===true;
       model.sessionVerified=true;
       rememberFound(model,model.itemId,model.jellyfinName);
     }else if(result.quick){
@@ -747,11 +750,12 @@
       queueDeep(model);
     }else{
       model.state='missing';
+      model.played=false;
       rememberMissing(model);
     }
 
     if(Number.isFinite(Number(result.libraryCount)))libraryCount=Number(result.libraryCount);
-    updateTile(model);scheduleStatus();scheduleQuick();deepTimer=setTimeout(pumpDeep,320);
+    updateTile(model);refreshPersonalizedRows();scheduleStatus();scheduleQuick();deepTimer=setTimeout(pumpDeep,320);
   };
   window.SelectionTvAndroidOpenResult=result=>{
     if(typeof result==='string'){try{result=JSON.parse(result)}catch{return}}
@@ -762,12 +766,12 @@
       model.state='unknown';
     }else if(result.found){
       model.debug='';
-      model.state='found';model.itemId=result.itemId||'';rememberFound(model,model.itemId,'');
+      model.state='found';model.itemId=result.itemId||'';model.played=result.played===true;rememberFound(model,model.itemId,'');
     }else{
       model.debug=String(result.diagnostic||'aucun candidat renvoyé par Jellyfin');
-      model.state='missing';rememberMissing(model);
+      model.state='missing';model.played=false;rememberMissing(model);
     }
-    updateTile(model);scheduleStatus();
+    updateTile(model);refreshPersonalizedRows();scheduleStatus();
   };
 
   Promise.all([worksPromise,linksPromise]).then(([wd,ld])=>{
@@ -827,7 +831,7 @@
     // On recent APKs, start the cheap targeted checks immediately instead of
     // leaving uncached grid titles at "À vérifier" while a large Jellyfin
     // library is still being indexed in the background.
-    if(supportsLiveQuick())models.forEach(queueQuick);
+    if(supportsLiveQuick())models.filter(m=>!m.isReserve).forEach(queueQuick);
 
     const readyPoll=setInterval(()=>{
       try{
