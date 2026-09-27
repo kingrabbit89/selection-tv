@@ -410,9 +410,11 @@
           Limit:1
         });
         var items=r&&r.Items||r&&r.items||[];
-        return items[0]||item;
+        if(!items.length)throw new Error("Jellyfin detail unavailable");
+        return items[0];
       }catch(e){
-        return item;
+        libraryDetailCache.delete(id);
+        throw e;
       }
     })();
 
@@ -573,20 +575,14 @@
 
     var persisted=cachedPositiveMatch(key);
     if(persisted){
-      // Return immediately so "Dans Jellyfin" and "Ouvrir dans Jellyfin"
-      // appear without rescanning the library. Refresh user/quality details
-      // quietly in the background because those can change independently.
-      (async function(){
-        try{
-          var detail=await hydrateLibraryItem({Id:persisted.itemId,Name:persisted.name});
-          var fresh=resultFromItem(key,req,detail);
-          if(fresh.found){
-            rememberPositiveMatch(key,fresh);
-            send({type:'selection-tv:jellyfin-result',version:3,items:[fresh]});
-          }
-        }catch(e){}
-      })();
-      return persisted;
+      // Resolve mutable user data before returning: a background fresh result
+      // can otherwise arrive before (and be overwritten by) the stale batch.
+      try{
+        var detail=await hydrateLibraryItem({Id:persisted.itemId,Name:persisted.name});
+        var fresh=resultFromItem(key,req,detail);
+        if(fresh.found){rememberPositiveMatch(key,fresh);return fresh}
+      }catch(e){}
+      return Object.assign({},persisted,{stale:true});
     }
 
     var promise=(async function(){
