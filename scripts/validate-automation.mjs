@@ -28,6 +28,9 @@ if(fs.existsSync('data/automation-config.json')){
   if(cfg.timezone!=='Europe/Paris')bad('automation timezone must be Europe/Paris');
   if(cfg.generation?.orchestrator!=='external-research-agent')bad('weekly producer must be declared as external-research-agent');
   if(cfg.generation?.candidate_manifest_status!=='draft'||cfg.generation?.candidate_publication_status!=='draft')bad('candidate must stay draft before promotion');
+  if(cfg.generation?.scheduled_day!=='Thursday'||cfg.generation?.scheduled_time_local!=='08:00')bad('automation-config generation schedule must match the Thursday 08:00 research-agent stage');
+  if(cfg.review?.scheduled_day!=='Friday'||cfg.review?.scheduled_time_local!=='20:00')bad('automation-config review schedule must match the Friday 20:00 publication stage');
+  if(cfg.watchdog?.scheduled_day!=='Saturday'||cfg.watchdog?.scheduled_time_local!=='12:00')bad('automation-config watchdog schedule must match the Saturday 12:00 final check');
   if(cfg.generation?.never_promote_before_green_ci!==true)bad('fail-closed promotion flag must be true');
 
   const kotlin=fs.existsSync('integrations/androidtv/SelectionTvFragment.kt')?read('integrations/androidtv/SelectionTvFragment.kt'):'';
@@ -71,6 +74,7 @@ if(fs.existsSync('.github/workflows/promote-validated-week.yml')){
 if(fs.existsSync('.github/workflows/weekly-automation-watchdog.yml')){
   const wf=read('.github/workflows/weekly-automation-watchdog.yml');
   if(!wf.includes('schedule:')||!wf.includes('next-target.mjs'))bad('weekly watchdog is not scheduled or cannot resolve target');
+  if(!wf.includes('0 10 * * 6'))bad('weekly watchdog cron must run Saturday after the publication/retry window');
 }
 
 function targetOn(date){
