@@ -736,6 +736,10 @@
     });
 
     rows=[...grouped.entries()].map(([page,list])=>({title:groupTitle(page),models:list})).filter(r=>r.models.length);
+    // Expose the canonical TV models for the browser QA gate. They are the
+    // exact objects used to render Fire TV tiles, so tests can verify that
+    // desktop table rows were enriched before an APK is published.
+    window.SelectionTvAndroidModels=models;
     buildShell();
 
     // On recent APKs, start the cheap targeted checks immediately instead of
