@@ -11,10 +11,11 @@ import assert from 'node:assert/strict';
 const {chromium}=createRequire(import.meta.url)('playwright');
 const root=resolve(import.meta.dirname,'..');
 const manifest=JSON.parse(await readFile(resolve(root,'data/manifest.json'),'utf8'));
+const targetWeek=process.env.SELECTION_TV_VALIDATE_WEEK||manifest.latest;
 const worksData=JSON.parse(await readFile(resolve(root,'data/works.json'),'utf8'));
 const normTitle=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
 const worksByTitle=new Map((worksData.works||[]).map(w=>[normTitle(w.title),w]));
-const weeks=[...new Set([manifest.latest,'2026-S40','2026-S39','2026-S38','2026-S37'].filter(Boolean))];
+const weeks=[...new Set([targetWeek,'2026-S40','2026-S39','2026-S38','2026-S37'].filter(Boolean))];
 
 const server=createServer(async(req,res)=>{
  const requestUrl=new URL(req.url,'http://localhost');
@@ -164,7 +165,7 @@ try{
  // magazine site, but the Fire TV renderer promotes every one of them to a
  // visual Jellyfin card. Verify the actual TV model has inherited the
  // catalogue poster, year/metadata and ratings before testing personal state.
- const latest=manifest.latest;
+ const latest=targetWeek;
  await page.goto(`${origin}/semaines/${latest}/?tv=1`,{waitUntil:'domcontentloaded'});
  await page.waitForSelector('.stv-tv-shell');
  await page.waitForFunction(()=>Array.isArray(window.SelectionTvAndroidModels));
