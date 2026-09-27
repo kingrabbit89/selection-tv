@@ -165,6 +165,20 @@ function renderReserve(c,cardType='feature'){
    const p=document.createElement('p');p.textContent=c.why||c.summary||'Retenu dans la réserve éditoriale de la semaine.';article.append(p);
    actionBox(article,c);return article;
  }
+ if(cardType==='release-card'){
+   const article=document.createElement('article');article.className='release-card replacement-generated';article.dataset.title=c.title;article.dataset.workId=c.work_id||'';
+   if(c.image){const img=document.createElement('img');img.src=c.image;img.alt='Visuel de '+c.title;img.loading='lazy';article.append(img)}
+   else{const fb=document.createElement('div');fb.className='release-fallback';fb.textContent=c.title;article.append(fb)}
+   const date=document.createElement('div');date.className='rel-date';date.textContent=c.release_label||[c.release_date,c.format].filter(Boolean).join(' · ');article.append(date);
+   const h3=document.createElement('h3');h3.textContent=c.title;article.append(h3);
+   if(c.meta){const meta=document.createElement('div');meta.className='work-meta';meta.textContent=c.meta;article.append(meta)}
+   const relMeta=document.createElement('div');relMeta.className='rel-meta';relMeta.textContent=[c.editor,c.price].filter(Boolean).join(' · ');article.append(relMeta);
+   if(c.restoration){const p=document.createElement('p');p.textContent=c.restoration;article.append(p)}
+   const why=document.createElement('div');why.className='why-release';const b=document.createElement('b');b.textContent='Pourquoi cette sortie compte';const p=document.createElement('p');p.textContent=c.why||c.bonuses||c.summary||'Édition physique retenue dans la réserve éditoriale.';why.append(b,p);article.append(why);
+   actionBox(article,c);
+   if(c.release_url){const box=article.querySelector('.program-actions');const a=document.createElement('a');a.href=c.release_url;a.target='_blank';a.rel='noopener';a.textContent='Édition';box?.append(a)}
+   return article;
+ }
  const article=document.createElement('article');article.className='feature replacement-generated';article.dataset.title=c.title;article.dataset.workId=c.work_id||'';
  const visual=document.createElement('div');visual.className='visual replacement-visual';
  if(c.image){const img=document.createElement('img');img.src=c.image;img.alt='Visuel de '+c.title;img.loading='lazy';visual.append(img)}
