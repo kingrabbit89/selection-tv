@@ -40,5 +40,24 @@
     "minimum_total_candidates": 16,
     "lookback_days": 21,
     "policy": "Conserver dix ajouts HD visibles sur deux pages de cinq et constituer une réserve profonde de restaurations, rééditions et réapparitions intéressantes. Les titres vus sont remplacés localement et le récapitulatif suit les dix titres effectivement affichés."
+  },
+  "freshness": {
+    "enabled_from_week": "2026-S42",
+    "scope": "Rendez-vous hebdomadaires, choix développés, grilles commentées et pools de réserve quotidiens. Les rubriques événementielles (replay, arrivées plateformes, sorties physiques/streaming, expirations) et les radars gardent leur logique propre.",
+    "history_lookback_issues": 4,
+    "ranking_memory_issues": 8,
+    "public_fresh_ratio_min": 0.85,
+    "reserve_fresh_ratio_min": 0.8,
+    "previous_issue_public_repeat_max": 0,
+    "previous_issue_any_reserve_ratio_max": 0.1,
+    "exception_field": "freshness_exceptions",
+    "allowed_exception_contexts": [
+      "new-platform-arrival",
+      "new-restoration-or-release",
+      "rare-new-broadcast",
+      "material-availability-change",
+      "major-editorial-event"
+    ],
+    "policy": "Prioriser d'abord les œuvres absentes des 8 derniers numéros. Une œuvre apparue dans les 4 derniers numéros subit une forte pénalité ; une œuvre apparue dans le numéro immédiatement précédent ne peut pas revenir dans les propositions publiques centrales. Les réserves doivent elles aussi rester majoritairement nouvelles. Une répétition n'est admise qu'avec une exception structurée liée à un contexte réellement nouveau, jamais pour remplir un quota."
   }
 }
