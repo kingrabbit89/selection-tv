@@ -58,3 +58,24 @@ jobs:
           else
             echo "Existing alert issue #$EXISTING"
           fi
+
+      - name: Watch Android TV upstream base
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          PINNED="$(node -e "const c=require('./data/automation-config.json'); process.stdout.write(c.android_tv.upstream_tag)")"
+          LATEST="$(gh api 'repos/jellyfin/jellyfin-androidtv/releases?per_page=1' --jq '.[0].tag_name // empty')"
+          if [[ -z "$LATEST" || "$LATEST" == "$PINNED" ]]; then
+            echo "Android TV upstream pin is current: $PINNED"
+            exit 0
+          fi
+          TITLE="Sélection TV Android TV: upstream $LATEST disponible"
+          BODY="L'APK Sélection TV est actuellement construite sur $PINNED, tandis que jellyfin/jellyfin-androidtv publie désormais $LATEST. Tester la migration de l'overlay sur une branche dédiée avant de modifier le pin."
+          EXISTING="$(gh issue list --state open --search "$TITLE in:title" --json number --jq '.[0].number // empty')"
+          if [[ -z "$EXISTING" ]]; then
+            gh issue create --title "$TITLE" --body "$BODY"
+          else
+            echo "Existing upstream alert #$EXISTING"
+          fi
