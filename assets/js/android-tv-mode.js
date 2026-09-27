@@ -339,7 +339,9 @@
     const queued=statusModels.filter(x=>x.state==='unknown'||x.state==='queued').length;
     const el=document.querySelector('.stv-tv-statusbar');
     if(!el)return;
-    const html=libraryReady
+    const html=!androidBridgeCompatible
+      ? '<strong>APK Sélection TV à mettre à jour</strong> · protocole natif '+detectedAndroidProtocol+' / requis '+REQUIRED_ANDROID_PROTOCOL
+      : libraryReady
       ? '<strong>Jellyfin</strong> · '+found+' présents · '+missing+' absents'
         +(checking?' · '+checking+' analysé'+(checking>1?'s':''):'')
         +(queued?' · '+queued+' à vérifier':'')
