@@ -911,6 +911,7 @@
     // Expose the canonical TV models for the browser QA gate.
     window.SelectionTvAndroidModels=models;
     window.SelectionTvAndroidPersonalizedRows=personalizedRows;
+    window.SelectionTvAndroidRefreshPersonalizedRows=refreshPersonalizedRows;
     buildShell();
 
     // On recent APKs, start the cheap targeted checks immediately instead of
