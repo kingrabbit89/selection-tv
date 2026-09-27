@@ -1308,7 +1308,7 @@
   }
 
   window.addEventListener('message',function(e){
-    if(e.source!==frame.contentWindow||!e.data)return;
+    if(e.source!==frame.contentWindow||e.origin!==CHILD_ORIGIN||!e.data)return;
     if(e.data.type==='selection-tv:jellyfin-private-ready'){
       if(lastPrivatePayload)sendPrivate();
       else loadPrivateUploads();
