@@ -34,17 +34,16 @@ function bind(img,title,card,extra=[]){
  img.removeAttribute('onerror');
  img.loading='lazy';
 
- let index=Math.max(0,list.indexOf(img.getAttribute('src')));
+ let index=0;
  let finished=false;
  const loaded=()=>{
    if(finished)return;
+   finished=true;
    clearFailureState(img,card);
  };
  const failed=()=>{
    if(finished)return;
-   const current=img.getAttribute('src');
-   const at=list.indexOf(current);
-   index=(at>=0?at:index)+1;
+   index++;
    if(index<list.length){
      img.src=list[index];
      queueMicrotask(checkAlreadySettled);
@@ -62,11 +61,10 @@ function bind(img,title,card,extra=[]){
  img.addEventListener('load',loaded);
  img.addEventListener('error',failed);
 
+ // The catalogue is authoritative. Existing page HTML may contain a stale or
+ // dead URL; always start from the canonical source, then walk fallbacks.
  const current=img.getAttribute('src');
- if(!current||!list.includes(current)){
-   index=0;
-   img.src=list[0];
- }
+ if(current!==list[0])img.src=list[0];
  // Crucial race fix: an image may have failed before these listeners were
  // attached (legacy inline onerror can also have marked .visual.broken).
  queueMicrotask(checkAlreadySettled);
