@@ -7,7 +7,7 @@ const clean=s=>String(s||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
 const manifest=read('data/manifest.json');
 const pconfig=read('data/personalization-config.json');
 const freshness=pconfig.freshness||{};
-const latest=manifest.latest;
+const latest=process.env.SELECTION_TV_VALIDATE_WEEK||manifest.latest;
 
 if(!freshness.enabled_from_week||latest<freshness.enabled_from_week){
   console.log('✓ Freshness validation skipped before '+(freshness.enabled_from_week||'configured week'));
