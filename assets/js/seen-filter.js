@@ -219,7 +219,7 @@ function applyPools(){
    const unseenAvailable=(pool.candidates||[]).filter(c=>reserveEligible(c)&&!isSeen(c.title,c.work_id)&&!primaryTitles.has(norm(c.title))).length;
    if(personalized&&(hiddenPrimary||replacements)){
      if(!note){note=document.createElement('div');note.className='seen-summary reserve-summary';const anchor=page.querySelector('.rule')||page.querySelector('.topbar');anchor?.insertAdjacentElement('afterend',note)}
-     if(note)note.textContent=hiddenPrimary+' choix principal'+(hiddenPrimary>1?'aux':'')+' déjà vu'+(hiddenPrimary>1?'s':'')+(replacements?' · '+replacements+' remplacé'+(replacements>1?'s':'')+' par la réserve éditoriale':'')+(visible<pool.target?' · réserve insuffisante : '+unseenAvailable+' autre'+(unseenAvailable>1?'s':'')+' choix non vu'+(unseenAvailable>1?'s':''):'')+'.';
+     if(note)note.textContent=hiddenPrimary+' recommandation'+(hiddenPrimary>1?'s':'')+' déjà vue'+(hiddenPrimary>1?'s':'')+(replacements?' · '+replacements+' remplacée'+(replacements>1?'s':'')+' par la réserve éditoriale':'')+(visible<pool.target?' · réserve insuffisante : '+unseenAvailable+' autre'+(unseenAvailable>1?'s':'')+' recommandation'+(unseenAvailable>1?'s':'')+' non vue'+(unseenAvailable>1?'s':''):'')+'.';
    }else if(note)note.remove();
  }
 }
