@@ -103,8 +103,24 @@
     }
     var user='';
     try{user=String(a.getCurrentUserId&&a.getCurrentUserId()||'')}catch(e){}
-    return norm(server)+'|'+user;
+    return encodeURIComponent(server)+'|'+user;
   }
+
+  var sessionContext=null;
+  var sessionReloading=false;
+  function sessionCurrent(){
+    if(sessionReloading)return false;
+    var a=api();
+    if(!a||!a.getCurrentUserId||!a.getCurrentUserId())return false;
+    var current=cacheIdentity();
+    if(sessionContext===null)sessionContext=current;
+    if(current===sessionContext)return true;
+    sessionReloading=true;
+    frame.style.visibility='hidden';
+    window.location.reload();
+    return false;
+  }
+  window.SelectionTvSessionCurrent=sessionCurrent;
 
   function libraryCacheKey(){
     return 'selectionTv_library_index_v'+LIBRARY_CACHE_VERSION+'|'+cacheIdentity();
@@ -305,6 +321,7 @@
     if(!background)setStatus('Jellyfin · préparation de l’index…','ok');
 
     libraryIndexRefreshPromise=buildLibraryIndex().then(function(index){
+      if(!sessionCurrent())throw new Error("Jellyfin session changed");
       libraryIndexCurrent=index;
       saveLibraryCache(index);
       setStatus('Jellyfin · bibliothèque synchronisée · '+index.items.length+' œuvres','ok');
@@ -320,6 +337,7 @@
   }
 
   function ensureLibraryIndex(){
+    if(!sessionCurrent())return Promise.reject(new Error("Jellyfin session changed"));
     if(libraryIndexCurrent)return Promise.resolve(libraryIndexCurrent);
     if(libraryIndexPromise)return libraryIndexPromise;
 
@@ -663,6 +681,7 @@
   }
 
   function send(payload){
+    if(!sessionCurrent())return;
     if(frame&&frame.contentWindow){
       frame.contentWindow.postMessage(payload,CHILD_ORIGIN);
     }
@@ -700,6 +719,7 @@
   }
 
   async function handleQueries(items){
+    if(!sessionCurrent())return;
     var unique=[];
     var seen={};
     (items||[]).forEach(function(x){
@@ -723,6 +743,7 @@
     }
 
     if(e.data.type==='selection-tv:jellyfin-open'&&e.data.itemId){
+      if(!sessionCurrent())return;
       (async function(){
         var item=await resolveForOpen(e.data.request||null,e.data.itemId);
         var itemId=item&&(item.Id||item.id);
@@ -1171,6 +1192,7 @@
   }
 
   function sendPrivate(payload){
+    if(!window.SelectionTvSessionCurrent?.())return;
     if(payload)lastPrivatePayload=payload;
     if(frame.contentWindow&&lastPrivatePayload){
       frame.contentWindow.postMessage(lastPrivatePayload,CHILD_ORIGIN);
@@ -1178,6 +1200,7 @@
   }
 
   async function loadPrivateUploads(){
+    if(!window.SelectionTvSessionCurrent?.())return;
     if(privateBusy||!hostActive())return;
     var a=api();
     if(!a)return;
@@ -1265,6 +1288,7 @@
           var i=pending[p];
           try{
             items[i]=await enrichOne(sourceItems[i]);
+            if(!window.SelectionTvSessionCurrent?.())return;
             cache[uploadCacheKey(sourceItems[i])]=items[i];
             saveEnrichedCache(cache);
           }catch(e){

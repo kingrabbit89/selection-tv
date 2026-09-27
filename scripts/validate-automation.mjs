@@ -156,7 +156,7 @@ function testCandidateTransaction(){
       }
       const counts=Object.fromEntries(channels.map(c=>[c,items.filter(x=>x.channel===c).length]));
       const sources=Object.fromEntries(channels.map(c=>[c,['https://example.com/grid/'+encodeURIComponent(c)+'/'+date]]));
-      days.push({date,channels_scanned:channels,source_pages:['https://example.com/a/'+date,'https://example.com/b/'+date],channel_sources:sources,channel_counts:counts,items});
+      days.push({date,channels_scanned:channels,source_pages:['https://example.com/a/'+date,'https://independent.example.org/b/'+date],channel_sources:sources,channel_counts:counts,items});
       coverageDays.push({date});
     }
     write('data/inventory/2026-S42.json',{week:'2026-S42',days});

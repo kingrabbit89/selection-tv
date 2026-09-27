@@ -40,7 +40,7 @@ function strongIdentity(title,work){
 
 function specificUnavailableReason(value){
   const s=String(value||'').trim();
-  return s.length>=24 && !/indisponible|non disponible|pas de note$/i.test(s);
+  return s.length>=24 && !/indisponible|non disponible|pas de note$|non v[ée]rifi|non indispensables|[àa] v[ée]rifier|pas recherch/i.test(s);
 }
 
 const pools=week.personalization?.pools||{};

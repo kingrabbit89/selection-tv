@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import {validateCandidateCalendar} from './week-calendar.mjs';
+import {validateCandidateCalendar,addDays} from './week-calendar.mjs';
 
 const target=process.env.SELECTION_TV_VALIDATE_WEEK||'';
 if(!target){
@@ -56,11 +56,19 @@ if(exists('data/inventory/'+target+'.json')){
   const minSources=Number(q.raw_inventory_source_pages_min??automation.candidate_validation.minimum_source_pages_per_day??2);
   const minOvernight=Number(q.strict_inventory_min_overnight_items_per_day??automation.candidate_validation.minimum_overnight_items_per_day??1);
   if(days.length!==7)bad('inventory must contain 7 days');
+  const observedDates=new Set();
   for(const day of days){
+    if(observedDates.has(day.date))bad('duplicate inventory day: '+day.date);
+    observedDates.add(day.date);
+    if(entry?.from&&![0,1,2,3,4,5,6].map(n=>addDays(entry.from,n)).includes(day.date))bad('inventory day outside candidate: '+day.date);
     const items=day.items||[];
     const sources=day.source_pages||[];
     const channels=new Set((day.channels_scanned||[]).map(norm));
     if(items.length<minItems)bad(day.date+': raw inventory '+items.length+' < '+minItems);
+    const hosts=new Set(sources.map(value=>{try{return new URL(typeof value==='string'?value:value.url).hostname.replace(/^www\./,'')}catch{return ''}}).filter(Boolean));
+    if(hosts.size<2)bad(day.date+': two distinct source domains required for independent cross-check');
+    const slots=new Set();
+    for(const item of items){const slot=[norm(item.title),norm(item.channel),item.start||item.time].join('|');if(slots.has(slot))bad(day.date+': duplicate inventory programme '+item.title);slots.add(slot)}
     if(sources.length<minSources)bad(day.date+': source_pages '+sources.length+' < '+minSources);
     const missing=requiredChannels.filter(c=>!channels.has(norm(c)));
     if(missing.length)bad(day.date+': required channels not scanned: '+missing.join(', '));
