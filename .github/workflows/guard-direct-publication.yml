@@ -10,18 +10,14 @@ permissions:
 
 jobs:
   guard:
-    # The controlled promotion workflow pushes as github-actions[bot].
-    # Any other actor changing manifest.latest is treated as an unsafe
-    # publication attempt and is reverted immediately.
-    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Detect direct manifest promotion
-        id: detect
+      - name: Classify manifest.latest transition
+        id: classify
         shell: bash
         env:
           BEFORE: ${{ github.event.before }}
@@ -30,41 +26,86 @@ jobs:
           set -euo pipefail
           if [[ -z "$BEFORE" || "$BEFORE" == "0000000000000000000000000000000000000000" ]]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "safe=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+
           OLD_LATEST="$(git show "$BEFORE:data/manifest.json" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>process.stdout.write(JSON.parse(s).latest||''))")"
           NEW_LATEST="$(node -e "const m=require('./data/manifest.json');process.stdout.write(m.latest||'')")"
           echo "old_latest=$OLD_LATEST" >> "$GITHUB_OUTPUT"
           echo "new_latest=$NEW_LATEST" >> "$GITHUB_OUTPUT"
-          if [[ "$OLD_LATEST" != "$NEW_LATEST" ]]; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          else
+
+          if [[ "$OLD_LATEST" == "$NEW_LATEST" ]]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "safe=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+          EXPECTED="$(printf 'data/manifest.json\ndata/weeks/%s.json\n' "$NEW_LATEST" | sort)"
+          ACTUAL="$(git diff --name-only "$BEFORE" "$AFTER" | sort)"
+          if [[ "$ACTUAL" != "$EXPECTED" ]]; then
+            echo "safe=false" >> "$GITHUB_OUTPUT"
+            exit 0
           fi
 
-      - name: Fail closed by restoring previous public manifest
-        if: steps.detect.outputs.changed == 'true'
+          if BEFORE="$BEFORE" NEW_LATEST="$NEW_LATEST" node <<'NODE'
+          const {execFileSync}=require('node:child_process');
+          const fs=require('node:fs');
+          const assert=require('node:assert/strict');
+
+          const before=process.env.BEFORE;
+          const target=process.env.NEW_LATEST;
+          const oldJson=path=>JSON.parse(execFileSync('git',['show',before+':'+path],{encoding:'utf8'}));
+          const oldManifest=oldJson('data/manifest.json');
+          const newManifest=JSON.parse(fs.readFileSync('data/manifest.json','utf8'));
+          const oldWeek=oldJson('data/weeks/'+target+'.json');
+          const newWeek=JSON.parse(fs.readFileSync('data/weeks/'+target+'.json','utf8'));
+
+          assert.notEqual(oldManifest.latest,target);
+          const oldEntry=(oldManifest.weeks||[]).find(x=>x.week===target);
+          const newEntry=(newManifest.weeks||[]).find(x=>x.week===target);
+          assert(oldEntry&&newEntry,'target week entry missing');
+          assert.equal(oldEntry.status,'draft');
+          assert.equal(newEntry.status,'published');
+          assert.equal(oldWeek.publication_status,'draft');
+          assert.equal(newWeek.publication_status,'published');
+          assert.equal(newManifest.latest,target);
+
+          const expectedManifest=structuredClone(oldManifest);
+          expectedManifest.latest=target;
+          expectedManifest.updated=newManifest.updated;
+          const expectedEntry=(expectedManifest.weeks||[]).find(x=>x.week===target);
+          expectedEntry.status='published';
+          assert.deepEqual(newManifest,expectedManifest,'manifest contains changes beyond the promotion transition');
+
+          const expectedWeek=structuredClone(oldWeek);
+          expectedWeek.publication_status='published';
+          assert.deepEqual(newWeek,expectedWeek,'week JSON contains changes beyond publication_status');
+          NODE
+          then
+            echo "safe=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "safe=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Accept exact promotion PR transition
+        if: steps.classify.outputs.changed == 'true' && steps.classify.outputs.safe == 'true'
+        run: echo "Exact draft-to-published promotion transition accepted."
+
+      - name: Fail closed by restoring previous public state
+        if: steps.classify.outputs.changed == 'true' && steps.classify.outputs.safe != 'true'
         shell: bash
         env:
           BEFORE: ${{ github.event.before }}
-          OLD_LATEST: ${{ steps.detect.outputs.old_latest }}
-          NEW_LATEST: ${{ steps.detect.outputs.new_latest }}
+          OLD_LATEST: ${{ steps.classify.outputs.old_latest }}
+          NEW_LATEST: ${{ steps.classify.outputs.new_latest }}
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           git checkout "$BEFORE" -- data/manifest.json
-
           if git cat-file -e "$BEFORE:data/weeks/$NEW_LATEST.json" 2>/dev/null; then
             git checkout "$BEFORE" -- "data/weeks/$NEW_LATEST.json"
-          elif [[ -f "data/weeks/$NEW_LATEST.json" ]]; then
-            node - "$NEW_LATEST" <<'NODE'
-          const fs=require('fs');
-          const week=process.argv[2];
-          const path='data/weeks/'+week+'.json';
-          const data=JSON.parse(fs.readFileSync(path,'utf8'));
-          data.publication_status='draft';
-          fs.writeFileSync(path,JSON.stringify(data,null,2)+'\n');
-          NODE
           fi
 
           git config user.name "selection-tv-automation"
@@ -72,12 +113,12 @@ jobs:
           git add data/manifest.json
           [[ -f "data/weeks/$NEW_LATEST.json" ]] && git add "data/weeks/$NEW_LATEST.json"
           if ! git diff --cached --quiet; then
-            git commit -m "Annule la promotion directe de $NEW_LATEST"
+            git commit -m "Annule la promotion non conforme de $NEW_LATEST"
             git push origin HEAD:main
           fi
 
-          TITLE="Sélection TV: promotion directe de $NEW_LATEST annulée"
-          BODY="Un push sur main par $GITHUB_ACTOR a tenté de faire passer manifest.latest de $OLD_LATEST à $NEW_LATEST sans passer par le workflow transactionnel promote-validated-week.yml. Le garde-fou a restauré le dernier manifeste public et remis la semaine cible en draft lorsqu'elle était nouvelle."
+          TITLE="Sélection TV: promotion non conforme de $NEW_LATEST annulée"
+          BODY="Une modification de manifest.latest de $OLD_LATEST vers $NEW_LATEST ne correspondait pas à la transition atomique autorisée (seulement manifest + JSON semaine, draft vers published). Utiliser la PR promote/$NEW_LATEST après validation post-fusion."
           EXISTING="$(gh issue list --state open --search "$TITLE in:title" --json number --jq '.[0].number // empty')"
           if [[ -z "$EXISTING" ]]; then
             gh issue create --title "$TITLE" --body "$BODY"
