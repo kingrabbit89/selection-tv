@@ -35,7 +35,6 @@ import kotlinx.coroutines.withTimeout
 import org.jellyfin.androidtv.auth.repository.SessionRepository
 import org.jellyfin.androidtv.ui.navigation.Destinations
 import org.jellyfin.androidtv.ui.navigation.NavigationRepository
-import org.jellyfin.androidtv.ui.search.SearchRepository
 import org.jellyfin.androidtv.ui.shared.toolbar.MainToolbar
 import org.jellyfin.androidtv.ui.shared.toolbar.MainToolbarActiveButton
 import org.jellyfin.sdk.api.client.ApiClient
@@ -48,13 +47,15 @@ import org.json.JSONObject
 import org.koin.android.ext.android.inject
 import java.text.Normalizer
 import java.util.UUID
+import java.util.concurrent.ConcurrentHashMap
 
 class SelectionTvFragment : Fragment() {
 	private val api by inject<ApiClient>()
 	private val sessionRepository by inject<SessionRepository>()
 	private val navigationRepository by inject<NavigationRepository>()
-	private val searchRepository by inject<SearchRepository>()
 	private val indexMutex = Mutex()
+	private val yearBuckets = ConcurrentHashMap<String, List<BaseItemDto>>()
+	private val yearLocks = ConcurrentHashMap<String, Mutex>()
 
 	private var webView: WebView? = null
 	private var refreshOnResume = false
@@ -750,12 +751,11 @@ class SelectionTvFragment : Fragment() {
 
 	private fun jellyfinSearchTerms(request: LookupRequest): List<String> =
 		linkedSetOf<String>().apply {
-			for (candidate in requestTitleCandidates(request)) {
-				add(candidate)
-				val simplified = candidate
-					.replace(Regex("[\\p{Punct}«»“”„’‘]+"), " ")
-					.replace(Regex("\\s+"), " ")
-					.trim()
+			val candidates = requestTitleCandidates(request)
+			addAll(candidates)
+			for (candidate in candidates) {
+				val simplified = candidate.replace(Regex("[\\p{Punct}«»“”„’‘]+"), " ")
+					.replace(Regex("\\s+"), " ").trim()
 				if (simplified.isNotBlank()) add(simplified)
 			}
 		}.take(MAX_SEARCH_TERMS)
@@ -780,17 +780,61 @@ class SelectionTvFragment : Fragment() {
 	private suspend fun nativeSearchWave(term: String): List<BaseItemDto> = coroutineScope {
 		nativeSearchGroups.map { group ->
 			async {
-				searchRepository.search(
+				// SearchRepository is a UI search limited to 25 items and does not
+				// guarantee provider IDs/original title. Request identity fields.
+				api.itemsApi.getItems(
+					userId = sessionRepository.currentSession.value?.userId,
 					searchTerm = term,
-					itemTypes = group,
-				).getOrThrow()
+					includeItemTypes = group,
+					recursive = true,
+					fields = setOf(ItemFields.PROVIDER_IDS, ItemFields.ORIGINAL_TITLE),
+					limit = 100,
+					enableImages = false,
+					enableUserData = true,
+					enableTotalRecordCount = false,
+				).content.items
 			}
-		}.awaitAll()
-			.flatten()
-			.distinctBy { it.id }
+		}.awaitAll().flatten().distinctBy { it.id }
+	}
+
+	private suspend fun yearIdentityMatch(request: LookupRequest): BaseItemDto? {
+		val year = request.year ?: return null
+		if (request.imdbId.isNullOrBlank() && request.tmdbId.isNullOrBlank()) return null
+		val account = currentAccount() ?: return null
+		val key = "$account:$year"
+		val items = yearLocks.getOrPut(key) { Mutex() }.withLock {
+			yearBuckets[key]?.let { return@withLock it }
+			val collected = mutableListOf<BaseItemDto>()
+			var offset = 0
+			// Bounded, reusable movie/year slice, independent of translated
+			// names and of a full scan through tens of thousands of episodes.
+			while (offset < 2000) {
+				val result = api.itemsApi.getItems(
+					userId = sessionRepository.currentSession.value?.userId,
+					recursive = true,
+					years = setOf(year),
+					includeItemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.VIDEO, BaseItemKind.SERIES),
+					fields = setOf(ItemFields.PROVIDER_IDS, ItemFields.ORIGINAL_TITLE),
+					startIndex = offset, limit = 500,
+					enableImages = false, enableUserData = true,
+					enableTotalRecordCount = true,
+				).content
+				check(account == currentAccount())
+				collected += result.items
+				offset += result.items.size
+				if (result.items.isEmpty() || offset >= result.totalRecordCount || result.items.size < 500) break
+			}
+			collected.toList().also { yearBuckets[key] = it }
+		}
+		// Provider identity only here: no relaxed title or release-year guess.
+		return items.firstOrNull { item ->
+			(!request.imdbId.isNullOrBlank() && providerId(item, "imdb").equals(request.imdbId, ignoreCase = true)) ||
+			(!request.tmdbId.isNullOrBlank() && item.type == BaseItemKind.MOVIE && providerId(item, "tmdb") == request.tmdbId)
+		}
 	}
 
 	private suspend fun fallbackSearch(request: LookupRequest): BaseItemDto? {
+		yearIdentityMatch(request)?.let { return it }
 		val accumulated = linkedMapOf<UUID, BaseItemDto>()
 
 		for (term in jellyfinSearchTerms(request)) {
@@ -959,6 +1003,8 @@ class SelectionTvFragment : Fragment() {
 	override fun onResume() {
 		super.onResume()
 		if (webView != null && !accountIsCurrent()) {
+			yearBuckets.clear()
+			yearLocks.clear()
 			preparationJob?.cancel()
 			preparationJob = null
 			libraryIndex = null
@@ -976,6 +1022,8 @@ class SelectionTvFragment : Fragment() {
 	}
 
 	private fun resetAccount() {
+		yearBuckets.clear()
+		yearLocks.clear()
 		preparationJob?.cancel()
 		preparationJob = null
 		webView?.apply {

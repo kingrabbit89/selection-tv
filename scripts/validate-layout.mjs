@@ -288,6 +288,17 @@ try{
  });
  await tvStable.goto(`${origin}/semaines/${latest}/${tvQuery}`,{waitUntil:'domcontentloaded'});
  await tvStable.waitForFunction(()=>window.SelectionTvAndroidModels?.filter(m=>!m.isReserve&&m.tile?.isConnected).every(m=>m.sessionVerified));
+ const identityPayloads=await tvStable.evaluate(()=>{
+   const ids=['tt30825738','tt27165187'];
+   return ids.map(id=>{
+     const model=SelectionTvAndroidModels.find(m=>m.imdbId===id&&m.tile?.isConnected);
+     const request=tvFixture.calls.find(r=>r.imdbId===id);
+     return {id,exists:!!model,year:request?.year,aliases:request?.aliases||[]};
+   });
+ });
+ for(const p of identityPayloads)assert(p.exists&&p.year==='2026','Missing recent-film identity '+JSON.stringify(p));
+ assert(identityPayloads[0].aliases.includes('The Mandalorian and Grogu'),'Missing short Mandalorian title');
+ assert(identityPayloads[1].aliases.includes("La Fin d'Oak Street"),'Missing localized Oak Street title');
  const beforeIdle=await tvStable.evaluate(()=>({calls:tvFixture.calls.length,rows:SelectionTvAndroidPersonalizedRows.map(r=>r.activeModels.map(m=>m.key))}));
  await tvStable.clock.fastForward(61000);
  const afterIdle=await tvStable.evaluate(()=>({calls:tvFixture.calls.length,rows:SelectionTvAndroidPersonalizedRows.map(r=>r.activeModels.map(m=>m.key))}));
@@ -329,6 +340,15 @@ try{
  });
  assert(lateReserve.selected,'Existing qualified reserve must remain selected');
  assert.deepEqual(lateReserve.after,lateReserve.before,'A late background result must not replace a displayed reserve');
+ const unmatched=await tvStable.evaluate(()=>{
+   const row=SelectionTvAndroidPersonalizedRows.find(r=>r.reserveModels.length>=2);
+   const m=row.reserveModels.find(m=>!row.activeModels.includes(m));
+   if(!m)return null;
+   SelectionTvAndroidResult({key:m.key,found:false});
+   return {played:m.played,state:m.state,selected:row.activeModels.includes(m)};
+ });
+ assert(unmatched&&unmatched.played===null&&unmatched.state==='missing'&&!unmatched.selected,
+   'Unmatched search must not certify absence/unwatched status or qualify a reserve');
  await tvStable.close();
  console.log('✓ Fire TV: stable rows while idle, Back preserves links/focus after timeout, failed preparation exits');
 
