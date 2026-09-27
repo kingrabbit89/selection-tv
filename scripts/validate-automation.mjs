@@ -10,6 +10,7 @@ const required=[
   'scripts/next-target.mjs',
   'scripts/validate-publication-candidate.mjs',
   'scripts/promote-week.mjs',
+  'scripts/generation-report.mjs',
   '.github/workflows/validate-architecture.yml',
   '.github/workflows/promote-validated-week.yml',
   '.github/workflows/weekly-automation-watchdog.yml',
