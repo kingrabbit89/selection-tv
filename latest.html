@@ -7,8 +7,9 @@
 fetch('data/manifest.json',{cache:'no-store'})
  .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()})
  .then(m=>{
-   const w=(m.weeks||[]).find(x=>x.week===m.latest)||(m.weeks||[])[0];
-   if(!w?.path)throw new Error('Numéro introuvable');
+   const publicWeeks=(m.weeks||[]).filter(x=>x.status!=='draft');
+   const w=publicWeeks.find(x=>x.week===m.latest)||publicWeeks[0];
+   if(!w?.path)throw new Error('Numéro public introuvable');
    const target=new URL(w.path,location.href);
    const params=new URLSearchParams(location.search);
    if(params.get('tv')==='1')target.searchParams.set('tv','1');
