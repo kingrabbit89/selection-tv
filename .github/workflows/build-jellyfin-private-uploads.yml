@@ -19,6 +19,10 @@ on:
       - "integrations/jellyfin/selection-tv.html"
       - ".github/workflows/build-jellyfin-private-uploads.yml"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
