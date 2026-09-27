@@ -10,11 +10,21 @@ function sources(title,extra=[]){
  const w=record(title);
  return uniq([w?.image,...(w?.image_fallbacks||[]),...extra]);
 }
+function clearFailureState(img,card){
+ card.classList.remove('image-missing','image-exception');
+ delete card.dataset.imageFallback;
+ const visual=img.closest('.visual');
+ visual?.classList.remove('broken');
+}
 function fallbackFor(img,card,title){
  const fb=document.createElement('div');
  fb.className='canonical-image-fallback '+[...img.classList].join(' ');
  fb.textContent=title;
+ const visual=img.closest('.visual');
  img.replaceWith(fb);
+ // A legacy .fallback may have been revealed by an early onerror before the
+ // canonical resolver attached. Keep only one visible visual.
+ if(visual)visual.querySelectorAll(':scope>.fallback').forEach(x=>x.remove());
  card.classList.add('image-missing');
  card.dataset.imageFallback='1';
 }
@@ -22,17 +32,42 @@ function bind(img,title,card,extra=[]){
  const list=sources(title,[...extra,img.getAttribute('src')]);
  if(!list.length)return false;
  img.removeAttribute('onerror');
+ if(!img.hasAttribute('loading'))img.loading='lazy';
+
  let index=0;
- const current=img.getAttribute('src');
- const found=list.indexOf(current);
- if(found>=0)index=found;
- else{index=0;img.src=list[0]}
- img.loading='lazy';
- img.addEventListener('error',()=>{
+ let finished=false;
+ const loaded=()=>{
+   if(finished)return;
+   finished=true;
+   clearFailureState(img,card);
+ };
+ const failed=()=>{
+   if(finished)return;
    index++;
-   if(index<list.length){img.src=list[index];return}
+   if(index<list.length){
+     img.src=list[index];
+     queueMicrotask(checkAlreadySettled);
+     return;
+   }
+   finished=true;
    fallbackFor(img,card,title);
- });
+ };
+ const checkAlreadySettled=()=>{
+   if(finished||!img.complete)return;
+   if(img.naturalWidth>0)loaded();
+   else failed();
+ };
+
+ img.addEventListener('load',loaded);
+ img.addEventListener('error',failed);
+
+ // The catalogue is authoritative. Existing page HTML may contain a stale or
+ // dead URL; always start from the canonical source, then walk fallbacks.
+ const current=img.getAttribute('src');
+ if(current!==list[0])img.src=list[0];
+ // Crucial race fix: an image may have failed before these listeners were
+ // attached (legacy inline onerror can also have marked .visual.broken).
+ queueMicrotask(checkAlreadySettled);
  return true;
 }
 function makeImg(title,cls=''){
@@ -44,7 +79,12 @@ function makeImg(title,cls=''){
 }
 function inject(card,title,w){
  if(!w?.image)return false;
- card.querySelectorAll('.replacement-fallback,.radar-reserve-fallback,.release-fallback').forEach(x=>x.remove());
+ // Remove pre-rendered/static fallbacks before inserting the canonical image.
+ // This is what caused Hamnet to show both its real poster and a blue block.
+ card.querySelectorAll('.replacement-fallback,.radar-reserve-fallback,.release-fallback,.canonical-image-fallback').forEach(x=>x.remove());
+ card.classList.remove('image-exception','image-missing');
+ delete card.dataset.imageException;
+ delete card.dataset.imageFallback;
  let img;
  if(card.matches('.listitem')){
    img=makeImg(title,'archive-list-thumb');
@@ -89,6 +129,10 @@ function hydrate(card){
  const title=titleOf(card);if(!title)return;
  const w=record(title),existing=card.querySelector('img');
  if(existing){
+   // A static fallback can coexist with an <img> in source HTML. If the
+   // catalogue knows an image, the image is authoritative and the duplicate
+   // fallback must go.
+   if(w?.image)card.querySelectorAll(':scope>.canonical-image-fallback').forEach(x=>x.remove());
    bind(existing,title,card);
    card.dataset.imageResolved='1';
    return;
