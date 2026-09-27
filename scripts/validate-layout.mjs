@@ -15,7 +15,7 @@ const targetWeek=process.env.SELECTION_TV_VALIDATE_WEEK||manifest.latest;
 const worksData=JSON.parse(await readFile(resolve(root,'data/works.json'),'utf8'));
 const normTitle=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
 const worksByTitle=new Map((worksData.works||[]).map(w=>[normTitle(w.title),w]));
-const weeks=[...new Set([targetWeek,'2026-S40','2026-S39','2026-S38','2026-S37'].filter(Boolean))];
+const weeks=[...new Set([targetWeek,'2026-S41','2026-S40','2026-S39','2026-S38','2026-S37'].filter(Boolean))];
 
 const server=createServer(async(req,res)=>{
  const requestUrl=new URL(req.url,'http://localhost');
@@ -422,6 +422,40 @@ try{
    assert.match(sectionReserveState.physicalSummary,/2 remplacées par la réserve éditoriale/,latest+': physical release replacement summary is wrong');
    console.log('✓ '+latest+': weekly rendezvous and physical-release reserves preserve section targets');
  }
+
+ // Permanent S41 regression: one-page grids must filter seen rows; all card
+ // kinds must expose save actions and restore saved state when seen is undone.
+ await page.goto(`${origin}/semaines/2026-S41/`,{waitUntil:'domcontentloaded'});
+ await page.evaluate(()=>localStorage.clear());
+ await page.reload({waitUntil:'domcontentloaded'});await settle();
+ const originalGrid=await page.locator('#samedi-grille tbody tr').count();
+ const gridTitle=await page.locator('#samedi-grille tbody tr .prog').first().evaluate(el=>el.childNodes[0].textContent.trim());
+ await page.locator('#samedi-grille tbody tr .seen-btn').first().click();await settle();
+ const gridTitles=await page.locator('#samedi-grille tbody tr').evaluateAll(rows=>rows.map(row=>row.querySelector('.prog').childNodes[0].textContent.trim()));
+ assert(!gridTitles.includes(gridTitle),'S41: one-page grid still displays the seen work');
+ assert.equal(new Set(gridTitles).size,gridTitles.length,'S41: duplicate grid recommendations');
+ assert(gridTitles.length<=originalGrid,'S41: grid exceeds its initial capacity');
+ await page.locator('#seenToggle').click();await settle();
+ assert.equal(await page.locator('#samedi-grille tbody tr').count(),originalGrid,'show seen must restore all grid rows');
+ const release=page.locator('#sorties-physiques article.release-card').first();
+ await release.locator('button.save').click();
+ assert.equal(await page.locator('#savedCount').textContent(),'1','save counter must update immediately');
+ await release.locator('button.seen-btn').click();await settle();
+ assert.equal(await page.locator('#savedCount').textContent(),'0');
+ await release.locator('button.seen-btn').click();await settle();
+ assert.equal(await page.locator('#savedCount').textContent(),'1','undo seen must restore saved state');
+ assert.match(await release.locator('button.save').textContent(),/✓/,'undo seen must refresh save button');
+ await page.locator('#seenToggle').click();await settle();
+ // Repeat geometry after dynamic replacement, including independent horizontal bounds.
+ for(const width of [390,768,1100,1440]){
+   await page.setViewportSize({width,height:1000});await settle();
+   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'personalized horizontal overflow '+width);
+   await checkDesktopGeometry('S41 personalized '+width);
+ }
+ await page.emulateMedia({media:'print'});await settle();
+ assert.equal(await page.evaluate(()=>document.body.dataset.layoutOverflow),'','personalized print overflow');
+ await page.emulateMedia({media:'screen'});
+ console.log('✓ S41 one-page grid, save/seen/undo, personalized widths and print');
 
  // Permanent state still propagates between catalogue and work page.
  await page.evaluate(()=>localStorage.clear());
