@@ -127,3 +127,28 @@ La recherche suit une cascade : source officielle ou éditeur, base cinéma fiab
 `assets/js/image-resolver.js` hydrate les cartes à partir du catalogue canonique et essaie automatiquement les URLs de secours si un hébergeur refuse le hotlink ou si une image disparaît. Les cartes générées dynamiquement par le système `Vu` bénéficient du même traitement. Les numéros d’archive S37 à S39 utilisent le même résolveur : les anciens `poster-fallback` sont remplacés à l’affichage dès qu’un visuel canonique existe dans `works.json`.
 
 Une absence d’image n’est admise qu’avec `image_exception_reason`, par exemple pour une carte éditoriale d’agrégation sans œuvre unique. À partir de S41, la validation éditoriale bloque une publication qui contient une carte visuelle ou un candidat de réserve sans image ni exception documentée.
+
+
+## Publication transactionnelle et contrôle qualité
+
+À partir de S41, une nouvelle édition ne doit **jamais** être écrite directement sur `main`.
+Le générateur crée une branche `auto/YYYY-Sxx`, construit le numéro complet, met sur cette
+branche le statut publié et `manifest.latest`, puis ouvre une pull request. La branche
+`main` conserve le dernier numéro validé tant que tous les contrôles GitHub Actions ne sont
+pas verts. Une PR rouge ne doit pas être fusionnée.
+
+Une semaine incomplète peut rester dans le dépôt avec `status: "draft"` dans
+`data/manifest.json` et `publication_status: "draft"` dans son JSON. Les pages d'accueil
+et `latest.html` ne doivent jamais la promouvoir.
+
+La collecte « inventory-first » doit être auditable. Toute semaine candidate à la publication
+conserve son inventaire brut dans `data/inventory/YYYY-Sxx.json` : 7 jours, programmes
+horodatés, chaîne et source (ou URL de source) pour chaque entrée. `data/coverage/` est un
+résumé de contrôle ; il ne remplace pas cet inventaire.
+
+Les validations de publication bloquent notamment : rubriques factices ou vides sans
+`section_shortages` motivé, texte générique de remplissage, répétition d'un même gabarit
+horaire/chaîne sur plusieurs jours, identifiants d'œuvres non canoniques, choix quotidiens
+dupliqués par rediffusion, couverture d'affiches/métadonnées/notes insuffisante et image
+héro absente. Le principe est **fail closed** : mieux vaut conserver le numéro précédent
+que publier une édition artificiellement complète mais non vérifiée.
