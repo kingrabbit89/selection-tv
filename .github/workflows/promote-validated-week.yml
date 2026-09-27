@@ -40,6 +40,7 @@ jobs:
           node scripts/validate-freshness.mjs
           node scripts/validate-reserves.mjs
           node scripts/validate-image-sources.mjs
+          node scripts/generation-report.mjs
 
       - name: Install browser test runtime
         run: |
