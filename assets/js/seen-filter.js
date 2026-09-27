@@ -79,6 +79,30 @@ function mergedLinks(c){
  // No candidate-local or generated URL may override a verified work page.
  return {...(window.SELECTION_TV_VERIFIED_LINKS?.[norm(c.title)]||{})};
 }
+function reserveEligible(c){
+ // S41 contains historical pool rows that were collected as schedule leads
+ // before reserve candidates were treated as first-class recommendations.
+ // Never promote one of those thin rows into a visible card. From S42 the CI
+ // guarantees the stricter branch below for every candidate.
+ const m=c?.canonical_metadata||{};
+ const r=c?.ratings||{};
+ const L=mergedLinks(c);
+ const hasRating=!!(r.imdb||r.senscritique||r.sc);
+ const noRating=String(m.ratings_unavailable_reason||'').trim().length>=24;
+ const strongIdentity=
+   /^https:\/\/www\.imdb\.com\/(?:fr\/)?title\/tt\d+/i.test(String(L.imdb||''))||
+   /^https:\/\/www\.themoviedb\.org\/(?:movie|tv)\/\d+/i.test(String(L.tmdb||''))||
+   /^https:\/\/www\.senscritique\.com\/(?:film|serie)\//i.test(String(L.sc||''))||
+   /^https:\/\/(?:www\.)?allocine\.fr\//i.test(String(L.allocine||''))||
+   (!!L.official&&!/(?:tv-programme\.com|programme-tv\.com|programme-television\.org|linternaute\.com\/television|television\.telerama\.fr)/i.test(String(L.official)));
+ if(!c?.image||!m.director||!m.year||(!hasRating&&!noRating)||!strongIdentity)return false;
+ if(String(WEEK.week||'')>='2026-S42'){
+   if(!m.country||!m.duration||!m.genre)return false;
+   if(String(c.summary||'').trim().length<45)return false;
+   if(String(c.why||'').trim().length<45)return false;
+ }
+ return true;
+}
 function addReserveRatings(el,c){
  const r=window.SelectionTVRatings?.[c.title]||c.ratings;if(!r||el.querySelector('.ratings'))return;
  const box=document.createElement('div');box.className='ratings';
@@ -172,12 +196,13 @@ function applyPools(){
    if(personalized&&visible<pool.target){
      for(const c of pool.candidates||[]){
        if(visible>=pool.target)break;
+       if(!reserveEligible(c))continue;
        if(primaryTitles.has(norm(c.title))||isSeen(c.title,c.work_id))continue;
        container.append(renderReserve(c,pool.card_type||'feature'));visible++;replacements++;
      }
    }
    let note=page.querySelector('.reserve-summary');
-   const unseenAvailable=(pool.candidates||[]).filter(c=>!isSeen(c.title,c.work_id)&&!primaryTitles.has(norm(c.title))).length;
+   const unseenAvailable=(pool.candidates||[]).filter(c=>reserveEligible(c)&&!isSeen(c.title,c.work_id)&&!primaryTitles.has(norm(c.title))).length;
    if(personalized&&(hiddenPrimary||replacements)){
      if(!note){note=document.createElement('div');note.className='seen-summary reserve-summary';const anchor=page.querySelector('.rule')||page.querySelector('.topbar');anchor?.insertAdjacentElement('afterend',note)}
      if(note)note.textContent=hiddenPrimary+' choix principal'+(hiddenPrimary>1?'aux':'')+' déjà vu'+(hiddenPrimary>1?'s':'')+(replacements?' · '+replacements+' remplacé'+(replacements>1?'s':'')+' par la réserve éditoriale':'')+(visible<pool.target?' · réserve insuffisante : '+unseenAvailable+' autre'+(unseenAvailable>1?'s':'')+' choix non vu'+(unseenAvailable>1?'s':''):'')+'.';
@@ -247,6 +272,7 @@ function applyGridGroups(){
 
    for(const c of pool?.candidates||[]){
      if(selected.length>=target)break;
+     if(!reserveEligible(c))continue;
      const key=norm(c.title);let row=originalByTitle.get(key);
      if(!row){
        row=s.generated.get(key);

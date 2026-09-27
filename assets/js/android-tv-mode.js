@@ -67,6 +67,11 @@
     .stv-tv-state.found{background:rgba(31,67,45,.96);border-color:#77a187;color:#f1fff5}
     .stv-tv-state.missing{background:rgba(37,42,48,.96);border-color:#5c6268;color:#aeb4ba}
     .stv-tv-state.checking{background:rgba(63,52,31,.96);border-color:#8a744c;color:#f4dfb3}
+    .stv-tv-reserve-tag{
+      position:absolute;right:6px;top:6px;z-index:3;padding:4px 6px;border-radius:3px;
+      font:700 9px/1 Arial,sans-serif;letter-spacing:.04em;text-transform:uppercase;
+      background:rgba(20,34,54,.94);border:1px solid #8095ad;color:#eef5ff
+    }
     .stv-tv-tile-title{
       padding:8px 2px 0;font:700 13px/1.18 Arial,sans-serif;color:#e9e5de;
       display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden
@@ -137,7 +142,7 @@
   const writeCache=cache=>{try{localStorage.setItem(CACHE_KEY,JSON.stringify(cache))}catch{}};
   const cache=readCache();
 
-  let models=[],rows=[],current=null,works=new Map(),links=new Map();
+  let models=[],rows=[],personalizedRows=[],current=null,works=new Map(),links=new Map();
   let libraryReady=false,libraryCount=0,quickInflight=0,deepInflight=0;
   let lastNavigationAt=0,quickTimer=null,deepTimer=null,positionRaf=0,statusRaf=0;
   let lastStatusHtml='';
@@ -259,7 +264,8 @@
   const requestFor=model=>({
     key:model.key,title:model.title,year:model.year,
     imdbId:model.imdbId,tmdbId:model.tmdbId,
-    aliases:model.aliases||[]
+    aliases:model.aliases||[],
+    needPlayed:model.fromPool===true
   });
   const commandUrl=model=>{
     const req=requestFor(model);
@@ -326,10 +332,11 @@
   };
 
   const renderStatus=()=>{
-    const found=models.filter(x=>x.state==='found').length;
-    const missing=models.filter(x=>x.state==='missing').length;
-    const checking=models.filter(x=>x.state==='checking').length;
-    const queued=models.filter(x=>x.state==='unknown'||x.state==='queued').length;
+    const statusModels=models.filter(x=>!x.isReserve||x.tile?.isConnected);
+    const found=statusModels.filter(x=>x.state==='found').length;
+    const missing=statusModels.filter(x=>x.state==='missing').length;
+    const checking=statusModels.filter(x=>x.state==='checking').length;
+    const queued=statusModels.filter(x=>x.state==='unknown'||x.state==='queued').length;
     const el=document.querySelector('.stv-tv-statusbar');
     if(!el)return;
     const html=libraryReady
@@ -503,6 +510,7 @@
       const p=document.createElement('div');p.className='stv-tv-placeholder';p.textContent=model.title;wrap.append(p);
     }
     const st=document.createElement('span');st.className='stv-tv-state';st.textContent=stateLabel(model);wrap.append(st);
+    if(model.isReserve){const rt=document.createElement('span');rt.className='stv-tv-reserve-tag';rt.textContent='Réserve';wrap.append(rt)}
     const title=document.createElement('div');title.className='stv-tv-tile-title';title.textContent=model.title;
     b.append(wrap,title);
     b.onclick=()=>{focusModel(model);manualOpen(model)};
@@ -510,6 +518,61 @@
     model.tile=b;updateTile(model);
     return b;
   };
+
+  const rowSignature=list=>list.map(m=>m.key).join('|');
+  const renderRowModels=(row,next)=>{
+    if(!row?.grid)return;
+    if(rowSignature(row.activeModels||[])===rowSignature(next))return;
+    row.activeModels=[...next];
+    row.grid.replaceChildren(...next.map(m=>{
+      m.row=row;
+      return m.tile||makeTile(m);
+    }));
+    requestAnimationFrame(rebuildNeighbors);
+    scheduleStatus();
+  };
+  const refreshPersonalizedRow=row=>{
+    if(!row?.personalized||!row.grid)return;
+    const target=Number(row.target||3);
+    const selected=[];
+    const used=new Set();
+    const take=m=>{
+      if(!m||used.has(m.titleKey))return false;
+      selected.push(m);used.add(m.titleKey);return true;
+    };
+
+    // Explicitly unwatched/missing primaries stay first. A Jellyfin-played
+    // primary makes room for the best researched reserve.
+    for(const m of row.baseModels||[]){
+      if(m.played===true)continue;
+      take(m);
+      if(selected.length>=target)break;
+    }
+
+    let queued=0;
+    if(selected.length<target){
+      for(const m of row.reserveModels||[]){
+        if(selected.length>=target)break;
+        if(m.played===true)continue;
+        if(m.state==='found'&&m.played===false){take(m);continue}
+        if(m.state==='missing'){take(m);continue}
+        if(m.played==null&&(m.state==='found'||m.state==='unknown'||m.state==='queued')&&!m._queued&&!m._deepQueued&&queued<2){
+          queueQuick(m);queued++;
+        }
+      }
+    }
+
+    // Do not collapse the row while a replacement is still being checked.
+    // Keep the watched primary temporarily until a qualified reserve resolves.
+    if(selected.length<target){
+      for(const m of row.baseModels||[]){
+        if(selected.length>=target)break;
+        take(m);
+      }
+    }
+    renderRowModels(row,selected.slice(0,target));
+  };
+  const refreshPersonalizedRows=()=>personalizedRows.forEach(refreshPersonalizedRow);
 
   const buildShell=()=>{
     const shell=document.createElement('main');shell.className='stv-tv-shell';
@@ -521,7 +584,8 @@
       const section=document.createElement('section');section.className='stv-tv-row';row.section=section;
       const h=document.createElement('h2');h.className='stv-tv-row-title';h.textContent=row.title;section.append(h);
       const grid=document.createElement('div');grid.className='stv-tv-grid';row.grid=grid;
-      row.models.forEach(m=>{m.row=row;grid.append(makeTile(m))});
+      row.activeModels=[...(row.models||[])];
+      row.activeModels.forEach(m=>{m.row=row;grid.append(makeTile(m))});
       section.append(grid);shell.append(section);
     });
 
@@ -533,7 +597,7 @@
 
     document.body.append(shell);
     renderStatus();
-    requestAnimationFrame(()=>{rebuildNeighbors();if(models[0])focusModel(models[0])});
+    requestAnimationFrame(()=>{rebuildNeighbors();refreshPersonalizedRows();if(models.find(m=>m.tile?.isConnected))focusModel(models.find(m=>m.tile?.isConnected))});
   };
 
   const pendingKey=(model,kind)=>model.key+'|'+kind;
@@ -651,7 +715,9 @@
 
   window.SelectionTvAndroidLibraryReady=count=>{
     libraryReady=true;libraryCount=Number(count)||0;scheduleStatus();
-    models.forEach(queueQuick);pumpQuick();
+    models.filter(m=>!m.isReserve&&m.tile?.isConnected).forEach(queueQuick);
+    refreshPersonalizedRows();
+    pumpQuick();
   };
   window.SelectionTvAndroidResult=result=>{
     if(typeof result==='string'){try{result=JSON.parse(result)}catch{return}}
@@ -677,6 +743,7 @@
     }else if(result.found){
       model.debug='';
       model.state='found';model.itemId=result.itemId||'';model.jellyfinName=result.name||'';
+      model.played=result.played===true;
       model.sessionVerified=true;
       rememberFound(model,model.itemId,model.jellyfinName);
     }else if(result.quick){
@@ -684,11 +751,12 @@
       queueDeep(model);
     }else{
       model.state='missing';
+      model.played=false;
       rememberMissing(model);
     }
 
     if(Number.isFinite(Number(result.libraryCount)))libraryCount=Number(result.libraryCount);
-    updateTile(model);scheduleStatus();scheduleQuick();deepTimer=setTimeout(pumpDeep,320);
+    updateTile(model);refreshPersonalizedRows();scheduleStatus();scheduleQuick();deepTimer=setTimeout(pumpDeep,320);
   };
   window.SelectionTvAndroidOpenResult=result=>{
     if(typeof result==='string'){try{result=JSON.parse(result)}catch{return}}
@@ -699,12 +767,12 @@
       model.state='unknown';
     }else if(result.found){
       model.debug='';
-      model.state='found';model.itemId=result.itemId||'';rememberFound(model,model.itemId,'');
+      model.state='found';model.itemId=result.itemId||'';model.played=result.played===true;rememberFound(model,model.itemId,'');
     }else{
       model.debug=String(result.diagnostic||'aucun candidat renvoyé par Jellyfin');
-      model.state='missing';rememberMissing(model);
+      model.state='missing';model.played=false;rememberMissing(model);
     }
-    updateTile(model);scheduleStatus();
+    updateTile(model);refreshPersonalizedRows();scheduleStatus();
   };
 
   Promise.all([worksPromise,linksPromise]).then(([wd,ld])=>{
@@ -732,7 +800,7 @@
           aliases:Array.isArray(work.aliases)?[...work.aliases]:[],
           imageCandidates:sourcePosters,
           meta:sourceMeta,ratings:sourceRatings,
-          description:sourceDescription,state:'unknown',itemId:'',source
+          description:sourceDescription,state:'unknown',itemId:'',played:null,source
         };
         loadCachedState(model);
         byKey.set(key,model);models.push(model);
@@ -754,17 +822,103 @@
       }
     });
 
-    rows=[...grouped.entries()].map(([page,list])=>({title:groupTitle(page),models:list})).filter(r=>r.models.length);
-    // Expose the canonical TV models for the browser QA gate. They are the
-    // exact objects used to render Fire TV tiles, so tests can verify that
-    // desktop table rows were enriched before an APK is published.
+    rows=[...grouped.entries()].map(([page,list])=>({
+      page,pageId:page?.id||'',title:groupTitle(page),models:list
+    })).filter(r=>r.models.length);
+
+    const mergedIdentity=title=>({
+      ...(works.get(norm(title))?.links||{}),
+      ...(links.get(norm(title))||{})
+    });
+    const strongIdentity=title=>{
+      const L=mergedIdentity(title);
+      return /^https:\/\/www\.imdb\.com\/(?:fr\/)?title\/tt\d+/i.test(String(L.imdb||''))||
+        /^https:\/\/www\.themoviedb\.org\/(?:movie|tv)\/\d+/i.test(String(L.tmdb||''))||
+        /^https:\/\/www\.senscritique\.com\/(?:film|serie)\//i.test(String(L.sc||''))||
+        /^https:\/\/(?:www\.)?allocine\.fr\//i.test(String(L.allocine||''))||
+        (!!L.official&&!/(?:tv-programme\.com|programme-tv\.com|programme-television\.org|linternaute\.com\/television|television\.telerama\.fr)/i.test(String(L.official)));
+    };
+    const reserveReady=c=>{
+      const w=works.get(norm(c.title))||{},r=w.ratings||{};
+      const noRating=String(w.ratings_unavailable_reason||'').trim().length>=24;
+      if(!w.image||!(w.director||w.creator)||!w.year||(!r.imdb&&!r.senscritique&&!r.sc&&!noRating)||!strongIdentity(c.title))return false;
+      if(String(window.SELECTION_TV_WEEK_DATA?.week||'')>='2026-S42'){
+        if(!w.country||!w.duration||!w.genre)return false;
+        if(String(c.summary||'').trim().length<45||String(c.why||'').trim().length<45)return false;
+      }
+      return true;
+    };
+    const poolModel=(c,poolId,isReserve)=>{
+      const title=c.title,w=works.get(norm(title))||{},ids=idsFor(title);
+      const year=String(w.year||'');
+      const base=cacheKeyFor(title,year,ids);
+      const key=base+'|pool:'+poolId+':'+String(c.rank||0);
+      const ratings=[];
+      if(w.ratings?.imdb)ratings.push('IMDb '+w.ratings.imdb+'/10');
+      if(w.ratings?.senscritique||w.ratings?.sc)ratings.push('SensCritique '+(w.ratings.senscritique||w.ratings.sc)+'/10');
+      const meta=[w.director||w.creator,w.year,w.country,w.duration,w.genre].filter(Boolean);
+      const model={
+        key,title,titleKey:norm(title),year,imdbId:ids.imdbId,tmdbId:ids.tmdbId,
+        aliases:Array.isArray(w.aliases)?[...w.aliases]:[],
+        imageCandidates:[...new Set([c.image,w.image,...(c.image_fallbacks||[]),...(w.image_fallbacks||[])].filter(Boolean))],
+        meta,ratings,
+        description:[c.summary,c.why].filter(Boolean).join(' '),
+        state:'unknown',itemId:'',played:null,source:null,
+        isReserve,fromPool:true,poolId,rank:Number(c.rank)||0
+      };
+      loadCachedState(model);
+      byKey.set(key,model);models.push(model);
+      return model;
+    };
+
+    // The desktop reserve engine lives in seen-filter.js, which is skipped in
+    // TV mode. Rebuild each daily selection from the same ranked pool so Fire
+    // TV can replace Jellyfin-watched primaries with researched alternatives.
+    const pools=window.SELECTION_TV_WEEK_DATA?.personalization?.pools||{};
+    for(const [poolId,pool] of Object.entries(pools)){
+      if(!/-selection$/.test(poolId))continue;
+      const pageId=pool.page_id||poolId;
+      let row=rows.find(r=>r.pageId===pageId);
+      if(!row){
+        const page=document.getElementById(pageId);
+        if(!page)continue;
+        row={page,pageId,title:groupTitle(page),models:[]};
+        rows.push(row);
+      }
+      const target=Number(pool.target||3);
+      const prepared=(pool.candidates||[])
+        .filter(c=>Number(c.rank)<=target||reserveReady(c))
+        .map(c=>poolModel(c,pageId,Number(c.rank)>target));
+      const base=prepared.filter(m=>!m.isReserve).sort((a,b)=>a.rank-b.rank).slice(0,target);
+      const reserve=prepared.filter(m=>m.isReserve).sort((a,b)=>a.rank-b.rank);
+      if(base.length){
+        row.models=base;
+        row.baseModels=base;
+        row.reserveModels=reserve;
+        row.target=target;
+        row.personalized=reserve.length>0;
+        if(row.personalized)personalizedRows.push(row);
+      }
+    }
+
+    // Keep the magazine order if a row had to be synthesized from its hidden
+    // source page.
+    rows.sort((a,b)=>{
+      if(!a.page||!b.page)return 0;
+      const pos=a.page.compareDocumentPosition(b.page);
+      return pos&Node.DOCUMENT_POSITION_FOLLOWING?-1:pos&Node.DOCUMENT_POSITION_PRECEDING?1:0;
+    });
+
+    // Expose the canonical TV models for the browser QA gate.
     window.SelectionTvAndroidModels=models;
+    window.SelectionTvAndroidPersonalizedRows=personalizedRows;
+    window.SelectionTvAndroidRefreshPersonalizedRows=refreshPersonalizedRows;
     buildShell();
 
     // On recent APKs, start the cheap targeted checks immediately instead of
     // leaving uncached grid titles at "À vérifier" while a large Jellyfin
     // library is still being indexed in the background.
-    if(supportsLiveQuick())models.forEach(queueQuick);
+    if(supportsLiveQuick())models.filter(m=>!m.isReserve&&m.tile?.isConnected).forEach(queueQuick);
 
     const readyPoll=setInterval(()=>{
       try{

@@ -75,6 +75,30 @@ Au chargement, le navigateur conserve les choix principaux non vus et remplit le
 
 Cette personnalisation reste locale : la tâche hebdomadaire ne lit jamais l’historique privé de l’utilisateur et le dépôt GitHub conserve toujours la sélection complète.
 
+### Une réserve est une recommandation complète
+
+Un candidat de réserve n'est pas un simple titre conservé au cas où. Il peut devenir visible immédiatement dès qu'un choix principal est masqué. Il doit donc être **recherché et enrichi avant publication exactement comme une carte principale**.
+
+À partir de S42, chaque candidat des pools quotidiens doit avoir avant publication :
+- un `work_id` canonique ;
+- une vraie affiche/key art dans `works.json`, avec provenance et date de vérification ;
+- réalisateur ou créateur, année, pays, durée et genre ;
+- une note IMDb et/ou SensCritique lorsqu'elle est vérifiable, sinon une `ratings_unavailable_reason` spécifique ;
+- au moins une identité d'œuvre exacte et forte (IMDb/TMDb/SensCritique/AlloCiné exact ou page officielle propre à l'œuvre) ;
+- horaire et chaîne vérifiés ;
+- un synopsis exploitable ;
+- une justification éditoriale propre à l'œuvre.
+
+La recherche de ces éléments fait partie de la phase d'enrichissement hebdomadaire. Le moteur d'affichage ne doit jamais avoir à « finir la recherche » lorsqu'un candidat devient visible. `scripts/validate-reserves.mjs` bloque la publication S42+ si un candidat n'est pas prêt.
+
+Le minimum normal reste 10 candidats par jour (3 choix publics + 7 remplaçants réellement prêts), avec un objectif de 15 candidats au total. Une réserve plus courte n'est admise qu'avec une pénurie structurée et sourcée ; elle ne doit jamais être complétée avec des fiches squelettiques.
+
+### Réserve sur Fire TV / Android TV
+
+Le mode Android TV charge les mêmes pools classés que le navigateur. Il utilise l'état `played` renvoyé par Jellyfin : lorsqu'un choix principal est explicitement marqué vu dans Jellyfin, le meilleur candidat de réserve recherché et non vu prend sa place. Les candidats de réserve sont vérifiés paresseusement uniquement lorsqu'une place doit être remplacée, afin de ne pas recréer les ralentissements liés à une analyse massive de la bibliothèque.
+
+S41 conserve des pools historiques partiellement enrichis : le moteur n'autorise à devenir visibles que les candidats dont la fiche canonique possède déjà un visuel, une identité solide, année/réalisateur et une note (ou une raison précise d'absence). À partir de S42, ce filtrage de sécurité ne doit plus servir en pratique puisque le CI impose que tous les candidats soient complets.
+
 
 ## Index hebdomadaire
 

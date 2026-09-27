@@ -68,6 +68,7 @@ class SelectionTvFragment : Fragment() {
 		val imdbId: String?,
 		val tmdbId: String?,
 		val aliases: List<String> = emptyList(),
+		val needPlayed: Boolean = false,
 	)
 
 	private data class LibraryLookupIndex(
@@ -95,10 +96,15 @@ class SelectionTvFragment : Fragment() {
 							// instead of rescanning every Jellyfin item for every TV card.
 							// Before that, keep the targeted live-search fast path.
 							val index = libraryLookupIndex
-							if (index != null) {
+							val matched = if (index != null) {
 								exactLookupMatch(index, request) ?: conservativeLookupMatch(index, request)
 							} else {
 								fallbackSearch(request)
+							}
+							if (request.needPlayed && matched != null) {
+								liveItemById(matched.id) ?: matched
+							} else {
+								matched
 							}
 						}
 					}
@@ -130,6 +136,7 @@ class SelectionTvFragment : Fragment() {
 					if (item != null) {
 						put("itemId", item.id.toString())
 						put("name", item.name ?: "")
+						put("played", item.userData?.played == true)
 					}
 				}.toString())
 			}
@@ -141,7 +148,10 @@ class SelectionTvFragment : Fragment() {
 			lifecycleScope.launch {
 				val item = try {
 					withTimeout(LOOKUP_TIMEOUT_MS) {
-						withContext(Dispatchers.IO) { findLibraryItem(request) }
+						withContext(Dispatchers.IO) {
+							val matched = findLibraryItem(request)
+							if (request.needPlayed && matched != null) liveItemById(matched.id) ?: matched else matched
+						}
 					}
 				} catch (timeout: TimeoutCancellationException) {
 					deliverResult(JSONObject().apply {
@@ -167,6 +177,7 @@ class SelectionTvFragment : Fragment() {
 					if (item != null) {
 						put("itemId", item.id.toString())
 						put("name", item.name ?: "")
+						put("played", item.userData?.played == true)
 					}
 				}
 				deliverResult(result.toString())
@@ -323,6 +334,7 @@ class SelectionTvFragment : Fragment() {
 						put("found", true)
 						put("itemId", item.id.toString())
 						put("name", item.name ?: "")
+						put("played", item.userData?.played == true)
 					}.toString()
 				)
 				navigationRepository.navigate(Destinations.itemDetails(item.id))
@@ -364,6 +376,7 @@ class SelectionTvFragment : Fragment() {
 			imdbId = json.optString("imdbId").takeIf { it.isNotBlank() },
 			tmdbId = json.optString("tmdbId").takeIf { it.isNotBlank() },
 			aliases = aliases,
+			needPlayed = json.optBoolean("needPlayed", false),
 		)
 	}.getOrNull()
 
@@ -504,7 +517,7 @@ class SelectionTvFragment : Fragment() {
 			),
 			limit = 1,
 			enableImages = false,
-			enableUserData = false,
+			enableUserData = true,
 			enableTotalRecordCount = false,
 		).content.items.firstOrNull { it.id == id }
 	}.getOrNull()
