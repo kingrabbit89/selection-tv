@@ -72,14 +72,24 @@ class SelectionTvFragment : Fragment() {
 		fun isLibraryReady(): Boolean = libraryIndex != null
 
 		@JavascriptInterface
+		fun supportsLiveQuick(): Boolean = true
+
+		@JavascriptInterface
 		fun lookupQuick(payload: String) {
 			val request = parseLookup(payload) ?: return
 			lifecycleScope.launch {
 				val item = try {
 					withTimeout(QUICK_LOOKUP_TIMEOUT_MS) {
 						withContext(Dispatchers.IO) {
-							val index = ensureLibraryIndex()
-							exactIndexMatch(index, request) ?: conservativeIndexMatch(index, request)
+							// Do not block every uncached card behind a full library scan.
+							// When the compact index is already ready, use it. Otherwise,
+							// perform a conservative targeted Jellyfin search immediately.
+							val index = libraryIndex
+							if (index != null) {
+								exactIndexMatch(index, request) ?: conservativeIndexMatch(index, request)
+							} else {
+								fallbackSearch(request)
+							}
 						}
 					}
 				} catch (timeout: TimeoutCancellationException) {
@@ -399,14 +409,20 @@ class SelectionTvFragment : Fragment() {
 	}
 
 	private suspend fun findLibraryItem(request: LookupRequest): BaseItemDto? {
-		// Same order as the browser bridge that is already reliable:
-		// 1) compact library index, exact provider IDs first;
-		// 2) exact title/original-title (+ year disambiguation);
-		// 3) conservative targeted Jellyfin search.
+		// If the background index is ready, exact provider/title matching remains
+		// the fastest route. While it is still building, search Jellyfin directly
+		// instead of making the card wait for the entire library scan.
+		libraryIndex?.let { index ->
+			exactIndexMatch(index, request)?.let { return it }
+			conservativeIndexMatch(index, request)?.let { return it }
+		}
+		fallbackSearch(request)?.let { return it }
+
+		// Last resort: if targeted search did not find the item, wait for/build
+		// the index and retry exact/conservative matching.
 		val index = ensureLibraryIndex()
 		exactIndexMatch(index, request)?.let { return it }
-		conservativeIndexMatch(index, request)?.let { return it }
-		return fallbackSearch(request)
+		return conservativeIndexMatch(index, request)
 	}
 
 	private suspend fun findLibraryItemForOpen(request: LookupRequest): BaseItemDto? {
