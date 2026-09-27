@@ -130,6 +130,7 @@ class SelectionTvFragment : Fragment() {
 					if (item != null) {
 						put("itemId", item.id.toString())
 						put("name", item.name ?: "")
+						put("played", item.userData?.played == true)
 					}
 				}.toString())
 			}
@@ -167,6 +168,7 @@ class SelectionTvFragment : Fragment() {
 					if (item != null) {
 						put("itemId", item.id.toString())
 						put("name", item.name ?: "")
+						put("played", item.userData?.played == true)
 					}
 				}
 				deliverResult(result.toString())
@@ -323,6 +325,7 @@ class SelectionTvFragment : Fragment() {
 						put("found", true)
 						put("itemId", item.id.toString())
 						put("name", item.name ?: "")
+						put("played", item.userData?.played == true)
 					}.toString()
 				)
 				navigationRepository.navigate(Destinations.itemDetails(item.id))
@@ -392,7 +395,7 @@ class SelectionTvFragment : Fragment() {
 					startIndex = startIndex,
 					limit = LIBRARY_PAGE_SIZE,
 					enableImages = false,
-					enableUserData = false,
+					enableUserData = true,
 					enableTotalRecordCount = true,
 				).content
 
@@ -504,7 +507,7 @@ class SelectionTvFragment : Fragment() {
 			),
 			limit = 1,
 			enableImages = false,
-			enableUserData = false,
+			enableUserData = true,
 			enableTotalRecordCount = false,
 		).content.items.firstOrNull { it.id == id }
 	}.getOrNull()
