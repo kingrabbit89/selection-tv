@@ -6,7 +6,7 @@ const manifest=read('data/manifest.json');
 const pconfig=read('data/personalization-config.json');
 const worksData=read('data/works.json');
 const linksData=read('data/links.json');
-const latest=manifest.latest;
+const latest=process.env.SELECTION_TV_VALIDATE_WEEK||manifest.latest;
 const week=read('data/weeks/'+latest+'.json');
 const policy=pconfig.reserve_readiness||{};
 const strict=latest>=(policy.enabled_from_week||'9999-S99');
