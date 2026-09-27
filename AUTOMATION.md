@@ -10,7 +10,7 @@ L'automatisation est volontairement séparée en deux fonctions : le producteur 
 
 La cible est le prochain numéro commençant samedi et se terminant vendredi, calculé dans le fuseau Europe/Paris. La commande canonique est node scripts/next-target.mjs.
 
-Le dimanche précédant le numéro, l'agent vérifie d'abord si cette cible existe déjà. Si elle est déjà publiée, il ne crée rien. La configuration machine-readable est data/automation-config.json.
+Le jeudi précédant le numéro, l’agent démarre l’inventaire de la cible samedi-vendredi. Le vendredi est consacré à l’enrichissement, au préflight et à la publication transactionnelle. Si la cible est déjà publiée, il ne recrée rien. La configuration machine-readable est data/automation-config.json.
 
 ## Candidate
 
@@ -82,6 +82,6 @@ Le registre Vu du navigateur classique reste local au navigateur. Les identifian
 
 ## Surveillance et échec
 
-Le watchdog GitHub du dimanche vérifie que le numéro attendu pour le samedi suivant est soit publié, soit représenté par une PR auto/YYYY-Sxx. Un numéro manquant ou un brouillon bloqué provoque une issue d'alerte.
+Le watchdog GitHub du samedi, après la fenêtre de retry, vérifie que le numéro attendu pour ce samedi est publié. S’il ne l’est pas, il accepte encore une PR auto/YYYY-Sxx comme état récupérable mais ouvre une issue d’alerte afin qu’un brouillon bloqué ne passe pas inaperçu.
 
 Si une source devient inaccessible, incomplète ou ambiguë : essayer une source indépendante, consigner la dégradation et conserver le numéro en draft si les seuils minimaux ne sont plus démontrables. Ne jamais inventer pour faire passer le CI.
