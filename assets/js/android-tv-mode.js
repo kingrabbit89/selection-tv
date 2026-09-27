@@ -714,7 +714,7 @@
 
   window.SelectionTvAndroidLibraryReady=count=>{
     libraryReady=true;libraryCount=Number(count)||0;scheduleStatus();
-    models.filter(m=>!m.isReserve).forEach(queueQuick);
+    models.filter(m=>!m.isReserve&&m.tile?.isConnected).forEach(queueQuick);
     refreshPersonalizedRows();
     pumpQuick();
   };
@@ -799,7 +799,7 @@
           aliases:Array.isArray(work.aliases)?[...work.aliases]:[],
           imageCandidates:sourcePosters,
           meta:sourceMeta,ratings:sourceRatings,
-          description:sourceDescription,state:'unknown',itemId:'',source
+          description:sourceDescription,state:'unknown',itemId:'',played:null,source
         };
         loadCachedState(model);
         byKey.set(key,model);models.push(model);
@@ -821,17 +821,102 @@
       }
     });
 
-    rows=[...grouped.entries()].map(([page,list])=>({title:groupTitle(page),models:list})).filter(r=>r.models.length);
-    // Expose the canonical TV models for the browser QA gate. They are the
-    // exact objects used to render Fire TV tiles, so tests can verify that
-    // desktop table rows were enriched before an APK is published.
+    rows=[...grouped.entries()].map(([page,list])=>({
+      page,pageId:page?.id||'',title:groupTitle(page),models:list
+    })).filter(r=>r.models.length);
+
+    const mergedIdentity=title=>({
+      ...(works.get(norm(title))?.links||{}),
+      ...(links.get(norm(title))||{})
+    });
+    const strongIdentity=title=>{
+      const L=mergedIdentity(title);
+      return /^https:\/\/www\.imdb\.com\/(?:fr\/)?title\/tt\d+/i.test(String(L.imdb||''))||
+        /^https:\/\/www\.themoviedb\.org\/(?:movie|tv)\/\d+/i.test(String(L.tmdb||''))||
+        /^https:\/\/www\.senscritique\.com\/(?:film|serie)\//i.test(String(L.sc||''))||
+        /^https:\/\/(?:www\.)?allocine\.fr\//i.test(String(L.allocine||''))||
+        (!!L.official&&!/(?:tv-programme\.com|programme-tv\.com|programme-television\.org|linternaute\.com\/television|television\.telerama\.fr)/i.test(String(L.official)));
+    };
+    const reserveReady=c=>{
+      const w=works.get(norm(c.title))||{},r=w.ratings||{};
+      const noRating=String(w.ratings_unavailable_reason||'').trim().length>=24;
+      if(!w.image||!(w.director||w.creator)||!w.year||(!r.imdb&&!r.senscritique&&!r.sc&&!noRating)||!strongIdentity(c.title))return false;
+      if(String(window.SELECTION_TV_WEEK_DATA?.week||'')>='2026-S42'){
+        if(!w.country||!w.duration||!w.genre)return false;
+        if(String(c.summary||'').trim().length<45||String(c.why||'').trim().length<45)return false;
+      }
+      return true;
+    };
+    const poolModel=(c,poolId,isReserve)=>{
+      const title=c.title,w=works.get(norm(title))||{},ids=idsFor(title);
+      const year=String(w.year||'');
+      const base=cacheKeyFor(title,year,ids);
+      const key=base+'|pool:'+poolId+':'+String(c.rank||0);
+      const ratings=[];
+      if(w.ratings?.imdb)ratings.push('IMDb '+w.ratings.imdb+'/10');
+      if(w.ratings?.senscritique||w.ratings?.sc)ratings.push('SensCritique '+(w.ratings.senscritique||w.ratings.sc)+'/10');
+      const meta=[w.director||w.creator,w.year,w.country,w.duration,w.genre].filter(Boolean);
+      const model={
+        key,title,titleKey:norm(title),year,imdbId:ids.imdbId,tmdbId:ids.tmdbId,
+        aliases:Array.isArray(w.aliases)?[...w.aliases]:[],
+        imageCandidates:[...new Set([c.image,w.image,...(c.image_fallbacks||[]),...(w.image_fallbacks||[])].filter(Boolean))],
+        meta,ratings,
+        description:[c.summary,c.why].filter(Boolean).join(' '),
+        state:'unknown',itemId:'',played:null,source:null,
+        isReserve,fromPool:true,poolId,rank:Number(c.rank)||0
+      };
+      loadCachedState(model);
+      byKey.set(key,model);models.push(model);
+      return model;
+    };
+
+    // The desktop reserve engine lives in seen-filter.js, which is skipped in
+    // TV mode. Rebuild each daily selection from the same ranked pool so Fire
+    // TV can replace Jellyfin-watched primaries with researched alternatives.
+    const pools=window.SELECTION_TV_WEEK_DATA?.personalization?.pools||{};
+    for(const [poolId,pool] of Object.entries(pools)){
+      if(!/-selection$/.test(poolId))continue;
+      const pageId=pool.page_id||poolId;
+      let row=rows.find(r=>r.pageId===pageId);
+      if(!row){
+        const page=document.getElementById(pageId);
+        if(!page)continue;
+        row={page,pageId,title:groupTitle(page),models:[]};
+        rows.push(row);
+      }
+      const target=Number(pool.target||3);
+      const prepared=(pool.candidates||[])
+        .filter(c=>Number(c.rank)<=target||reserveReady(c))
+        .map(c=>poolModel(c,pageId,Number(c.rank)>target));
+      const base=prepared.filter(m=>!m.isReserve).sort((a,b)=>a.rank-b.rank).slice(0,target);
+      const reserve=prepared.filter(m=>m.isReserve).sort((a,b)=>a.rank-b.rank);
+      if(base.length){
+        row.models=base;
+        row.baseModels=base;
+        row.reserveModels=reserve;
+        row.target=target;
+        row.personalized=reserve.length>0;
+        if(row.personalized)personalizedRows.push(row);
+      }
+    }
+
+    // Keep the magazine order if a row had to be synthesized from its hidden
+    // source page.
+    rows.sort((a,b)=>{
+      if(!a.page||!b.page)return 0;
+      const pos=a.page.compareDocumentPosition(b.page);
+      return pos&Node.DOCUMENT_POSITION_FOLLOWING?-1:pos&Node.DOCUMENT_POSITION_PRECEDING?1:0;
+    });
+
+    // Expose the canonical TV models for the browser QA gate.
     window.SelectionTvAndroidModels=models;
+    window.SelectionTvAndroidPersonalizedRows=personalizedRows;
     buildShell();
 
     // On recent APKs, start the cheap targeted checks immediately instead of
     // leaving uncached grid titles at "À vérifier" while a large Jellyfin
     // library is still being indexed in the background.
-    if(supportsLiveQuick())models.filter(m=>!m.isReserve).forEach(queueQuick);
+    if(supportsLiveQuick())models.filter(m=>!m.isReserve&&m.tile?.isConnected).forEach(queueQuick);
 
     const readyPoll=setInterval(()=>{
       try{
