@@ -78,7 +78,7 @@ if(fs.existsSync('assets/js/issue-loader.js')){
 
 if(fs.existsSync('.github/workflows/validate-architecture.yml')){
   const wf=read('.github/workflows/validate-architecture.yml');
-  for(const token of ['validate-automation.mjs','validate-publication-candidate.mjs',"startsWith(github.head_ref, 'auto/')"]){
+  for(const token of ['validate-automation.mjs','validate-publication-candidate.mjs','validate-promotion-transition.mjs','verify-promotion-attestation.mjs',"startsWith(github.head_ref, 'auto/')"]){
     if(!wf.includes(token))bad('main validation workflow missing '+token);
   }
 }
@@ -91,10 +91,12 @@ if(fs.existsSync('.github/workflows/promote-validated-week.yml')){
 }
 if(fs.existsSync('.github/workflows/guard-direct-publication.yml')){
   const wf=read('.github/workflows/guard-direct-publication.yml');
-  for(const token of ['fetch-depth: 0','Exact draft-to-published promotion transition accepted','manifest contains changes beyond the promotion transition','git checkout "$BEFORE" -- data/manifest.json']){
+  for(const token of ['fetch-depth: 0','Exact draft-to-published promotion transition accepted','validate-promotion-transition.mjs','exit 1']){
     if(!wf.includes(token))bad('direct-publication guard missing '+token);
   }
 }
+if(read('.github/workflows/guard-direct-publication.yml').includes('git push origin HEAD:main'))bad('guard must not bypass protected main');
+
 if(fs.existsSync('.github/workflows/weekly-automation-watchdog.yml')){
   const wf=read('.github/workflows/weekly-automation-watchdog.yml');
   if(!wf.includes('schedule:')||!wf.includes('next-target.mjs'))bad('weekly watchdog is not scheduled or cannot resolve target');

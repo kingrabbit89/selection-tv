@@ -34,22 +34,29 @@ jobs:
         run: |
           set -euo pipefail
           if [[ "$ALREADY_PRESENT" == "true" && "$EXISTING_STATUS" == "published" ]]; then
-            echo "$WEEK is already published."
+            node scripts/verify-public-deployment.mjs "$WEEK"
+            echo "$WEEK is deployed."
             exit 0
           fi
 
           PR_URL="$(gh pr list --state open --head "$BRANCH" --json url --jq '.[0].url // empty')"
           PROMOTION_URL="$(gh pr list --state open --head "promote/$WEEK" --json url --jq '.[0].url // empty')"
           if [[ -n "$PR_URL" ]]; then
-            echo "Candidate PR exists: $PR_URL"
-            exit 0
+            echo "::warning::Candidate still awaiting publication: $PR_URL"
           fi
           if [[ -n "$PROMOTION_URL" ]]; then
-            echo "Promotion PR exists: $PROMOTION_URL"
-            exit 0
+            echo "::warning::Promotion still awaiting publication: $PROMOTION_URL"
           fi
 
-          if [[ "$ALREADY_PRESENT" == "true" ]]; then
+          if [[ -n "$PR_URL$PROMOTION_URL" ]]; then
+            TITLE="Sélection TV automation: $WEEK publication pending"
+            BODY="Saturday watchdog: $WEEK is not public. Candidate: $PR_URL. Promotion: $PROMOTION_URL. Inspect required checks and post-merge validation; an open PR is not a successful publication."
+            for URL in "$PR_URL" "$PROMOTION_URL"; do
+              if [[ -n "$URL" ]]; then
+                gh pr checks "$URL" >> "$GITHUB_STEP_SUMMARY" || true
+              fi
+            done
+          elif [[ "$ALREADY_PRESENT" == "true" ]]; then
             TITLE="Sélection TV automation: $WEEK draft is stuck"
             BODY="The upcoming issue $WEEK exists on main with status '$EXISTING_STATUS', but no open auto/$WEEK pull request remains and it has not been promoted. Inspect the promotion workflow and validations."
           else
@@ -63,8 +70,11 @@ jobs:
           else
             echo "Existing alert issue #$EXISTING"
           fi
+          echo "::error::$WEEK is not published; see the alert issue and check summary."
+          exit 1
 
       - name: Watch Android TV upstream base
+        if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash

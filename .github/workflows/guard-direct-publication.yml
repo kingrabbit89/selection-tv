@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 permissions:
-  contents: write
+  contents: read
   issues: write
 
 jobs:
@@ -42,48 +42,7 @@ jobs:
           fi
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
-          EXPECTED="$(printf 'data/manifest.json\ndata/weeks/%s.json\n' "$NEW_LATEST" | sort)"
-          ACTUAL="$(git diff --name-only "$BEFORE" "$AFTER" | sort)"
-          if [[ "$ACTUAL" != "$EXPECTED" ]]; then
-            echo "safe=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          if BEFORE="$BEFORE" NEW_LATEST="$NEW_LATEST" node <<'NODE'
-          const {execFileSync}=require('node:child_process');
-          const fs=require('node:fs');
-          const assert=require('node:assert/strict');
-
-          const before=process.env.BEFORE;
-          const target=process.env.NEW_LATEST;
-          const oldJson=path=>JSON.parse(execFileSync('git',['show',before+':'+path],{encoding:'utf8'}));
-          const oldManifest=oldJson('data/manifest.json');
-          const newManifest=JSON.parse(fs.readFileSync('data/manifest.json','utf8'));
-          const oldWeek=oldJson('data/weeks/'+target+'.json');
-          const newWeek=JSON.parse(fs.readFileSync('data/weeks/'+target+'.json','utf8'));
-
-          assert.notEqual(oldManifest.latest,target);
-          const oldEntry=(oldManifest.weeks||[]).find(x=>x.week===target);
-          const newEntry=(newManifest.weeks||[]).find(x=>x.week===target);
-          assert(oldEntry&&newEntry,'target week entry missing');
-          assert.equal(oldEntry.status,'draft');
-          assert.equal(newEntry.status,'published');
-          assert.equal(oldWeek.publication_status,'draft');
-          assert.equal(newWeek.publication_status,'published');
-          assert.equal(newManifest.latest,target);
-
-          const expectedManifest=structuredClone(oldManifest);
-          expectedManifest.latest=target;
-          expectedManifest.updated=newManifest.updated;
-          const expectedEntry=(expectedManifest.weeks||[]).find(x=>x.week===target);
-          expectedEntry.status='published';
-          assert.deepEqual(newManifest,expectedManifest,'manifest contains changes beyond the promotion transition');
-
-          const expectedWeek=structuredClone(oldWeek);
-          expectedWeek.publication_status='published';
-          assert.deepEqual(newWeek,expectedWeek,'week JSON contains changes beyond publication_status');
-          NODE
-          then
+          if node scripts/validate-promotion-transition.mjs "$BEFORE"; then
             echo "safe=true" >> "$GITHUB_OUTPUT"
           else
             echo "safe=false" >> "$GITHUB_OUTPUT"
@@ -93,7 +52,7 @@ jobs:
         if: steps.classify.outputs.changed == 'true' && steps.classify.outputs.safe == 'true'
         run: echo "Exact draft-to-published promotion transition accepted."
 
-      - name: Fail closed by restoring previous public state
+      - name: Alert on a rejected publication transition
         if: steps.classify.outputs.changed == 'true' && steps.classify.outputs.safe != 'true'
         shell: bash
         env:
@@ -103,23 +62,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          git checkout "$BEFORE" -- data/manifest.json
-          if git cat-file -e "$BEFORE:data/weeks/$NEW_LATEST.json" 2>/dev/null; then
-            git checkout "$BEFORE" -- "data/weeks/$NEW_LATEST.json"
-          fi
-
-          git config user.name "selection-tv-automation"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/manifest.json
-          [[ -f "data/weeks/$NEW_LATEST.json" ]] && git add "data/weeks/$NEW_LATEST.json"
-          if ! git diff --cached --quiet; then
-            git commit -m "Annule la promotion non conforme de $NEW_LATEST"
-            git push origin HEAD:main
-          fi
-
-          TITLE="Sélection TV: promotion non conforme de $NEW_LATEST annulée"
-          BODY="Une modification de manifest.latest de $OLD_LATEST vers $NEW_LATEST ne correspondait pas à la transition atomique autorisée (seulement manifest + JSON semaine, draft vers published). Utiliser la PR promote/$NEW_LATEST après validation post-fusion."
+          TITLE="Sélection TV: promotion non conforme de $NEW_LATEST"
+          BODY="Transition non conforme de $OLD_LATEST vers $NEW_LATEST détectée sur main. Le garde-fou de PR doit bloquer cette transition avant fusion. Aucun push de restauration n'est tenté : main est protégée sans bypass. Ouvrir une PR de restauration et contrôler le déploiement Pages."
           EXISTING="$(gh issue list --state open --search "$TITLE in:title" --json number --jq '.[0].number // empty')"
           if [[ -z "$EXISTING" ]]; then
             gh issue create --title "$TITLE" --body "$BODY"
           fi
+          echo "Invalid publication transition; protected main requires a repair PR." >&2
+          exit 1

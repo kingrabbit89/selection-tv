@@ -1,6 +1,12 @@
 name: Validate merged weekly issue for promotion
 
 on:
+  workflow_dispatch:
+    inputs:
+      week:
+        description: Draft week to revalidate on current main
+        required: true
+        type: string
   pull_request:
     branches: [main]
     types: [closed]
@@ -10,11 +16,11 @@ permissions:
 
 jobs:
   validate-promotion:
-    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'auto/')
+    if: github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'auto/'))
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
-      SELECTION_TV_VALIDATE_WEEK: ${{ github.event.pull_request.head.ref }}
+      SELECTION_TV_VALIDATE_WEEK: ${{ inputs.week || github.event.pull_request.head.ref }}
       SELECTION_TV_CANDIDATE: "1"
     steps:
       - name: Resolve candidate week
@@ -58,6 +64,7 @@ jobs:
       - name: Validate simulated promoted state
         shell: bash
         run: |
+          PROMOTION_WEEK="$SELECTION_TV_VALIDATE_WEEK"
           unset SELECTION_TV_VALIDATE_WEEK
           unset SELECTION_TV_CANDIDATE
           node scripts/validate-architecture.mjs
@@ -67,7 +74,7 @@ jobs:
           node scripts/validate-reserves.mjs
           git diff --check
 
-          EXPECTED="$(printf 'data/manifest.json\ndata/weeks/%s.json\n' "$SELECTION_TV_VALIDATE_WEEK" | sort)"
+          EXPECTED="$(printf 'data/manifest.json\ndata/weeks/%s.json\n' "$PROMOTION_WEEK" | sort)"
           ACTUAL="$(git diff --name-only | sort)"
           if [[ "$ACTUAL" != "$EXPECTED" ]]; then
             echo "Promotion simulation changed unexpected files:" >&2
@@ -78,6 +85,22 @@ jobs:
           {
             echo "## Promotion ready"
             echo
-            echo "$SELECTION_TV_VALIDATE_WEEK is valid as a published issue."
-            echo "Create promote/$SELECTION_TV_VALIDATE_WEEK from current main, apply only the simulated manifest/week status transition, then merge that promotion PR after its required checks are green."
+            echo "$PROMOTION_WEEK is valid as a published issue."
+            echo "Create promote/$PROMOTION_WEEK from current main, apply only the simulated manifest/week status transition, then merge that promotion PR after its required checks are green."
           } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Attest the validated base commit
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import {execFileSync} from 'node:child_process';
+          fs.writeFileSync('promotion-ready.json',JSON.stringify({
+            week:process.env.SELECTION_TV_VALIDATE_WEEK,
+            base_sha:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim()
+          }));
+          JS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: promotion-ready-${{ env.SELECTION_TV_VALIDATE_WEEK }}
+          path: promotion-ready.json
+          retention-days: 14
