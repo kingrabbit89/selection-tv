@@ -68,6 +68,7 @@ class SelectionTvFragment : Fragment() {
 		val imdbId: String?,
 		val tmdbId: String?,
 		val aliases: List<String> = emptyList(),
+		val needPlayed: Boolean = false,
 	)
 
 	private data class LibraryLookupIndex(
@@ -95,10 +96,15 @@ class SelectionTvFragment : Fragment() {
 							// instead of rescanning every Jellyfin item for every TV card.
 							// Before that, keep the targeted live-search fast path.
 							val index = libraryLookupIndex
-							if (index != null) {
+							val matched = if (index != null) {
 								exactLookupMatch(index, request) ?: conservativeLookupMatch(index, request)
 							} else {
 								fallbackSearch(request)
+							}
+							if (request.needPlayed && matched != null) {
+								liveItemById(matched.id) ?: matched
+							} else {
+								matched
 							}
 						}
 					}
@@ -142,7 +148,10 @@ class SelectionTvFragment : Fragment() {
 			lifecycleScope.launch {
 				val item = try {
 					withTimeout(LOOKUP_TIMEOUT_MS) {
-						withContext(Dispatchers.IO) { findLibraryItem(request) }
+						withContext(Dispatchers.IO) {
+							val matched = findLibraryItem(request)
+							if (request.needPlayed && matched != null) liveItemById(matched.id) ?: matched else matched
+						}
 					}
 				} catch (timeout: TimeoutCancellationException) {
 					deliverResult(JSONObject().apply {
@@ -367,6 +376,7 @@ class SelectionTvFragment : Fragment() {
 			imdbId = json.optString("imdbId").takeIf { it.isNotBlank() },
 			tmdbId = json.optString("tmdbId").takeIf { it.isNotBlank() },
 			aliases = aliases,
+			needPlayed = json.optBoolean("needPlayed", false),
 		)
 	}.getOrNull()
 
@@ -395,7 +405,7 @@ class SelectionTvFragment : Fragment() {
 					startIndex = startIndex,
 					limit = LIBRARY_PAGE_SIZE,
 					enableImages = false,
-					enableUserData = true,
+					enableUserData = false,
 					enableTotalRecordCount = true,
 				).content
 
