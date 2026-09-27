@@ -109,6 +109,7 @@ public sealed class ForumUploadsService
             }
 
             var forumResponse = await client.GetAsync(current, cancellationToken).ConfigureAwait(false);
+            forumResponse.EnsureSuccessStatusCode();
             var html = await forumResponse.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
             if (LooksLikeLogin(forumResponse.RequestMessage?.RequestUri, html))

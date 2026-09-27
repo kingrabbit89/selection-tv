@@ -398,7 +398,8 @@
     var a=api();
     var id=item.Id||item.id;
     if(!id)return item;
-    if(libraryDetailCache.has(id))return libraryDetailCache.get(id);
+    var cachedDetail=libraryDetailCache.get(id);
+    if(cachedDetail&&Date.now()-cachedDetail.at<60000)return cachedDetail.promise;
 
     var promise=(async function(){
       try{
@@ -409,13 +410,15 @@
           Limit:1
         });
         var items=r&&r.Items||r&&r.items||[];
-        return items[0]||item;
+        if(!items.length)throw new Error("Jellyfin detail unavailable");
+        return items[0];
       }catch(e){
-        return item;
+        libraryDetailCache.delete(id);
+        throw e;
       }
     })();
 
-    libraryDetailCache.set(id,promise);
+    libraryDetailCache.set(id,{promise:promise,at:Date.now()});
     return promise;
   }
 
@@ -567,24 +570,19 @@
     }
 
     var key=req.key||[norm(req.title),req.year||'',req.imdbId||'',req.tmdbId||''].join('|');
-    if(lookupCache.has(key))return lookupCache.get(key);
+    var cachedLookup=lookupCache.get(key);
+    if(cachedLookup&&Date.now()-cachedLookup.at<60000)return cachedLookup.promise;
 
     var persisted=cachedPositiveMatch(key);
     if(persisted){
-      // Return immediately so "Dans Jellyfin" and "Ouvrir dans Jellyfin"
-      // appear without rescanning the library. Refresh user/quality details
-      // quietly in the background because those can change independently.
-      (async function(){
-        try{
-          var detail=await hydrateLibraryItem({Id:persisted.itemId,Name:persisted.name});
-          var fresh=resultFromItem(key,req,detail);
-          if(fresh.found){
-            rememberPositiveMatch(key,fresh);
-            send({type:'selection-tv:jellyfin-result',version:3,items:[fresh]});
-          }
-        }catch(e){}
-      })();
-      return persisted;
+      // Resolve mutable user data before returning: a background fresh result
+      // can otherwise arrive before (and be overwritten by) the stale batch.
+      try{
+        var detail=await hydrateLibraryItem({Id:persisted.itemId,Name:persisted.name});
+        var fresh=resultFromItem(key,req,detail);
+        if(fresh.found){rememberPositiveMatch(key,fresh);return fresh}
+      }catch(e){}
+      return Object.assign({},persisted,{stale:true});
     }
 
     var promise=(async function(){
@@ -609,7 +607,7 @@
       return {key:key,found:false,transient:true};
     });
 
-    lookupCache.set(key,promise);
+    lookupCache.set(key,{promise:promise,at:Date.now()});
     return promise;
   }
 

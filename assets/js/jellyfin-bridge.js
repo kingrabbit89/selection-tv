@@ -25,6 +25,7 @@
   const observed=new WeakSet();
   const keyToNodes=new Map();
   const pendingVisible=new Map();
+  const pendingRoots=new Set();
   let metadata={works:new Map(),links:new Map()};
   let observer=null,sendTimer=null,parentReady=false;
 
@@ -120,10 +121,25 @@
     }
     scan(document);
     new MutationObserver(records=>{
+      for(const r of records)for(const n of r.addedNodes)if(n instanceof Element)pendingRoots.add(n);
       clearTimeout(sendTimer);
-      sendTimer=setTimeout(()=>{for(const r of records)for(const n of r.addedNodes)if(n instanceof Element)scan(n)},80);
+      sendTimer=setTimeout(()=>{const roots=[...pendingRoots];pendingRoots.clear();for(const root of roots)if(root.isConnected)scan(root)},80);
     }).observe(document.body,{childList:true,subtree:true});
   };
+
+  const refreshVisible=()=>{
+    if(document.visibilityState==='hidden'||!parentReady)return;
+    const items=new Map();
+    for(const el of document.querySelectorAll(SELECTOR)){
+      const rect=el.getBoundingClientRect();
+      if(!rect.width||!rect.height||rect.bottom<0||rect.top>innerHeight)continue;
+      const info=infoFor(el);if(info){remember(info,el);items.set(info.key,info)}
+    }
+    request([...items.values()]);
+  };
+  window.addEventListener('focus',refreshVisible);
+  document.addEventListener('visibilitychange',refreshVisible);
+  setInterval(refreshVisible,60000);
 
   Promise.all([
     fetch(new URL('data/works.json',ROOT),{cache:'no-store'}).then(r=>r.ok?r.json():{works:[]}).catch(()=>({works:[]})),
