@@ -275,7 +275,7 @@
 
   const stateLabel=model=>{
     if(model.state==='found')return 'Dans Jellyfin';
-    if(model.state==='missing')return 'Pas dans Jellyfin';
+    if(model.state==='missing')return 'Non retrouvé';
     if(model.state==='checking')return 'Analyse…';
     if(model.state==='queued')return 'À vérifier';
     return 'À vérifier';
@@ -337,7 +337,7 @@
     const html=!androidBridgeCompatible
       ? '<strong>APK Sélection TV à mettre à jour</strong> · protocole natif '+detectedAndroidProtocol+' / requis '+REQUIRED_ANDROID_PROTOCOL
       : libraryReady||libraryFailed
-      ? '<strong>Jellyfin</strong> · '+found+' présents · '+missing+' absents'
+      ? '<strong>Jellyfin</strong> · '+found+' présents · '+missing+' non retrouvés'
         +(checking?' · '+checking+' analysé'+(checking>1?'s':''):'')
         +(queued?' · '+queued+' à vérifier':'')
         +(libraryCount?' · '+libraryCount+' éléments indexés':'')
@@ -558,7 +558,7 @@
         if(selected.length>=target)break;
         if(m.played===true)continue;
         if(m.state==='found'&&m.played===false){take(m);continue}
-        if(m.state==='missing'){take(m);continue}
+        if(m.state==='missing'&&m.played===false){take(m);continue}
         if(m.played==null&&(m.state==='found'||m.state==='unknown'||m.state==='queued')&&!m._queued&&!m._deepQueued&&queued<2){
           queueQuick(m);queued++;
         }
@@ -762,7 +762,7 @@
       queueDeep(model);
     }else{
       model.state='missing';
-      model.played=false;
+      model.played=null;
       rememberMissing(model);
     }
 
@@ -782,7 +782,7 @@
       model.state='found';model.itemId=result.itemId||'';model.played=typeof result.played==='boolean'?result.played:(model.played??null);rememberFound(model,model.itemId,'');
     }else{
       model.debug=String(result.diagnostic||'aucun candidat renvoyé par Jellyfin');
-      model.state='missing';model.played=false;rememberMissing(model);
+      model.state='missing';model.played=null;rememberMissing(model);
     }
     updateTile(model);refreshPersonalizedRows();scheduleStatus();
   };

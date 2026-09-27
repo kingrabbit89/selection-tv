@@ -49,3 +49,11 @@ Le retour depuis une fiche conserve la WebView, le focus, les UUID et l’index 
 L’indexation est limitée à 60 secondes, avec un délai de 8 secondes par page et un compteur de progression. En cas d’échec, les recherches ciblées restent disponibles ; une ouverture de fiche n’attend jamais le balayage de toute la bibliothèque. L’API reçoit explicitement l’utilisateur connecté pour les données de visionnage. Les erreurs de recherche native restent des erreurs, jamais des preuves d’absence.
 
 Les tests de navigateur simulent les retours, les délais dépassés, les résultats tardifs et l’inactivité. Une installation de cette APK est nécessaire pour le cycle de vie natif ; ces tests ne remplacent pas un essai sur le serveur et le Fire TV physiques. « Vos Uploads » reste réservé à Jellyfin Web.
+
+### Reconnaissance des titres traduits
+
+La recherche ciblée demande explicitement ProviderIds et OriginalTitle, et complète la recherche textuelle par une tranche de films/séries/vidéos de l’année annoncée. Cette tranche est partagée en mémoire dans la session, plafonnée à 2 000 éléments et comparée par identifiants IMDb/TMDb (TMDb film uniquement). Elle ne dépend pas de l’index complet. Les titres alternatifs sont essayés avant leurs variantes de ponctuation.
+
+Régressions signalées : Star Wars: The Mandalorian and Grogu / The Mandalorian and Grogu (IMDb tt30825738) ; The End of Oak Street / La Fin d’Oak Street (IMDb tt27165187). Sources des variantes : https://www.starwars.com/news/the-mandalorian-and-grogu et https://www.lafindoakstreet-tickets.fr/ .
+
+Une recherche infructueuse affiche « Non retrouvé ». Elle ne prouve ni l’absence réelle dans le serveur ni que le film est non vu et ne suffit donc pas à qualifier une réserve.
