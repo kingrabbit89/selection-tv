@@ -45,6 +45,10 @@ if(fs.existsSync('data/automation-config.json')){
   }
   if(cfg.watchdog?.scheduled_day!=='Saturday'||cfg.watchdog?.scheduled_time_utc!=='10:00')bad('watchdog must run Saturday 10:00 UTC after retry');
   if(cfg.generation?.never_promote_before_green_ci!==true)bad('fail-closed promotion flag must be true');
+  if(cfg.promotion?.mode!=='two-stage-protected-pr'||cfg.promotion?.promotion_pr_only!==true||cfg.promotion?.direct_main_push_required!==false){
+    bad('promotion must use a second protected PR and never require a direct main push');
+  }
+  if(cfg.promotion?.promotion_branch_prefix!=='promote/')bad('promotion branch prefix must be promote/');
 
   const kotlin=fs.existsSync('integrations/androidtv/SelectionTvFragment.kt')?read('integrations/androidtv/SelectionTvFragment.kt'):'';
   const tvjs=fs.existsSync('assets/js/android-tv-mode.js')?read('assets/js/android-tv-mode.js'):'';
@@ -80,13 +84,14 @@ if(fs.existsSync('.github/workflows/validate-architecture.yml')){
 }
 if(fs.existsSync('.github/workflows/promote-validated-week.yml')){
   const wf=read('.github/workflows/promote-validated-week.yml');
-  for(const token of ['validate-image-sources.mjs','validate-layout.mjs','promote-week.mjs','git push origin HEAD:main','verify-public-deployment.mjs']){
-    if(!wf.includes(token))bad('promotion workflow missing '+token);
+  for(const token of ['validate-image-sources.mjs','validate-layout.mjs','validate-jellyfin-web.mjs','promote-week.mjs','Promotion ready']){
+    if(!wf.includes(token))bad('post-merge promotion validation workflow missing '+token);
   }
+  if(wf.includes('git push origin HEAD:main'))bad('post-merge validation workflow must not push directly to protected main');
 }
 if(fs.existsSync('.github/workflows/guard-direct-publication.yml')){
   const wf=read('.github/workflows/guard-direct-publication.yml');
-  for(const token of ["github.actor != 'github-actions[bot]'",'fetch-depth: 0','git checkout "$BEFORE" -- data/manifest.json','git push origin HEAD:main']){
+  for(const token of ['fetch-depth: 0','Exact draft-to-published promotion transition accepted','manifest contains changes beyond the promotion transition','git checkout "$BEFORE" -- data/manifest.json']){
     if(!wf.includes(token))bad('direct-publication guard missing '+token);
   }
 }
