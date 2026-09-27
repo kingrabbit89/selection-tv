@@ -17,11 +17,21 @@ if(manifest.latest<from){
 const visualTitles=new Set();
 const visualClass=/\b(?:week-card|feature|list-card|platform|release-card|expire-card|radar-card|torrent-card|card|listitem|radarcard)\b/;
 for(const page of week.pages||[]){
+  const html=page.html||'';
   const re=/<article class="([^"]+)"[^>]*>([\s\S]*?)<\/article>/g;let m;
-  while((m=re.exec(page.html||''))){
+  while((m=re.exec(html))){
     if(!visualClass.test(m[1]))continue;
     const title=(m[2].match(/<h3>([\s\S]*?)<\/h3>/)||[])[1]?.replace(/<[^>]+>/g,'').trim();
     if(title)visualTitles.add(title);
+  }
+  // Android TV promotes each commented-grid table row to a poster tile.
+  // Probe those canonical images too, even though the desktop magazine keeps
+  // the same entries as text rows.
+  if(/-grille(?:-2)?$/.test(page.id||'')){
+    for(const row of html.matchAll(/<td class="prog">([^<]+)<\/td>/g)){
+      const title=String(row[1]||'').trim();
+      if(title)visualTitles.add(title);
+    }
   }
 }
 for(const pool of Object.values(week.personalization?.pools||{})){
