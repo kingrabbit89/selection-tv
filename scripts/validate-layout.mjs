@@ -14,7 +14,16 @@ const manifest=JSON.parse(await readFile(resolve(root,'data/manifest.json'),'utf
 const weeks=[...new Set([manifest.latest,'2026-S40','2026-S39','2026-S38','2026-S37'].filter(Boolean))];
 
 const server=createServer(async(req,res)=>{
- const path=resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/\/$/,'/index.html'));
+ const requestUrl=new URL(req.url,'http://localhost');
+ // Regression fixture for poster hosts that reject hotlinking only when a
+ // Referer is sent. The resolver must retry with referrerPolicy=no-referrer.
+ if(requestUrl.pathname==='/__referer-sensitive.svg'){
+  if(req.headers.referer){res.writeHead(403);res.end('referer rejected');return}
+  res.setHeader('Content-Type','image/svg+xml');
+  res.end('<svg xmlns="http://www.w3.org/2000/svg" width="20" height="30"><rect width="20" height="30" fill="white"/></svg>');
+  return;
+ }
+ const path=resolve(root,'.'+decodeURIComponent(requestUrl.pathname).replace(/\/$/,'/index.html'));
  if(!path.startsWith(root+'/')){res.writeHead(403);res.end();return}
  try{
   res.setHeader('Content-Type',({'.js':'text/javascript','.css':'text/css','.json':'application/json','.html':'text/html'})[extname(path)]||'application/octet-stream');
@@ -189,6 +198,64 @@ try{
  });
  assert.deepEqual(imageRecovery,{loaded:true,broken:false,legacyVisible:false},`${latest}: canonical image resolver recovery failed: ${JSON.stringify(imageRecovery)}`);
  console.log(`✓ ${latest}: pre-bind image failure recovers through fallback source`);
+
+ // Hotlink regression: first request carries a Referer and is rejected; after
+ // binding, the exact same URL must be retried with no Referer and succeed.
+ const noRefererRecovery=await page.evaluate(async()=>{
+   const card=document.createElement('article');
+   card.className='feature';
+   card.style.cssText='position:fixed;left:0;top:0;width:100px;height:120px;z-index:-1';
+   card.innerHTML='<div class="visual broken"><img class="poster" loading="eager" src="/__referer-sensitive.svg" alt=""><div class="fallback">Referer fixture</div></div><h3>Referer fixture</h3>';
+   document.body.append(card);
+   const img=card.querySelector('img');
+   await new Promise(r=>setTimeout(r,100));
+   const failedBefore=img.complete&&img.naturalWidth===0;
+   window.SelectionTVBindImage(img,'Referer fixture',card);
+   await new Promise(resolve=>{
+     const until=Date.now()+1500;
+     const tick=()=>{
+       const live=card.querySelector('img');
+       if((live&&live.complete&&live.naturalWidth>0)||Date.now()>until)return resolve();
+       setTimeout(tick,20);
+     };
+     tick();
+   });
+   const live=card.querySelector('img');
+   const out={
+     failedBefore,
+     loadedAfter:!!live&&live.naturalWidth>0,
+     referrerPolicy:live?.referrerPolicy||'',
+     broken:card.querySelector('.visual')?.classList.contains('broken')||false
+   };
+   card.remove();
+   return out;
+ });
+ assert.deepEqual(noRefererRecovery,{failedBefore:true,loadedAfter:true,referrerPolicy:'no-referrer',broken:false},`${latest}: no-referrer image recovery failed: ${JSON.stringify(noRefererRecovery)}`);
+ console.log(`✓ ${latest}: referer-blocked poster is retried without Referer`);
+
+ // Do not replace a poster that has already loaded successfully just because
+ // works.json contains another canonical URL.
+ const preserveLoaded=await page.evaluate(async()=>{
+   const card=document.createElement('article');
+   card.className='feature';
+   const good='data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="20" height="30"><rect width="20" height="30" fill="white"/></svg>');
+   card.innerHTML='<div class="visual"><img class="poster" loading="eager" alt=""></div><h3>Preserve fixture</h3>';
+   document.body.append(card);
+   const img=card.querySelector('img');
+   img.src=good;
+   await new Promise(resolve=>img.complete?resolve():img.addEventListener('load',resolve,{once:true}));
+   window.SelectionTVImageMap.set('preserve fixture',{title:'Preserve fixture',image:'/__canonical-would-fail.png'});
+   const before=img.src;
+   window.SelectionTVBindImage(img,'Preserve fixture',card);
+   await new Promise(r=>setTimeout(r,80));
+   const out={same:img.src===before,loaded:img.naturalWidth>0};
+   card.remove();
+   window.SelectionTVImageMap.delete('preserve fixture');
+   return out;
+ });
+ assert.deepEqual(preserveLoaded,{same:true,loaded:true},`${latest}: resolver replaced an already-loaded poster`);
+ console.log(`✓ ${latest}: already-loaded poster is preserved`);
+
  await page.evaluate(()=>localStorage.clear());
  await page.reload({waitUntil:'domcontentloaded'});
  await settle();
