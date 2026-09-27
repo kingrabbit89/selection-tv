@@ -74,3 +74,16 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "Publie $SELECTION_TV_VALIDATE_WEEK après validations"
           git push origin HEAD:main
+
+      - name: Verify GitHub Pages deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 36); do
+            if node scripts/verify-public-deployment.mjs "$SELECTION_TV_VALIDATE_WEEK"; then
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "GitHub Pages did not expose the promoted issue consistently." >&2
+          exit 1
