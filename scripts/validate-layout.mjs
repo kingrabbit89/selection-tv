@@ -128,7 +128,8 @@ try{
  };
 
  for(const week of weeks){
-  await page.goto(`${origin}/semaines/${week}/`,{waitUntil:'domcontentloaded'});
+  const preview=(process.env.SELECTION_TV_VALIDATE_WEEK&&week===targetWeek)?'?preview=1':'';
+  await page.goto(`${origin}/semaines/${week}/${preview}`,{waitUntil:'domcontentloaded'});
   await settle();
 
   const before=await page.evaluate(signature);
@@ -166,7 +167,8 @@ try{
  // visual Jellyfin card. Verify the actual TV model has inherited the
  // catalogue poster, year/metadata and ratings before testing personal state.
  const latest=targetWeek;
- await page.goto(`${origin}/semaines/${latest}/?tv=1`,{waitUntil:'domcontentloaded'});
+ const tvQuery=process.env.SELECTION_TV_VALIDATE_WEEK?'?tv=1&preview=1':'?tv=1';
+ await page.goto(`${origin}/semaines/${latest}/${tvQuery}`,{waitUntil:'domcontentloaded'});
  await page.waitForSelector('.stv-tv-shell');
  await page.waitForFunction(()=>Array.isArray(window.SelectionTvAndroidModels));
  const tvGridModels=await page.evaluate(()=>{
@@ -239,7 +241,8 @@ try{
  console.log(`✓ ${latest}: Fire TV daily reserves replace Jellyfin-watched primaries`);
 
  // Functional gate on the current issue: save/seen state and reserve replacement.
- await page.goto(`${origin}/semaines/${latest}/`,{waitUntil:'domcontentloaded'});
+ const desktopQuery=process.env.SELECTION_TV_VALIDATE_WEEK?'?preview=1':'';
+ await page.goto(`${origin}/semaines/${latest}/${desktopQuery}`,{waitUntil:'domcontentloaded'});
  await settle();
 
  // Resolver regression: an image can already have failed before the canonical
