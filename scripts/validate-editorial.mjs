@@ -1,7 +1,8 @@
 import fs from 'node:fs';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const manifest=read('data/manifest.json');
-const latest=manifest.latest;
+const latest=process.env.SELECTION_TV_VALIDATE_WEEK||manifest.latest;
+const candidateMode=Boolean(process.env.SELECTION_TV_VALIDATE_WEEK)&&process.env.SELECTION_TV_CANDIDATE==='1';
 const links=read('data/links.json').links||{};
 const config=read('data/editorial-config.json');
 const pconfig=read('data/personalization-config.json');
@@ -123,7 +124,7 @@ if(strict){
  * cannot be promoted unless the editorial payload itself is demonstrably
  * complete. Structural validity alone is not sufficient. */
 {
- const publishable=(manifest.weeks||[]).filter(e=>e.week>='2026-S41'&&e.status!=='draft');
+ const publishable=(manifest.weeks||[]).filter(e=>e.week>='2026-S41'&&(e.status!=='draft'||(candidateMode&&e.week===latest)));
  const q=config.quality_gates||{};
  const minImage=Number(q.published_daily_image_ratio_min??0.80);
  const minMeta=Number(q.published_daily_metadata_ratio_min??0.80);
@@ -148,7 +149,7 @@ if(strict){
    const byId=new Map(pages.map(p=>[p.id,p]));
    const allHtml=pages.map(p=>p.html||'').join('\n');
 
-   if(candidate.publication_status==='draft')failPub(entry.week,'manifest says published but week JSON is draft');
+   if(candidate.publication_status==='draft'&&!(candidateMode&&entry.week===latest))failPub(entry.week,'manifest says published but week JSON is draft');
    for(const re of banned)if(re.test(allHtml))failPub(entry.week,'placeholder/generic copy detected: '+re);
    if(!String(entry.hero_image||'').trim()||!String(candidate.hero_image||'').trim()){
      failPub(entry.week,'hero image missing');
