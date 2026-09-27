@@ -1,7 +1,7 @@
 (()=>{
   if(new URLSearchParams(location.search).get('tv')!=='1')return;
 
-  const REQUIRED_ANDROID_PROTOCOL=3;
+  const REQUIRED_ANDROID_PROTOCOL=4;
   const detectedAndroidProtocol=(()=>{try{return Number(window.SelectionTvAndroid?.protocolVersion?.()||0)}catch{return 0}})();
   const androidBridgeCompatible=detectedAndroidProtocol>=REQUIRED_ANDROID_PROTOCOL;
   window.SelectionTvAndroidRequiredProtocol=REQUIRED_ANDROID_PROTOCOL;
@@ -136,7 +136,7 @@
   const sessionId=String(Date.now())+'-'+Math.random().toString(36).slice(2);
 
   let models=[],rows=[],personalizedRows=[],current=null,works=new Map(),links=new Map();
-  let libraryReady=false,libraryCount=0,quickInflight=0,deepInflight=0;
+  let libraryReady=false,libraryFailed=false,libraryCount=0,quickInflight=0,deepInflight=0;
   let lastNavigationAt=0,quickTimer=null,deepTimer=null,positionRaf=0,statusRaf=0;
   let lastStatusHtml='';
   const posterModels=new WeakMap();
@@ -336,12 +336,13 @@
     if(!el)return;
     const html=!androidBridgeCompatible
       ? '<strong>APK Sélection TV à mettre à jour</strong> · protocole natif '+detectedAndroidProtocol+' / requis '+REQUIRED_ANDROID_PROTOCOL
-      : libraryReady
+      : libraryReady||libraryFailed
       ? '<strong>Jellyfin</strong> · '+found+' présents · '+missing+' absents'
         +(checking?' · '+checking+' analysé'+(checking>1?'s':''):'')
         +(queued?' · '+queued+' à vérifier':'')
         +(libraryCount?' · '+libraryCount+' éléments indexés':'')
-      : '<strong>Jellyfin</strong> · préparation de la bibliothèque…';
+        +(libraryFailed?' · index indisponible, recherche directe active':'')
+      : '<strong>Jellyfin</strong> · préparation de la bibliothèque…'+(libraryCount?' '+libraryCount+' éléments':'');
     if(html===lastStatusHtml)return;
     lastStatusHtml=html;
     el.innerHTML=html;
@@ -352,6 +353,7 @@
   };
 
   const manualOpen=model=>{
+    model.refreshAfterOpen=true;
     // A cached Jellyfin UUID can die when a file is replaced. Only use the
     // direct fast path after this session has revalidated the match.
     if(model.state==='found'&&model.itemId&&model.sessionVerified){
@@ -550,7 +552,9 @@
 
     let queued=0;
     if(selected.length<target){
-      for(const m of row.reserveModels||[]){
+      // Keep already displayed alternatives ahead of newly resolved ones.
+      const sticky=(row.activeModels||[]).filter(m=>m.isReserve);
+      for(const m of [...sticky,...(row.reserveModels||[])]){
         if(selected.length>=target)break;
         if(m.played===true)continue;
         if(m.state==='found'&&m.played===false){take(m);continue}
@@ -617,7 +621,7 @@
       if(kind==='quick'){
         quickInflight=Math.max(0,quickInflight-1);
         model._queued=false;
-        model.state='queued';
+        if(model.state!=='found'&&model.state!=='missing')model.state='queued';
         model._deepQueued=false;
         updateTile(model);scheduleStatus();
         queueDeep(model);
@@ -645,9 +649,9 @@
     return true;
   };
 
-  const queueQuick=model=>{
+  const queueQuick=(model,force=false)=>{
     if(!androidBridgeCompatible||model._queued||Date.now()<(model.retryAfter||0))return;
-    if(model.state==='found'&&model.sessionVerified&&(!model.fromPool||model.played!==null))return;
+    if(!force&&model.state==='found'&&model.sessionVerified&&(!model.fromPool||model.played!==null))return;
     model._queued=true;quickQueue.push(model);pumpQuick();
   };
   const supportsLiveQuick=()=>{
@@ -673,7 +677,7 @@
 
     while(quickInflight<QUICK_CONCURRENCY&&quickQueue.length){
       const model=quickQueue.shift();if(!model)continue;
-      const keepCachedBadge=model.state==='found'&&!model.sessionVerified;
+      const keepCachedBadge=model.state==='found'||model.state==='missing';
       quickInflight++;
       if(!keepCachedBadge){model.state='checking';updateTile(model);scheduleStatus()}
       beginPending(model,'quick',12000);
@@ -697,7 +701,7 @@
   };
   const pumpDeep=()=>{
     clearTimeout(deepTimer);
-    if(!libraryReady||quickInflight>0||quickQueue.length>0||deepInflight>=DEEP_CONCURRENCY||!deepQueue.length)return;
+    if((!libraryReady&&!libraryFailed)||quickInflight>0||quickQueue.length>0||deepInflight>=DEEP_CONCURRENCY||!deepQueue.length)return;
     const idleFor=Date.now()-lastNavigationAt;
     if(idleFor<1800){
       deepTimer=setTimeout(pumpDeep,1850-idleFor);
@@ -719,8 +723,8 @@
   };
 
   window.SelectionTvAndroidLibraryReady=count=>{
-    libraryReady=true;libraryCount=Number(count)||0;scheduleStatus();
-    models.filter(m=>!m.isReserve&&m.tile?.isConnected).forEach(queueQuick);
+    libraryReady=true;libraryFailed=false;libraryCount=Number(count)||0;scheduleStatus();
+    models.filter(m=>!m.isReserve&&m.tile?.isConnected).forEach(m=>queueQuick(m));
     refreshPersonalizedRows();
     pumpQuick();
   };
@@ -740,21 +744,21 @@
     }
 
     if(result.error){
-      model.played=null;model.sessionVerified=false;model.retryAfter=Date.now()+60000;
+      model.retryAfter=Date.now()+60000;
       model.debug=result.quick
         ? ''
         : 'Échec recherche Jellyfin : '+String(result.errorType||result.error||'erreur inconnue');
-      model.state='unknown';
+      if(model.state!=='found'&&model.state!=='missing')model.state='unknown';
       if(result.quick)queueDeep(model);
     }else if(result.found){
       model.debug='';
       model.state='found';model.itemId=result.itemId||'';model.jellyfinName=result.name||'';
-      model.played=typeof result.played==='boolean'?result.played:null;
+      model.played=typeof result.played==='boolean'?result.played:(model.played??null);
       model.sessionVerified=true;
       model.retryAfter=model.played===null?Date.now()+60000:0;
       rememberFound(model,model.itemId,model.jellyfinName);
     }else if(result.quick){
-      model.state='queued';
+      if(model.state!=='found'&&model.state!=='missing')model.state='queued';
       queueDeep(model);
     }else{
       model.state='missing';
@@ -770,12 +774,12 @@
     const model=wireRequests.get(result?.key)||byKey.get(result?.key);if(!model)return;
     finishPending(model,'manual');
     if(result.error){
-      model.played=null;model.sessionVerified=false;model.retryAfter=Date.now()+60000;
+      model.retryAfter=Date.now()+60000;
       model.debug='Échec recherche Jellyfin : '+String(result.errorType||result.error||'erreur inconnue');
-      model.state='unknown';
+      if(model.state!=='found'&&model.state!=='missing')model.state='unknown';
     }else if(result.found){
       model.debug='';
-      model.state='found';model.itemId=result.itemId||'';model.played=typeof result.played==='boolean'?result.played:null;rememberFound(model,model.itemId,'');
+      model.state='found';model.itemId=result.itemId||'';model.played=typeof result.played==='boolean'?result.played:(model.played??null);rememberFound(model,model.itemId,'');
     }else{
       model.debug=String(result.diagnostic||'aucun candidat renvoyé par Jellyfin');
       model.state='missing';model.played=false;rememberMissing(model);
@@ -927,24 +931,40 @@
     // On recent APKs, start the cheap targeted checks immediately instead of
     // leaving uncached grid titles at "À vérifier" while a large Jellyfin
     // library is still being indexed in the background.
-    if(androidBridgeCompatible&&supportsLiveQuick())models.filter(m=>!m.isReserve&&m.tile?.isConnected).forEach(queueQuick);
+    if(androidBridgeCompatible&&supportsLiveQuick())models.filter(m=>!m.isReserve&&m.tile?.isConnected).forEach(m=>queueQuick(m));
 
+    // A failed scan must not leave the UI in an infinite preparation state.
+    const preparationStarted=Date.now();
     const readyPoll=setInterval(()=>{
       try{
-        if(window.SelectionTvAndroid?.isLibraryReady?.()===true){
+        const raw=window.SelectionTvAndroid?.libraryStatus?.();
+        const status=raw?JSON.parse(raw):null;
+        if(status)libraryCount=Number(status.count)||0;
+        if(status?.state==='ready'||window.SelectionTvAndroid?.isLibraryReady?.()===true){
           clearInterval(readyPoll);
-          window.SelectionTvAndroidLibraryReady(libraryCount||0);
+          window.SelectionTvAndroidLibraryReady(libraryCount);
+        }else if(status?.state==='error'||Date.now()-preparationStarted>=65000){
+          clearInterval(readyPoll);libraryFailed=true;pumpQuick();pumpDeep();
         }
+        scheduleStatus();
       }catch{}
-    },500);
+    },1000);
 
-    setInterval(()=>{if(document.hidden||!androidBridgeCompatible)return;for(const m of models){if(m.fromPool&&(m.tile?.isConnected||m.retryAfter)&&!m._queued&&!m._deepQueued&&Date.now()>=(m.retryAfter||0)){m.sessionVerified=false;m.played=null;queueQuick(m)}}},60000);
+    // Revalidate only the item just opened. Keep confirmed identity/played
+    // state until a successful response changes it; a timeout proves neither
+    // absence nor unwatched status. No minute-by-minute reshuffle of the rows.
+    window.SelectionTvAndroidResume=()=>{
+      for(const m of models)if(m.refreshAfterOpen){
+        m.refreshAfterOpen=false;m.retryAfter=0;queueQuick(m,true);
+      }
+      if(current?.tile?.isConnected)focusModel(current);
+    };
 
     // Belt-and-braces recovery only while there is actual background work.
     // Once preparation and reconciliation are finished, the TV UI becomes
     // event-driven and stops rewriting the status bar every two seconds.
     setInterval(()=>{
-      if(!libraryReady)return;
+      if(!libraryReady&&!libraryFailed)return;
       const busy=quickInflight>0||quickQueue.length>0||deepInflight>0||deepQueue.length>0||pendingLookups.size>0;
       if(!busy)return;
       pumpQuick();

@@ -40,3 +40,12 @@ Le workflow GitHub Actions `build-selection-tv-androidtv.yml` produit l'artefact
 `Jellyfin-Selection-TV-AndroidTV.apk`
 
 Aucun secret Jellyfin ou Forumactif n'est inclus dans l'APK.
+
+
+## Correctif de stabilité — protocole 4 (27 septembre 2026)
+
+Le retour depuis une fiche conserve la WebView, le focus, les UUID et l’index de la session. Un changement de serveur ou de compte les invalide. Le statut vu de la fiche ouverte est revérifié au retour sans effacer la dernière réponse confirmée pendant une requête ou une erreur réseau. Les lignes ne sont plus réinitialisées toutes les minutes et une réserve déjà affichée garde sa priorité.
+
+L’indexation est limitée à 60 secondes, avec un délai de 8 secondes par page et un compteur de progression. En cas d’échec, les recherches ciblées restent disponibles ; une ouverture de fiche n’attend jamais le balayage de toute la bibliothèque. L’API reçoit explicitement l’utilisateur connecté pour les données de visionnage. Les erreurs de recherche native restent des erreurs, jamais des preuves d’absence.
+
+Les tests de navigateur simulent les retours, les délais dépassés, les résultats tardifs et l’inactivité. Une installation de cette APK est nécessaire pour le cycle de vie natif ; ces tests ne remplacent pas un essai sur le serveur et le Fire TV physiques. « Vos Uploads » reste réservé à Jellyfin Web.

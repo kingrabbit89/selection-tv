@@ -22,6 +22,7 @@ import androidx.fragment.compose.content
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.TimeoutCancellationException
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
@@ -31,6 +32,7 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
+import org.jellyfin.androidtv.auth.repository.SessionRepository
 import org.jellyfin.androidtv.ui.navigation.Destinations
 import org.jellyfin.androidtv.ui.navigation.NavigationRepository
 import org.jellyfin.androidtv.ui.search.SearchRepository
@@ -49,12 +51,22 @@ import java.util.UUID
 
 class SelectionTvFragment : Fragment() {
 	private val api by inject<ApiClient>()
+	private val sessionRepository by inject<SessionRepository>()
 	private val navigationRepository by inject<NavigationRepository>()
 	private val searchRepository by inject<SearchRepository>()
 	private val indexMutex = Mutex()
 
 	private var webView: WebView? = null
 	private var refreshOnResume = false
+	@Volatile private var boundAccount: String? = null
+	private var preparationJob: Job? = null
+	@Volatile private var preparationError = false
+	@Volatile private var preparationCount = 0
+
+	private fun currentAccount(): String? = sessionRepository.currentSession.value?.let {
+		"${it.serverId}:${it.userId}"
+	}
+	private fun accountIsCurrent(): Boolean = boundAccount != null && boundAccount == currentAccount()
 
 	@Volatile
 	private var libraryIndex: List<BaseItemDto>? = null
@@ -70,6 +82,7 @@ class SelectionTvFragment : Fragment() {
 		val tmdbId: String?,
 		val aliases: List<String> = emptyList(),
 		val needPlayed: Boolean = false,
+		val account: String? = null,
 	)
 
 	private data class LibraryLookupIndex(
@@ -84,13 +97,20 @@ class SelectionTvFragment : Fragment() {
 		fun protocolVersion(): Int = BRIDGE_PROTOCOL_VERSION
 
 		@JavascriptInterface
-		fun isLibraryReady(): Boolean = libraryIndex != null
+		fun isLibraryReady(): Boolean = accountIsCurrent() && libraryIndex != null
+
+		@JavascriptInterface
+		fun libraryStatus(): String = JSONObject().apply {
+			put("state", if (!accountIsCurrent() || preparationError) "error" else if (libraryIndex != null) "ready" else "loading")
+			put("count", preparationCount)
+		}.toString()
 
 		@JavascriptInterface
 		fun supportsLiveQuick(): Boolean = true
 
 		@JavascriptInterface
 		fun lookupQuick(payload: String) {
+			if (!accountIsCurrent()) return
 			val request = parseLookup(payload) ?: return
 			lifecycleScope.launch {
 				val item = try {
@@ -148,6 +168,7 @@ class SelectionTvFragment : Fragment() {
 
 		@JavascriptInterface
 		fun lookup(payload: String) {
+			if (!accountIsCurrent()) return
 			val request = parseLookup(payload) ?: return
 			lifecycleScope.launch {
 				val item = try {
@@ -190,14 +211,18 @@ class SelectionTvFragment : Fragment() {
 
 		@JavascriptInterface
 		fun lookupAndOpen(payload: String) {
+			if (!accountIsCurrent()) return
 			val request = parseLookup(payload) ?: return
 			launchOpenLookup(request)
 		}
 
 		@JavascriptInterface
 		fun openItem(itemId: String) {
+			if (!accountIsCurrent()) return
 			val id = runCatching { UUID.fromString(itemId) }.getOrNull() ?: return
+			val account = currentAccount()
 			activity?.runOnUiThread {
+				if (account != currentAccount()) return@runOnUiThread
 				navigationRepository.navigate(Destinations.itemDetails(id))
 			}
 		}
@@ -217,7 +242,13 @@ class SelectionTvFragment : Fragment() {
 			AndroidView(
 				modifier = Modifier.fillMaxSize(),
 				factory = { context ->
-					WebView(context).also { view ->
+					// Keep the same DOM, focus and resolved UUIDs while details are on
+					// the back stack. Discard them only for a different account.
+					if (webView != null && !accountIsCurrent()) resetAccount()
+					webView?.also { retained ->
+						(retained.parent as? ViewGroup)?.removeView(retained)
+					} ?: WebView(context).also { view ->
+						boundAccount = currentAccount()
 						webView = view
 						view.isFocusable = true
 						view.isFocusableInTouchMode = true
@@ -276,10 +307,7 @@ class SelectionTvFragment : Fragment() {
 						// Mirror the browser integration: build the compact provider/title
 						// index once in the background so exact IMDb/TMDb matches are ready
 						// before the user opens a card.
-						lifecycleScope.launch(Dispatchers.IO) {
-							runCatching { ensureLibraryIndex() }
-								.onSuccess { deliverLibraryReady(it.size) }
-						}
+						startPreparation()
 					}
 				},
 			)
@@ -288,6 +316,7 @@ class SelectionTvFragment : Fragment() {
 
 	private fun handleOpenCommand(uri: Uri) {
 		val request = LookupRequest(
+			account = currentAccount(),
 			key = uri.getQueryParameter("key").orEmpty(),
 			title = uri.getQueryParameter("title").orEmpty(),
 			year = uri.getQueryParameter("year")?.toIntOrNull(),
@@ -331,6 +360,7 @@ class SelectionTvFragment : Fragment() {
 				return@launch
 			}
 
+			if (request.account != currentAccount()) return@launch
 			if (item != null) {
 				deliverOpenResult(
 					JSONObject().apply {
@@ -343,9 +373,7 @@ class SelectionTvFragment : Fragment() {
 				)
 				navigationRepository.navigate(Destinations.itemDetails(item.id))
 			} else {
-				val diagnostic = withContext(Dispatchers.IO) {
-					diagnosticCandidates(request)
-				}
+				val diagnostic = "Aucune correspondance certaine dans Jellyfin."
 				deliverOpenResult(
 					JSONObject().apply {
 						put("key", request.key)
@@ -374,6 +402,7 @@ class SelectionTvFragment : Fragment() {
 		}
 
 		LookupRequest(
+			account = currentAccount(),
 			key = key,
 			title = title,
 			year = json.optString("year").toIntOrNull(),
@@ -384,7 +413,27 @@ class SelectionTvFragment : Fragment() {
 		)
 	}.getOrNull()
 
+	private fun startPreparation() {
+		if (preparationJob?.isActive == true || libraryIndex != null || !accountIsCurrent()) return
+		val account = boundAccount
+		preparationError = false
+		preparationJob = lifecycleScope.launch(Dispatchers.IO) {
+			try {
+				val items = withTimeout(PREPARATION_TIMEOUT_MS) { ensureLibraryIndex() }
+				if (account == boundAccount && accountIsCurrent()) deliverLibraryReady(items.size)
+			} catch (timeout: TimeoutCancellationException) {
+				if (account == boundAccount) preparationError = true
+			} catch (cancelled: CancellationException) {
+				throw cancelled
+			} catch (error: Exception) {
+				if (account == boundAccount) preparationError = true
+			}
+		}
+	}
+
 	private suspend fun ensureLibraryIndex(): List<BaseItemDto> {
+		val account = boundAccount
+		check(accountIsCurrent())
 		libraryIndex?.let { return it }
 
 		return indexMutex.withLock {
@@ -396,7 +445,8 @@ class SelectionTvFragment : Fragment() {
 			var expectedTotal = 0
 
 			while (startIndex < MAX_LIBRARY_ITEMS) {
-				val result = api.itemsApi.getItems(
+				val result = withTimeout(QUICK_LOOKUP_TIMEOUT_MS) { api.itemsApi.getItems(
+					userId = sessionRepository.currentSession.value?.userId,
 					recursive = true,
 					// Index every video-backed item, regardless of Jellyfin's
 					// concrete BaseItemKind. One-off documentaries are often
@@ -411,8 +461,9 @@ class SelectionTvFragment : Fragment() {
 					enableImages = false,
 					enableUserData = false,
 					enableTotalRecordCount = true,
-				).content
+				).content }
 
+				check(account == boundAccount && accountIsCurrent())
 				val batch = result.items
 				if (batch.isEmpty()) break
 
@@ -424,6 +475,7 @@ class SelectionTvFragment : Fragment() {
 					}
 				}
 
+				preparationCount = all.size
 				startIndex += batch.size
 				expectedTotal = result.totalRecordCount
 				if (expectedTotal > 0 && startIndex >= expectedTotal) break
@@ -431,6 +483,7 @@ class SelectionTvFragment : Fragment() {
 				if (expectedTotal <= 0 && batch.size < LIBRARY_PAGE_SIZE) break
 			}
 
+			check(account == boundAccount && accountIsCurrent())
 			val frozen = all.toList()
 			val lookup = buildLibraryLookupIndex(frozen)
 			libraryLookupIndex = lookup
@@ -479,8 +532,8 @@ class SelectionTvFragment : Fragment() {
 		}
 		fallbackSearch(request)?.let { return it }
 
-		// Last resort: wait for/build the complete index and retry locally.
-		ensureLibraryIndex()
+		// Never make a card wait behind a whole-library scan. Preparation is
+		// independent, bounded and optional; live search stays available.
 		val index = libraryLookupIndex ?: return null
 		exactLookupMatch(index, request)?.let { return it }
 		return conservativeLookupMatch(index, request)
@@ -491,7 +544,7 @@ class SelectionTvFragment : Fragment() {
 		// still live. If there is no hit (or the UUID died), immediately run
 		// Jellyfin's live search. Rebuilding the whole library first used to
 		// consume most of the lookup timeout for obscure documentaries.
-		val currentIndex = ensureLibraryIndex()
+		val currentIndex = libraryIndex.orEmpty()
 		val indexed = exactIndexMatch(currentIndex, request)
 			?: conservativeIndexMatch(currentIndex, request)
 
@@ -500,14 +553,6 @@ class SelectionTvFragment : Fragment() {
 		}
 
 		fallbackSearch(request)?.let { return it }
-
-		// Last-resort index refresh only after live search failed. This keeps
-		// stale-ID recovery without delaying the normal manual lookup path.
-		if (indexed != null) {
-			val refreshed = refreshLibraryIndex()
-			exactIndexMatch(refreshed, request)?.let { return it }
-			conservativeIndexMatch(refreshed, request)?.let { return it }
-		}
 
 		return null
 	}
@@ -521,6 +566,7 @@ class SelectionTvFragment : Fragment() {
 
 	private suspend fun liveItemById(id: UUID): BaseItemDto? = runCatching {
 		api.itemsApi.getItems(
+			userId = sessionRepository.currentSession.value?.userId,
 			ids = setOf(id),
 			fields = setOf(
 				ItemFields.PROVIDER_IDS,
@@ -737,7 +783,7 @@ class SelectionTvFragment : Fragment() {
 				searchRepository.search(
 					searchTerm = term,
 					itemTypes = group,
-				).getOrNull().orEmpty()
+				).getOrThrow()
 			}
 		}.awaitAll()
 			.flatten()
@@ -876,6 +922,7 @@ class SelectionTvFragment : Fragment() {
 	}
 
 	private fun deliverLibraryReady(count: Int) {
+		if (!accountIsCurrent()) return
 		val script = "window.SelectionTvAndroidLibraryReady && window.SelectionTvAndroidLibraryReady($count);"
 		webView?.post {
 			webView?.evaluateJavascript(script, null)
@@ -883,6 +930,7 @@ class SelectionTvFragment : Fragment() {
 	}
 
 	private fun deliverResult(json: String) {
+		if (!accountIsCurrent()) return
 		val script = "window.SelectionTvAndroidResult && window.SelectionTvAndroidResult($json);"
 		webView?.post {
 			webView?.evaluateJavascript(script, null)
@@ -890,6 +938,7 @@ class SelectionTvFragment : Fragment() {
 	}
 
 	private fun deliverOpenResult(json: String) {
+		if (!accountIsCurrent()) return
 		val script = "window.SelectionTvAndroidOpenResult && window.SelectionTvAndroidOpenResult($json);"
 		webView?.post {
 			webView?.evaluateJavascript(script, null)
@@ -909,49 +958,64 @@ class SelectionTvFragment : Fragment() {
 
 	override fun onResume() {
 		super.onResume()
+		if (webView != null && !accountIsCurrent()) {
+			preparationJob?.cancel()
+			preparationJob = null
+			libraryIndex = null
+			libraryLookupIndex = null
+			preparationCount = 0
+			boundAccount = currentAccount()
+			webView?.reload()
+			startPreparation()
+		}
 		webView?.onResume()
 		if (refreshOnResume) {
 			refreshOnResume = false
-			// A new JS session drops all mutable played states and old callbacks.
-			// Rebuild the account-bound index before serving its next lookups.
-			lifecycleScope.launch {
-				indexMutex.withLock {
-					libraryIndex = null
-					libraryLookupIndex = null
-				}
-				webView?.reload()
-				withContext(Dispatchers.IO) {
-					runCatching { ensureLibraryIndex() }.onSuccess { deliverLibraryReady(it.size) }
-				}
-			}
+			webView?.evaluateJavascript("window.SelectionTvAndroidResume && window.SelectionTvAndroidResume();", null)
 		}
 	}
 
-	override fun onDestroyView() {
+	private fun resetAccount() {
+		preparationJob?.cancel()
+		preparationJob = null
 		webView?.apply {
+			(parent as? ViewGroup)?.removeView(this)
 			removeJavascriptInterface(JS_BRIDGE_NAME)
 			stopLoading()
-			loadUrl("about:blank")
 			destroy()
 		}
 		webView = null
 		libraryIndex = null
 		libraryLookupIndex = null
+		preparationCount = 0
+		boundAccount = null
+	}
+
+	override fun onDestroyView() {
+		// Fragment view destruction also happens when opening an item detail.
+		// The WebView is owned by the fragment, not this temporary Compose view.
+		webView?.let { (it.parent as? ViewGroup)?.removeView(it) }
 		super.onDestroyView()
+	}
+
+	override fun onDestroy() {
+		resetAccount()
+		super.onDestroy()
 	}
 
 	private companion object {
 		const val JS_BRIDGE_NAME = "SelectionTvAndroid"
-		const val BRIDGE_PROTOCOL_VERSION = 3
+		const val BRIDGE_PROTOCOL_VERSION = 4
 		const val SELECTION_TV_SCHEME = "selectiontv"
 		const val SELECTION_TV_URL = "https://kingrabbit89.github.io/selection-tv/latest.html?tv=1"
-		const val LIBRARY_PAGE_SIZE = 200
+		const val LIBRARY_PAGE_SIZE = 500
 		const val MAX_LIBRARY_ITEMS = 50_000
 		const val MATCH_THRESHOLD = 300
 		const val FALLBACK_MATCH_THRESHOLD = 150
 		const val FALLBACK_SEARCH_LIMIT = 25
 		const val MAX_SEARCH_TERMS = 6
 		const val DIAGNOSTIC_SEARCH_TERMS = 2
+		const val PREPARATION_TIMEOUT_MS = 60_000L
 		const val LOOKUP_TIMEOUT_MS = 20_000L
 		const val QUICK_LOOKUP_TIMEOUT_MS = 8_000L
 	}

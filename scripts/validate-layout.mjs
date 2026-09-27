@@ -255,7 +255,7 @@ try{
      reserves.forEach(m=>window.SelectionTvAndroidResult({key:m.key,found:true,itemId:'fixture-'+m.key,played:false}));
      const replaced=reserves.every(m=>row.activeModels.includes(m));
      if(reserves[0])window.SelectionTvAndroidResult({key:reserves[0].key,error:'offline'});
-     const failedUnknown=!reserves[0]||reserves[0].played===null;
+     const failedUnknown=!reserves[0]||(reserves[0].played===false&&reserves[0].state==='found'&&row.activeModels.includes(reserves[0]));
      results.push({id,unknown,replaced,failedUnknown,count:reserves.length});
    }
    return {sectionIds,results,uploads:document.querySelectorAll('.stv-tv-shell .jellyfin-private-upload').length};
@@ -266,6 +266,71 @@ try{
  }
  assert.equal(tvSafety.uploads,0,'Vos Uploads must remain Web-only');
  console.log('✓ TV callbacks retain unknown state; section reserves replace multiple played items');
+
+ // Native bridge simulation: return from details, failed refresh and idle time.
+ const tvStable=await browser.newPage({viewport:{width:1440,height:1000}});
+ await tvStable.route('**/*',route=>new URL(route.request().url()).hostname==='127.0.0.1'?route.continue():route.abort());
+ await tvStable.clock.install();
+ await tvStable.addInitScript(()=>{
+   window.tvFixture={calls:[],opens:[],fail:false,library:'loading'};
+   window.SelectionTvAndroid={
+     protocolVersion:()=>4,supportsLiveQuick:()=>true,isLibraryReady:()=>false,
+     libraryStatus:()=>JSON.stringify({state:window.tvFixture.library,count:500}),
+     lookupQuick:raw=>{
+       const r=JSON.parse(raw);window.tvFixture.calls.push(r);
+       setTimeout(()=>window.SelectionTvAndroidResult(window.tvFixture.fail
+         ? {key:r.key,quick:true,error:'Timeout'}
+         : {key:r.key,quick:true,found:true,itemId:'id-'+r.title,played:false}),0);
+     },
+     lookup:raw=>{const r=JSON.parse(raw);setTimeout(()=>window.SelectionTvAndroidResult({key:r.key,error:'offline'}),0)},
+     openItem:id=>window.tvFixture.opens.push(id)
+   };
+ });
+ await tvStable.goto(`${origin}/semaines/${latest}/${tvQuery}`,{waitUntil:'domcontentloaded'});
+ await tvStable.waitForFunction(()=>window.SelectionTvAndroidModels?.filter(m=>!m.isReserve&&m.tile?.isConnected).every(m=>m.sessionVerified));
+ const beforeIdle=await tvStable.evaluate(()=>({calls:tvFixture.calls.length,rows:SelectionTvAndroidPersonalizedRows.map(r=>r.activeModels.map(m=>m.key))}));
+ await tvStable.clock.fastForward(61000);
+ const afterIdle=await tvStable.evaluate(()=>({calls:tvFixture.calls.length,rows:SelectionTvAndroidPersonalizedRows.map(r=>r.activeModels.map(m=>m.key))}));
+ assert.deepEqual(afterIdle,beforeIdle,'Idle Fire TV must not recheck or reshuffle every minute');
+ const returnState=await tvStable.evaluate(()=>{
+   const m=SelectionTvAndroidModels.find(m=>m.tile?.isConnected&&m.state==='found');
+   window.returnFixture=m;
+   m.tile.click();
+   tvFixture.fail=true;
+   SelectionTvAndroidResume();
+   return {id:m.itemId,key:m.key};
+ });
+ await tvStable.waitForFunction(()=>!window.returnFixture._queued);
+ const retained=await tvStable.evaluate(()=>{
+   const m=window.returnFixture;m.tile.click();
+   return {id:m.itemId,state:m.state,played:m.played,verified:m.sessionVerified,opens:tvFixture.opens,focus:document.activeElement===m.tile};
+ });
+ assert.equal(retained.id,returnState.id);
+ assert.equal(retained.state,'found','Timeout after Back erased the Jellyfin link');
+ assert.equal(retained.played,false,'Timeout after Back erased played state');
+ assert(retained.verified&&retained.focus,'Back lost focus or verified identity');
+ assert.deepEqual(retained.opens,[returnState.id,returnState.id],'Second click must open the same Jellyfin item');
+ await tvStable.evaluate(()=>{tvFixture.library='error'});
+ await tvStable.clock.runFor(1100);
+ assert.match(await tvStable.locator('.stv-tv-statusbar').innerText(),/recherche directe active/,'Failed index must end preparation');
+ const lateReserve=await tvStable.evaluate(()=>{
+   const row=SelectionTvAndroidPersonalizedRows.find(r=>r.reserveModels.length>=2&&r.family===undefined)||SelectionTvAndroidPersonalizedRows.find(r=>r.reserveModels.length>=2);
+   // Isolate one row from cross-page deduplication for this ordering assertion.
+   row.family='test-stable-row';
+   row.baseModels[0].played=true;
+   const [early,late]=row.reserveModels;
+   early.state='unknown';early.played=null;
+   late.state='found';late.played=false;late.sessionVerified=true;
+   SelectionTvAndroidRefreshPersonalizedRows();
+   const before=row.activeModels.map(m=>m.key);
+   early.state='found';early.played=false;early.sessionVerified=true;
+   SelectionTvAndroidRefreshPersonalizedRows();
+   return {before,after:row.activeModels.map(m=>m.key),selected:row.activeModels.includes(late)};
+ });
+ assert(lateReserve.selected,'Existing qualified reserve must remain selected');
+ assert.deepEqual(lateReserve.after,lateReserve.before,'A late background result must not replace a displayed reserve');
+ await tvStable.close();
+ console.log('✓ Fire TV: stable rows while idle, Back preserves links/focus after timeout, failed preparation exits');
 
  // Functional gate on the current issue: save/seen state and reserve replacement.
  const desktopQuery=process.env.SELECTION_TV_VALIDATE_WEEK?'?preview=1':'';
