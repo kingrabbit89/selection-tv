@@ -129,6 +129,16 @@ La recherche suit une cascade : source officielle ou éditeur, base cinéma fiab
 Une absence d’image n’est admise qu’avec `image_exception_reason`, par exemple pour une carte éditoriale d’agrégation sans œuvre unique. À partir de S41, la validation éditoriale bloque une publication qui contient une carte visuelle ou un candidat de réserve sans image ni exception documentée.
 
 
+## Android TV : grilles commentées
+
+Le rendu Android TV/Fire TV ne considère pas les grilles commentées comme de simples tableaux texte. Chaque ligne `table.schedule tbody tr` est transformée par `assets/js/android-tv-mode.js` en carte visuelle navigable et interroge Jellyfin.
+
+Conséquence : **tout titre retenu dans une `*-grille` est une œuvre visuelle de premier rang**, même si le site desktop ne montre qu'une ligne de tableau. Avant publication, sa fiche canonique `data/works.json` doit donc contenir une vraie image, l'année, le réalisateur ou créateur, les métadonnées utiles et des notes vérifiées lorsqu'elles existent. `data/links.json` doit fournir de préférence un identifiant IMDb ou TMDb exact ; à défaut pour un documentaire/téléfilm, une fiche SensCritique exacte ou une page officielle propre à l'œuvre est exigée. Les alias de titre (titre original, titre français, variante Jellyfin) doivent être conservés lorsqu'ils améliorent le rapprochement.
+
+Une `image_exception_reason` de type « candidat de réserve » n'est jamais suffisante pour une ligne de grille : Android TV a besoin d'un visuel réel. De même, un simple lien vers une grille TV générique ne constitue pas une identité d'œuvre assez forte pour le rapprochement Jellyfin.
+
+Le contrôle éditorial vérifie ces invariants et le contrôle navigateur charge réellement le mode `?tv=1` pour confirmer que les modèles Fire TV héritent des affiches, métadonnées, notes et identifiants fournisseurs. Le contrôle réseau des images inclut également les titres des grilles.
+
 ## Publication transactionnelle et contrôle qualité
 
 À partir de S41, une nouvelle édition ne doit **jamais** être écrite directement sur `main`.

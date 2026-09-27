@@ -11,6 +11,9 @@ import assert from 'node:assert/strict';
 const {chromium}=createRequire(import.meta.url)('playwright');
 const root=resolve(import.meta.dirname,'..');
 const manifest=JSON.parse(await readFile(resolve(root,'data/manifest.json'),'utf8'));
+const worksData=JSON.parse(await readFile(resolve(root,'data/works.json'),'utf8'));
+const normTitle=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+const worksByTitle=new Map((worksData.works||[]).map(w=>[normTitle(w.title),w]));
 const weeks=[...new Set([manifest.latest,'2026-S40','2026-S39','2026-S38','2026-S37'].filter(Boolean))];
 
 const server=createServer(async(req,res)=>{
@@ -157,8 +160,55 @@ try{
   console.log(`✓ ${week}: scroll, TOC, exact links, visuals, reflow, print and responsive layout`);
  }
 
- // Functional gate on the current issue: save/seen state and reserve replacement.
+ // Android TV regression: commented schedule rows are text tables on the
+ // magazine site, but the Fire TV renderer promotes every one of them to a
+ // visual Jellyfin card. Verify the actual TV model has inherited the
+ // catalogue poster, year/metadata and ratings before testing personal state.
  const latest=manifest.latest;
+ await page.goto(`${origin}/semaines/${latest}/?tv=1`,{waitUntil:'domcontentloaded'});
+ await page.waitForSelector('.stv-tv-shell');
+ await page.waitForFunction(()=>Array.isArray(window.SelectionTvAndroidModels));
+ const tvGridModels=await page.evaluate(()=>{
+   const clean=s=>String(s||'').replace(/\s+/g,' ').trim();
+   const norm=s=>clean(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+   const gridTitles=[...document.querySelectorAll('.page[id$="-grille"] table.schedule .prog,.page[id*="-grille-"] table.schedule .prog')]
+     .map(el=>clean(el.childNodes?.[0]?.textContent||el.textContent))
+     .filter(Boolean);
+   const models=window.SelectionTvAndroidModels||[];
+   return [...new Set(gridTitles)].map(title=>{
+     const model=models.find(m=>norm(m.title)===norm(title));
+     return {
+       title,
+       exists:!!model,
+       posterCount:model?.imageCandidates?.length||0,
+       year:String(model?.year||''),
+       meta:model?.meta||[],
+       ratings:model?.ratings||[],
+       imdbId:model?.imdbId||'',
+       tmdbId:model?.tmdbId||''
+     };
+   });
+ });
+ assert(tvGridModels.length>0,`${latest}: Android TV grid regression found no commented-grid titles`);
+ for(const model of tvGridModels){
+   assert(model.exists,`${latest}: Android TV grid model missing for ${model.title}`);
+   const work=worksByTitle.get(normTitle(model.title));
+   assert(work,`${latest}: Android TV grid title absent from works catalogue: ${model.title}`);
+   assert(model.posterCount>0,`${latest}: Android TV grid model has no poster candidates: ${model.title}`);
+   assert(model.year,`${latest}: Android TV grid model has no year: ${model.title}`);
+   assert(model.meta.length>0,`${latest}: Android TV grid model has no metadata: ${model.title}`);
+   if(work?.ratings && Object.keys(work.ratings).length){
+     assert(model.ratings.length>0,`${latest}: Android TV grid ratings were not hydrated for ${model.title}`);
+   }
+   const linkText=JSON.stringify(work?.links||{});
+   const hasCatalogueIdentity=/imdb\.com\/title\/tt\d+|themoviedb\.org\/(?:movie|tv)\/\d+/i.test(linkText);
+   if(hasCatalogueIdentity){
+     assert(model.imdbId||model.tmdbId,`${latest}: Android TV grid provider ID was not hydrated for ${model.title}`);
+   }
+ }
+ console.log(`✓ ${latest}: Android TV commented grids inherit posters, metadata, ratings and provider IDs`);
+
+ // Functional gate on the current issue: save/seen state and reserve replacement.
  await page.goto(`${origin}/semaines/${latest}/`,{waitUntil:'domcontentloaded'});
  await settle();
 

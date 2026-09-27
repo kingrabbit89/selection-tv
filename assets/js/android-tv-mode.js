@@ -450,6 +450,9 @@
     if(!img||img.dataset.loaded==='1')return;
     img.dataset.loaded='1';
     let imageIndex=0;
+    // Poster hosts such as SensCritique/FilmAffinity may reject hotlinking
+    // when the Sélection TV page is sent as Referer.
+    img.referrerPolicy='no-referrer';
     const tryImage=()=>{img.src=model.imageCandidates?.[imageIndex]||''};
     img.onerror=()=>{
       imageIndex++;
@@ -572,8 +575,14 @@
     if(model.state==='found'&&model.sessionVerified)return;
     model._queued=true;quickQueue.push(model);pumpQuick();
   };
+  const supportsLiveQuick=()=>{
+    try{return window.SelectionTvAndroid?.supportsLiveQuick?.()===true}catch{return false}
+  };
   const pumpQuick=()=>{
-    if(!libraryReady)return;
+    // New APKs can query Jellyfin directly before the full library index is
+    // ready. Older APKs do not expose supportsLiveQuick(), so they keep the
+    // previous safe behaviour and wait for libraryReady.
+    if(!libraryReady&&!supportsLiveQuick())return;
     while(quickInflight<QUICK_CONCURRENCY&&quickQueue.length){
       const model=quickQueue.shift();if(!model)continue;
       const keepCachedBadge=model.state==='found'&&!model.sessionVerified;
@@ -694,7 +703,7 @@
       const sourcePosters=posterCandidatesOf(source,title);
       const sourceRatings=ratingsOf(source,title);
       const sourceMeta=metaTexts(source);
-      const catalogueMeta=[work.director,work.year,work.country,work.genre].filter(Boolean).join(' · ');
+      const catalogueMeta=[work.director,work.year,work.country,work.duration,work.genre].filter(Boolean).join(' · ');
       if(catalogueMeta&&!sourceMeta.includes(catalogueMeta))sourceMeta.unshift(catalogueMeta);
       const sourceDescription=descOf(source);
 
@@ -727,7 +736,16 @@
     });
 
     rows=[...grouped.entries()].map(([page,list])=>({title:groupTitle(page),models:list})).filter(r=>r.models.length);
+    // Expose the canonical TV models for the browser QA gate. They are the
+    // exact objects used to render Fire TV tiles, so tests can verify that
+    // desktop table rows were enriched before an APK is published.
+    window.SelectionTvAndroidModels=models;
     buildShell();
+
+    // On recent APKs, start the cheap targeted checks immediately instead of
+    // leaving uncached grid titles at "À vérifier" while a large Jellyfin
+    // library is still being indexed in the background.
+    if(supportsLiveQuick())models.forEach(queueQuick);
 
     const readyPoll=setInterval(()=>{
       try{
