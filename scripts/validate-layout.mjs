@@ -420,6 +420,14 @@ try{
    assert(sectionReserveState.physicalReplacements>=2,latest+': physical releases did not draw two replacements: '+JSON.stringify(sectionReserveState));
    assert(sectionReserveState.physicalReplacementTypes.every(x=>/release-card/.test(x)),latest+': physical reserve rendered with the wrong card type');
    assert.match(sectionReserveState.physicalSummary,/2 remplacées par la réserve éditoriale/,latest+': physical release replacement summary is wrong');
+   for(const width of [390,768,1100,1440]){
+     await page.setViewportSize({width,height:1000});await settle();
+     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),latest+': section reserves overflow at '+width);
+     await checkDesktopGeometry(latest+' section reserves '+width);
+   }
+   await page.emulateMedia({media:'print'});await settle();
+   assert.equal(await page.evaluate(()=>document.body.dataset.layoutOverflow),'',latest+': section reserve print overflow');
+   await page.emulateMedia({media:'screen'});await settle();
    console.log('✓ '+latest+': weekly rendezvous and physical-release reserves preserve section targets');
  }
 
