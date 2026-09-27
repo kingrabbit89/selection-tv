@@ -1,0 +1,79 @@
+name: Guard direct publication on main
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  guard:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Detect direct manifest promotion
+        id: detect
+        shell: bash
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          if [[ -z "$BEFORE" || "$BEFORE" == "0000000000000000000000000000000000000000" ]]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          OLD_LATEST="$(git show "$BEFORE:data/manifest.json" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>process.stdout.write(JSON.parse(s).latest||''))")"
+          NEW_LATEST="$(node -e "const m=require('./data/manifest.json');process.stdout.write(m.latest||'')")"
+          echo "old_latest=$OLD_LATEST" >> "$GITHUB_OUTPUT"
+          echo "new_latest=$NEW_LATEST" >> "$GITHUB_OUTPUT"
+          if [[ "$OLD_LATEST" != "$NEW_LATEST" ]]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Fail closed by restoring previous public manifest
+        if: steps.detect.outputs.changed == 'true'
+        shell: bash
+        env:
+          BEFORE: ${{ github.event.before }}
+          OLD_LATEST: ${{ steps.detect.outputs.old_latest }}
+          NEW_LATEST: ${{ steps.detect.outputs.new_latest }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git checkout "$BEFORE" -- data/manifest.json
+          if git cat-file -e "$BEFORE:data/weeks/$NEW_LATEST.json" 2>/dev/null; then
+            git checkout "$BEFORE" -- "data/weeks/$NEW_LATEST.json"
+          elif [[ -f "data/weeks/$NEW_LATEST.json" ]]; then
+            node - "$NEW_LATEST" <<'NODE'
+          const fs=require('fs');
+          const week=process.argv[2];
+          const path='data/weeks/'+week+'.json';
+          const data=JSON.parse(fs.readFileSync(path,'utf8'));
+          data.publication_status='draft';
+          fs.writeFileSync(path,JSON.stringify(data,null,2)+'\n');
+          NODE
+          fi
+
+          git config user.name "selection-tv-automation"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/manifest.json "data/weeks/$NEW_LATEST.json" || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Annule la promotion directe de $NEW_LATEST"
+            git push origin HEAD:main
+          fi
+
+          TITLE="Sélection TV: promotion directe de $NEW_LATEST annulée"
+          BODY="Un push direct sur main a tenté de faire passer manifest.latest de $OLD_LATEST à $NEW_LATEST sans passer par le workflow transactionnel promote-validated-week.yml. Le garde-fou a restauré le dernier manifeste public et remis la semaine cible en draft lorsqu’elle était nouvelle. Publier uniquement via une PR auto/YYYY-Sxx puis la promotion post-fusion."
+          EXISTING="$(gh issue list --state open --search "$TITLE in:title" --json number --jq '.[0].number // empty')"
+          if [[ -z "$EXISTING" ]]; then
+            gh issue create --title "$TITLE" --body "$BODY"
+          fi
