@@ -64,9 +64,13 @@ Les contrôles couvrent : architecture, contrat d'automatisation, contrat de can
 
 La PR auto/YYYY-Sxx ne doit être fusionnée que lorsque les contrôles obligatoires sont verts.
 
-Après fusion, la semaine est encore un brouillon sur main. Le workflow promote-validated-week.yml reprend la semaine depuis le nom de branche, rejoue les validations, reteste les images distantes, reteste Chromium et le modèle Fire TV puis, seulement si tout passe, exécute scripts/promote-week.mjs.
+Après fusion de la PR auto/YYYY-Sxx, la semaine est encore un brouillon sur main. Le workflow promote-validated-week.yml reprend alors la semaine depuis le nom de branche, rejoue les validations, reteste les images distantes, Chromium, Jellyfin Web et le modèle Fire TV, puis simule localement scripts/promote-week.mjs. Ce workflow ne pousse plus rien sur main.
 
-La promotion seule change manifest.latest, le statut du manifeste et publication_status. Si un contrôle échoue, l'ancien numéro reste public. En complément, guard-direct-publication.yml surveille les pushes humains sur main : toute modification directe de manifest.latest est restaurée automatiquement et signalée. Ce garde-fou applicatif complète, mais ne remplace pas, une ruleset GitHub native.
+Si cette revalidation post-fusion est verte, le producteur crée une seconde branche promote/YYYY-Sxx depuis le main courant. Cette branche ne modifie que data/manifest.json et data/weeks/YYYY-Sxx.json selon la transition atomique produite par promote-week.mjs : manifest.latest devient YYYY-Sxx, le statut de l'entrée passe à published et publication_status passe à published. Une seconde PR vers main est alors ouverte. Elle doit elle aussi passer les contrôles obligatoires avant fusion.
+
+Ainsi, même la promotion finale respecte la protection native de main : aucun bypass n'est nécessaire. Si un contrôle échoue à l'une des deux étapes, l'ancien numéro reste public.
+
+guard-direct-publication.yml constitue une défense supplémentaire : il accepte seulement une transition exacte de deux fichiers, draft vers published, et traite toute autre modification de manifest.latest comme non conforme.
 
 ## Web, Jellyfin Web et Fire TV
 
@@ -82,6 +86,6 @@ Le registre Vu du navigateur classique reste local au navigateur. Les identifian
 
 ## Surveillance et échec
 
-Le watchdog GitHub s'exécute le samedi à 10:00 UTC, après la fenêtre de retry. Il vérifie que le numéro samedi-vendredi attendu est publié ou qu'une PR auto/YYYY-Sxx existe encore comme état récupérable. Un numéro manquant ou un brouillon bloqué provoque une issue d'alerte.
+Le watchdog GitHub s'exécute le samedi à 10:00 UTC, après la fenêtre de retry. Il vérifie que le numéro samedi-vendredi attendu est publié ou qu'une PR auto/YYYY-Sxx / promote/YYYY-Sxx existe encore comme état récupérable. Un numéro manquant ou un brouillon bloqué provoque une issue d'alerte.
 
 Si une source devient inaccessible, incomplète ou ambiguë : essayer une source indépendante, consigner la dégradation et conserver le numéro en draft si les seuils minimaux ne sont plus démontrables. Ne jamais inventer pour faire passer le CI.
