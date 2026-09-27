@@ -45,6 +45,7 @@ if(!seen.has(manifest.latest))fail('latest ne correspond à aucune semaine du ma
 // Cross-client routing contract: GitHub Pages, Jellyfin Web and Android TV must
 // all follow manifest.latest instead of pinning a specific week.
 const latestEntry=(manifest.weeks||[]).find(x=>x.week===manifest.latest);
+if(latestEntry?.status==='draft')fail('manifest.latest pointe vers un numéro marqué draft : '+manifest.latest);
 if(latestEntry){
  const latestShellPath=path.join(root,latestEntry.path,'index.html');
  if(!fs.existsSync(latestShellPath))fail('Coquille du dernier numéro manquante : '+latestShellPath);
