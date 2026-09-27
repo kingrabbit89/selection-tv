@@ -38,6 +38,18 @@ Chaque ligne d'inventaire conserve title, start, channel, source et source_url. 
 
 Une seconde source indépendante et une passe de rappel éditoriale sont obligatoires. Télérama peut servir à détecter des omissions mais son jugement ne doit pas être copié.
 
+## Prospection documentaire et exigence critique
+
+À partir de S42, appliquer `documentary_discovery` dans `data/editorial-config.json`. Le producteur effectue une passe dédiée Arte, France 5, France 2/3/4 et france.tv, puis TV5MONDE et les autres sources pertinentes. Examiner grille, replay, disponibilité anticipée, exclusivités numériques et départs prochains : une lecture des seules grilles cinéma ne suffit pas. Couvrir aussi bien les documentaires de création que l’histoire, les archives, les arts, les sciences et les enquêtes. Ne pas assimiler automatiquement une fiction historique ou un magazine récurrent à un documentaire recommandable.
+
+Pour chaque recommandation documentaire et réserve, consigner dans le bilan de couverture les preuves de l’intérêt propre du film : critique indépendante argumentée (à privilégier), réception contradictoire éventuelle, distinction ou sélection précisément identifiée, démarche et matériaux vérifiables. Un résumé promotionnel, une chaîne reconnue ou un sujet important ne prouvent pas la qualité du traitement. Ne pas inventer de consensus à partir d’une seule critique, ni traiter deux reprises de la même dépêche comme deux avis indépendants.
+
+L’absence de note IMDb/SensCritique ne disqualifie pas à elle seule un documentaire télévisé. Rechercher sa réception, tracer les sources, puis distinguer réception établie et découverte motivée aux preuves plus limitées. Les notes disponibles restent renseignées avec leurs sources ; les motifs d’absence respectent les contrôles existants. Un film dont l’intérêt reste insuffisamment étayé n’est pas publié pour remplir le numéro.
+
+Garder une dominante cinéma sans imposer un quota chiffré ni exclure un documentaire exceptionnel. Les trois choix quotidiens développés restent hiérarchisés ; les autres propositions fortes enrichissent les grilles commentées, le replay et les réserves complètes. Viser les quinze candidats complets prévus lorsque l’offre le permet. Dédupliquer les œuvres, rediffusions et collections entre rubriques ; vérifier le bilan des principaux, des compléments et des réserves séparément pour éviter une surreprésentation masquée.
+
+La passe doit laisser une trace dans `data/coverage/YYYY-Sxx.json` : diffuseurs/offres consultés et pages exactes, candidats documentaires examinés, décision et justification sourcée, limites de collecte, répartition des œuvres distinctes. Une semaine pauvre en propositions fortes doit être expliquée, jamais compensée par des titres faibles ou des preuves fictives. Ce bilan est une exigence de recherche et de revue éditoriale ; le CI ne certifie pas la valeur artistique ni la véracité des critiques.
+
 ## Enrichissement
 
 Tout programme retenu, y compris une réserve ou une ligne de grille commentée, doit être prêt pour le Web et Fire TV.
