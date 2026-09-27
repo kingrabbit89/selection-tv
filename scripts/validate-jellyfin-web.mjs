@@ -133,18 +133,18 @@ try{
   const childReferrer=await child.evaluate(()=>document.referrer);
   assert.match(childReferrer,/kingrabbit89\.github\.io\/selection-tv\/latest\.html/,'weekly page must reproduce the same-origin latest.html referrer');
 
-  await child.locator('.jellyfin-actions').waitFor({state:'attached'});
-  await child.locator('.jellyfin-pill.played').waitFor({state:'visible'});
-  assert.equal(await child.locator('.jellyfin-pill.played').textContent(),'✓ Vu dans Jellyfin');
-  assert.equal(await child.locator('.jellyfin-pill.quality').textContent(),'1080p');
-  assert.equal(await child.locator('.jellyfin-open').textContent(),'Ouvrir dans Jellyfin');
+  await child.locator('article.feature .jellyfin-actions').waitFor({state:'attached'});
+  await child.locator('article.feature .jellyfin-pill.played').waitFor({state:'visible'});
+  assert.equal(await child.locator('article.feature .jellyfin-pill.played').textContent(),'✓ Vu dans Jellyfin');
+  assert.equal(await child.locator('article.feature .jellyfin-pill.quality').textContent(),'1080p');
+  assert.equal(await child.locator('article.feature .jellyfin-open').textContent(),'Ouvrir dans Jellyfin');
 
   await child.locator('.jellyfin-private-uploads-page').waitFor({state:'attached'});
   assert.match(await child.locator('.jellyfin-private-uploads-page').first().textContent(),/Vos Uploads|uploads des dernières 24 heures/,'private uploads section must survive the latest.html redirect handshake');
 
   // Simulate a stale persisted UUID while keeping the exact request metadata
   // emitted by the real child bridge. The wrapper must recover the live item.
-  await child.locator('.jellyfin-open').evaluate(button=>{
+  await child.locator('article.feature .jellyfin-open').evaluate(button=>{
     const original=button.onclick;
     button.onclick=null;
     parent.postMessage({
