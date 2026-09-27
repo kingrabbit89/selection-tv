@@ -90,7 +90,7 @@
   var libraryIndexRefreshPromise=null;
   var libraryDetailCache=new Map();
   var persistentMatches=null;
-  var LIBRARY_CACHE_VERSION=3;
+  var LIBRARY_CACHE_VERSION=4;
   var LIBRARY_CACHE_TTL=12*60*60*1000;
   var MATCH_CACHE_TTL=30*24*60*60*1000;
 
@@ -157,7 +157,7 @@
       var imdb=imdbOf(item);
       var tmdb=tmdbOf(item);
       if(imdb)pushMap(index.byImdb,imdb,item);
-      if(tmdb)pushMap(index.byTmdb,tmdb,item);
+      if(tmdb&&String(item.Type||item.type||'').toLowerCase()==='movie')pushMap(index.byTmdb,tmdb,item);
       [item.Name,item.name,item.OriginalTitle,item.originalTitle].filter(Boolean).forEach(function(name){
         pushMap(index.byName,norm(name),item);
       });
@@ -360,11 +360,11 @@
 
     if(reqImdb){
       var byImdb=uniqueItems(index.byImdb.get(reqImdb));
-      if(byImdb.length)return byImdb[0];
+      if(byImdb.length)return byImdb.length===1?byImdb[0]:null;
     }
     if(reqTmdb){
       var byTmdb=uniqueItems(index.byTmdb.get(reqTmdb));
-      if(byTmdb.length)return byTmdb[0];
+      if(byTmdb.length)return byTmdb.length===1?byTmdb[0]:null;
     }
 
     var names=titleCandidates(req.title).map(norm).filter(Boolean);
@@ -380,7 +380,7 @@
       var exactYear=candidates.filter(function(item){
         return (Number(item.ProductionYear||item.productionYear)||0)===reqYear;
       });
-      if(exactYear.length)return exactYear[0];
+      if(exactYear.length)return exactYear.length===1?exactYear[0]:null;
 
       var nearYear=candidates.filter(function(item){
         var y=Number(item.ProductionYear||item.productionYear)||0;
@@ -398,7 +398,8 @@
     var a=api();
     var id=item.Id||item.id;
     if(!id)return item;
-    var cachedDetail=libraryDetailCache.get(id);
+    var detailKey=cacheIdentity()+"|"+id;
+    var cachedDetail=libraryDetailCache.get(detailKey);
     if(cachedDetail&&Date.now()-cachedDetail.at<60000)return cachedDetail.promise;
 
     var promise=(async function(){
@@ -413,12 +414,12 @@
         if(!items.length)throw new Error("Jellyfin detail unavailable");
         return items[0];
       }catch(e){
-        libraryDetailCache.delete(id);
+        libraryDetailCache.delete(detailKey);
         throw e;
       }
     })();
 
-    libraryDetailCache.set(id,{promise:promise,at:Date.now()});
+    libraryDetailCache.set(detailKey,{promise:promise,at:Date.now()});
     return promise;
   }
 
@@ -490,7 +491,7 @@
     var itemTmdb=tmdbOf(item);
 
     if(req.imdbId&&itemImdb&&itemImdb===String(req.imdbId).toLowerCase())score+=1000;
-    if(req.tmdbId&&itemTmdb&&itemTmdb===String(req.tmdbId))score+=900;
+    if(req.tmdbId&&itemTmdb&&itemTmdb===String(req.tmdbId)&&String(item.Type||item.type||'').toLowerCase()==='movie')score+=900;
 
     targetNames.forEach(function(t,idx){
       if(names.indexOf(t)!==-1)score=Math.max(score,160-idx*8);
@@ -769,17 +770,18 @@
   var privateBusy=false;
   var lastPrivatePayload=null;
   var localSearchCache=new Map();
-  var PRIVATE_CACHE_KEY='selectionTv_private_enriched_v1';
+  var PRIVATE_CACHE_KEY='selectionTv_private_enriched_v2';
+  function privateCacheKey(){var a=api();return PRIVATE_CACHE_KEY+'|'+String(a&&a.serverAddress&&a.serverAddress()||location.origin)+'|'+String(a&&a.getCurrentUserId&&a.getCurrentUserId()||'')}
 
   function loadEnrichedCache(){
     try{
-      var parsed=JSON.parse(sessionStorage.getItem(PRIVATE_CACHE_KEY)||'{}');
+      var parsed=JSON.parse(sessionStorage.getItem(privateCacheKey())||'{}');
       return parsed&&typeof parsed==='object'?parsed:{};
     }catch(e){return {}}
   }
 
   function saveEnrichedCache(cache){
-    try{sessionStorage.setItem(PRIVATE_CACHE_KEY,JSON.stringify(cache))}catch(e){}
+    try{sessionStorage.setItem(privateCacheKey(),JSON.stringify(cache))}catch(e){}
   }
 
   function uploadCacheKey(upload){
@@ -1295,6 +1297,7 @@
       }
     }catch(err){
       console.warn('Selection TV private uploads unavailable',err);
+      if(status){status.textContent='Vos Uploads indisponible · réessai automatique';status.className='selectionTvBridgeStatus err'}
     }finally{
       privateBusy=false;
     }

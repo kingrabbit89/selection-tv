@@ -492,6 +492,14 @@ try{
  await page.emulateMedia({media:'screen'});
  console.log('✓ S41 one-page grid, save/seen/undo, personalized widths and print');
 
+ // Old canonical IDs remain valid as URLs and as saved seen keys.
+ await page.evaluate(()=>{localStorage.clear();localStorage.setItem('selectionTV_seen_v2',JSON.stringify({'the-mandalorian-and-grogu-2026':{title:'Star Wars: The Mandalorian and Grogu'}}))});
+ await page.goto(`${origin}/oeuvre.html?id=the-mandalorian-and-grogu-2026`,{waitUntil:'domcontentloaded'});
+ await page.waitForSelector('#seenWorkButton');
+ assert.equal(await page.locator('#seenStatusLabel').textContent(),'Vu','legacy ID must resolve to canonical seen work');
+ await page.locator('#seenWorkButton').click();
+ assert.equal(await page.locator('#seenStatusLabel').textContent(),'Non vu','undo must remove the legacy seen alias');
+
  // Permanent state still propagates between catalogue and work page.
  await page.evaluate(()=>localStorage.clear());
  await page.goto(`${origin}/catalogue.html`,{waitUntil:'domcontentloaded'});

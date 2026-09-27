@@ -452,7 +452,7 @@ class SelectionTvFragment : Fragment() {
 
 			providerId(item, "tmdb")
 				.takeIf { it.isNotBlank() }
-				?.let { byTmdb.putIfAbsent(it, item) }
+				?.let { if (item.type == BaseItemKind.MOVIE) byTmdb.putIfAbsent(it, item) }
 
 			itemNames(item)
 				.asSequence()
@@ -623,7 +623,7 @@ class SelectionTvFragment : Fragment() {
 
 		if (reqTmdb.isNotBlank()) {
 			items.firstOrNull { item ->
-				providerId(item, "tmdb") == reqTmdb
+				item.type == BaseItemKind.MOVIE && providerId(item, "tmdb") == reqTmdb
 			}?.let { return it }
 		}
 
@@ -800,7 +800,7 @@ class SelectionTvFragment : Fragment() {
 		) score += 1000
 
 		if (!request.tmdbId.isNullOrBlank() && itemTmdb.isNotBlank() &&
-			itemTmdb == request.tmdbId
+			itemTmdb == request.tmdbId && item.type == BaseItemKind.MOVIE
 		) score += 900
 
 		targetNames.forEachIndexed { index, target ->

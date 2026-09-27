@@ -10,10 +10,7 @@
   const clean=s=>String(s||'').replace(/\s+/g,' ').trim();
   const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
   const SELECTOR='article.week-card,article.feature,article.list-card,article.platform:not(.jellyfin-private-upload),article.release-card,article.expire-card,article.radar-card,article.torrent-card,table.schedule tbody tr';
-  const CACHE_KEY='selectionTv_androidtv_matches_v3';
-  const LEGACY_CACHE_KEY='selectionTv_androidtv_matches_v2';
-  const POSITIVE_TTL=30*24*60*60*1000;
-  const NEGATIVE_TTL=24*60*60*1000;
+    const POSITIVE_TTL=30*24*60*60*1000;
   const QUICK_CONCURRENCY=2;
   const DEEP_CONCURRENCY=2;
   const NAVIGATION_QUIET_MS=420;
@@ -532,13 +529,14 @@
     requestAnimationFrame(()=>{rebuildNeighbors();if(lostFocus&&next[0])focusModel(next[0])});
     scheduleStatus();
   };
-  const refreshPersonalizedRow=(row,claimed=new Set())=>{
+  const refreshPersonalizedRow=(row,claimed=new Set(),primaries=new Set())=>{
+    if(detectedAndroidProtocol>0&&!androidBridgeCompatible)return;
     if(!row?.personalized||!row.grid)return;
     const target=Number(row.target||3);
     const selected=[];
     const used=new Set();
     const take=m=>{
-      if(!m||used.has(m.titleKey)||claimed.has(m.titleKey))return false;
+      if(!m||used.has(m.titleKey)||claimed.has(m.titleKey)||(m.isReserve&&primaries.has(m.titleKey)))return false;
       selected.push(m);used.add(m.titleKey);return true;
     };
 
@@ -574,7 +572,11 @@
     selected.forEach(m=>claimed.add(m.titleKey));
     renderRowModels(row,selected.slice(0,target));
   };
-  const refreshPersonalizedRows=()=>{const families=new Map();for(const row of personalizedRows){const key=row.family||row.pageId;if(!families.has(key))families.set(key,new Set());refreshPersonalizedRow(row,families.get(key))}};
+  const refreshPersonalizedRows=()=>{
+    const families=new Map();
+    for(const row of personalizedRows){const key=row.family||row.pageId;if(!families.has(key))families.set(key,{used:new Set(),primaries:new Set()});for(const m of row.baseModels||[])if(m.played!==true)families.get(key).primaries.add(m.titleKey)}
+    for(const row of personalizedRows){const family=families.get(row.family||row.pageId);refreshPersonalizedRow(row,family.used,family.primaries)}
+  };
 
   const buildShell=()=>{
     const shell=document.createElement('main');shell.className='stv-tv-shell';
@@ -606,7 +608,7 @@
   const beginPending=(model,kind,timeoutMs)=>{
     const key=pendingKey(model,kind);
     const previous=pendingLookups.get(key);
-    if(previous?.timer)clearTimeout(previous.timer);
+    if(previous?.timer){clearTimeout(previous.timer);wireRequests.delete(previous.wireKey)}
     const token={kind,timer:null,wireKey:model.key+'|request:'+String(++requestSequence)};
     model.requestKey=token.wireKey;wireRequests.set(token.wireKey,model);
     token.timer=setTimeout(()=>{
@@ -768,6 +770,7 @@
     const model=wireRequests.get(result?.key)||byKey.get(result?.key);if(!model)return;
     finishPending(model,'manual');
     if(result.error){
+      model.played=null;model.sessionVerified=false;model.retryAfter=Date.now()+60000;
       model.debug='Échec recherche Jellyfin : '+String(result.errorType||result.error||'erreur inconnue');
       model.state='unknown';
     }else if(result.found){
