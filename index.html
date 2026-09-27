@@ -19,6 +19,7 @@ h1{font-family:Georgia,serif;color:#fff;font-size:54px;margin:0 0 8px;line-heigh
 .feature{display:grid;grid-template-columns:minmax(280px,1.1fr) 1fr;background:#f8f4ec;border-radius:2px;overflow:hidden;box-shadow:none;color:#24262b;border:1px solid #ffffff1a}
 .feature img{width:100%;height:360px;object-fit:cover;background:#111;filter:saturate(.9) contrast(1.04)}
 .feature .copy{padding:34px;display:flex;flex-direction:column;justify-content:center}
+.feature.no-image{grid-template-columns:1fr}
 .badge{display:inline-block;align-self:flex-start;background:var(--accent);color:white;padding:6px 9px;border-radius:2px;font-size:11px;font-weight:900;letter-spacing:.08em}
 h2{font-family:Georgia,serif;font-size:34px;line-height:1.05;color:var(--ink);margin:12px 0}
 .meta{font-weight:800;font-size:14px;color:var(--muted);margin-bottom:15px}
@@ -84,9 +85,12 @@ const STORE='selectionTV_saved_v1',norm=s=>(s||'').toLowerCase().normalize('NFD'
 let saved={};try{saved=JSON.parse(localStorage.getItem(STORE)||'{}')}catch(e){}
 const titles=new Set(Object.values(saved).map(x=>norm(x.title)));
 Promise.all([fetch('data/manifest.json').then(r=>r.json()),fetch('data/releases.json').then(r=>r.json())]).then(([m,d])=>{
- const latest=m.weeks.find(w=>w.week===m.latest)||m.weeks[0];
- document.getElementById('currentWeek').innerHTML='<article class="feature"><img src="'+esc(latest.hero_image)+'" alt="'+esc(latest.hero_title)+'"><div class="copy"><span class="badge">'+esc(latest.short)+'</span><h2>'+esc(latest.range)+'</h2><div class="meta">'+esc(latest.hero_title)+' · '+esc(latest.hero_meta)+'</div><p>Rendez-vous de la semaine, replay, plateformes, sorties physiques et streaming, radar 1080p, puis sélection jour par jour.</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="button" href="'+esc(latest.path)+'">Ouvrir le numéro →</a><a class="button" style="background:#fff;color:var(--ink);border:1px solid var(--line)" href="a-recuperer.html">Retrouver mes choix</a></div></div></article>';
- document.getElementById('archiveList').innerHTML=m.weeks.map(w=>'<div class="row"><div><b>'+esc(w.short)+' · '+esc(w.week.slice(0,4))+'</b></div><div><a href="'+esc(w.path)+'">'+esc(w.range)+'</a><div class="small">'+w.page_count+' pages · '+(w.theme==='magazine'?'revue cinéma':'archive')+'</div></div><div class="status">DISPONIBLE</div></div>').join('');
+ const publicWeeks=(m.weeks||[]).filter(w=>w.status!=='draft');
+ const latest=publicWeeks.find(w=>w.week===m.latest)||publicWeeks[0];
+ if(!latest)throw new Error('Aucun numéro publié');
+ const hero=latest.hero_image?'<img src="'+esc(latest.hero_image)+'" alt="'+esc(latest.hero_title)+'">':'';
+ document.getElementById('currentWeek').innerHTML='<article class="feature'+(hero?'':' no-image')+'">'+hero+'<div class="copy"><span class="badge">'+esc(latest.short)+'</span><h2>'+esc(latest.range)+'</h2><div class="meta">'+esc(latest.hero_title)+' · '+esc(latest.hero_meta)+'</div><p>Rendez-vous de la semaine, replay, plateformes, sorties physiques et streaming, radar 1080p, puis sélection jour par jour.</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="button" href="'+esc(latest.path)+'">Ouvrir le numéro →</a><a class="button" style="background:#fff;color:var(--ink);border:1px solid var(--line)" href="a-recuperer.html">Retrouver mes choix</a></div></div></article>';
+ document.getElementById('archiveList').innerHTML=publicWeeks.map(w=>'<div class="row"><div><b>'+esc(w.short)+' · '+esc(w.week.slice(0,4))+'</b></div><div><a href="'+esc(w.path)+'">'+esc(w.range)+'</a><div class="small">'+w.page_count+' pages · '+(w.theme==='magazine'?'revue cinéma':'archive')+'</div></div><div class="status">DISPONIBLE</div></div>').join('');
  const hits=[];d.streaming.forEach(x=>titles.has(norm(x.work))&&hits.push(x.work+' arrive sur '+x.platform+' le '+x.date));d.physical.forEach(x=>titles.has(norm(x.work))&&hits.push(x.work+' : '+x.format+' le '+x.label));d.expirations.forEach(x=>titles.has(norm(x.work))&&hits.push(x.work+' quitte '+x.platform+' le '+x.date));if(hits.length)document.getElementById('homeAlerts').innerHTML='<div class="home-alert"><b>Alertes sur ta liste</b>'+hits.map(x=>'<div>'+esc(x)+'</div>').join('')+'</div>';
 }).catch(()=>{document.getElementById('currentWeek').innerHTML='<div class="note">Impossible de charger le manifeste des numéros.</div>'});
 })();
