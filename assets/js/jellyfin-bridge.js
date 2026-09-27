@@ -399,7 +399,7 @@
   // can safely be delivered.
   try{
     PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},TARGET_ORIGIN);
-    setTimeout(()=>PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},'*'),500);
-    setTimeout(()=>PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},'*'),1800);
+    setTimeout(()=>PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},TARGET_ORIGIN),500);
+    setTimeout(()=>PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},TARGET_ORIGIN),1800);
   }catch{}
 })();
