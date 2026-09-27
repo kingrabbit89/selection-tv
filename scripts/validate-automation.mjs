@@ -1,5 +1,7 @@
 import fs from 'node:fs';
 import {execFileSync} from 'node:child_process';
+import os from 'node:os';
+import path from 'node:path';
 
 const read=p=>fs.readFileSync(p,'utf8');
 const json=p=>JSON.parse(read(p));
@@ -79,6 +81,75 @@ if(fs.existsSync('scripts/next-target.mjs')){
   if(sep.week!=='2026-S41'||sep.from!=='2026-10-03')bad('calendar target regression for 2026-09-27');
   if(oct.week!=='2026-S42'||oct.from!=='2026-10-10')bad('calendar target regression for 2026-10-04');
 }
+
+function testCandidateTransaction(){
+  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'selection-tv-auto-'));
+  const write=(p,obj)=>{
+    const full=path.join(dir,p);
+    fs.mkdirSync(path.dirname(full),{recursive:true});
+    fs.writeFileSync(full,typeof obj==='string'?obj:JSON.stringify(obj,null,2)+'\n');
+  };
+  try{
+    const editorial=json('data/editorial-config.json');
+    const automation=json('data/automation-config.json');
+    write('data/editorial-config.json',editorial);
+    write('data/automation-config.json',automation);
+    write('data/manifest.json',{
+      latest:'2026-S41',
+      weeks:[
+        {week:'2026-S42',from:'2026-10-10',to:'2026-10-16',status:'draft',page_count:1},
+        {week:'2026-S41',from:'2026-10-03',to:'2026-10-09',status:'published',page_count:1}
+      ]
+    });
+    write('data/weeks/2026-S42.json',{
+      week:'2026-S42',page_count:1,publication_status:'draft',pages:[{id:'couverture',html:'<div></div>'}]
+    });
+    const channels=editorial.required_core_channels;
+    const days=[];
+    const coverageDays=[];
+    for(let d=0;d<7;d++){
+      const date=new Date(Date.UTC(2026,9,10+d)).toISOString().slice(0,10);
+      const items=channels.map((channel,i)=>({
+        title:'Fixture '+d+' '+i,
+        channel,
+        start:i===0?'00:30':'12:'+String(i%60).padStart(2,'0'),
+        source:'fixture',
+        source_url:'https://example.com/'+d+'/'+i
+      }));
+      while(items.length<30){
+        const i=items.length;
+        items.push({title:'Extra '+d+' '+i,channel:channels[0],start:'15:'+String(i%60).padStart(2,'0'),source:'fixture',source_url:'https://example.com/extra/'+d+'/'+i});
+      }
+      const counts=Object.fromEntries(channels.map(c=>[c,items.filter(x=>x.channel===c).length]));
+      const sources=Object.fromEntries(channels.map(c=>[c,['https://example.com/grid/'+encodeURIComponent(c)+'/'+date]]));
+      days.push({date,channels_scanned:channels,source_pages:['https://example.com/a/'+date,'https://example.com/b/'+date],channel_sources:sources,channel_counts:counts,items});
+      coverageDays.push({date});
+    }
+    write('data/inventory/2026-S42.json',{week:'2026-S42',days});
+    write('data/coverage/2026-S42.json',{week:'2026-S42',full_week_reaudit_completed:true,days:coverageDays});
+    write('data/radar-reserves/2026-S42.json',{week:'2026-S42'});
+    write('semaines/2026-S42/index.html','<body data-week="2026-S42"></body>');
+
+    execFileSync(process.execPath,[path.resolve('scripts/validate-publication-candidate.mjs')],{
+      cwd:dir,stdio:'pipe',
+      env:{...process.env,SELECTION_TV_VALIDATE_WEEK:'2026-S42',SELECTION_TV_CANDIDATE:'1',GITHUB_HEAD_REF:'auto/2026-S42'}
+    });
+    const before=JSON.parse(fs.readFileSync(path.join(dir,'data/manifest.json'),'utf8'));
+    if(before.latest!=='2026-S41'||before.weeks[0].status!=='draft')bad('candidate validator mutated publication state');
+
+    execFileSync(process.execPath,[path.resolve('scripts/promote-week.mjs'),'2026-S42'],{cwd:dir,stdio:'pipe',env:process.env});
+    const after=JSON.parse(fs.readFileSync(path.join(dir,'data/manifest.json'),'utf8'));
+    const promoted=JSON.parse(fs.readFileSync(path.join(dir,'data/weeks/2026-S42.json'),'utf8'));
+    if(after.latest!=='2026-S42'||after.weeks[0].status!=='published'||promoted.publication_status!=='published'){
+      bad('promotion transaction did not atomically expose the candidate');
+    }
+  }catch(err){
+    bad('candidate/promotion fixture failed: '+String(err?.stderr||err?.message||err));
+  }finally{
+    fs.rmSync(dir,{recursive:true,force:true});
+  }
+}
+if(fs.existsSync('scripts/validate-publication-candidate.mjs')&&fs.existsSync('scripts/promote-week.mjs'))testCandidateTransaction();
 
 if(fail.length){
   fail.forEach(x=>console.error('✗ '+x));
