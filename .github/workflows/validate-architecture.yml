@@ -40,7 +40,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: node scripts/verify-promotion-attestation.mjs "${GITHUB_HEAD_REF#promote/}" "$BASE_SHA"
-      - run: node --test scripts/test-promotion-transition.mjs scripts/test-editorial-contracts.mjs scripts/test-week-calendar.mjs scripts/test-weekly-watchdog.mjs
+      - run: node --test scripts/test-promotion-transition.mjs scripts/test-editorial-contracts.mjs scripts/test-week-calendar.mjs scripts/test-weekly-watchdog.mjs scripts/test-hybrid-workflow.mjs
       - run: node scripts/validate-automation.mjs
       - run: node scripts/validate-canonical-identities.mjs
       - run: node scripts/sync-asset-versions.mjs --check

@@ -1,0 +1,32 @@
+name: Import editorial handoff
+on:
+  workflow_dispatch:
+    inputs:
+      bundle_ref:
+        description: 'Branch handoff/NAME containing handoffs/YYYY-Sxx.json'
+        type: string
+        required: true
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: weekly-editorial-import
+  cancel-in-progress: false
+jobs:
+  import:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Import data on protected candidate path
+        env:
+          GH_TOKEN: ${{ secrets.WEEKLY_PUBLISH_TOKEN || github.token }}
+          BUNDLE_REF: ${{ inputs.bundle_ref }}
+        run: node scripts/import-editorial-handoff.mjs
