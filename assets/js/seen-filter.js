@@ -18,10 +18,10 @@ const candidateByTitle=new Map();
 for(const pool of poolList)for(const c of pool.candidates||[])if(!candidateByTitle.has(norm(c.title)))candidateByTitle.set(norm(c.title),c);
 
 function seenKey(title,workId){return workId||('title:'+norm(title))}
-function workIdForTitle(title){return candidateByTitle.get(norm(title))?.work_id||null}
+function workIdForTitle(title){return candidateByTitle.get(norm(title))?.work_id||window.SelectionTVImageFor?.(title)?.id||null}
 function isSeen(title,workId){
  const s=loadSeen(),k=seenKey(title,workId||workIdForTitle(title));
- if(s[k])return true;
+ if(s[k]||s['title:'+norm(title)])return true;
  const legacy=loadStore()[norm(title)];
  return legacy?.status==='vu';
 }
@@ -37,7 +37,7 @@ function migrateLegacy(){
 function setSeen(title,workId,meta={}){
  const key=norm(title),saved=loadStore(),cur=saved[key],seen=loadSeen(),sid=seenKey(title,workId||workIdForTitle(title));
  if(isSeen(title,workId)){
-   delete seen[sid];
+   delete seen[sid];delete seen['title:'+norm(title)];
    if(cur?.status==='vu'){
      if(cur.previous_status){saved[key]={...cur,status:cur.previous_status};delete saved[key].previous_status}
      else delete saved[key];
@@ -104,7 +104,7 @@ function reserveEligible(c){
  return true;
 }
 function addReserveRatings(el,c){
- const r=window.SelectionTVRatings?.[c.title]||c.ratings;if(!r||el.querySelector('.ratings'))return;
+ const r=c.ratings||window.SelectionTVRatings?.[c.title];if(!r||el.querySelector('.ratings'))return;
  const box=document.createElement('div');box.className='ratings';
  const L=mergedLinks(c);
  if(r.imdb){
@@ -120,7 +120,7 @@ function addReserveRatings(el,c){
    if(L.sc){x.href=L.sc;x.target='_blank';x.rel='noopener'}
    box.append(x);
  }
- const d=document.createElement('span');d.className='rating-date';d.textContent='relevé 24/09/2026';box.append(d);
+ const d=document.createElement('span');d.className='rating-date';d.textContent=c.canonical_metadata?.ratings_checked?'relevé '+c.canonical_metadata.ratings_checked:'date de relevé non renseignée';box.append(d);
  if(el.matches('tr'))el.querySelector('.prog')?.append(box);
  else{
    const anchor=el.querySelector('.work-meta')||el.querySelector('.meta2')||el.querySelector('.torrent-meta')||el.querySelector('.slot')||el.querySelector('.where')||el.querySelector('h3');
@@ -131,7 +131,7 @@ function saveButton(box,c){
  const key=norm(c.title);let b=box.querySelector('button.save');
  if(!b){b=document.createElement('button');b.type='button';b.className='save';box.append(b)}
  const refresh=()=>{const x=loadStore()[key],on=(x?.status||'')==='a-recuperer';b.textContent=on?'✓ À récupérer':'＋ À récupérer';b.classList.toggle('saved',on)};
- b.onclick=()=>{const all=loadStore(),cur=all[key];if(cur?.status==='a-recuperer')delete all[key];else all[key]={...(cur||{}),title:c.title,work_id:c.work_id||null,context:[c.time,c.channel].filter(Boolean).join(' · '),badge:c.quality||'',page:document.title,url:location.href,added:new Date().toISOString(),status:'a-recuperer'};saveStore(all);refresh()};refresh();
+ b.onclick=()=>{const all=loadStore(),cur=all[key];if(cur?.status==='a-recuperer')delete all[key];else all[key]={...(cur||{}),title:c.title,work_id:c.work_id||null,context:c.context||[c.time,c.channel].filter(Boolean).join(' · '),badge:c.quality||c.badge||'',page:document.title,url:location.href,added:new Date().toISOString(),status:'a-recuperer'};saveStore(all);apply()};refresh();
 }
 function actionBox(article,c){
  addReserveRatings(article,c);
@@ -208,7 +208,7 @@ function applyPools(){
    }
    let replacements=0;
    if(personalized&&visible<pool.target){
-     for(const c of pool.candidates||[]){
+     for(const c of [...(pool.candidates||[])].sort((a,b)=>a.rank-b.rank)){
        if(visible>=pool.target)break;
        if(!reserveEligible(c))continue;
        if(primaryTitles.has(norm(c.title))||isSeen(c.title,c.work_id))continue;
@@ -229,16 +229,16 @@ const isDailyGridPageId=id=>GRID_DAYS.some(d=>id===d+'-grille'||id===d+'-grille-
 function ensureGridState(day){
  if(gridState.has(day))return gridState.get(day);
  const p1=document.getElementById(day+'-grille'),p2=document.getElementById(day+'-grille-2');
- if(!p1||!p2)return null;
- const b1=p1.querySelector('table.schedule tbody'),b2=p2.querySelector('table.schedule tbody');
- if(!b1||!b2)return null;
- const rows1=[...b1.querySelectorAll('tr')],rows2=[...b2.querySelectorAll('tr')];
+ if(!p1)return null;
+ const b1=p1.querySelector('table.schedule tbody'),b2=p2?.querySelector('table.schedule tbody');
+ if(!b1)return null;
+ const rows1=[...b1.querySelectorAll('tr')],rows2=[...(b2?.querySelectorAll('tr')||[])];
  const state={
    day,p1,p2,b1,b2,
    rows:[...rows1,...rows2],
    firstCount:rows1.length,
    title1:p1.querySelector('.grid-title')?.textContent||'',
-   title2:p2.querySelector('.grid-title')?.textContent||'',
+   title2:p2?.querySelector('.grid-title')?.textContent||'',
    generated:new Map()
  };
  gridState.set(day,state);return state;
@@ -259,15 +259,15 @@ function applyGridGroups(){
    const s=ensureGridState(day);if(!s)continue;
    const pool=(WEEK.personalization?.pools||{})[day+'-selection'];
    const originalByTitle=new Map(s.rows.map(r=>[norm(titleOf(r)),r]));
-   const title1=s.p1.querySelector('.grid-title'),title2=s.p2.querySelector('.grid-title');
+   const title1=s.p1.querySelector('.grid-title'),title2=s.p2?.querySelector('.grid-title');
    let note=s.p1.querySelector('.grid-seen-summary');
 
    if(!personalized){
      s.b1.replaceChildren(...s.rows.slice(0,s.firstCount));
-     s.b2.replaceChildren(...s.rows.slice(s.firstCount));
+     s.b2?.replaceChildren(...s.rows.slice(s.firstCount));
      for(const r of s.rows){r.classList.remove('seen-hidden');attachSeenButton(r)}
      for(const r of s.generated.values())r.remove();
-     s.p2.classList.remove('seen-page-hidden');
+     s.p2?.classList.remove('seen-page-hidden');
      if(title1)title1.textContent=s.title1;
      if(title2)title2.textContent=s.title2;
      if(note)note.remove();
@@ -284,9 +284,12 @@ function applyGridGroups(){
      selected.push(row);used.add(t);
    };
 
-   for(const c of pool?.candidates||[]){
+   // Keep the editorial grid order. Only fill gaps after filtering originals.
+   for(const row of s.rows)take(row);
+   const developed=new Set([...document.querySelectorAll('#'+day+'-selection article:not(.seen-hidden)')].map(el=>norm(titleOf(el))));
+   for(const c of [...(pool?.candidates||[])].sort((a,b)=>a.rank-b.rank)){
      if(selected.length>=target)break;
-     if(!reserveEligible(c))continue;
+     if(!reserveEligible(c)||developed.has(norm(c.title)))continue;
      const key=norm(c.title);let row=originalByTitle.get(key);
      if(!row){
        row=s.generated.get(key);
@@ -294,22 +297,18 @@ function applyGridGroups(){
      }
      take(row,c);
    }
-   for(const row of s.rows){
-     if(selected.length>=target)break;
-     take(row);
-   }
 
    s.b1.replaceChildren(...selected.slice(0,s.firstCount));
    const rest=selected.slice(s.firstCount);
-   s.b2.replaceChildren(...rest);
+   s.b2?.replaceChildren(...rest);
    const onePage=rest.length===0;
-   s.p2.classList.toggle('seen-page-hidden',onePage);
+   s.p2?.classList.toggle('seen-page-hidden',onePage);
    if(title1)title1.textContent=onePage?s.title1.replace(/\s*·\s*1\/2\s*$/,''):s.title1;
    if(title2)title2.textContent=s.title2;
 
    const hiddenOriginal=s.rows.filter(r=>isSeen(titleOf(r),workIdForTitle(titleOf(r)))).length;
    const replacements=selected.filter(r=>r.classList.contains('grid-reserve-generated')).length;
-   if(hiddenOriginal||replacements||onePage){
+   if(hiddenOriginal||replacements||(s.p2&&onePage)){
      if(!note){note=document.createElement('div');note.className='seen-summary grid-seen-summary';const anchor=s.p1.querySelector('.rule')||s.p1.querySelector('.topbar');anchor?.insertAdjacentElement('afterend',note)}
      let msg=hiddenOriginal+' recommandation'+(hiddenOriginal>1?'s':'')+' déjà vue'+(hiddenOriginal>1?'s':'')+' masquée'+(hiddenOriginal>1?'s':'');
      if(replacements)msg+=' · '+replacements+' remplacée'+(replacements>1?'s':'')+' par la réserve éditoriale';
@@ -368,12 +367,13 @@ function apply(){
    const inDailyGrid=el.matches('tr')&&isDailyGridPageId(pageId);
    if(!inPool&&!inDailyGrid)el.classList.toggle('seen-hidden',h&&isSeen(title,workIdForTitle(title)));
    attachSeenButton(el);
+   saveButton(el.querySelector('.program-actions'),{title,work_id:workIdForTitle(title),...metaOf(el)});
  }
  applyPools();applyGridGroups();syncRadar1080pSummary();updateSimpleSummaries();updateToggle();
  const c=document.getElementById('savedCount');if(c)c.textContent=Object.values(loadStore()).filter(x=>(x.status||'a-recuperer')==='a-recuperer').length;
  setTimeout(()=>{try{window.dispatchEvent(new Event('resize'))}catch(e){}},20);
 }
-window.addEventListener('storage',e=>{if([STORE,SEEN,PREF].includes(e.key))apply()});
+window.addEventListener('storage',e=>{if(e.key===null||[STORE,SEEN,PREF].includes(e.key))apply()});
 document.addEventListener('selectiontv:seenchange',()=>setTimeout(apply,0));
 apply();setTimeout(apply,300);setTimeout(apply,1200);
 })();

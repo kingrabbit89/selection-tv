@@ -72,7 +72,8 @@ fetch(jsonUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.st
            country:w.country||'',
            duration:w.duration||'',
            genre:w.genre||'',
-           ratings_unavailable_reason:w.ratings_unavailable_reason||''
+           ratings_unavailable_reason:w.ratings_unavailable_reason||'',
+           ratings_checked:w.ratings_checked||''
          };
        }
      }
@@ -90,7 +91,7 @@ fetch(jsonUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.st
        hydrateCandidates();
      }
    }catch(e){}
-   await addScript(root+'assets/js/seen-filter.js?v=20260927-reserves2');
+   await addScript(root+'assets/js/seen-filter.js?v=20260927-audit3');
  }
  await addScript(root+'assets/js/page-layout.js?v=20260926-jellyfin-scroll3');
 }).catch(err=>{document.body.innerHTML='<div style="padding:3rem;font-family:Arial;color:white;background:#171c23;min-height:100vh"><h1>Impossible de charger ce numéro</h1><p>'+esc(err.message)+'</p><p><a style="color:white" href="../../">Retour à l’accueil</a></p></div>'});
