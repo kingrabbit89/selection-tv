@@ -39,8 +39,13 @@ jobs:
           fi
 
           PR_URL="$(gh pr list --state open --head "$BRANCH" --json url --jq '.[0].url // empty')"
+          PROMOTION_URL="$(gh pr list --state open --head "promote/$WEEK" --json url --jq '.[0].url // empty')"
           if [[ -n "$PR_URL" ]]; then
             echo "Candidate PR exists: $PR_URL"
+            exit 0
+          fi
+          if [[ -n "$PROMOTION_URL" ]]; then
+            echo "Promotion PR exists: $PROMOTION_URL"
             exit 0
           fi
 
