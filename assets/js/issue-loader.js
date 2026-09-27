@@ -9,6 +9,11 @@ const addScript=src=>new Promise((resolve,reject)=>{const s=document.createEleme
 const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 fetch(jsonUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}).then(async d=>{
  window.SELECTION_TV_WEEK_DATA=d;
+ if(d.publication_status==='draft'){
+   document.title=d.title||('Sélection TV — '+week+' · en cours');
+   document.body.innerHTML='<div style="min-height:100vh;background:#171c23;color:#f8f4ec;display:grid;place-items:center;padding:2rem;font-family:Inter,Arial,sans-serif"><main style="max-width:680px;background:#f8f4ec;color:#172238;padding:2rem 2.25rem;border-top:5px solid #b53d4b"><div style="font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#b53d4b">'+esc(d.short||week)+'</div><h1 style="font-family:Georgia,serif;margin:.45rem 0 1rem">Numéro en cours de correction</h1><p style="line-height:1.55">Cette édition a été retirée du flux public après un contrôle qualité. Le dernier numéro validé reste accessible depuis l’accueil.</p><p><a href="../../" style="color:#172238;font-weight:800">← Retour à l’accueil</a></p></main></div>';
+   return;
+ }
  if(!androidTv){
    try{
      const lr=await fetch(root+'data/links.json?v=20260924-exactlinks4',{cache:'no-store'});
