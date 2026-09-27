@@ -5,11 +5,12 @@
     "orchestrator": "external-research-agent",
     "scheduled_day": "Thursday",
     "scheduled_time_local": "08:00",
-    "target_rule": "Generate the next Saturday-Friday issue after manifest.latest.",
+    "target_rule": "Generate the upcoming Saturday-Friday issue in Europe/Paris using scripts/next-target.mjs; on Saturday use that same day.",
     "branch_prefix": "auto/",
     "candidate_manifest_status": "draft",
     "candidate_publication_status": "draft",
-    "never_promote_before_green_ci": true
+    "never_promote_before_green_ci": true,
+    "missed_cycle_policy": "Skip unpublished obsolete cycles; keep latest unchanged until the current calendar candidate passes every gate. Never generate backlog editions."
   },
   "review": {
     "scheduled_day": "Friday",
@@ -61,8 +62,8 @@
     "direct_main_push_required": false
   },
   "android_tv": {
-    "bridge_protocol": 2,
-    "minimum_supported_bridge_protocol": 2,
+    "bridge_protocol": 3,
+    "minimum_supported_bridge_protocol": 3,
     "weekly_content_requires_apk_rebuild": false,
     "upstream_repo": "jellyfin/jellyfin-androidtv",
     "upstream_tag": "v0.20.0-beta.3",

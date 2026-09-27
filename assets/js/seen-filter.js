@@ -17,7 +17,8 @@ const poolPageIds=new Set(poolList.map(p=>p.page_id));
 const candidateByTitle=new Map();
 for(const pool of poolList)for(const c of pool.candidates||[])if(!candidateByTitle.has(norm(c.title)))candidateByTitle.set(norm(c.title),c);
 
-function seenKey(title,workId){return workId||('title:'+norm(title))}
+const canonicalId=id=>id==='the-mandalorian-and-grogu-2026'?'star-wars-the-mandalorian-and-grogu':id;
+function seenKey(title,workId){return canonicalId(workId)||('title:'+norm(title))}
 function workIdForTitle(title){return candidateByTitle.get(norm(title))?.work_id||window.SelectionTVImageFor?.(title)?.id||null}
 function isSeen(title,workId){
  const s=loadSeen(),k=seenKey(title,workId||workIdForTitle(title));
@@ -26,7 +27,12 @@ function isSeen(title,workId){
  return legacy?.status==='vu';
 }
 function migrateLegacy(){
+ const oldId='the-mandalorian-and-grogu-2026',newId=canonicalId(oldId);
+ const previous=loadSeen();
+ if(previous[oldId]){if(!previous[newId])previous[newId]={...previous[oldId],work_id:newId};delete previous[oldId];saveSeen(previous)}
  const saved=loadStore(),seen=loadSeen();let changed=false;
+ for(const item of Object.values(saved)){if(item?.work_id===oldId){item.work_id=newId;changed=true}}
+ if(changed)saveStore(saved);
  for(const [k,item] of Object.entries(saved)){
    if(item?.status!=='vu'||!item.title)continue;
    const wid=workIdForTitle(item.title); if(!wid)continue;
@@ -194,6 +200,13 @@ function renderReserve(c,cardType='feature'){
 }
 function applyPools(){
  const personalized=hideSeen();
+ const family=p=>p.page_id.replace(/-\d+$/,'');
+ const claimed=new Map();
+ // Reserve titles already used by another page of the same rubric.
+ for(const p of poolList){
+   const k=family(p);if(!claimed.has(k))claimed.set(k,new Set());
+   for(const c of p.candidates||[])if(Number(c.rank)<=Number(p.target)&&!isSeen(c.title,c.work_id))claimed.get(k).add(norm(c.title));
+ }
  for(const pool of poolList){
    const page=document.getElementById(pool.page_id);if(!page)continue;
    const container=page.querySelector(pool.container_selector);if(!container)continue;
@@ -211,7 +224,8 @@ function applyPools(){
      for(const c of [...(pool.candidates||[])].sort((a,b)=>a.rank-b.rank)){
        if(visible>=pool.target)break;
        if(!reserveEligible(c))continue;
-       if(primaryTitles.has(norm(c.title))||isSeen(c.title,c.work_id))continue;
+       if(primaryTitles.has(norm(c.title))||isSeen(c.title,c.work_id)||claimed.get(family(pool)).has(norm(c.title)))continue;
+       claimed.get(family(pool)).add(norm(c.title));
        container.append(renderReserve(c,pool.card_type||'feature'));visible++;replacements++;
      }
    }

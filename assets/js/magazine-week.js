@@ -443,8 +443,15 @@ Promise.all([
        if(el.matches('tr')) el.querySelector('.prog')?.append(ratings);
        else {const wm=el.querySelector('.work-meta')||el.querySelector('.meta')||el.querySelector('h3');wm?.insertAdjacentElement('afterend',ratings)}
      }
-     if(W.ratings.imdb && L.imdb && ![...ratings.children].some(x=>x.textContent.startsWith('IMDb'))){const a=document.createElement('a');a.className='rating-pill imdb';a.href=L.imdb;a.target='_blank';a.rel='noopener';a.textContent='IMDb '+W.ratings.imdb+'/10';ratings.append(a)}
-     if(W.ratings.senscritique && ![...ratings.children].some(x=>x.textContent.startsWith('SensCritique'))){const a=L.sc?document.createElement('a'):document.createElement('span');a.className='rating-pill sc';if(L.sc){a.href=L.sc;a.target='_blank';a.rel='noopener'}a.textContent='SensCritique '+W.ratings.senscritique+'/10';ratings.append(a)}
+     for(const [name,value,url,cls] of [['IMDb',W.ratings.imdb,L.imdb,'imdb'],['SensCritique',W.ratings.senscritique||W.ratings.sc,L.sc,'sc']]){
+       if(!value)continue;
+       [...ratings.children].filter(x=>x.textContent.startsWith(name)).forEach(x=>x.remove());
+       const pill=document.createElement(url?'a':'span');pill.className='rating-pill '+cls;
+       if(url){pill.href=url;pill.target='_blank';pill.rel='noopener'}
+       pill.textContent=name+' '+value+'/10';ratings.append(pill);
+     }
+     ratings.querySelectorAll('.rating-date').forEach(x=>x.remove());
+     if(W.ratings_checked){const date=document.createElement('span');date.className='rating-date';date.textContent='relevé '+W.ratings_checked;ratings.append(date)}
    }
  });
  const repairScheduleRows=()=>{

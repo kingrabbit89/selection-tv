@@ -90,7 +90,7 @@
   var libraryIndexRefreshPromise=null;
   var libraryDetailCache=new Map();
   var persistentMatches=null;
-  var LIBRARY_CACHE_VERSION=3;
+  var LIBRARY_CACHE_VERSION=4;
   var LIBRARY_CACHE_TTL=12*60*60*1000;
   var MATCH_CACHE_TTL=30*24*60*60*1000;
 
@@ -103,8 +103,24 @@
     }
     var user='';
     try{user=String(a.getCurrentUserId&&a.getCurrentUserId()||'')}catch(e){}
-    return norm(server)+'|'+user;
+    return encodeURIComponent(server)+'|'+user;
   }
+
+  var sessionContext=null;
+  var sessionReloading=false;
+  function sessionCurrent(){
+    if(sessionReloading)return false;
+    var a=api();
+    if(!a||!a.getCurrentUserId||!a.getCurrentUserId())return false;
+    var current=cacheIdentity();
+    if(sessionContext===null)sessionContext=current;
+    if(current===sessionContext)return true;
+    sessionReloading=true;
+    frame.style.visibility='hidden';
+    window.location.reload();
+    return false;
+  }
+  window.SelectionTvSessionCurrent=sessionCurrent;
 
   function libraryCacheKey(){
     return 'selectionTv_library_index_v'+LIBRARY_CACHE_VERSION+'|'+cacheIdentity();
@@ -157,7 +173,7 @@
       var imdb=imdbOf(item);
       var tmdb=tmdbOf(item);
       if(imdb)pushMap(index.byImdb,imdb,item);
-      if(tmdb)pushMap(index.byTmdb,tmdb,item);
+      if(tmdb&&String(item.Type||item.type||'').toLowerCase()==='movie')pushMap(index.byTmdb,tmdb,item);
       [item.Name,item.name,item.OriginalTitle,item.originalTitle].filter(Boolean).forEach(function(name){
         pushMap(index.byName,norm(name),item);
       });
@@ -305,6 +321,7 @@
     if(!background)setStatus('Jellyfin · préparation de l’index…','ok');
 
     libraryIndexRefreshPromise=buildLibraryIndex().then(function(index){
+      if(!sessionCurrent())throw new Error("Jellyfin session changed");
       libraryIndexCurrent=index;
       saveLibraryCache(index);
       setStatus('Jellyfin · bibliothèque synchronisée · '+index.items.length+' œuvres','ok');
@@ -320,6 +337,7 @@
   }
 
   function ensureLibraryIndex(){
+    if(!sessionCurrent())return Promise.reject(new Error("Jellyfin session changed"));
     if(libraryIndexCurrent)return Promise.resolve(libraryIndexCurrent);
     if(libraryIndexPromise)return libraryIndexPromise;
 
@@ -360,11 +378,11 @@
 
     if(reqImdb){
       var byImdb=uniqueItems(index.byImdb.get(reqImdb));
-      if(byImdb.length)return byImdb[0];
+      if(byImdb.length)return byImdb.length===1?byImdb[0]:null;
     }
     if(reqTmdb){
       var byTmdb=uniqueItems(index.byTmdb.get(reqTmdb));
-      if(byTmdb.length)return byTmdb[0];
+      if(byTmdb.length)return byTmdb.length===1?byTmdb[0]:null;
     }
 
     var names=titleCandidates(req.title).map(norm).filter(Boolean);
@@ -380,7 +398,7 @@
       var exactYear=candidates.filter(function(item){
         return (Number(item.ProductionYear||item.productionYear)||0)===reqYear;
       });
-      if(exactYear.length)return exactYear[0];
+      if(exactYear.length)return exactYear.length===1?exactYear[0]:null;
 
       var nearYear=candidates.filter(function(item){
         var y=Number(item.ProductionYear||item.productionYear)||0;
@@ -398,7 +416,8 @@
     var a=api();
     var id=item.Id||item.id;
     if(!id)return item;
-    var cachedDetail=libraryDetailCache.get(id);
+    var detailKey=cacheIdentity()+"|"+id;
+    var cachedDetail=libraryDetailCache.get(detailKey);
     if(cachedDetail&&Date.now()-cachedDetail.at<60000)return cachedDetail.promise;
 
     var promise=(async function(){
@@ -413,12 +432,12 @@
         if(!items.length)throw new Error("Jellyfin detail unavailable");
         return items[0];
       }catch(e){
-        libraryDetailCache.delete(id);
+        libraryDetailCache.delete(detailKey);
         throw e;
       }
     })();
 
-    libraryDetailCache.set(id,{promise:promise,at:Date.now()});
+    libraryDetailCache.set(detailKey,{promise:promise,at:Date.now()});
     return promise;
   }
 
@@ -490,7 +509,7 @@
     var itemTmdb=tmdbOf(item);
 
     if(req.imdbId&&itemImdb&&itemImdb===String(req.imdbId).toLowerCase())score+=1000;
-    if(req.tmdbId&&itemTmdb&&itemTmdb===String(req.tmdbId))score+=900;
+    if(req.tmdbId&&itemTmdb&&itemTmdb===String(req.tmdbId)&&String(item.Type||item.type||'').toLowerCase()==='movie')score+=900;
 
     targetNames.forEach(function(t,idx){
       if(names.indexOf(t)!==-1)score=Math.max(score,160-idx*8);
@@ -662,6 +681,7 @@
   }
 
   function send(payload){
+    if(!sessionCurrent())return;
     if(frame&&frame.contentWindow){
       frame.contentWindow.postMessage(payload,CHILD_ORIGIN);
     }
@@ -699,6 +719,7 @@
   }
 
   async function handleQueries(items){
+    if(!sessionCurrent())return;
     var unique=[];
     var seen={};
     (items||[]).forEach(function(x){
@@ -722,6 +743,7 @@
     }
 
     if(e.data.type==='selection-tv:jellyfin-open'&&e.data.itemId){
+      if(!sessionCurrent())return;
       (async function(){
         var item=await resolveForOpen(e.data.request||null,e.data.itemId);
         var itemId=item&&(item.Id||item.id);
@@ -769,17 +791,18 @@
   var privateBusy=false;
   var lastPrivatePayload=null;
   var localSearchCache=new Map();
-  var PRIVATE_CACHE_KEY='selectionTv_private_enriched_v1';
+  var PRIVATE_CACHE_KEY='selectionTv_private_enriched_v2';
+  function privateCacheKey(){var a=api();return PRIVATE_CACHE_KEY+'|'+String(a&&a.serverAddress&&a.serverAddress()||location.origin)+'|'+String(a&&a.getCurrentUserId&&a.getCurrentUserId()||'')}
 
   function loadEnrichedCache(){
     try{
-      var parsed=JSON.parse(sessionStorage.getItem(PRIVATE_CACHE_KEY)||'{}');
+      var parsed=JSON.parse(sessionStorage.getItem(privateCacheKey())||'{}');
       return parsed&&typeof parsed==='object'?parsed:{};
     }catch(e){return {}}
   }
 
   function saveEnrichedCache(cache){
-    try{sessionStorage.setItem(PRIVATE_CACHE_KEY,JSON.stringify(cache))}catch(e){}
+    try{sessionStorage.setItem(privateCacheKey(),JSON.stringify(cache))}catch(e){}
   }
 
   function uploadCacheKey(upload){
@@ -1169,6 +1192,7 @@
   }
 
   function sendPrivate(payload){
+    if(!window.SelectionTvSessionCurrent?.())return;
     if(payload)lastPrivatePayload=payload;
     if(frame.contentWindow&&lastPrivatePayload){
       frame.contentWindow.postMessage(lastPrivatePayload,CHILD_ORIGIN);
@@ -1176,6 +1200,7 @@
   }
 
   async function loadPrivateUploads(){
+    if(!window.SelectionTvSessionCurrent?.())return;
     if(privateBusy||!hostActive())return;
     var a=api();
     if(!a)return;
@@ -1263,6 +1288,7 @@
           var i=pending[p];
           try{
             items[i]=await enrichOne(sourceItems[i]);
+            if(!window.SelectionTvSessionCurrent?.())return;
             cache[uploadCacheKey(sourceItems[i])]=items[i];
             saveEnrichedCache(cache);
           }catch(e){
@@ -1295,6 +1321,7 @@
       }
     }catch(err){
       console.warn('Selection TV private uploads unavailable',err);
+      if(status){status.textContent='Vos Uploads indisponible · réessai automatique';status.className='selectionTvBridgeStatus err'}
     }finally{
       privateBusy=false;
     }

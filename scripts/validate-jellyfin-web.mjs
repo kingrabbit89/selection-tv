@@ -51,7 +51,7 @@ try{
     window.ApiClient={
       serverId:()=> 'fixture-server',
       serverAddress:()=> 'http://jellyfin.local',
-      getCurrentUserId:()=> 'fixture-user',
+      getCurrentUserId:()=> sessionStorage.getItem('fixture-user')||'fixture-user',
       getImageUrl:()=> 'https://images.example.test/poster.jpg',
       getUrl:(path)=>'/'+String(path||'').replace(/^\//,''),
       ajax:async opts=>{
@@ -201,6 +201,18 @@ try{
   await fullChild.locator('.jellyfin-private-uploads-page').first().waitFor({state:'attached'});
   assert(await fullChild.locator('.book>.page').count()>=26,'real S41 content was not rendered');
   console.log('✓ Actual latest.html → full S41 → Jellyfin buttons and Vos Uploads (API fixture)');
+
+  // A different logged-in account must invalidate the entire in-memory bridge.
+  const navigation=page.waitForEvent('domcontentloaded');
+  await page.evaluate(()=>{
+    sessionStorage.setItem('fixture-user','fixture-user-2');
+    window.SelectionTvSessionCurrent();
+  });
+  await navigation;
+  await page.waitForFunction(()=>window.SelectionTvSessionCurrent&&window.SelectionTvSessionCurrent());
+  assert.equal(await page.evaluate(()=>window.ApiClient.getCurrentUserId()),'fixture-user-2');
+  assert.equal(await page.locator('#selectionTvFrame').evaluate(e=>e.style.visibility),'','new session should mount a fresh iframe');
+  console.log('✓ Jellyfin account change reloads caches and discards prior private session');
 
   const status=await page.locator('#selectionTvBridgeStatus').textContent();
   assert.match(status,/Jellyfin/);

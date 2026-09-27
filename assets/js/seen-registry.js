@@ -6,13 +6,16 @@ const loadStore=()=>{try{return JSON.parse(localStorage.getItem(STORE)||'{}')}ca
 const saveStore=o=>{try{localStorage.setItem(STORE,JSON.stringify(o))}catch(e){}};
 const loadSeen=()=>{try{return JSON.parse(localStorage.getItem(SEEN)||'{}')}catch(e){return {}}};
 const saveSeen=o=>{try{localStorage.setItem(SEEN,JSON.stringify(o))}catch(e){}};
-const keys=(title,workId)=>[workId,'title:'+norm(title)].filter(Boolean);
+const oldId='the-mandalorian-and-grogu-2026',newId='star-wars-the-mandalorian-and-grogu';
+const canonical=id=>id===oldId?newId:id;
+const keys=(title,workId)=>[canonical(workId),...(canonical(workId)===newId?[oldId]:[]),'title:'+norm(title)].filter(Boolean);
 function isSeen(title,workId){
  const seen=loadSeen();
  if(keys(title,workId).some(k=>!!seen[k]))return true;
  return loadStore()[norm(title)]?.status==='vu';
 }
 function setSeen(title,workId,value){
+ workId=canonical(workId);
  const seen=loadSeen(),saved=loadStore(),key=norm(title),cur=saved[key],on=value==null?!isSeen(title,workId):!!value;
  if(on){
    const k=workId||('title:'+key);

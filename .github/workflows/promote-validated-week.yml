@@ -1,6 +1,10 @@
 name: Validate merged weekly issue for promotion
 
 on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "15 * * * 5,6"
   workflow_dispatch:
     inputs:
       week:
@@ -14,22 +18,55 @@ on:
 permissions:
   contents: read
 
-jobs:
-  validate-promotion:
-    if: github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'auto/'))
-    runs-on: ubuntu-latest
-    timeout-minutes: 25
-    env:
-      SELECTION_TV_VALIDATE_WEEK: ${{ inputs.week || github.event.pull_request.head.ref }}
-      SELECTION_TV_CANDIDATE: "1"
-    steps:
-      - name: Resolve candidate week
-        shell: bash
-        run: echo "SELECTION_TV_VALIDATE_WEEK=${SELECTION_TV_VALIDATE_WEEK#auto/}" >> "$GITHUB_ENV"
+concurrency:
+  group: weekly-promotion-revalidation
+  cancel-in-progress: false
 
+jobs:
+  resolve:
+    if: github.event_name != 'pull_request' || (github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'auto/'))
+    runs-on: ubuntu-latest
+    outputs:
+      week: ${{ steps.target.outputs.week }}
+      sha: ${{ steps.target.outputs.sha }}
+    steps:
       - uses: actions/checkout@v4
         with:
           ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: target
+        env:
+          REQUESTED_WEEK: ${{ inputs.week || github.event.pull_request.head.ref }}
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import {execFileSync} from 'node:child_process';
+          import {calendarTarget} from './scripts/week-calendar.mjs';
+          const manifest=JSON.parse(fs.readFileSync('data/manifest.json'));
+          const target=calendarTarget().week;
+          const requested=(process.env.REQUESTED_WEEK||target).replace(/^auto\//,'');
+          if(!/^\d{4}-S\d{2}$/.test(requested))throw Error('Invalid requested week');
+          const entry=manifest.weeks.find(x=>x.week===requested);
+          if(requested===target&&entry?.status==='draft'){
+            const sha=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
+            fs.appendFileSync(process.env.GITHUB_OUTPUT,'week='+requested+'\nsha='+sha+'\n');
+          }else console.log('No current draft to promote; public issue unchanged.');
+          JS
+
+  validate-promotion:
+    needs: resolve
+    if: needs.resolve.outputs.week != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      SELECTION_TV_VALIDATE_WEEK: ${{ needs.resolve.outputs.week }}
+      SELECTION_TV_CANDIDATE: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.resolve.outputs.sha }}
           fetch-depth: 0
 
       - uses: actions/setup-node@v4
@@ -37,8 +74,10 @@ jobs:
           node-version: 22
 
       - name: Revalidate merged draft
+        id: data
         run: |
           node scripts/validate-automation.mjs
+          node scripts/validate-canonical-identities.mjs
           node scripts/validate-architecture.mjs
           node scripts/validate-publication-candidate.mjs
           node scripts/validate-editorial.mjs
@@ -46,7 +85,6 @@ jobs:
           node scripts/validate-freshness.mjs
           node scripts/validate-reserves.mjs
           node scripts/validate-image-sources.mjs
-          node scripts/generation-report.mjs
 
       - name: Install browser test runtime
         run: |
@@ -54,6 +92,7 @@ jobs:
           npx playwright install --with-deps chromium
 
       - name: Revalidate browser, Jellyfin Web and Fire TV model
+        id: browser
         run: |
           node scripts/validate-layout.mjs
           node scripts/validate-jellyfin-web.mjs
@@ -62,6 +101,7 @@ jobs:
         run: node scripts/promote-week.mjs "$SELECTION_TV_VALIDATE_WEEK"
 
       - name: Validate simulated promoted state
+        id: promoted
         shell: bash
         run: |
           PROMOTION_WEEK="$SELECTION_TV_VALIDATE_WEEK"
@@ -104,3 +144,11 @@ jobs:
           name: promotion-ready-${{ env.SELECTION_TV_VALIDATE_WEEK }}
           path: promotion-ready.json
           retention-days: 14
+
+      - name: Promotion run summary
+        if: always()
+        env:
+          STEPS_JSON: ${{ toJSON(steps) }}
+        run: |
+          node scripts/generation-report.mjs
+          node -e 'const fs=require("fs"); const s=JSON.parse(process.env.STEPS_JSON); fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,"\n## Gates\n"+Object.entries(s).map(([k,v])=>"- "+k+": "+v.outcome).join("\n"));'

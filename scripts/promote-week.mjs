@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {validateCandidateCalendar} from './week-calendar.mjs';
 
 const target=process.argv[2]||process.env.SELECTION_TV_VALIDATE_WEEK;
 if(!target)throw new Error('Usage: node scripts/promote-week.mjs YYYY-Sxx');
@@ -13,6 +14,8 @@ if(manifest.latest===target&&manifest.weeks[idx].status==='published'){
   process.exit(0);
 }
 if(manifest.weeks[idx].status!=='draft')throw new Error('Refusing promotion: manifest candidate status is not draft');
+
+validateCandidateCalendar(manifest.weeks.find(x=>x.week===manifest.latest),manifest.weeks[idx]);
 
 const weekPath='data/weeks/'+target+'.json';
 const week=read(weekPath);
