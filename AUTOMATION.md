@@ -10,7 +10,7 @@ L'automatisation est volontairement séparée en deux fonctions : le producteur 
 
 La cible est le prochain numéro commençant samedi et se terminant vendredi, calculé dans le fuseau Europe/Paris. La commande canonique est node scripts/next-target.mjs.
 
-Le dimanche précédant le numéro, l'agent vérifie d'abord si cette cible existe déjà. Si elle est déjà publiée, il ne crée rien. La configuration machine-readable est data/automation-config.json.
+Le cycle officiel comporte cinq étapes dans le fuseau Europe/Paris : inventaire jeudi 08:00, enrichissement vendredi 08:00, préflight vendredi 17:00, publication vendredi 20:00, puis retry samedi 08:00 si nécessaire. Chaque étape vérifie d'abord si la cible est déjà publiée et évite tout travail ou doublon inutile. La configuration machine-readable est data/automation-config.json.
 
 ## Candidate
 
@@ -66,7 +66,7 @@ La PR auto/YYYY-Sxx ne doit être fusionnée que lorsque les contrôles obligato
 
 Après fusion, la semaine est encore un brouillon sur main. Le workflow promote-validated-week.yml reprend la semaine depuis le nom de branche, rejoue les validations, reteste les images distantes, reteste Chromium et le modèle Fire TV puis, seulement si tout passe, exécute scripts/promote-week.mjs.
 
-La promotion seule change manifest.latest, le statut du manifeste et publication_status. Si un contrôle échoue, l'ancien numéro reste public.
+La promotion seule change manifest.latest, le statut du manifeste et publication_status. Si un contrôle échoue, l'ancien numéro reste public. En complément, guard-direct-publication.yml surveille les pushes humains sur main : toute modification directe de manifest.latest est restaurée automatiquement et signalée. Ce garde-fou applicatif complète, mais ne remplace pas, une ruleset GitHub native.
 
 ## Web, Jellyfin Web et Fire TV
 
@@ -82,6 +82,6 @@ Le registre Vu du navigateur classique reste local au navigateur. Les identifian
 
 ## Surveillance et échec
 
-Le watchdog GitHub du dimanche vérifie que le numéro attendu pour le samedi suivant est soit publié, soit représenté par une PR auto/YYYY-Sxx. Un numéro manquant ou un brouillon bloqué provoque une issue d'alerte.
+Le watchdog GitHub s'exécute le samedi à 10:00 UTC, après la fenêtre de retry. Il vérifie que le numéro samedi-vendredi attendu est publié ou qu'une PR auto/YYYY-Sxx existe encore comme état récupérable. Un numéro manquant ou un brouillon bloqué provoque une issue d'alerte.
 
 Si une source devient inaccessible, incomplète ou ambiguë : essayer une source indépendante, consigner la dégradation et conserver le numéro en draft si les seuils minimaux ne sont plus démontrables. Ne jamais inventer pour faire passer le CI.
