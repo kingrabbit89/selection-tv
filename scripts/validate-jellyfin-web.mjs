@@ -47,7 +47,7 @@ try{
 
   await page.addInitScript(({fixture})=>{
     if(window.top!==window)return;
-    const clone=()=>JSON.parse(JSON.stringify(fixture));
+    const clone=()=>{const value=JSON.parse(JSON.stringify(window.fixtureOverride||fixture));value.UserData.Played=window.fixturePlayed!==false;return value};
     window.ApiClient={
       serverId:()=> 'fixture-server',
       serverAddress:()=> 'http://jellyfin.local',
@@ -142,6 +142,18 @@ try{
   await child.locator('.jellyfin-private-uploads-page').waitFor({state:'attached'});
   assert.match(await child.locator('.jellyfin-private-uploads-page').first().textContent(),/Vos Uploads|uploads des dernières 24 heures/,'private uploads section must survive the latest.html redirect handshake');
 
+  // Two mutation batches inside the debounce window must retain both cards.
+  await child.evaluate(async()=>{
+    const first=document.querySelector('article.feature');
+    const copy=()=>{const node=first.cloneNode(true);node.querySelector('.jellyfin-actions')?.remove();node.classList.add('dynamic-fixture');first.parentNode.append(node)};
+    copy();await new Promise(r=>setTimeout(r,25));copy();
+  });
+  await child.waitForFunction(()=>document.querySelectorAll('.dynamic-fixture .jellyfin-open').length===2);
+  // An open iframe must refresh mutable played state after the cache TTL.
+  await page.evaluate(()=>{window.fixturePlayed=false;const now=Date.now;Date.now=()=>now()+61000});
+  await child.evaluate(()=>window.dispatchEvent(new Event('focus')));
+  await child.waitForFunction(()=>document.querySelector('article.feature .jellyfin-actions')&&!document.querySelector('article.feature .played'));
+
   // Simulate a stale persisted UUID while keeping the exact request metadata
   // emitted by the real child bridge. The wrapper must recover the live item.
   await child.locator('article.feature .jellyfin-open').evaluate(button=>{
@@ -156,6 +168,39 @@ try{
   });
   await page.waitForFunction(()=>location.hash.includes('details?id=jf-paris-texas'));
   assert.match(page.url(),/#\/details\?id=jf-paris-texas&serverId=fixture-server$/,'stale cached ID must recover to the live Jellyfin item');
+
+  // Exercise actual latest.html, manifest, S41 JSON and all shared scripts.
+  // Only Jellyfin API and external image hosts remain fixtures.
+  await page.unrouteAll();
+  await page.route('**/*',async route=>{
+    const url=new URL(route.request().url());
+    if(url.hostname==='127.0.0.1'){await route.continue();return}
+    if(url.origin==='https://kingrabbit89.github.io'&&url.pathname.startsWith('/selection-tv/')){
+      const relative=url.pathname.slice('/selection-tv'.length).replace(/\/$/,'/index.html');
+      const file=resolve(root,'.'+relative);
+      if(!file.startsWith(root+'/')){await route.abort();return}
+      try{await route.fulfill({status:200,contentType:({'.js':'text/javascript','.css':'text/css','.json':'application/json','.html':'text/html'})[extname(file)]||'application/octet-stream',body:await readFile(file)})}catch{await route.fulfill({status:404,body:'missing'})}
+      return;
+    }
+    await route.abort();
+  });
+  await page.evaluate(()=>{localStorage.clear();sessionStorage.clear()});
+  await page.addInitScript(()=>{
+    window.fixtureOverride={Id:'jf-samourai',Name:'Le Samouraï',ProductionYear:1967,ProviderIds:{Imdb:'tt0062229'},Type:'Movie',UserData:{Played:true},MediaSources:[{Width:1920}]};
+  });
+  await page.goto(origin+'/integrations/jellyfin/selection-tv.html',{waitUntil:'domcontentloaded'});
+  let fullChild;
+  for(let attempt=0;attempt<100;attempt++){
+    fullChild=page.frames().find(f=>f.url().startsWith(weeklyUrl));
+    if(fullChild)break;
+    await page.waitForTimeout(100);
+  }
+  assert(fullChild,'actual latest.html did not resolve S41');
+  await fullChild.locator('#samedi-selection article.feature').first().scrollIntoViewIfNeeded();
+  await fullChild.locator('#samedi-selection .jellyfin-open').first().waitFor({state:'attached'});
+  await fullChild.locator('.jellyfin-private-uploads-page').first().waitFor({state:'attached'});
+  assert(await fullChild.locator('.book>.page').count()>=26,'real S41 content was not rendered');
+  console.log('✓ Actual latest.html → full S41 → Jellyfin buttons and Vos Uploads (API fixture)');
 
   const status=await page.locator('#selectionTvBridgeStatus').textContent();
   assert.match(status,/Jellyfin/);
