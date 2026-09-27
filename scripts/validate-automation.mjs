@@ -18,6 +18,7 @@ const required=[
   '.github/workflows/validate-architecture.yml',
   '.github/workflows/promote-validated-week.yml',
   '.github/workflows/weekly-automation-watchdog.yml',
+  '.github/workflows/guard-direct-publication.yml',
   'AUTOMATION.md'
 ];
 for(const p of required)if(!fs.existsSync(p))bad('missing automation component: '+p);
@@ -28,6 +29,21 @@ if(fs.existsSync('data/automation-config.json')){
   if(cfg.timezone!=='Europe/Paris')bad('automation timezone must be Europe/Paris');
   if(cfg.generation?.orchestrator!=='external-research-agent')bad('weekly producer must be declared as external-research-agent');
   if(cfg.generation?.candidate_manifest_status!=='draft'||cfg.generation?.candidate_publication_status!=='draft')bad('candidate must stay draft before promotion');
+  if(cfg.generation?.scheduled_day!=='Thursday'||cfg.generation?.scheduled_time_local!=='08:00')bad('generation stage must start Thursday 08:00 Europe/Paris');
+  if(cfg.review?.scheduled_day!=='Friday'||cfg.review?.scheduled_time_local!=='20:00')bad('publication review must run Friday 20:00 Europe/Paris');
+  const expectedPhases={
+    inventory:['Thursday','08:00'],
+    enrichment:['Friday','08:00'],
+    preflight:['Friday','17:00'],
+    publication:['Friday','20:00'],
+    retry:['Saturday','08:00']
+  };
+  for(const [name,[day,time]] of Object.entries(expectedPhases)){
+    if(cfg.phases?.[name]?.scheduled_day!==day||cfg.phases?.[name]?.scheduled_time_local!==time){
+      bad('automation phase '+name+' must be '+day+' '+time+' Europe/Paris');
+    }
+  }
+  if(cfg.watchdog?.scheduled_day!=='Saturday'||cfg.watchdog?.scheduled_time_utc!=='10:00')bad('watchdog must run Saturday 10:00 UTC after retry');
   if(cfg.generation?.never_promote_before_green_ci!==true)bad('fail-closed promotion flag must be true');
 
   const kotlin=fs.existsSync('integrations/androidtv/SelectionTvFragment.kt')?read('integrations/androidtv/SelectionTvFragment.kt'):'';
@@ -68,9 +84,16 @@ if(fs.existsSync('.github/workflows/promote-validated-week.yml')){
     if(!wf.includes(token))bad('promotion workflow missing '+token);
   }
 }
+if(fs.existsSync('.github/workflows/guard-direct-publication.yml')){
+  const wf=read('.github/workflows/guard-direct-publication.yml');
+  for(const token of ["github.actor != 'github-actions[bot]'",'fetch-depth: 0','git checkout "$BEFORE" -- data/manifest.json','git push origin HEAD:main']){
+    if(!wf.includes(token))bad('direct-publication guard missing '+token);
+  }
+}
 if(fs.existsSync('.github/workflows/weekly-automation-watchdog.yml')){
   const wf=read('.github/workflows/weekly-automation-watchdog.yml');
   if(!wf.includes('schedule:')||!wf.includes('next-target.mjs'))bad('weekly watchdog is not scheduled or cannot resolve target');
+  if(!wf.includes('0 10 * * 6'))bad('weekly watchdog cron must run Saturday 10:00 UTC after retry');
 }
 
 function targetOn(date){

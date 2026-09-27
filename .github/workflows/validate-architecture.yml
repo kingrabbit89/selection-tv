@@ -30,8 +30,7 @@ jobs:
       - run: node scripts/validate-links.mjs
       - run: node scripts/validate-freshness.mjs
       - run: node scripts/validate-reserves.mjs
-      - name: Validate remote image sources for candidate
-        if: github.event_name == 'pull_request'
+      - name: Validate remote image sources
         run: node scripts/validate-image-sources.mjs
       - name: Generation audit summary
         if: always()
