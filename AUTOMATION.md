@@ -66,11 +66,13 @@ La PR auto/YYYY-Sxx ne doit être fusionnée que lorsque les contrôles obligato
 
 Après fusion de la PR auto/YYYY-Sxx, la semaine est encore un brouillon sur main. Le workflow promote-validated-week.yml reprend alors la semaine depuis le nom de branche, rejoue les validations, reteste les images distantes, Chromium, Jellyfin Web et le modèle Fire TV, puis simule localement scripts/promote-week.mjs. Ce workflow ne pousse plus rien sur main.
 
+La revalidation réussie publie un artefact promotion-ready lié au SHA exact de main et à la semaine. La PR de promotion exige cet artefact pour son SHA de base ; si main a changé, relancer promote-validated-week.yml via workflow_dispatch avec la semaine cible.
+
 Si cette revalidation post-fusion est verte, le producteur crée une seconde branche promote/YYYY-Sxx depuis le main courant. Cette branche ne modifie que data/manifest.json et data/weeks/YYYY-Sxx.json selon la transition atomique produite par promote-week.mjs : manifest.latest devient YYYY-Sxx, le statut de l'entrée passe à published et publication_status passe à published. Une seconde PR vers main est alors ouverte. Elle doit elle aussi passer les contrôles obligatoires avant fusion.
 
 Ainsi, même la promotion finale respecte la protection native de main : aucun bypass n'est nécessaire. Si un contrôle échoue à l'une des deux étapes, l'ancien numéro reste public.
 
-guard-direct-publication.yml constitue une défense supplémentaire : il accepte seulement une transition exacte de deux fichiers, draft vers published, et traite toute autre modification de manifest.latest comme non conforme.
+guard-direct-publication.yml constitue une défense supplémentaire : il accepte seulement une transition exacte de deux fichiers, draft vers published, et traite toute autre modification de manifest.latest comme non conforme. Le contrôle bloquant est exécuté avant fusion dans data-and-policy. Le garde-fou après push alerte et échoue ; il ne tente aucun push de restauration incompatible avec la ruleset.
 
 ## Web, Jellyfin Web et Fire TV
 
@@ -82,10 +84,10 @@ Les remplacements Fire TV utilisent l'état Jellyfin played, pas le localStorage
 
 ## Données privées
 
-Le registre Vu du navigateur classique reste local au navigateur. Les identifiants Forumactif de Vos Uploads restent exclusivement sur le serveur Jellyfin et ne doivent jamais être commités ni embarqués dans l'APK.
+Le registre Vu du navigateur classique reste local au navigateur. Vos Uploads est exclusivement disponible dans Jellyfin Web, pas sur Fire TV. Les identifiants Forumactif de Vos Uploads restent exclusivement sur le serveur Jellyfin et ne doivent jamais être commités ni embarqués dans l'APK.
 
 ## Surveillance et échec
 
-Le watchdog GitHub s'exécute le samedi à 10:00 UTC, après la fenêtre de retry. Il vérifie que le numéro samedi-vendredi attendu est publié ou qu'une PR auto/YYYY-Sxx / promote/YYYY-Sxx existe encore comme état récupérable. Un numéro manquant ou un brouillon bloqué provoque une issue d'alerte.
+Le watchdog GitHub s'exécute le samedi à 10:00 UTC, après la fenêtre de retry. Il vérifie le déploiement public du numéro attendu. Toute PR candidate ou de promotion encore ouverte est un état en attente, signalé par une issue et un job rouge avec les checks dans le résumé. Un numéro manquant ou un brouillon bloqué provoque également une alerte.
 
 Si une source devient inaccessible, incomplète ou ambiguë : essayer une source indépendante, consigner la dégradation et conserver le numéro en draft si les seuils minimaux ne sont plus démontrables. Ne jamais inventer pour faire passer le CI.

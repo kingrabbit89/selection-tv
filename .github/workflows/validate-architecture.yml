@@ -9,11 +9,17 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  actions: read
+
 jobs:
   data-and-policy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -23,6 +29,18 @@ jobs:
         run: |
           echo "SELECTION_TV_VALIDATE_WEEK=${GITHUB_HEAD_REF#auto/}" >> "$GITHUB_ENV"
           echo "SELECTION_TV_CANDIDATE=1" >> "$GITHUB_ENV"
+      - name: Validate publication transition before merge
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: node scripts/validate-promotion-transition.mjs "$BASE_SHA"
+      - name: Require successful revalidation of the exact base
+        if: github.event_name == 'pull_request' && startsWith(github.head_ref, 'promote/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: node scripts/verify-promotion-attestation.mjs "${GITHUB_HEAD_REF#promote/}" "$BASE_SHA"
+      - run: node --test scripts/test-promotion-transition.mjs
       - run: node scripts/validate-automation.mjs
       - run: node scripts/validate-architecture.mjs
       - run: node scripts/validate-publication-candidate.mjs
@@ -36,10 +54,12 @@ jobs:
         if: always()
         run: node scripts/generation-report.mjs
       - name: Smoke-test current public deployment
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
         if: github.event_name == 'pull_request'
         shell: bash
         run: |
-          CURRENT="$(node -e "const m=require('./data/manifest.json'); process.stdout.write(m.latest)")"
+          CURRENT="$(git show "$BASE_SHA:data/manifest.json" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>process.stdout.write(JSON.parse(s).latest))")"
           node scripts/verify-public-deployment.mjs "$CURRENT"
 
   browser-presentation:
