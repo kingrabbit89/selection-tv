@@ -29,24 +29,42 @@ function fallbackFor(img,card,title){
  card.dataset.imageFallback='1';
 }
 function bind(img,title,card,extra=[]){
- const list=sources(title,[...extra,img.getAttribute('src')]);
+ const current=img.getAttribute('src');
+ // Preserve an already-working image from the page. The previous revision
+ // always replaced it with works.json image, which could turn a visible poster
+ // into a broken one when the canonical host rejected hotlinking.
+ const list=uniq([current,...sources(title,extra)]);
  if(!list.length)return false;
+
  img.removeAttribute('onerror');
+ img.referrerPolicy='no-referrer';
  if(!img.hasAttribute('loading'))img.loading='lazy';
 
- let index=0;
+ let index=Math.max(0,list.indexOf(current));
  let finished=false;
+ let retryCurrentOnce=!!current;
  const loaded=()=>{
    if(finished)return;
    finished=true;
    clearFailureState(img,card);
  };
+ const setSource=src=>{
+   img.removeAttribute('src');
+   queueMicrotask(()=>{if(!finished)img.src=src});
+ };
  const failed=()=>{
    if(finished)return;
+   // A number of poster hosts reject requests only when Selection TV is sent
+   // as Referer. Existing HTML may already have failed before the resolver ran,
+   // so retry that same URL once after setting referrerPolicy=no-referrer.
+   if(retryCurrentOnce){
+     retryCurrentOnce=false;
+     setSource(list[index]);
+     return;
+   }
    index++;
    if(index<list.length){
-     img.src=list[index];
-     queueMicrotask(checkAlreadySettled);
+     setSource(list[index]);
      return;
    }
    finished=true;
@@ -61,13 +79,16 @@ function bind(img,title,card,extra=[]){
  img.addEventListener('load',loaded);
  img.addEventListener('error',failed);
 
- // The catalogue is authoritative. Existing page HTML may contain a stale or
- // dead URL; always start from the canonical source, then walk fallbacks.
- const current=img.getAttribute('src');
- if(current!==list[0])img.src=list[0];
- // Crucial race fix: an image may have failed before these listeners were
- // attached (legacy inline onerror can also have marked .visual.broken).
- queueMicrotask(checkAlreadySettled);
+ // If it is already visible, do not touch it. If it already failed, retry it
+ // without a Referer; if it is still loading, wait for load/error.
+ if(img.complete){
+   if(img.naturalWidth>0)loaded();
+   else failed();
+ }else if(!current){
+   retryCurrentOnce=false;
+   index=0;
+   img.src=list[0];
+ }
  return true;
 }
 function makeImg(title,cls=''){
@@ -75,6 +96,7 @@ function makeImg(title,cls=''){
  if(cls)img.className=cls;
  img.alt='Affiche de '+title;
  img.loading='lazy';
+ img.referrerPolicy='no-referrer';
  return img;
 }
 function inject(card,title,w){
