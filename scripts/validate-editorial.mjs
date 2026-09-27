@@ -144,6 +144,8 @@ if(strict){
      ['sorties-streaming',2],['avant-disparition',1],
      ['radar-torrent',3],['radar-1',3]
    ];
+   const strictSections=entry.week>=(q.strict_section_targets_from_week||'9999-S99');
+   const strictTargets=q.strict_section_targets||{};
    const toc=byId.get('sommaire')?.html||'';
    for(const id of [...front.map(x=>x[0]),...dayIds.map(d=>d+'-selection')]){
      if(!toc.includes('href="#'+id+'"')&&!toc.includes("href='#"+id+"'")){
@@ -152,9 +154,20 @@ if(strict){
    }
    for(const [base,min] of front){
      const html=pages.filter(p=>p.id===base||p.id.startsWith(base+'-')).map(p=>p.html||'').join('\n');
+     const count=articleCount(html);
+     const target=Number(strictSections?(strictTargets[base]??min):min);
      const shortage=candidate.section_shortages?.[base];
-     if(articleCount(html)<min&&!shortage){
-       failPub(entry.week,base+' has '+articleCount(html)+' cards; expected '+min+' or an explicit section_shortages reason');
+     if(count<target&&!shortage){
+       failPub(entry.week,base+' has '+count+' cards; expected '+target+' or an explicit section_shortages reason');
+     }
+     if(strictSections&&count<target&&shortage){
+       if(typeof shortage!=='object'||Array.isArray(shortage)){
+         failPub(entry.week,base+' shortage must be structured from S42 onward (reason + searched_sources + verified_count)');
+       }else{
+         if(!String(shortage.reason||'').trim())failPub(entry.week,base+' shortage.reason missing');
+         if(!Array.isArray(shortage.searched_sources)||shortage.searched_sources.length<2)failPub(entry.week,base+' shortage.searched_sources must contain at least 2 sources');
+         if(!Number.isInteger(shortage.verified_count)||shortage.verified_count!==count)failPub(entry.week,base+' shortage.verified_count must equal rendered card count '+count);
+       }
      }
    }
 
@@ -249,6 +262,47 @@ if(strict){
            const malformed=items.filter(x=>!x.title||!x.channel||!x.start||!(x.source||x.source_url));
            if(malformed.length){
              failPub(entry.week,'raw inventory '+(day.date||'?')+' has '+malformed.length+' items without title/channel/start/source evidence');
+           }
+
+           // S42+: a bare declaration that every channel was "scanned" is no
+           // longer evidence. Every required channel must carry its own source
+           // URL(s), and the per-channel counts must reconcile with the item
+           // ledger. This prevents a shallow candidate list from masquerading
+           // as a full-week inventory.
+           if(entry.week>=(q.strict_inventory_from_week||'9999-S99')){
+             const strictMin=Number(q.strict_inventory_min_items_per_day??30);
+             if(items.length<strictMin){
+               failPub(entry.week,'strict raw inventory '+(day.date||'?')+' too shallow: '+items.length+' < '+strictMin);
+             }
+             const srcObj=day.channel_sources||{};
+             const cntObj=day.channel_counts||{};
+             const srcByNorm=new Map(Object.entries(srcObj).map(([k,v])=>[norm(k),v]));
+             const cntByNorm=new Map(Object.entries(cntObj).map(([k,v])=>[norm(k),v]));
+             for(const channel of config.required_core_channels){
+               const key=norm(channel),raw=srcByNorm.get(key);
+               const urls=Array.isArray(raw)?raw:[raw].filter(Boolean);
+               if(!urls.length||urls.some(u=>!/^https?:\/\//i.test(String(u)))){
+                 failPub(entry.week,'strict raw inventory '+(day.date||'?')+' missing valid channel_sources for '+channel);
+               }
+               const actual=items.filter(x=>norm(x.channel)===key).length;
+               const declared=cntByNorm.get(key);
+               if(!Number.isInteger(declared)||declared<0){
+                 failPub(entry.week,'strict raw inventory '+(day.date||'?')+' missing integer channel_counts for '+channel);
+               }else if(declared!==actual){
+                 failPub(entry.week,'strict raw inventory '+(day.date||'?')+' channel_counts mismatch for '+channel+': declared '+declared+', items '+actual);
+               }
+             }
+             const overnight=items.filter(x=>/^0[0-5]:[0-5]\d$/.test(String(x.start||''))).length;
+             const minOvernight=Number(q.strict_inventory_min_overnight_items_per_day??1);
+             if(overnight<minOvernight){
+               failPub(entry.week,'strict raw inventory '+(day.date||'?')+' has no credible 00:00–05:59 coverage');
+             }
+             const seen=new Set(),dups=[];
+             for(const x of items){
+               const k=norm(x.title)+'|'+norm(x.channel)+'|'+String(x.start||'');
+               if(seen.has(k))dups.push(k);else seen.add(k);
+             }
+             if(dups.length)failPub(entry.week,'strict raw inventory '+(day.date||'?')+' contains duplicate programme rows: '+dups.slice(0,5).join(', '));
            }
          }
        }
