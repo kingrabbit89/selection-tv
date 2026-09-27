@@ -3,16 +3,25 @@ if(!target)throw new Error('Usage: node scripts/verify-public-deployment.mjs YYY
 const base='https://kingrabbit89.github.io/selection-tv/';
 const bust='?deployment_check='+Date.now();
 
-async function getJson(path){
-  const r=await fetch(base+path+bust,{cache:'no-store',headers:{'Cache-Control':'no-cache'}});
-  if(!r.ok)throw new Error(path+' HTTP '+r.status);
-  return r.json();
+const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+async function get(path,kind){
+  let lastError=null;
+  for(let attempt=1;attempt<=5;attempt++){
+    try{
+      const r=await fetch(base+path+bust+'&attempt='+attempt,{cache:'no-store',headers:{'Cache-Control':'no-cache'}});
+      if(r.ok)return kind==='json'?r.json():r.text();
+      const error=new Error(path+' HTTP '+r.status);
+      if(r.status<500&&r.status!==429)throw error;
+      lastError=error;
+    }catch(error){
+      lastError=error;
+    }
+    if(attempt<5)await sleep(1200*attempt);
+  }
+  throw lastError||new Error(path+' unavailable');
 }
-async function getText(path){
-  const r=await fetch(base+path+bust,{cache:'no-store',headers:{'Cache-Control':'no-cache'}});
-  if(!r.ok)throw new Error(path+' HTTP '+r.status);
-  return r.text();
-}
+const getJson=path=>get(path,'json');
+const getText=path=>get(path,'text');
 
 const manifest=await getJson('data/manifest.json');
 if(manifest.latest!==target)throw new Error('public manifest.latest='+manifest.latest+'; expected '+target);
