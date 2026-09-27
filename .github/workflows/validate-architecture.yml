@@ -13,7 +13,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Resolve weekly candidate
+        if: github.event_name == 'pull_request' && startsWith(github.head_ref, 'auto/')
+        shell: bash
+        run: |
+          echo "SELECTION_TV_VALIDATE_WEEK=${GITHUB_HEAD_REF#auto/}" >> "$GITHUB_ENV"
+          echo "SELECTION_TV_CANDIDATE=1" >> "$GITHUB_ENV"
+      - run: node scripts/validate-automation.mjs
       - run: node scripts/validate-architecture.mjs
+      - run: node scripts/validate-publication-candidate.mjs
       - run: node scripts/validate-editorial.mjs
       - run: node scripts/validate-links.mjs
       - run: node scripts/validate-freshness.mjs
@@ -30,6 +38,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Resolve weekly candidate
+        if: github.event_name == 'pull_request' && startsWith(github.head_ref, 'auto/')
+        shell: bash
+        run: |
+          echo "SELECTION_TV_VALIDATE_WEEK=${GITHUB_HEAD_REF#auto/}" >> "$GITHUB_ENV"
+          echo "SELECTION_TV_CANDIDATE=1" >> "$GITHUB_ENV"
       - name: Install browser test runtime
         run: |
           npm install --no-save playwright
