@@ -67,6 +67,11 @@
     .stv-tv-state.found{background:rgba(31,67,45,.96);border-color:#77a187;color:#f1fff5}
     .stv-tv-state.missing{background:rgba(37,42,48,.96);border-color:#5c6268;color:#aeb4ba}
     .stv-tv-state.checking{background:rgba(63,52,31,.96);border-color:#8a744c;color:#f4dfb3}
+    .stv-tv-reserve-tag{
+      position:absolute;right:6px;top:6px;z-index:3;padding:4px 6px;border-radius:3px;
+      font:700 9px/1 Arial,sans-serif;letter-spacing:.04em;text-transform:uppercase;
+      background:rgba(20,34,54,.94);border:1px solid #8095ad;color:#eef5ff
+    }
     .stv-tv-tile-title{
       padding:8px 2px 0;font:700 13px/1.18 Arial,sans-serif;color:#e9e5de;
       display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden
@@ -137,7 +142,7 @@
   const writeCache=cache=>{try{localStorage.setItem(CACHE_KEY,JSON.stringify(cache))}catch{}};
   const cache=readCache();
 
-  let models=[],rows=[],current=null,works=new Map(),links=new Map();
+  let models=[],rows=[],personalizedRows=[],current=null,works=new Map(),links=new Map();
   let libraryReady=false,libraryCount=0,quickInflight=0,deepInflight=0;
   let lastNavigationAt=0,quickTimer=null,deepTimer=null,positionRaf=0,statusRaf=0;
   let lastStatusHtml='';
@@ -326,10 +331,11 @@
   };
 
   const renderStatus=()=>{
-    const found=models.filter(x=>x.state==='found').length;
-    const missing=models.filter(x=>x.state==='missing').length;
-    const checking=models.filter(x=>x.state==='checking').length;
-    const queued=models.filter(x=>x.state==='unknown'||x.state==='queued').length;
+    const statusModels=models.filter(x=>!x.isReserve||x.tile?.isConnected);
+    const found=statusModels.filter(x=>x.state==='found').length;
+    const missing=statusModels.filter(x=>x.state==='missing').length;
+    const checking=statusModels.filter(x=>x.state==='checking').length;
+    const queued=statusModels.filter(x=>x.state==='unknown'||x.state==='queued').length;
     const el=document.querySelector('.stv-tv-statusbar');
     if(!el)return;
     const html=libraryReady
@@ -503,6 +509,7 @@
       const p=document.createElement('div');p.className='stv-tv-placeholder';p.textContent=model.title;wrap.append(p);
     }
     const st=document.createElement('span');st.className='stv-tv-state';st.textContent=stateLabel(model);wrap.append(st);
+    if(model.isReserve){const rt=document.createElement('span');rt.className='stv-tv-reserve-tag';rt.textContent='Réserve';wrap.append(rt)}
     const title=document.createElement('div');title.className='stv-tv-tile-title';title.textContent=model.title;
     b.append(wrap,title);
     b.onclick=()=>{focusModel(model);manualOpen(model)};
@@ -510,6 +517,61 @@
     model.tile=b;updateTile(model);
     return b;
   };
+
+  const rowSignature=list=>list.map(m=>m.key).join('|');
+  const renderRowModels=(row,next)=>{
+    if(!row?.grid)return;
+    if(rowSignature(row.activeModels||[])===rowSignature(next))return;
+    row.activeModels=[...next];
+    row.grid.replaceChildren(...next.map(m=>{
+      m.row=row;
+      return m.tile||makeTile(m);
+    }));
+    requestAnimationFrame(rebuildNeighbors);
+    scheduleStatus();
+  };
+  const refreshPersonalizedRow=row=>{
+    if(!row?.personalized||!row.grid)return;
+    const target=Number(row.target||3);
+    const selected=[];
+    const used=new Set();
+    const take=m=>{
+      if(!m||used.has(m.titleKey))return false;
+      selected.push(m);used.add(m.titleKey);return true;
+    };
+
+    // Explicitly unwatched/missing primaries stay first. A Jellyfin-played
+    // primary makes room for the best researched reserve.
+    for(const m of row.baseModels||[]){
+      if(m.played===true)continue;
+      take(m);
+      if(selected.length>=target)break;
+    }
+
+    let queued=0;
+    if(selected.length<target){
+      for(const m of row.reserveModels||[]){
+        if(selected.length>=target)break;
+        if(m.played===true)continue;
+        if(m.state==='found'&&m.played===false){take(m);continue}
+        if(m.state==='missing'){take(m);continue}
+        if((m.state==='unknown'||m.state==='queued')&&!m._queued&&!m._deepQueued&&queued<2){
+          queueQuick(m);queued++;
+        }
+      }
+    }
+
+    // Do not collapse the row while a replacement is still being checked.
+    // Keep the watched primary temporarily until a qualified reserve resolves.
+    if(selected.length<target){
+      for(const m of row.baseModels||[]){
+        if(selected.length>=target)break;
+        take(m);
+      }
+    }
+    renderRowModels(row,selected.slice(0,target));
+  };
+  const refreshPersonalizedRows=()=>personalizedRows.forEach(refreshPersonalizedRow);
 
   const buildShell=()=>{
     const shell=document.createElement('main');shell.className='stv-tv-shell';
@@ -521,7 +583,8 @@
       const section=document.createElement('section');section.className='stv-tv-row';row.section=section;
       const h=document.createElement('h2');h.className='stv-tv-row-title';h.textContent=row.title;section.append(h);
       const grid=document.createElement('div');grid.className='stv-tv-grid';row.grid=grid;
-      row.models.forEach(m=>{m.row=row;grid.append(makeTile(m))});
+      row.activeModels=[...(row.models||[])];
+      row.activeModels.forEach(m=>{m.row=row;grid.append(makeTile(m))});
       section.append(grid);shell.append(section);
     });
 
@@ -533,7 +596,7 @@
 
     document.body.append(shell);
     renderStatus();
-    requestAnimationFrame(()=>{rebuildNeighbors();if(models[0])focusModel(models[0])});
+    requestAnimationFrame(()=>{rebuildNeighbors();refreshPersonalizedRows();if(models.find(m=>m.tile?.isConnected))focusModel(models.find(m=>m.tile?.isConnected))});
   };
 
   const pendingKey=(model,kind)=>model.key+'|'+kind;
