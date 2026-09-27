@@ -73,10 +73,20 @@ try{
 
  const visualCoverage=()=>[...document.querySelectorAll(
   'article.week-card,article.feature,article.list-card,article.platform,article.release-card,article.expire-card,article.radar-card,article.torrent-card'
- )].filter(el=>getComputedStyle(el).display!=='none').map(el=>({
-  title:el.dataset.title||el.querySelector('h3')?.textContent?.trim()||'?',
-  ok:!!el.querySelector('img,.canonical-image-fallback,.radar-reserve-fallback,.release-fallback,.replacement-fallback,.fallback')
- })).filter(x=>!x.ok);
+ )].filter(el=>getComputedStyle(el).display!=='none').map(el=>{
+   const selector=el.matches('.feature')
+     ? ':scope>.visual>img,:scope>.visual>.canonical-image-fallback,:scope>.visual>.fallback'
+     : ':scope>img,:scope>.canonical-image-fallback,:scope>.radar-reserve-fallback,:scope>.release-fallback,:scope>.replacement-fallback';
+   const visuals=[...el.querySelectorAll(selector)].filter(v=>{
+     const cs=getComputedStyle(v),r=v.getBoundingClientRect();
+     return cs.display!=='none'&&cs.visibility!=='hidden'&&Number(cs.opacity||1)>0&&r.width>0&&r.height>0;
+   });
+   return {
+     title:el.dataset.title||el.querySelector('h3')?.textContent?.trim()||'?',
+     visibleVisuals:visuals.length,
+     kinds:visuals.map(v=>v.tagName.toLowerCase()+'.'+v.className)
+   };
+ }).filter(x=>x.visibleVisuals!==1);
 
  const checkDesktopGeometry=async week=>{
   const state=await page.evaluate(()=>{
@@ -118,8 +128,8 @@ try{
    if(x.label.toLowerCase().includes('senscritique'))assert(/^https:\/\/www\.senscritique\.com\/(?:film|serie)\/[^?#]+\/\d+\/?$/.test(x.href),`${week}: non-canonical SensCritique link rendered: ${x.href}`);
   }
 
-  const missingVisuals=await page.evaluate(visualCoverage);
-  assert.deepEqual(missingVisuals,[],`${week}: visual cards without image/fallback: ${JSON.stringify(missingVisuals)}`);
+  const brokenVisuals=await page.evaluate(visualCoverage);
+  assert.deepEqual(brokenVisuals,[],`${week}: cards must have exactly one visible visual: ${JSON.stringify(brokenVisuals)}`);
 
   await page.evaluate(()=>{window.SelectionTVLayout.restore();window.SelectionTVLayout.layout()});
   assert.deepEqual(await page.evaluate(signature),before,`${week}: content and links must survive reflow`);
@@ -142,6 +152,42 @@ try{
  const latest=manifest.latest;
  await page.goto(`${origin}/semaines/${latest}/`,{waitUntil:'domcontentloaded'});
  await settle();
+
+ // Resolver regression: an image can already have failed before the canonical
+ // resolver binds. It must retry a later source, clear .visual.broken and hide
+ // the legacy fallback instead of leaving the card stuck on a blue block.
+ await page.waitForFunction(()=>window.SelectionTVBindImage);
+ const imageRecovery=await page.evaluate(async()=>{
+   const card=document.createElement('article');
+   card.className='feature';
+   card.innerHTML='<div class="visual broken"><img class="poster" src="/__already-failed.png" alt=""><div class="fallback">Resolver fixture</div></div><h3>Resolver fixture</h3>';
+   document.body.append(card);
+   const img=card.querySelector('img');
+   await new Promise(r=>setTimeout(r,80));
+   const good='data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="20" height="30"><rect width="20" height="30" fill="white"/></svg>');
+   window.SelectionTVBindImage(img,'Resolver fixture',card,['/__retry-fails.png',good]);
+   await new Promise(resolve=>{
+     const until=Date.now()+1200;
+     const tick=()=>{
+       const live=card.querySelector('img');
+       if((live&&live.complete&&live.naturalWidth>0)||Date.now()>until)return resolve();
+       setTimeout(tick,20);
+     };
+     tick();
+   });
+   const live=card.querySelector('img');
+   const visual=card.querySelector('.visual');
+   const legacy=card.querySelector('.fallback');
+   const out={
+     loaded:!!live&&live.naturalWidth>0,
+     broken:visual?.classList.contains('broken')||false,
+     legacyVisible:!!legacy&&getComputedStyle(legacy).display!=='none'
+   };
+   card.remove();
+   return out;
+ });
+ assert.deepEqual(imageRecovery,{loaded:true,broken:false,legacyVisible:false},`${latest}: canonical image resolver recovery failed: ${JSON.stringify(imageRecovery)}`);
+ console.log(`✓ ${latest}: pre-bind image failure recovers through fallback source`);
  await page.evaluate(()=>localStorage.clear());
  await page.reload({waitUntil:'domcontentloaded'});
  await settle();
