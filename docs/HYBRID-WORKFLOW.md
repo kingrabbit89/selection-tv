@@ -58,6 +58,18 @@ Par défaut, les workflows emploient GITHUB_TOKEN. Selon la politique du dépôt
 
 Pour supprimer l'approbation des workflows imputable au jeton intégré, un administrateur peut fournir un secret de dépôt `WEEKLY_PUBLISH_TOKEN`, limité à ce dépôt : Contents et Pull requests en écriture, Actions en écriture (revalidation), Checks et Commit statuses en lecture, Pages en écriture (build). Employer un compte/jeton autorisé sans bypass de main ; un jeton expiré bloque la chaîne. Une GitHub App dédiée est également envisageable mais nécessite de gérer ses jetons courts. Aucun secret n'est requis pour préparer ou tester les fichiers localement.
 
-Ne jamais coller un jeton dans une conversation ou un fichier. La présence du secret et un cycle réel doivent être vérifiés avant de déclarer le système autonome. Les cinq tâches existantes restent un secours tant que cette validation n'a pas eu lieu. L'économie de quota Work n'est pas chiffrée et leur moteur n'a pas changé.
+Ne jamais coller un jeton dans une conversation ou un fichier. La présence du secret et un cycle réel doivent être vérifiés avant de déclarer le système autonome. Les cinq anciennes tâches sont conservées en pause. Une tâche unique effectue les reprises de toutes les phases, chaque heure de 8 h à 23 h jeudi/vendredi/samedi, à partir du 8 octobre 2026 (Europe/Paris). Les phases demeurent des jalons éditoriaux, pas des déclencheurs concurrents. L'économie de quota Work n'est pas chiffrée et leur moteur n'a pas changé.
 
 Sources de comportement : https://docs.github.com/en/actions/concepts/security/github_token ; https://learn.chatgpt.com/docs/automations.
+
+## Reprises opérationnelles testées
+
+La tâche éditoriale utilise un verrou coopératif sur `locks/editorial-YYYY-Sxx`. Le helper `scripts/editorial-lease.mjs` implémente acquire/check/renew/release par commits et références Git sans force. Exemple : `node scripts/editorial-lease.mjs acquire 2026-S42` renvoie un owner à conserver ; le passer aux commandes check/renew/release. Bail de 60 minutes, renouvellement après 20 minutes, contrôle avant chaque écriture. Une expiration ou perte de propriété interdit de poursuivre. Les tests simulent une interruption, une acquisition concurrente, un renouvellement et un verrou illisible. Ils ne constituent pas un test de charge réel du planificateur. Si le shell n'a pas d'authentification GitHub, appliquer le même protocole via les outils connectés ; ne pas inventer un accès.
+
+**Draft des données et Draft PR sont distincts.** Laisser les JSON en draft jusqu'à promotion. Créer une PR GitHub normale (`draft: false`) ; si une PR provisoire est Draft, la passer explicitement en Ready for review seulement une fois sa revue terminée. Ne pas contourner le refus de fusion des Draft PR.
+
+Une branche promote créée sans PR peut être reprise automatiquement uniquement si elle contient l'exacte transaction de deux fichiers, un seul commit au-dessus du main courant, après attestation du SHA exact de main. Aucune branche périmée, modifiée ou associée à une PR volontairement fermée n'est réouverte automatiquement. Les contrôles de la nouvelle PR restent indispensables.
+
+Le watchdog conserve son passage du samedi à 10:00 UTC, ajoute des passages de 11:20 à 23:20 UTC, et réconcilie les alertes après les exécutions du publicateur. Les événements du publicateur ne créent pas une nouvelle alerte : ils ferment l'alerte existante seulement après vérification publique. Les passages tardifs du samedi UTC qui tombent dimanche à Paris contrôlent encore le cycle du samedi. La surveillance des nouvelles versions Android reste séparée des événements de publication.
+
+Le résumé du publicateur indique seulement si un jeton dédié est configuré ou si le jeton intégré est utilisé. Aucune valeur secrète n'est affichée. La présence d'un jeton ne prouve ni sa validité ni toutes ses permissions ; seules des opérations réelles autorisées peuvent les établir.

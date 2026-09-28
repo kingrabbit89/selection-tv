@@ -3,6 +3,10 @@ name: Weekly automation watchdog
 on:
   schedule:
     - cron: "0 10 * * 6"
+    - cron: "20 11-23 * * 6"
+  workflow_run:
+    workflows: ['Weekly protected publisher']
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -10,11 +14,18 @@ permissions:
   pull-requests: read
   issues: write
 
+concurrency:
+  group: weekly-watchdog
+  cancel-in-progress: false
+
 jobs:
   watchdog:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -26,10 +37,11 @@ jobs:
       - name: Verify publication and maintain weekly alert
         env:
           GH_TOKEN: ${{ github.token }}
+          WATCHDOG_RECONCILE_ONLY: ${{ github.event_name == 'workflow_run' && '1' || '0' }}
         run: node scripts/weekly-watchdog.mjs
 
       - name: Watch Android TV upstream base
-        if: always()
+        if: always() && github.event_name != 'workflow_run'
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash

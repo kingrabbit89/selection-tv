@@ -24,5 +24,5 @@ export function branchSha(api,branch){
 export function openPR(api,repo,branch,title,body){
   const prs=api(`pulls?state=open&base=main&head=${encodeURIComponent(repo.split('/')[0]+':'+branch)}`);
   if(prs.length>1)throw Error('Ambiguous PRs');
-  return prs[0]||api('pulls','POST',{base:'main',head:branch,title,body});
+  return prs[0]||api('pulls','POST',{base:'main',head:branch,title,body,draft:false});
 }
