@@ -10,3 +10,11 @@ test('watchdog distinguishes missing, draft, pending, deployed and broken deploy
  assert.equal((await run({status:'published'})).ok,true);
  assert.equal((await run({status:'published'},[],async()=>{throw Error('Pages 503')})).reason,'deployment-failed');
 });
+
+import {watchdogTarget} from './weekly-watchdog.mjs';
+test('late Saturday UTC/Sunday Paris still supervises the same issue',()=>{
+ assert.equal(watchdogTarget('2026-10-10'),'2026-S42');
+ assert.equal(watchdogTarget('2026-10-11'),'2026-S42');
+ assert.equal(watchdogTarget('2026-10-12'),'2026-S43');
+ assert.equal(watchdogTarget('2027-01-03'),watchdogTarget('2027-01-02'));
+});

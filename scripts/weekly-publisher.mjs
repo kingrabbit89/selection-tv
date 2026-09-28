@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
+import {recoverPromotion} from './recover-promotion.mjs';
 import {calendarTarget} from './week-calendar.mjs';
 import {allowedPaths,digest} from './editorial-handoff.mjs';
 import {github,readContent,commitFiles,branchSha,openPR} from './github-weekly-api.mjs';
@@ -84,7 +85,11 @@ export async function runPublisher(){
   execFileSync(process.execPath,['scripts/verify-promotion-attestation.mjs',week,main],{stdio:'pipe'});
   assert.equal(branchSha(api,'main'),main,'main moved after attestation');
   const oldBranch=branchSha(api,promotion);
-  if(oldBranch)throw Error('Promotion branch already exists without open PR; inspect it before continuing');
+  if(oldBranch){
+    const recovered=recoverPromotion(api,repo,week,main,oldBranch);
+    log('Recovered promotion PR: '+recovered.html_url+'; checks must finish before any merge.');
+    return;
+  }
   // Simulate only the known, reviewed two-file transition using trusted code/data.
   const newManifest=structuredClone(manifest),data=JSON.parse(readContent(api,main,`data/weeks/${week}.json`));
   assert.equal(data.publication_status,'draft');

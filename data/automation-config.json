@@ -94,7 +94,9 @@
   "watchdog": {
     "scheduled_day": "Saturday",
     "scheduled_time_utc": "10:00",
-    "purpose": "Confirm the Saturday-Friday issue is publicly promoted after the retry window or surface a blocking alert."
+    "purpose": "Confirm the Saturday-Friday issue is publicly promoted after the retry window or surface a blocking alert.",
+    "recheck_schedule_utc": "20 11-23 * * 6",
+    "reconcile_after_publisher": true
   },
   "hybrid": {
     "handoff_schema_version": 1,
@@ -107,6 +109,9 @@
     "publisher_workflow": "weekly-publisher.yml",
     "publisher_secret_optional": "WEEKLY_PUBLISH_TOKEN",
     "built_in_token_may_require_workflow_approval": true,
-    "keep_agent_fallback_until_full_cycle_verified": true
+    "keep_agent_fallback_until_full_cycle_verified": true,
+    "task_mode": "single-hourly-resumable-agent",
+    "legacy_phase_tasks_paused": true,
+    "editorial_lease_script": "scripts/editorial-lease.mjs"
   }
 }

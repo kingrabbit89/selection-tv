@@ -10,7 +10,7 @@ L'automatisation est volontairement séparée en deux fonctions : le producteur 
 
 La cible est le prochain numéro commençant samedi et se terminant vendredi, calculé dans le fuseau Europe/Paris. La commande canonique est `node scripts/next-target.mjs`. Le samedi, la cible reste le samedi courant. Si un cycle a échoué, le cycle suivant saute les éditions non publiées devenues obsolètes : il produit la cible calendaire actuelle, sans rattrapage de programmes périmés. Les validateurs et la promotion appliquent cette même règle ; leurs logs nomment les cycles sautés. Les anciens brouillons restent non publics. Aucun seuil éditorial ne change.
 
-Le cycle officiel comporte cinq étapes dans le fuseau Europe/Paris : inventaire jeudi 08:00, enrichissement vendredi 08:00, préflight vendredi 17:00, publication vendredi 20:00, puis retry samedi 08:00 si nécessaire. Chaque étape vérifie d'abord si la cible est déjà publiée et évite tout travail ou doublon inutile. La configuration machine-readable est data/automation-config.json.
+Le cycle officiel conserve cinq jalons dans le fuseau Europe/Paris : inventaire jeudi 08:00, enrichissement vendredi 08:00, préflight vendredi 17:00, publication vendredi 20:00, puis retry samedi 08:00 si nécessaire. Ces jalons sont désormais exécutés par une seule tâche de reprise horaire (jeudi–samedi, 8 h–23 h Europe/Paris) ; les cinq anciennes tâches sont en pause. Chaque étape vérifie d'abord si la cible est déjà publiée et évite tout travail ou doublon inutile. La configuration machine-readable est data/automation-config.json.
 
 ## Candidate
 
@@ -116,8 +116,10 @@ Le protocole Android 3 est requis pour distinguer l’état played inconnu de fa
 
 ## Production hybride et reprise dans Chat
 
-Le protocole opérationnel est `docs/HYBRID-WORKFLOW.md`. Les tâches inventaire et enrichissement privilégient les résultats éditoriaux et les checkpoints ; les contrôles répétitifs et la publication mécanique sont confiés à GitHub. Les cinq tâches actuelles restent des secours : leur moteur et leur quota ne sont pas migrés automatiquement vers Chat.
+Le protocole opérationnel est `docs/HYBRID-WORKFLOW.md`. Les tâches inventaire et enrichissement privilégient les résultats éditoriaux et les checkpoints ; les contrôles répétitifs et la publication mécanique sont confiés à GitHub. Les cinq anciennes tâches sont conservées en pause, remplacées par une tâche unique de reprise horaire ; son moteur et son quota ne sont pas migrés automatiquement vers Chat.
 
 `prepare-editorial-handoff.yml` exporte le contexte, `import-editorial-handoff.yml` importe les lots communs depuis une branche handoff, et `weekly-publisher.yml` peut effectuer les fusions protégées et créer la PR de promotion. Il exige une revue éditoriale explicite liée aux empreintes des livrables, en plus de tous les contrôles existants. Il ne remplace aucune validation de qualité par un simple marqueur. Toute modification invalide la revue des fichiers concernés.
 
 En préflight, après la revue des sources et la résolution de tous les travaux restants, enregistrer la revue avec `scripts/seal-editorial-review.mjs WEEK --review-completed`, puis commiter ce checkpoint. En publication/retry, inspecter d'abord le publicateur GitHub et ne pas dupliquer sa PR. Reprendre seulement l'étape bloquée ; ne jamais contourner une approbation GitHub. Le jeton intégré peut exiger une approbation des workflows de PR ; un secret dédié autorisé peut être nécessaire pour un cycle entièrement autonome. Les dates, seuils, garde-fous et l'exclusion de Vos Uploads de Fire TV restent applicables.
+
+Les détails de reprise et les tests du bail sont décrits dans `docs/HYBRID-WORKFLOW.md`. Les PR GitHub doivent être normales (`draft: false`) pour la fusion, même si les données de la candidate restent draft. Une promotion orpheline ne se reprend que si sa transaction et sa base exactes sont encore valides. Le watchdog revient après midi et après les passages du publicateur pour fermer les alertes dont le déploiement est vérifié.

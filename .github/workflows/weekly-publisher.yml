@@ -30,6 +30,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Report credential mode without exposing secrets
+        env:
+          HAS_DEDICATED_TOKEN: ${{ secrets.WEEKLY_PUBLISH_TOKEN != '' }}
+        run: |
+          if [ "$HAS_DEDICATED_TOKEN" = "true" ]; then
+            echo "Credential mode: dedicated token configured; permissions and validity still require a real cycle." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Credential mode: built-in GITHUB_TOKEN; PR workflows may require explicit approval." >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Advance one verified publication stage
         env:
           GH_TOKEN: ${{ secrets.WEEKLY_PUBLISH_TOKEN || github.token }}
