@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T14:03:53.608Z",
+  "updated_at": "2026-10-08T14:12:11.804Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -39,7 +39,8 @@
     "TCM : 98 créneaux comparés aux sept grilles Télérama courantes, aucun écart d'heure ; Nashville Blues/The Thing Called Love rapprochés par la fiche liée. Source officielle ou indépendance des flux encore à obtenir ; Flics et voyous reste un titre d'épisode à confirmer. Documentaires et autres films à enrichir.",
     "TCM : Regrouping, Roger Corman et Burning an Illusion approfondis, critiques attribuées avec réserves. Résoudre versions (Regrouping75/80min, Burning101/105/107min), année Corman2019/2020/2021, offres France/expirations, notes et affiches. Thrillers identifié via fiche liée ; Flics et voyous encore générique. Aucune carte complète ni consensus déduit.",
     "NOVO19 : annonce directe confirme Vis ma vie de Drag Queen le 14 à 21:10 ; deux fins de soirée ajoutées (épisodes/indépendance à confirmer). Falaises de Bonifacio le 16 à 21:10 concorde entre guides ; version 58/60 min, offre et réception/preuves alternatives, notes et affiche restent ouverts.",
-    "Ciné+ : L'ours identifié comme Bear (Nash Edgerton 2011), deux avis nuancés lus ; Le cinéma qui respire et Des animaux et des monstres identifiés mais sans critique argumentée trouvée. Versions/créneaux, recoupements indépendants, droits/offres/expirations, notes et affiches à terminer."
+    "Ciné+ : L'ours identifié comme Bear (Nash Edgerton 2011), deux avis nuancés lus ; Le cinéma qui respire et Des animaux et des monstres identifiés mais sans critique argumentée trouvée. Versions/créneaux, recoupements indépendants, droits/offres/expirations, notes et affiches à terminer.",
+    "Ciné+ Festival : 7 grilles secondaires lues, 99 créneaux rapprochés ; indépendance/chaîne officielle encore à obtenir. L'image originelle du15/10 : fiche liée Sofia Coppola contre Joachim Trier, épisode à arbitrer. Quatre magazines/bonus à sujets génériques examinés ; documentaires de création repérés à approfondir. Identités Dallamano/Hers/Arnold précises ; versions/offres et critique restent à terminer."
   ],
   "completed_batches": [
     {
@@ -348,6 +349,11 @@
       "id": "research-cine-bear-and-two-cinema-documentaries",
       "completed_at": "2026-10-08T14:03:53.608Z",
       "description": "Cinq diffusions reliées à trois œuvres distinctes ; identité du court Bear, deux avis attribués, deux documentaires et recherches critiques négatives documentés. Aucune carte complète ni sélection prétendue."
+    },
+    {
+      "id": "inventory-cine-festival-seven-grids-and-identities",
+      "completed_at": "2026-10-08T14:12:11.804Z",
+      "description": "Sept grilles secondaires, 103créneaux lus/99inventoriés rapprochés, quatre blocs génériques distingués. Six fiches CANAL+ structurées et deux identités ambiguës examinées ; conflit d'épisode explicitement conservé."
     }
   ],
   "blockers": [
@@ -16895,6 +16901,270 @@
       },
       "evidence_note": "Deux guides concordent, indépendance non établie. Durée film 11 min/créneau31. IMDb403, agrégat SC non certifié, offre France/affiche à vérifier.",
       "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/silent-friend/h/31489252_40099"
+      ],
+      "checked_at": "2026-10-08T14:07:58.571577+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Silent Friend",
+        "version": "œuvre identifiée par fiche CANAL+"
+      },
+      "evidence_note": "Fiche primaire : Silent Friend, Ildikó Enyedi. Durée PT2H27M observée pour cette offre, pas transposée à toute version.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_event",
+        "duration",
+        "availability"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/silent-friend/h/31489252_40099"
+      ],
+      "checked_at": "2026-10-08T14:07:58.571577+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Silent Friend",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Événement hors cycle ou absent : pas de validation horaire S42. regionsAllowed FR dans la métadonnée ne prouve ni lecture effective ni abonnement précis. expires égal fin BroadcastEvent non utilisé comme expiration replay.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/slow/h/29789034_50002"
+      ],
+      "checked_at": "2026-10-08T14:07:58.738393+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Slow",
+        "version": "œuvre identifiée par fiche CANAL+"
+      },
+      "evidence_note": "Fiche primaire : Slow, Marija Kavtaradze. Durée PT1H43M observée pour cette offre, pas transposée à toute version.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_event",
+        "duration",
+        "availability"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/slow/h/29789034_50002"
+      ],
+      "checked_at": "2026-10-08T14:07:58.738393+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Slow",
+        "week": "2026-S42"
+      },
+      "evidence_note": "BroadcastEvent 10/10 04:00–05:58 concordant au départ avec les deux guides ; chaîne absente de l'objet, pas encore certification complète. 103 min œuvre vs118 min créneau.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/bird/h/27480859_50002"
+      ],
+      "checked_at": "2026-10-08T14:07:58.660805+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Bird",
+        "version": "œuvre identifiée par fiche CANAL+"
+      },
+      "evidence_note": "Fiche primaire : Bird, Andrea Arnold. Durée PT1H54M observée pour cette offre, pas transposée à toute version.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_event",
+        "duration",
+        "availability"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/bird/h/27480859_50002"
+      ],
+      "checked_at": "2026-10-08T14:07:58.660805+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Bird",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Événement hors cycle ou absent : pas de validation horaire S42. regionsAllowed FR dans la métadonnée ne prouve ni lecture effective ni abonnement précis. expires égal fin BroadcastEvent non utilisé comme expiration replay.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/black-dog/h/28102082_50002"
+      ],
+      "checked_at": "2026-10-08T14:07:58.838301+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Black Dog",
+        "version": "œuvre identifiée par fiche CANAL+"
+      },
+      "evidence_note": "Fiche primaire : Black Dog, Hu Guan. Durée PT1H45M observée pour cette offre, pas transposée à toute version.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_event",
+        "duration",
+        "availability"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/black-dog/h/28102082_50002"
+      ],
+      "checked_at": "2026-10-08T14:07:58.838301+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Black Dog",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Événement hors cycle ou absent : pas de validation horaire S42. regionsAllowed FR dans la métadonnée ne prouve ni lecture effective ni abonnement précis. expires égal fin BroadcastEvent non utilisé comme expiration replay.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": "les-femmes-au-balcon",
+      "fields": [
+        "title",
+        "director"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/les-femmes-au-balcon/h/27265946_50002"
+      ],
+      "checked_at": "2026-10-08T14:07:59.106840+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Les femmes au balcon",
+        "version": "œuvre identifiée par fiche CANAL+"
+      },
+      "evidence_note": "Fiche primaire : Les femmes au balcon, Noémie Merlant. Durée PT1H39M observée pour cette offre, pas transposée à toute version.",
+      "status": "verified"
+    },
+    {
+      "work_id": "les-femmes-au-balcon",
+      "fields": [
+        "broadcast_event",
+        "duration",
+        "availability"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/les-femmes-au-balcon/h/27265946_50002"
+      ],
+      "checked_at": "2026-10-08T14:07:59.106840+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Les femmes au balcon",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Événement hors cycle ou absent : pas de validation horaire S42. regionsAllowed FR dans la métadonnée ne prouve ni lecture effective ni abonnement précis. expires égal fin BroadcastEvent non utilisé comme expiration replay.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/sorry-baby/h/29942524_50002"
+      ],
+      "checked_at": "2026-10-08T14:09:57.689647+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Sorry, Baby",
+        "version": "œuvre identifiée par fiche CANAL+"
+      },
+      "evidence_note": "Fiche primaire : Sorry, Baby, Eva Victor. Durée PT1H38M observée pour cette offre, pas transposée à toute version.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_event",
+        "duration",
+        "availability"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/sorry-baby/h/29942524_50002"
+      ],
+      "checked_at": "2026-10-08T14:09:57.689647+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Sorry, Baby",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Événement hors cycle ou absent : pas de validation horaire S42. regionsAllowed FR dans la métadonnée ne prouve ni lecture effective ni abonnement précis. expires égal fin BroadcastEvent non utilisé comme expiration replay.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": "amanda",
+      "fields": [
+        "title",
+        "director",
+        "country",
+        "release_year",
+        "cinema_duration"
+      ],
+      "source_urls": [
+        "https://distrib.pyramidefilms.com/pyramide-distribution-prochainement/amanda.html"
+      ],
+      "checked_at": "2026-10-08T14:12:11.804Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Amanda",
+        "version": "Mikhaël Hers 2018 cinéma"
+      },
+      "evidence_note": "Source distributeur consultée : France, sortie21/11/2018,107min,Mikhaël Hers,distribution Vincent Lacoste/Isaure Multrier/Stacy Martin. Fiche catalogue existante corroborée désormais ; ancienne note/affiche datée27/09 non présentée comme consultée aujourd'hui. Version Festival104min de créneau à contrôler.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "version"
+      ],
+      "source_urls": [
+        "https://www.telerama.fr/cinema/films/la-venus-en-fourrure-1-72391.php",
+        "https://www.capuseen.com/films/9104-la-venus-en-fourrure"
+      ],
+      "checked_at": "2026-10-08T14:12:11.804Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "La Vénus en fourrure",
+        "version": "Massimo Dallamano 1969"
+      },
+      "evidence_note": "Fiche liée à la grille : Massimo Dallamano, Laura Antonelli/Régis Vallée ; Capuseen version restaurée2K1969,86min. Ne pas confondre avec Jess Franco1969 ni Polanski2013. Télérama87min/créneaux83–86min : version linéaire à contrôler.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -17283,14 +17553,15 @@
       "novo19_primary_confirmed_slots": 1
     },
     {
-      "date": "2026-10-08T14:03:53.608Z",
+      "date": "2026-10-08T14:12:11.804Z",
       "started_at": "2026-10-08T13:55:31.739Z",
       "owner": "7cbc1ef6-73e4-4f3e-8efa-f6a4a01f75d1",
       "stage": "inventory_identity_and_documentary_research",
-      "elapsed_seconds": 502,
+      "elapsed_seconds": 1000,
       "duration_basis": "wall_clock_until_checkpoint",
       "completed_batches": [
-        "research-cine-bear-and-two-cinema-documentaries"
+        "research-cine-bear-and-two-cinema-documentaries",
+        "inventory-cine-festival-seven-grids-and-identities"
       ],
       "reused_complete_cards": 0,
       "newly_verified_complete_cards": 0,
@@ -17300,9 +17571,11 @@
       "blockers": [],
       "remaining": {
         "stage": "inventory",
-        "count": 35,
+        "count": 36,
         "reference": "remaining"
-      }
+      },
+      "festival_schedule_entries_compared": 99,
+      "festival_programmes_examined": 103
     }
   ],
   "source_issues": [
@@ -17799,10 +18072,11 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "9ecc5944572c41e25f1626ff5cb69868e80db8c5",
+    "checkpoint_parent_sha": "868a9da9fd105cc25b1700aaa180d684413bb602",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
+      "Réutiliser les sept grilles Ciné+ Festival (99créneaux rapprochés) et les six observations CANAL+ ; ne pas réinterpréter les événements hors cycle ni expires. Résoudre l'épisode15/10 et approfondir la passe documentaire de création.",
       "Réutiliser les trois dossiers Ciné+ de ce passage (Bear, Le cinéma qui respire, Des animaux et des monstres) ; cinq occurrences identifiées. Recherches et réserves dans coverage/verification_records, ne pas répéter les mêmes pages.",
       "Réutiliser les quatre lots de ce passage : six arbitrages France Télévisions ; 98 créneaux TCM comparés ; Regrouping/Corman/Burning approfondis ; NOVO19 +2 créneaux et annonce directe. Détails et limites conservés dans coverage/verification_records ; ne pas répéter les mêmes pages sans changement.",
       "France Télévisions : six arbitrages effectués, ne pas rouvrir les mêmes divergences sans changement de source. Dodin 02:55 et quatre créneaux La p'tite librairie officiels ; F3 15/10 12:15 exclu. Livres des capsules encore à confirmer, contrôle préflight si retenus.",
