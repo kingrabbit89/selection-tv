@@ -3,9 +3,9 @@
   "week": "2026-S42",
   "base_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
   "stage": "inventory",
-  "updated_at": "2026-10-08T06:18:30.379Z",
+  "updated_at": "2026-10-08T06:18:49.276Z",
   "remaining": [
-    "Inventorier du 14 au 16 octobre (00:00–23:59), toutes chaînes actives obligatoires et découvertes.",
+    "Inventorier du 15 au 16 octobre (00:00–23:59), toutes chaînes actives obligatoires et découvertes.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
     "Résoudre l'incompatibilité Paramount Channel obligatoire / chaîne arrêtée, sans déclarer un scan fictif ni changer les seuils.",
     "Réconcilier les horaires et doublons ambigus : Arte 07:50/07:55 aliments transformés ; Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min).",
@@ -38,6 +38,12 @@
       "completed_at": "2026-10-08T06:18:30.379Z",
       "description": "Premier relevé de 31 chaînes actives ; 267 entrées brutes ; journée non validée.",
       "items": 267
+    },
+    {
+      "id": "inventory-2026-10-14-primary",
+      "completed_at": "2026-10-08T06:18:49.276Z",
+      "description": "Premier relevé de 31 chaînes actives ; 272 entrées brutes ; journée non validée.",
+      "items": 272
     }
   ],
   "blockers": [
@@ -2737,28 +2743,680 @@
       },
       "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
       "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/arte/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:37.532Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Arte"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/france-2/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:37.627Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "France 2"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/france-3/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:38.186Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "France 3"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/france-4/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:49.275Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "France 4"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/france-5/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:38.028Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "France 5"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tv5monde/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:38.595Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "TV5MONDE"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/canal-plus/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:37.911Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Canal+"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/canal-plus-cinema/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:37.754Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Canal+ Cinéma"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/canal-plus-box-office/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:38.014Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Canal+ Box Office"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/canal-plus-grand-ecran/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:38.489Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Canal+ Grand Écran"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-ocs/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:38.196Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Ciné+ OCS"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-classic/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:37.985Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Ciné+ Classic"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-festival/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:38.055Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Ciné+ Festival"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-frisson/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:37.838Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Ciné+ Frisson"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-family/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:38.015Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Ciné+ Family"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tf1/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:38.142Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "TF1"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/m6/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:47.411Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "M6"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tmc/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:48.179Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "TMC"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tfx/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:46.967Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "TFX"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/w9/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:47.735Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "W9"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/6ter/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:47.981Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "6ter"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/gulli/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:47.225Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Gulli"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/paris-premiere/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:47.078Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Paris Première"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/rtl-9/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:48.328Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "RTL 9"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tcm-cinema/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:47.880Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "TCM Cinéma"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/action/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:47.274Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Action"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/rmc-story/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:47.944Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "RMC Story"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/rmc-decouverte/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:47.448Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "RMC Découverte"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/la-chaine-parlementaire/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:47.535Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "La Chaîne parlementaire"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/novo19/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:47.144Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "NOVO19"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/canal-plus-docs/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:47.280Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Canal+ Docs"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
     {
-      "date": "2026-10-08T06:18:30.379Z",
+      "date": "2026-10-08T06:18:49.276Z",
       "owner": "a200f4a9-e530-46af-852d-3c0c9604a3f4",
       "stage": "inventory",
-      "elapsed_seconds": 883,
+      "elapsed_seconds": 902,
       "completed_batches": [
         "inventory-2026-10-10-primary",
         "inventory-2026-10-11-primary",
         "inventory-2026-10-12-primary",
-        "inventory-2026-10-13-primary"
+        "inventory-2026-10-13-primary",
+        "inventory-2026-10-14-primary"
       ],
       "reused_complete_cards": 0,
       "newly_verified_complete_cards": 0,
-      "raw_schedule_entries": 1140,
+      "raw_schedule_entries": 1412,
       "blockers": [
         "required-channel-paramount-ceased"
       ],
       "remaining": [
-        "Inventorier du 14 au 16 octobre (00:00–23:59), toutes chaînes actives obligatoires et découvertes.",
+        "Inventorier du 15 au 16 octobre (00:00–23:59), toutes chaînes actives obligatoires et découvertes.",
         "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
         "Résoudre l'incompatibilité Paramount Channel obligatoire / chaîne arrêtée, sans déclarer un scan fictif ni changer les seuils.",
         "Réconcilier les horaires et doublons ambigus : Arte 07:50/07:55 aliments transformés ; Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min).",
