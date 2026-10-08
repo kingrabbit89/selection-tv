@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T12:06:46.361Z",
+  "updated_at": "2026-10-08T12:09:08.897Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -12,7 +12,7 @@
     "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV.",
     "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue.",
     "France 5 : Pompéi et Foucault réconciliés par les grilles officielles ; revérifier au préflight. Quatre écarts La p'tite librairie, versions/durées et fins de nuit restent à traiter. Offres replay, expirations, réception complémentaire et notes encore incomplètes.",
-    "T18 14 octobre relevée ; identifier les épisodes regroupés et recouper les horaires. LeZapp associe au titre Face à face une description politique incompatible avec son type série : ne pas réutiliser ce synopsis.",
+    "T18 14 octobre : neuf épisodes/sujets nommés et horaires concordants entre deux guides ; indépendance des flux/source officielle encore à établir. Face à face identifié comme fiction policière ; descriptif politique LeZapp exclu.",
     "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
     "TF1 Séries Films : neuf diffusions recoupées et nuits consultées ; blocs nocturnes génériques non détaillés, réception et cartes à terminer. CSTAR : recoupements indépendants et épisodes Douanes sous haute surveillance encore à compléter.",
     "Rappel TNT : traiter les programmes non rapprochés consignés dans editorial_reminder_passes ; ne pas déduire l'identité d'une simple proximité de titre (soirée Marine notamment). Compléter rappel cinéma payant et recoupements manquants.",
@@ -274,6 +274,11 @@
       "id": "documentary-arte-prehistory-offers-and-critical-evidence",
       "completed_at": "2026-10-08T12:06:46.361Z",
       "description": "Trois œuvres, cinq diffusions : identités stables et offres affichées établies ; critiques indépendantes et jury attribués. Deux prix précis pour Thorin, limites paywalls/versions/géographie conservées ; aucune fiche complète certifiée."
+    },
+    {
+      "id": "inventory-t18-oct14-episode-identification",
+      "completed_at": "2026-10-08T12:09:08.897Z",
+      "description": "Neuf entrées génériques précisées sans ajout ni suppression ; nuit incluse. Recoupement de guides consigné sans certifier leur indépendance."
     }
   ],
   "blockers": [
@@ -13542,6 +13547,48 @@
       },
       "evidence_note": "Avis distingués par auteur, type et accès dans coverage. Extraits payants non prolongés ; ni consensus ni notes globales inférés.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "episode_title",
+        "broadcast_start",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/t18/mercredi-14-octobre-2026/",
+        "https://lezapptv.fr/chaine/t18/2026-10-14"
+      ],
+      "checked_at": "2026-10-08T12:09:08.897Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "T18"
+      },
+      "evidence_note": "Neuf créneaux concordants, sous-titres identifiés dans le second guide. Indépendance des flux non établie ; aucune certification globale de journée.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "type",
+        "episode_identity"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/face-a-face-serie/s01e08-omission-e783063",
+        "https://tv-programme.com/face-a-face-serie/s01e06-collateral-e781541"
+      ],
+      "checked_at": "2026-10-08T12:09:35.282Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "T18",
+        "title": "Face à face"
+      },
+      "evidence_note": "Omission/Collatéral : fiches de fiction policière avec Claire Borotra et Constance Gay, pas un débat politique. Pas de reprise des réalisateurs multiples du guide sans générique officiel.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -13940,6 +13987,18 @@
       "checked_at": "2026-10-08T11:15:01.819Z",
       "status": "unavailable",
       "note": "Accueil HTTP502 ; ne pas répéter dans ce lot. cineplus.fr redirige vers page CANAL+ publique accessible, liens œuvres utilisables mais pas grille hebdomadaire."
+    },
+    {
+      "checked_at": "2026-10-08T12:09:35.282Z",
+      "source_url": "https://www.canalplusbrandsolutions.fr/articles/amenagements/grilles-publicitaires-cstar",
+      "status": "unavailable_current_grid",
+      "note": "Résultat web ne présente que S17-S26 de 2026, lecture HTTP 403. PDF S42 trouvé dans les recherches concerne 2025 : exclu."
+    },
+    {
+      "checked_at": "2026-10-08T12:09:35.282Z",
+      "source_url": "https://www.t18.fr/",
+      "status": "unavailable",
+      "note": "HTTP 403 ; source officielle datée encore à obtenir, pas de contournement."
     }
   ],
   "editorial_review": {

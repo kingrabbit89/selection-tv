@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "partial",
-  "updated_at": "2026-10-08T12:06:46.361Z",
+  "updated_at": "2026-10-08T12:09:08.897Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -176,7 +176,13 @@
       "rtl9_official_corroborated_slots": 2,
       "paris_premiere_official_corroborated_slots": 1,
       "gulli_official_corroborated_slots": 0,
-      "paris_premiere_additions_independently_corroborated": 1
+      "paris_premiere_additions_independently_corroborated": 1,
+      "t18_secondary_comparison": {
+        "source_url": "https://tv-programme.com/t18/mercredi-14-octobre-2026/",
+        "checked_at": "2026-10-08T12:09:08.897Z",
+        "matched_slots": 9,
+        "independence_established": false
+      }
     },
     {
       "date": "2026-10-15",
@@ -8540,24 +8546,34 @@
         "reason": "Découverte ajoutée depuis une grille officielle ou de substitution ; identité, critique et disponibilité numérique à établir."
       },
       {
-        "title": "La découverte des derniers tombeaux d'Egypte",
+        "title": "La découverte des derniers tombeaux d'Egypte — Saqqarah et les momies oubliées",
         "channel": "T18",
         "date": "2026-10-14",
         "start": "10:15",
         "decision": "à vérifier",
         "availability_source": "https://lezapptv.fr/chaine/t18/2026-10-14",
         "critical_evidence": [],
-        "reason": "Inventaire brut ; identité et réception à examiner."
+        "reason": "Inventaire brut ; identité et réception à examiner.",
+        "episode_identification": {
+          "source_url": "https://tv-programme.com/t18/mercredi-14-octobre-2026/",
+          "checked_at": "2026-10-08T12:09:35.282Z",
+          "status": "second_guide_observed"
+        }
       },
       {
-        "title": "La découverte des derniers tombeaux d'Egypte",
+        "title": "La découverte des derniers tombeaux d'Egypte — Les mystérieux cercueils égyptiens",
         "channel": "T18",
         "date": "2026-10-14",
         "start": "11:15",
         "decision": "à vérifier",
         "availability_source": "https://lezapptv.fr/chaine/t18/2026-10-14",
         "critical_evidence": [],
-        "reason": "Inventaire brut ; identité et réception à examiner."
+        "reason": "Inventaire brut ; identité et réception à examiner.",
+        "episode_identification": {
+          "source_url": "https://tv-programme.com/t18/mercredi-14-octobre-2026/",
+          "checked_at": "2026-10-08T12:09:35.282Z",
+          "status": "second_guide_observed"
+        }
       },
       {
         "title": "Outremer.story — Les aventuriers des Outre-mer",
@@ -10339,6 +10355,19 @@
         "https://www.canalplus.com/cinema/saint-ex/h/27265954_50002"
       ],
       "result": "Rachelle Allison : 20:30 et titre de captation corrigés avec historique préservé. Saint-Ex : incohérence confirmée dans métadonnées officielles ; film et expiration non certifiés. France3 librairie : contradiction persistante, aucun arbitrage."
+    },
+    {
+      "checked_at": "2026-10-08T12:09:35.282Z",
+      "scope": "T18 14 octobre : correction d'identité du prime",
+      "source_urls": [
+        "https://tv-programme.com/t18/mercredi-14-octobre-2026/",
+        "https://tv-programme.com/face-a-face-serie/s01e08-omission-e783063",
+        "https://tv-programme.com/face-a-face-serie/s01e06-collateral-e781541"
+      ],
+      "findings": [
+        "Face à face : Omission 20:55 et Collatéral 21:45 ; fiction policière régulière, pas documentaire politique. Aucun critère d'épisode exceptionnel établi ; ne pas ajouter comme recommandation sur le seul titre."
+      ],
+      "status": "partial"
     }
   ]
 }
