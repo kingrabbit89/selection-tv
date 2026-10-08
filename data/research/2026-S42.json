@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "b619a043c67e5d7790928731c8b0b35563992d05",
   "stage": "enrichment",
-  "updated_at": "2026-10-08T20:19:57.076Z",
+  "updated_at": "2026-10-08T20:22:52.344Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -438,6 +438,11 @@
       "id": "enrichment-les-mots-tuesday-draft",
       "completed_at": "2026-10-08T20:19:57.076Z",
       "description": "Les mots qu’elles eurent un jour matérialisé en carte draft du mardi. La fiche Ouest-France exacte ferme le manque de recoupement indépendant du créneau ; aucune exigence globale n’est retirée."
+    },
+    {
+      "id": "enrichment-koute-vwa-monday-draft",
+      "completed_at": "2026-10-08T20:22:52.344Z",
+      "description": "Kouté Vwa matérialisé en carte draft du lundi. La fiche Ouest-France exacte ferme le manque de recoupement du créneau linéaire ; le conflit replay demeure explicite."
     }
   ],
   "blockers": [
@@ -19033,6 +19038,146 @@
       },
       "evidence_note": "Liens directs exacts ; IMDb indisponible à la lecture antérieure mais identité du lien concordante.",
       "status": "verified"
+    },
+    {
+      "work_id": "koute-vwa-2024",
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "version.duration"
+      ],
+      "source_urls": [
+        "https://www.alchimistesfilms.com/koute-vwa/",
+        "https://cineuropa.org/fr/newsdetail/464988/",
+        "https://www.canalplus.com/cinema/koute-vwa/h/29856185_50002",
+        "https://www.senscritique.com/film/koute_vwa/95757689",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=302102.html"
+      ],
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "reused_in": [
+        "production-flow-2026-10-08"
+      ],
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "version": "CANAL+ 76 min"
+      },
+      "evidence_note": "Identité 2024 établie ; écarts 76/77 min et case 83 min conservés.",
+      "status": "verified"
+    },
+    {
+      "work_id": "koute-vwa-2024",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/koute-vwa/h/29856185_50002",
+        "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
+        "https://programmetv.ouest-france.fr/film/drame/koute-vwa-c335923476/"
+      ],
+      "checked_at": "2026-10-08T20:22:52.344Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-12 04:49 Ciné+ Festival"
+      },
+      "evidence_note": "Événement officiel réutilisé et fiche Ouest-France exacte consultée ce passage : chaîne et horaire recoupés.",
+      "status": "verified"
+    },
+    {
+      "work_id": "koute-vwa-2024",
+      "fields": [
+        "availability",
+        "expiration",
+        "subscription"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/koute-vwa/h/29856185_50002"
+      ],
+      "checked_at": "2026-10-08T14:14:16.525537Z",
+      "reused_in": [
+        "production-flow-2026-10-08"
+      ],
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "offer": "replay/non-linear"
+      },
+      "evidence_note": "Conflit 09/10 contre 15/12 conservé ; aucune offre utilisée dans la carte linéaire.",
+      "status": "conflict"
+    },
+    {
+      "work_id": "koute-vwa-2024",
+      "fields": [
+        "critical_reception",
+        "critical_reservations",
+        "ratings.senscritique"
+      ],
+      "source_urls": [
+        "https://cineuropa.org/fr/newsdetail/464988/",
+        "https://www.abusdecine.com/critique/koute-vwa/",
+        "https://www.senscritique.com/film/koute_vwa/95757689",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=302102.html"
+      ],
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "reused_in": [
+        "production-flow-2026-10-08"
+      ],
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Kouté Vwa"
+      },
+      "evidence_note": "Deux avis attribués avec réserves ; SC 6,5 sauvegardé.",
+      "status": "verified"
+    },
+    {
+      "work_id": "koute-vwa-2024",
+      "fields": [
+        "image",
+        "image_type",
+        "image_provenance",
+        "image_visual_review"
+      ],
+      "source_urls": [
+        "https://www.imdb.com/title/tt32890051/",
+        "https://m.media-amazon.com/images/M/MV5BNzIwYzU5ZTctMzQzZS00YmZhLWFiODQtZmQ2MmFiNzc3OGNjXkEyXkFqcGc%40._V1_.jpg"
+      ],
+      "checked_at": "2026-10-08T20:22:52.344Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Kouté Vwa"
+      },
+      "evidence_note": "Affiche exacte inspectée visuellement ; CI distant en attente.",
+      "status": "verified"
+    },
+    {
+      "work_id": "koute-vwa-2024",
+      "fields": [
+        "links.official",
+        "links.imdb",
+        "links.sc",
+        "links.allocine"
+      ],
+      "source_urls": [
+        "https://www.alchimistesfilms.com/koute-vwa/",
+        "https://www.imdb.com/title/tt32890051/",
+        "https://www.senscritique.com/film/koute_vwa/95757689",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=302102.html"
+      ],
+      "checked_at": "2026-10-08T20:22:52.344Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Kouté Vwa"
+      },
+      "evidence_note": "Liens directs exacts.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -19782,9 +19927,45 @@
         "count": 35,
         "reference": "remaining"
       },
-      "stop_reason": "coherent_tuesday_complete_draft_batch_ready_for_remote_checkpoint",
+      "stop_reason": "checkpoint_saved_then_next_useful_batch_continued",
       "next_useful_batch": "Compléter un dossier d’un lundi ou vendredi encore vide, puis poursuivre choix/réserves et recoupements obligatoires.",
       "note": "Une carte draft complète supplémentaire ; mardi et semaine restent incomplets. Les 35 exigences et tous les flags de couverture restent inchangés."
+    },
+    {
+      "date": "2026-10-08T20:22:52.344Z",
+      "started_at": "2026-10-08T20:19:57.076Z",
+      "ended_at": "2026-10-08T20:22:52.344Z",
+      "owner": "a68f4d35-6d59-41c1-a5d4-041717ff033a",
+      "prompt_revision": "production-flow-2026-10-08",
+      "stage": "enrichment_draft_cards",
+      "elapsed_seconds": 175,
+      "duration_basis": "wall_clock_between_saved_checkpoints",
+      "completed_batches": [
+        "enrichment-koute-vwa-monday-draft"
+      ],
+      "new_leads": 1,
+      "previously_researched_incomplete_works_followed_up": 1,
+      "newly_completed_editorial_dossiers": 1,
+      "newly_verified_complete_cards": 1,
+      "draft_cards_created": 1,
+      "deliverables_advanced": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/manifest.json",
+        "data/coverage/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "coverage_requirements_resolved": 0,
+      "images_visually_checked": 1,
+      "remaining": {
+        "stage": "enrichment",
+        "count": 35,
+        "reference": "remaining"
+      },
+      "stop_reason": "coherent_monday_complete_draft_batch_ready_for_remote_checkpoint_and_lease_release",
+      "next_useful_batch": "Compléter une première carte du vendredi, seul jour encore vide, puis poursuivre choix/réserves et couverture.",
+      "note": "Carte linéaire complète ; conflit replay conservé. Lundi et semaine restent incomplets, 35 exigences inchangées."
     }
   ],
   "source_issues": [
@@ -20508,8 +20689,8 @@
       },
       {
         "title": "Kouté Vwa",
-        "status": "prometteur mais incomplet",
-        "remaining": "Résoudre la fenêtre 09/10 contre 15/12, la chaîne officielle et la revue visuelle de l'affiche."
+        "status": "dossier et carte draft complets pour comparaison linéaire",
+        "remaining": "Résoudre le conflit d’offre seulement avant un usage replay ; achever deux autres choix, réserves et préflight du lundi."
       }
     ],
     "paused_or_nonselected": [
@@ -20650,8 +20831,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "75be67b66853374ffd50476567821573d5f8542f",
-    "produced_at": "2026-10-08T20:19:57.076Z",
+    "source_candidate_sha": "93c385027832188ecc769a56ec22370fb655c031",
+    "produced_at": "2026-10-08T20:22:52.344Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -20796,6 +20977,30 @@
             "https://www.citizenpoulpe.com/les-mots-qu-elles-eurent-un-jour/",
             "https://www.senscritique.com/film/les_mots_quelles_eurent_un_jour/82836380",
             "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000013187.html"
+          ]
+        }
+      },
+      {
+        "work_id": "koute-vwa-2024",
+        "date": "2026-10-12",
+        "rank_provisional": 1,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-08",
+          "identity_version": "Film hybride 2024 sorti en 2025 ; version 76 min ciblée, écarts 77/83 min préservés.",
+          "canonical_fields": "Identité, liens, SC 6,5 et affiche exacte contrôlés.",
+          "current_broadcast": "Lundi 12 octobre 04:49, Ciné+ Festival, recoupé par événement officiel et fiche indépendante exacte.",
+          "editorial_copy": "Textes originaux revus depuis Cineuropa et Abus de ciné, avec réserves explicites.",
+          "evidence_urls": [
+            "https://www.canalplus.com/cinema/koute-vwa/h/29856185_50002",
+            "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
+            "https://programmetv.ouest-france.fr/film/drame/koute-vwa-c335923476/",
+            "https://www.alchimistesfilms.com/koute-vwa/",
+            "https://cineuropa.org/fr/newsdetail/464988/",
+            "https://www.abusdecine.com/critique/koute-vwa/",
+            "https://www.senscritique.com/film/koute_vwa/95757689",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=302102.html",
+            "https://www.imdb.com/title/tt32890051/"
           ]
         }
       }

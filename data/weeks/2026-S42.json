@@ -63,9 +63,19 @@
       "id": "mardi-grille",
       "className": "page",
       "html": "<div class=\"topbar\">Grille filtrée<span class=\"issue\">S42</span></div><div class=\"grid-title\">MARDI 13 OCTOBRE — la grille commentée</div><table class=\"schedule\"><thead><tr><th>Heure</th><th>Chaîne</th><th>Programme</th><th>Pourquoi le retenir</th><th>Repère</th></tr></thead><tbody><tr><td class=\"time\">19:22</td><td class=\"chan\">Ciné+ Festival</td><td class=\"prog\">Les mots qu&#39;elles eurent un jour</td><td class=\"reason\">Une enquête d’archives qui tente de rendre leur parole à des militantes algériennes filmées en 1962 sans bande sonore.</td><td class=\"rep\"><span class=\"badge TRÈS_FORT\">TRÈS FORT</span></td></tr></tbody></table><div class=\"footer\"><span>Sélection TV · S42</span><span>10</span></div>"
+    },
+    {
+      "id": "lundi-selection",
+      "className": "page",
+      "html": "<div class=\"topbar\">Sélection du jour<span class=\"issue\">S42 · 10 au 16 octobre 2026</span></div><div class=\"day-head\"><div><div class=\"kicker\">Les choix développés</div><div class=\"h1\">LUNDI 12 OCTOBRE</div></div></div><div class=\"rule\"></div><div class=\"feature-columns\"><article class=\"feature\" data-title=\"Kouté Vwa\" data-work-id=\"koute-vwa-2024\"><div class=\"visual\"><img class=\"poster\" src=\"https://m.media-amazon.com/images/M/MV5BNzIwYzU5ZTctMzQzZS00YmZhLWFiODQtZmQ2MmFiNzc3OGNjXkEyXkFqcGc%40._V1_.jpg\" alt=\"Kouté Vwa\"><div class=\"fallback\">Kouté Vwa</div></div><div style=\"margin-top:2mm\"><span class=\"badge DOC\">DOC</span></div><h3>Kouté Vwa</h3><div class=\"slot\">04:49 · Ciné+ Festival</div><div class=\"meta\">2024 · Maxime Jean-Baptiste · Belgique / France · 76 min · Drame / documentaire hybride</div><h4>Ce que ça raconte</h4><p>Melrick, 13 ans, passe l’été chez sa grand-mère Nicole à Cayenne et veut apprendre le tambour. Son désir réveille le souvenir de Lucas, fils de Nicole et tambouyé mort onze ans plus tôt, ainsi que la colère de Yannick, son meilleur ami, encore tenté par la vengeance.</p><div class=\"interest\"><h4>Pourquoi c’est intéressant</h4><p>Maxime Jean-Baptiste mêle fiction et traces documentaires pour faire circuler un deuil intime dans l’histoire collective et la musique guyanaise. La photographie et l’attention aux gestes donnent corps aux absents, même si l’hybridation peut parfois distendre le récit et rendre certaines scènes de deuil insistantes.</p></div></article></div><div class=\"footer\"><span>Sélection TV · S42</span><span>11</span></div>"
+    },
+    {
+      "id": "lundi-grille",
+      "className": "page",
+      "html": "<div class=\"topbar\">Grille filtrée<span class=\"issue\">S42</span></div><div class=\"grid-title\">LUNDI 12 OCTOBRE — la grille commentée</div><table class=\"schedule\"><thead><tr><th>Heure</th><th>Chaîne</th><th>Programme</th><th>Pourquoi le retenir</th><th>Repère</th></tr></thead><tbody><tr><td class=\"time\">04:49</td><td class=\"chan\">Ciné+ Festival</td><td class=\"prog\">Kouté Vwa</td><td class=\"reason\">À Cayenne, le tambour d’un adolescent réveille un deuil familial et cherche une voie vers le pardon.</td><td class=\"rep\"><span class=\"badge DOC\">DOC</span></td></tr></tbody></table><div class=\"footer\"><span>Sélection TV · S42</span><span>12</span></div>"
     }
   ],
-  "page_count": 10,
+  "page_count": 12,
   "section_shortages": {},
   "personalization": {
     "schema_version": 1,
@@ -239,6 +249,37 @@
             },
             "ratings": {
               "senscritique": "6,6"
+            }
+          }
+        ]
+      },
+      "lundi-selection": {
+        "page_id": "lundi-selection",
+        "container_selector": ".feature-columns",
+        "primary_selector": "article.feature:not(.replacement-generated)",
+        "card_type": "feature",
+        "target": 3,
+        "desired_reserve": 7,
+        "candidates": [
+          {
+            "title": "Kouté Vwa",
+            "work_id": "koute-vwa-2024",
+            "rank": 1,
+            "quality": "DOC",
+            "time": "04:49",
+            "channel": "Ciné+ Festival",
+            "meta": "2024 · Maxime Jean-Baptiste · Belgique / France · 76 min · Drame / documentaire hybride",
+            "summary": "Melrick, 13 ans, passe l’été chez sa grand-mère Nicole à Cayenne et veut apprendre le tambour. Son désir réveille le souvenir de Lucas, fils de Nicole et tambouyé mort onze ans plus tôt, ainsi que la colère de Yannick, son meilleur ami, encore tenté par la vengeance.",
+            "why": "Maxime Jean-Baptiste mêle fiction et traces documentaires pour faire circuler un deuil intime dans l’histoire collective et la musique guyanaise. La photographie et l’attention aux gestes donnent corps aux absents, même si l’hybridation peut parfois distendre le récit et rendre certaines scènes de deuil insistantes.",
+            "image": "https://m.media-amazon.com/images/M/MV5BNzIwYzU5ZTctMzQzZS00YmZhLWFiODQtZmQ2MmFiNzc3OGNjXkEyXkFqcGc%40._V1_.jpg",
+            "links": {
+              "official": "https://www.alchimistesfilms.com/koute-vwa/",
+              "imdb": "https://www.imdb.com/title/tt32890051/",
+              "sc": "https://www.senscritique.com/film/koute_vwa/95757689",
+              "allocine": "https://www.allocine.fr/film/fichefilm_gen_cfilm=302102.html"
+            },
+            "ratings": {
+              "senscritique": "6,5"
             }
           }
         ]
