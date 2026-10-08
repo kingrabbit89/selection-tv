@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T10:31:57.817Z",
+  "updated_at": "2026-10-08T11:03:02.027Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -231,6 +231,11 @@
       "id": "inventory-tf1-official-week",
       "completed_at": "2026-10-08T10:30:12.194Z",
       "description": "16 créneaux existants recoupés, trois omissions réintégrées depuis les sources officielles ; deuxième source directe encore à obtenir pour ces trois ajouts."
+    },
+    {
+      "id": "inventory-action-official-full-week",
+      "completed_at": "2026-10-08T11:03:02.027Z",
+      "description": "Grille officielle Action collectée une fois : 97 créneaux examinés, 91 entrées brutes recoupées sur sept dates ; nuits incluses et six séries génériques tracées."
     }
   ],
   "blockers": [
@@ -11994,6 +11999,167 @@
       },
       "evidence_note": "16 créneaux existants recoupés ; Intraçables déjà contrôlé dans ce passage n'est pas compté à nouveau. Sujets Grands reportages à confirmer séparément.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start",
+        "broadcast.date",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.actiontv.fr/fr/grille-tv",
+        "https://tv-programme.com/action/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:03:02.027Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Action",
+        "slots": 14
+      },
+      "evidence_note": "Toutes les lignes brutes Action de la journée concordent exactement avec le HTML officiel courant ; programmes nocturnes inspectés, identité des versions non certifiée par ce seul relevé.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start",
+        "broadcast.date",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.actiontv.fr/fr/grille-tv",
+        "https://tv-programme.com/action/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:03:02.027Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "Action",
+        "slots": 12
+      },
+      "evidence_note": "Toutes les lignes brutes Action de la journée concordent exactement avec le HTML officiel courant ; programmes nocturnes inspectés, identité des versions non certifiée par ce seul relevé.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start",
+        "broadcast.date",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.actiontv.fr/fr/grille-tv",
+        "https://tv-programme.com/action/lundi-12-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:03:02.027Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "channel": "Action",
+        "slots": 12
+      },
+      "evidence_note": "Toutes les lignes brutes Action de la journée concordent exactement avec le HTML officiel courant ; programmes nocturnes inspectés, identité des versions non certifiée par ce seul relevé.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start",
+        "broadcast.date",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.actiontv.fr/fr/grille-tv",
+        "https://tv-programme.com/action/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:03:02.027Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "Action",
+        "slots": 14
+      },
+      "evidence_note": "Toutes les lignes brutes Action de la journée concordent exactement avec le HTML officiel courant ; programmes nocturnes inspectés, identité des versions non certifiée par ce seul relevé.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start",
+        "broadcast.date",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.actiontv.fr/fr/grille-tv",
+        "https://tv-programme.com/action/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:03:02.027Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Action",
+        "slots": 12
+      },
+      "evidence_note": "Toutes les lignes brutes Action de la journée concordent exactement avec le HTML officiel courant ; programmes nocturnes inspectés, identité des versions non certifiée par ce seul relevé.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start",
+        "broadcast.date",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.actiontv.fr/fr/grille-tv",
+        "https://tv-programme.com/action/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:03:02.027Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "Action",
+        "slots": 13
+      },
+      "evidence_note": "Toutes les lignes brutes Action de la journée concordent exactement avec le HTML officiel courant ; programmes nocturnes inspectés, identité des versions non certifiée par ce seul relevé.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start",
+        "broadcast.date",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.actiontv.fr/fr/grille-tv",
+        "https://tv-programme.com/action/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:03:02.027Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "channel": "Action",
+        "slots": 14
+      },
+      "evidence_note": "Toutes les lignes brutes Action de la journée concordent exactement avec le HTML officiel courant ; programmes nocturnes inspectés, identité des versions non certifiée par ce seul relevé.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -12413,6 +12579,17 @@
       "logs_read": true,
       "cause": "Require a complete candidate before merging : préparation inventory incomplète. Étapes précédentes du contexte préparation/public S41 réussies ; revalidation base non applicable skipped. Aucun de ces résultats ne certifie S42 prête.",
       "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-08T11:03:02.027Z",
+      "head_sha": "7e7a224cd8730c20c32e9125a05000eb786c1dbd",
+      "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "run_id": 37764105196,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": true,
+      "cause": "Seul échec : préparation encore incomplète, Require a complete candidate before merging. Tests du public réussis, non-certification de S42 ; contrôle base non applicable skipped.",
+      "reusable_only_for_exact_sha": true
     }
   ],
   "catalogue_reuse": {
@@ -12496,7 +12673,7 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "1e615ef8f5c5ffd4c795486191c12916c514171f",
+    "checkpoint_parent_sha": "7e7a224cd8730c20c32e9125a05000eb786c1dbd",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
@@ -12507,22 +12684,22 @@
       "Finir inventaire, sélection/enrichissement, livrables et revue réelle ; sceller seulement une candidate complète."
     ],
     "publisher": {
-      "last_inspected_run": 37757573729,
+      "checked_at": "2026-10-08T11:03:02.027Z",
+      "run_id": 37764235514,
+      "head_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
       "status": "completed",
       "conclusion": "skipped",
-      "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "checked_at": "2026-10-08T10:15:21.805Z",
-      "note": "Derniers passages du publicateur terminés/skipped ; aucun publicateur actif observé. Skipped ne vaut pas réussite."
+      "note": "Aucun publicateur actif constaté ; skipped ne vaut pas succès."
     },
     "last_ci_observation": {
-      "checked_at": "2026-10-08T10:31:56.981Z",
-      "head_sha": "1e615ef8f5c5ffd4c795486191c12916c514171f",
+      "checked_at": "2026-10-08T11:03:02.027Z",
+      "head_sha": "7e7a224cd8730c20c32e9125a05000eb786c1dbd",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37763912365,
+      "run_id": 37764105196,
       "data_and_policy": "failure",
-      "browser_presentation": "in_progress",
+      "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Require a complete candidate before merging : préparation inventory incomplète. Étapes précédentes du contexte préparation/public S41 réussies ; revalidation base non applicable skipped. Aucun de ces résultats ne certifie S42 prête.",
+      "cause": "Seul échec : préparation encore incomplète, Require a complete candidate before merging. Tests du public réussis, non-certification de S42 ; contrôle base non applicable skipped.",
       "reusable_only_for_exact_sha": true
     }
   },
