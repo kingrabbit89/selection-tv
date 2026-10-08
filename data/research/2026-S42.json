@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T08:30:00.672Z",
+  "updated_at": "2026-10-08T09:08:41.901Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -22,7 +22,8 @@
     "Public Sénat : Silence dans les rangs documenté (prix et limites de réception), horaires légèrement divergents et replay indisponible ; terminer offre/expiration, notes, affiche et revue comparative.",
     "France 4 : compléter réception/offres documentaires et épisodes génériques ; résoudre Rachelle Allison 20:30 contre Naimro/Allison 20:35 le 15. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle.",
     "France 4 documentaires : Wachowski (Thibaut Sève, distinct de Matrix Generation) a des avis attribués mais durée 61/62/70 min à départager ; On ne va pas se défiler réintégré comme documentaire, critique/offre 2026 à compléter.",
-    "TV5MONDE+ : Didy dispose de deux critiques attribuées et d'une identité festival ; durée/version, droits France, expiration, notes et affiche à terminer. Trois nouvelles pistes de l'accueil restent à examiner ; grille linéaire FBS à recouper."
+    "TV5MONDE+ : Didy dispose de deux critiques attribuées et d'une identité festival ; durée/version, droits France, expiration, notes et affiche à terminer. Trois nouvelles pistes de l'accueil restent à examiner ; grille linéaire FBS à recouper.",
+    "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux attendus, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes."
   ],
   "completed_batches": [
     {
@@ -166,6 +167,11 @@
       "id": "documentary-tv5-didy-source-dossier",
       "completed_at": "2026-10-08T08:28:55.757Z",
       "description": "Didy : identité festival, critiques avec réserve et recherche de notes ; trois pistes TV5MONDE+ consignées, droits/version non certifiés."
+    },
+    {
+      "id": "inventory-tv5-fbs-dated-guide-comparison",
+      "completed_at": "2026-10-08T09:08:41.901Z",
+      "description": "50 créneaux TV5MONDE FBS comparés sur sept dates ; erreurs de pages périmées contournées par navigation datée, indépendance non présumée."
     }
   ],
   "blockers": [
@@ -11103,6 +11109,132 @@
       },
       "evidence_note": "Lien exact découvert sur l'accueil officiel ; page outil 403, identité et offre à approfondir.",
       "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "schedule_comparison"
+      ],
+      "source_urls": [
+        "https://television.telerama.fr/programme-tv-samedi/tv5-monde-fbs/"
+      ],
+      "checked_at": "2026-10-08T09:08:41.901Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "TV5MONDE FBS"
+      },
+      "evidence_note": "Grille explicitement datée 10 octobre lue ; 6 créneaux existants rapprochés à heure exacte. Titres de collections seulement, détails d'épisode et indépendance du flux non établis. Les pages initialement retournées en mars/mai ou le 9 octobre ont été exclues, navigation datée utilisée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "schedule_comparison"
+      ],
+      "source_urls": [
+        "https://television.telerama.fr/programme-tv-dimanche/tv5-monde-fbs/"
+      ],
+      "checked_at": "2026-10-08T09:08:41.901Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "TV5MONDE FBS"
+      },
+      "evidence_note": "Grille explicitement datée 11 octobre lue ; 9 créneaux existants rapprochés à heure exacte. Titres de collections seulement, détails d'épisode et indépendance du flux non établis. Les pages initialement retournées en mars/mai ou le 9 octobre ont été exclues, navigation datée utilisée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "schedule_comparison"
+      ],
+      "source_urls": [
+        "https://television.telerama.fr/programme-tv-lundi/tv5-monde-fbs/"
+      ],
+      "checked_at": "2026-10-08T09:08:41.901Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "channel": "TV5MONDE FBS"
+      },
+      "evidence_note": "Grille explicitement datée 12 octobre lue ; 8 créneaux existants rapprochés à heure exacte. Titres de collections seulement, détails d'épisode et indépendance du flux non établis. Les pages initialement retournées en mars/mai ou le 9 octobre ont été exclues, navigation datée utilisée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "schedule_comparison"
+      ],
+      "source_urls": [
+        "https://television.telerama.fr/programme-tv-mardi/tv5-monde-fbs/"
+      ],
+      "checked_at": "2026-10-08T09:08:41.901Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "TV5MONDE FBS"
+      },
+      "evidence_note": "Grille explicitement datée 13 octobre lue ; 5 créneaux existants rapprochés à heure exacte. Titres de collections seulement, détails d'épisode et indépendance du flux non établis. Les pages initialement retournées en mars/mai ou le 9 octobre ont été exclues, navigation datée utilisée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "schedule_comparison"
+      ],
+      "source_urls": [
+        "https://television.telerama.fr/programme-tv-mercredi/tv5-monde-fbs/"
+      ],
+      "checked_at": "2026-10-08T09:08:41.901Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "TV5MONDE FBS"
+      },
+      "evidence_note": "Grille explicitement datée 14 octobre lue ; 5 créneaux existants rapprochés à heure exacte. Titres de collections seulement, détails d'épisode et indépendance du flux non établis. Les pages initialement retournées en mars/mai ou le 9 octobre ont été exclues, navigation datée utilisée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "schedule_comparison"
+      ],
+      "source_urls": [
+        "https://television.telerama.fr/programme-tv-jeudi-prochain/tv5-monde-fbs/"
+      ],
+      "checked_at": "2026-10-08T09:08:41.901Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "TV5MONDE FBS"
+      },
+      "evidence_note": "Grille explicitement datée 15 octobre lue ; 5 créneaux existants rapprochés à heure exacte. Titres de collections seulement, détails d'épisode et indépendance du flux non établis. Les pages initialement retournées en mars/mai ou le 9 octobre ont été exclues, navigation datée utilisée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "schedule_comparison"
+      ],
+      "source_urls": [
+        "https://television.telerama.fr/programme-tv-vendredi-prochain/tv5-monde-fbs/"
+      ],
+      "checked_at": "2026-10-08T09:08:41.901Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "channel": "TV5MONDE FBS"
+      },
+      "evidence_note": "Grille explicitement datée 16 octobre lue ; 12 créneaux existants rapprochés à heure exacte. Titres de collections seulement, détails d'épisode et indépendance du flux non établis. Les pages initialement retournées en mars/mai ou le 9 octobre ont été exclues, navigation datée utilisée.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -11317,6 +11449,12 @@
       "note": "Page sans grille exploitable ; ne prouve aucune absence de programme.",
       "resolved_at": "2026-10-08T08:20:25.249Z",
       "resolution": "Grille correspondante récupérée sur ftvpro.francetv.fr ; ancienne réponse conservée comme preuve de source défaillante."
+    },
+    {
+      "url": "https://television.telerama.fr/programme-tv-lundi/tv5-monde-fbs",
+      "checked_at": "2026-10-08T09:08:41.901Z",
+      "status": "resolved_via_dated_navigation",
+      "note": "Ouverture directe renvoyait 30 mars malgré index 12 octobre ; lien daté depuis samedi, avec slash terminal, a fourni la grille 12 octobre. Même anomalie mercredi (mai), jeudi (mars), vendredi (9 octobre) : seuls contenus datés du cycle utilisés."
     }
   ],
   "editorial_review": {
