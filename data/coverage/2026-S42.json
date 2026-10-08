@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "partial",
-  "updated_at": "2026-10-08T20:10:15.949Z",
+  "updated_at": "2026-10-08T20:12:34.172Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -16421,6 +16421,124 @@
           "not_yet_publication_ready": [
             "Établir un recoupement de chaîne réellement indépendant ou une page officielle qui nomme Ciné+ Festival",
             "Compléter les deux autres choix et les réserves du dimanche",
+            "Recontrôler diffusion, note et visuel au préflight",
+            "Achever les 35 exigences de remaining"
+          ]
+        }
+      },
+      {
+        "title": "Point limite",
+        "work_id": "point-limite-1964",
+        "catalogue_match": "aucun avant ce lot ; entrée canonique créée dans works.json",
+        "decision": "brouillon provisoire jeudi — rang 1 ; provenance indépendante de la chaîne à consolider",
+        "reason": "Identité, version ciblée, réception nuancée, notes, liens et affiche sont documentés. Le BroadcastEvent officiel ne nomme pas Ciné+ Classic : ce manque reste ouvert.",
+        "identity_research": {
+          "original_title": "Fail Safe",
+          "director": "Sidney Lumet",
+          "year": 1964,
+          "country": "États-Unis",
+          "type": "long métrage",
+          "source_urls": [
+            "https://www.canalplus.com/cinema/point-limite/h/7416144_50002",
+            "https://www.imdb.com/title/tt0058083/",
+            "https://www.senscritique.com/film/point_limite/461381",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=20237.html",
+            "https://www.criterion.com/current/posts/6801-fail-safe-very-little-left-of-the-world"
+          ],
+          "checked_at": "2026-10-08T20:12:34.172Z",
+          "canonical_work_id": "point-limite-1964",
+          "status": "verified",
+          "duration_observations": [
+            {
+              "minutes": 107,
+              "version": "version annoncée par CANAL+",
+              "source_url": "https://www.canalplus.com/cinema/point-limite/h/7416144_50002"
+            },
+            {
+              "minutes": 112,
+              "version": "fiches SensCritique et AlloCiné",
+              "source_url": "https://www.senscritique.com/film/point_limite/461381"
+            }
+          ],
+          "note": "Film de 1964 distinct du téléfilm en direct de 2000. La carte cible la version CANAL+ de 107 min ; la durée cinéma de 112 min reste distincte."
+        },
+        "critical_evidence": [
+          {
+            "source": "Criterion Collection",
+            "author": "Bilge Ebiri",
+            "source_url": "https://www.criterion.com/current/posts/6801-fail-safe-very-little-left-of-the-world",
+            "kind": "professional_critical_essay",
+            "access": "full",
+            "checked_at": "2026-10-08T20:12:34.172Z",
+            "assessment": "Analyse le conflit entre machine nucléaire et humanité, la mise en scène des visages et des téléphones, et la force persistante du film."
+          },
+          {
+            "source": "Slant Magazine",
+            "author": "Derek Smith",
+            "published_at": "2020-02-04",
+            "source_url": "https://www.slantmagazine.com/dvd/blu-ray-review-sidney-lumet-fail-safe-on-the-criterion-collection/",
+            "kind": "professional_review",
+            "access": "full",
+            "checked_at": "2026-10-08T20:12:34.172Z",
+            "assessment": "Juge le thriller durablement puissant mais réserve son adhésion à des portraits de dirigeants parfois trop idéalisés et datés."
+          },
+          {
+            "source": "SensCritique",
+            "source_url": "https://www.senscritique.com/film/point_limite/461381",
+            "kind": "community_aggregate_and_reviews",
+            "access": "full",
+            "checked_at": "2026-10-08T20:12:34.172Z",
+            "assessment": "Moyenne 8,4 affichée avec avis très favorables et une critique récente à 4/10 dénonçant un huis clos trop lent ; contradiction conservée."
+          }
+        ],
+        "ratings_research": {
+          "status": "verified_dynamic",
+          "checked_at": "2026-10-08T20:12:34.172Z",
+          "source_urls": [
+            "https://www.senscritique.com/film/point_limite/461381",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=20237.html"
+          ],
+          "note": "SensCritique 8,4 ; AlloCiné 4,1/5 pour 327 notes et 45 critiques spectateurs. Seule la note SensCritique prévue par le schéma est publiée."
+        },
+        "broadcast_research": {
+          "date": "2026-10-15",
+          "start": "20:50",
+          "channel": "Ciné+ Classic",
+          "source_urls": [
+            "https://www.canalplus.com/cinema/point-limite/h/7416144_50002",
+            "https://tv-programme.com/cine-plus-classic/jeudi-15-octobre-2026/"
+          ],
+          "checked_at": "2026-10-08T13:10:57.263963+00:00",
+          "reused_in": [
+            "production-flow-2026-10-08"
+          ],
+          "status": "time_verified_channel_from_grid_independence_pending",
+          "note": "Le BroadcastEvent CANAL+ concorde à 20:50 mais ne nomme pas la chaîne ; TV-Programme nomme Ciné+ Classic. Une provenance indépendante ou page officielle nommant la chaîne reste requise."
+        },
+        "image_research": {
+          "checked_at": "2026-10-08T20:12:34.172Z",
+          "source_page": "https://www.posterazzi.com/fail-safe-movie-poster-print-27-x-40-item-moveb77690/",
+          "image_url": "https://cdn11.bigcommerce.com/s-yzgoj/images/stencil/1280x1280/products/2923107/5944657/MOVEB77690__91206.1679590438.jpg?c=2",
+          "status": "poster_visually_verified_ci_pending",
+          "visually_checked": true,
+          "note": "Affiche française exacte inspectée visuellement ; provenance commerciale conservée, santé distante à contrôler par le CI."
+        },
+        "dossier_completeness": {
+          "status": "draft_card_created_broadcast_independence_pending",
+          "completed_at": "2026-10-08T20:12:34.172Z",
+          "fields": {
+            "identity": "verified",
+            "version": "canal_107min_conflict_preserved",
+            "critical_reception": "verified_with_reservation",
+            "ratings": "verified_and_dated",
+            "image": "visually_verified_ci_pending",
+            "links": "direct_exact_links_verified",
+            "editorial_copy": "drafted_and_reviewed_for_this_batch",
+            "current_broadcast": "time_verified_channel_provenance_needs_check"
+          },
+          "not_yet_publication_ready": [
+            "Établir un recoupement indépendant nommant Ciné+ Classic",
+            "Compléter les autres choix et réserves du jeudi",
             "Recontrôler diffusion, note et visuel au préflight",
             "Achever les 35 exigences de remaining"
           ]

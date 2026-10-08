@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "b619a043c67e5d7790928731c8b0b35563992d05",
   "stage": "enrichment",
-  "updated_at": "2026-10-08T20:10:15.949Z",
+  "updated_at": "2026-10-08T20:12:34.172Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -423,6 +423,11 @@
       "id": "enrichment-la-gueule-ouverte-sunday-draft",
       "completed_at": "2026-10-08T20:10:15.949Z",
       "description": "La Gueule ouverte matérialisé en carte draft du dimanche depuis la diffusion sauvegardée et une recherche critique ciblée. Le manque d’indépendance du recoupement de chaîne reste explicite ; aucune exigence globale close."
+    },
+    {
+      "id": "enrichment-point-limite-thursday-draft",
+      "completed_at": "2026-10-08T20:12:34.172Z",
+      "description": "Point limite matérialisé en carte draft du jeudi depuis la diffusion sauvegardée et une recherche critique ciblée. Le manque d’indépendance du recoupement de chaîne reste explicite."
     }
   ],
   "blockers": [
@@ -18668,6 +18673,121 @@
       },
       "evidence_note": "Liens directs exacts, sans page de résultats.",
       "status": "verified"
+    },
+    {
+      "work_id": "point-limite-1964",
+      "fields": [
+        "title",
+        "aliases",
+        "director",
+        "year",
+        "country",
+        "version.duration"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/point-limite/h/7416144_50002",
+        "https://www.imdb.com/title/tt0058083/",
+        "https://www.senscritique.com/film/point_limite/461381",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=20237.html",
+        "https://www.criterion.com/current/posts/6801-fail-safe-very-little-left-of-the-world"
+      ],
+      "checked_at": "2026-10-08T20:12:34.172Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "version": "CANAL+ 107 min"
+      },
+      "evidence_note": "Identité 1964 établie et téléfilm 2000 séparé ; divergence 107/112 min conservée.",
+      "status": "verified"
+    },
+    {
+      "work_id": "point-limite-1964",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/point-limite/h/7416144_50002",
+        "https://tv-programme.com/cine-plus-classic/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:10:57.263963+00:00",
+      "reused_in": [
+        "production-flow-2026-10-08"
+      ],
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-15 20:50 Ciné+ Classic"
+      },
+      "evidence_note": "Heure officielle concordante ; nom de chaîne issu de la grille et indépendance encore à établir.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": "point-limite-1964",
+      "fields": [
+        "critical_reception",
+        "critical_reservations",
+        "ratings.senscritique"
+      ],
+      "source_urls": [
+        "https://www.criterion.com/current/posts/6801-fail-safe-very-little-left-of-the-world",
+        "https://www.slantmagazine.com/dvd/blu-ray-review-sidney-lumet-fail-safe-on-the-criterion-collection/",
+        "https://www.senscritique.com/film/point_limite/461381",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=20237.html"
+      ],
+      "checked_at": "2026-10-08T20:12:34.172Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Point limite"
+      },
+      "evidence_note": "Réception professionnelle et contre-avis conservés ; SC 8,4 daté.",
+      "status": "verified"
+    },
+    {
+      "work_id": "point-limite-1964",
+      "fields": [
+        "image",
+        "image_type",
+        "image_provenance",
+        "image_visual_review"
+      ],
+      "source_urls": [
+        "https://www.posterazzi.com/fail-safe-movie-poster-print-27-x-40-item-moveb77690/",
+        "https://cdn11.bigcommerce.com/s-yzgoj/images/stencil/1280x1280/products/2923107/5944657/MOVEB77690__91206.1679590438.jpg?c=2"
+      ],
+      "checked_at": "2026-10-08T20:12:34.172Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Point limite"
+      },
+      "evidence_note": "Affiche française exacte inspectée visuellement ; CI distant en attente.",
+      "status": "verified"
+    },
+    {
+      "work_id": "point-limite-1964",
+      "fields": [
+        "links.official",
+        "links.imdb",
+        "links.sc",
+        "links.allocine"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/point-limite/h/7416144_50002",
+        "https://www.imdb.com/title/tt0058083/",
+        "https://www.senscritique.com/film/point_limite/461381",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=20237.html"
+      ],
+      "checked_at": "2026-10-08T20:12:34.172Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Point limite"
+      },
+      "evidence_note": "Liens directs exacts ; aucun résultat de recherche.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -19307,9 +19427,46 @@
         "count": 35,
         "reference": "remaining"
       },
-      "stop_reason": "coherent_sunday_draft_batch_ready_for_remote_checkpoint; broadcast_channel_independence_explicitly_open",
+      "stop_reason": "checkpoint_saved_then_next_useful_batch_continued",
       "next_useful_batch": "Compléter un dossier d’un autre jour vide ou obtenir une source indépendante nommant Ciné+ Festival pour La Gueule ouverte.",
       "note": "Carte draft créée mais non comptée comme complète : provenance indépendante de la chaîne encore ouverte. Les flags de couverture restent inchangés."
+    },
+    {
+      "date": "2026-10-08T20:12:34.172Z",
+      "started_at": "2026-10-08T20:10:15.949Z",
+      "ended_at": "2026-10-08T20:12:34.172Z",
+      "owner": "a68f4d35-6d59-41c1-a5d4-041717ff033a",
+      "prompt_revision": "production-flow-2026-10-08",
+      "stage": "enrichment_draft_cards",
+      "elapsed_seconds": 138,
+      "duration_basis": "wall_clock_between_saved_checkpoints",
+      "completed_batches": [
+        "enrichment-point-limite-thursday-draft"
+      ],
+      "new_leads": 0,
+      "previously_researched_incomplete_works_followed_up": 1,
+      "newly_completed_editorial_dossiers": 0,
+      "newly_verified_complete_cards": 0,
+      "draft_cards_created": 1,
+      "dossier_partials_advanced": 1,
+      "deliverables_advanced": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/manifest.json",
+        "data/coverage/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "coverage_requirements_resolved": 0,
+      "images_visually_checked": 1,
+      "remaining": {
+        "stage": "enrichment",
+        "count": 35,
+        "reference": "remaining"
+      },
+      "stop_reason": "coherent_thursday_draft_batch_ready_for_remote_checkpoint; broadcast_channel_independence_explicitly_open",
+      "next_useful_batch": "Compléter un dossier d’un jour encore vide ou établir une source indépendante de chaîne pour les cartes Ciné+.",
+      "note": "Carte draft non comptée comme complète : provenance indépendante de la chaîne encore ouverte. Flags de couverture inchangés."
     }
   ],
   "source_issues": [
@@ -20002,6 +20159,11 @@
     ],
     "promising_candidates": [
       {
+        "title": "Point limite",
+        "status": "carte draft créée ; dossier presque complet",
+        "remaining": "Consolider l’indépendance du recoupement de chaîne, puis compléter choix/réserves du jeudi et préflight."
+      },
+      {
         "title": "La Gueule ouverte",
         "status": "carte draft créée ; dossier presque complet",
         "remaining": "Consolider l’indépendance du recoupement de chaîne, puis compléter les choix et réserves du dimanche et le préflight."
@@ -20165,8 +20327,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "0ed8431521b4b394761df7704b12d5b5162d630e",
-    "produced_at": "2026-10-08T20:10:15.949Z",
+    "source_candidate_sha": "6b37a12e5f75e9d31cf0266afbf760efeaf79fe3",
+    "produced_at": "2026-10-08T20:12:34.172Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -20239,6 +20401,29 @@
             "https://www.sensesofcinema.com/2006/cteq/la-gueule-ouverte/",
             "https://www.telerama.fr/cinema/films/la-gueule-ouverte,22755.php",
             "https://www.cinematheque.fr/film/50625.html"
+          ]
+        }
+      },
+      {
+        "work_id": "point-limite-1964",
+        "date": "2026-10-15",
+        "rank_provisional": 1,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-08",
+          "identity_version": "Film 1964 distinct du téléfilm 2000 ; version CANAL+ 107 min ciblée, durée cinéma 112 min conservée.",
+          "canonical_fields": "Identité, liens, SC 8,4 et affiche exacte contrôlés.",
+          "current_broadcast": "Heure 20:50 officielle ; attribution Ciné+ Classic issue de la grille, indépendance à consolider.",
+          "editorial_copy": "Textes originaux revus depuis Criterion et Slant, avec réserve explicite sur l’idéalisation des dirigeants.",
+          "evidence_urls": [
+            "https://www.canalplus.com/cinema/point-limite/h/7416144_50002",
+            "https://tv-programme.com/cine-plus-classic/jeudi-15-octobre-2026/",
+            "https://www.imdb.com/title/tt0058083/",
+            "https://www.senscritique.com/film/point_limite/461381",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=20237.html",
+            "https://www.criterion.com/current/posts/6801-fail-safe-very-little-left-of-the-world",
+            "https://www.slantmagazine.com/dvd/blu-ray-review-sidney-lumet-fail-safe-on-the-criterion-collection/",
+            "https://www.posterazzi.com/fail-safe-movie-poster-print-27-x-40-item-moveb77690/"
           ]
         }
       }
