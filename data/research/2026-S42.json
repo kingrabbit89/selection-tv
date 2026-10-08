@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T14:21:55.226Z",
+  "updated_at": "2026-10-08T14:25:33.805Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -41,7 +41,7 @@
     "NOVO19 : annonce directe confirme Vis ma vie de Drag Queen le 14 à 21:10 ; deux fins de soirée ajoutées (épisodes/indépendance à confirmer). Falaises de Bonifacio le 16 à 21:10 concorde entre guides ; version 58/60 min, offre et réception/preuves alternatives, notes et affiche restent ouverts.",
     "Ciné+ : L'ours identifié comme Bear (Nash Edgerton 2011), deux avis nuancés lus ; Le cinéma qui respire et Des animaux et des monstres identifiés mais sans critique argumentée trouvée. Versions/créneaux, recoupements indépendants, droits/offres/expirations, notes et affiches à terminer.",
     "Ciné+ Festival : 7 grilles secondaires lues, 99 créneaux rapprochés ; indépendance/chaîne officielle encore à obtenir. L'image originelle du15/10 : fiche liée Sofia Coppola contre Joachim Trier, épisode à arbitrer. Quatre magazines/bonus à sujets génériques examinés ; documentaires de création repérés à approfondir. Identités Dallamano/Hers/Arnold précises ; versions/offres et critique restent à terminer.",
-    "Ciné+ Festival documentaires : réutiliser Kouté Vwa/Les mots et portraits Kawase/Trier documentés. Chaîne des événements CANAL+, versions, droits/expirations exactes (Kouté 09/10 versus 15/12 affichés), affiches et notes des portraits à finir ; conflit Trier/Coppola non résolu. Kotelnitch/Huppert encore à approfondir."
+    "Ciné+ Festival documentaires : réutiliser Kouté Vwa/Les mots et portraits Kawase/Trier documentés. Chaîne des événements CANAL+, versions, droits/expirations exactes (Kouté 09/10 versus 15/12 affichés), affiches et notes des portraits à finir ; conflit Trier/Coppola non résolu. Kotelnitch approfondi (deux critiques indépendantes, événement exact sans chaîne) et Huppert identifié sans réception argumentée trouvée ; leurs droits, versions, notes et affiches restent ouverts."
   ],
   "completed_batches": [
     {
@@ -360,6 +360,11 @@
       "id": "research-cine-festival-creation-documentaries-and-portraits",
       "completed_at": "2026-10-08T14:21:55.226Z",
       "description": "Deux films et deux portraits approfondis avec cinq critiques distinctes, deux notes SensCritique directes, deux événements primaires concordants sans chaîne et preuves de palmarès précisément délimitées. Droits/versions/conflit d'épisode conservés."
+    },
+    {
+      "id": "research-kotelnitch-huppert-and-official-night-event",
+      "completed_at": "2026-10-08T14:25:33.805Z",
+      "description": "Deux documentaires supplémentaires identifiés ; Kotelnitch : deux critiques indépendantes et texte de programmateur distingués, événement CANAL+ exact du11/10. Huppert : synopsis non assimilés à une réception critique."
     }
   ],
   "blockers": [
@@ -17513,6 +17518,144 @@
       },
       "evidence_note": "Événement primaire CANAL+ concordant avec le créneau Festival ; JSON-LD sans chaîne, attestation d'antenne restant à obtenir. expires identique à endDate, pas expiration replay.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "country"
+      ],
+      "source_urls": [
+        "https://www.visionsdureel.ch/film/2021/retour-a-kotelnitch/",
+        "https://www.canalplus.com/cinema/retour-a-kotelnitch/h/437731_50002",
+        "https://www.on-tenk.com/fr/documentaires/arts/retour-a-kotelnitch"
+      ],
+      "checked_at": "2026-10-08T14:25:33.805Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Retour à Kotelnitch",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Festival confirme France2003/105min ; Tënk et CANAL+106min. Ne pas confondre ce long métrage avec le reportage Le Soldat perdu.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception",
+        "reservations"
+      ],
+      "source_urls": [
+        "https://www.critikat.com/actualite-cine/critique/retour-a-kotelnitch/",
+        "https://www.chronicart.com/cinema/retour-a-kotelnitch/",
+        "https://www.on-tenk.com/fr/documentaires/arts/retour-a-kotelnitch"
+      ],
+      "checked_at": "2026-10-08T14:25:33.805Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Retour à Kotelnitch"
+      },
+      "evidence_note": "Deux avis indépendants et texte de programmateur lus, attribution/portée/réserves conservées dans coverage.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "availability",
+        "expiration"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/retour-a-kotelnitch/h/437731_50002",
+        "https://www.on-tenk.com/fr/documentaires/arts/retour-a-kotelnitch"
+      ],
+      "checked_at": "2026-10-08T14:25:33.805Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Retour à Kotelnitch",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Tënk affiche En location dans la page consultée via le web (copie annoncée comme ancienne d'un mois) : tarif, durée de location, territoire et disponibilité au préflight non certifiés. CANAL+ événement exact du11/10 mais expires correspond à sa fin ; pas d'expiration replay déduite.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "country"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/divertissement/isabelle-huppert-un-message-personnel/h/28021633_50002",
+        "https://television.telerama.fr/tele/documentaire/isabelle-huppert-un-message-personnel-1-193596358.php"
+      ],
+      "checked_at": "2026-10-08T14:25:33.805Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Isabelle Huppert, un message personnel",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Métadonnées CANAL+2020/51min et Télérama51min ; durée d'antenne54min distincte.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception",
+        "reservations"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/divertissement/isabelle-huppert-un-message-personnel/h/28021633_50002",
+        "https://television.telerama.fr/tele/documentaire/isabelle-huppert-un-message-personnel-1-193596358.php",
+        "https://www.programme-television.org/type/documentaires/autres/art/isabelle-huppert-un-message-personnel-193596358"
+      ],
+      "checked_at": "2026-10-08T14:25:33.805Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Isabelle Huppert, un message personnel"
+      },
+      "evidence_note": "Résultats ciblés surtout synopsis et grilles, texte semblable dans plusieurs guides ; aucune critique argumentée spécifique identifiée dans ce lot. Recherche secondaire peu pertinente, absence universelle non démontrée. Ne pas prendre les éloges de l'actrice ou les films cités pour une critique de ce documentaire.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "availability",
+        "expiration"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/divertissement/isabelle-huppert-un-message-personnel/h/28021633_50002"
+      ],
+      "checked_at": "2026-10-08T14:23:20.604722Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Isabelle Huppert, un message personnel",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Page primaire identifiée, aucun objet JSON-LD d'événement dans le HTML public récupéré ; aucune diffusion officielle S42, offre ou expiration certifiées.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "broadcast_end"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/retour-a-kotelnitch/h/437731_50002"
+      ],
+      "checked_at": "2026-10-08T14:23:39.912881Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Retour à Kotelnitch",
+        "date": "2026-10-11",
+        "week": "2026-S42"
+      },
+      "evidence_note": "CANAL+ primaire concorde avec date/heure du créneau Festival ; chaîne non incluse dans l'événement. expires=fin de diffusion, pas fin de replay.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -17901,21 +18044,22 @@
       "novo19_primary_confirmed_slots": 1
     },
     {
-      "date": "2026-10-08T14:21:55.226Z",
+      "date": "2026-10-08T14:25:33.805Z",
       "started_at": "2026-10-08T13:55:31.739Z",
       "owner": "7cbc1ef6-73e4-4f3e-8efa-f6a4a01f75d1",
       "stage": "inventory_identity_and_documentary_research",
-      "elapsed_seconds": 1584,
+      "elapsed_seconds": 1802,
       "duration_basis": "wall_clock_until_checkpoint",
       "completed_batches": [
         "research-cine-bear-and-two-cinema-documentaries",
         "inventory-cine-festival-seven-grids-and-identities",
-        "research-cine-festival-creation-documentaries-and-portraits"
+        "research-cine-festival-creation-documentaries-and-portraits",
+        "research-kotelnitch-huppert-and-official-night-event"
       ],
       "reused_complete_cards": 0,
       "newly_verified_complete_cards": 0,
-      "newly_researched_incomplete_works": 7,
-      "identified_broadcast_occurrences": 9,
+      "newly_researched_incomplete_works": 9,
+      "identified_broadcast_occurrences": 11,
       "raw_schedule_entries": 2230,
       "blockers": [],
       "remaining": {
@@ -18133,6 +18277,12 @@
       "checked_at": "2026-10-08T14:03:53.608Z",
       "status": "partial",
       "note": "HTML public consulté et données affichées examinées : initialisation au jour courant (day/0) pour sept chaînes, pas de preuve des grilles S42 Ciné+. Aucun contournement du refus API antérieur ; ne pas répéter cette lecture sans nouvelle piste."
+    },
+    {
+      "source_url": "https://diaphana.fr/film/retour-a-kotelnitch/",
+      "checked_at": "2026-10-08T14:25:33.805Z",
+      "status": "unavailable",
+      "note": "Page ouverte affiche Film non disponible ; ne prouve pas l'indisponibilité du film sur d'autres services."
     }
   ],
   "editorial_review": {
@@ -18339,6 +18489,17 @@
       "logs_read": true,
       "cause": "Seul échec Require a complete candidate before merging : préparation inventory incomplète attendue. Tests publics S41/browser réussis, ne certifient pas S42 ; étapes skipped non comptées comme réussites.",
       "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-08T14:25:33.805Z",
+      "head_sha": "253a570766bcba925b0c7bef8aaa0757cf10d051",
+      "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "run_id": 37791936108,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": true,
+      "cause": "Require a complete candidate before merging uniquement, préparation incomplete attendue. Contrôles publics/browser couvrent S41, pas S42 ; étapes skipped non comptées comme réussites.",
+      "reusable_only_for_exact_sha": true
     }
   ],
   "catalogue_reuse": {
@@ -18433,10 +18594,11 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "43ed38cb12f2f3ab549fdaaaea5c00ef3b1c9374",
+    "checkpoint_parent_sha": "253a570766bcba925b0c7bef8aaa0757cf10d051",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
+      "Kotelnitch/Huppert : identités maintenant documentées ; Kotelnitch dispose de critiques et d'un événement primaire sans chaîne, Huppert reste sans réception argumentée. Réutiliser les preuves du dernier lot, poursuivre seulement les manques.",
       "Réutiliser le lot documentaires Festival : Kouté Vwa, Les mots, Kawase et Trier, notes SC directes, cinq articles et deux événements CANAL+. Ne pas refaire ces consultations sans changement ; résoudre antenne/offres/versions et conflit d'épisode.",
       "Réutiliser les sept grilles Ciné+ Festival (99créneaux rapprochés) et les six observations CANAL+ ; ne pas réinterpréter les événements hors cycle ni expires. Résoudre l'épisode15/10 et approfondir la passe documentaire de création.",
       "Réutiliser les trois dossiers Ciné+ de ce passage (Bear, Le cinéma qui respire, Des animaux et des monstres) ; cinq occurrences identifiées. Recherches et réserves dans coverage/verification_records, ne pas répéter les mêmes pages.",
@@ -18459,25 +18621,25 @@
       "note": "Dernier publicateur consulté terminé skipped, aucune progression active."
     },
     "last_ci_observation": {
-      "checked_at": "2026-10-08T14:21:55.226Z",
-      "head_sha": "43ed38cb12f2f3ab549fdaaaea5c00ef3b1c9374",
+      "checked_at": "2026-10-08T14:25:33.805Z",
+      "head_sha": "253a570766bcba925b0c7bef8aaa0757cf10d051",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37790567626,
+      "run_id": 37791936108,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Seul échec Require a complete candidate before merging : préparation inventory incomplète attendue. Tests publics S41/browser réussis, ne certifient pas S42 ; étapes skipped non comptées comme réussites.",
+      "cause": "Require a complete candidate before merging uniquement, préparation incomplete attendue. Contrôles publics/browser couvrent S41, pas S42 ; étapes skipped non comptées comme réussites.",
       "reusable_only_for_exact_sha": true
     },
     "latest_candidate_ci": {
-      "checked_at": "2026-10-08T14:21:55.226Z",
-      "head_sha": "43ed38cb12f2f3ab549fdaaaea5c00ef3b1c9374",
+      "checked_at": "2026-10-08T14:25:33.805Z",
+      "head_sha": "253a570766bcba925b0c7bef8aaa0757cf10d051",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37790567626,
+      "run_id": 37791936108,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Seul échec Require a complete candidate before merging : préparation inventory incomplète attendue. Tests publics S41/browser réussis, ne certifient pas S42 ; étapes skipped non comptées comme réussites.",
+      "cause": "Require a complete candidate before merging uniquement, préparation incomplete attendue. Contrôles publics/browser couvrent S41, pas S42 ; étapes skipped non comptées comme réussites.",
       "reusable_only_for_exact_sha": true
     }
   },
