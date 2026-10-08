@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
   "stage": "inventory",
-  "updated_at": "2026-10-08T06:47:37.268Z",
+  "updated_at": "2026-10-08T06:49:24.339Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -98,6 +98,11 @@
       "id": "documentary-ftv-tv5-source-review",
       "completed_at": "2026-10-08T06:47:37.268Z",
       "description": "17 créneaux officiels supplémentaires recoupés France 2/3/4 ; quatre dossiers documentaires approfondis ; échéance TV5MONDE+ observée ; critiques et limites distinguées, aucune sélection finale."
+    },
+    {
+      "id": "inventory-paris-premiere-official-week-crosscheck",
+      "completed_at": "2026-10-08T06:49:24.339Z",
+      "description": "Bulletin officiel hebdomadaire achevé : 13 créneaux tiers corroborés ; 4 entrées déjà issues du même bulletin exclues du décompte indépendant."
     }
   ],
   "blockers": [
@@ -6515,6 +6520,190 @@
       ],
       "evidence_note": "Aucune fiche exacte ni note exploitable retrouvée dans ces recherches ; résultats largement hors sujet. Ne prouve pas une absence dans les bases. Contrôle complémentaire requis.",
       "status": "needs_check"
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42"
+      ],
+      "checked_at": "2026-10-08T06:49:24.339Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Paris Première"
+      },
+      "evidence_note": "Bulletin officiel complet recoupé avec la grille tierce ; la portion déjà utilisée comme source primaire lundi ne compte pas comme seconde source.",
+      "observations": [
+        {
+          "title": "Caroline Vigneaux : Faut-il toujours dire la vérité aux enfants ?",
+          "start": "21:00"
+        },
+        {
+          "title": "Waly Dia - Une heure à tuer",
+          "start": "23:30"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42"
+      ],
+      "checked_at": "2026-10-08T06:49:24.339Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "Paris Première"
+      },
+      "evidence_note": "Bulletin officiel complet recoupé avec la grille tierce ; la portion déjà utilisée comme source primaire lundi ne compte pas comme seconde source.",
+      "observations": [
+        {
+          "title": "Gordon Ramsay : les recettes du chef 3 étoiles Du piment dans votre vie",
+          "start": "06:55"
+        },
+        {
+          "title": "Gordon Ramsay : les recettes du chef 3 étoiles On reste cool",
+          "start": "07:45"
+        },
+        {
+          "title": "Gordon Ramsay : les recettes du chef 3 étoiles Sur le pouce",
+          "start": "08:35"
+        },
+        {
+          "title": "Gordon Ramsay : les recettes du chef 3 étoiles Quand on est fauché",
+          "start": "09:35"
+        },
+        {
+          "title": "Gordon Ramsay : les recettes du chef 3 étoiles Ça chauffe en cuisine",
+          "start": "10:30"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42"
+      ],
+      "checked_at": "2026-10-08T06:49:24.339Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "Paris Première"
+      },
+      "evidence_note": "Bulletin officiel complet recoupé avec la grille tierce ; la portion déjà utilisée comme source primaire lundi ne compte pas comme seconde source.",
+      "observations": [
+        {
+          "title": "Les ripoux",
+          "start": "21:00"
+        },
+        {
+          "title": "La totale !",
+          "start": "23:00"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42"
+      ],
+      "checked_at": "2026-10-08T06:49:24.339Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Paris Première"
+      },
+      "evidence_note": "Bulletin officiel complet recoupé avec la grille tierce ; la portion déjà utilisée comme source primaire lundi ne compte pas comme seconde source.",
+      "observations": [
+        {
+          "title": "Collaro, ce mec est trop !",
+          "start": "00:55"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42"
+      ],
+      "checked_at": "2026-10-08T06:49:24.339Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "Paris Première"
+      },
+      "evidence_note": "Bulletin officiel complet recoupé avec la grille tierce ; la portion déjà utilisée comme source primaire lundi ne compte pas comme seconde source.",
+      "observations": [
+        {
+          "title": "Equalizer",
+          "start": "21:00"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42"
+      ],
+      "checked_at": "2026-10-08T06:49:24.339Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "channel": "Paris Première"
+      },
+      "evidence_note": "Bulletin officiel complet recoupé avec la grille tierce ; la portion déjà utilisée comme source primaire lundi ne compte pas comme seconde source.",
+      "observations": [
+        {
+          "title": "Le casse de Central Park",
+          "start": "21:00"
+        },
+        {
+          "title": "L'attaque du métro 123",
+          "start": "22:55"
+        }
+      ],
+      "status": "verified"
     }
   ],
   "run_metrics": [
