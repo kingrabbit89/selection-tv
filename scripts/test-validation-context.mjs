@@ -4,11 +4,19 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {execFileSync, spawnSync} from 'node:child_process';
-import {validationContext} from './validation-context.mjs';
+import {validationContext, checkoutBase} from './validation-context.mjs';
 import {allowedPaths, digest} from './editorial-handoff.mjs';
 
 const week='2026-S42', branch='auto/'+week, today='2026-10-08';
 const manifest=JSON.stringify({latest:'2026-S41',weeks:[{week:'2026-S41',status:'published'}]});
+test('PR checkout uses its actual base parent, not a stale event base',()=>{
+  const old='a'.repeat(40),current='b'.repeat(40),head='c'.repeat(40);
+  const git=()=>`${'d'.repeat(40)} ${current} ${head}\n`;
+  assert.equal(checkoutBase(old,'refs/pull/33/merge',head,git),current);
+  assert.equal(checkoutBase(old,'refs/heads/main',head,git),old);
+  assert.throws(()=>checkoutBase(old,'refs/pull/33/merge',old,git),/candidate head/);
+  assert.throws(()=>checkoutBase(old,'refs/pull/33/merge',head,()=>`${head} ${old}`),/two parents/);
+});
 function fixture() {
   const progress={schema_version:1,week,stage:'inventory',remaining:['Vérifier les sources.']};
   const inventory={week,days:[{date:'2026-10-10',items:[{title:'Film',channel:'Arte',start:'00:30',source_url:'https://www.arte.tv/fr/guide/20261010/'}],channel_counts:{Arte:1}}]};
@@ -71,5 +79,15 @@ test('CLI writes preparation context without candidate preview and leaves files 
     execFileSync(process.execPath,[path.resolve('scripts/validation-context.mjs')],{cwd:dir,env});
     assert.equal(fs.readFileSync(envFile,'utf8'),`SELECTION_TV_PREPARATION_WEEK=${week}\n`);
     assert.equal(fs.readFileSync(path.join(dir,'data/manifest.json'),'utf8'),manifest);
+    const candidate=execFileSync('git',['rev-parse','HEAD'],{cwd:dir,encoding:'utf8'}).trim();
+    execFileSync('git',['checkout','-qb','advanced-main',base],{cwd:dir});
+    fs.mkdirSync(path.join(dir,'scripts'),{recursive:true});
+    fs.writeFileSync(path.join(dir,'scripts/new-main-policy.mjs'),'// Main changed after PR opened.\n');
+    execFileSync('git',['add','.'],{cwd:dir});
+    execFileSync('git',['-c','user.name=Test','-c','user.email=test@example.com','commit','-qm','advance main'],{cwd:dir});
+    execFileSync('git',['-c','user.name=Test','-c','user.email=test@example.com','merge','--no-ff',candidate,'-m','synthetic PR merge'],{cwd:dir});
+    fs.writeFileSync(envFile,'');
+    execFileSync(process.execPath,[path.resolve('scripts/validation-context.mjs')],{cwd:dir,env:{...env,GITHUB_REF:'refs/pull/33/merge',CANDIDATE_HEAD_SHA:candidate}});
+    assert.equal(fs.readFileSync(envFile,'utf8'),`SELECTION_TV_PREPARATION_WEEK=${week}\n`);
   } finally {fs.rmSync(dir,{recursive:true,force:true});}
 });

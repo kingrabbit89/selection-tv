@@ -67,6 +67,18 @@ export function validationContext(branch, read, baseRead, paths, today) {
   return {mode: 'preparation', week, stage: progress.stage, remaining: progress.remaining};
 }
 
+export function checkoutBase(eventBase, ref, expectedHead, git) {
+  assert.match(eventBase || '', /^[a-f0-9]{40}$/, 'exact PR base required');
+  if (!/^refs\/pull\/\d+\/merge$/.test(ref || '')) return eventBase;
+  // The event may retain an old base SHA after main moves. Checkout tests the
+  // synthetic merge, whose first parent is the base actually being validated.
+  assert.match(expectedHead || '', /^[a-f0-9]{40}$/, 'exact candidate head required');
+  const parents = git(['rev-list','--parents','-n','1','HEAD']).trim().split(/\s+/).slice(1);
+  assert.equal(parents.length, 2, 'PR merge checkout must have two parents');
+  assert.equal(parents[1], expectedHead, 'PR merge checkout does not match candidate head');
+  return parents[0];
+}
+
 function main() {
   const read = p => fs.existsSync(p) ? fs.readFileSync(p,'utf8') : null;
   const branch = process.env.GITHUB_HEAD_REF || '';
@@ -76,8 +88,10 @@ function main() {
     console.log('✓ No unfinished preparation can pass the required publication check');
     return;
   }
-  const base = process.env.BASE_SHA;
-  const git = args => execFileSync('git',args,{encoding:'utf8',stdio:['ignore','pipe','pipe']});
+  const git = args => execFileSync('git',args,{encoding:'utf8',maxBuffer:16*1024*1024,stdio:['ignore','pipe','pipe']});
+  const base = branch.startsWith('auto/')
+    ? checkoutBase(process.env.BASE_SHA, process.env.GITHUB_REF, process.env.CANDIDATE_HEAD_SHA, git)
+    : process.env.BASE_SHA;
   const baseRead = p => {try {return git(['show',`${base}:${p}`]);} catch {return null;}};
   if (branch.startsWith('auto/')) assert.match(base || '', /^[a-f0-9]{40}$/, 'exact PR base required');
   const paths = branch.startsWith('auto/') ? git(['diff','--name-only',base,'HEAD']).trim().split('\n').filter(Boolean) : [];
