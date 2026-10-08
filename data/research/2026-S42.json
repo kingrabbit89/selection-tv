@@ -1,0 +1,795 @@
+{
+  "schema_version": 1,
+  "week": "2026-S42",
+  "base_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
+  "stage": "inventory",
+  "updated_at": "2026-10-08T06:09:52.338Z",
+  "remaining": [
+    "Inventorier du 11 au 16 octobre (00:00–23:59), toutes chaînes actives obligatoires et découvertes.",
+    "Compléter le recoupement indépendant et la passe de rappel éditoriale du 10 octobre : les pages Télérama essayées sont périmées ; ne pas les compter comme preuve S42.",
+    "Résoudre l'incompatibilité Paramount Channel obligatoire / chaîne arrêtée, sans déclarer un scan fictif ni changer les seuils.",
+    "Réconcilier les horaires et doublons ambigus : Arte 07:50/07:55 aliments transformés ; Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min).",
+    "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
+    "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV.",
+    "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue."
+  ],
+  "completed_batches": [
+    {
+      "id": "inventory-2026-10-10-primary",
+      "completed_at": "2026-10-08T06:09:52.338Z",
+      "description": "Premier relevé de 33 chaînes actives ; 291 entrées factuelles dont 73 nocturnes ; aucune journée déclarée entièrement validée.",
+      "items": 291
+    }
+  ],
+  "blockers": [
+    {
+      "id": "required-channel-paramount-ceased",
+      "type": "editorial-contract",
+      "requires_user": true,
+      "status": "open",
+      "first_seen_at": "2026-10-08T06:09:52.338Z",
+      "message": "Paramount Channel reste required_core_channels mais la diffusion française est arrêtée au 31/12/2025 (réponse officielle CANAL+). Aucun scan de grille possible. La préparation des autres chaînes peut continuer ; une décision sur le traitement de cette chaîne inactive est nécessaire avant de certifier la matrice complète.",
+      "source_urls": [
+        "https://canal-assistance.canalplus.com/fr/conversations/abonnement-canal-series/suppression-chaine-paramount/69578e44b680bd747e55af6d"
+      ],
+      "alerted": false
+    }
+  ],
+  "verification_records": [
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/arte/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Arte"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-classic/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Ciné+ Classic"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/france-5/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "France 5"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/rtl-9/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "RTL9"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/la-chaine-parlementaire/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "La Chaîne parlementaire"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/canal-plus-docs/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Canal+ Docs"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-festival/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Ciné+ Festival"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tcm-cinema/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "TCM Cinéma"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/france-2/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "France 2"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/france-3/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "France 3"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/france-4/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "France 4"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tv5monde/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "TV5MONDE"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/canal-plus/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Canal+"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/canal-plus-cinema/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Canal+ Cinéma"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/canal-plus-box-office/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Canal+ Box Office"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/canal-plus-grand-ecran/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Canal+ Grand Écran"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-ocs/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Ciné+ OCS"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-emotion/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Ciné+ Emotion"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-frisson/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Ciné+ Frisson"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-family/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Ciné+ Family"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tf1/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "TF1"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/m6/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "M6"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tmc/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "TMC"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tfx/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "TFX"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/w9/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "W9"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/gulli/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Gulli"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/paris-premiere/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Paris Première"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/action/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Action"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/rmc-story/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "RMC Story"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/rmc-decouverte/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "RMC Découverte"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/novo19/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "NOVO19"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/t18/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "T18"
+      },
+      "evidence_note": "Grille datée lue ; créneaux de la veille exclus. La durée est celle du créneau, pas une durée de version certifiée. Recoupement indépendant des candidats encore requis.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title"
+      ],
+      "source_urls": [
+        "https://www.programme-tv.com/chaine/samedi-prochain/1047/programme-television-6ter.html",
+        "https://www.linternaute.com/television/programme-6ter-samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "6ter"
+      },
+      "evidence_note": "Grilles de jour et nuit consultées ; les sujets des magazines scientifiques nécessitent encore une identité précise.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "broadcasting_status"
+      ],
+      "source_urls": [
+        "https://canal-assistance.canalplus.com/fr/conversations/abonnement-canal-series/suppression-chaine-paramount/69578e44b680bd747e55af6d"
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "Paramount Channel France"
+      },
+      "evidence_note": "Réponse officielle CANAL+ : diffusion arrêtée au 31/12/2025 ; ancien nom Channel confirmé. La liste obligatoire du dépôt contient encore cette chaîne.",
+      "status": "verified"
+    }
+  ],
+  "run_metrics": [
+    {
+      "date": "2026-10-08T06:09:52.338Z",
+      "owner": "a200f4a9-e530-46af-852d-3c0c9604a3f4",
+      "stage": "inventory",
+      "elapsed_seconds": 420,
+      "completed_batches": [
+        "inventory-2026-10-10-primary"
+      ],
+      "reused_complete_cards": 0,
+      "newly_verified_complete_cards": 0,
+      "raw_schedule_entries": 291,
+      "blockers": [
+        "required-channel-paramount-ceased"
+      ],
+      "remaining": [
+        "Inventorier du 11 au 16 octobre (00:00–23:59), toutes chaînes actives obligatoires et découvertes.",
+        "Compléter le recoupement indépendant et la passe de rappel éditoriale du 10 octobre : les pages Télérama essayées sont périmées ; ne pas les compter comme preuve S42.",
+        "Résoudre l'incompatibilité Paramount Channel obligatoire / chaîne arrêtée, sans déclarer un scan fictif ni changer les seuils.",
+        "Réconcilier les horaires et doublons ambigus : Arte 07:50/07:55 aliments transformés ; Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min).",
+        "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
+        "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV.",
+        "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue."
+      ]
+    }
+  ],
+  "source_issues": [
+    {
+      "url": "https://television.telerama.fr/programme-tv-samedi/arte",
+      "status": "stale",
+      "note": "Page ouverte datée du 3 octobre ; ne pas utiliser pour le 10."
+    },
+    {
+      "url": "https://television.telerama.fr/programme-tv-samedi-prochain/arte",
+      "status": "stale",
+      "note": "Lien samedi 10 redirige vers page du 21 mars ; aucune preuve S42."
+    },
+    {
+      "url": "https://www.telestar.fr/programme-tv/grille-chaine/paramountchannel",
+      "status": "stale",
+      "note": "Résultat recherche et page ouverte de dates différentes ; page ouverte du 9 septembre sans programmes."
+    }
+  ],
+  "editorial_review": {
+    "completed": false
+  }
+}
