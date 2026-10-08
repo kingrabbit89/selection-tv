@@ -11,6 +11,8 @@ const required=[
   'data/automation-config.json',
   'scripts/next-target.mjs',
   'scripts/validate-publication-candidate.mjs',
+  'scripts/validation-context.mjs',
+  'scripts/test-validation-context.mjs',
   'scripts/promote-week.mjs',
   'scripts/generation-report.mjs',
   'scripts/verify-public-deployment.mjs',
@@ -78,7 +80,7 @@ if(fs.existsSync('assets/js/issue-loader.js')){
 
 if(fs.existsSync('.github/workflows/validate-architecture.yml')){
   const wf=read('.github/workflows/validate-architecture.yml');
-  for(const token of ['validate-automation.mjs','validate-publication-candidate.mjs','validate-promotion-transition.mjs','verify-promotion-attestation.mjs',"startsWith(github.head_ref, 'auto/')"]){
+  for(const token of ['validate-automation.mjs','validate-publication-candidate.mjs','validate-promotion-transition.mjs','verify-promotion-attestation.mjs','validation-context.mjs','--require-ready',"startsWith(github.head_ref, 'auto/')"]){
     if(!wf.includes(token))bad('main validation workflow missing '+token);
   }
 }
