@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T08:09:14.136Z",
+  "updated_at": "2026-10-08T08:15:08.911Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -17,7 +17,8 @@
     "TF1 Séries Films et CSTAR : 7 jours relevés, recoupements indépendants encore à compléter ; épisodes Douanes sous haute surveillance à identifier avant tout examen approfondi.",
     "Rappel TNT : traiter les programmes non rapprochés consignés dans editorial_reminder_passes ; ne pas déduire l'identité d'une simple proximité de titre (soirée Marine notamment). Compléter rappel cinéma payant et recoupements manquants.",
     "Rappel TNT : Fréquenstar annoncé dimanche 11:20 mais grille M6 Turbo 11:00/11:25 ; sujets Envoyé spécial et Au cœur de l'enquête à obtenir. Intraçables et Meurtres à Cayenne : types épisode/téléfilm à réconcilier.",
-    "France 2/3 : compléter grilles officielles du 10 (France 2) et du 15 (France 2/3), renvoyées périmées/vides ; départager Dodin Bouffant 02:55/03:05 le 12. Les collections génériques ne certifient pas leurs épisodes."
+    "France 2/3 : compléter grilles officielles du 10 (France 2) et du 15 (France 2/3), renvoyées périmées/vides ; départager Dodin Bouffant 02:55/03:05 le 12. Les collections génériques ne certifient pas leurs épisodes.",
+    "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection."
   ],
   "completed_batches": [
     {
@@ -131,6 +132,11 @@
       "id": "inventory-france2-france3-official-complement",
       "completed_at": "2026-10-08T08:09:14.136Z",
       "description": "36 rapprochements de programmes officiels, 6 courts/documents et magazines ajoutés ; captation La Couleur de la grenade distinguée du film, conflit Dodin conservé."
+    },
+    {
+      "id": "inventory-canal-cine-official-eight",
+      "completed_at": "2026-10-08T08:15:08.911Z",
+      "description": "Rappel mensuel et huit pages exactes rapprochés de la grille ; horaires corroborés, métadonnées de version consignées sans créer de fiches complètes."
     }
   ],
   "blockers": [
@@ -9806,6 +9812,374 @@
       },
       "evidence_note": "Début 02:55 dans la grille officielle, 03:05 dans la grille primaire : écart conservé, à départager au préflight.",
       "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/exit-8/h/30486943_50001",
+        "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026",
+        "https://tv-programme.com/canal-plus-cinema/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T08:15:08.911Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "start": "21:00",
+        "channel": "Canal+ Cinéma",
+        "title": "Exit 8"
+      },
+      "evidence_note": "Page exacte de l'œuvre et calendrier d'octobre du diffuseur rapprochés de la grille datée. L'URL mensuelle conserve « septembre » mais son contenu lu est octobre. Morlaix est annoncé le 14 dans le calendrier et diffusé à 00:26 le 15 : date civile conservée. Ne certifie ni replay, ni expiration, ni rediffusions.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "duration"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/exit-8/h/30486943_50001"
+      ],
+      "checked_at": "2026-10-08T08:15:08.911Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Exit 8",
+        "version": "version affichée sur la fiche Canal+"
+      },
+      "evidence_note": "Métadonnées affichées : Genki Kawamura, 2025, Japon, 91 min. Durée de l'œuvre distincte du créneau de grille. Aucun rattachement canonique ni note repris.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/love-on-trial/h/31616648_50002",
+        "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026",
+        "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T08:15:08.911Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "start": "20:50",
+        "channel": "Ciné+ Festival",
+        "title": "Love on Trial"
+      },
+      "evidence_note": "Page exacte de l'œuvre et calendrier d'octobre du diffuseur rapprochés de la grille datée. L'URL mensuelle conserve « septembre » mais son contenu lu est octobre. Morlaix est annoncé le 14 dans le calendrier et diffusé à 00:26 le 15 : date civile conservée. Ne certifie ni replay, ni expiration, ni rediffusions.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "duration"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/love-on-trial/h/31616648_50002"
+      ],
+      "checked_at": "2026-10-08T08:15:08.911Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Love on Trial",
+        "version": "version affichée sur la fiche Canal+"
+      },
+      "evidence_note": "Métadonnées affichées : Koji Fukada, 2025, Japon / France, 119 min. Durée de l'œuvre distincte du créneau de grille. Aucun rattachement canonique ni note repris.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/la-maison-des-femmes/h/31495467_50001",
+        "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026",
+        "https://tv-programme.com/canal-plus/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T08:15:08.911Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "start": "21:10",
+        "channel": "Canal+",
+        "title": "La Maison des femmes"
+      },
+      "evidence_note": "Page exacte de l'œuvre et calendrier d'octobre du diffuseur rapprochés de la grille datée. L'URL mensuelle conserve « septembre » mais son contenu lu est octobre. Morlaix est annoncé le 14 dans le calendrier et diffusé à 00:26 le 15 : date civile conservée. Ne certifie ni replay, ni expiration, ni rediffusions.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "duration"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/la-maison-des-femmes/h/31495467_50001"
+      ],
+      "checked_at": "2026-10-08T08:15:08.911Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La Maison des femmes",
+        "version": "version affichée sur la fiche Canal+"
+      },
+      "evidence_note": "Métadonnées affichées : Mélisa Godet, 2025, France, 105 min. Durée de l'œuvre distincte du créneau de grille. Aucun rattachement canonique ni note repris.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/la-femme-de/h/31652071_50002",
+        "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026",
+        "https://tv-programme.com/cine-plus-ocs/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T08:15:08.911Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "start": "20:50",
+        "channel": "Ciné+ OCS",
+        "title": "La Femme de"
+      },
+      "evidence_note": "Page exacte de l'œuvre et calendrier d'octobre du diffuseur rapprochés de la grille datée. L'URL mensuelle conserve « septembre » mais son contenu lu est octobre. Morlaix est annoncé le 14 dans le calendrier et diffusé à 00:26 le 15 : date civile conservée. Ne certifie ni replay, ni expiration, ni rediffusions.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "duration"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/la-femme-de/h/31652071_50002"
+      ],
+      "checked_at": "2026-10-08T08:15:08.911Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La Femme de",
+        "version": "version affichée sur la fiche Canal+"
+      },
+      "evidence_note": "Métadonnées affichées : David Roux, 2025, France / Belgique, 90 min. Durée de l'œuvre distincte du créneau de grille. Aucun rattachement canonique ni note repris.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/morlaix/h/31720492_50002",
+        "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026",
+        "https://tv-programme.com/cine-plus-ocs/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T08:15:08.911Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "start": "00:26",
+        "channel": "Ciné+ OCS",
+        "title": "Morlaix"
+      },
+      "evidence_note": "Page exacte de l'œuvre et calendrier d'octobre du diffuseur rapprochés de la grille datée. L'URL mensuelle conserve « septembre » mais son contenu lu est octobre. Morlaix est annoncé le 14 dans le calendrier et diffusé à 00:26 le 15 : date civile conservée. Ne certifie ni replay, ni expiration, ni rediffusions.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "duration"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/morlaix/h/31720492_50002"
+      ],
+      "checked_at": "2026-10-08T08:15:08.911Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Morlaix",
+        "version": "version affichée sur la fiche Canal+"
+      },
+      "evidence_note": "Métadonnées affichées : Jaime Rosales, 2025, Espagne / France, 118 min. Durée de l'œuvre distincte du créneau de grille. Aucun rattachement canonique ni note repris.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/l-interet-d-adam/h/30267479_50001",
+        "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026",
+        "https://tv-programme.com/canal-plus-cinema/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T08:15:08.911Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "start": "21:00",
+        "channel": "Canal+ Cinéma",
+        "title": "L'Intérêt d'Adam"
+      },
+      "evidence_note": "Page exacte de l'œuvre et calendrier d'octobre du diffuseur rapprochés de la grille datée. L'URL mensuelle conserve « septembre » mais son contenu lu est octobre. Morlaix est annoncé le 14 dans le calendrier et diffusé à 00:26 le 15 : date civile conservée. Ne certifie ni replay, ni expiration, ni rediffusions.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "duration"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/l-interet-d-adam/h/30267479_50001"
+      ],
+      "checked_at": "2026-10-08T08:15:08.911Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "L'Intérêt d'Adam",
+        "version": "version affichée sur la fiche Canal+"
+      },
+      "evidence_note": "Métadonnées affichées : Laura Wandel, 2025, France / Belgique, 74 min. Durée de l'œuvre distincte du créneau de grille. Aucun rattachement canonique ni note repris.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/les-enfants-de-la-resistance/h/31330819_50001",
+        "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026",
+        "https://tv-programme.com/canal-plus/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T08:15:08.911Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "start": "21:10",
+        "channel": "Canal+",
+        "title": "Les Enfants de la Résistance"
+      },
+      "evidence_note": "Page exacte de l'œuvre et calendrier d'octobre du diffuseur rapprochés de la grille datée. L'URL mensuelle conserve « septembre » mais son contenu lu est octobre. Morlaix est annoncé le 14 dans le calendrier et diffusé à 00:26 le 15 : date civile conservée. Ne certifie ni replay, ni expiration, ni rediffusions.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "duration"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/les-enfants-de-la-resistance/h/31330819_50001"
+      ],
+      "checked_at": "2026-10-08T08:15:08.911Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Les Enfants de la Résistance",
+        "version": "version affichée sur la fiche Canal+"
+      },
+      "evidence_note": "Métadonnées affichées : Christophe Barratier, 2025, France, 96 min. Durée de l'œuvre distincte du créneau de grille. Aucun rattachement canonique ni note repris.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/la-petite-graine/h/31616627_50002",
+        "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026",
+        "https://tv-programme.com/cine-plus-emotion/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T08:15:08.911Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "start": "20:50",
+        "channel": "Ciné+ Emotion",
+        "title": "La Petite Graine"
+      },
+      "evidence_note": "Page exacte de l'œuvre et calendrier d'octobre du diffuseur rapprochés de la grille datée. L'URL mensuelle conserve « septembre » mais son contenu lu est octobre. Morlaix est annoncé le 14 dans le calendrier et diffusé à 00:26 le 15 : date civile conservée. Ne certifie ni replay, ni expiration, ni rediffusions.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "duration"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/la-petite-graine/h/31616627_50002"
+      ],
+      "checked_at": "2026-10-08T08:15:08.911Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La Petite Graine",
+        "version": "version affichée sur la fiche Canal+"
+      },
+      "evidence_note": "Métadonnées affichées : Colas Rifkiss / Mathias Rifkiss, 2025, France, 94 min. Durée de l'œuvre distincte du créneau de grille. Aucun rattachement canonique ni note repris.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -10059,6 +10433,23 @@
       ],
       "matching_canonical_entries_found": 0,
       "note": "Recherche ciblée dans works.json au SHA main inchangé ; aucune donnée historique réutilisée."
+    },
+    "cinema_scoped_check": {
+      "checked_at": "2026-10-08T08:15:08.911Z",
+      "sha": "dbd3785e77fac8492b1994ab37b34d8846a4d677",
+      "catalogue_blob_sha": "011262fdd0d57c78b033cf0ce7492d031bc1e47d",
+      "titles": [
+        "Exit 8",
+        "Love on Trial",
+        "La Maison des femmes",
+        "La Femme de",
+        "Morlaix",
+        "L'Intérêt d'Adam",
+        "Les Enfants de la Résistance",
+        "La Petite Graine"
+      ],
+      "matching_canonical_entries_found": 0,
+      "note": "Catalogue et registre du cycle consultés ; aucune entrée correspondante établie, aucune fiche ancienne réutilisée."
     }
   },
   "documentary_research_queue": [],
