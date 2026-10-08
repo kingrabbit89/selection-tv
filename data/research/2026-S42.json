@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T11:15:01.819Z",
+  "updated_at": "2026-10-08T11:19:16.006Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -28,7 +28,8 @@
     "france.tv 16 octobre : quatre nouvelles pistes documentées (Replica, Influence mortelle, Lâche ton tel, Sommes-nous tous accros aux écrans ?) ; vérifier offres/expirations, versions et réception manquante avant toute sélection.",
     "TF1/TFX/TMC : poursuivre les sujets/épisodes encore génériques et le tri motivé des formats de magazine ou documentaire de flux repérés ; neuf créneaux TFX, 38 TMC recoupés et deux magazines supplémentaires ajoutés, sans certification artistique.",
     "TF1 : confirmer sur pages indépendantes Cat's Eyes saison 2 du 12 octobre (21:10 et 22:15) et Les docs du week-end du 11 (16:10) ; sources officielles lues, résultats indépendants indexés mais pages non exploitables. Identités canoniques, critique, durée/version et offres à traiter avant sélection.",
-    "Paris Première : trois J'ai un ticket du 14–16 octobre à recouper, sujets des magazines culturels à préciser ; nouveaux téléfilms/spectacles à trier et enrichir, parties La maison sur le lac à identifier sans confusion."
+    "Paris Première : trois J'ai un ticket du 14–16 octobre à recouper, sujets des magazines culturels à préciser ; nouveaux téléfilms/spectacles à trier et enrichir, parties La maison sur le lac à identifier sans confusion.",
+    "RMC+ : Oppenheimer (Eve Vanderstegen, 2024) et Camps perdus (Benoît Cressent, 2021) ont des pages/expirations affichées ; terminer critiques, notes, droits/lecture, versions 51/55/65 min pour Camps perdus. Tom Hanks : réception contrastée documentée, épisodes français 17/18 et diffusion du 16 à confirmer."
   ],
   "completed_batches": [
     {
@@ -257,6 +258,11 @@
       "id": "inventory-f4-conflict-and-saint-ex-evidence",
       "completed_at": "2026-10-08T11:15:01.819Z",
       "description": "Un conflit de grille résolu pour l'inventaire (Rachelle Allison) ; preuves contradictoires Saint-Ex/France3 tracées sans fausse certification."
+    },
+    {
+      "id": "documentary-rmcplus-targeted-offers-and-reception",
+      "completed_at": "2026-10-08T11:19:16.006Z",
+      "description": "Trois œuvres/collections déjà repérées approfondies (quatre candidats) : offres exactes, limites d'accès critique, deux avis contrastés pour Tom Hanks ; aucune fiche complète certifiée."
     }
   ],
   "blockers": [
@@ -13068,6 +13074,139 @@
       },
       "evidence_note": "Page directe datée du 15 conserve La p'tite librairie 12:15 puis Ici12/13 12:26, alors que l'extrait de recherche présentait Ici12/13 12:15. Le conflit avec la grille officielle demeure ; extrait non utilisé pour corriger.",
       "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "director",
+        "year",
+        "country",
+        "displayed_replay_duration"
+      ],
+      "source_urls": [
+        "https://www.rmcplus.fr/programme/oppenheimer-la-veritable-histoire-de-la-bombe-atomique-1020932454339"
+      ],
+      "checked_at": "2026-10-08T11:19:16.006Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Oppenheimer : La véritable histoire de la bombe atomique",
+        "version": "RMC+ replay"
+      },
+      "evidence_note": "Eve Vanderstegen, France, 2024, 51 min affichées ; catalogue canonique consulté sans correspondance.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "offer.page",
+        "offer.displayed_expiration"
+      ],
+      "source_urls": [
+        "https://www.rmcplus.fr/video/unitaire/oppenheimer-la-veritable-histoire-de-la-bombe-atomique-1020932454339"
+      ],
+      "checked_at": "2026-10-08T11:19:16.006Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Oppenheimer : La véritable histoire de la bombe atomique",
+        "platform": "RMC+"
+      },
+      "evidence_note": "Page directe et expiration affichée au 15/11/2026 observées. Ne certifie ni lecture ni droit territorial.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "director",
+        "year",
+        "country"
+      ],
+      "source_urls": [
+        "https://www.rmcplus.fr/video/unitaire/enquete-sur-les-camps-perdus-du-iiie-reich-1020932467360",
+        "https://www.film-documentaire.fr/4DACTION/w_fiche_film/65462_0"
+      ],
+      "checked_at": "2026-10-08T11:19:16.006Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Enquête sur les camps perdus du IIIe Reich"
+      },
+      "evidence_note": "Benoît Cressent, France, 2021 concordent. Pas de fiche canonique trouvée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "duration",
+        "version"
+      ],
+      "source_urls": [
+        "https://www.rmcplus.fr/video/unitaire/enquete-sur-les-camps-perdus-du-iiie-reich-1020932467360",
+        "https://www.film-documentaire.fr/4DACTION/w_fiche_film/65462_0",
+        "https://www.telerama.fr/ecrans-tv/enquete-sur-les-camps-perdus-du-iiie-reich-7010415.php"
+      ],
+      "checked_at": "2026-10-08T11:19:16.006Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Enquête sur les camps perdus du IIIe Reich"
+      },
+      "evidence_note": "Trois valeurs 51/65/55 min, version de chaque offre à identifier avant enrichissement final.",
+      "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "offer.page",
+        "offer.displayed_expiration"
+      ],
+      "source_urls": [
+        "https://www.rmcplus.fr/video/unitaire/enquete-sur-les-camps-perdus-du-iiie-reich-1020932467360"
+      ],
+      "checked_at": "2026-10-08T11:19:16.006Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Enquête sur les camps perdus du IIIe Reich",
+        "platform": "RMC+"
+      },
+      "evidence_note": "Page directe et expiration affichée au 21/11/2026 ; lecture/compte/territoire non testés.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception"
+      ],
+      "source_urls": [
+        "https://www.theguardian.com/tv-and-radio/2026/may/26/world-war-ii-with-tom-hanks-review-documentary-sky-history-now",
+        "https://decider.com/2026/05/26/world-war-ii-with-tom-hanks-history-review/"
+      ],
+      "checked_at": "2026-10-08T11:19:16.006Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "World War II with Tom Hanks",
+        "scope": "series launch"
+      },
+      "evidence_note": "Deux avis signés de lancement lus ; détail dans coverage, portée limitée aux épisodes examinés. Aucun consensus ni score agrégé extrapolé.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_evidence_access",
+        "rating_access"
+      ],
+      "source_urls": [
+        "https://www.telerama.fr/ecrans-tv/enquete-sur-les-camps-perdus-du-iiie-reich-7010415.php",
+        "https://soirmag.lesoir.be/504350/article/2023-04-01/les-camps-perdus-du-iiie-reich-une-barbarie-sans-limite"
+      ],
+      "checked_at": "2026-10-08T11:19:16.006Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Enquête sur les camps perdus du IIIe Reich"
+      },
+      "evidence_note": "Extraits descriptifs accessibles ; jugement complet et note Télérama non accessibles. Recherche réelle effectuée, absence de note finale non encore scellée.",
+      "status": "needs_check"
     }
   ],
   "run_metrics": [
@@ -13593,7 +13732,7 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "1dd50e8aa2be107aaaf4b79752961fd3787fd60c",
+    "checkpoint_parent_sha": "ebd13b8cbb3292651e5302d07ed51358e54e48a6",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
