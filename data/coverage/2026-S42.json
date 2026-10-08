@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "partial",
-  "updated_at": "2026-10-08T13:41:46.610Z",
+  "updated_at": "2026-10-08T13:51:02.732Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -229,6 +229,20 @@
             "note": "Titre et horaire concordants ; indépendance du flux non établie."
           }
         ]
+      },
+      "targeted_canal_conflict_followup": {
+        "checked_at": "2026-10-08T13:51:02.732Z",
+        "source_urls": [
+          "https://www.programmetvcesoir.net/chaine/canal-grand-ecran/2026-10-10",
+          "https://www.canalplus.com/cinema/le-dahlia-noir/h/3958932_50001",
+          "https://fr.cisanatv.com/programme-tv/159/apres-demain/cine-premier",
+          "https://www.programmetvcesoir.net/chaine/ocs/2026-10-10"
+        ],
+        "observations": [
+          "Le Dahlia noir : page Programmetvcesoir ouverte 22:58 malgré aperçu de recherche 22:59 ; la fiche CANAL+ ne fournit qu'un BroadcastEvent du 01/10 hors cycle. Aucun arbitrage définitif.",
+          "Saint-Ex : Cisana et Programmetvcesoir répètent 03:53 six minutes puis 03:59 91 minutes ; indépendance non établie. Doublon/version toujours à résoudre."
+        ],
+        "status": "conflict"
       }
     },
     {
@@ -1339,7 +1353,7 @@
     },
     {
       "date": "2026-10-14",
-      "raw_items": 314,
+      "raw_items": 316,
       "overnight_items": 70,
       "primary_scan_complete": false,
       "independent_crosscheck_complete": false,
@@ -1701,6 +1715,15 @@
             "note": "Titre et horaire concordants ; indépendance du flux non établie."
           }
         ]
+      },
+      "novo19_followup": {
+        "checked_at": "2026-10-08T13:51:02.732Z",
+        "added_slots": [
+          "22:20",
+          "23:25"
+        ],
+        "officially_confirmed_slot": "21:10",
+        "note": "Grille Télérama mercredi renvoie au 16 septembre : exclue. Les deux fins de soirée sont recoupées entre guides sans indépendance établie."
       }
     },
     {
@@ -2781,6 +2804,21 @@
         ],
         "checked_at": "2026-10-08T13:41:46.610Z",
         "note": "Trois dossiers approfondis et deux épisodes examinés ; pas de sélection scellée. Regrouping explicitement inclus dans la prospection documentaire. Deux textes So Mayer ne comptent pas comme deux avis indépendants."
+      },
+      {
+        "broadcaster": "NOVO19",
+        "mode": "targeted_schedule_and_documentary_followup",
+        "source_urls": [
+          "https://fr.linkedin.com/posts/novo19_vis-ma-vie-est-de-retour-activity-7510994612392689664-aE9w",
+          "https://tv-programme.com/novo19/mercredi-14-octobre-2026/",
+          "https://www.linternaute.com/television/programme-novo19-mercredi-14-octobre-2026/",
+          "https://www.molotov.tv/fr_fr/p/6587035/falaises-de-bonifacio-erosion-inevitable",
+          "https://www.linternaute.com/television/documentaire-falaises-de-bonifacio-erosion-inevitable-p7111231/",
+          "https://television.telerama.fr/tele/documentaire/falaises-de-bonifacio-erosion-inevitable-1-445296821.php",
+          "https://novo19.ouest-france.fr/"
+        ],
+        "checked_at": "2026-10-08T13:51:02.732Z",
+        "note": "Annonce directe pour Vis ma vie ; Falaises de Bonifacio reste sans réception argumentée trouvée. Aucun droit replay déduit."
       }
     ],
     "candidates": [
@@ -11106,7 +11144,53 @@
         "decision": "à vérifier",
         "availability_source": "https://tv-programme.com/novo19/vendredi-16-octobre-2026/",
         "critical_evidence": [],
-        "reason": "Inventaire brut ; identité et réception à examiner."
+        "reason": "Métadonnées secondaires et horaire concordants ; version, offre France, réception ou preuves alternatives, notes et affiche restent à vérifier. Aucune sélection fondée sur le sujet.",
+        "research": {
+          "checked_at": "2026-10-08T13:51:02.732Z",
+          "identity": {
+            "director": "Margot Zaparucha",
+            "country": "France",
+            "duration_observations": [
+              {
+                "minutes": 58,
+                "source_url": "https://television.telerama.fr/tele/documentaire/falaises-de-bonifacio-erosion-inevitable-1-445296821.php"
+              },
+              {
+                "minutes": 60,
+                "source_url": "https://www.linternaute.com/television/documentaire-falaises-de-bonifacio-erosion-inevitable-p7111231/",
+                "note": "Durée de créneau ; version non établie."
+              }
+            ],
+            "source_urls": [
+              "https://www.molotov.tv/fr_fr/p/6587035/falaises-de-bonifacio-erosion-inevitable",
+              "https://www.linternaute.com/television/documentaire-falaises-de-bonifacio-erosion-inevitable-p7111231/",
+              "https://television.telerama.fr/tele/documentaire/falaises-de-bonifacio-erosion-inevitable-1-445296821.php"
+            ]
+          },
+          "schedule": {
+            "date": "2026-10-16",
+            "start": "21:10",
+            "channel": "NOVO19",
+            "source_urls": [
+              "https://www.molotov.tv/fr_fr/p/6587035/falaises-de-bonifacio-erosion-inevitable",
+              "https://www.linternaute.com/television/documentaire-falaises-de-bonifacio-erosion-inevitable-p7111231/"
+            ],
+            "independence": "Guide/distributeur concordants, provenance des flux non établie."
+          },
+          "critical_search": {
+            "queries": [
+              "\"Falaises de Bonifacio\" \"Margot\" documentaire",
+              "\"Falaises de Bonifacio\" documentaire critique",
+              "\"Falaises de Bonifacio : érosion inévitable\" critique Margot production"
+            ],
+            "result": "Guides et annonce de programmation, aucun avis argumenté trouvé ; Télérama consulté contient synopsis/métadonnées sans critique. Reportages TF1 sur le même sujet sont d'autres œuvres et non des preuves de qualité du film.",
+            "status": "needs_check"
+          },
+          "availability": {
+            "status": "needs_check",
+            "note": "Molotov annonce le direct à venir ; aucun replay/exclusivité/expiration établi. TF1+ NOVO19 renvoie 403 ; accueil officiel NOVO19 non exploitable pour offres détaillées."
+          }
+        }
       },
       {
         "title": "Mont-Saint-Michel : les dernières énigmes de l'abbaye",

@@ -3,11 +3,11 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T13:41:46.610Z",
+  "updated_at": "2026-10-08T13:51:02.732Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
-    "Réconcilier les horaires et doublons ambigus : Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min).",
+    "Réconcilier les horaires et doublons ambigus : Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min). Suivi du 08/10 : la fiche officielle Dahlia ne montre qu'un événement hors cycle ; deux autres guides répètent le doublon Saint-Ex sans l'arbitrer.",
     "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
     "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV.",
     "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue.",
@@ -37,7 +37,8 @@
     "Ciné+ : 45 fiches CANAL+ consultées, 14 heures concordantes (dont La gueule ouverte sur Festival), 4 écarts et 27 BroadcastEvent hors cible. Chaîne absente des objets officiels : certifier les chaînes/grilles et les autres rediffusions, ne pas réutiliser les événements anciens. Durées de versions et droits replay à distinguer des créneaux.",
     "Ciné+ documentaires : Shirley MacLaine et Becoming Hitchcock disposent de quatre critiques indépendantes attribuées avec réserves ; Simenon reste sans avis argumenté trouvé dans les recherches. Résoudre années/durées, chaîne/horaire S42, accès français/expirations, notes directes et affiches ; ne pas convertir les compteurs SC ni l'ancien replay Arte en preuves actuelles.",
     "TCM : 98 créneaux comparés aux sept grilles Télérama courantes, aucun écart d'heure ; Nashville Blues/The Thing Called Love rapprochés par la fiche liée. Source officielle ou indépendance des flux encore à obtenir ; Flics et voyous reste un titre d'épisode à confirmer. Documentaires et autres films à enrichir.",
-    "TCM : Regrouping, Roger Corman et Burning an Illusion approfondis, critiques attribuées avec réserves. Résoudre versions (Regrouping75/80min, Burning101/105/107min), année Corman2019/2020/2021, offres France/expirations, notes et affiches. Thrillers identifié via fiche liée ; Flics et voyous encore générique. Aucune carte complète ni consensus déduit."
+    "TCM : Regrouping, Roger Corman et Burning an Illusion approfondis, critiques attribuées avec réserves. Résoudre versions (Regrouping75/80min, Burning101/105/107min), année Corman2019/2020/2021, offres France/expirations, notes et affiches. Thrillers identifié via fiche liée ; Flics et voyous encore générique. Aucune carte complète ni consensus déduit.",
+    "NOVO19 : annonce directe confirme Vis ma vie de Drag Queen le 14 à 21:10 ; deux fins de soirée ajoutées (épisodes/indépendance à confirmer). Falaises de Bonifacio le 16 à 21:10 concorde entre guides ; version 58/60 min, offre et réception/preuves alternatives, notes et affiche restent ouverts."
   ],
   "completed_batches": [
     {
@@ -336,6 +337,11 @@
       "id": "research-tcm-three-works-two-documentary-episodes",
       "completed_at": "2026-10-08T13:41:46.610Z",
       "description": "Trois œuvres approfondies et deux épisodes documentaires examinés ; provenance, réception nuancée et limites explicites. Catalogue courant consulté avant recherche, aucune fiche réutilisée."
+    },
+    {
+      "id": "inventory-novo19-followup-and-canal-conflict-evidence",
+      "completed_at": "2026-10-08T13:51:02.732Z",
+      "description": "Deux créneaux NOVO19 ajoutés ; annonce primaire Drag Queen, dossier documentaire Bonifacio et suivis ciblés Dahlia/Saint-Ex conservés sans certification abusive."
     }
   ],
   "blockers": [
@@ -16576,6 +16582,121 @@
       },
       "evidence_note": "Fiche liée à la grille13/10 06:55 : Laurent Bouzereau,Les thrillers,2009 ; durée58minfiche ne certifie pas versionTCM.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_date",
+        "broadcast_time",
+        "channel",
+        "episode_title"
+      ],
+      "source_urls": [
+        "https://fr.linkedin.com/posts/novo19_vis-ma-vie-est-de-retour-activity-7510994612392689664-aE9w"
+      ],
+      "checked_at": "2026-10-08T13:51:02.732Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Vis ma vie de Drag Queen",
+        "date": "2026-10-14"
+      },
+      "evidence_note": "Annonce de NOVO19 du retour le 14 octobre à 21h10 ; numéro/durée non certifiés.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_slots",
+        "episode_identity"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/novo19/mercredi-14-octobre-2026/",
+        "https://www.linternaute.com/television/programme-novo19-mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:51:02.732Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Vis ma vie",
+        "date": "2026-10-14",
+        "starts": [
+          "22:20",
+          "23:25"
+        ]
+      },
+      "evidence_note": "Deux créneaux ajoutés ; titres génériques/numéros à confirmer et indépendance des guides non établie.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "director",
+        "country",
+        "duration"
+      ],
+      "source_urls": [
+        "https://www.molotov.tv/fr_fr/p/6587035/falaises-de-bonifacio-erosion-inevitable",
+        "https://www.linternaute.com/television/documentaire-falaises-de-bonifacio-erosion-inevitable-p7111231/",
+        "https://television.telerama.fr/tele/documentaire/falaises-de-bonifacio-erosion-inevitable-1-445296821.php"
+      ],
+      "checked_at": "2026-10-08T13:51:02.732Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Falaises de Bonifacio : érosion inévitable ?"
+      },
+      "evidence_note": "Margot Zaparucha/France relevés ; 58min fiche et 60min créneau, version non arbitrée. Catalogue actuel sans fiche correspondante.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "schedule",
+        "replay",
+        "expiration",
+        "critical_reception"
+      ],
+      "source_urls": [
+        "https://www.molotov.tv/fr_fr/p/6587035/falaises-de-bonifacio-erosion-inevitable",
+        "https://www.linternaute.com/television/documentaire-falaises-de-bonifacio-erosion-inevitable-p7111231/",
+        "https://television.telerama.fr/tele/documentaire/falaises-de-bonifacio-erosion-inevitable-1-445296821.php",
+        "https://www.tf1.fr/novo19/programmes-tv"
+      ],
+      "checked_at": "2026-10-08T13:51:02.732Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Falaises de Bonifacio : érosion inévitable ?",
+        "date": "2026-10-16"
+      },
+      "evidence_note": "21:10 concorde ; réception, notes et offres à compléter. TF1+403, Télérama sans critique argumentée sur la fiche.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_time",
+        "duplicate_broadcast"
+      ],
+      "source_urls": [
+        "https://www.programmetvcesoir.net/chaine/canal-grand-ecran/2026-10-10",
+        "https://www.canalplus.com/cinema/le-dahlia-noir/h/3958932_50001",
+        "https://fr.cisanatv.com/programme-tv/159/apres-demain/cine-premier",
+        "https://www.programmetvcesoir.net/chaine/ocs/2026-10-10"
+      ],
+      "checked_at": "2026-10-08T13:51:02.732Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "titles": [
+          "Le dahlia noir",
+          "Saint-Ex"
+        ]
+      },
+      "evidence_note": "Le Dahlia noir : page Programmetvcesoir ouverte 22:58 malgré aperçu de recherche 22:59 ; la fiche CANAL+ ne fournit qu'un BroadcastEvent du 01/10 hors cycle. Aucun arbitrage définitif. Saint-Ex : Cisana et Programmetvcesoir répètent 03:53 six minutes puis 03:59 91 minutes ; indépendance non établie. Doublon/version toujours à résoudre.",
+      "status": "conflict"
     }
   ],
   "run_metrics": [
@@ -16935,30 +17056,33 @@
       "targeted_conflict_followups": 2
     },
     {
-      "date": "2026-10-08T13:41:46.610Z",
+      "date": "2026-10-08T13:51:02.732Z",
       "started_at": "2026-10-08T13:28:36.405Z",
       "owner": "9a1435f5-4932-49e3-a046-7130b9a4fd66",
       "stage": "inventory_arbitration_crosscheck",
-      "elapsed_seconds": 790,
+      "elapsed_seconds": 1346,
       "duration_basis": "wall_clock_until_checkpoint",
       "completed_batches": [
         "inventory-france-televisions-six-schedule-arbitrations",
         "inventory-tcm-seven-current-secondary-grids",
-        "research-tcm-three-works-two-documentary-episodes"
+        "research-tcm-three-works-two-documentary-episodes",
+        "inventory-novo19-followup-and-canal-conflict-evidence"
       ],
       "reused_complete_cards": 0,
       "newly_verified_complete_cards": 0,
-      "raw_schedule_entries": 2228,
+      "raw_schedule_entries": 2230,
       "official_schedule_arbitrations": 6,
       "blockers": [],
       "remaining": {
         "stage": "inventory",
-        "count": 33,
+        "count": 34,
         "reference": "remaining"
       },
       "tcm_schedule_entries_compared": 98,
       "newly_researched_incomplete_works": 3,
-      "documentary_episodes_examined": 2
+      "documentary_episodes_examined": 2,
+      "novo19_added_slots": 2,
+      "novo19_primary_confirmed_slots": 1
     }
   ],
   "source_issues": [
@@ -17148,6 +17272,18 @@
       "note": "Ouverture 404 ; aucune disponibilité ni identité certifiée à partir de cette page.",
       "status": "unavailable",
       "checked_at": "2026-10-08T13:25:27.207Z"
+    },
+    {
+      "source_url": "https://television.telerama.fr/programme-tv-mercredi/novo-19",
+      "checked_at": "2026-10-08T13:51:02.732Z",
+      "status": "stale",
+      "note": "Page ouverte datée mercredi 16 septembre, exclue du recoupement S42 malgré URL relative."
+    },
+    {
+      "source_url": "https://www.tf1.fr/novo19/programmes-tv",
+      "checked_at": "2026-10-08T13:51:02.732Z",
+      "status": "unavailable",
+      "note": "403 ; aucune disponibilité ou expiration déduite."
     }
   ],
   "editorial_review": {
@@ -17321,6 +17457,17 @@
       "logs_read": true,
       "cause": "Seul échec attendu : Require a complete candidate before merging ; public S41 validé, pas de preuve de complétude S42.",
       "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-08T13:51:02.732Z",
+      "head_sha": "4ba3aec3c6f40fb096e10b4801872f31ba0a4b9b",
+      "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "run_id": 37786444260,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": true,
+      "cause": "Unique échec Require a complete candidate before merging, préparation S42 incomplète. Contrôles navigateur/Jellyfin/public couvrent S41 ; attestation base skipped non comptée comme réussite.",
+      "reusable_only_for_exact_sha": true
     }
   ],
   "catalogue_reuse": {
@@ -17415,10 +17562,11 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "3c325c4a1312f451b355d922444a86d4c3dfead9",
+    "checkpoint_parent_sha": "4ba3aec3c6f40fb096e10b4801872f31ba0a4b9b",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
+      "Réutiliser les quatre lots de ce passage : six arbitrages France Télévisions ; 98 créneaux TCM comparés ; Regrouping/Corman/Burning approfondis ; NOVO19 +2 créneaux et annonce directe. Détails et limites conservés dans coverage/verification_records ; ne pas répéter les mêmes pages sans changement.",
       "France Télévisions : six arbitrages effectués, ne pas rouvrir les mêmes divergences sans changement de source. Dodin 02:55 et quatre créneaux La p'tite librairie officiels ; F3 15/10 12:15 exclu. Livres des capsules encore à confirmer, contrôle préflight si retenus.",
       "Réutiliser les trois dossiers documentaires Ciné+ de ce passage ; quatre critiques conservées avec réserves. Simenon : approfondir réception/preuves alternatives. Années/versions, droits, notes directes et affiches restent ouverts.",
       "RMC : réutiliser les 16 grilles SCREEN+ datées et les 127 rapprochements ; résoudre deux conflits et trois alias, identifier les épisodes génériques, établir l'indépendance ou obtenir une source officielle. Quatre ajouts restent à recouper. Ne pas répéter les troisièmes guides RMC : détails/limites dans rmc_conflict_followup.",
@@ -17429,40 +17577,39 @@
       "Finir inventaire certifié puis sélection/enrichissement/réserves/cartes et revue factuelle ; consulter CI du SHA courant, ne pas sceller avant remaining vide."
     ],
     "publisher": {
-      "checked_at": "2026-10-08T13:06:44.117Z",
-      "run_id": 37776578643,
-      "head_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "checked_at": "2026-10-08T13:51:02.732Z",
+      "id": 37785316083,
       "status": "completed",
       "conclusion": "skipped",
-      "note": "Aucune progression active ; aucun déclenchement agent."
+      "head_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "created_at": "2026-10-08T13:33:45Z",
+      "note": "Dernier passage consulté terminé skipped, pas de progression active ni de déclenchement agent."
     },
     "last_ci_observation": {
-      "checked_at": "2026-10-08T13:31:48.583Z",
-      "head_sha": "3c325c4a1312f451b355d922444a86d4c3dfead9",
+      "checked_at": "2026-10-08T13:51:02.732Z",
+      "head_sha": "4ba3aec3c6f40fb096e10b4801872f31ba0a4b9b",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37784330707,
+      "run_id": 37786444260,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Seul échec attendu : Require a complete candidate before merging ; public S41 validé, pas de preuve de complétude S42.",
+      "cause": "Unique échec Require a complete candidate before merging, préparation S42 incomplète. Contrôles navigateur/Jellyfin/public couvrent S41 ; attestation base skipped non comptée comme réussite.",
       "reusable_only_for_exact_sha": true
     },
     "latest_candidate_ci": {
-      "checked_at": "2026-10-08T13:25:58.653Z",
-      "head_sha": "c329233cc8395202992310749b79adcd13bd68d0",
+      "checked_at": "2026-10-08T13:51:02.732Z",
+      "head_sha": "4ba3aec3c6f40fb096e10b4801872f31ba0a4b9b",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37783939765,
+      "run_id": 37786444260,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Seul échec : Require a complete candidate before merging (préparation encore incomplète). Contrôles publics S41 ne prouvent pas S42 ; attestation base skipped non comptée comme réussite.",
-      "reusable_only_for_exact_sha": true,
-      "status": "completed",
-      "note": "État avant sauvegarde finale, contrôles à relire pour son SHA exact lors de la reprise."
+      "cause": "Unique échec Require a complete candidate before merging, préparation S42 incomplète. Contrôles navigateur/Jellyfin/public couvrent S41 ; attestation base skipped non comptée comme réussite.",
+      "reusable_only_for_exact_sha": true
     }
   },
   "structure_check": {
-    "checked_at": "2026-10-08T13:25:27.207Z",
+    "checked_at": "2026-10-08T13:51:18.611Z",
     "scope": "Seven distinct dates; raw/day/night counts and channel_counts reconciliation.",
     "result": "passed",
     "note": "Structure uniquement ; ne certifie ni indépendance, ni qualité ni complétude.",
@@ -17489,12 +17636,12 @@
       },
       {
         "date": "2026-10-14",
-        "raw": 314,
+        "raw": 316,
         "overnight": 70
       },
       {
         "date": "2026-10-15",
-        "raw": 313,
+        "raw": 312,
         "overnight": 68
       },
       {
