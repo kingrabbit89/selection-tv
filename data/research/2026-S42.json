@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
   "stage": "inventory",
-  "updated_at": "2026-10-08T06:27:31.236Z",
+  "updated_at": "2026-10-08T06:31:49.738Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -12,8 +12,8 @@
     "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
     "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV.",
     "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue.",
-    "Compléter les grilles T18 des 14 et 15 octobre : TV-Programme indisponible, Télérama/Télé7/Vualatele ouverts périmés. Autres sources datées nécessaires.",
-    "Réconcilier les titres/horaires signalés conflict dans l'inventaire après consultation des guides officiels Arte ; ne pas traiter automatiquement une variante comme même œuvre."
+    "Compléter la grille T18 du 14 octobre ; les pages ouvertes sont indisponibles ou périmées. T18 du 15 octobre récupérée sur L'Internaute exactement daté.",
+    "Résoudre les horaires France 5 : Pompéi 21:05/21:07 le 15 ; Foucault 22:35/23:35 le 16. Finir les offres replay et expirations, puis critiques complémentaires et notes sans inventer de consensus."
   ],
   "completed_batches": [
     {
@@ -77,6 +77,11 @@
       "id": "inventory-arte-official-crosscheck",
       "completed_at": "2026-10-08T06:27:31.236Z",
       "description": "Guides officiels Arte du 9, 11 et 14 octobre consultés (nuit reportée sur date civile) ; 38 créneaux concordants, 5 entrées complémentaires, 5 rapprochements à revoir."
+    },
+    {
+      "id": "documentary-official-discovery-and-critical-evidence",
+      "completed_at": "2026-10-08T06:31:49.738Z",
+      "description": "Trois documentaires reliés à des sources officielles, deux critiques indépendantes lues (dont un avis réservé), fiche Roberval distinguée d'un prix. Aucun documentaire sélectionné ni fiche complète déclarée."
     }
   ],
   "blockers": [
@@ -4989,7 +4994,7 @@
         {
           "title": "L'ancien fait peau neuve - Une nouvelle vie pour des bâtiments historiques Des bâtiments industriels",
           "start": "07:35",
-          "status": "needs_reconciliation"
+          "status": "schedule_observed_identity_pending"
         },
         {
           "title": "Mary Cassatt, peintre impressionniste",
@@ -5014,7 +5019,7 @@
         {
           "title": "Les animaux, sauveurs des forêts tropicales Au cœur de la forêt",
           "start": "11:15",
-          "status": "needs_reconciliation"
+          "status": "schedule_observed_identity_pending"
         },
         {
           "title": "Les animaux, sauveurs des forêts tropicales À la lisière de la forêt",
@@ -5138,17 +5143,17 @@
         {
           "title": "Comment enrayer l’extinction des espèces ?42 - La réponse à presque tout",
           "start": "05:00",
-          "status": "needs_reconciliation"
+          "status": "schedule_observed_identity_pending"
         },
         {
           "title": "Babylone - Prague (1/2)Les années folles",
           "start": "05:25",
-          "status": "needs_reconciliation"
+          "status": "schedule_observed_identity_pending"
         },
         {
           "title": "Babylone - Prague (2/2)Une tempête se prépare",
           "start": "06:10",
-          "status": "needs_reconciliation"
+          "status": "schedule_observed_identity_pending"
         },
         {
           "title": "360° Reportage Cuba, le grand retour des boxeuses",
@@ -5158,12 +5163,12 @@
         {
           "title": "Invitation au voyage La Turquie d'Emin Alper / Angleterre / Norvège",
           "start": "08:20",
-          "status": "needs_reconciliation"
+          "status": "schedule_observed_identity_pending"
         },
         {
           "title": "Invitation au voyage Nancy / Philippines / Grande-Bretagne",
           "start": "09:05",
-          "status": "needs_reconciliation"
+          "status": "schedule_observed_identity_pending"
         },
         {
           "title": "Orient-Express, le voyage d'une légende",
@@ -5208,17 +5213,17 @@
         {
           "title": "Invitation au voyage Groenland / Paris / États-Unis",
           "start": "17:25",
-          "status": "needs_reconciliation"
+          "status": "schedule_observed_identity_pending"
         },
         {
           "title": "Invitation au voyage Bosnie / La Tunisie de Bourguiba / États-Unis",
           "start": "18:10",
-          "status": "needs_reconciliation"
+          "status": "schedule_observed_identity_pending"
         },
         {
           "title": "Le dessous des cartes - L'essentiel",
           "start": "20:50",
-          "status": "needs_reconciliation"
+          "status": "schedule_observed_identity_pending"
         },
         {
           "title": "Miséricorde",
@@ -5268,6 +5273,211 @@
           "status": "corroborated"
         }
       ]
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://www.linternaute.com/television/programme-t18-jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:28:26.515Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "T18"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "director",
+        "credited_authors",
+        "announced_duration_minutes",
+        "announced_year"
+      ],
+      "source_urls": [
+        "https://ftvpro.francetv.fr/contenu-de-presse/78500341"
+      ],
+      "checked_at": "2026-10-08T06:31:49.738Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Le grand puzzle de Pompéi",
+        "version": "identité canonique encore à établir"
+      },
+      "evidence_note": "Fiche officielle lue ; valeurs de la version annoncée conservées dans observations, contrôle de version encore requis.",
+      "status": "needs_check",
+      "observations": {
+        "director": "Martin Blanchard",
+        "credited_authors": [
+          "Martin Blanchard",
+          "Paolo Santoni"
+        ],
+        "announced_duration_minutes": 90,
+        "announced_year": 2026
+      }
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "announced_online_availability"
+      ],
+      "source_urls": [
+        "https://ftvpro.francetv.fr/contenu-de-presse/78500341"
+      ],
+      "checked_at": "2026-10-08T06:31:49.738Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Le grand puzzle de Pompéi",
+        "date": "2026-10-15",
+        "channel": "France 5"
+      },
+      "evidence_note": "Annonce officielle : 21:05 ; grille tiers : 21:07. Vérifier début de Science grand format / début du film. La communication de distribution 2024 suggère de contrôler version et millésime avant identité canonique.",
+      "status": "conflict"
+    },
+    {
+      "fields": [
+        "critical_reception_or_institutional_evidence"
+      ],
+      "source_urls": [
+        "https://prixroberval.utc.fr/les-oeuvres/le-grand-puzzle-de-pompei/"
+      ],
+      "checked_at": "2026-10-08T06:31:49.738Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Le grand puzzle de Pompéi"
+      },
+      "evidence_note": "Fiche présente au Prix Roberval ; cette page ne prouve ni prix obtenu ni sélection finale ni réception critique favorable.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "director",
+        "duration_minutes"
+      ],
+      "source_urls": [
+        "https://ftvpro.francetv.fr/contenu-de-presse/78692952"
+      ],
+      "checked_at": "2026-10-08T06:31:49.738Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Michel Foucault, le philosophe et le poisson rouge",
+        "version": "identité canonique encore à établir"
+      },
+      "evidence_note": "Fiche officielle lue ; valeurs de la version annoncée conservées dans observations, contrôle de version encore requis.",
+      "status": "verified",
+      "observations": {
+        "director": "Lise Baron",
+        "duration_minutes": 53
+      }
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "announced_online_availability"
+      ],
+      "source_urls": [
+        "https://ftvpro.francetv.fr/contenu-de-presse/78692952"
+      ],
+      "checked_at": "2026-10-08T06:31:49.738Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Michel Foucault, le philosophe et le poisson rouge",
+        "date": "2026-10-16",
+        "channel": "France 5"
+      },
+      "evidence_note": "Horaire contradictoire : communiqué 22:35, grille 23:35. Réconciliation officielle récente indispensable ; le texte de 2024 ne prouve aucune disponibilité 2026.",
+      "status": "conflict"
+    },
+    {
+      "fields": [
+        "critical_reception_or_institutional_evidence"
+      ],
+      "source_urls": [
+        "https://www.lemonde.fr/culture/article/2024/06/21/michel-foucault-le-philosophe-et-le-poisson-rouge-sur-france-5-les-metamorphoses-d-un-penseur-pop_6242129_3246.html"
+      ],
+      "checked_at": "2026-10-08T06:31:49.738Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Michel Foucault, le philosophe et le poisson rouge"
+      },
+      "evidence_note": "Le critique apprécie l'articulation des archives et de l'animation pour rendre la pensée accessible, tout en s'interrogeant sur l'ironie du commentaire. Un seul avis lu ; aucun consensus établi.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "director",
+        "credited_authors"
+      ],
+      "source_urls": [
+        "https://ftvpro.francetv.fr/contenu-de-presse/78065129"
+      ],
+      "checked_at": "2026-10-08T06:31:49.738Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La grande Histoire de la Marine",
+        "version": "identité canonique encore à établir"
+      },
+      "evidence_note": "Fiche officielle lue ; valeurs de la version annoncée conservées dans observations, contrôle de version encore requis.",
+      "status": "verified",
+      "observations": {
+        "director": "Herlé Jouon",
+        "credited_authors": [
+          "Hugues Demeude",
+          "Herlé Jouon"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "announced_online_availability"
+      ],
+      "source_urls": [
+        "https://ftvpro.francetv.fr/contenu-de-presse/78065129"
+      ],
+      "checked_at": "2026-10-08T06:31:49.738Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La grande Histoire de la Marine",
+        "date": "2026-10-13",
+        "channel": "France 2"
+      },
+      "evidence_note": "Diffusion 13 octobre 21:10 concordante. Durée de version à résoudre : fiche 95 minutes, critique évoquant 90 ; disponibilité france.tv annoncée sans expiration ni offre exacte vérifiées.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "critical_reception_or_institutional_evidence"
+      ],
+      "source_urls": [
+        "https://www.programme-television.org/type/documentaires/histoire/la-grande-histoire-de-la-marine-445292630"
+      ],
+      "checked_at": "2026-10-08T06:31:49.738Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La grande Histoire de la Marine"
+      },
+      "evidence_note": "Télé 7 Jours reconnaît l'ampleur du panorama, mais reproche l'hésitation entre immersion contemporaine et récit historique ainsi qu'un traitement trop succinct. Avis réservé, pas un soutien éditorial acquis.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -5378,6 +5588,33 @@
         "browser-presentation : Timeout 30000ms dans settle (validate-layout.mjs), coquille S42 encore absente. À recontrôler après création des livrables."
       ],
       "reusable_as_success": false
+    }
+  ],
+  "catalogue_reuse": {
+    "checked_at": "2026-10-08T06:31:49.738Z",
+    "base_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
+    "scope": [
+      "Le grand puzzle de Pompéi",
+      "Michel Foucault, le philosophe et le poisson rouge",
+      "La grande Histoire de la Marine",
+      "Unité Ados 93",
+      "Monet",
+      "Mary Cassatt",
+      "Matrix Generation",
+      "Turbulence"
+    ],
+    "result": "Aucune identité canonique correspondante établie pour les documentaires approfondis ; le titre ancien sur la villa de Poppée est une autre œuvre. Aucune métadonnée ancienne réutilisée."
+  },
+  "documentary_research_queue": [
+    {
+      "title": "Unité Ados 93",
+      "official_url": "https://ftvpro.francetv.fr/contenu-de-presse/78446293",
+      "status": "needs_check",
+      "note": "Page officielle précise inaccessible via deux hôtes. Résultats FranceTVPro annoncent france.tv dès le 8 octobre, diffusion 14 octobre 22:50 ; offre exacte et expiration à ouvrir. Critique série-news repérée, indépendance vis-à-vis du communiqué non établie. Pas de consensus.",
+      "search_urls": [
+        "https://www.francetvpro.fr/grille/france-2/09-10-2026/14-10-2026",
+        "https://www.serie-news.com/tnt/france-2/55098-unite-ados-93-sur-france-2-une-plongee-pudique-dans-un-service-de-pedopsychiatrie-07-10-2026/"
+      ]
     }
   ]
 }

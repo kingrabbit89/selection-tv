@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "partial",
-  "updated_at": "2026-10-08T06:27:31.236Z",
+  "updated_at": "2026-10-08T06:31:49.738Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -51,8 +51,8 @@
     },
     {
       "date": "2026-10-15",
-      "raw_items": 286,
-      "overnight_items": 61,
+      "raw_items": 290,
+      "overnight_items": 62,
       "primary_scan_complete": false,
       "independent_crosscheck_complete": false,
       "editorial_reminder_complete": false,
@@ -93,7 +93,7 @@
       },
       {
         "broadcaster": "France 5",
-        "mode": "linear",
+        "mode": "linear_and_announced_online",
         "source_urls": [
           "https://tv-programme.com/france-5/samedi-10-octobre-2026/",
           "https://tv-programme.com/france-5/dimanche-11-octobre-2026/",
@@ -101,9 +101,11 @@
           "https://tv-programme.com/france-5/mardi-13-octobre-2026/",
           "https://tv-programme.com/france-5/mercredi-14-octobre-2026/",
           "https://tv-programme.com/france-5/jeudi-15-octobre-2026/",
-          "https://tv-programme.com/france-5/vendredi-16-octobre-2026/"
+          "https://tv-programme.com/france-5/vendredi-16-octobre-2026/",
+          "https://ftvpro.francetv.fr/contenu-de-presse/78500341",
+          "https://ftvpro.francetv.fr/contenu-de-presse/78692952"
         ],
-        "note": "Grille lue ; catalogue/replay officiel et critiques restent à consulter."
+        "note": "Grilles et communiqués officiels consultés ; annonces france.tv distinguées d'une offre effectivement disponible. Expirations à vérifier."
       },
       {
         "broadcaster": "France 2/3/4 et TV5MONDE",
@@ -118,15 +120,16 @@
       },
       {
         "broadcaster": "France 2",
-        "mode": "linear",
+        "mode": "linear_and_announced_online",
         "source_urls": [
           "https://tv-programme.com/france-2/dimanche-11-octobre-2026/",
           "https://tv-programme.com/france-2/lundi-12-octobre-2026/",
           "https://tv-programme.com/france-2/mardi-13-octobre-2026/",
           "https://tv-programme.com/france-2/mercredi-14-octobre-2026/",
-          "https://tv-programme.com/france-2/jeudi-15-octobre-2026/"
+          "https://tv-programme.com/france-2/jeudi-15-octobre-2026/",
+          "https://ftvpro.francetv.fr/contenu-de-presse/78065129"
         ],
-        "note": "Grille lue ; passe officielle numérique et critique à compléter."
+        "note": "Grilles et communiqués officiels consultés ; annonces france.tv distinguées d'une offre effectivement disponible. Expirations à vérifier."
       },
       {
         "broadcaster": "France 3",
@@ -3574,8 +3577,32 @@
         "start": "21:10",
         "decision": "à vérifier",
         "availability_source": "https://tv-programme.com/france-2/mardi-13-octobre-2026/",
-        "critical_evidence": [],
-        "reason": "Inventaire brut ; identité, qualité critique et disponibilité numérique à examiner."
+        "critical_evidence": [
+          {
+            "url": "https://www.programme-television.org/type/documentaires/histoire/la-grande-histoire-de-la-marine-445292630",
+            "kind": "independent_review",
+            "note": "Télé 7 Jours reconnaît l'ampleur du panorama, mais reproche l'hésitation entre immersion contemporaine et récit historique ainsi qu'un traitement trop succinct. Avis réservé, pas un soutien éditorial acquis.",
+            "checked_at": "2026-10-08T06:31:49.738Z"
+          }
+        ],
+        "reason": "À vérifier : Diffusion 13 octobre 21:10 concordante. Durée de version à résoudre : fiche 95 minutes, critique évoquant 90 ; disponibilité france.tv annoncée sans expiration ni offre exacte vérifiées.",
+        "official_sources": [
+          "https://ftvpro.francetv.fr/contenu-de-presse/78065129"
+        ],
+        "verified_metadata_observations": {
+          "director": "Herlé Jouon",
+          "credited_authors": [
+            "Hugues Demeude",
+            "Herlé Jouon"
+          ]
+        },
+        "remaining": [
+          "Identité canonique et version",
+          "Notes : recherche IMDb/SensCritique non encore faite",
+          "Offre directe, anticipation, expiration",
+          "Affiche et provenance",
+          "Évaluation comparative et sélection après inventaire complet"
+        ]
       },
       {
         "title": "Justice en France Audience correctionnelle à la cour d'appel d'Orléans",
@@ -5424,8 +5451,34 @@
         "start": "21:07",
         "decision": "à vérifier",
         "availability_source": "https://tv-programme.com/france-5/jeudi-15-octobre-2026/",
-        "critical_evidence": [],
-        "reason": "Inventaire brut ; identité, qualité critique et disponibilité numérique à examiner."
+        "critical_evidence": [
+          {
+            "url": "https://prixroberval.utc.fr/les-oeuvres/le-grand-puzzle-de-pompei/",
+            "kind": "institutional_listing",
+            "note": "Fiche présente au Prix Roberval ; cette page ne prouve ni prix obtenu ni sélection finale ni réception critique favorable.",
+            "checked_at": "2026-10-08T06:31:49.738Z"
+          }
+        ],
+        "reason": "À vérifier : Annonce officielle : 21:05 ; grille tiers : 21:07. Vérifier début de Science grand format / début du film. La communication de distribution 2024 suggère de contrôler version et millésime avant identité canonique.",
+        "official_sources": [
+          "https://ftvpro.francetv.fr/contenu-de-presse/78500341"
+        ],
+        "verified_metadata_observations": {
+          "director": "Martin Blanchard",
+          "credited_authors": [
+            "Martin Blanchard",
+            "Paolo Santoni"
+          ],
+          "announced_duration_minutes": 90,
+          "announced_year": 2026
+        },
+        "remaining": [
+          "Identité canonique et version",
+          "Notes : recherche IMDb/SensCritique non encore faite",
+          "Offre directe, anticipation, expiration",
+          "Affiche et provenance",
+          "Évaluation comparative et sélection après inventaire complet"
+        ]
       },
       {
         "title": "La haine : La scène est à nous C'est à moi que tu parles ?",
@@ -6364,8 +6417,31 @@
         "start": "23:35",
         "decision": "à vérifier",
         "availability_source": "https://tv-programme.com/france-5/vendredi-16-octobre-2026/",
-        "critical_evidence": [],
-        "reason": "Inventaire brut ; identité, qualité critique et disponibilité numérique à examiner."
+        "critical_evidence": [
+          {
+            "url": "https://www.lemonde.fr/culture/article/2024/06/21/michel-foucault-le-philosophe-et-le-poisson-rouge-sur-france-5-les-metamorphoses-d-un-penseur-pop_6242129_3246.html",
+            "kind": "independent_review",
+            "author": "Pascal Galinier",
+            "published_at": "2024-06-21",
+            "note": "Le critique apprécie l'articulation des archives et de l'animation pour rendre la pensée accessible, tout en s'interrogeant sur l'ironie du commentaire. Un seul avis lu ; aucun consensus établi.",
+            "checked_at": "2026-10-08T06:31:49.738Z"
+          }
+        ],
+        "reason": "À vérifier : Horaire contradictoire : communiqué 22:35, grille 23:35. Réconciliation officielle récente indispensable ; le texte de 2024 ne prouve aucune disponibilité 2026.",
+        "official_sources": [
+          "https://ftvpro.francetv.fr/contenu-de-presse/78692952"
+        ],
+        "verified_metadata_observations": {
+          "director": "Lise Baron",
+          "duration_minutes": 53
+        },
+        "remaining": [
+          "Identité canonique et version",
+          "Notes : recherche IMDb/SensCritique non encore faite",
+          "Offre directe, anticipation, expiration",
+          "Affiche et provenance",
+          "Évaluation comparative et sélection après inventaire complet"
+        ]
       },
       {
         "title": "Des bulles à l'écran",
@@ -7444,6 +7520,36 @@
         "start": "23:15",
         "decision": "à vérifier",
         "availability_source": "https://tv-programme.com/novo19/vendredi-16-octobre-2026/",
+        "critical_evidence": [],
+        "reason": "Inventaire brut ; identité et réception à examiner."
+      },
+      {
+        "title": "Sur la scène du crime Jogging fatal - L'affaire Nelly Crémel",
+        "channel": "T18",
+        "date": "2026-10-15",
+        "start": "00:20",
+        "decision": "à vérifier",
+        "availability_source": "https://www.linternaute.com/television/programme-t18-jeudi-15-octobre-2026/",
+        "critical_evidence": [],
+        "reason": "Inventaire brut ; identité et réception à examiner."
+      },
+      {
+        "title": "Pyramides : les mystères révélés Dahchour, l'incroyable découverte",
+        "channel": "T18",
+        "date": "2026-10-15",
+        "start": "10:15",
+        "decision": "à vérifier",
+        "availability_source": "https://www.linternaute.com/television/programme-t18-jeudi-15-octobre-2026/",
+        "critical_evidence": [],
+        "reason": "Inventaire brut ; identité et réception à examiner."
+      },
+      {
+        "title": "Pyramides : les mystères révélés Gizeh, les derniers secrets",
+        "channel": "T18",
+        "date": "2026-10-15",
+        "start": "11:15",
+        "decision": "à vérifier",
+        "availability_source": "https://www.linternaute.com/television/programme-t18-jeudi-15-octobre-2026/",
         "critical_evidence": [],
         "reason": "Inventaire brut ; identité et réception à examiner."
       }
