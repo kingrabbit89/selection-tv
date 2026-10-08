@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T13:22:13.544Z",
+  "updated_at": "2026-10-08T13:25:58.653Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -33,7 +33,7 @@
     "Arte préhistoire : Chauvet, Sulawesi et Thorin (cinq diffusions) ont identités, offres affichées et réception attribuée ; vérifier versions linéaires, droits France, notes moyennes, affiches et comparaison éditoriale. Les 52/53/54 min de Thorin ne sont pas interchangeables.",
     "France 5 : ICE, Samouraïs et Looking for Cézanne approfondis ; première critique ICE 3/4 Ciné-Télé-Revue, pas de consensus. Offres Cézanne/Samouraïs affichées avec expirations ; droits/lecture, versions (Samouraïs année 2025/2026), réception manquante, notes et affiches à terminer.",
     "TCM : A Ghost Story et La falaise mystérieuse disposent d'identités ciblées et de critiques contrastées ; index Orange les mentionne mais fiches 451. Horaires indépendants, durée/version TCM, droits/expiration/abonnement, notes et affiches à terminer.",
-    "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer.",
+    "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer. Programmetvcesoir et Ouest-France soutiennent les titres inventoriés ; suivis ciblés enregistrés, indépendance non établie, conflits non clos.",
     "Ciné+ : 45 fiches CANAL+ consultées, 14 heures concordantes (dont La gueule ouverte sur Festival), 4 écarts et 27 BroadcastEvent hors cible. Chaîne absente des objets officiels : certifier les chaînes/grilles et les autres rediffusions, ne pas réutiliser les événements anciens. Durées de versions et droits replay à distinguer des créneaux.",
     "Ciné+ documentaires : Shirley MacLaine et Becoming Hitchcock disposent de quatre critiques indépendantes attribuées avec réserves ; Simenon reste sans avis argumenté trouvé dans les recherches. Résoudre années/durées, chaîne/horaire S42, accès français/expirations, notes directes et affiches ; ne pas convertir les compteurs SC ni l'ancien replay Arte en preuves actuelles."
   ],
@@ -314,6 +314,11 @@
       "id": "documentary-cine-classic-three-films-critical-dossiers",
       "completed_at": "2026-10-08T13:22:13.544Z",
       "description": "Trois dossiers partiels ; quatre avis argumentés, recherches de notes tracées et conflits de versions conservés. Aucune carte complète."
+    },
+    {
+      "id": "inventory-rmc-two-conflicts-targeted-followup",
+      "completed_at": "2026-10-08T13:25:27.207Z",
+      "description": "Deux conflits documentés par un troisième guide et des pages exactes ; restent ouverts, indépendance/confirmation officielle non obtenues."
     }
   ],
   "blockers": [
@@ -15987,6 +15992,49 @@
       },
       "evidence_note": "Identité partiellement documentée et horaire rapproché ; réception critique et preuves alternatives à poursuivre sans rejet pour manque de notoriété. Année, droits, notes, affiche et revue restent ouverts. Détails et accès consignés dans coverage.documentary_discovery.candidates.",
       "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start",
+        "episode.identity"
+      ],
+      "source_urls": [
+        "https://www.programmetvcesoir.net/chaine/rmc-decouverte/2026-10-10"
+      ],
+      "checked_at": "2026-10-08T13:25:27.207Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "RMC Découverte",
+        "start": "06:05"
+      },
+      "evidence_note": "Troisième guide daté : 100 jours avec les gendarmes de Béziers / Débarquement immédiat, S1E3, 06:05–07:25. Concorde avec le titre inventorié, contredit SCREEN+ Flic Story Bretagne. Fournisseur indépendant non établi ; pas de résolution par majorité de sites.",
+      "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start",
+        "episode.identity"
+      ],
+      "source_urls": [
+        "https://programmetv.ouest-france.fr/documentaire/societe/guerre-des-voisins-ma-vie-est-un-enfer-m277534224/",
+        "https://programmetv.ouest-france.fr/documentaire/societe/guerre-des-voisins-ma-vie-est-un-enfer-m277534224/s01-meilleures-ennemies-c346063922/"
+      ],
+      "checked_at": "2026-10-08T13:25:27.207Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "RMC Story",
+        "start": "22:30"
+      },
+      "evidence_note": "Index Ouest-France : Meilleures ennemies le 15 à 22:30. Fiche épisode : Senlis (Micheline/Aurélie), ferme-cabaret et médiation à Toulouse, mais liste de diffusions arrêtée au 9 octobre. Aucune équivalence établie avec Menaces et règlements de compte de SCREEN+. Indépendance de flux non certifiée.",
+      "status": "conflict"
     }
   ],
   "run_metrics": [
@@ -16315,16 +16363,17 @@
       "note": "Six sous-lots sauvegardés. Aucune phase complète, aucune nouvelle carte certifiée, aucun quota estimé. Pas de notification requise."
     },
     {
-      "date": "2026-10-08T13:22:13.544Z",
+      "date": "2026-10-08T13:25:58.653Z",
       "started_at": "2026-10-08T12:56:49.756Z",
       "owner": "109c9a33-d9f8-4e3a-bebb-bc1f8cceb754",
       "stage": "inventory_crosschecks",
-      "elapsed_seconds": 1524,
+      "elapsed_seconds": 1749,
       "duration_basis": "wall_clock_until_checkpoint",
       "completed_batches": [
         "inventory-rmc-seven-days-second-guide-and-reminder",
         "inventory-cine-classic-official-film-pages",
-        "documentary-cine-classic-three-films-critical-dossiers"
+        "documentary-cine-classic-three-films-critical-dossiers",
+        "inventory-rmc-two-conflicts-targeted-followup"
       ],
       "reused_complete_cards": 0,
       "newly_verified_complete_cards": 0,
@@ -16337,11 +16386,12 @@
         "count": 31,
         "reference": "remaining"
       },
-      "note": "Indépendance de la seconde grille non certifiée ; aucune phase complète, aucun quota estimé.",
+      "note": "Quatre sous-lots utiles. Aucun quota estimé, aucune carte complète ni phase close ; indépendance et conflits à vérifier.",
       "official_film_pages_examined": 45,
       "official_broadcast_start_matches": 14,
       "new_documentary_dossiers": 3,
-      "independent_reviews_read": 4
+      "independent_reviews_read": 4,
+      "targeted_conflict_followups": 2
     }
   ],
   "source_issues": [
@@ -16519,6 +16569,18 @@
       "checked_at": "2026-10-08T13:06:44.117Z",
       "status": "unavailable",
       "note": "Lecture Web refusée 403 ; aucune grille française obtenue."
+    },
+    {
+      "source_url": "https://www.youtube.com/watch?v=zQn9ngVBc3c",
+      "note": "Bande-annonce RMC Story indexée mais ouverture en erreur ; non utilisée comme preuve primaire.",
+      "status": "unavailable",
+      "checked_at": "2026-10-08T13:25:27.207Z"
+    },
+    {
+      "source_url": "https://tv.apple.com/fr/episode/debarquement-immediat/umc.cmc.1bokbb19d1u9320lbyj9iwcl1?showId=umc.cmc.1ml9aoa9ghcbdlz99b544kiw6",
+      "note": "Ouverture 404 ; aucune disponibilité ni identité certifiée à partir de cette page.",
+      "status": "unavailable",
+      "checked_at": "2026-10-08T13:25:27.207Z"
     }
   ],
   "editorial_review": {
@@ -16670,6 +16732,17 @@
       "logs_read": true,
       "cause": "Seul échec : Require a complete candidate before merging. Préparation incomplète attendue, pas de panne. Contrôles/browser couvrent le public S41, pas la complétude S42. Attestation base skipped non comptée comme réussite.",
       "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-08T13:25:58.653Z",
+      "head_sha": "c329233cc8395202992310749b79adcd13bd68d0",
+      "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "run_id": 37783939765,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": true,
+      "cause": "Seul échec : Require a complete candidate before merging (préparation encore incomplète). Contrôles publics S41 ne prouvent pas S42 ; attestation base skipped non comptée comme réussite.",
+      "reusable_only_for_exact_sha": true
     }
   ],
   "catalogue_reuse": {
@@ -16753,12 +16826,12 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "93af33f1983a6ddb4d1fd8f23eb43ba5b4d18997",
+    "checkpoint_parent_sha": "c329233cc8395202992310749b79adcd13bd68d0",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
       "Réutiliser les trois dossiers documentaires Ciné+ de ce passage ; quatre critiques conservées avec réserves. Simenon : approfondir réception/preuves alternatives. Années/versions, droits, notes directes et affiches restent ouverts.",
-      "RMC : réutiliser les 16 grilles SCREEN+ datées et les 127 rapprochements ; résoudre deux conflits et trois alias, identifier les épisodes génériques, établir l'indépendance ou obtenir une source officielle. Quatre ajouts restent à recouper.",
+      "RMC : réutiliser les 16 grilles SCREEN+ datées et les 127 rapprochements ; résoudre deux conflits et trois alias, identifier les épisodes génériques, établir l'indépendance ou obtenir une source officielle. Quatre ajouts restent à recouper. Ne pas répéter les troisièmes guides RMC : détails/limites dans rmc_conflict_followup.",
       "Reprendre uniquement les recoupements/identités/conflits encore ouverts dans remaining. TF1 trois ajouts et Paris Première trois J'ai un ticket sont désormais recoupés : ne pas répéter.",
       "T18 14 : neuf titres précisés ; confirmer source officielle/indépendance. CSTAR 16 : Noël à la carte 22:49/22:45, quatre numéros Douanes sans titres rapprochés ; conserver divergences.",
       "Continuer cinéma payant, TV5 FBS et arbitrage des écarts Canal/France Télévisions ; Saint-Ex toujours contradictoire.",
@@ -16774,34 +16847,71 @@
       "note": "Aucune progression active ; aucun déclenchement agent."
     },
     "last_ci_observation": {
-      "checked_at": "2026-10-08T13:23:00.170Z",
-      "head_sha": "93af33f1983a6ddb4d1fd8f23eb43ba5b4d18997",
+      "checked_at": "2026-10-08T13:25:58.653Z",
+      "head_sha": "c329233cc8395202992310749b79adcd13bd68d0",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37782756857,
+      "run_id": 37783939765,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Seul échec : Require a complete candidate before merging. Préparation incomplète attendue, pas de panne. Contrôles/browser couvrent le public S41, pas la complétude S42. Attestation base skipped non comptée comme réussite.",
+      "cause": "Seul échec : Require a complete candidate before merging (préparation encore incomplète). Contrôles publics S41 ne prouvent pas S42 ; attestation base skipped non comptée comme réussite.",
       "reusable_only_for_exact_sha": true
     },
     "latest_candidate_ci": {
-      "checked_at": "2026-10-08T13:23:00.170Z",
-      "head_sha": "93af33f1983a6ddb4d1fd8f23eb43ba5b4d18997",
+      "checked_at": "2026-10-08T13:25:58.653Z",
+      "head_sha": "c329233cc8395202992310749b79adcd13bd68d0",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37782756857,
+      "run_id": 37783939765,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Seul échec : Require a complete candidate before merging. Préparation incomplète attendue, pas de panne. Contrôles/browser couvrent le public S41, pas la complétude S42. Attestation base skipped non comptée comme réussite.",
+      "cause": "Seul échec : Require a complete candidate before merging (préparation encore incomplète). Contrôles publics S41 ne prouvent pas S42 ; attestation base skipped non comptée comme réussite.",
       "reusable_only_for_exact_sha": true,
       "status": "completed",
-      "note": "État observé avant la sauvegarde documentaire ; le SHA suivant nécessite ses propres contrôles."
+      "note": "État avant sauvegarde finale, contrôles à relire pour son SHA exact lors de la reprise."
     }
   },
   "structure_check": {
-    "checked_at": "2026-10-08T11:20:57.158Z",
-    "scope": "Seven dates, raw/day/night counts and channel_counts reconciliation only",
+    "checked_at": "2026-10-08T13:25:27.207Z",
+    "scope": "Seven distinct dates; raw/day/night counts and channel_counts reconciliation.",
     "result": "passed",
-    "note": "Vérification de structure uniquement ; ne certifie ni indépendance, ni exactitude artistique, ni complétude."
+    "note": "Structure uniquement ; ne certifie ni indépendance, ni qualité ni complétude.",
+    "counts": [
+      {
+        "date": "2026-10-10",
+        "raw": 308,
+        "overnight": 78
+      },
+      {
+        "date": "2026-10-11",
+        "raw": 340,
+        "overnight": 72
+      },
+      {
+        "date": "2026-10-12",
+        "raw": 312,
+        "overnight": 67
+      },
+      {
+        "date": "2026-10-13",
+        "raw": 319,
+        "overnight": 72
+      },
+      {
+        "date": "2026-10-14",
+        "raw": 314,
+        "overnight": 70
+      },
+      {
+        "date": "2026-10-15",
+        "raw": 313,
+        "overnight": 68
+      },
+      {
+        "date": "2026-10-16",
+        "raw": 323,
+        "overnight": 72
+      }
+    ]
   }
 }
