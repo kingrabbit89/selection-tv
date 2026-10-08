@@ -123,6 +123,17 @@ test('history distinguishes prior public, daily reserve and occurrence fallback 
   assert.deepEqual(buildWorkPacket(input,{title:'Ignore platform pool'}).work.requested_title_historical_exposure,[]);
   assert.equal(p.publication_ready,false);
 });
+test('historical HTML decodes apostrophes, quotes and ampersands once before comparing plain titles', () => {
+  const input=fixture();
+  input.historicalIssues=[{entry:{week:'2026-S41'},issue:{pages:[
+    {id:'samedi-selection',html:'<h3>Les mots qu&#39;elles eurent un jour</h3><h3>&quot;Gomorra&quot;, manifeste antimafia</h3><h3>Tom &amp; Jerry</h3>'},
+    {id:'dimanche-grille',html:'<td class="prog">Bob &amp;amp; Alice</td><td class="prog">&lt;3</td>'}
+  ]}}];
+  for(const title of ["Les mots qu'elles eurent un jour",'"Gomorra", manifeste antimafia','Tom & Jerry','Bob &amp; Alice','<3']){
+    assert.deepEqual(buildWorkPacket(input,{title}).work.requested_title_historical_exposure,[{week:'2026-S41',scopes:['public']}],title);
+  }
+  assert.deepEqual(buildWorkPacket(input,{title:'Bob & Alice'}).work.requested_title_historical_exposure,[],'do not decode twice');
+});
 test('git packet uses requested immutable ref, leaves files unchanged and rejects malformed checkpoints', () => {
   const dir=fs.mkdtempSync(path.join(os.tmpdir(),'selection-packet-'));
   const git=args=>execFileSync('git',args,{cwd:dir,encoding:'utf8',stdio:['ignore','pipe','pipe']});

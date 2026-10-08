@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
 import {dailyReserveCandidates} from './editorial-contracts.mjs';
+import {htmlText as cleanHtmlTitle} from './html-text.mjs';
 
 export const normalizedTitle = value => String(value || '').normalize('NFD')
   .replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/œ/g, 'oe').replace(/æ/g, 'ae')
@@ -14,7 +15,6 @@ const hasValue = value => value !== undefined && value !== null && value !== '';
 // handles French ligatures more broadly.
 const freshnessTitle = value => String(value || '').toLowerCase().normalize('NFD')
   .replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
-const cleanHtmlTitle = value => String(value || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 
 function historicalExposure(historicalIssues, catalogue) {
   const index = new Map();

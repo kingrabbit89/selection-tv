@@ -10,6 +10,8 @@ Une seule œuvre est déclarée complète pour comparaison, Thorin. Aucune nouve
 
 Les 92 correspondances de titres du catalogue ne sont pas 92 recommandations neuves : 87 sont exposées dans les quatre derniers numéros selon les catégories du contrôle de fraîcheur. Réutiliser les métadonnées et vérifier une nouvelle diffusion restent distincts de recommander à nouveau. Le minimum quotidien représente normalement 70 positions, dont 21 choix principaux ; les autres rubriques et leurs réserves s'ajoutent. Positions et œuvres distinctes ne sont pas équivalentes.
 
+La validation des réserves S41 signale aussi une dette historique : 28/66 candidats complets, dont 12/45 réserves. Ce numéro précède le blocage strict ; son résultat vert n'atteste donc pas la complétude de toutes ses réserves. Les critères stricts S42 restent applicables, sans transformer les anciennes données incomplètes en fiches vérifiées.
+
 ## Corrections
 
 - Consigne active réécrite et versionnée : reprise depuis les preuves, anciens resume réconciliés, priorités par jour/rubrique, production de cartes et enchaînement de lots, même bail et mêmes seuils. La cadence horaire reste un filet de reprise.
@@ -17,6 +19,7 @@ Les 92 correspondances de titres du catalogue ne sont pas 92 recommandations neu
 - Rendu mécanique de décisions explicites : plusieurs fiches deviennent catalogue/liens/cartes/pools/grilles et coquille draft via un handoff contrôlé. Aucun titre, rang, texte ou preuve n'est inventé ; latest demeure inchangé.
 - Contrôles lourds du public réutilisés seulement sur préparation limitée aux trois checkpoints et preuve exacte récente de main. La barrière de fusion et tous les contrôles de la candidate complète demeurent.
 - Événements inutiles du publicateur filtrés pour les branches techniques ; calendrier et lancement manuel conservés.
+- Titres HTML décodés une seule fois dans les contrôles d'identité, images, fraîcheur et historique. Apostrophes, guillemets et esperluettes restent échappés dans le rendu, avec comparaison correcte aux titres canoniques.
 
 ## Vérification et limites
 
