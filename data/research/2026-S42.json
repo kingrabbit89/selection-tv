@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T13:31:48.583Z",
+  "updated_at": "2026-10-08T13:37:58.645Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -35,7 +35,8 @@
     "TCM : A Ghost Story et La falaise mystérieuse disposent d'identités ciblées et de critiques contrastées ; index Orange les mentionne mais fiches 451. Horaires indépendants, durée/version TCM, droits/expiration/abonnement, notes et affiches à terminer.",
     "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer. Programmetvcesoir et Ouest-France soutiennent les titres inventoriés ; suivis ciblés enregistrés, indépendance non établie, conflits non clos.",
     "Ciné+ : 45 fiches CANAL+ consultées, 14 heures concordantes (dont La gueule ouverte sur Festival), 4 écarts et 27 BroadcastEvent hors cible. Chaîne absente des objets officiels : certifier les chaînes/grilles et les autres rediffusions, ne pas réutiliser les événements anciens. Durées de versions et droits replay à distinguer des créneaux.",
-    "Ciné+ documentaires : Shirley MacLaine et Becoming Hitchcock disposent de quatre critiques indépendantes attribuées avec réserves ; Simenon reste sans avis argumenté trouvé dans les recherches. Résoudre années/durées, chaîne/horaire S42, accès français/expirations, notes directes et affiches ; ne pas convertir les compteurs SC ni l'ancien replay Arte en preuves actuelles."
+    "Ciné+ documentaires : Shirley MacLaine et Becoming Hitchcock disposent de quatre critiques indépendantes attribuées avec réserves ; Simenon reste sans avis argumenté trouvé dans les recherches. Résoudre années/durées, chaîne/horaire S42, accès français/expirations, notes directes et affiches ; ne pas convertir les compteurs SC ni l'ancien replay Arte en preuves actuelles.",
+    "TCM : 98 créneaux comparés aux sept grilles Télérama courantes, aucun écart d'heure ; Nashville Blues/The Thing Called Love rapprochés par la fiche liée. Source officielle ou indépendance des flux encore à obtenir ; Flics et voyous reste un titre d'épisode à confirmer. Documentaires et autres films à enrichir."
   ],
   "completed_batches": [
     {
@@ -324,6 +325,11 @@
       "id": "inventory-france-televisions-six-schedule-arbitrations",
       "completed_at": "2026-10-08T13:31:48.583Z",
       "description": "Cinq heures retenues selon les grilles officielles relues ; une fausse seconde diffusion exclue, observations précédentes conservées. Sujets génériques non certifiés."
+    },
+    {
+      "id": "inventory-tcm-seven-current-secondary-grids",
+      "completed_at": "2026-10-08T13:37:58.645Z",
+      "description": "98 créneaux comparés (95 titres/horaires concordants, 2 collections génériques, 1 alias documenté) ; aucune certification d'indépendance des grilles."
     }
   ],
   "blockers": [
@@ -16216,6 +16222,146 @@
       },
       "evidence_note": "Grille officielle relue : Ici 12/13 à 12:15 (météo régionale 12:20, journal 12:25). La p'tite librairie est placée à 10:25 ; ne pas compter une seconde diffusion à 12:15 non confirmée.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "schedule.observed_titles",
+        "schedule.observed_times"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tcm-cinema/samedi-10-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-samedi/tcm-france"
+      ],
+      "checked_at": "2026-10-08T13:37:58.645Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "TCM Cinéma"
+      },
+      "evidence_note": "14 débuts comparés, dont nuit 00:00–05:59 ; reports de la veille exclus. Aucun écart d'heure. Deux épisodes génériques le 13 et alias Nashville Blues le 14 détaillés dans coverage. Lecture de grille vérifiée, indépendance des flux non établie.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "schedule.observed_titles",
+        "schedule.observed_times"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tcm-cinema/dimanche-11-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-dimanche/tcm-france"
+      ],
+      "checked_at": "2026-10-08T13:37:58.645Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "TCM Cinéma"
+      },
+      "evidence_note": "14 débuts comparés, dont nuit 00:00–05:59 ; reports de la veille exclus. Aucun écart d'heure. Deux épisodes génériques le 13 et alias Nashville Blues le 14 détaillés dans coverage. Lecture de grille vérifiée, indépendance des flux non établie.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "schedule.observed_titles",
+        "schedule.observed_times"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tcm-cinema/lundi-12-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-lundi/tcm-france"
+      ],
+      "checked_at": "2026-10-08T13:37:58.645Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "channel": "TCM Cinéma"
+      },
+      "evidence_note": "14 débuts comparés, dont nuit 00:00–05:59 ; reports de la veille exclus. Aucun écart d'heure. Deux épisodes génériques le 13 et alias Nashville Blues le 14 détaillés dans coverage. Lecture de grille vérifiée, indépendance des flux non établie.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "schedule.observed_titles",
+        "schedule.observed_times"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tcm-cinema/mardi-13-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-mardi/tcm-france"
+      ],
+      "checked_at": "2026-10-08T13:37:58.645Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "TCM Cinéma"
+      },
+      "evidence_note": "15 débuts comparés, dont nuit 00:00–05:59 ; reports de la veille exclus. Aucun écart d'heure. Deux épisodes génériques le 13 et alias Nashville Blues le 14 détaillés dans coverage. Lecture de grille vérifiée, indépendance des flux non établie.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "schedule.observed_titles",
+        "schedule.observed_times"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tcm-cinema/mercredi-14-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-mercredi/tcm-france"
+      ],
+      "checked_at": "2026-10-08T13:37:58.645Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "TCM Cinéma"
+      },
+      "evidence_note": "13 débuts comparés, dont nuit 00:00–05:59 ; reports de la veille exclus. Aucun écart d'heure. Deux épisodes génériques le 13 et alias Nashville Blues le 14 détaillés dans coverage. Lecture de grille vérifiée, indépendance des flux non établie.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "schedule.observed_titles",
+        "schedule.observed_times"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tcm-cinema/jeudi-15-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-jeudi-prochain/tcm-france"
+      ],
+      "checked_at": "2026-10-08T13:37:58.645Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "TCM Cinéma"
+      },
+      "evidence_note": "15 débuts comparés, dont nuit 00:00–05:59 ; reports de la veille exclus. Aucun écart d'heure. Deux épisodes génériques le 13 et alias Nashville Blues le 14 détaillés dans coverage. Lecture de grille vérifiée, indépendance des flux non établie.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "schedule.observed_titles",
+        "schedule.observed_times"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tcm-cinema/vendredi-16-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-vendredi-prochain/tcm-france"
+      ],
+      "checked_at": "2026-10-08T13:37:58.645Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "channel": "TCM Cinéma"
+      },
+      "evidence_note": "13 débuts comparés, dont nuit 00:00–05:59 ; reports de la veille exclus. Aucun écart d'heure. Deux épisodes génériques le 13 et alias Nashville Blues le 14 détaillés dans coverage. Lecture de grille vérifiée, indépendance des flux non établie.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -16575,14 +16721,15 @@
       "targeted_conflict_followups": 2
     },
     {
-      "date": "2026-10-08T13:31:48.583Z",
+      "date": "2026-10-08T13:37:58.645Z",
       "started_at": "2026-10-08T13:28:36.405Z",
       "owner": "9a1435f5-4932-49e3-a046-7130b9a4fd66",
-      "stage": "inventory_arbitration",
-      "elapsed_seconds": 192,
+      "stage": "inventory_arbitration_crosscheck",
+      "elapsed_seconds": 562,
       "duration_basis": "wall_clock_until_checkpoint",
       "completed_batches": [
-        "inventory-france-televisions-six-schedule-arbitrations"
+        "inventory-france-televisions-six-schedule-arbitrations",
+        "inventory-tcm-seven-current-secondary-grids"
       ],
       "reused_complete_cards": 0,
       "newly_verified_complete_cards": 0,
@@ -16591,9 +16738,10 @@
       "blockers": [],
       "remaining": {
         "stage": "inventory",
-        "count": 31,
+        "count": 32,
         "reference": "remaining"
-      }
+      },
+      "tcm_schedule_entries_compared": 98
     }
   ],
   "source_issues": [
