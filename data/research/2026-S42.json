@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T09:32:56.558Z",
+  "updated_at": "2026-10-08T10:11:28.942Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -16,7 +16,7 @@
     "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
     "TF1 Séries Films et CSTAR : 7 jours relevés, recoupements indépendants encore à compléter ; épisodes Douanes sous haute surveillance à identifier avant tout examen approfondi.",
     "Rappel TNT : traiter les programmes non rapprochés consignés dans editorial_reminder_passes ; ne pas déduire l'identité d'une simple proximité de titre (soirée Marine notamment). Compléter rappel cinéma payant et recoupements manquants.",
-    "Rappel TNT : Fréquenstar résolu sur W9 dimanche 11:20 (Hoshi) ; sujets Envoyé spécial et Au cœur de l'enquête à obtenir. Intraçables : type épisode/téléfilm à réconcilier ; Meurtres à Cayenne confirmé téléfilm policier par le diffuseur.",
+    "Rappel TNT : Fréquenstar résolu sur W9 dimanche 11:20 (Hoshi) ; sujets Envoyé spécial et Au cœur de l'enquête à obtenir. Intraçables : mini-série et épisodes 3/4 confirmés par TF1 ; réception, versions et enrichissement à faire ; Meurtres à Cayenne confirmé téléfilm policier par le diffuseur.",
     "France 2/3 : grilles manquantes du 10 et du 15 récupérées ; départager Dodin Bouffant 02:55/03:05 le 12 et fausse entrée La p'tite librairie 12:15 le 15. Collections génériques/épisodes à compléter.",
     "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
     "Public Sénat : Silence dans les rangs documenté (prix et limites de réception), horaires légèrement divergents et replay indisponible ; terminer offre/expiration, notes, affiche et revue comparative.",
@@ -198,6 +198,11 @@
       "id": "inventory-final-night-and-portobello-crosschecks",
       "completed_at": "2026-10-08T09:32:56.558Z",
       "description": "Onze ajouts récents recoupés avec le guide TV-Programme, dont six émissions de nuit W9, Fréquenstar et les trois Portobello."
+    },
+    {
+      "id": "inventory-intracables-official-episodes",
+      "completed_at": "2026-10-08T10:11:28.942Z",
+      "description": "Deux diffusions du 15 octobre recoupées dans les fiches TF1 Pro ; ambiguïté téléfilm/série levée. Aucun choix éditorial ni fiche complète certifiés."
     }
   ],
   "blockers": [
@@ -11434,6 +11439,56 @@
       "applies_to": "inventory source families",
       "evidence_note": "Pages légales consultées : TV-Programme édité par Tabom ; Programme-TV.com, Mon-Programme-TV.be et Mijn-TV-Gids.be appartiennent à Pragma Consult. Ces trois derniers ne constituent pas trois sources indépendantes. Origine des flux Télérama/TV-Programme non établie : comparaisons TV5 séparées des recoupements officiels.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "episode.number",
+        "programme_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tf1/jeudi-15-octobre-2026/",
+        "https://tf1pro.com/programmes/episode/intracables-episode-3",
+        "https://tf1pro.com/actualites/article/intracables"
+      ],
+      "checked_at": "2026-10-08T10:11:28.942Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "episode": 3,
+        "channel": "TF1"
+      },
+      "evidence_note": "Horaire et numéro d'épisode concordent ; mini-série confirmée par communiqué. Ne certifie ni durée effective ni sous-titre ni qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "episode.number",
+        "programme_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tf1/jeudi-15-octobre-2026/",
+        "https://tf1pro.com/programmes/episode/intracables-episode-4",
+        "https://tf1pro.com/actualites/article/intracables"
+      ],
+      "checked_at": "2026-10-08T10:11:28.942Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "episode": 4,
+        "channel": "TF1"
+      },
+      "evidence_note": "Horaire et numéro d'épisode concordent ; mini-série confirmée par communiqué. Ne certifie ni durée effective ni sous-titre ni qualité.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -11870,14 +11925,14 @@
       "note": "Inspection en début de passage ; aucun publicateur actif observé. La tentative de rafraîchissement via endpoint workflows/runs a été refusée par le connecteur (URL non prise en charge), aucune conclusion nouvelle. Skipped ne vaut pas réussite."
     },
     "last_ci_observation": {
-      "checked_at": "2026-10-08T09:32:56.558Z",
-      "head_sha": "b6ea50824323deb98a62b5ed78bdf719e519e12d",
+      "checked_at": "2026-10-08T10:11:28.942Z",
+      "head_sha": "11149c5f35722a29f548f7f344ed09f659cd9936",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37756865929,
+      "run_id": 37757434856,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Seul échec : Require a complete candidate before merging ; S42 encore en préparation. Étapes précédentes du contexte préparation/public S41 réussies ; revalidation base non applicable skipped. Aucun de ces résultats ne certifie S42 prête.",
+      "cause": "Require a complete candidate before merging : blocage intentionnel du checkpoint inventory incomplet ; les contrôles de préparation et navigateur public ne prouvent pas S42 prête.",
       "reusable_only_for_exact_sha": true
     }
   },
