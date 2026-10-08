@@ -102,7 +102,8 @@
         "https://television.telerama.fr/programme-tv-samedi/tv5-monde-fbs/",
         "https://pro.m6.fr/m6/grille/2026-42.pdf",
         "https://pro.m6.fr/w9/grille/2026-42.pdf",
-        "https://pro.m6.fr/6ter/grille/2026-42.pdf"
+        "https://pro.m6.fr/6ter/grille/2026-42.pdf",
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
       ],
       "channel_sources": {
         "Arte": [
@@ -153,14 +154,17 @@
           "https://television.telerama.fr/programme-tv-samedi/tv5-monde-fbs/"
         ],
         "Canal+": [
-          "https://tv-programme.com/canal-plus/samedi-10-octobre-2026/"
+          "https://tv-programme.com/canal-plus/samedi-10-octobre-2026/",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Cinéma": [
           "https://tv-programme.com/canal-plus-cinema/samedi-10-octobre-2026/",
-          "https://www.canalplus.com/fr/cinema/exit-8/h/30486943_50001"
+          "https://www.canalplus.com/fr/cinema/exit-8/h/30486943_50001",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Box Office": [
-          "https://tv-programme.com/canal-plus-box-office/samedi-10-octobre-2026/"
+          "https://tv-programme.com/canal-plus-box-office/samedi-10-octobre-2026/",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Grand Écran": [
           "https://tv-programme.com/canal-plus-grand-ecran/samedi-10-octobre-2026/"
@@ -2112,7 +2116,19 @@
           "source_url": "https://tv-programme.com/canal-plus/samedi-10-octobre-2026/",
           "listed_type": "Film Film d'animation",
           "slot_duration": "1h31min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "02:00",
+              "observed_start": "02:01",
+              "official_title": "LES LÉGENDAIRES",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Aux adversaires",
@@ -2132,7 +2148,16 @@
           "source_url": "https://tv-programme.com/canal-plus/samedi-10-octobre-2026/",
           "listed_type": "Film Comédie dramatique",
           "slot_duration": "1h53min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "RUE MÁLAGA",
+              "scope": "Page 3 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "L'enfant de la forêt Espagne",
@@ -2152,7 +2177,19 @@
           "source_url": "https://tv-programme.com/canal-plus/samedi-10-octobre-2026/",
           "listed_type": "Film Film d'aventures",
           "slot_duration": "1h37min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "10:30",
+              "observed_start": "10:20",
+              "official_title": "MARSUPILAMI",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Benjamin Tranié : Félicitations et tout et tout",
@@ -2172,7 +2209,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/samedi-10-octobre-2026/",
           "listed_type": "Film Thriller-12",
           "slot_duration": "2h17min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "01:35",
+              "observed_start": "01:39",
+              "official_title": "LA CITÉ INTERDITE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Father Mother Sister Brother",
@@ -2182,7 +2231,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/samedi-10-octobre-2026/",
           "listed_type": "Film Comédie dramatique",
           "slot_duration": "1h49min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "07:20",
+              "observed_start": "07:15",
+              "official_title": "FATHER MOTHER SISTER BROTHER",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Nuremberg",
@@ -2192,7 +2253,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/samedi-10-octobre-2026/",
           "listed_type": "Film Drame historique-10",
           "slot_duration": "2h23min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "09:05",
+              "observed_start": "09:04",
+              "official_title": "NUREMBERG",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "La Disparition de Josef Mengele",
@@ -2202,7 +2275,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/samedi-10-octobre-2026/",
           "listed_type": "Film Drame-12",
           "slot_duration": "2h12min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "11:30",
+              "observed_start": "11:27",
+              "official_title": "LA DISPARITION DE JOSEF MENGELE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Not Without Hope",
@@ -2212,7 +2297,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/samedi-10-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h56min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "13:40",
+              "observed_start": "13:39",
+              "official_title": "NOT WITHOUT HOPE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Gangs of Copenhagen",
@@ -2222,7 +2319,16 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/samedi-10-octobre-2026/",
           "listed_type": "Film Thriller-12",
           "slot_duration": "1h44min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "GANGS OF COPENHAGEN",
+              "scope": "Page 2 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Maigret et le mort amoureux",
@@ -2232,7 +2338,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/samedi-10-octobre-2026/",
           "listed_type": "Film Film policier",
           "slot_duration": "1h17min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "18:05",
+              "observed_start": "18:06",
+              "official_title": "MAIGRET ET LE MORT AMOUREUX",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Chroniques d'un indic",
@@ -2242,7 +2360,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/samedi-10-octobre-2026/",
           "listed_type": "Film Thriller-12",
           "slot_duration": "1h37min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "19:20",
+              "observed_start": "19:23",
+              "official_title": "CHRONIQUES D'UN INDIC",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Exit 8",
@@ -2252,9 +2382,16 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/samedi-10-octobre-2026/",
           "listed_type": "Film Film fantastique-10",
           "slot_duration": "1h32min",
-          "verification_status": "schedule_corroborated_official_identity_pending",
+          "verification_status": "corroborated_with_official_schedule",
           "independent_schedule_sources": [
-            "https://www.canalplus.com/fr/cinema/exit-8/h/30486943_50001"
+            "https://www.canalplus.com/fr/cinema/exit-8/h/30486943_50001",
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "EXIT 8",
+              "scope": "Page 2 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
           ]
         },
         {
@@ -2265,7 +2402,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/samedi-10-octobre-2026/",
           "listed_type": "Film Film d'horreur-12",
           "slot_duration": "1h43min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "22:30",
+              "observed_start": "22:32",
+              "official_title": "RETOUR À SILENT HILL",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Bugonia",
@@ -2275,7 +2424,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/samedi-10-octobre-2026/",
           "listed_type": "Film Comédie noire-12",
           "slot_duration": "1h55min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "00:45",
+              "observed_start": "00:44",
+              "official_title": "BUGONIA",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "28 ans plus tard : Le temple des morts",
@@ -2285,7 +2446,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/samedi-10-octobre-2026/",
           "listed_type": "Film Film d'horreur-16",
           "slot_duration": "1h50min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "02:40",
+              "observed_start": "02:39",
+              "official_title": "28 ANS PLUS TARD : LE TEMPLE...",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Bob l'éponge, le film : Un pour tous, tous pirates !",
@@ -2295,7 +2468,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/samedi-10-octobre-2026/",
           "listed_type": "Film Film d'animation",
           "slot_duration": "1h26min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "07:55",
+              "observed_start": "07:58",
+              "official_title": "BOB L'ÉPONGE, LE FILM : UN POUR TOUS...",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Moi qui t'aimais",
@@ -2305,7 +2490,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/samedi-10-octobre-2026/",
           "listed_type": "Film Biographie",
           "slot_duration": "1h56min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "09:25",
+              "observed_start": "09:24",
+              "official_title": "MOI QUI T'AIMAIS",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Smashing Machine",
@@ -2315,7 +2512,16 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/samedi-10-octobre-2026/",
           "listed_type": "Film Biographie-12",
           "slot_duration": "2h",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "SMASHING MACHINE",
+              "scope": "Page 4 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Pris au piège - Caught Stealing",
@@ -2325,7 +2531,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/samedi-10-octobre-2026/",
           "listed_type": "Film Thriller-12",
           "slot_duration": "1h44min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "13:30",
+              "observed_start": "13:33",
+              "official_title": "PRIS AU PIÈGE - CAUGHT STEALING",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "La Femme de ménage",
@@ -2335,7 +2553,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/samedi-10-octobre-2026/",
           "listed_type": "Film Thriller-12",
           "slot_duration": "2h07min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "15:15",
+              "observed_start": "15:17",
+              "official_title": "LA FEMME DE MÉNAGE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Honey Don't !",
@@ -2345,7 +2575,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/samedi-10-octobre-2026/",
           "listed_type": "Film Comédie policière-12",
           "slot_duration": "1h28min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "17:25",
+              "observed_start": "17:24",
+              "official_title": "HONEY DON'T !",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Libre échange",
@@ -2355,7 +2597,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/samedi-10-octobre-2026/",
           "listed_type": "Film Comédie romantique",
           "slot_duration": "1h41min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "18:50",
+              "observed_start": "18:52",
+              "official_title": "LIBRE ÉCHANGE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Marsupilami",
@@ -2375,7 +2629,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/samedi-10-octobre-2026/",
           "listed_type": "Film Comédie-10",
           "slot_duration": "1h36min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "22:35",
+              "observed_start": "22:37",
+              "official_title": "ANACONDA",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "La Dame de Fer",
@@ -4044,7 +4310,8 @@
         "https://television.telerama.fr/programme-tv-dimanche/tv5-monde-fbs/",
         "https://pro.m6.fr/m6/grille/2026-42.pdf",
         "https://pro.m6.fr/w9/grille/2026-42.pdf",
-        "https://pro.m6.fr/6ter/grille/2026-42.pdf"
+        "https://pro.m6.fr/6ter/grille/2026-42.pdf",
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
       ],
       "channel_sources": {
         "Arte": [
@@ -4076,13 +4343,16 @@
           "https://television.telerama.fr/programme-tv-dimanche/tv5-monde-fbs/"
         ],
         "Canal+": [
-          "https://tv-programme.com/canal-plus/dimanche-11-octobre-2026/"
+          "https://tv-programme.com/canal-plus/dimanche-11-octobre-2026/",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Cinéma": [
-          "https://tv-programme.com/canal-plus-cinema/dimanche-11-octobre-2026/"
+          "https://tv-programme.com/canal-plus-cinema/dimanche-11-octobre-2026/",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Box Office": [
-          "https://tv-programme.com/canal-plus-box-office/dimanche-11-octobre-2026/"
+          "https://tv-programme.com/canal-plus-box-office/dimanche-11-octobre-2026/",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Grand Écran": [
           "https://tv-programme.com/canal-plus-grand-ecran/dimanche-11-octobre-2026/"
@@ -5562,7 +5832,16 @@
           "source_url": "https://tv-programme.com/canal-plus/dimanche-11-octobre-2026/",
           "listed_type": "Film Comédie-10",
           "slot_duration": "1h21min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "GÉRALD LE CONQUÉRANT",
+              "scope": "Page 2 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Aux jours qui viennent",
@@ -5572,7 +5851,19 @@
           "source_url": "https://tv-programme.com/canal-plus/dimanche-11-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "1h38min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "02:45",
+              "observed_start": "02:46",
+              "official_title": "AUX JOURS QUI VIENNENT",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "A Bear Remembers",
@@ -5602,7 +5893,16 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/dimanche-11-octobre-2026/",
           "listed_type": "Film Film d'horreur-16",
           "slot_duration": "1h30min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "FORGIVE US ALL",
+              "scope": "Page 2 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Carlos",
@@ -5612,7 +5912,16 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/dimanche-11-octobre-2026/",
           "listed_type": "Film Thriller-12",
           "slot_duration": "2h40min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "CARLOS",
+              "scope": "Page 1 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "In Articulo Mortis",
@@ -5632,7 +5941,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/dimanche-11-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "1h37min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "06:45",
+              "observed_start": "06:40",
+              "official_title": "AUX JOURS QUI VIENNENT",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "A pied d'oeuvre",
@@ -5642,7 +5963,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/dimanche-11-octobre-2026/",
           "listed_type": "Film Biographie",
           "slot_duration": "1h29min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "08:20",
+              "observed_start": "08:17",
+              "official_title": "À PIED D'ŒUVRE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Hamnet",
@@ -5652,7 +5985,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/dimanche-11-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "2h02min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "09:50",
+              "observed_start": "09:46",
+              "official_title": "HAMNET",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Coutures",
@@ -5662,7 +6007,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/dimanche-11-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h40min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "11:50",
+              "observed_start": "11:48",
+              "official_title": "COUTURES",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "\"Hurlevent\"",
@@ -5672,7 +6029,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/dimanche-11-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "2h12min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "13:30",
+              "observed_start": "13:28",
+              "official_title": "« HURLEVENT »",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Libre échange",
@@ -5682,7 +6051,16 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/dimanche-11-octobre-2026/",
           "listed_type": "Film Comédie romantique",
           "slot_duration": "1h42min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "LIBRE ÉCHANGE",
+              "scope": "Page 3 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Bugonia",
@@ -5692,7 +6070,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/dimanche-11-octobre-2026/",
           "listed_type": "Film Comédie noire-12",
           "slot_duration": "1h55min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "17:25",
+              "observed_start": "17:22",
+              "official_title": "BUGONIA",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Le Jour J",
@@ -5702,7 +6092,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/dimanche-11-octobre-2026/",
           "listed_type": "Film Comédie",
           "slot_duration": "1h29min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "19:30",
+              "observed_start": "19:31",
+              "official_title": "LE JOUR J",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "La bonne étoile",
@@ -5712,7 +6114,16 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/dimanche-11-octobre-2026/",
           "listed_type": "Film Comédie dramatique",
           "slot_duration": "1h41min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "LA BONNE ÉTOILE",
+              "scope": "Page 1 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Le Million",
@@ -5722,7 +6133,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/dimanche-11-octobre-2026/",
           "listed_type": "Film Comédie",
           "slot_duration": "1h27min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "23:35",
+              "observed_start": "23:34",
+              "official_title": "LE MILLION",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "La Voie du serpent",
@@ -5732,7 +6155,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/dimanche-11-octobre-2026/",
           "listed_type": "Film Thriller-12",
           "slot_duration": "1h50min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "00:15",
+              "observed_start": "00:13",
+              "official_title": "LA VOIE DU SERPENT",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Love Me Tender",
@@ -5742,7 +6177,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/dimanche-11-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "2h13min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "02:05",
+              "observed_start": "02:03",
+              "official_title": "LOVE ME TENDER",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Hopper et le secret de la marmotte",
@@ -5752,7 +6199,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/dimanche-11-octobre-2026/",
           "listed_type": "Film Film d'animation",
           "slot_duration": "1h27min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "08:20",
+              "observed_start": "08:22",
+              "official_title": "HOPPER ET LE SECRET DE LA MARMOTTE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Une bataille après l'autre",
@@ -5762,7 +6221,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/dimanche-11-octobre-2026/",
           "listed_type": "Film Thriller-10",
           "slot_duration": "2h47min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "09:50",
+              "observed_start": "09:49",
+              "official_title": "UNE BATAILLE APRÈS L'AUTRE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "La bande à Fifi : plus besoin d'alibi",
@@ -5782,7 +6253,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/dimanche-11-octobre-2026/",
           "listed_type": "Film Film d'aventures",
           "slot_duration": "1h36min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "13:30",
+              "observed_start": "13:28",
+              "official_title": "MARSUPILAMI",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "L'affaire Bojarski",
@@ -5792,7 +6275,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/dimanche-11-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "2h05min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "15:15",
+              "observed_start": "15:17",
+              "official_title": "L'AFFAIRE BOJARSKI",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Vie privée",
@@ -5802,7 +6297,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/dimanche-11-octobre-2026/",
           "listed_type": "Film Comédie dramatique",
           "slot_duration": "1h44min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "17:20",
+              "observed_start": "17:22",
+              "official_title": "VIE PRIVÉE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Le crime du 3e étage",
@@ -5812,7 +6319,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/dimanche-11-octobre-2026/",
           "listed_type": "Film Comédie policière",
           "slot_duration": "1h41min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "19:05",
+              "observed_start": "19:06",
+              "official_title": "LE CRIME DU 3E ÉTAGE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Chers parents",
@@ -5822,7 +6341,16 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/dimanche-11-octobre-2026/",
           "listed_type": "Film Comédie",
           "slot_duration": "1h24min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "CHERS PARENTS",
+              "scope": "Page 1 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Certains l'aiment chauve",
@@ -5832,7 +6360,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/dimanche-11-octobre-2026/",
           "listed_type": "Film Comédie",
           "slot_duration": "1h20min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "22:25",
+              "observed_start": "22:24",
+              "official_title": "CERTAINS L'AIMENT CHAUVE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Gérald le Conquérant",
@@ -5842,7 +6382,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/dimanche-11-octobre-2026/",
           "listed_type": "Film Comédie-10",
           "slot_duration": "1h22min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "23:45",
+              "observed_start": "23:44",
+              "official_title": "GÉRALD LE CONQUÉRANT",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Terminator",
@@ -8401,7 +8953,8 @@
         "https://television.telerama.fr/programme-tv-lundi/tv5-monde-fbs/",
         "https://pro.m6.fr/m6/grille/2026-42.pdf",
         "https://pro.m6.fr/w9/grille/2026-42.pdf",
-        "https://pro.m6.fr/6ter/grille/2026-42.pdf"
+        "https://pro.m6.fr/6ter/grille/2026-42.pdf",
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
       ],
       "channel_sources": {
         "Arte": [
@@ -8433,13 +8986,16 @@
           "https://television.telerama.fr/programme-tv-lundi/tv5-monde-fbs/"
         ],
         "Canal+": [
-          "https://tv-programme.com/canal-plus/lundi-12-octobre-2026/"
+          "https://tv-programme.com/canal-plus/lundi-12-octobre-2026/",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Cinéma": [
-          "https://tv-programme.com/canal-plus-cinema/lundi-12-octobre-2026/"
+          "https://tv-programme.com/canal-plus-cinema/lundi-12-octobre-2026/",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Box Office": [
-          "https://tv-programme.com/canal-plus-box-office/lundi-12-octobre-2026/"
+          "https://tv-programme.com/canal-plus-box-office/lundi-12-octobre-2026/",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Ciné+ OCS": [
           "https://tv-programme.com/cine-plus-ocs/lundi-12-octobre-2026/"
@@ -9812,7 +10368,16 @@
           "source_url": "https://tv-programme.com/canal-plus/lundi-12-octobre-2026/",
           "listed_type": "Film Thriller-10",
           "slot_duration": "1h51min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "RESTORE POINT",
+              "scope": "Page 3 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Evanouis",
@@ -9822,7 +10387,19 @@
           "source_url": "https://tv-programme.com/canal-plus/lundi-12-octobre-2026/",
           "listed_type": "Film Film d'horreur-16",
           "slot_duration": "2h05min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "02:20",
+              "observed_start": "02:21",
+              "official_title": "ÉVANOUIS",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "On n'assassine pas Baudelaire",
@@ -9842,7 +10419,19 @@
           "source_url": "https://tv-programme.com/canal-plus/lundi-12-octobre-2026/",
           "listed_type": "Film Thriller-10",
           "slot_duration": "1h50min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "04:50",
+              "observed_start": "04:53",
+              "official_title": "WORDS OF WAR",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Marius et les gardiens de la cité phocéenne",
@@ -9852,7 +10441,19 @@
           "source_url": "https://tv-programme.com/canal-plus/lundi-12-octobre-2026/",
           "listed_type": "Film Comédie",
           "slot_duration": "1h21min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "08:10",
+              "observed_start": "08:08",
+              "official_title": "MARIUS ET LES GARDIENS DE LA CITÉ...",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Wicked : Partie II",
@@ -9862,7 +10463,19 @@
           "source_url": "https://tv-programme.com/canal-plus/lundi-12-octobre-2026/",
           "listed_type": "Film Comédie musicale",
           "slot_duration": "2h19min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "09:30",
+              "observed_start": "09:29",
+              "official_title": "WICKED : PARTIE 2",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Maigret et le mort amoureux",
@@ -9872,7 +10485,19 @@
           "source_url": "https://tv-programme.com/canal-plus/lundi-12-octobre-2026/",
           "listed_type": "Film Film policier",
           "slot_duration": "1h17min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "13:20",
+              "observed_start": "13:18",
+              "official_title": "MAIGRET ET LE MORT AMOUREUX",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Hamnet",
@@ -9882,7 +10507,16 @@
           "source_url": "https://tv-programme.com/canal-plus/lundi-12-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "2h03min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "HAMNET",
+              "scope": "Page 2 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "\"Hurlevent\"",
@@ -9892,7 +10526,19 @@
           "source_url": "https://tv-programme.com/canal-plus/lundi-12-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "2h12min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "16:35",
+              "observed_start": "16:38",
+              "official_title": "« HURLEVENT »",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Reconnu coupable",
@@ -9902,7 +10548,19 @@
           "source_url": "https://tv-programme.com/canal-plus/lundi-12-octobre-2026/",
           "listed_type": "Film Film de science-fiction-10",
           "slot_duration": "1h37min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "23:25",
+              "observed_start": "23:26",
+              "official_title": "RECONNU COUPABLE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Adieu Jean-Pat",
@@ -9912,7 +10570,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/lundi-12-octobre-2026/",
           "listed_type": "Film Comédie",
           "slot_duration": "1h31min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "01:00",
+              "observed_start": "01:01",
+              "official_title": "ADIEU JEAN-PAT",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Nos batailles",
@@ -9922,7 +10592,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/lundi-12-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h36min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "02:30",
+              "observed_start": "02:32",
+              "official_title": "NOS BATAILLES",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Sacré Coeur",
@@ -9932,7 +10614,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/lundi-12-octobre-2026/",
           "listed_type": "Film Film documentaire",
           "slot_duration": "1h34min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "04:05",
+              "observed_start": "04:08",
+              "official_title": "SACRÉ CŒUR",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "IA, au coeur du cinéma",
@@ -9962,7 +10656,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/lundi-12-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "1h29min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "08:35",
+              "observed_start": "08:29",
+              "official_title": "EN PREMIÈRE LIGNE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "La Tour de glace",
@@ -9972,7 +10678,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/lundi-12-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h53min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "10:05",
+              "observed_start": "09:58",
+              "official_title": "LA TOUR DE GLACE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "L'été de Jahia",
@@ -9982,7 +10700,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/lundi-12-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h29min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "11:55",
+              "observed_start": "11:51",
+              "official_title": "L'ÉTÉ DE JAHIA",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Ma frère",
@@ -9992,7 +10722,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/lundi-12-octobre-2026/",
           "listed_type": "Film Comédie-10",
           "slot_duration": "1h57min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "13:25",
+              "observed_start": "13:20",
+              "official_title": "MA FRÈRE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "La Voix de Hind Rajab",
@@ -10002,7 +10744,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/lundi-12-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "1h26min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "15:25",
+              "observed_start": "15:17",
+              "official_title": "LA VOIX DE HIND RAJAB",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Not Without Hope",
@@ -10012,7 +10766,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/lundi-12-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h56min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "17:35",
+              "observed_start": "17:31",
+              "official_title": "NOT WITHOUT HOPE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Mikaela",
@@ -10022,7 +10788,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/lundi-12-octobre-2026/",
           "listed_type": "Film Film d'aventures-10",
           "slot_duration": "1h28min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "19:30",
+              "observed_start": "19:27",
+              "official_title": "MIKAELA",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Eddington",
@@ -10032,7 +10810,16 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/lundi-12-octobre-2026/",
           "listed_type": "Film Comédie noire-12",
           "slot_duration": "2h23min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "EDDINGTON",
+              "scope": "Page 2 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Last Stop : Yuma County",
@@ -10042,7 +10829,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/lundi-12-octobre-2026/",
           "listed_type": "Film Thriller-10",
           "slot_duration": "1h29min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "23:25",
+              "observed_start": "23:23",
+              "official_title": "LAST STOP : YUMA COUNTY",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Touch - Nos étreintes passées",
@@ -10052,7 +10851,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/lundi-12-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "2h01min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "01:05",
+              "observed_start": "01:06",
+              "official_title": "TOUCH - NOS ÉTREINTES PASSÉES",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Deux pianos",
@@ -10062,7 +10873,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/lundi-12-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h51min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "07:50",
+              "observed_start": "07:48",
+              "official_title": "DEUX PIANOS",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Connemara",
@@ -10072,7 +10895,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/lundi-12-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "1h52min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "09:40",
+              "observed_start": "09:39",
+              "official_title": "CONNEMARA",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Les tourmentés",
@@ -10082,7 +10917,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/lundi-12-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "1h51min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "11:30",
+              "observed_start": "11:31",
+              "official_title": "LES TOURMENTÉS",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "13 jours, 13 nuits",
@@ -10092,7 +10939,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/lundi-12-octobre-2026/",
           "listed_type": "Film Film de guerre-10",
           "slot_duration": "1h47min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "13:20",
+              "observed_start": "13:22",
+              "official_title": "13 JOURS, 13 NUITS",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Raqqa",
@@ -10102,7 +10961,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/lundi-12-octobre-2026/",
           "listed_type": "Film Film d'espionnage-12",
           "slot_duration": "1h44min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "15:10",
+              "observed_start": "15:09",
+              "official_title": "RAQQA",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "L'étranger",
@@ -10112,7 +10983,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/lundi-12-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h58min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "17:05",
+              "observed_start": "17:06",
+              "official_title": "L'ÉTRANGER",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Moi qui t'aimais",
@@ -10122,7 +11005,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/lundi-12-octobre-2026/",
           "listed_type": "Film Biographie",
           "slot_duration": "1h56min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "19:05",
+              "observed_start": "19:04",
+              "official_title": "MOI QUI T'AIMAIS",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Le crime du 3e étage",
@@ -10132,7 +11027,16 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/lundi-12-octobre-2026/",
           "listed_type": "Film Comédie policière",
           "slot_duration": "1h41min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "LE CRIME DU 3E ÉTAGE",
+              "scope": "Page 1 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Gourou",
@@ -10142,7 +11046,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/lundi-12-octobre-2026/",
           "listed_type": "Film Thriller-10",
           "slot_duration": "2h",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "22:40",
+              "observed_start": "22:41",
+              "official_title": "GOUROU",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Le dernier château",
@@ -12473,7 +13389,8 @@
         "https://television.telerama.fr/programme-tv-mardi/tv5-monde-fbs/",
         "https://pro.m6.fr/m6/grille/2026-42.pdf",
         "https://pro.m6.fr/w9/grille/2026-42.pdf",
-        "https://pro.m6.fr/6ter/grille/2026-42.pdf"
+        "https://pro.m6.fr/6ter/grille/2026-42.pdf",
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
       ],
       "channel_sources": {
         "Arte": [
@@ -12505,13 +13422,16 @@
         ],
         "Canal+": [
           "https://tv-programme.com/canal-plus/mardi-13-octobre-2026/",
-          "https://www.canalplus.com/fr/cinema/la-maison-des-femmes/h/31495467_50001"
+          "https://www.canalplus.com/fr/cinema/la-maison-des-femmes/h/31495467_50001",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Cinéma": [
-          "https://tv-programme.com/canal-plus-cinema/mardi-13-octobre-2026/"
+          "https://tv-programme.com/canal-plus-cinema/mardi-13-octobre-2026/",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Box Office": [
-          "https://tv-programme.com/canal-plus-box-office/mardi-13-octobre-2026/"
+          "https://tv-programme.com/canal-plus-box-office/mardi-13-octobre-2026/",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Grand Écran": [
           "https://tv-programme.com/canal-plus-grand-ecran/mardi-13-octobre-2026/"
@@ -13719,7 +14639,19 @@
           "source_url": "https://tv-programme.com/canal-plus/mardi-13-octobre-2026/",
           "listed_type": "Film Comédie policière-12",
           "slot_duration": "1h28min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "01:05",
+              "observed_start": "01:03",
+              "official_title": "HONEY DON'T !",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Rembrandt",
@@ -13729,7 +14661,19 @@
           "source_url": "https://tv-programme.com/canal-plus/mardi-13-octobre-2026/",
           "listed_type": "Film Thriller",
           "slot_duration": "1h43min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "02:30",
+              "observed_start": "02:31",
+              "official_title": "REMBRANDT",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "The Sentry",
@@ -13759,7 +14703,16 @@
           "source_url": "https://tv-programme.com/canal-plus/mardi-13-octobre-2026/",
           "listed_type": "Film Comédie romantique",
           "slot_duration": "1h42min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "LIBRE ÉCHANGE",
+              "scope": "Page 3 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Last Stop : Yuma County",
@@ -13769,7 +14722,16 @@
           "source_url": "https://tv-programme.com/canal-plus/mardi-13-octobre-2026/",
           "listed_type": "Film Thriller-10",
           "slot_duration": "1h28min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "LAST STOP : YUMA COUNTY",
+              "scope": "Page 3 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Reconnu coupable",
@@ -13779,7 +14741,19 @@
           "source_url": "https://tv-programme.com/canal-plus/mardi-13-octobre-2026/",
           "listed_type": "Film Film de science-fiction-10",
           "slot_duration": "1h38min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "15:35",
+              "observed_start": "15:36",
+              "official_title": "RECONNU COUPABLE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Greenland : Migration",
@@ -13789,7 +14763,19 @@
           "source_url": "https://tv-programme.com/canal-plus/mardi-13-octobre-2026/",
           "listed_type": "Film Film d'action",
           "slot_duration": "1h35min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "17:15",
+              "observed_start": "17:14",
+              "official_title": "GREENLAND : MIGRATION",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "La Maison des femmes",
@@ -13799,9 +14785,16 @@
           "source_url": "https://tv-programme.com/canal-plus/mardi-13-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h49min",
-          "verification_status": "schedule_corroborated_official_identity_pending",
+          "verification_status": "corroborated_with_official_schedule",
           "independent_schedule_sources": [
-            "https://www.canalplus.com/fr/cinema/la-maison-des-femmes/h/31495467_50001"
+            "https://www.canalplus.com/fr/cinema/la-maison-des-femmes/h/31495467_50001",
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "LA MAISON DES FEMMES",
+              "scope": "Page 3 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
           ]
         },
         {
@@ -13812,7 +14805,19 @@
           "source_url": "https://tv-programme.com/canal-plus/mardi-13-octobre-2026/",
           "listed_type": "Film Comédie",
           "slot_duration": "1h43min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "23:25",
+              "observed_start": "23:27",
+              "official_title": "FILS DE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Exit 8",
@@ -13822,7 +14827,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mardi-13-octobre-2026/",
           "listed_type": "Film Film fantastique-10",
           "slot_duration": "1h32min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "00:50",
+              "observed_start": "00:52",
+              "official_title": "EXIT 8",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Le bézoard",
@@ -13842,7 +14859,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mardi-13-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h53min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "07:50",
+              "observed_start": "07:46",
+              "official_title": "LA TOUR DE GLACE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Touch - Nos étreintes passées",
@@ -13852,7 +14881,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mardi-13-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h58min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "09:45",
+              "observed_start": "09:39",
+              "official_title": "TOUCH - NOS ÉTREINTES PASSÉES",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Rembrandt",
@@ -13862,7 +14903,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mardi-13-octobre-2026/",
           "listed_type": "Film Thriller",
           "slot_duration": "1h43min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "11:45",
+              "observed_start": "11:37",
+              "official_title": "REMBRANDT",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Le Million",
@@ -13872,7 +14925,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mardi-13-octobre-2026/",
           "listed_type": "Film Comédie",
           "slot_duration": "1h27min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "13:25",
+              "observed_start": "13:20",
+              "official_title": "LE MILLION",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Adieu Jean-Pat",
@@ -13882,7 +14947,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mardi-13-octobre-2026/",
           "listed_type": "Film Comédie",
           "slot_duration": "1h31min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "14:55",
+              "observed_start": "14:47",
+              "official_title": "ADIEU JEAN-PAT",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Tant qu'il y aura des bancs",
@@ -13902,7 +14979,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mardi-13-octobre-2026/",
           "listed_type": "Film Biographie",
           "slot_duration": "1h28min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "17:20",
+              "observed_start": "17:16",
+              "official_title": "À PIED D'ŒUVRE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "La Disparition de Josef Mengele",
@@ -13912,7 +15001,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mardi-13-octobre-2026/",
           "listed_type": "Film Drame-12",
           "slot_duration": "2h11min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "18:50",
+              "observed_start": "18:44",
+              "official_title": "LA DISPARITION DE JOSEF MENGELE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Nuremberg",
@@ -13922,7 +15023,16 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mardi-13-octobre-2026/",
           "listed_type": "Film Drame historique-10",
           "slot_duration": "2h24min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "NUREMBERG",
+              "scope": "Page 3 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "La cité interdite",
@@ -13932,7 +15042,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mardi-13-octobre-2026/",
           "listed_type": "Film Thriller-12",
           "slot_duration": "2h14min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "23:25",
+              "observed_start": "23:24",
+              "official_title": "LA CITÉ INTERDITE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Five",
@@ -13942,7 +15064,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mardi-13-octobre-2026/",
           "listed_type": "Film Comédie-10",
           "slot_duration": "1h39min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "00:40",
+              "observed_start": "00:45",
+              "official_title": "FIVE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Primate",
@@ -13952,7 +15086,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mardi-13-octobre-2026/",
           "listed_type": "Film Film d'horreur-16",
           "slot_duration": "1h29min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "04:20",
+              "observed_start": "02:24",
+              "official_title": "PRIMATE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Le Roi Soleil",
@@ -13962,7 +15108,16 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mardi-13-octobre-2026/",
           "listed_type": "Film Film policier-10",
           "slot_duration": "1h45min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "LE ROI SOLEIL",
+              "scope": "Page 3 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "La Voie du serpent",
@@ -13972,7 +15127,16 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mardi-13-octobre-2026/",
           "listed_type": "Film Thriller-12",
           "slot_duration": "1h50min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "LA VOIE DU SERPENT",
+              "scope": "Page 4 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Restore Point",
@@ -13982,7 +15146,16 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mardi-13-octobre-2026/",
           "listed_type": "Film Thriller-10",
           "slot_duration": "1h50min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "RESTORE POINT",
+              "scope": "Page 3 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Regretting You",
@@ -13992,7 +15165,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mardi-13-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h52min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "13:30",
+              "observed_start": "13:28",
+              "official_title": "REGRETTING YOU",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Materialists",
@@ -14002,7 +15187,16 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mardi-13-octobre-2026/",
           "listed_type": "Film Comédie romantique",
           "slot_duration": "1h54min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "MATERIALISTS",
+              "scope": "Page 3 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Five Nights at Freddy's 2",
@@ -14012,7 +15206,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mardi-13-octobre-2026/",
           "listed_type": "Film Film d'horreur-12",
           "slot_duration": "1h41min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "17:15",
+              "observed_start": "17:14",
+              "official_title": "FIVE NIGHTS AT FREDDY'S 2",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Dracula",
@@ -14022,7 +15228,16 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mardi-13-octobre-2026/",
           "listed_type": "Film Film fantastique-12",
           "slot_duration": "2h05min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "DRACULA",
+              "scope": "Page 2 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Conjuring : l'heure du jugement",
@@ -14032,7 +15247,16 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mardi-13-octobre-2026/",
           "listed_type": "Film Film d'horreur-12",
           "slot_duration": "2h11min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "CONJURING : L'HEURE DU...",
+              "scope": "Page 1 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Black Phone 2",
@@ -14042,7 +15266,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mardi-13-octobre-2026/",
           "listed_type": "Film Film d'horreur-16",
           "slot_duration": "1h50min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "23:10",
+              "observed_start": "23:11",
+              "official_title": "BLACK PHONE 2",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "En liberté !",
@@ -16585,7 +17821,8 @@
         "https://television.telerama.fr/programme-tv-mercredi/tv5-monde-fbs/",
         "https://pro.m6.fr/m6/grille/2026-42.pdf",
         "https://pro.m6.fr/w9/grille/2026-42.pdf",
-        "https://pro.m6.fr/6ter/grille/2026-42.pdf"
+        "https://pro.m6.fr/6ter/grille/2026-42.pdf",
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
       ],
       "channel_sources": {
         "Arte": [
@@ -16615,13 +17852,16 @@
           "https://television.telerama.fr/programme-tv-mercredi/tv5-monde-fbs/"
         ],
         "Canal+": [
-          "https://tv-programme.com/canal-plus/mercredi-14-octobre-2026/"
+          "https://tv-programme.com/canal-plus/mercredi-14-octobre-2026/",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Cinéma": [
-          "https://tv-programme.com/canal-plus-cinema/mercredi-14-octobre-2026/"
+          "https://tv-programme.com/canal-plus-cinema/mercredi-14-octobre-2026/",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Box Office": [
-          "https://tv-programme.com/canal-plus-box-office/mercredi-14-octobre-2026/"
+          "https://tv-programme.com/canal-plus-box-office/mercredi-14-octobre-2026/",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Grand Écran": [
           "https://tv-programme.com/canal-plus-grand-ecran/mercredi-14-octobre-2026/"
@@ -18034,7 +19274,19 @@
           "source_url": "https://tv-programme.com/canal-plus/mercredi-14-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h40min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "02:45",
+              "observed_start": "02:44",
+              "official_title": "LES BRAISES",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Mikaela",
@@ -18044,7 +19296,19 @@
           "source_url": "https://tv-programme.com/canal-plus/mercredi-14-octobre-2026/",
           "listed_type": "Film Film d'aventures-10",
           "slot_duration": "1h28min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "04:25",
+              "observed_start": "04:24",
+              "official_title": "MIKAELA",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "L'enfant de la forêt Au Costa Rica",
@@ -18064,7 +19328,19 @@
           "source_url": "https://tv-programme.com/canal-plus/mercredi-14-octobre-2026/",
           "listed_type": "Film Film d'animation",
           "slot_duration": "1h28min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "08:10",
+              "observed_start": "08:11",
+              "official_title": "LES SCHTROUMPFS : LE FILM",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Chers parents",
@@ -18074,7 +19350,19 @@
           "source_url": "https://tv-programme.com/canal-plus/mercredi-14-octobre-2026/",
           "listed_type": "Film Comédie",
           "slot_duration": "1h24min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "10:25",
+              "observed_start": "10:41",
+              "official_title": "CHERS PARENTS",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Marsupilami",
@@ -18084,7 +19372,19 @@
           "source_url": "https://tv-programme.com/canal-plus/mercredi-14-octobre-2026/",
           "listed_type": "Film Film d'aventures",
           "slot_duration": "1h36min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "13:20",
+              "observed_start": "13:36",
+              "official_title": "MARSUPILAMI",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Fifi et sa bande - C'était pas gagné Les copains",
@@ -18144,7 +19444,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mercredi-14-octobre-2026/",
           "listed_type": "Film Comédie romantique-10",
           "slot_duration": "2h22min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "07:20",
+              "observed_start": "07:22",
+              "official_title": "MEKTOUB MY LOVE : CANTO DUE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Father Mother Sister Brother",
@@ -18154,7 +19466,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mercredi-14-octobre-2026/",
           "listed_type": "Film Comédie dramatique",
           "slot_duration": "1h47min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "09:45",
+              "observed_start": "09:44",
+              "official_title": "FATHER MOTHER SISTER BROTHER",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Words of War",
@@ -18164,7 +19488,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mercredi-14-octobre-2026/",
           "listed_type": "Film Thriller-10",
           "slot_duration": "1h53min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "11:30",
+              "observed_start": "11:31",
+              "official_title": "WORDS OF WAR",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Le Mage du Kremlin",
@@ -18174,7 +19510,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mercredi-14-octobre-2026/",
           "listed_type": "Film Thriller-10",
           "slot_duration": "2h20min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "13:25",
+              "observed_start": "13:24",
+              "official_title": "LE MAGE DU KREMLIN",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Les Aigles de la République",
@@ -18184,7 +19532,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mercredi-14-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "2h12min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "15:45",
+              "observed_start": "15:44",
+              "official_title": "LES AIGLES DE LA RÉPUBLIQUE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Marius et les gardiens de la cité phocéenne",
@@ -18194,7 +19554,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mercredi-14-octobre-2026/",
           "listed_type": "Film Comédie",
           "slot_duration": "1h21min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "17:55",
+              "observed_start": "17:56",
+              "official_title": "MARIUS ET LES GARDIENS DE LA CITÉ...",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "La bonne étoile",
@@ -18204,7 +19576,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mercredi-14-octobre-2026/",
           "listed_type": "Film Comédie dramatique",
           "slot_duration": "1h43min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "19:15",
+              "observed_start": "19:17",
+              "official_title": "LA BONNE ÉTOILE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "La Maison des femmes",
@@ -18214,7 +19598,16 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mercredi-14-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h47min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "LA MAISON DES FEMMES",
+              "scope": "Page 3 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Ma frère",
@@ -18224,7 +19617,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/mercredi-14-octobre-2026/",
           "listed_type": "Film Comédie-10",
           "slot_duration": "1h48min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "22:45",
+              "observed_start": "22:47",
+              "official_title": "MA FRÈRE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "La Voix de Hind Rajab",
@@ -18234,7 +19639,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mercredi-14-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "1h26min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "01:15",
+              "observed_start": "01:19",
+              "official_title": "LA VOIX DE HIND RAJAB",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Souviens-toi... l'été dernier",
@@ -18244,7 +19661,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mercredi-14-octobre-2026/",
           "listed_type": "Film Film d'horreur-16",
           "slot_duration": "1h51min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "02:40",
+              "observed_start": "02:45",
+              "official_title": "SOUVIENS-TOI... L'ÉTÉ DERNIER",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Claude Lelouch : la vie comme au cinéma",
@@ -18264,7 +19693,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mercredi-14-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "1h37min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "08:50",
+              "observed_start": "08:51",
+              "official_title": "AUX JOURS QUI VIENNENT",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Les Filles désir",
@@ -18274,7 +19715,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mercredi-14-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "1h30min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "10:30",
+              "observed_start": "10:28",
+              "official_title": "LES FILLES DÉSIR",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Un simple accident",
@@ -18284,7 +19737,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mercredi-14-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h39min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "12:00",
+              "observed_start": "11:58",
+              "official_title": "UN SIMPLE ACCIDENT",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Bob l'éponge, le film : Un pour tous, tous pirates !",
@@ -18294,7 +19759,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mercredi-14-octobre-2026/",
           "listed_type": "Film Film d'animation",
           "slot_duration": "1h26min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "13:35",
+              "observed_start": "13:37",
+              "official_title": "BOB L'ÉPONGE, LE FILM : UN POUR TOUS...",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "L'Infiltrée",
@@ -18304,7 +19781,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mercredi-14-octobre-2026/",
           "listed_type": "Film Comédie",
           "slot_duration": "1h32min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "15:05",
+              "observed_start": "15:03",
+              "official_title": "L'INFILTRÉE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Classe moyenne",
@@ -18314,7 +19803,16 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mercredi-14-octobre-2026/",
           "listed_type": "Film Comédie",
           "slot_duration": "1h39min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "CLASSE MOYENNE",
+              "scope": "Page 1 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "\"Hurlevent\"",
@@ -18324,7 +19822,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mercredi-14-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "2h18min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "18:15",
+              "observed_start": "18:14",
+              "official_title": "« HURLEVENT »",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Greenland : Migration",
@@ -18334,7 +19844,16 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mercredi-14-octobre-2026/",
           "listed_type": "Film Film d'action",
           "slot_duration": "1h35min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "GREENLAND : MIGRATION",
+              "scope": "Page 2 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Marsupilami",
@@ -18344,7 +19863,17 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/mercredi-14-octobre-2026/",
           "listed_type": "Film Film d'aventures",
           "slot_duration": "1h36min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "MARSUPILAMI",
+              "scope": "Page 3 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement.",
+              "note": "Deuxième horaire de cellule lu visuellement 22H35 ; extraction PicCanal incomplète 2H35 rejetée."
+            }
+          ]
         },
         {
           "title": "Sur la piste du Marsupilami",
@@ -20747,7 +22276,8 @@
         "https://television.telerama.fr/programme-tv-jeudi-prochain/tv5-monde-fbs/",
         "https://pro.m6.fr/m6/grille/2026-42.pdf",
         "https://pro.m6.fr/w9/grille/2026-42.pdf",
-        "https://pro.m6.fr/6ter/grille/2026-42.pdf"
+        "https://pro.m6.fr/6ter/grille/2026-42.pdf",
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
       ],
       "channel_sources": {
         "Arte": [
@@ -20775,11 +22305,13 @@
           "https://www.francetvpro.fr/grille/france-5/10-10-2026/15-10-2026"
         ],
         "Canal+": [
-          "https://tv-programme.com/canal-plus/jeudi-15-octobre-2026/"
+          "https://tv-programme.com/canal-plus/jeudi-15-octobre-2026/",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Cinéma": [
           "https://tv-programme.com/canal-plus-cinema/jeudi-15-octobre-2026/",
-          "https://www.canalplus.com/fr/cinema/l-interet-d-adam/h/30267479_50001"
+          "https://www.canalplus.com/fr/cinema/l-interet-d-adam/h/30267479_50001",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Grand Écran": [
           "https://tv-programme.com/canal-plus-grand-ecran/jeudi-15-octobre-2026/"
@@ -20863,7 +22395,8 @@
           "https://television.telerama.fr/programme-tv-jeudi-prochain/tv5-monde-fbs/"
         ],
         "Canal+ Box Office": [
-          "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/"
+          "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "T18": [
           "https://www.linternaute.com/television/programme-t18-jeudi-15-octobre-2026/"
@@ -21847,7 +23380,19 @@
           "source_url": "https://tv-programme.com/canal-plus/jeudi-15-octobre-2026/",
           "listed_type": "Film Thriller",
           "slot_duration": "1h48min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "00:45",
+              "observed_start": "00:44",
+              "official_title": "DALLOWAY",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Adieu Jean-Pat",
@@ -21857,7 +23402,19 @@
           "source_url": "https://tv-programme.com/canal-plus/jeudi-15-octobre-2026/",
           "listed_type": "Film Comédie",
           "slot_duration": "1h31min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "02:30",
+              "observed_start": "02:32",
+              "official_title": "ADIEU JEAN-PAT",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Whitch",
@@ -21897,7 +23454,19 @@
           "source_url": "https://tv-programme.com/canal-plus/jeudi-15-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "2h02min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "08:10",
+              "observed_start": "08:07",
+              "official_title": "HAMNET",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Vie privée",
@@ -21907,7 +23476,19 @@
           "source_url": "https://tv-programme.com/canal-plus/jeudi-15-octobre-2026/",
           "listed_type": "Film Comédie dramatique",
           "slot_duration": "1h44min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "10:10",
+              "observed_start": "10:09",
+              "official_title": "VIE PRIVÉE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Cold Storage",
@@ -21917,7 +23498,16 @@
           "source_url": "https://tv-programme.com/canal-plus/jeudi-15-octobre-2026/",
           "listed_type": "Film Comédie noire-12",
           "slot_duration": "1h37min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "COLD STORAGE",
+              "scope": "Page 1 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Bugonia",
@@ -21927,7 +23517,19 @@
           "source_url": "https://tv-programme.com/canal-plus/jeudi-15-octobre-2026/",
           "listed_type": "Film Comédie noire-12",
           "slot_duration": "1h55min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "17:00",
+              "observed_start": "16:57",
+              "official_title": "BUGONIA",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Voyages au bout de l'effort Kushti - Inde",
@@ -21947,7 +23549,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/jeudi-15-octobre-2026/",
           "listed_type": "Film Comédie dramatique",
           "slot_duration": "1h53min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "00:35",
+              "observed_start": "01:19",
+              "official_title": "RUE MÁLAGA",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Les dernières braises",
@@ -21967,7 +23581,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/jeudi-15-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h58min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "08:25",
+              "observed_start": "08:20",
+              "official_title": "TOUCH - NOS ÉTREINTES PASSÉES",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "L'été de Jahia",
@@ -21977,7 +23603,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/jeudi-15-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h29min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "10:20",
+              "observed_start": "10:18",
+              "official_title": "L'ÉTÉ DE JAHIA",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Nos batailles",
@@ -21987,7 +23625,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/jeudi-15-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h36min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "11:50",
+              "observed_start": "11:47",
+              "official_title": "NOS BATAILLES",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "La Maison des femmes",
@@ -21997,7 +23647,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/jeudi-15-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h47min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "13:30",
+              "observed_start": "13:23",
+              "official_title": "LA MAISON DES FEMMES",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Coutures",
@@ -22007,7 +23669,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/jeudi-15-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h40min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "15:15",
+              "observed_start": "15:10",
+              "official_title": "COUTURES",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Maigret et le mort amoureux",
@@ -22017,7 +23691,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/jeudi-15-octobre-2026/",
           "listed_type": "Film Film policier",
           "slot_duration": "1h17min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "16:55",
+              "observed_start": "16:50",
+              "official_title": "MAIGRET ET LE MORT AMOUREUX",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Gérald le Conquérant",
@@ -22027,7 +23713,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/jeudi-15-octobre-2026/",
           "listed_type": "Film Comédie-10",
           "slot_duration": "1h21min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "18:10",
+              "observed_start": "18:07",
+              "official_title": "GÉRALD LE CONQUÉRANT",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Le Million",
@@ -22037,7 +23735,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/jeudi-15-octobre-2026/",
           "listed_type": "Film Comédie",
           "slot_duration": "1h27min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "19:30",
+              "observed_start": "19:28",
+              "official_title": "LE MILLION",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "L'Intérêt d'Adam",
@@ -22047,9 +23757,16 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/jeudi-15-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "1h15min",
-          "verification_status": "schedule_corroborated_official_identity_pending",
+          "verification_status": "corroborated_with_official_schedule",
           "independent_schedule_sources": [
-            "https://www.canalplus.com/fr/cinema/l-interet-d-adam/h/30267479_50001"
+            "https://www.canalplus.com/fr/cinema/l-interet-d-adam/h/30267479_50001",
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "L'INTÉRÊT D'ADAM",
+              "scope": "Page 2 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
           ]
         },
         {
@@ -22060,7 +23777,16 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/jeudi-15-octobre-2026/",
           "listed_type": "Film Film policier-10",
           "slot_duration": "1h52min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "DOSSIER 137",
+              "scope": "Page 2 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "La reine Margot (version réalisateur)",
@@ -24332,7 +26058,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
           "listed_type": "Film Comédie dramatique-10",
           "verification_status": "observed_in_dated_grid",
-          "slot_duration": "1h43min"
+          "slot_duration": "1h43min",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "00:25",
+              "observed_start": "00:28",
+              "official_title": "L'ÉPREUVE DU FEU",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Evanouis",
@@ -24342,7 +26080,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
           "listed_type": "Film Film d'horreur-16",
           "verification_status": "observed_in_dated_grid",
-          "slot_duration": "2h04min"
+          "slot_duration": "2h04min",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "02:05",
+              "observed_start": "02:11",
+              "official_title": "ÉVANOUIS",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Cinéastes en séries",
@@ -24361,8 +26111,17 @@
           "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
           "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
           "listed_type": "Film Drame",
-          "verification_status": "observed_in_dated_grid",
-          "slot_duration": "1h53min"
+          "verification_status": "corroborated_with_official_schedule",
+          "slot_duration": "1h53min",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "LA TOUR DE GLACE",
+              "scope": "Page 4 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "De fil et de sang",
@@ -24372,7 +26131,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
           "listed_type": "Film Thriller-10",
           "verification_status": "observed_in_dated_grid",
-          "slot_duration": "1h37min"
+          "slot_duration": "1h37min",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "10:20",
+              "observed_start": "10:18",
+              "official_title": "DE FIL ET DE SANG",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Nouvelle Vague",
@@ -24381,8 +26152,17 @@
           "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
           "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
           "listed_type": "Film Comédie",
-          "verification_status": "observed_in_dated_grid",
-          "slot_duration": "1h43min"
+          "verification_status": "corroborated_with_official_schedule",
+          "slot_duration": "1h43min",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "NOUVELLE VAGUE",
+              "scope": "Page 3 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Superman",
@@ -24392,7 +26172,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
           "listed_type": "Film Film fantastique-10",
           "verification_status": "observed_in_dated_grid",
-          "slot_duration": "2h06min"
+          "slot_duration": "2h06min",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "13:40",
+              "observed_start": "13:38",
+              "official_title": "SUPERMAN",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Les Schtroumpfs : Le film",
@@ -24402,7 +26194,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
           "listed_type": "Film Film d'animation",
           "verification_status": "observed_in_dated_grid",
-          "slot_duration": "1h28min"
+          "slot_duration": "1h28min",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "15:45",
+              "observed_start": "15:44",
+              "official_title": "LES SCHTROUMPFS : LE FILM",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Rembrandt",
@@ -24412,7 +26216,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
           "listed_type": "Film Thriller",
           "verification_status": "observed_in_dated_grid",
-          "slot_duration": "1h44min"
+          "slot_duration": "1h44min",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "17:25",
+              "observed_start": "17:26",
+              "official_title": "REMBRANDT",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Les tourmentés",
@@ -24421,8 +26237,17 @@
           "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
           "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
           "listed_type": "Film Drame-10",
-          "verification_status": "observed_in_dated_grid",
-          "slot_duration": "1h50min"
+          "verification_status": "corroborated_with_official_schedule",
+          "slot_duration": "1h50min",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "LES TOURMENTÉS",
+              "scope": "Page 4 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Marche ou crève",
@@ -24431,8 +26256,17 @@
           "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
           "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
           "listed_type": "Film Film d'horreur-16",
-          "verification_status": "observed_in_dated_grid",
-          "slot_duration": "1h45min"
+          "verification_status": "corroborated_with_official_schedule",
+          "slot_duration": "1h45min",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "MARCHE OU CRÈVE",
+              "scope": "Page 3 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "28 Ans plus tard",
@@ -24441,8 +26275,17 @@
           "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
           "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
           "listed_type": "Film Film d'horreur-16",
-          "verification_status": "observed_in_dated_grid",
-          "slot_duration": "1h51min"
+          "verification_status": "corroborated_with_official_schedule",
+          "slot_duration": "1h51min",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "28 ANS PLUS TARD",
+              "scope": "Page 1 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Sur la scène du crime Jogging fatal - L'affaire Nelly Crémel",
@@ -24721,7 +26564,8 @@
         "https://television.telerama.fr/programme-tv-vendredi-prochain/tv5-monde-fbs/",
         "https://pro.m6.fr/m6/grille/2026-42.pdf",
         "https://pro.m6.fr/w9/grille/2026-42.pdf",
-        "https://pro.m6.fr/6ter/grille/2026-42.pdf"
+        "https://pro.m6.fr/6ter/grille/2026-42.pdf",
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
       ],
       "channel_sources": {
         "Arte": [
@@ -24744,13 +26588,16 @@
         ],
         "Canal+": [
           "https://tv-programme.com/canal-plus/vendredi-16-octobre-2026/",
-          "https://www.canalplus.com/fr/cinema/les-enfants-de-la-resistance/h/31330819_50001"
+          "https://www.canalplus.com/fr/cinema/les-enfants-de-la-resistance/h/31330819_50001",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Cinéma": [
-          "https://tv-programme.com/canal-plus-cinema/vendredi-16-octobre-2026/"
+          "https://tv-programme.com/canal-plus-cinema/vendredi-16-octobre-2026/",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Box Office": [
-          "https://tv-programme.com/canal-plus-box-office/vendredi-16-octobre-2026/"
+          "https://tv-programme.com/canal-plus-box-office/vendredi-16-octobre-2026/",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
         "Canal+ Grand Écran": [
           "https://tv-programme.com/canal-plus-grand-ecran/vendredi-16-octobre-2026/"
@@ -25824,7 +27671,19 @@
           "source_url": "https://tv-programme.com/canal-plus/vendredi-16-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "1h29min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "00:55",
+              "observed_start": "00:53",
+              "official_title": "EN PREMIÈRE LIGNE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Alexandre Kominek : Bâtard sensible",
@@ -25864,7 +27723,19 @@
           "source_url": "https://tv-programme.com/canal-plus/vendredi-16-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "1h37min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "04:45",
+              "observed_start": "04:40",
+              "official_title": "AUX JOURS QUI VIENNENT",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "A pied d'oeuvre",
@@ -25874,7 +27745,19 @@
           "source_url": "https://tv-programme.com/canal-plus/vendredi-16-octobre-2026/",
           "listed_type": "Film Biographie",
           "slot_duration": "1h28min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "08:15",
+              "observed_start": "08:11",
+              "official_title": "À PIED D'ŒUVRE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Smashing Machine",
@@ -25884,7 +27767,19 @@
           "source_url": "https://tv-programme.com/canal-plus/vendredi-16-octobre-2026/",
           "listed_type": "Film Biographie-12",
           "slot_duration": "2h",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "10:00",
+              "observed_start": "09:54",
+              "official_title": "SMASHING MACHINE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Nuremberg",
@@ -25894,7 +27789,19 @@
           "source_url": "https://tv-programme.com/canal-plus/vendredi-16-octobre-2026/",
           "listed_type": "Film Drame historique-10",
           "slot_duration": "2h25min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "13:30",
+              "observed_start": "13:24",
+              "official_title": "NUREMBERG",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "L'affaire Bojarski",
@@ -25904,7 +27811,19 @@
           "source_url": "https://tv-programme.com/canal-plus/vendredi-16-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "2h05min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "15:50",
+              "observed_start": "15:49",
+              "official_title": "L'AFFAIRE BOJARSKI",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Les Enfants de la Résistance",
@@ -25914,9 +27833,16 @@
           "source_url": "https://tv-programme.com/canal-plus/vendredi-16-octobre-2026/",
           "listed_type": "Film Film d'aventures",
           "slot_duration": "1h39min",
-          "verification_status": "schedule_corroborated_official_identity_pending",
+          "verification_status": "corroborated_with_official_schedule",
           "independent_schedule_sources": [
-            "https://www.canalplus.com/fr/cinema/les-enfants-de-la-resistance/h/31330819_50001"
+            "https://www.canalplus.com/fr/cinema/les-enfants-de-la-resistance/h/31330819_50001",
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "LES ENFANTS DE LA RÉSISTANCE",
+              "scope": "Page 2 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
           ]
         },
         {
@@ -25937,7 +27863,19 @@
           "source_url": "https://tv-programme.com/canal-plus/vendredi-16-octobre-2026/",
           "listed_type": "Film Film d'aventures",
           "slot_duration": "1h36min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "23:45",
+              "observed_start": "23:44",
+              "official_title": "MARSUPILAMI",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Les Braises",
@@ -25947,7 +27885,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/vendredi-16-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h39min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "00:05",
+              "observed_start": "00:07",
+              "official_title": "LES BRAISES",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "The Burning Night",
@@ -25967,7 +27917,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/vendredi-16-octobre-2026/",
           "listed_type": "Film Thriller-10",
           "slot_duration": "1h51min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "08:20",
+              "observed_start": "08:16",
+              "official_title": "RESTORE POINT",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "La Voie du serpent",
@@ -25977,7 +27939,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/vendredi-16-octobre-2026/",
           "listed_type": "Film Thriller-12",
           "slot_duration": "1h49min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "10:10",
+              "observed_start": "10:07",
+              "official_title": "LA VOIE DU SERPENT",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Aux jours qui viennent",
@@ -25987,7 +27961,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/vendredi-16-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "1h37min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "12:00",
+              "observed_start": "11:56",
+              "official_title": "AUX JOURS QUI VIENNENT",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "L'Intérêt d'Adam",
@@ -25997,7 +27983,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/vendredi-16-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "1h16min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "13:40",
+              "observed_start": "13:33",
+              "official_title": "L'INTÉRÊT D'ADAM",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "En première ligne",
@@ -26007,7 +28005,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/vendredi-16-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "1h28min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "14:55",
+              "observed_start": "14:49",
+              "official_title": "EN PREMIÈRE LIGNE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Le Million",
@@ -26017,7 +28027,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/vendredi-16-octobre-2026/",
           "listed_type": "Film Comédie",
           "slot_duration": "1h27min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 3,
+              "official_start": "16:20",
+              "observed_start": "16:17",
+              "official_title": "LE MILLION",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Adieu Jean-Pat",
@@ -26027,7 +28049,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/vendredi-16-octobre-2026/",
           "listed_type": "Film Comédie",
           "slot_duration": "1h31min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "17:50",
+              "observed_start": "17:44",
+              "official_title": "ADIEU JEAN-PAT",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Coutures",
@@ -26037,7 +28071,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/vendredi-16-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h40min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "19:20",
+              "observed_start": "19:15",
+              "official_title": "COUTURES",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Hamnet",
@@ -26047,7 +28093,16 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/vendredi-16-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "2h01min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "HAMNET",
+              "scope": "Page 2 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Gangs of Copenhagen",
@@ -26057,7 +28112,19 @@
           "source_url": "https://tv-programme.com/canal-plus-cinema/vendredi-16-octobre-2026/",
           "listed_type": "Film Thriller-12",
           "slot_duration": "1h44min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "23:45",
+              "observed_start": "23:47",
+              "official_title": "GANGS OF COPENHAGEN",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "28 ans plus tard : Le temple des morts",
@@ -26067,7 +28134,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/vendredi-16-octobre-2026/",
           "listed_type": "Film Film d'horreur-16",
           "slot_duration": "1h46min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "00:35",
+              "observed_start": "00:36",
+              "official_title": "28 ANS PLUS TARD : LE TEMPLE...",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Alpha",
@@ -26077,7 +28156,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/vendredi-16-octobre-2026/",
           "listed_type": "Film Drame-12",
           "slot_duration": "2h",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "02:50",
+              "observed_start": "02:57",
+              "official_title": "ALPHA",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Marius et les gardiens de la cité phocéenne",
@@ -26087,7 +28178,16 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/vendredi-16-octobre-2026/",
           "listed_type": "Film Comédie",
           "slot_duration": "1h20min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "MARIUS ET LES GARDIENS DE LA CITÉ...",
+              "scope": "Page 3 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Deux pianos",
@@ -26097,7 +28197,16 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/vendredi-16-octobre-2026/",
           "listed_type": "Film Drame",
           "slot_duration": "1h52min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "DEUX PIANOS",
+              "scope": "Page 1 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Connemara",
@@ -26107,7 +28216,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/vendredi-16-octobre-2026/",
           "listed_type": "Film Drame-10",
           "slot_duration": "1h51min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "11:25",
+              "observed_start": "11:27",
+              "official_title": "CONNEMARA",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Chien 51",
@@ -26117,7 +28238,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/vendredi-16-octobre-2026/",
           "listed_type": "Film Film policier-10",
           "slot_duration": "1h42min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "13:20",
+              "observed_start": "13:18",
+              "official_title": "CHIEN 51",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "IA, au coeur du cinéma",
@@ -26137,7 +28270,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/vendredi-16-octobre-2026/",
           "listed_type": "Film Comédie policière-10",
           "slot_duration": "1h23min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 4,
+              "official_start": "15:55",
+              "observed_start": "15:54",
+              "official_title": "Y A-T-IL UN FLIC POUR SAUVER LE... ?",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "Cold Storage",
@@ -26147,7 +28292,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/vendredi-16-octobre-2026/",
           "listed_type": "Film Comédie noire-12",
           "slot_duration": "1h36min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 1,
+              "official_start": "17:15",
+              "observed_start": "17:17",
+              "official_title": "COLD STORAGE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "La Femme de ménage",
@@ -26157,7 +28314,19 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/vendredi-16-octobre-2026/",
           "listed_type": "Film Thriller-12",
           "slot_duration": "2h07min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "observed_in_dated_grid",
+          "schedule_conflicts": [
+            {
+              "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "page": 2,
+              "official_start": "18:50",
+              "observed_start": "18:53",
+              "official_title": "LA FEMME DE MÉNAGE",
+              "status": "needs_reconciliation",
+              "note": "Date/chaîne/titre rapprochés ; heure différente. Ne pas assimiler automatiquement à un arrondi."
+            }
+          ]
         },
         {
           "title": "F1 : Le film",
@@ -26167,7 +28336,16 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/vendredi-16-octobre-2026/",
           "listed_type": "Film Film d'action",
           "slot_duration": "2h30min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "F1",
+              "scope": "Page 2 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Libre échange",
@@ -26177,7 +28355,16 @@
           "source_url": "https://tv-programme.com/canal-plus-box-office/vendredi-16-octobre-2026/",
           "listed_type": "Film Comédie romantique",
           "slot_duration": "1h42min",
-          "verification_status": "observed_in_dated_grid"
+          "verification_status": "corroborated_with_official_schedule",
+          "independent_schedule_sources": [
+            {
+              "url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+              "checked_at": "2026-10-08T09:20:27.701Z",
+              "source_kind": "official_broadcaster_monthly_pdf",
+              "official_title": "LIBRE ÉCHANGE",
+              "scope": "Page 3 ; date civile/chaîne/heure concordantes. Couleurs et cases PDF contrôlées visuellement."
+            }
+          ]
         },
         {
           "title": "Le silence des agneaux",
@@ -28863,5 +31050,5 @@
       "missing_primary_grids": []
     }
   ],
-  "updated_at": "2026-10-08T09:17:11.613Z"
+  "updated_at": "2026-10-08T09:20:27.701Z"
 }

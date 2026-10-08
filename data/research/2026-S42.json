@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T09:17:11.613Z",
+  "updated_at": "2026-10-08T09:20:27.701Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -23,7 +23,8 @@
     "France 4 : compléter réception/offres documentaires et épisodes génériques ; résoudre Rachelle Allison 20:30 contre Naimro/Allison 20:35 le 15. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle.",
     "France 4 documentaires : Wachowski (Thibaut Sève, distinct de Matrix Generation) a des avis attribués mais durée 61/62/70 min à départager ; On ne va pas se défiler réintégré comme documentaire, critique/offre 2026 à compléter.",
     "TV5MONDE+ : Didy dispose de deux critiques attribuées et d'une identité festival ; durée/version, droits France, expiration, notes et affiche à terminer. Trois nouvelles pistes de l'accueil restent à examiner ; grille linéaire FBS à recouper.",
-    "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes."
+    "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes.",
+    "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma."
   ],
   "completed_batches": [
     {
@@ -177,6 +178,11 @@
       "id": "inventory-m6-w9-6ter-official-week",
       "completed_at": "2026-10-08T09:17:11.613Z",
       "description": "72 recoupements horaires officiels et cinq omissions documentaires/musicales ajoutées ; conflit Fréquenstar résolu."
+    },
+    {
+      "id": "inventory-canal-monthly-three-channels",
+      "completed_at": "2026-10-08T09:20:27.701Z",
+      "description": "Tableau officiel cinéma : 42 heures concordantes, 149 divergences documentées, rappel des omissions/alias à résoudre."
     }
   ],
   "blockers": [
@@ -11266,6 +11272,46 @@
       },
       "evidence_note": "Dossiers officiels et tableau page 2 lus et rendus visuellement : 72 entrées existantes concordent titre/heure avec guides édités séparément ; 5 omissions de rappel ajoutées, encore sans seconde source. Conversion des cases après minuit vers date civile suivante. Le début du samedi avant 06h n'est pas couvert par le dossier S42. Collections génériques ne certifient pas les épisodes.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
+      ],
+      "checked_at": "2026-10-08T09:20:27.701Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channels": [
+          "Canal+",
+          "Canal+ Cinéma",
+          "Canal+ Box Office"
+        ]
+      },
+      "evidence_note": "4 pages rendues et inspectées ; légende des couleurs et journée 06:30–06:30 appliquées. 42 concordances exactes dont certaines déjà sourcées lors d'un lot antérieur ; détails attachés aux entrées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "start"
+      ],
+      "source_urls": [
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
+      ],
+      "checked_at": "2026-10-08T09:20:27.701Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42"
+      },
+      "evidence_note": "149 horaires différents des guides conservés dans inventory.items.schedule_conflicts. Ne pas déclarer l'heure vérifiée à partir de cette comparaison ; contrôle des programmes retenus requis.",
+      "status": "conflict"
     }
   ],
   "run_metrics": [
