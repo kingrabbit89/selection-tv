@@ -34,6 +34,8 @@ Pendant toute la PR candidate, l'entrée du manifeste reste status draft, le JSO
 
 La recherche est inventory-first. Pour chacun des sept jours, le producteur scanne 00:00–23:59, conserve aussi les programmes 00:00–05:59, inspecte toutes les chaînes minimales de data/editorial-config.json ainsi que les chaînes pertinentes découvertes, et enregistre au moins 30 candidats bruts à partir de S42.
 
+La liste minimale concerne les chaînes actives. Paramount Channel/Paramount Network est retirée à partir de S42 après vérification de son arrêt définitif le 31 décembre 2025 ; la justification et le lien du compte officiel CANAL+ sont conservés dans `retired_channels` de `data/editorial-config.json`. Paramount+ reste une plateforme distincte. Une source temporairement indisponible ne justifie jamais de retirer une chaîne active.
+
 Chaque ligne d'inventaire conserve title, start, channel, source et source_url. Chaque journée conserve source_pages, channels_scanned et channel_counts. Une simple liste de chaînes déclarées comme scannées ne remplace jamais les lignes de programmes.
 
 Une seconde source indépendante et une passe de rappel éditoriale sont obligatoires. Télérama peut servir à détecter des omissions mais son jugement ne doit pas être copié.
@@ -68,7 +70,9 @@ Les autres rubriques respectent data/editorial-config.json et data/personalizati
 
 ## Validation de la candidate
 
-La PR auto/YYYY-Sxx est testée explicitement via SELECTION_TV_VALIDATE_WEEK et SELECTION_TV_CANDIDATE. Le brouillon est rendu par Chromium via preview=1, mais issue-loader.js n'autorise ce preview que sur localhost/127.0.0.1.
+Les checkpoints `inventory` et `enrichment` sont contrôlés par `scripts/validation-context.mjs` : identités, dates, sources, compteurs et invariants de non-publication. Leur `remaining` décrit le travail inachevé. Les tests éditoriaux et navigateur continuent de vérifier le dernier numéro publié ; le contrôle obligatoire `data-and-policy` échoue explicitement en fin de parcours tant que la préparation n’est pas achevée. Un résultat navigateur vert à ce stade ne valide pas S42 et ne permet jamais sa fusion.
+
+Lorsque le checkpoint est `ready`, avec revue achevée, `remaining` vide et empreintes exactes de tous les livrables, la PR auto/YYYY-Sxx est testée explicitement via SELECTION_TV_VALIDATE_WEEK et SELECTION_TV_CANDIDATE. Un ancien candidat sans checkpoint reçoit aussi tous les contrôles, sans traitement de préparation. Le brouillon est rendu par Chromium via preview=1, mais issue-loader.js n'autorise ce preview que sur localhost/127.0.0.1.
 
 Les contrôles couvrent : architecture, contrat d'automatisation, contrat de candidate, éditorial, liens exacts, fraîcheur, réserves, santé distante des images, rendu desktop/responsive/print et modèle tv=1 de Fire TV.
 

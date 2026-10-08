@@ -12,6 +12,9 @@ const {chromium}=createRequire(import.meta.url)('playwright');
 const root=resolve(import.meta.dirname,'..');
 const manifest=JSON.parse(await readFile(resolve(root,'data/manifest.json'),'utf8'));
 const targetWeek=process.env.SELECTION_TV_VALIDATE_WEEK||manifest.latest;
+// A missing candidate must fail immediately, before waiting on browser globals.
+await readFile(resolve(root,'data/weeks',targetWeek+'.json'),'utf8');
+await readFile(resolve(root,'semaines',targetWeek,'index.html'),'utf8');
 const worksData=JSON.parse(await readFile(resolve(root,'data/works.json'),'utf8'));
 const normTitle=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
 const worksByTitle=new Map((worksData.works||[]).map(w=>[normTitle(w.title),w]));
