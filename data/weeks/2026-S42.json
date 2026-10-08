@@ -23,9 +23,19 @@
       "id": "samedi-grille",
       "className": "page",
       "html": "<div class=\"topbar\">Grille filtrée<span class=\"issue\">S42</span></div><div class=\"grid-title\">SAMEDI 10 OCTOBRE — la grille commentée</div><table class=\"schedule\"><thead><tr><th>Heure</th><th>Chaîne</th><th>Programme</th><th>Pourquoi le retenir</th><th>Repère</th></tr></thead><tbody><tr><td class=\"time\">21:00</td><td class=\"chan\">Canal+ Cinéma</td><td class=\"prog\">Exit 8</td><td class=\"reason\">Un film-concept qui fait de chaque variation du décor une source de suspense et de malaise.</td><td class=\"rep\"><span class=\"badge TRÈS_FORT\">TRÈS FORT</span></td></tr><tr><td class=\"time\">23:20</td><td class=\"chan\">Arte</td><td class=\"prog\">Thorin, le dernier Néandertalien</td><td class=\"reason\">Une enquête de terrain et de laboratoire distinguée pour la clarté de sa médiation scientifique.</td><td class=\"rep\"><span class=\"badge DOC\">DOC</span></td></tr></tbody></table><div class=\"footer\"><span>Sélection TV · S42</span><span>2</span></div>"
+    },
+    {
+      "id": "dimanche-selection",
+      "className": "page",
+      "html": "<div class=\"topbar\">Sélection du jour<span class=\"issue\">S42 · 10 au 16 octobre 2026</span></div><div class=\"day-head\"><div><div class=\"kicker\">Les choix développés</div><div class=\"h1\">DIMANCHE 11 OCTOBRE</div></div></div><div class=\"rule\"></div><div class=\"feature-columns\"><article class=\"feature\" data-title=\"La Gueule ouverte\" data-work-id=\"la-gueule-ouverte-1974\"><div class=\"visual\"><img class=\"poster\" src=\"https://media.senscritique.com/media/000021326652/0/la_gueule_ouverte.jpg\" alt=\"La Gueule ouverte\"><div class=\"fallback\">La Gueule ouverte</div></div><div style=\"margin-top:2mm\"><span class=\"badge TRÈS_FORT\">TRÈS FORT</span></div><h3>La Gueule ouverte</h3><div class=\"slot\">01:04 · Ciné+ Festival</div><div class=\"meta\">1974 · Maurice Pialat · France · 83 min · Drame</div><h4>Ce que ça raconte</h4><p>Une femme atteinte d’un cancer revient finir ses jours dans la maison familiale en Auvergne. Autour d’elle, son mari, son fils et sa belle-fille poursuivent leurs gestes quotidiens tandis que l’attente de la mort défait peu à peu leurs conventions.</p><div class=\"interest\"><h4>Pourquoi c’est intéressant</h4><p>Maurice Pialat filme l’agonie sans consolation ni effet mélodramatique, au plus près des silences, des maladresses et de l’impuissance des vivants. Cette sécheresse peut rendre le film éprouvant, mais elle donne à ses longs plans une force d’observation rare.</p></div></article></div><div class=\"footer\"><span>Sélection TV · S42</span><span>3</span></div>"
+    },
+    {
+      "id": "dimanche-grille",
+      "className": "page",
+      "html": "<div class=\"topbar\">Grille filtrée<span class=\"issue\">S42</span></div><div class=\"grid-title\">DIMANCHE 11 OCTOBRE — la grille commentée</div><table class=\"schedule\"><thead><tr><th>Heure</th><th>Chaîne</th><th>Programme</th><th>Pourquoi le retenir</th><th>Repère</th></tr></thead><tbody><tr><td class=\"time\">01:04</td><td class=\"chan\">Ciné+ Festival</td><td class=\"prog\">La Gueule ouverte</td><td class=\"reason\">Pialat confronte la famille à la mort sans sentimentalisme, dans des plans d’une franchise radicale.</td><td class=\"rep\"><span class=\"badge TRÈS_FORT\">TRÈS FORT</span></td></tr></tbody></table><div class=\"footer\"><span>Sélection TV · S42</span><span>4</span></div>"
     }
   ],
-  "page_count": 2,
+  "page_count": 4,
   "section_shortages": {},
   "personalization": {
     "schema_version": 1,
@@ -75,6 +85,37 @@
               "imdb": "https://www.imdb.com/title/tt33888759/",
               "sc": "https://www.senscritique.com/film/thorin_le_dernier_neandertalien/101841222",
               "official": "https://www.arte.tv/fr/videos/083910-000-A/thorin-le-dernier-neandertalien/"
+            }
+          }
+        ]
+      },
+      "dimanche-selection": {
+        "page_id": "dimanche-selection",
+        "container_selector": ".feature-columns",
+        "primary_selector": "article.feature:not(.replacement-generated)",
+        "card_type": "feature",
+        "target": 3,
+        "desired_reserve": 7,
+        "candidates": [
+          {
+            "title": "La Gueule ouverte",
+            "work_id": "la-gueule-ouverte-1974",
+            "rank": 1,
+            "quality": "TRÈS FORT",
+            "time": "01:04",
+            "channel": "Ciné+ Festival",
+            "meta": "1974 · Maurice Pialat · France · 83 min · Drame",
+            "summary": "Une femme atteinte d’un cancer revient finir ses jours dans la maison familiale en Auvergne. Autour d’elle, son mari, son fils et sa belle-fille poursuivent leurs gestes quotidiens tandis que l’attente de la mort défait peu à peu leurs conventions.",
+            "why": "Maurice Pialat filme l’agonie sans consolation ni effet mélodramatique, au plus près des silences, des maladresses et de l’impuissance des vivants. Cette sécheresse peut rendre le film éprouvant, mais elle donne à ses longs plans une force d’observation rare.",
+            "image": "https://media.senscritique.com/media/000021326652/0/la_gueule_ouverte.jpg",
+            "links": {
+              "official": "https://www.canalplus.com/cinema/la-gueule-ouverte/h/438611_50002",
+              "imdb": "https://www.imdb.com/title/tt0071587/",
+              "sc": "https://www.senscritique.com/film/la_gueule_ouverte/494353",
+              "allocine": "https://www.allocine.fr/film/fichefilm_gen_cfilm=6746.html"
+            },
+            "ratings": {
+              "senscritique": "7,3"
             }
           }
         ]

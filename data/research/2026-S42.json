@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "b619a043c67e5d7790928731c8b0b35563992d05",
   "stage": "enrichment",
-  "updated_at": "2026-10-08T20:05:26.583Z",
+  "updated_at": "2026-10-08T20:10:15.949Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -418,6 +418,11 @@
       "id": "enrichment-exit8-and-saturday-two-card-draft",
       "completed_at": "2026-10-08T20:05:26.583Z",
       "description": "Exit 8 vérifié et matérialisé en carte draft ; Thorin réutilisé sans répéter ses six vérifications. La sélection et la grille du samedi comptent deux cartes provisoires. Les 35 exigences de remaining sont conservées."
+    },
+    {
+      "id": "enrichment-la-gueule-ouverte-sunday-draft",
+      "completed_at": "2026-10-08T20:10:15.949Z",
+      "description": "La Gueule ouverte matérialisé en carte draft du dimanche depuis la diffusion sauvegardée et une recherche critique ciblée. Le manque d’indépendance du recoupement de chaîne reste explicite ; aucune exigence globale close."
     }
   ],
   "blockers": [
@@ -18546,6 +18551,123 @@
       },
       "evidence_note": "Liens directs exacts ouverts sur les pages de l’œuvre ; aucune URL de résultats de recherche.",
       "status": "verified"
+    },
+    {
+      "work_id": "la-gueule-ouverte-1974",
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "version.duration"
+      ],
+      "source_urls": [
+        "https://www.gaumont.com/fr/film/la-gueule-ouverte",
+        "https://www.canalplus.com/cinema/la-gueule-ouverte/h/438611_50002",
+        "https://www.imdb.com/title/tt0071587/",
+        "https://www.senscritique.com/film/la_gueule_ouverte/494353",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=6746.html",
+        "https://www.cinematheque.fr/film/50625.html"
+      ],
+      "checked_at": "2026-10-08T20:10:15.949Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "version": "CANAL+ 83 min"
+      },
+      "evidence_note": "Identité établie ; divergences 82/83/85/86/90 min conservées selon version et source.",
+      "status": "verified"
+    },
+    {
+      "work_id": "la-gueule-ouverte-1974",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-gueule-ouverte/h/438611_50002",
+        "https://tv-programme.com/cine-plus-festival/dimanche-11-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-dimanche/cine-club"
+      ],
+      "checked_at": "2026-10-08T13:11:01.880837+00:00",
+      "reused_in": [
+        "production-flow-2026-10-08"
+      ],
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-11 01:04 Ciné+ Festival"
+      },
+      "evidence_note": "Heure officielle concordante et chaîne portée par les guides ; indépendance du second fournisseur ou page officielle nommant la chaîne encore requise.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": "la-gueule-ouverte-1974",
+      "fields": [
+        "critical_reception",
+        "critical_reservations",
+        "ratings.senscritique"
+      ],
+      "source_urls": [
+        "https://www.lemonde.fr/archives/article/1974/05/10/la-gueule-ouverte-de-maurice-pialat_2522728_1819218.html",
+        "https://www.sensesofcinema.com/2006/cteq/la-gueule-ouverte/",
+        "https://www.telerama.fr/cinema/films/la-gueule-ouverte,22755.php",
+        "https://www.senscritique.com/film/la_gueule_ouverte/494353",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=6746.html"
+      ],
+      "checked_at": "2026-10-08T20:10:15.949Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La Gueule ouverte"
+      },
+      "evidence_note": "Réception professionnelle attribuée avec réserve sur l’austérité ; SC 7,3 daté, note Télérama masquée non déduite.",
+      "status": "verified"
+    },
+    {
+      "work_id": "la-gueule-ouverte-1974",
+      "fields": [
+        "image",
+        "image_type",
+        "image_provenance",
+        "image_visual_review"
+      ],
+      "source_urls": [
+        "https://www.senscritique.com/film/la_gueule_ouverte/494353",
+        "https://media.senscritique.com/media/000021326652/0/la_gueule_ouverte.jpg"
+      ],
+      "checked_at": "2026-10-08T20:10:15.949Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La Gueule ouverte"
+      },
+      "evidence_note": "Affiche exacte inspectée visuellement ; santé distante CI en attente.",
+      "status": "verified"
+    },
+    {
+      "work_id": "la-gueule-ouverte-1974",
+      "fields": [
+        "links.official",
+        "links.imdb",
+        "links.sc",
+        "links.allocine"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-gueule-ouverte/h/438611_50002",
+        "https://www.imdb.com/title/tt0071587/",
+        "https://www.senscritique.com/film/la_gueule_ouverte/494353",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=6746.html"
+      ],
+      "checked_at": "2026-10-08T20:10:15.949Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La Gueule ouverte"
+      },
+      "evidence_note": "Liens directs exacts, sans page de résultats.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -19148,9 +19270,46 @@
         "count": 35,
         "reference": "remaining"
       },
-      "stop_reason": "coherent_saturday_two_card_batch_saved_with_time_reserved_for_remote_checkpoint_and_lease_release",
+      "stop_reason": "checkpoint_saved_then_next_useful_batch_continued",
       "next_useful_batch": "Terminer un troisième choix du samedi ou une carte d’un jour encore vide à partir des diffusions officielles déjà recoupées, sans reprendre les impasses documentées.",
       "note": "Deux cartes draft ne certifient ni le samedi complet ni la semaine. Les flags de scan, recoupement, rappel et full_week_reaudit_completed restent inchangés."
+    },
+    {
+      "date": "2026-10-08T20:10:15.949Z",
+      "started_at": "2026-10-08T20:05:26.583Z",
+      "ended_at": "2026-10-08T20:10:15.949Z",
+      "owner": "a68f4d35-6d59-41c1-a5d4-041717ff033a",
+      "prompt_revision": "production-flow-2026-10-08",
+      "stage": "enrichment_draft_cards",
+      "elapsed_seconds": 289,
+      "duration_basis": "wall_clock_between_saved_checkpoints",
+      "completed_batches": [
+        "enrichment-la-gueule-ouverte-sunday-draft"
+      ],
+      "new_leads": 0,
+      "previously_researched_incomplete_works_followed_up": 1,
+      "newly_completed_editorial_dossiers": 0,
+      "newly_verified_complete_cards": 0,
+      "draft_cards_created": 1,
+      "dossier_partials_advanced": 1,
+      "deliverables_advanced": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/manifest.json",
+        "data/coverage/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "coverage_requirements_resolved": 0,
+      "images_visually_checked": 1,
+      "remaining": {
+        "stage": "enrichment",
+        "count": 35,
+        "reference": "remaining"
+      },
+      "stop_reason": "coherent_sunday_draft_batch_ready_for_remote_checkpoint; broadcast_channel_independence_explicitly_open",
+      "next_useful_batch": "Compléter un dossier d’un autre jour vide ou obtenir une source indépendante nommant Ciné+ Festival pour La Gueule ouverte.",
+      "note": "Carte draft créée mais non comptée comme complète : provenance indépendante de la chaîne encore ouverte. Les flags de couverture restent inchangés."
     }
   ],
   "source_issues": [
@@ -19843,6 +20002,11 @@
     ],
     "promising_candidates": [
       {
+        "title": "La Gueule ouverte",
+        "status": "carte draft créée ; dossier presque complet",
+        "remaining": "Consolider l’indépendance du recoupement de chaîne, puis compléter les choix et réserves du dimanche et le préflight."
+      },
+      {
         "title": "Exit 8",
         "status": "dossier et carte draft complets pour comparaison",
         "remaining": "Achever le troisième choix du samedi, les réserves, la comparaison hebdomadaire et le préflight."
@@ -20001,8 +20165,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "4658bba6cf9a200845c289ee8faa9caf1612202e",
-    "produced_at": "2026-10-08T20:05:26.583Z",
+    "source_candidate_sha": "0ed8431521b4b394761df7704b12d5b5162d630e",
+    "produced_at": "2026-10-08T20:10:15.949Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -20049,6 +20213,32 @@
             "https://www.telerama.fr/television/thorin-le-dernier-neandertalien-une-enquete-archeologique-pointue_cri-7034867.php",
             "https://www.hominides.com/le-festival-objectif-prehistoire-a-pech-merle-palmares-2024/",
             "https://pariscience.fr/palmares-2024/"
+          ]
+        }
+      },
+      {
+        "work_id": "la-gueule-ouverte-1974",
+        "date": "2026-10-11",
+        "rank_provisional": 1,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-08",
+          "identity_version": "Version CANAL+ 83 min ciblée ; durées 82/85/86/90 conservées comme divergences de fiches ou restauration.",
+          "canonical_fields": "Identité, liens, SC 7,3 et affiche exacte contrôlés.",
+          "current_broadcast": "Heure 01:04 vérifiée ; attribution Ciné+ Festival issue de la grille, indépendance du second guide à consolider.",
+          "editorial_copy": "Textes originaux revus depuis Gaumont et trois critiques attribuées, avec difficulté de visionnage comme réserve.",
+          "evidence_urls": [
+            "https://www.canalplus.com/cinema/la-gueule-ouverte/h/438611_50002",
+            "https://tv-programme.com/cine-plus-festival/dimanche-11-octobre-2026/",
+            "https://television.telerama.fr/programme-tv-dimanche/cine-club",
+            "https://www.gaumont.com/fr/film/la-gueule-ouverte",
+            "https://www.imdb.com/title/tt0071587/",
+            "https://www.senscritique.com/film/la_gueule_ouverte/494353",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=6746.html",
+            "https://www.lemonde.fr/archives/article/1974/05/10/la-gueule-ouverte-de-maurice-pialat_2522728_1819218.html",
+            "https://www.sensesofcinema.com/2006/cteq/la-gueule-ouverte/",
+            "https://www.telerama.fr/cinema/films/la-gueule-ouverte,22755.php",
+            "https://www.cinematheque.fr/film/50625.html"
           ]
         }
       }
