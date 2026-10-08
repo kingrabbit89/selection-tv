@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T13:51:02.732Z",
+  "updated_at": "2026-10-08T14:03:53.608Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -38,7 +38,8 @@
     "Ciné+ documentaires : Shirley MacLaine et Becoming Hitchcock disposent de quatre critiques indépendantes attribuées avec réserves ; Simenon reste sans avis argumenté trouvé dans les recherches. Résoudre années/durées, chaîne/horaire S42, accès français/expirations, notes directes et affiches ; ne pas convertir les compteurs SC ni l'ancien replay Arte en preuves actuelles.",
     "TCM : 98 créneaux comparés aux sept grilles Télérama courantes, aucun écart d'heure ; Nashville Blues/The Thing Called Love rapprochés par la fiche liée. Source officielle ou indépendance des flux encore à obtenir ; Flics et voyous reste un titre d'épisode à confirmer. Documentaires et autres films à enrichir.",
     "TCM : Regrouping, Roger Corman et Burning an Illusion approfondis, critiques attribuées avec réserves. Résoudre versions (Regrouping75/80min, Burning101/105/107min), année Corman2019/2020/2021, offres France/expirations, notes et affiches. Thrillers identifié via fiche liée ; Flics et voyous encore générique. Aucune carte complète ni consensus déduit.",
-    "NOVO19 : annonce directe confirme Vis ma vie de Drag Queen le 14 à 21:10 ; deux fins de soirée ajoutées (épisodes/indépendance à confirmer). Falaises de Bonifacio le 16 à 21:10 concorde entre guides ; version 58/60 min, offre et réception/preuves alternatives, notes et affiche restent ouverts."
+    "NOVO19 : annonce directe confirme Vis ma vie de Drag Queen le 14 à 21:10 ; deux fins de soirée ajoutées (épisodes/indépendance à confirmer). Falaises de Bonifacio le 16 à 21:10 concorde entre guides ; version 58/60 min, offre et réception/preuves alternatives, notes et affiche restent ouverts.",
+    "Ciné+ : L'ours identifié comme Bear (Nash Edgerton 2011), deux avis nuancés lus ; Le cinéma qui respire et Des animaux et des monstres identifiés mais sans critique argumentée trouvée. Versions/créneaux, recoupements indépendants, droits/offres/expirations, notes et affiches à terminer."
   ],
   "completed_batches": [
     {
@@ -342,6 +343,11 @@
       "id": "inventory-novo19-followup-and-canal-conflict-evidence",
       "completed_at": "2026-10-08T13:51:02.732Z",
       "description": "Deux créneaux NOVO19 ajoutés ; annonce primaire Drag Queen, dossier documentaire Bonifacio et suivis ciblés Dahlia/Saint-Ex conservés sans certification abusive."
+    },
+    {
+      "id": "research-cine-bear-and-two-cinema-documentaries",
+      "completed_at": "2026-10-08T14:03:53.608Z",
+      "description": "Cinq diffusions reliées à trois œuvres distinctes ; identité du court Bear, deux avis attribués, deux documentaires et recherches critiques négatives documentés. Aucune carte complète ni sélection prétendue."
     }
   ],
   "blockers": [
@@ -16697,6 +16703,198 @@
       },
       "evidence_note": "Le Dahlia noir : page Programmetvcesoir ouverte 22:58 malgré aperçu de recherche 22:59 ; la fiche CANAL+ ne fournit qu'un BroadcastEvent du 01/10 hors cycle. Aucun arbitrage définitif. Saint-Ex : Cisana et Programmetvcesoir répètent 03:53 six minutes puis 03:59 91 minutes ; indépendance non établie. Doublon/version toujours à résoudre.",
       "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "directors",
+        "year",
+        "country",
+        "type"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-cinema-qui-respire/h/31609179_50002/resume-casting/"
+      ],
+      "checked_at": "2026-10-08T14:03:53.608Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Le cinéma qui respire",
+        "week": "2026-S42",
+        "version": "documentaire identifié"
+      },
+      "evidence_note": "Identité donnée par CANAL+ : Frédéric Murarotto, Guillaume Simon, 2026, France. Durée/version conservée séparément.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "duration",
+        "critical_reception",
+        "ratings",
+        "replay",
+        "expiration",
+        "subscription"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-cinema-qui-respire/h/31609179_50002/resume-casting/",
+        "https://television.telerama.fr/tele/documentaire/le-cinema-qui-respire-1-426984922.php"
+      ],
+      "checked_at": "2026-10-08T14:03:53.608Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Le cinéma qui respire",
+        "week": "2026-S42",
+        "broadcasts": [
+          {
+            "date": "2026-10-10",
+            "channel": "Ciné+ OCS",
+            "start": "05:45",
+            "source_url": "https://tv-programme.com/cine-plus-ocs/samedi-10-octobre-2026/",
+            "slot_duration": "52min"
+          },
+          {
+            "date": "2026-10-10",
+            "channel": "Ciné+ Emotion",
+            "start": "06:08",
+            "source_url": "https://tv-programme.com/cine-plus-emotion/samedi-10-octobre-2026/",
+            "slot_duration": "51min"
+          }
+        ]
+      },
+      "evidence_note": "CANAL+ 50 min / Télérama 52 min. Mention relative plus de 6 mois ; pas de date/accès France certifiés. Recherche critique réelle sans avis argumenté trouvé ; dossier incomplet.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "directors",
+        "year",
+        "country",
+        "type"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/des-animaux-et-des-monstres/h/28449007_50002/resume-casting/"
+      ],
+      "checked_at": "2026-10-08T14:03:53.608Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Des animaux et des monstres",
+        "week": "2026-S42",
+        "version": "documentaire identifié"
+      },
+      "evidence_note": "Identité donnée par CANAL+ : Anne Martinetti, 2022, France. Durée/version conservée séparément.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "duration",
+        "critical_reception",
+        "ratings",
+        "replay",
+        "expiration",
+        "subscription"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/des-animaux-et-des-monstres/h/28449007_50002/resume-casting/",
+        "https://television.telerama.fr/tele/documentaire/des-animaux-et-des-monstres-1-366694389.php"
+      ],
+      "checked_at": "2026-10-08T14:03:53.608Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Des animaux et des monstres",
+        "week": "2026-S42",
+        "broadcasts": [
+          {
+            "date": "2026-10-11",
+            "channel": "Ciné+ Frisson",
+            "start": "04:59",
+            "source_url": "https://tv-programme.com/cine-plus-frisson/dimanche-11-octobre-2026/",
+            "slot_duration": "1h11min"
+          },
+          {
+            "date": "2026-10-16",
+            "channel": "Ciné+ Frisson",
+            "start": "12:35",
+            "source_url": "https://tv-programme.com/cine-plus-frisson/vendredi-16-octobre-2026/",
+            "slot_duration": "55min"
+          }
+        ]
+      },
+      "evidence_note": "CANAL+ 53 min / Télérama 53 min. Mention relative plus de 6 mois ; pas de date/accès France certifiés. Recherche critique réelle sans avis argumenté trouvé ; dossier incomplet.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "original_title",
+        "director",
+        "year",
+        "country",
+        "type",
+        "festival_selection"
+      ],
+      "source_urls": [
+        "https://bluetonguefilms.com/bear",
+        "https://www.festival-cannes.com/f/bear/",
+        "https://programmetv.ouest-france.fr/film/court-metrage/l-ours-c33235472/"
+      ],
+      "checked_at": "2026-10-08T14:03:53.608Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "L'ours",
+        "original_title": "Bear",
+        "version": "Nash Edgerton 2011"
+      },
+      "evidence_note": "Court métrage australien Nash Edgerton 2011 ; Cannes compétition courts, 11 min selon festival. Fiche de diffusion nomme réalisateur/cast correspondants. Pas Annaud 1988 ; créneau 31 min non repris comme durée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception",
+        "critic_rating"
+      ],
+      "source_urls": [
+        "https://www.shortoftheweek.com/0000/00/00/bear",
+        "https://australianfilmreview.wordpress.com/2011/06/11/sff-2011-bear/"
+      ],
+      "checked_at": "2026-10-08T14:03:53.608Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Bear",
+        "version": "Nash Edgerton 2011"
+      },
+      "evidence_note": "Deux avis lus, qualités de mise en scène/cascade et réserve sur prévisibilité. 8/10 individuel Folkard, aucun consensus ou moyenne déduits.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "schedule",
+        "linear_version",
+        "ratings",
+        "replay"
+      ],
+      "source_urls": [
+        "https://programmetv.ouest-france.fr/film/court-metrage/l-ours-c33235472/",
+        "https://www.senscritique.com/film/bear/468168",
+        "https://www.imdb.com/title/tt1904845/"
+      ],
+      "checked_at": "2026-10-08T14:03:53.608Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "L'ours",
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "start": "05:41",
+        "channel": "Ciné+ Frisson"
+      },
+      "evidence_note": "Deux guides concordent, indépendance non établie. Durée film 11 min/créneau31. IMDb403, agrégat SC non certifié, offre France/affiche à vérifier.",
+      "status": "needs_check"
     }
   ],
   "run_metrics": [
@@ -17083,6 +17281,28 @@
       "documentary_episodes_examined": 2,
       "novo19_added_slots": 2,
       "novo19_primary_confirmed_slots": 1
+    },
+    {
+      "date": "2026-10-08T14:03:53.608Z",
+      "started_at": "2026-10-08T13:55:31.739Z",
+      "owner": "7cbc1ef6-73e4-4f3e-8efa-f6a4a01f75d1",
+      "stage": "inventory_identity_and_documentary_research",
+      "elapsed_seconds": 502,
+      "duration_basis": "wall_clock_until_checkpoint",
+      "completed_batches": [
+        "research-cine-bear-and-two-cinema-documentaries"
+      ],
+      "reused_complete_cards": 0,
+      "newly_verified_complete_cards": 0,
+      "newly_researched_incomplete_works": 3,
+      "identified_broadcast_occurrences": 5,
+      "raw_schedule_entries": 2230,
+      "blockers": [],
+      "remaining": {
+        "stage": "inventory",
+        "count": 35,
+        "reference": "remaining"
+      }
     }
   ],
   "source_issues": [
@@ -17284,6 +17504,12 @@
       "checked_at": "2026-10-08T13:51:02.732Z",
       "status": "unavailable",
       "note": "403 ; aucune disponibilité ou expiration déduite."
+    },
+    {
+      "source_url": "https://www.canalplus.com/programme-tv/",
+      "checked_at": "2026-10-08T14:03:53.608Z",
+      "status": "partial",
+      "note": "HTML public consulté et données affichées examinées : initialisation au jour courant (day/0) pour sept chaînes, pas de preuve des grilles S42 Ciné+. Aucun contournement du refus API antérieur ; ne pas répéter cette lecture sans nouvelle piste."
     }
   ],
   "editorial_review": {
@@ -17468,6 +17694,17 @@
       "logs_read": true,
       "cause": "Unique échec Require a complete candidate before merging, préparation S42 incomplète. Contrôles navigateur/Jellyfin/public couvrent S41 ; attestation base skipped non comptée comme réussite.",
       "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-08T14:03:53.608Z",
+      "head_sha": "9ecc5944572c41e25f1626ff5cb69868e80db8c5",
+      "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "run_id": 37787764665,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": true,
+      "cause": "Seul échec Require a complete candidate before merging, préparation S42 incomplète. Contrôles publics/browser couvrent S41 ; attestation base skipped non comptée comme réussite.",
+      "reusable_only_for_exact_sha": true
     }
   ],
   "catalogue_reuse": {
@@ -17562,10 +17799,11 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "4ba3aec3c6f40fb096e10b4801872f31ba0a4b9b",
+    "checkpoint_parent_sha": "9ecc5944572c41e25f1626ff5cb69868e80db8c5",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
+      "Réutiliser les trois dossiers Ciné+ de ce passage (Bear, Le cinéma qui respire, Des animaux et des monstres) ; cinq occurrences identifiées. Recherches et réserves dans coverage/verification_records, ne pas répéter les mêmes pages.",
       "Réutiliser les quatre lots de ce passage : six arbitrages France Télévisions ; 98 créneaux TCM comparés ; Regrouping/Corman/Burning approfondis ; NOVO19 +2 créneaux et annonce directe. Détails et limites conservés dans coverage/verification_records ; ne pas répéter les mêmes pages sans changement.",
       "France Télévisions : six arbitrages effectués, ne pas rouvrir les mêmes divergences sans changement de source. Dodin 02:55 et quatre créneaux La p'tite librairie officiels ; F3 15/10 12:15 exclu. Livres des capsules encore à confirmer, contrôle préflight si retenus.",
       "Réutiliser les trois dossiers documentaires Ciné+ de ce passage ; quatre critiques conservées avec réserves. Simenon : approfondir réception/preuves alternatives. Années/versions, droits, notes directes et affiches restent ouverts.",
@@ -17577,34 +17815,33 @@
       "Finir inventaire certifié puis sélection/enrichissement/réserves/cartes et revue factuelle ; consulter CI du SHA courant, ne pas sceller avant remaining vide."
     ],
     "publisher": {
-      "checked_at": "2026-10-08T13:51:02.732Z",
-      "id": 37785316083,
+      "checked_at": "2026-10-08T14:03:53.608Z",
+      "id": 37788010464,
       "status": "completed",
       "conclusion": "skipped",
       "head_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "created_at": "2026-10-08T13:33:45Z",
-      "note": "Dernier passage consulté terminé skipped, pas de progression active ni de déclenchement agent."
+      "note": "Dernier publicateur consulté terminé skipped, aucune progression active."
     },
     "last_ci_observation": {
-      "checked_at": "2026-10-08T13:51:02.732Z",
-      "head_sha": "4ba3aec3c6f40fb096e10b4801872f31ba0a4b9b",
+      "checked_at": "2026-10-08T14:03:53.608Z",
+      "head_sha": "9ecc5944572c41e25f1626ff5cb69868e80db8c5",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37786444260,
+      "run_id": 37787764665,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Unique échec Require a complete candidate before merging, préparation S42 incomplète. Contrôles navigateur/Jellyfin/public couvrent S41 ; attestation base skipped non comptée comme réussite.",
+      "cause": "Seul échec Require a complete candidate before merging, préparation S42 incomplète. Contrôles publics/browser couvrent S41 ; attestation base skipped non comptée comme réussite.",
       "reusable_only_for_exact_sha": true
     },
     "latest_candidate_ci": {
-      "checked_at": "2026-10-08T13:51:02.732Z",
-      "head_sha": "4ba3aec3c6f40fb096e10b4801872f31ba0a4b9b",
+      "checked_at": "2026-10-08T14:03:53.608Z",
+      "head_sha": "9ecc5944572c41e25f1626ff5cb69868e80db8c5",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37786444260,
+      "run_id": 37787764665,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Unique échec Require a complete candidate before merging, préparation S42 incomplète. Contrôles navigateur/Jellyfin/public couvrent S41 ; attestation base skipped non comptée comme réussite.",
+      "cause": "Seul échec Require a complete candidate before merging, préparation S42 incomplète. Contrôles publics/browser couvrent S41 ; attestation base skipped non comptée comme réussite.",
       "reusable_only_for_exact_sha": true
     }
   },
