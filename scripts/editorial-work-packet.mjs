@@ -5,6 +5,7 @@ import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
 import {dailyReserveCandidates} from './editorial-contracts.mjs';
 import {htmlText as cleanHtmlTitle} from './html-text.mjs';
+import {shortlistSummary} from './editorial-progress.mjs';
 
 export const normalizedTitle = value => String(value || '').normalize('NFD')
   .replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/œ/g, 'oe').replace(/æ/g, 'ae')
@@ -154,6 +155,7 @@ export function buildWorkPacket({week, sha, research, inventory, coverage, works
       unstructured_applicability_records: unstructuredRecords,
       unstructured_applicability_note: 'Text matches are research leads with unstructured scope. Inspect applicability before using any claim.',
       research_attempts: attempts.filter(attempt => titled(attempt.object?.title) || ids.has(attempt.object?.work_id)),
+      shortlist_entries: array(research?.shortlist?.entries).filter(entry => titled(entry.title) || ids.has(entry.work_id)),
       no_automatic_reuse: true
     };
     packet.work.found = Object.values(packet.work).some(value => Array.isArray(value) && value.length > 0);
@@ -162,6 +164,15 @@ export function buildWorkPacket({week, sha, research, inventory, coverage, works
   } else {
     packet.priority_review = research?.priority_review || null;
     packet.saved_promising_candidates = array(research?.remaining_groups?.promising_candidates);
+    // Revisable shortlist: orients research; counts are not certifications.
+    packet.shortlist = shortlistSummary(research || {});
+    packet.shortlist_open = array(research?.shortlist?.entries)
+      .filter(entry => !['card_complete', 'rejected'].includes(entry.status))
+      .map(entry => ({id: entry.id, title: entry.title, scope: entry.scope, status: entry.status, work_id: entry.work_id || null}));
+    packet.remaining_items_by_scope = array(research?.remaining_items).reduce((acc, item) => {
+      const key = item.scope?.kind + (item.scope?.value ? ':' + item.scope.value : '');
+      acc[key] = (acc[key] || 0) + 1; return acc;
+    }, {});
     packet.coverage = {full_week_reaudit_completed: coverage?.full_week_reaudit_completed === true,
       days: array(inventory?.days).map(day => ({date: day.date, entries: array(day.items).length,
         coverage_flags: array(coverage?.days).filter(row => row.date === day.date).map(row => ({

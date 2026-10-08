@@ -5,6 +5,7 @@ import {pathToFileURL} from 'node:url';
 import {allowedPaths, digest, planImport} from './editorial-handoff.mjs';
 import {reviewedCandidate} from './weekly-publisher.mjs';
 import {calendarTarget, addDays} from './week-calendar.mjs';
+import {checkProgressStructures} from './editorial-progress.mjs';
 
 // Preparation is observable, but can never satisfy the publication gate.
 export function validationContext(branch, read, baseRead, paths, today) {
@@ -22,6 +23,7 @@ export function validationContext(branch, read, baseRead, paths, today) {
   assert(['inventory', 'enrichment', 'ready'].includes(progress.stage), 'invalid research stage');
   assert(Array.isArray(progress.remaining), 'remaining must be an array');
   assert(progress.remaining.every(x => typeof x === 'string' && x.trim()), 'invalid remaining item');
+  checkProgressStructures(progress);
   if (progress.stage === 'ready') {
     reviewedCandidate(week, progress, read, paths);
     return {mode: 'candidate', week};
