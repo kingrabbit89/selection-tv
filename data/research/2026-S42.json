@@ -3,11 +3,11 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T09:20:27.701Z",
+  "updated_at": "2026-10-08T09:23:39.837Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
-    "Réconcilier les horaires et doublons ambigus : Arte 07:50/07:55 aliments transformés ; Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min).",
+    "Réconcilier les horaires et doublons ambigus : Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min).",
     "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
     "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV.",
     "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue.",
@@ -183,6 +183,11 @@
       "id": "inventory-canal-monthly-three-channels",
       "completed_at": "2026-10-08T09:20:27.701Z",
       "description": "Tableau officiel cinéma : 42 heures concordantes, 149 divergences documentées, rappel des omissions/alias à résoudre."
+    },
+    {
+      "id": "inventory-arte-five-official-grids-recovered",
+      "completed_at": "2026-10-08T09:23:39.837Z",
+      "description": "88 diffusions recoupées, 10 omissions ajoutées ; conflit aliments transformés résolu sur deux pages Arte actuelles."
     }
   ],
   "blockers": [
@@ -11312,6 +11317,51 @@
       },
       "evidence_note": "149 horaires différents des guides conservés dans inventory.items.schedule_conflicts. Ne pas déclarer l'heure vérifiée à partir de cette comparaison ; contrôle des programmes retenus requis.",
       "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "programme_title",
+        "programme_url"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/guide/20261013/",
+        "https://www.arte.tv/fr/guide/20261010/",
+        "https://www.arte.tv/fr/guide/20261015/",
+        "https://www.arte.tv/fr/guide/20261012/",
+        "https://www.arte.tv/fr/guide/20261016/"
+      ],
+      "checked_at": "2026-10-08T09:23:39.837Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "Arte"
+      },
+      "evidence_note": "Grilles du 10,12,13,15,16 octobre récupérées directement, dates affichées contrôlées ; 88 diffusions existantes concordantes dont 88 sans preuve Arte préalable attachée. Nuits converties au jour civil suivant. 10 omissions pertinentes ajoutées sans certifier seconde source.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_start",
+        "offer_expiration"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/guide/20261010/",
+        "https://www.arte.tv/fr/videos/127467-013-A/les-aliments-transformes-rendent-ils-malades/"
+      ],
+      "checked_at": "2026-10-08T09:23:39.837Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "title": "Les aliments transformés rendent-ils malades ?"
+      },
+      "evidence_note": "Grille et fiche relues directement : diffusion 07:50, mention Disponible jusqu'au 08/10/2029. Ancien conflit 07:55 clos avec historique conservé. La mention du catalogue ne constitue pas un test de lecture ni un contrôle de géoblocage.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
