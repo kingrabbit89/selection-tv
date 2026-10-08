@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T07:04:38.298Z",
+  "updated_at": "2026-10-08T08:09:14.136Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -16,7 +16,8 @@
     "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
     "TF1 Séries Films et CSTAR : 7 jours relevés, recoupements indépendants encore à compléter ; épisodes Douanes sous haute surveillance à identifier avant tout examen approfondi.",
     "Rappel TNT : traiter les programmes non rapprochés consignés dans editorial_reminder_passes ; ne pas déduire l'identité d'une simple proximité de titre (soirée Marine notamment). Compléter rappel cinéma payant et recoupements manquants.",
-    "Rappel TNT : Fréquenstar annoncé dimanche 11:20 mais grille M6 Turbo 11:00/11:25 ; sujets Envoyé spécial et Au cœur de l'enquête à obtenir. Intraçables et Meurtres à Cayenne : types épisode/téléfilm à réconcilier."
+    "Rappel TNT : Fréquenstar annoncé dimanche 11:20 mais grille M6 Turbo 11:00/11:25 ; sujets Envoyé spécial et Au cœur de l'enquête à obtenir. Intraçables et Meurtres à Cayenne : types épisode/téléfilm à réconcilier.",
+    "France 2/3 : compléter grilles officielles du 10 (France 2) et du 15 (France 2/3), renvoyées périmées/vides ; départager Dodin Bouffant 02:55/03:05 le 12. Les collections génériques ne certifient pas leurs épisodes."
   ],
   "completed_batches": [
     {
@@ -125,6 +126,11 @@
       "id": "inventory-reminder-format-check",
       "completed_at": "2026-10-08T07:04:38.298Z",
       "description": "Trois épisodes nommés récupérés sans les assimiler à des longs métrages ; conflits Fréquenstar/Marine et sujets manquants explicités."
+    },
+    {
+      "id": "inventory-france2-france3-official-complement",
+      "completed_at": "2026-10-08T08:09:14.136Z",
+      "description": "36 rapprochements de programmes officiels, 6 courts/documents et magazines ajoutés ; captation La Couleur de la grenade distinguée du film, conflit Dodin conservé."
     }
   ],
   "blockers": [
@@ -8062,6 +8068,1744 @@
           "batch": "inventory-reminder-format-check"
         }
       ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "listed_program_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-2/03-10-2026/09-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:07:20.320Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 2",
+        "grid_date": "2026-10-09"
+      },
+      "evidence_note": "Grille officielle lue intégralement, dates de chaque ligne distinguant la nuit du lendemain. Recoupement de programme/collection seulement ; ni identité canonique, durée de version ni qualité artistique certifiées.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-10",
+          "start": "00:30",
+          "title": "Capitaine marleau"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "02:10",
+          "title": "Météo outremer"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "02:15",
+          "title": "Ça commence aujourd'hui"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "03:10",
+          "title": "Affaire conclue"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "03:55",
+          "title": "Voyage au bout du monde"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "04:45",
+          "title": "La civilisation des arbres"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "listed_program_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-2/10-10-2026/11-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:07:20.114Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 2",
+        "grid_date": "2026-10-11"
+      },
+      "evidence_note": "Grille officielle lue intégralement, dates de chaque ligne distinguant la nuit du lendemain. Recoupement de programme/collection seulement ; ni identité canonique, durée de version ni qualité artistique certifiées.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-11",
+          "start": "05:05",
+          "title": "Tout le monde veut prendre sa place"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "06:00",
+          "title": "Le 6h info"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "06:30",
+          "title": "Télématin"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "08:30",
+          "title": "Sagessess bouddhistes"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "08:45",
+          "title": "Islam"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "09:15",
+          "title": "A l'origine"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "09:30",
+          "title": "Orthodoxie"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "10:00",
+          "title": "Présence protestante"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "10:30",
+          "title": "Jour du Seigneur"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "11:00",
+          "title": "Messe"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "12:00",
+          "title": "Tout le monde veut prendre sa place"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "12:00",
+          "title": "Jour du Seigneur"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "12:55",
+          "title": "Météo climat 13h"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "13:00",
+          "title": "Journal 13h"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "13:20",
+          "title": "Franc-jeu"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "14:05",
+          "title": "13h15 le dimanche"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "15:00",
+          "title": "13h15 le dimanche"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "15:50",
+          "title": "C’est bon à savoir"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "16:00",
+          "title": "Un dimanche à la campagne"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "16:55",
+          "title": "Un dimanche à la campagne, la suite"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "18:00",
+          "title": "Les enfants de la télé"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "19:05",
+          "title": "Les enfants de la télé, la suite"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "19:55",
+          "title": "Météo climat 20h"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "20:00",
+          "title": "Journal 20h"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "20:30",
+          "title": "20 h 30 le dimanche"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "21:00",
+          "title": "Météo climat 20h30"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "21:05",
+          "title": "Reflexes"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "21:10",
+          "title": "Désigné Coupable"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "23:20",
+          "title": "Vermines"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "01:00",
+          "title": "Le Pitch Cinéma"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "01:05",
+          "title": "Boucan"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "01:30",
+          "title": "Mémé"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "01:45",
+          "title": "Météo"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "01:50",
+          "title": "Basique, le concert"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "02:55",
+          "title": "La Passion de Dodin Bouffant"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "listed_program_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-2/10-10-2026/12-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:07:19.990Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 2",
+        "grid_date": "2026-10-12"
+      },
+      "evidence_note": "Grille officielle lue intégralement, dates de chaque ligne distinguant la nuit du lendemain. Recoupement de programme/collection seulement ; ni identité canonique, durée de version ni qualité artistique certifiées.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-12",
+          "start": "05:05",
+          "title": "Tout le monde veut prendre sa place"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "06:00",
+          "title": "Le 6h info"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "06:30",
+          "title": "Télématin"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "09:15",
+          "title": "Télématin la suite"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "10:40",
+          "title": "Météo outremer"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "10:50",
+          "title": "Chacun son tour"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "11:25",
+          "title": "Chacun son tour"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "11:55",
+          "title": "Tout le monde veut prendre sa place"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "12:45",
+          "title": "La minute des maternelles"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "12:55",
+          "title": "Météo climat 13h"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "13:00",
+          "title": "Journal 13h"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "13:40",
+          "title": "Météo climat 14h"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "13:45",
+          "title": "La p'tite librairie"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "13:55",
+          "title": "Ça commence aujourd'hui"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "15:05",
+          "title": "Le mag de la santé"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "16:10",
+          "title": "Affaire conclue, la vie des objets"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "16:20",
+          "title": "Affaire conclue"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "17:15",
+          "title": "Affaire conclue"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "18:05",
+          "title": "Tout le monde a son mot à dire"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "18:40",
+          "title": "N'oubliez pas les paroles"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "19:15",
+          "title": "N'oubliez pas les paroles"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "19:55",
+          "title": "Météo climat 20h"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "20:00",
+          "title": "Journal 20h"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "21:00",
+          "title": "Météo climat 20h30"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "21:05",
+          "title": "Basique quotidienne"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "21:10",
+          "title": "Un soupçon"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "21:55",
+          "title": "Un soupçon"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "22:50",
+          "title": "Un soupçon"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "23:40",
+          "title": "Un soupçon"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "00:30",
+          "title": "Expression directe"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "00:35",
+          "title": "Candice Renoir"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "02:05",
+          "title": "Météo outremer"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "02:10",
+          "title": "Ça commence aujourd'hui"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "03:10",
+          "title": "Affaire conclue"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "04:00",
+          "title": "Chuuk : au coeu des vestiges de l'histoire"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "04:40",
+          "title": "Courant d'art"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "04:50",
+          "title": "Pays et marchés du monde"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "listed_program_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-2/10-10-2026/16-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:07:19.999Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 2",
+        "grid_date": "2026-10-16"
+      },
+      "evidence_note": "Grille officielle lue intégralement, dates de chaque ligne distinguant la nuit du lendemain. Recoupement de programme/collection seulement ; ni identité canonique, durée de version ni qualité artistique certifiées.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-16",
+          "start": "05:05",
+          "title": "Tout le monde veut prendre sa place"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "06:00",
+          "title": "Le 6h info"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "06:30",
+          "title": "Télématin"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "09:30",
+          "title": "La maison des maternelles"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "10:40",
+          "title": "Météo outremer"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "10:50",
+          "title": "Chacun son tour"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "11:25",
+          "title": "Chacun son tour"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "11:55",
+          "title": "Tout le monde veut prendre sa place"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "12:55",
+          "title": "Météo climat 13h"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "13:00",
+          "title": "Journal 13h"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "13:40",
+          "title": "Météo climat 14h"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "13:45",
+          "title": "La p'tite librairie"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "13:55",
+          "title": "Ça commence aujourd'hui"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "15:05",
+          "title": "Le mag de la santé"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "16:10",
+          "title": "Affaire conclue, la vie des objets"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "16:20",
+          "title": "Affaire conclue"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "17:15",
+          "title": "Affaire conclue"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "18:05",
+          "title": "Tout le monde a son mot à dire"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "18:40",
+          "title": "N'oubliez pas les paroles"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "19:15",
+          "title": "N'oubliez pas les paroles"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "19:55",
+          "title": "Météo climat 20h"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "20:00",
+          "title": "Journal 20h"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "20:50",
+          "title": "20h30 le vendredi"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "21:00",
+          "title": "Météo climat 20h30"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "21:05",
+          "title": "Basique quotidienne"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "21:10",
+          "title": "Simon Coleman"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "21:55",
+          "title": "Simon Coleman"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "22:55",
+          "title": "Simon Coleman"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "23:45",
+          "title": "Simon Coleman"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "listed_program_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-3/03-10-2026/09-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:07:19.677Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 3",
+        "grid_date": "2026-10-09"
+      },
+      "evidence_note": "Grille officielle lue intégralement, dates de chaque ligne distinguant la nuit du lendemain. Recoupement de programme/collection seulement ; ni identité canonique, durée de version ni qualité artistique certifiées.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-10",
+          "start": "00:30",
+          "title": "Appassionata"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "01:25",
+          "title": "Météo climat"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "01:35",
+          "title": "Belgomania, toute la Belgique qu'on aime !"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "03:20",
+          "title": "La p'tite librairie"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "03:25",
+          "title": "Chef Pays"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "03:50",
+          "title": "Outremer.story"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "04:20",
+          "title": "ENQUÊTES DE REGION, LE MAG"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "04:35",
+          "title": "Les Matinales"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "04:40",
+          "title": "Slam"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "05:20",
+          "title": "Slam"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "listed_program_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-3/10-10-2026/10-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:06:22.775Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 3",
+        "grid_date": "2026-10-10"
+      },
+      "evidence_note": "Grille officielle lue intégralement, dates de chaque ligne distinguant la nuit du lendemain. Recoupement de programme/collection seulement ; ni identité canonique, durée de version ni qualité artistique certifiées.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-10",
+          "start": "06:00",
+          "title": "Okoo"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "06:00",
+          "title": "Le refuge d'Audrey"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "06:55",
+          "title": "Moi à ton âge"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "08:00",
+          "title": "Anatole Latuile - Saison 2"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "08:00",
+          "title": "Okoo samedi"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "08:45",
+          "title": "Teen Titans Go ! S9"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "09:30",
+          "title": "Les Dalton"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "10:20",
+          "title": "Il était une fois ces drôles d'objets"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "10:40",
+          "title": "Chef Pays"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "11:15",
+          "title": "Le goût des rencontres en Nouvelle-Aquitaine"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "11:45",
+          "title": "Météo"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "11:50",
+          "title": "Outremer.l'info"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "12:00",
+          "title": "Enquêtes de région, le mag"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "12:15",
+          "title": "Ici 12/13"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "12:55",
+          "title": "Évasion à la carte"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "13:30",
+          "title": "Samedi d'en rire"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "14:35",
+          "title": "Samedi d'en rire"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "15:30",
+          "title": "Samedi d'en rire"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "16:30",
+          "title": "Samedi d'en rire"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "17:20",
+          "title": "Expression directe"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "17:25",
+          "title": "Le jeu des 1000 euros"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "18:05",
+          "title": "Questions pour un champion"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "18:50",
+          "title": "Réflexe !"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "19:00",
+          "title": "Ici 19/20"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "19:45",
+          "title": "Météo Climat"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "19:55",
+          "title": "Stade 2 la quotidienne"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "20:20",
+          "title": "Rencontres à XV"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "20:25",
+          "title": "C’est bon à savoir"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "20:30",
+          "title": "Météo régionale"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "20:35",
+          "title": "Saveurs de saison"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "20:40",
+          "title": "Mon côté sud"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "21:10",
+          "title": "Cassandre"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "22:45",
+          "title": "Cassandre"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "00:20",
+          "title": "Cinéma de minuit"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "01:55",
+          "title": "Météo climat"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "02:00",
+          "title": "Le Grand Bêtisier - 50 ans de rire"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "03:55",
+          "title": "Samedi d'en rire"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "04:45",
+          "title": "La p'tite librairie"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "04:50",
+          "title": "ENQUÊTES DE REGION, LE MAG"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "05:10",
+          "title": "Les Matinales"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "05:15",
+          "title": "Questions pour un champion"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "listed_program_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-3/10-10-2026/11-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:06:57.337Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 3",
+        "grid_date": "2026-10-11"
+      },
+      "evidence_note": "Grille officielle lue intégralement, dates de chaque ligne distinguant la nuit du lendemain. Recoupement de programme/collection seulement ; ni identité canonique, durée de version ni qualité artistique certifiées.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-11",
+          "start": "06:00",
+          "title": "Okoo"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "06:00",
+          "title": "Le refuge d'Audrey"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "06:55",
+          "title": "Moi à ton âge"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "08:00",
+          "title": "Anatole Latuile - Saison 2"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "08:00",
+          "title": "Okoo dimanche"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "08:55",
+          "title": "Les Dalton"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "09:30",
+          "title": "Mr. Magoo"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "10:05",
+          "title": "Outremer.story"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "10:35",
+          "title": "Parlement hebdo"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "11:00",
+          "title": "Expression directe"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "11:10",
+          "title": "Météo"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "11:15",
+          "title": "Outremer.l'info"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "11:25",
+          "title": "Dimanche en politique dans votre région"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "12:00",
+          "title": "Nous, les Européens"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "12:30",
+          "title": "Ici 12/13"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "12:55",
+          "title": "Ici dans votre région"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "13:35",
+          "title": "Vivement dimanche"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "15:00",
+          "title": "Cyclisme : Paris-Tours 2026"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "17:20",
+          "title": "La p'tite librairie"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "17:25",
+          "title": "Le jeu des 1000 euros"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "18:05",
+          "title": "Questions pour un champion"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "18:50",
+          "title": "Réflexe !"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "18:55",
+          "title": "Le journal des talents"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "19:00",
+          "title": "Ici 19/20"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "19:45",
+          "title": "Météo climat"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "19:55",
+          "title": "C’est bon à savoir"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "20:00",
+          "title": "Météo régionale"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "20:05",
+          "title": "Stade 2"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "21:10",
+          "title": "Brokenwood"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "22:40",
+          "title": "Brokenwood"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "00:15",
+          "title": "Brokenwood"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "01:45",
+          "title": "Le monument préféré des Français 2026"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "03:50",
+          "title": "Météo climat"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "03:55",
+          "title": "LES POTAGERS DE JULIE"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "04:50",
+          "title": "ENQUÊTES DE REGION, LE MAG"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "05:10",
+          "title": "Les Matinales"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "05:15",
+          "title": "Questions pour un champion"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "listed_program_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-3/03-10-2026/13-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:07:20.496Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 3",
+        "grid_date": "2026-10-13"
+      },
+      "evidence_note": "Grille officielle lue intégralement, dates de chaque ligne distinguant la nuit du lendemain. Recoupement de programme/collection seulement ; ni identité canonique, durée de version ni qualité artistique certifiées.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-13",
+          "start": "06:00",
+          "title": "Alors on bouge"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "06:30",
+          "title": "Ici matin"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "09:05",
+          "title": "Ici dans votre région"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "10:25",
+          "title": "La p'tite librairie"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "10:30",
+          "title": "Escales en France"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "11:00",
+          "title": "C'est succulent !"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "11:30",
+          "title": "C'est succulent !"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "12:00",
+          "title": "Météo"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "12:05",
+          "title": "Outremer.l'info"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "12:15",
+          "title": "Ici 12/13"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "12:55",
+          "title": "Météo à la carte"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "13:55",
+          "title": "Météo à la carte (la suite)"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "14:40",
+          "title": "Rex"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "15:35",
+          "title": "Rex"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "16:30",
+          "title": "Rex"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "17:25",
+          "title": "Slam"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "18:00",
+          "title": "Slam"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "18:50",
+          "title": "Météo climat"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "19:00",
+          "title": "Ici 19/20"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "20:00",
+          "title": "Stade 2 la quotidienne"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "20:10",
+          "title": "Stade 2 Ligue 1"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "20:20",
+          "title": "Météo régionale"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "20:25",
+          "title": "Un si grand soleil"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "20:45",
+          "title": "Un si grand soleil"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "21:10",
+          "title": "Monsieur"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "22:40",
+          "title": "Un père idéal"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "00:10",
+          "title": "Le pitch cinéma"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "00:15",
+          "title": "Jacaré"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "00:15",
+          "title": "Libre court"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "00:35",
+          "title": "Bebé"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "00:50",
+          "title": "Nada de todo esto"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "01:05",
+          "title": "Takanakuy"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "01:25",
+          "title": "Météo climat"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "01:30",
+          "title": "Belgomania, toute la Belgique qu'on aime !"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "03:20",
+          "title": "LES POTAGERS DE JULIE"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "04:10",
+          "title": "La p'tite librairie"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "04:15",
+          "title": "Rendez-vous avec les français"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "04:35",
+          "title": "Les Matinales"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "04:40",
+          "title": "Slam"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "05:20",
+          "title": "Slam"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "listed_program_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-3/10-10-2026/14-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:06:57.042Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 3",
+        "grid_date": "2026-10-14"
+      },
+      "evidence_note": "Grille officielle lue intégralement, dates de chaque ligne distinguant la nuit du lendemain. Recoupement de programme/collection seulement ; ni identité canonique, durée de version ni qualité artistique certifiées.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-14",
+          "start": "06:00",
+          "title": "Alors on bouge"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "06:30",
+          "title": "Ici matin"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "09:05",
+          "title": "Ici dans votre région"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "10:25",
+          "title": "La p'tite librairie"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "10:30",
+          "title": "Escales en France"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "11:00",
+          "title": "C'est succulent !"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "11:30",
+          "title": "C'est succulent !"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "12:00",
+          "title": "Météo"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "12:05",
+          "title": "Outremer.l'info"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "12:15",
+          "title": "Ici 12/13"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "12:55",
+          "title": "Météo à la carte"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "13:55",
+          "title": "Météo à la carte (la suite)"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "14:30",
+          "title": "Rex"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "15:30",
+          "title": "Rex"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "16:30",
+          "title": "Rex"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "17:25",
+          "title": "Slam"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "18:00",
+          "title": "Slam"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "18:50",
+          "title": "Météo climat"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "19:00",
+          "title": "Ici 19/20"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "20:00",
+          "title": "Stade 2 la quotidienne"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "20:10",
+          "title": "Stade 2 Ligue 1"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "20:20",
+          "title": "Météo régionale"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "20:25",
+          "title": "Un si grand soleil"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "20:45",
+          "title": "Un si grand soleil"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "21:10",
+          "title": "Des Racines & des ailes"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "23:20",
+          "title": "Les Héros du Patrimoine"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "00:10",
+          "title": "Météo climat"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "00:15",
+          "title": "Secrets d'histoire"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "02:15",
+          "title": "Mireille Darc et ses tontons flingueurs"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "03:55",
+          "title": "La p'tite librairie"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "04:00",
+          "title": "Évasion à la carte"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "04:25",
+          "title": "Les Matinales"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "04:40",
+          "title": "Slam"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "05:20",
+          "title": "Slam"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "listed_program_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-3/10-10-2026/16-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:06:56.100Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 3",
+        "grid_date": "2026-10-16"
+      },
+      "evidence_note": "Grille officielle lue intégralement, dates de chaque ligne distinguant la nuit du lendemain. Recoupement de programme/collection seulement ; ni identité canonique, durée de version ni qualité artistique certifiées.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-16",
+          "start": "06:00",
+          "title": "Alors on bouge"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "06:30",
+          "title": "Ici matin"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "09:05",
+          "title": "Ici dans votre région"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "10:25",
+          "title": "La p'tite librairie"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "10:30",
+          "title": "Escales en France"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "11:00",
+          "title": "C'est succulent !"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "11:30",
+          "title": "C'est succulent !"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "12:00",
+          "title": "Météo"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "12:05",
+          "title": "Outremer.l'info"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "12:15",
+          "title": "Ici 12/13"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "12:55",
+          "title": "Météo à la carte"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "13:55",
+          "title": "Météo à la carte (la suite)"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "14:35",
+          "title": "Rex"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "15:35",
+          "title": "Rex"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "16:30",
+          "title": "Rex"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "17:25",
+          "title": "Slam"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "18:00",
+          "title": "Slam"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "18:50",
+          "title": "Météo climat"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "19:00",
+          "title": "Ici 19/20"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "20:00",
+          "title": "Stade 2 la quotidienne"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "20:10",
+          "title": "Stade 2 Ligue 1"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "20:20",
+          "title": "Météo régionale"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "20:25",
+          "title": "Un si grand soleil"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "20:45",
+          "title": "Un si grand soleil"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "21:10",
+          "title": "La Boîte à secrets"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "23:20",
+          "title": "La Boîte à secrets"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "programme_format",
+        "director_capture",
+        "recording_year",
+        "broadcast.start"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-3/03-10-2026/09-10-2026",
+        "https://tv-programme.com/france-3/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T08:09:14.136Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "France 3",
+        "title": "La Couleur de la grenade — captation"
+      },
+      "evidence_note": "Appassionata, 10 octobre 00:30 : captation chorégraphique de Mourad Merzouki/Käfig réalisée par Mohamed Athamna, enregistrée en 2025 et inspirée de Sayat-Nova. Ne pas identifier comme le long métrage de Paradjanov. Grille officielle 59 min contre créneau tiers 55 min : version à vérifier.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-2/10-10-2026/11-10-2026",
+        "https://tv-programme.com/france-2/lundi-12-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T08:09:14.136Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "channel": "France 2",
+        "title": "La passion de Dodin Bouffant"
+      },
+      "evidence_note": "Début 02:55 dans la grille officielle, 03:05 dans la grille primaire : écart conservé, à départager au préflight.",
+      "status": "conflict"
     }
   ],
   "run_metrics": [
@@ -8207,6 +9951,24 @@
       "status": "no_current_weekly_grid",
       "checked_at": "2026-10-08T06:55:47.403Z",
       "note": "Archives consultées via FAQ officielle : édition mensuelle visible jusqu'à septembre 2026 ; pas de grille S42. Aucun PDF historique réutilisé pour 2026."
+    },
+    {
+      "url": "https://www.francetvpro.fr/grille/france-2/10-10-2026/10-10-2026",
+      "checked_at": "2026-10-08T08:07:19.993Z",
+      "status": "wrong_date",
+      "note": "La page demandée du 10 renvoie les lignes du 9 et la nuit du 10 ; aucun scan de la journée du 10 certifié."
+    },
+    {
+      "url": "https://www.francetvpro.fr/grille/france-2/10-10-2026/15-10-2026",
+      "checked_at": "2026-10-08T08:07:19.829Z",
+      "status": "empty_grid",
+      "note": "Page sans grille exploitable ; ne prouve aucune absence de programme."
+    },
+    {
+      "url": "https://www.francetvpro.fr/grille/france-3/03-10-2026/15-10-2026",
+      "checked_at": "2026-10-08T08:07:20.270Z",
+      "status": "empty_grid",
+      "note": "Page sans grille exploitable ; ne prouve aucune absence de programme."
     }
   ],
   "editorial_review": {
@@ -8260,6 +10022,16 @@
       "event_base_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
       "cause": "validation-context comparait la fusion avec une base événementielle périmée et imputait les changements de workflow de main à la candidate. Correction déjà présente sur main 041fbcda ; synchronisation normale à suivre.",
       "note": "Contrôles éditoriaux/navigateur sautés : aucune réussite candidate. Ne pas réutiliser ces résultats pour un autre SHA/base."
+    },
+    {
+      "checked_at": "2026-10-08T08:09:14.136Z",
+      "head_sha": "be32c3e2b3f5979659acccd051226d3c090ca5b6",
+      "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "run_id": 37741248615,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "cause": "Seul échec effectif : Require a complete candidate before merging, préparation S42 inachevée. Contrôles précédents du numéro publié réussis ; revalidation base non applicable sautée. Aucun résultat ne valide S42.",
+      "action": "Poursuivre les recherches ; aucun contournement ni relance du même SHA."
     }
   ],
   "catalogue_reuse": {
