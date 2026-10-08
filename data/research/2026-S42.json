@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T08:22:45.174Z",
+  "updated_at": "2026-10-08T08:28:55.757Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -21,7 +21,8 @@
     "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
     "Public Sénat : Silence dans les rangs documenté (prix et limites de réception), horaires légèrement divergents et replay indisponible ; terminer offre/expiration, notes, affiche et revue comparative.",
     "France 4 : compléter réception/offres documentaires et épisodes génériques ; résoudre Rachelle Allison 20:30 contre Naimro/Allison 20:35 le 15. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle.",
-    "France 4 documentaires : Wachowski (Thibaut Sève, distinct de Matrix Generation) a des avis attribués mais durée 61/62/70 min à départager ; On ne va pas se défiler réintégré comme documentaire, critique/offre 2026 à compléter."
+    "France 4 documentaires : Wachowski (Thibaut Sève, distinct de Matrix Generation) a des avis attribués mais durée 61/62/70 min à départager ; On ne va pas se défiler réintégré comme documentaire, critique/offre 2026 à compléter.",
+    "TV5MONDE+ : Didy dispose de deux critiques attribuées et d'une identité festival ; durée/version, droits France, expiration, notes et affiche à terminer. Trois nouvelles pistes de l'accueil restent à examiner ; grille linéaire FBS à recouper."
   ],
   "completed_batches": [
     {
@@ -160,6 +161,11 @@
       "id": "documentary-france4-wachowski-defiler",
       "completed_at": "2026-10-08T08:22:45.174Z",
       "description": "Deux dossiers partiels : critiques accessibles et limites pour Wachowski ; type documentaire de On ne va pas se défiler corrigé, ancienne expiration exclue."
+    },
+    {
+      "id": "documentary-tv5-didy-source-dossier",
+      "completed_at": "2026-10-08T08:28:55.757Z",
+      "description": "Didy : identité festival, critiques avec réserve et recherche de notes ; trois pistes TV5MONDE+ consignées, droits/version non certifiés."
     }
   ],
   "blockers": [
@@ -10921,6 +10927,181 @@
         "title": "On ne va pas se défiler"
       },
       "evidence_note": "Entretien du 14 novembre 2024 : expiration 8 mai 2025 désormais périmée. Pas de disponibilité actuelle ni critique indépendante déduite ; recherches titre/réalisateur ont surtout renvoyé promotion, notices et entretiens.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "directors",
+        "year",
+        "countries",
+        "festival_version_duration"
+      ],
+      "source_urls": [
+        "https://www.visionsdureel.ch/film/2024/didy/"
+      ],
+      "checked_at": "2026-10-08T08:28:55.757Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Didy"
+      },
+      "evidence_note": "Festival primaire : documentaire 2024, Destors/Kamilindi, Suisse-France-Rwanda, version festival 85 min. Identité certaine, work_id non encore attribué.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "version_duration"
+      ],
+      "source_urls": [
+        "https://www.visionsdureel.ch/film/2024/didy/",
+        "https://www.tv5mondeplus.com/fr/documentaires/societe/didy",
+        "https://www.abusdecine.com/critique/didy/",
+        "https://www.telerama.fr/cinema/didy-le-documentaire-fort-d-un-fils-sur-la-memoire-de-sa-mere-rwandaise_cri-7043952.php",
+        "https://www.senscritique.com/film/didy/101340426"
+      ],
+      "checked_at": "2026-10-08T08:28:55.757Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Didy"
+      },
+      "evidence_note": "84 min sur offre indexée TV5 et Abus, 85 au festival, 90 Télérama/SC. Ne pas confondre année de création 2024 et sortie cinéma France 22 avril 2026 ; version de l'offre à établir.",
+      "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception",
+        "reservations"
+      ],
+      "source_urls": [
+        "https://www.abusdecine.com/critique/didy/",
+        "https://www.telerama.fr/cinema/didy-le-documentaire-fort-d-un-fils-sur-la-memoire-de-sa-mere-rwandaise_cri-7043952.php"
+      ],
+      "checked_at": "2026-10-08T08:28:55.757Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Didy"
+      },
+      "evidence_note": "Deux avis attribués consultés, appréciations de forme et réserve sauvegardées dans coverage ; critique Télérama partiellement accessible. Aucun consensus global revendiqué.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "ratings"
+      ],
+      "source_urls": [
+        "https://www.imdb.com/title/tt28814430/ratings/",
+        "https://www.senscritique.com/film/didy/101340426"
+      ],
+      "checked_at": "2026-10-08T08:28:55.757Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Didy"
+      },
+      "evidence_note": "Recherche ciblée a identifié les deux fiches exactes. IMDb 403 ; SC extraction ancienne/non légendée. Ni note ni absence de note établie.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "catalogue_presence"
+      ],
+      "source_urls": [
+        "https://www.tv5monde.com/"
+      ],
+      "checked_at": "2026-10-08T08:28:55.757Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Didy"
+      },
+      "evidence_note": "Titre présent sur l'accueil officiel lu pendant ce cycle ; cela ne prouve pas les droits France ni la lecture intégrale.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "availability",
+        "expiration",
+        "territory"
+      ],
+      "source_urls": [
+        "https://www.tv5mondeplus.com/fr/documentaires/societe/didy"
+      ],
+      "checked_at": "2026-10-08T08:28:55.757Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Didy"
+      },
+      "evidence_note": "Page directe 403 pour l'outil. Métadonnées indexées lues mais aucune date d'expiration/droits France établie ; statut unavailable qualifie l'accès à la preuve, pas l'offre spectateur.",
+      "status": "unavailable"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "catalogue_presence",
+        "availability",
+        "expiration"
+      ],
+      "source_urls": [
+        "https://www.tv5monde.com/",
+        "https://www.tv5mondeplus.com/fr/films/documentaires/edgar-yves-jr-le-prix-de-la-liberte"
+      ],
+      "checked_at": "2026-10-08T08:28:55.757Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Edgar-Yves Jr, le prix de la liberté"
+      },
+      "evidence_note": "Lien exact découvert sur l'accueil officiel ; page outil 403, identité et offre à approfondir.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "catalogue_presence",
+        "availability",
+        "expiration"
+      ],
+      "source_urls": [
+        "https://www.tv5monde.com/",
+        "https://www.tv5mondeplus.com/fr/documentaires/culture/werga-son-rythme-vie"
+      ],
+      "checked_at": "2026-10-08T08:28:55.757Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Werga, son rythme vie"
+      },
+      "evidence_note": "Lien exact découvert sur l'accueil officiel ; page outil 403, identité et offre à approfondir.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "catalogue_presence",
+        "availability",
+        "expiration"
+      ],
+      "source_urls": [
+        "https://www.tv5monde.com/",
+        "https://www.tv5mondeplus.com/fr/documentaires/culture/en-route-pour-broadway"
+      ],
+      "checked_at": "2026-10-08T08:28:55.757Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "En route pour Broadway"
+      },
+      "evidence_note": "Lien exact découvert sur l'accueil officiel ; page outil 403, identité et offre à approfondir.",
       "status": "needs_check"
     }
   ],
