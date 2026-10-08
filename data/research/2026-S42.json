@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T11:10:08.878Z",
+  "updated_at": "2026-10-08T11:11:18.360Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -247,6 +247,11 @@
       "id": "inventory-paris-premiere-official-full-week",
       "completed_at": "2026-10-08T11:10:08.878Z",
       "description": "20 diffusions existantes recoupées et dix omissions ajoutées ; sept ajouts recoupés, trois magazines à recouper."
+    },
+    {
+      "id": "inventory-gulli-official-full-week",
+      "completed_at": "2026-10-08T11:11:18.360Z",
+      "description": "14 diffusions recoupées ; nuits et sous-titres Dog House contrôlés. Identités Dumbo et Bag of Bones précisées."
     }
   ],
   "blockers": [
@@ -12752,6 +12757,213 @@
       },
       "evidence_note": "Magazine culturel réintégré depuis PDF officiel ; recoupement indépendant encore requis.",
       "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/gulli/grille/2026-42.pdf",
+        "https://tv-programme.com/gulli/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:11:18.360Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Gulli",
+        "slots": 2
+      },
+      "evidence_note": "Entrées brutes recoupées avec le PDF officiel S42 ; nuits consultées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/gulli/grille/2026-42.pdf",
+        "https://tv-programme.com/gulli/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:11:18.360Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "Gulli",
+        "slots": 1
+      },
+      "evidence_note": "Entrées brutes recoupées avec le PDF officiel S42 ; nuits consultées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/gulli/grille/2026-42.pdf",
+        "https://tv-programme.com/gulli/lundi-12-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:11:18.360Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "channel": "Gulli",
+        "slots": 3
+      },
+      "evidence_note": "Entrées brutes recoupées avec le PDF officiel S42 ; nuits consultées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/gulli/grille/2026-42.pdf",
+        "https://tv-programme.com/gulli/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:11:18.360Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "Gulli",
+        "slots": 2
+      },
+      "evidence_note": "Entrées brutes recoupées avec le PDF officiel S42 ; nuits consultées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/gulli/grille/2026-42.pdf",
+        "https://tv-programme.com/gulli/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:11:18.360Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Gulli",
+        "slots": 0
+      },
+      "evidence_note": "Grille complète consultée ; aucun nouveau film/documentaire retenu au premier tri, principalement séries jeunesse/fiction récurrente et téléréalité.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/gulli/grille/2026-42.pdf",
+        "https://tv-programme.com/gulli/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:11:18.360Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "Gulli",
+        "slots": 3
+      },
+      "evidence_note": "Entrées brutes recoupées avec le PDF officiel S42 ; nuits consultées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/gulli/grille/2026-42.pdf",
+        "https://tv-programme.com/gulli/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:11:18.360Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "channel": "Gulli",
+        "slots": 3
+      },
+      "evidence_note": "Entrées brutes recoupées avec le PDF officiel S42 ; nuits consultées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "version"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/gulli/grille/2026-42.pdf"
+      ],
+      "checked_at": "2026-10-08T11:11:18.360Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Dumbo",
+        "director": "Tim Burton",
+        "year": 2019
+      },
+      "evidence_note": "Dossier officiel nomme Burton, 2019 et acteurs Eva Green/Colin Farrell ; version identifiée, durée et réception à enrichir.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "original_title",
+        "director",
+        "year",
+        "part"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf"
+      ],
+      "checked_at": "2026-10-08T11:11:18.360Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Stephen King : La maison sur le lac",
+        "year": 2011,
+        "parts": [
+          1,
+          2
+        ]
+      },
+      "evidence_note": "Dossier détaillé confirme Bag of Bones, Mick Garris, 2011 et deux parties ; pas de durée déduite des créneaux.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -13265,7 +13477,7 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "ff60e4a533ee72ac7fde31b3d4a85c9495689bc3",
+    "checkpoint_parent_sha": "00befdffc11fb6a37c1eea395977fe5a14794e89",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
