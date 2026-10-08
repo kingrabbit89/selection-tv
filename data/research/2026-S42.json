@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T14:12:11.804Z",
+  "updated_at": "2026-10-08T14:21:55.226Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -40,7 +40,8 @@
     "TCM : Regrouping, Roger Corman et Burning an Illusion approfondis, critiques attribuées avec réserves. Résoudre versions (Regrouping75/80min, Burning101/105/107min), année Corman2019/2020/2021, offres France/expirations, notes et affiches. Thrillers identifié via fiche liée ; Flics et voyous encore générique. Aucune carte complète ni consensus déduit.",
     "NOVO19 : annonce directe confirme Vis ma vie de Drag Queen le 14 à 21:10 ; deux fins de soirée ajoutées (épisodes/indépendance à confirmer). Falaises de Bonifacio le 16 à 21:10 concorde entre guides ; version 58/60 min, offre et réception/preuves alternatives, notes et affiche restent ouverts.",
     "Ciné+ : L'ours identifié comme Bear (Nash Edgerton 2011), deux avis nuancés lus ; Le cinéma qui respire et Des animaux et des monstres identifiés mais sans critique argumentée trouvée. Versions/créneaux, recoupements indépendants, droits/offres/expirations, notes et affiches à terminer.",
-    "Ciné+ Festival : 7 grilles secondaires lues, 99 créneaux rapprochés ; indépendance/chaîne officielle encore à obtenir. L'image originelle du15/10 : fiche liée Sofia Coppola contre Joachim Trier, épisode à arbitrer. Quatre magazines/bonus à sujets génériques examinés ; documentaires de création repérés à approfondir. Identités Dallamano/Hers/Arnold précises ; versions/offres et critique restent à terminer."
+    "Ciné+ Festival : 7 grilles secondaires lues, 99 créneaux rapprochés ; indépendance/chaîne officielle encore à obtenir. L'image originelle du15/10 : fiche liée Sofia Coppola contre Joachim Trier, épisode à arbitrer. Quatre magazines/bonus à sujets génériques examinés ; documentaires de création repérés à approfondir. Identités Dallamano/Hers/Arnold précises ; versions/offres et critique restent à terminer.",
+    "Ciné+ Festival documentaires : réutiliser Kouté Vwa/Les mots et portraits Kawase/Trier documentés. Chaîne des événements CANAL+, versions, droits/expirations exactes (Kouté 09/10 versus 15/12 affichés), affiches et notes des portraits à finir ; conflit Trier/Coppola non résolu. Kotelnitch/Huppert encore à approfondir."
   ],
   "completed_batches": [
     {
@@ -354,6 +355,11 @@
       "id": "inventory-cine-festival-seven-grids-and-identities",
       "completed_at": "2026-10-08T14:12:11.804Z",
       "description": "Sept grilles secondaires, 103créneaux lus/99inventoriés rapprochés, quatre blocs génériques distingués. Six fiches CANAL+ structurées et deux identités ambiguës examinées ; conflit d'épisode explicitement conservé."
+    },
+    {
+      "id": "research-cine-festival-creation-documentaries-and-portraits",
+      "completed_at": "2026-10-08T14:21:55.226Z",
+      "description": "Deux films et deux portraits approfondis avec cinq critiques distinctes, deux notes SensCritique directes, deux événements primaires concordants sans chaîne et preuves de palmarès précisément délimitées. Droits/versions/conflit d'épisode conservés."
     }
   ],
   "blockers": [
@@ -17165,6 +17171,348 @@
       },
       "evidence_note": "Fiche liée à la grille : Massimo Dallamano, Laura Antonelli/Régis Vallée ; Capuseen version restaurée2K1969,86min. Ne pas confondre avec Jess Franco1969 ni Polanski2013. Télérama87min/créneaux83–86min : version linéaire à contrôler.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "identity",
+        "director",
+        "version_research"
+      ],
+      "source_urls": [
+        "https://www.alchimistesfilms.com/koute-vwa/",
+        "https://cineuropa.org/fr/newsdetail/464988/",
+        "https://www.canalplus.com/cinema/koute-vwa/h/29856185_50002/resume-casting/"
+      ],
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Kouté Vwa",
+        "week": "2026-S42"
+      },
+      "evidence_note": "2024 année de production/festival, sortie française 16 juillet 2025. Distributeur classe Fiction ; forme hybride documentaire/fiction, ne pas classer automatiquement documentaire pur. Version linéaire non certifiée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception",
+        "reservations",
+        "scope_of_evidence"
+      ],
+      "source_urls": [
+        "https://www.abusdecine.com/critique/koute-vwa/",
+        "https://cineuropa.org/fr/newsdetail/464988/"
+      ],
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Kouté Vwa",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Avis effectivement lus et attribués dans coverage. Ne pas étendre la portée à un autre épisode ni prétendre un consensus.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "availability",
+        "expiration",
+        "subscription"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/koute-vwa/h/29856185_50002/resume-casting/"
+      ],
+      "checked_at": "2026-10-08T14:14:16.525537Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Kouté Vwa",
+        "week": "2026-S42"
+      },
+      "evidence_note": "HTML public direct du 8 octobre affiche 15/12 sans année. Version du moteur web consultée auparavant affichait 09/10 : divergence conservée et contrôle préflight nécessaire. Pas d'année inventée, ni droit France/abonnement exact/lecture certifiés. expires JSON-LD est la fin de diffusion, pas la fin replay.",
+      "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "senscritique_rating",
+        "senscritique_vote_count"
+      ],
+      "source_urls": [
+        "https://www.senscritique.com/film/koute_vwa/95757689"
+      ],
+      "checked_at": "2026-10-08T14:18:37.738168Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Kouté Vwa",
+        "week": "2026-S42"
+      },
+      "evidence_note": "6.5/10, 183 notes ; aggregateRating du HTML public direct.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "imdb_rating"
+      ],
+      "source_urls": [
+        "https://www.imdb.com/title/tt32890051/"
+      ],
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Kouté Vwa",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Fiche identifiée par recherche exacte ; consultation directe 403. Aucune note inventée, refus non assimilé à une absence de note.",
+      "status": "unavailable"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "identity",
+        "director",
+        "version_research"
+      ],
+      "source_urls": [
+        "https://www.film-documentaire.fr/4DACTION/w_fiche_film/70940",
+        "https://www.cinemadureel.org/les-mots-quelles-eurent-un-jour-sortie-nationale/",
+        "https://www.canalplus.com/cinema/les-mots-qu-elles-eurent-un-jour/h/29411889_50002"
+      ],
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Les mots qu'elles eurent un jour",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Sortie française 11 juin 2025 distincte de l'année 2024. Version linéaire non certifiée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception",
+        "reservations",
+        "scope_of_evidence"
+      ],
+      "source_urls": [
+        "https://www.avoir-alire.com/les-mots-qu-elles-eurent-un-jour-raphael-pillosio-critique",
+        "https://www.citizenpoulpe.com/les-mots-qu-elles-eurent-un-jour/"
+      ],
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Les mots qu'elles eurent un jour",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Avis effectivement lus et attribués dans coverage. Ne pas étendre la portée à un autre épisode ni prétendre un consensus.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "availability",
+        "expiration",
+        "subscription"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/les-mots-qu-elles-eurent-un-jour/h/29411889_50002/resume-casting/"
+      ],
+      "checked_at": "2026-10-08T14:14:16.779334Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Les mots qu'elles eurent un jour",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Date affichée sans année dans le HTML public direct. Offre exacte, droits France et accès réel à confirmer ; aucune expiration absolue inventée. expires du JSON-LD coïncide avec la fin d'antenne.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "senscritique_rating",
+        "senscritique_vote_count"
+      ],
+      "source_urls": [
+        "https://www.senscritique.com/film/les_mots_quelles_eurent_un_jour/82836380"
+      ],
+      "checked_at": "2026-10-08T14:19:15.606771Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Les mots qu'elles eurent un jour",
+        "week": "2026-S42"
+      },
+      "evidence_note": "6.6/10, 85 notes ; aggregateRating du HTML public direct.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "imdb_rating"
+      ],
+      "source_urls": [
+        "https://www.imdb.com/title/tt36917557/"
+      ],
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Les mots qu'elles eurent un jour",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Titre anglais et réalisateur concordants ; page ouverte renvoie un contrôle anti-robot. Aucune note déduite.",
+      "status": "unavailable"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "identity",
+        "director",
+        "version_research"
+      ],
+      "source_urls": [
+        "https://www.caimans-prod.com/fr/limage-originelle/"
+      ],
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "L'image originelle Naomi Kawase",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Producteur présente une saison 2 de cinq portraits de 26 min. Durée exacte de la copie linéaire à confirmer. Version linéaire non certifiée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception",
+        "reservations",
+        "scope_of_evidence"
+      ],
+      "source_urls": [
+        "https://cult.news/ecrans/limage-originelle-saison-2-portraits-de-cineastes-dune-belle-profondeur/"
+      ],
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "L'image originelle Naomi Kawase",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Avis effectivement lus et attribués dans coverage. Ne pas étendre la portée à un autre épisode ni prétendre un consensus.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "availability",
+        "expiration",
+        "subscription"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/l-image-originelle/h/10469411_50002"
+      ],
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "L'image originelle Naomi Kawase",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Page de collection et HTML examinés : deux épisodes actuellement listés, Agnès Jaoui et Marco Bellocchio. Aucune offre individuelle ni expiration du portrait étudié confirmée ; ne pas transférer les dates de ces deux autres épisodes.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "identity",
+        "director",
+        "version_research"
+      ],
+      "source_urls": [
+        "https://www.caimans-prod.com/fr/limage-originelle/"
+      ],
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "L'image originelle Joachim Trier",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Producteur présente une saison 2 de cinq portraits de 26 min. Durée exacte de la copie linéaire à confirmer. Version linéaire non certifiée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception",
+        "reservations",
+        "scope_of_evidence"
+      ],
+      "source_urls": [
+        "https://cult.news/ecrans/limage-originelle-saison-2-portraits-de-cineastes-dune-belle-profondeur/"
+      ],
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "L'image originelle Joachim Trier",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Avis effectivement lus et attribués dans coverage. Ne pas étendre la portée à un autre épisode ni prétendre un consensus.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "availability",
+        "expiration",
+        "subscription"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/l-image-originelle/h/10469411_50002"
+      ],
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "L'image originelle Joachim Trier",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Page de collection et HTML examinés : deux épisodes actuellement listés, Agnès Jaoui et Marco Bellocchio. Aucune offre individuelle ni expiration du portrait étudié confirmée ; ne pas transférer les dates de ces deux autres épisodes.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "broadcast_end"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/koute-vwa/h/29856185_50002"
+      ],
+      "checked_at": "2026-10-08T14:14:16.883335Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Kouté Vwa",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Événement primaire CANAL+ concordant avec le créneau Festival ; JSON-LD sans chaîne, attestation d'antenne restant à obtenir. expires identique à endDate, pas expiration replay.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "broadcast_end"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/les-mots-qu-elles-eurent-un-jour/h/29411889_50002"
+      ],
+      "checked_at": "2026-10-08T14:14:17.085431Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "title": "Les mots qu'elles eurent un jour",
+        "week": "2026-S42"
+      },
+      "evidence_note": "Événement primaire CANAL+ concordant avec le créneau Festival ; JSON-LD sans chaîne, attestation d'antenne restant à obtenir. expires identique à endDate, pas expiration replay.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -17553,29 +17901,31 @@
       "novo19_primary_confirmed_slots": 1
     },
     {
-      "date": "2026-10-08T14:12:11.804Z",
+      "date": "2026-10-08T14:21:55.226Z",
       "started_at": "2026-10-08T13:55:31.739Z",
       "owner": "7cbc1ef6-73e4-4f3e-8efa-f6a4a01f75d1",
       "stage": "inventory_identity_and_documentary_research",
-      "elapsed_seconds": 1000,
+      "elapsed_seconds": 1584,
       "duration_basis": "wall_clock_until_checkpoint",
       "completed_batches": [
         "research-cine-bear-and-two-cinema-documentaries",
-        "inventory-cine-festival-seven-grids-and-identities"
+        "inventory-cine-festival-seven-grids-and-identities",
+        "research-cine-festival-creation-documentaries-and-portraits"
       ],
       "reused_complete_cards": 0,
       "newly_verified_complete_cards": 0,
-      "newly_researched_incomplete_works": 3,
-      "identified_broadcast_occurrences": 5,
+      "newly_researched_incomplete_works": 7,
+      "identified_broadcast_occurrences": 9,
       "raw_schedule_entries": 2230,
       "blockers": [],
       "remaining": {
         "stage": "inventory",
-        "count": 36,
+        "count": 37,
         "reference": "remaining"
       },
       "festival_schedule_entries_compared": 99,
-      "festival_programmes_examined": 103
+      "festival_programmes_examined": 103,
+      "senscritique_ratings_directly_checked": 2
     }
   ],
   "source_issues": [
@@ -17978,6 +18328,17 @@
       "logs_read": true,
       "cause": "Seul échec Require a complete candidate before merging, préparation S42 incomplète. Contrôles publics/browser couvrent S41 ; attestation base skipped non comptée comme réussite.",
       "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "head_sha": "43ed38cb12f2f3ab549fdaaaea5c00ef3b1c9374",
+      "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "run_id": 37790567626,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": true,
+      "cause": "Seul échec Require a complete candidate before merging : préparation inventory incomplète attendue. Tests publics S41/browser réussis, ne certifient pas S42 ; étapes skipped non comptées comme réussites.",
+      "reusable_only_for_exact_sha": true
     }
   ],
   "catalogue_reuse": {
@@ -18072,10 +18433,11 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "868a9da9fd105cc25b1700aaa180d684413bb602",
+    "checkpoint_parent_sha": "43ed38cb12f2f3ab549fdaaaea5c00ef3b1c9374",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
+      "Réutiliser le lot documentaires Festival : Kouté Vwa, Les mots, Kawase et Trier, notes SC directes, cinq articles et deux événements CANAL+. Ne pas refaire ces consultations sans changement ; résoudre antenne/offres/versions et conflit d'épisode.",
       "Réutiliser les sept grilles Ciné+ Festival (99créneaux rapprochés) et les six observations CANAL+ ; ne pas réinterpréter les événements hors cycle ni expires. Résoudre l'épisode15/10 et approfondir la passe documentaire de création.",
       "Réutiliser les trois dossiers Ciné+ de ce passage (Bear, Le cinéma qui respire, Des animaux et des monstres) ; cinq occurrences identifiées. Recherches et réserves dans coverage/verification_records, ne pas répéter les mêmes pages.",
       "Réutiliser les quatre lots de ce passage : six arbitrages France Télévisions ; 98 créneaux TCM comparés ; Regrouping/Corman/Burning approfondis ; NOVO19 +2 créneaux et annonce directe. Détails et limites conservés dans coverage/verification_records ; ne pas répéter les mêmes pages sans changement.",
@@ -18097,25 +18459,25 @@
       "note": "Dernier publicateur consulté terminé skipped, aucune progression active."
     },
     "last_ci_observation": {
-      "checked_at": "2026-10-08T14:03:53.608Z",
-      "head_sha": "9ecc5944572c41e25f1626ff5cb69868e80db8c5",
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "head_sha": "43ed38cb12f2f3ab549fdaaaea5c00ef3b1c9374",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37787764665,
+      "run_id": 37790567626,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Seul échec Require a complete candidate before merging, préparation S42 incomplète. Contrôles publics/browser couvrent S41 ; attestation base skipped non comptée comme réussite.",
+      "cause": "Seul échec Require a complete candidate before merging : préparation inventory incomplète attendue. Tests publics S41/browser réussis, ne certifient pas S42 ; étapes skipped non comptées comme réussites.",
       "reusable_only_for_exact_sha": true
     },
     "latest_candidate_ci": {
-      "checked_at": "2026-10-08T14:03:53.608Z",
-      "head_sha": "9ecc5944572c41e25f1626ff5cb69868e80db8c5",
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "head_sha": "43ed38cb12f2f3ab549fdaaaea5c00ef3b1c9374",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37787764665,
+      "run_id": 37790567626,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Seul échec Require a complete candidate before merging, préparation S42 incomplète. Contrôles publics/browser couvrent S41 ; attestation base skipped non comptée comme réussite.",
+      "cause": "Seul échec Require a complete candidate before merging : préparation inventory incomplète attendue. Tests publics S41/browser réussis, ne certifient pas S42 ; étapes skipped non comptées comme réussites.",
       "reusable_only_for_exact_sha": true
     }
   },
