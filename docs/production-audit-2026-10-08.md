@@ -19,6 +19,7 @@ La validation des réserves S41 signale aussi une dette historique : 28/66 candi
 - Rendu mécanique de décisions explicites : plusieurs fiches deviennent catalogue/liens/cartes/pools/grilles et coquille draft via un handoff contrôlé. Aucun titre, rang, texte ou preuve n'est inventé ; latest demeure inchangé.
 - Contrôles lourds du public réutilisés seulement sur préparation limitée aux trois checkpoints et preuve exacte récente de main. La barrière de fusion et tous les contrôles de la candidate complète demeurent.
 - Événements inutiles du publicateur filtrés pour les branches techniques ; calendrier et lancement manuel conservés.
+- La vérification après fusion a aussi montré un doublon : un workflow de promotion vert avec seul resolve exécuté réveillait le publicateur. Le filtre exige maintenant validate-promotion et l'attestation réellement réussis ; le watchdog ne traite pas une simple exécution d'éligibilité. Les erreurs restent surveillées et des traces légères de contrôle demeurent visibles.
 - Titres HTML décodés une seule fois dans les contrôles d'identité, images, fraîcheur et historique. Apostrophes, guillemets et esperluettes restent échappés dans le rendu, avec comparaison correcte aux titres canoniques.
 
 ## Vérification et limites
