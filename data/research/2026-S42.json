@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T13:07:07.781Z",
+  "updated_at": "2026-10-08T13:13:50.799Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -33,7 +33,8 @@
     "Arte préhistoire : Chauvet, Sulawesi et Thorin (cinq diffusions) ont identités, offres affichées et réception attribuée ; vérifier versions linéaires, droits France, notes moyennes, affiches et comparaison éditoriale. Les 52/53/54 min de Thorin ne sont pas interchangeables.",
     "France 5 : ICE, Samouraïs et Looking for Cézanne approfondis ; première critique ICE 3/4 Ciné-Télé-Revue, pas de consensus. Offres Cézanne/Samouraïs affichées avec expirations ; droits/lecture, versions (Samouraïs année 2025/2026), réception manquante, notes et affiches à terminer.",
     "TCM : A Ghost Story et La falaise mystérieuse disposent d'identités ciblées et de critiques contrastées ; index Orange les mentionne mais fiches 451. Horaires indépendants, durée/version TCM, droits/expiration/abonnement, notes et affiches à terminer.",
-    "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer."
+    "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer.",
+    "Ciné+ : 45 fiches CANAL+ consultées, 14 heures concordantes (dont La gueule ouverte sur Festival), 4 écarts et 27 BroadcastEvent hors cible. Chaîne absente des objets officiels : certifier les chaînes/grilles et les autres rediffusions, ne pas réutiliser les événements anciens. Durées de versions et droits replay à distinguer des créneaux."
   ],
   "completed_batches": [
     {
@@ -302,6 +303,11 @@
       "id": "inventory-rmc-seven-days-second-guide-and-reminder",
       "completed_at": "2026-10-08T13:06:44.117Z",
       "description": "127 créneaux comparés ; 2 conflits, trois alias, 4 ajouts bruts. Indépendance non certifiée."
+    },
+    {
+      "id": "inventory-cine-classic-official-film-pages",
+      "completed_at": "2026-10-08T13:13:50.799Z",
+      "description": "45 fiches officielles examinées : 14 heures concordantes, 4 divergentes et 27 événements hors cible. Identités tracées séparément, aucune carte complète."
     }
   ],
   "blockers": [
@@ -14141,6 +14147,1719 @@
       },
       "evidence_note": "21 créneaux rapprochés à même heure. Titres/épisodes et divergences consignés dans coverage ; fournisseur de données SCREEN+ non identifié, aucune certification indépendante. Les entrées +1 jour sont rattachées à leur date civile.",
       "status": "needs_check"
+    },
+    {
+      "work_id": "la-nuit-du-chasseur-1955",
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-nuit-du-chasseur/h/935349_50002"
+      ],
+      "checked_at": "2026-10-08T13:08:37.780763+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "La nuit du chasseur",
+        "year": "1955",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : La nuit du chasseur, Charles Laughton, 1955. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": "la-nuit-du-chasseur-1955",
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-nuit-du-chasseur/h/935349_50002",
+        "https://tv-programme.com/cine-plus-classic/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:08:37.780763+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La nuit du chasseur",
+        "observed_broadcast": "2026-10-10T01:34:00.000+02:00"
+      },
+      "evidence_note": "Heure 2026-10-10T01:34:00.000+02:00 concorde avec l'entrée Ciné+ Classic. Durée affichée PT1H28M distincte de la longueur du créneau ; chaîne non nommée dans le BroadcastEvent, disponibilité replay non certifiée.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/quand-la-ville-dort/h/174926_50002"
+      ],
+      "checked_at": "2026-10-08T13:09:36.586261+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Quand la ville dort",
+        "year": "1950",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Quand la ville dort, John Huston, 1950. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/quand-la-ville-dort/h/174926_50002",
+        "https://tv-programme.com/cine-plus-classic/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:09:36.586261+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Quand la ville dort",
+        "observed_broadcast": "2026-10-10T03:08:00.000+02:00"
+      },
+      "evidence_note": "Heure 2026-10-10T03:08:00.000+02:00 concorde avec l'entrée Ciné+ Classic. Durée affichée PT1H47M distincte de la longueur du créneau ; chaîne non nommée dans le BroadcastEvent, disponibilité replay non certifiée.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-corps-de-mon-ennemi/h/236140_50002"
+      ],
+      "checked_at": "2026-10-08T13:09:36.601249+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Le corps de mon ennemi",
+        "year": "1976",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Le corps de mon ennemi, Henri Verneuil, 1976. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-corps-de-mon-ennemi/h/236140_50002",
+        "https://tv-programme.com/cine-plus-classic/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:09:36.601249+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Le corps de mon ennemi",
+        "observed_broadcast": "2026-10-10T06:49:00.000+02:00"
+      },
+      "evidence_note": "Écart : grille 06:50, fiche 2026-10-10T06:49:00.000+02:00. Version Film Policier   1h56   1976. Conserver les deux observations ; aucun remplacement automatique.",
+      "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/mort-d-un-pourri/h/759791_50002"
+      ],
+      "checked_at": "2026-10-08T13:09:36.540627+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Mort d'un pourri",
+        "year": "1977",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Mort d'un pourri, Georges Lautner, 1977. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/mort-d-un-pourri/h/759791_50002",
+        "https://tv-programme.com/cine-plus-classic/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:09:36.540627+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Mort d'un pourri",
+        "observed_broadcast": "2026-10-10T08:47:00.000+02:00"
+      },
+      "evidence_note": "Écart : grille 08:48, fiche 2026-10-10T08:47:00.000+02:00. Version Film Policier   1h58   1977. Conserver les deux observations ; aucun remplacement automatique.",
+      "status": "conflict"
+    },
+    {
+      "work_id": "le-samourai-1967",
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-samourai/h/372851_50002"
+      ],
+      "checked_at": "2026-10-08T13:09:36.762000+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Le samouraï",
+        "year": "1967",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Le samouraï, Jean-Pierre Melville, 1967. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": "le-samourai-1967",
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-samourai/h/372851_50002"
+      ],
+      "checked_at": "2026-10-08T13:09:36.762000+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Le samouraï",
+        "observed_broadcast": "2026-10-06T17:49:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-06T17:49:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Policier   1h41   1967.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/stolen-assignment/h/16622266_50002"
+      ],
+      "checked_at": "2026-10-08T13:09:41.173878+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Stolen Assignment",
+        "year": "1955",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Stolen Assignment, Terence Fisher, 1955. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/stolen-assignment/h/16622266_50002",
+        "https://tv-programme.com/cine-plus-classic/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:09:41.173878+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Stolen Assignment",
+        "observed_broadcast": "2026-10-10T12:29:00.000+02:00"
+      },
+      "evidence_note": "Écart : grille 12:30, fiche 2026-10-10T12:29:00.000+02:00. Version Film Policier   59 min   1955. Conserver les deux observations ; aucun remplacement automatique.",
+      "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-syndrome-chinois/h/7373701_50002"
+      ],
+      "checked_at": "2026-10-08T13:09:41.014620+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Le syndrome chinois",
+        "year": "1979",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Le syndrome chinois, James Bridges, 1979. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-syndrome-chinois/h/7373701_50002"
+      ],
+      "checked_at": "2026-10-08T13:09:41.014620+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Le syndrome chinois",
+        "observed_broadcast": "2026-10-08T20:50:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-08T20:50:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Suspense   1h57   1979.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-riviere-rouge/h/176042_50002"
+      ],
+      "checked_at": "2026-10-08T13:09:41.121731+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "La rivière rouge",
+        "year": "1948",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : La rivière rouge, Howard Hawks, 1948. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-riviere-rouge/h/176042_50002"
+      ],
+      "checked_at": "2026-10-08T13:09:41.121731+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La rivière rouge",
+        "observed_broadcast": "2026-10-06T20:50:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-06T20:50:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Western   2h04   1948.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-charge-fantastique/h/3624224_50002"
+      ],
+      "checked_at": "2026-10-08T13:09:41.015690+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "La charge fantastique",
+        "year": "1941",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : La charge fantastique, Raoul Walsh, 1941. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-charge-fantastique/h/3624224_50002"
+      ],
+      "checked_at": "2026-10-08T13:09:41.015690+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La charge fantastique",
+        "observed_broadcast": "2026-10-04T08:51:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-04T08:51:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Western   2h13   1941.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/shirley-maclaine-comme-un-torrent/h/31097714_50002"
+      ],
+      "checked_at": "2026-10-08T13:09:45.514430+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Shirley MacLaine, comme un torrent",
+        "observed_broadcast": "2026-10-05T22:50:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-05T22:50:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Doc. Cinéma   52 min   2025.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/les-orgueilleux/h/911571_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:23.934792+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Les orgueilleux",
+        "year": "1953",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Les orgueilleux, Yves Allégret, 1953. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/les-orgueilleux/h/911571_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:23.934792+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Les orgueilleux",
+        "observed_broadcast": "2026-10-08T10:18:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-08T10:18:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Drame   1h39   1953.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": "une-journee-particuliere-1977",
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/une-journee-particuliere/h/1704633_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:24.368410+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Une journée particulière",
+        "year": "1977",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Une journée particulière, Ettore Scola, 1977. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": "une-journee-particuliere-1977",
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/une-journee-particuliere/h/1704633_50002",
+        "https://tv-programme.com/cine-plus-classic/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:10:24.368410+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Une journée particulière",
+        "observed_broadcast": "2026-10-11T06:58:00.000+02:00"
+      },
+      "evidence_note": "Heure 2026-10-11T06:58:00.000+02:00 concorde avec l'entrée Ciné+ Classic. Durée affichée PT1H41M distincte de la longueur du créneau ; chaîne non nommée dans le BroadcastEvent, disponibilité replay non certifiée.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/mariage-a-l-italienne/h/200214_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:24.689689+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Mariage à l'italienne",
+        "year": "1964",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Mariage à l'italienne, Vittorio De Sica, 1964. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/mariage-a-l-italienne/h/200214_50002",
+        "https://tv-programme.com/cine-plus-classic/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:10:24.689689+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Mariage à l'italienne",
+        "observed_broadcast": "2026-10-11T08:42:00.000+02:00"
+      },
+      "evidence_note": "Heure 2026-10-11T08:42:00.000+02:00 concorde avec l'entrée Ciné+ Classic. Durée affichée PT1H35M distincte de la longueur du créneau ; chaîne non nommée dans le BroadcastEvent, disponibilité replay non certifiée.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": "il-etait-une-fois-dans-l-ouest-1968",
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/il-etait-une-fois-dans-l-ouest/h/669990_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:24.466089+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Il était une fois dans l'Ouest",
+        "year": "1968",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Il était une fois dans l'Ouest, Sergio Leone, 1968. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": "il-etait-une-fois-dans-l-ouest-1968",
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/il-etait-une-fois-dans-l-ouest/h/669990_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:24.466089+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Il était une fois dans l'Ouest",
+        "observed_broadcast": "2026-10-04T20:50:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-04T20:50:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Western   2h39   1968.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-vache-et-le-prisonnier/h/471627_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:28.254688+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "La vache et le prisonnier",
+        "year": "1959",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : La vache et le prisonnier, Henri Verneuil, 1959. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-vache-et-le-prisonnier/h/471627_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:28.254688+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La vache et le prisonnier",
+        "observed_broadcast": "2026-10-09T15:16:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-09T15:16:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Comédie   1h53   1959.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-cerveau/h/438496_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:28.533888+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Le cerveau",
+        "year": "1969",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Le Cerveau, Gérard Oury, 1969. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-cerveau/h/438496_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:28.533888+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Le cerveau",
+        "observed_broadcast": "2026-10-05T17:10:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-05T17:10:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Comédie   1h50   1969.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/l-incorrigible/h/436968_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:28.271317+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "L'incorrigible",
+        "year": "1975",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : L'incorrigible, Philippe de Broca, 1975. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/l-incorrigible/h/436968_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:28.271317+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "L'incorrigible",
+        "observed_broadcast": "2026-10-04T22:18:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-04T22:18:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Comédie   1h35   1975.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/les-vacances-de-monsieur-hulot/h/2799017_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:28.178426+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Les Vacances de monsieur Hulot",
+        "year": "1953",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Les vacances de monsieur Hulot, Jacques Tati, 1953. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/les-vacances-de-monsieur-hulot/h/2799017_50002",
+        "https://tv-programme.com/cine-plus-classic/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:10:28.178426+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Les Vacances de monsieur Hulot",
+        "observed_broadcast": "2026-10-11T18:23:00.000+02:00"
+      },
+      "evidence_note": "Heure 2026-10-11T18:23:00.000+02:00 concorde avec l'entrée Ciné+ Classic. Durée affichée PT1H24M distincte de la longueur du créneau ; chaîne non nommée dans le BroadcastEvent, disponibilité replay non certifiée.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/elle-et-lui/h/12192336_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:33.454971+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Elle et lui",
+        "year": "1939",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Elle et lui, Leo McCarey, 1939. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/elle-et-lui/h/12192336_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:33.454971+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Elle et lui",
+        "observed_broadcast": "2026-10-07T04:56:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-07T04:56:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Drame   1h24   1939.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/paques-sanglantes/h/16671348_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:33.178297+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Pâques sanglantes",
+        "year": "1950",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Pâques sanglantes, Giuseppe De Santis, 1950. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/paques-sanglantes/h/16671348_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:33.178297+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Pâques sanglantes",
+        "observed_broadcast": "2026-10-09T23:53:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-09T23:53:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Drame   1h39   1950.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/becoming-hitchcock-the-legacy-of-blackmail/h/27531750_50002",
+        "https://tv-programme.com/cine-plus-classic/lundi-12-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:10:32.859015+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Becoming Hitchcock : The Legacy of Blackmail",
+        "observed_broadcast": "2026-10-12T12:02:00.000+02:00"
+      },
+      "evidence_note": "Heure 2026-10-12T12:02:00.000+02:00 concorde avec l'entrée Ciné+ Classic. Durée affichée PT1H8M distincte de la longueur du créneau ; chaîne non nommée dans le BroadcastEvent, disponibilité replay non certifiée.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/les-conquerants/h/3624218_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:32.733869+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Les conquérants",
+        "year": "1939",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Les conquérants, Michael Curtiz, 1939. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/les-conquerants/h/3624218_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:32.733869+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Les conquérants",
+        "observed_broadcast": "2026-10-03T13:49:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-03T13:49:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Western   1h39   1939.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/falbalas/h/3788662_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:37.605924+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Falbalas",
+        "year": "1945",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Falbalas, Jacques Becker, 1945. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/falbalas/h/3788662_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:37.605924+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Falbalas",
+        "observed_broadcast": "2026-10-04T00:59:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-04T00:59:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Drame   1h47   1945.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-diable-s-en-mele/h/32037409_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:37.199522+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Le diable s'en mêle",
+        "year": "1941",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Le diable s'en mêle, Sam Wood, 1941. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-diable-s-en-mele/h/32037409_50002",
+        "https://tv-programme.com/cine-plus-classic/lundi-12-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:10:37.199522+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Le diable s'en mêle",
+        "observed_broadcast": "2026-10-12T19:20:00.000+02:00"
+      },
+      "evidence_note": "Heure 2026-10-12T19:20:00.000+02:00 concorde avec l'entrée Ciné+ Classic. Durée affichée PT1H28M distincte de la longueur du créneau ; chaîne non nommée dans le BroadcastEvent, disponibilité replay non certifiée.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/monsieur-papa/h/3321074_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:37.210963+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Monsieur Papa",
+        "year": "1977",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Monsieur Papa, Philippe Monnier, 1977. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/monsieur-papa/h/3321074_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:37.210963+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Monsieur Papa",
+        "observed_broadcast": "2026-10-06T07:03:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-06T07:03:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Comédie   1h26   1977.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": "le-crime-de-l-orient-express-1974",
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-crime-de-l-orient-express/h/179649_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:37.484134+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Le crime de l'Orient-Express",
+        "year": "1974",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Le crime de l'Orient-Express, Sidney Lumet, 1974. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": "le-crime-de-l-orient-express-1974",
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-crime-de-l-orient-express/h/179649_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:37.484134+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Le crime de l'Orient-Express",
+        "observed_broadcast": "2026-10-08T18:46:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-08T18:46:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Policier   2h02   1974.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/premiere-victoire/h/3630487_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:41.846857+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Première victoire",
+        "year": "1965",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Première victoire, Otto Preminger, 1965. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/premiere-victoire/h/3630487_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:41.846857+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Première victoire",
+        "observed_broadcast": "2026-10-07T10:35:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-07T10:35:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Guerre   2h40   1965.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/aventure-dans-le-grand-nord/h/4352769_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:41.780531+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Aventure dans le Grand Nord",
+        "year": "1953",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Aventure dans le Grand Nord, William A. Wellman, 1953. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/aventure-dans-le-grand-nord/h/4352769_50002",
+        "https://tv-programme.com/cine-plus-classic/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:10:41.780531+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Aventure dans le Grand Nord",
+        "observed_broadcast": "2026-10-13T11:11:00.000+02:00"
+      },
+      "evidence_note": "Écart : grille 11:17, fiche 2026-10-13T11:11:00.000+02:00. Version Film Aventure   1h45   1953. Conserver les deux observations ; aucun remplacement automatique.",
+      "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/copie-conforme/h/2174212_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:41.814118+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Copie conforme",
+        "year": "1947",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Copie conforme, Jean Dréville, 1947. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/copie-conforme/h/2174212_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:41.814118+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Copie conforme",
+        "observed_broadcast": "2026-10-05T03:25:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-05T03:25:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Comédie   1h39   1947.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": "la-garconniere-1960",
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-garconniere/h/448666_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:41.597868+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "La garçonnière",
+        "year": "1960",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : La garçonnière, Billy Wilder, 1960. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": "la-garconniere-1960",
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-garconniere/h/448666_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:41.597868+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La garçonnière",
+        "observed_broadcast": "2026-10-05T20:50:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-05T20:50:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Comédie dramatique   2h00   1960.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/les-fiancees-en-folie/h/20431689_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:52.999459+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Les Fiancées en folie",
+        "year": "1925",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Les Fiancées en folie, Buster Keaton, 1925. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/les-fiancees-en-folie/h/20431689_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:52.999459+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Les Fiancées en folie",
+        "observed_broadcast": "2026-10-04T06:03:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-04T06:03:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Comédie   55 min   1925.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/max-et-les-ferrailleurs/h/1763192_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:52.903901+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Max et les ferrailleurs",
+        "year": "1971",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Max et les ferrailleurs, Claude Sautet, 1971. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/max-et-les-ferrailleurs/h/1763192_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:52.903901+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Max et les ferrailleurs",
+        "observed_broadcast": "2026-10-06T08:30:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-06T08:30:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Policier   1h46   1971.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/mort-sur-le-nil/h/179583_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:52.606178+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Mort sur le Nil",
+        "year": "1978",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Mort sur le Nil, John Guillermin, 1978. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/mort-sur-le-nil/h/179583_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:52.606178+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Mort sur le Nil",
+        "observed_broadcast": "2026-10-03T20:50:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-03T20:50:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Policier   2h14   1978.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": "l-homme-des-hautes-plaines",
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/l-homme-des-hautes-plaines/h/677626_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:54.920258+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "L'homme des hautes plaines",
+        "year": "1973",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : L'homme des hautes plaines, Clint Eastwood, 1973. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": "l-homme-des-hautes-plaines",
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/l-homme-des-hautes-plaines/h/677626_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:54.920258+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "L'homme des hautes plaines",
+        "observed_broadcast": "2026-10-04T11:05:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-04T11:05:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Western   1h40   1973.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/cadet-d-eau-douce/h/30347560_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:57.940341+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Cadet d'eau douce",
+        "year": "1928",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Cadet d'eau douce, Charles Reisner, 1928. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/cadet-d-eau-douce/h/30347560_50002",
+        "https://tv-programme.com/cine-plus-classic/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:10:57.940341+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Cadet d'eau douce",
+        "observed_broadcast": "2026-10-14T12:06:00.000+02:00"
+      },
+      "evidence_note": "Heure 2026-10-14T12:06:00.000+02:00 concorde avec l'entrée Ciné+ Classic. Durée affichée PT1H6M distincte de la longueur du créneau ; chaîne non nommée dans le BroadcastEvent, disponibilité replay non certifiée.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-retour-de-don-camillo/h/1064207_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:57.148573+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Le retour de don Camillo",
+        "year": "1953",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Le retour de don Camillo, Julien Duvivier, 1953. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-retour-de-don-camillo/h/1064207_50002",
+        "https://tv-programme.com/cine-plus-classic/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:10:57.148573+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Le retour de don Camillo",
+        "observed_broadcast": "2026-10-14T20:50:00.000+02:00"
+      },
+      "evidence_note": "Heure 2026-10-14T20:50:00.000+02:00 concorde avec l'entrée Ciné+ Classic. Durée affichée PT1H47M distincte de la longueur du créneau ; chaîne non nommée dans le BroadcastEvent, disponibilité replay non certifiée.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/decouverte/les-romans-durs-de-georges-simenon/h/30288358_50002",
+        "https://tv-programme.com/cine-plus-classic/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:10:57.132458+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Les romans durs de Georges Simenon",
+        "observed_broadcast": "2026-10-15T05:44:00.000+02:00"
+      },
+      "evidence_note": "Heure 2026-10-15T05:44:00.000+02:00 concorde avec l'entrée Ciné+ Classic. Durée affichée PT51M distincte de la longueur du créneau ; chaîne non nommée dans le BroadcastEvent, disponibilité replay non certifiée.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/point-limite/h/7416144_50002"
+      ],
+      "checked_at": "2026-10-08T13:10:57.263963+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Point limite",
+        "year": "1964",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Point limite, Sidney Lumet, 1964. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/point-limite/h/7416144_50002",
+        "https://tv-programme.com/cine-plus-classic/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:10:57.263963+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Point limite",
+        "observed_broadcast": "2026-10-15T20:50:00.000+02:00"
+      },
+      "evidence_note": "Heure 2026-10-15T20:50:00.000+02:00 concorde avec l'entrée Ciné+ Classic. Durée affichée PT1H47M distincte de la longueur du créneau ; chaîne non nommée dans le BroadcastEvent, disponibilité replay non certifiée.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-gueule-ouverte/h/438611_50002"
+      ],
+      "checked_at": "2026-10-08T13:11:01.880837+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "La gueule ouverte",
+        "year": "1974",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : La gueule ouverte, Maurice Pialat, 1974. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-gueule-ouverte/h/438611_50002",
+        "https://tv-programme.com/cine-plus-festival/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:11:01.880837+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La gueule ouverte",
+        "observed_broadcast": "2026-10-11T01:04:00.000+02:00"
+      },
+      "evidence_note": "Heure 2026-10-11T01:04:00.000+02:00 concorde avec l'entrée Ciné+ Festival. Durée affichée PT1H23M distincte de la longueur du créneau ; chaîne non nommée dans le BroadcastEvent, disponibilité replay non certifiée.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/jamais-plus-toujours/h/18490375_50002"
+      ],
+      "checked_at": "2026-10-08T13:11:01.729385+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Jamais plus toujours",
+        "year": "1976",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Jamais plus toujours, Yannick Bellon, 1976. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/jamais-plus-toujours/h/18490375_50002"
+      ],
+      "checked_at": "2026-10-08T13:11:01.729385+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Jamais plus toujours",
+        "observed_broadcast": "2026-10-09T02:51:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-09T02:51:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Drame   1h18   1976.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-petit-monde-de-don-camillo/h/1064002_50002"
+      ],
+      "checked_at": "2026-10-08T13:11:01.505919+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Le petit monde de don Camillo",
+        "year": "1952",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Le petit monde de don Camillo, Julien Duvivier, 1952. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-petit-monde-de-don-camillo/h/1064002_50002"
+      ],
+      "checked_at": "2026-10-08T13:11:01.505919+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Le petit monde de don Camillo",
+        "observed_broadcast": "2026-10-07T20:50:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-07T20:50:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Comédie   1h43   1952.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/les-culottes-rouges/h/116857_50002"
+      ],
+      "checked_at": "2026-10-08T13:11:01.418119+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Les culottes rouges",
+        "year": "1962",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Les culottes rouges, Alex Joffé, 1962. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/les-culottes-rouges/h/116857_50002"
+      ],
+      "checked_at": "2026-10-08T13:11:01.418119+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Les culottes rouges",
+        "observed_broadcast": "2026-10-05T19:08:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-05T19:08:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Comédie   1h40   1962.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-vie-de-chateau/h/286204_50002"
+      ],
+      "checked_at": "2026-10-08T13:11:05.602024+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "La vie de château",
+        "year": "1966",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : La vie de château, Jean-Paul Rappeneau, 1966. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-vie-de-chateau/h/286204_50002",
+        "https://tv-programme.com/cine-plus-classic/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:11:05.602024+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La vie de château",
+        "observed_broadcast": "2026-10-16T19:20:00.000+02:00"
+      },
+      "evidence_note": "Heure 2026-10-16T19:20:00.000+02:00 concorde avec l'entrée Ciné+ Classic. Durée affichée PT1H28M distincte de la longueur du créneau ; chaîne non nommée dans le BroadcastEvent, disponibilité replay non certifiée.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/hatari/h/442321_50002"
+      ],
+      "checked_at": "2026-10-08T13:11:06.599523+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Hatari !",
+        "year": "1962",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : Hatari !, Howard Hawks, 1962. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/hatari/h/442321_50002"
+      ],
+      "checked_at": "2026-10-08T13:11:06.599523+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Hatari !",
+        "observed_broadcast": "2026-10-03T17:23:00.000+02:00"
+      },
+      "evidence_note": "BroadcastEvent 2026-10-03T17:23:00.000+02:00 hors cible ; ne confirme aucune rediffusion S42. Version affichée : Film Aventure   2h31   1962.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-proie-nue/h/1550542_50002"
+      ],
+      "checked_at": "2026-10-08T13:11:06.459241+00:00",
+      "stability": "stable",
+      "applies_to": {
+        "title": "La proie nue",
+        "year": "1965",
+        "version": "identité de la fiche CANAL+ française"
+      },
+      "evidence_note": "Fiche officielle : La proie nue, Cornel Wilde, 1965. Durée de version consignée séparément ; ne pas reprendre une durée catalogue divergente.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-proie-nue/h/1550542_50002",
+        "https://tv-programme.com/cine-plus-classic/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:11:06.459241+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La proie nue",
+        "observed_broadcast": "2026-10-16T23:22:00.000+02:00"
+      },
+      "evidence_note": "Heure 2026-10-16T23:22:00.000+02:00 concorde avec l'entrée Ciné+ Classic. Durée affichée PT1H31M distincte de la longueur du créneau ; chaîne non nommée dans le BroadcastEvent, disponibilité replay non certifiée.",
+      "status": "needs_check"
     }
   ],
   "run_metrics": [
@@ -14469,14 +16188,15 @@
       "note": "Six sous-lots sauvegardés. Aucune phase complète, aucune nouvelle carte certifiée, aucun quota estimé. Pas de notification requise."
     },
     {
-      "date": "2026-10-08T13:07:07.781Z",
+      "date": "2026-10-08T13:13:50.799Z",
       "started_at": "2026-10-08T12:56:49.756Z",
       "owner": "109c9a33-d9f8-4e3a-bebb-bc1f8cceb754",
       "stage": "inventory_crosschecks",
-      "elapsed_seconds": 618,
+      "elapsed_seconds": 1021,
       "duration_basis": "wall_clock_until_checkpoint",
       "completed_batches": [
-        "inventory-rmc-seven-days-second-guide-and-reminder"
+        "inventory-rmc-seven-days-second-guide-and-reminder",
+        "inventory-cine-classic-official-film-pages"
       ],
       "reused_complete_cards": 0,
       "newly_verified_complete_cards": 0,
@@ -14486,10 +16206,12 @@
       "blockers": [],
       "remaining": {
         "stage": "inventory",
-        "count": 29,
+        "count": 30,
         "reference": "remaining"
       },
-      "note": "Indépendance de la seconde grille non certifiée ; aucune phase complète, aucun quota estimé."
+      "note": "Indépendance de la seconde grille non certifiée ; aucune phase complète, aucun quota estimé.",
+      "official_film_pages_examined": 45,
+      "official_broadcast_start_matches": 14
     }
   ],
   "source_issues": [
@@ -14796,6 +16518,17 @@
       "logs_read": true,
       "cause": "Seul échec : Require a complete candidate before merging. Préparation S42 incomplète ; navigateur public S41, pas certification S42. Base-attestation non applicable skipped.",
       "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-08T13:13:50.799Z",
+      "head_sha": "8a109406ca10e547d537292e8be7b421dc3b3162",
+      "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "run_id": 37781903921,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": true,
+      "cause": "Require a complete candidate before merging uniquement. Contrôles préparation/public S41 ; base-attestation non applicable skipped. S42 reste incomplète.",
+      "reusable_only_for_exact_sha": true
     }
   ],
   "catalogue_reuse": {
@@ -14879,7 +16612,7 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "77c5df5514cb55cf7a84277d65e78e0288dc2d6f",
+    "checkpoint_parent_sha": "8a109406ca10e547d537292e8be7b421dc3b3162",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
@@ -14899,14 +16632,14 @@
       "note": "Aucune progression active ; aucun déclenchement agent."
     },
     "last_ci_observation": {
-      "checked_at": "2026-10-08T13:06:44.117Z",
-      "head_sha": "77c5df5514cb55cf7a84277d65e78e0288dc2d6f",
+      "checked_at": "2026-10-08T13:13:50.799Z",
+      "head_sha": "8a109406ca10e547d537292e8be7b421dc3b3162",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37776425926,
+      "run_id": 37781903921,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Seul échec : Require a complete candidate before merging. Préparation S42 incomplète ; navigateur public S41, pas certification S42. Base-attestation non applicable skipped.",
+      "cause": "Require a complete candidate before merging uniquement. Contrôles préparation/public S41 ; base-attestation non applicable skipped. S42 reste incomplète.",
       "reusable_only_for_exact_sha": true
     },
     "latest_candidate_ci": {
