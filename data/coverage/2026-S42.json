@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "partial",
-  "updated_at": "2026-10-08T17:05:22.976Z",
+  "updated_at": "2026-10-08T18:10:48.782Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -3543,7 +3543,7 @@
     }
   ],
   "documentary_discovery": {
-    "status": "in_progress",
+    "status": "enrichment_in_progress",
     "sources_consulted": [
       {
         "broadcaster": "Arte",
@@ -3898,6 +3898,21 @@
           "https://www.senscritique.com/film/didy/101340426"
         ],
         "note": "Didy : offre exclutFR dans métadonnées, durée84minprécise. Edgar :2025/68minoffre, article et avisunique distingués, fin technique2027. Quatre visuels vus ; cartes noncomplètes."
+      },
+      {
+        "url": "https://www.arte.tv/fr/videos/083910-000-A/thorin-le-dernier-neandertalien/",
+        "checked_at": "2026-10-08T18:10:48.782Z",
+        "scope": "Thorin : diffusion officielle 10/10 23:20, offre 54 min, fin 14/11/2026, identité"
+      },
+      {
+        "url": "https://www.senscritique.com/film/thorin_le_dernier_neandertalien/101841222",
+        "checked_at": "2026-10-08T18:10:48.782Z",
+        "scope": "Thorin : identité, critique spectateur unique et fallback visuel"
+      },
+      {
+        "url": "https://www.imdb.com/title/tt33888759/",
+        "checked_at": "2026-10-08T18:10:48.782Z",
+        "scope": "Thorin : fiche exacte identifiée, note directe non lisible"
       }
     ],
     "candidates": [
@@ -4193,8 +4208,8 @@
         "channel": "Arte",
         "date": "2026-10-10",
         "start": "23:20",
-        "decision": "à vérifier",
-        "availability_source": "https://tv-programme.com/arte/samedi-10-octobre-2026/",
+        "decision": "prometteur — dossier complet pour comparaison",
+        "availability_source": "https://www.arte.tv/fr/videos/083910-000-A/thorin-le-dernier-neandertalien/",
         "critical_evidence": [
           {
             "source_url": "https://www.senscritique.com/film/thorin_le_dernier_neandertalien/critique/326486055",
@@ -4239,7 +4254,7 @@
             "checked_at": "2026-10-08T12:06:46.361Z"
           }
         ],
-        "reason": "Piste prometteuse à comparer après inventaire certifié ; preuves critiques attribuées enregistrées. Version, droits, notes, affiche et carte complète restent à terminer ; pas encore retenu.",
+        "reason": "Dossier désormais complet pour comparaison éditoriale : identité, diffusion ARTE, offre/expiration, version ciblée, réception attribuée, distinctions, recherche de notes et fallback sont documentés avec leurs limites. Pas encore retenu ; carte publique, work_id, textes et préflight restent à faire.",
         "identity_research": {
           "director": "Pascal Cuissot",
           "year": 2024,
@@ -4249,26 +4264,69 @@
             "https://www.arte.tv/fr/videos/083910-000-A/thorin-le-dernier-neandertalien/",
             "https://www.senscritique.com/film/thorin_le_dernier_neandertalien/101841222"
           ],
-          "checked_at": "2026-10-08T12:06:46.361Z",
+          "checked_at": "2026-10-08T18:10:48.782Z",
           "canonical_work_id": null,
-          "catalogue_match": "aucun dans works.json courant"
+          "catalogue_match": "aucun dans works.json courant",
+          "status": "verified"
         },
         "availability_research": {
           "source_url": "https://www.arte.tv/fr/videos/083910-000-A/thorin-le-dernier-neandertalien/",
-          "checked_at": "2026-10-08T12:06:46.361Z",
+          "checked_at": "2026-10-08T18:10:48.782Z",
           "displayed_duration_minutes": 54,
           "displayed_expiry_date": "2026-11-14",
-          "status": "needs_check",
-          "note": "Page publique courante lue ; expiration affichée vérifiée. Le rendu de recherche signale une restriction géographique ; aucune lecture ni droits France inférés. Compte/territoire et heure exacte de fin à vérifier."
+          "status": "offer_metadata_verified_playback_unchecked",
+          "note": "Page publique ARTE en français lue : 54 min, disponible jusqu'au 14/11/2026 et diffusion 10/10 à 23:20. La lecture effective et une éventuelle géorestriction n'ont pas été testées ; contrôle de fraîcheur requis au préflight."
         },
-        "version_note": "54 min offre Arte, 52 min festival/critique 2024, 53 min fiche Hominides. Ne pas assimiler le créneau TV de 60 min à la durée du film.",
+        "version_note": "Version courante ARTE : 54 min. Les observations festival/Télérama à 52 min et Hominides à 53 min restent des versions/arrondis distincts ; la carte éventuelle devra viser explicitement la copie ARTE 54 min.",
         "ratings_research": {
-          "checked_at": "2026-10-08T12:06:46.361Z",
+          "checked_at": "2026-10-08T18:10:48.782Z",
           "source_urls": [
-            "https://www.senscritique.com/film/thorin_le_dernier_neandertalien/101841222"
+            "https://www.senscritique.com/film/thorin_le_dernier_neandertalien/101841222",
+            "https://www.imdb.com/title/tt33888759/",
+            "https://www.primevideo.com/-/fr/detail/Thorin-le-dernier-n%C3%A9andertalien/0KYBUHHPU3LBTZO2CIUCTU6TL2"
           ],
-          "status": "needs_check",
-          "note": "Fiche SC exacte lue, mais nombres isolés de l'extraction non identifiés comme moyenne ; lecture HTTP directe refusée 403. Ne pas inventer une moyenne ou une absence de notes. IMDb reste à contrôler."
+          "status": "absence_of_usable_aggregate_justified",
+          "note": "La fiche SensCritique exacte affiche une seule critique spectateur notée 8/10 mais aucune moyenne globale identifiée. La fiche IMDb exacte est identifiée sans note directement lisible ; une page Prime indexée affiche 6,4/10, non reprise comme note IMDb faute de consultation directe et datée. Aucune note globale inventée."
+        },
+        "broadcast_research": {
+          "date": "2026-10-10",
+          "start": "23:20",
+          "channel": "Arte",
+          "source_urls": [
+            "https://www.arte.tv/fr/videos/083910-000-A/thorin-le-dernier-neandertalien/",
+            "https://tv-programme.com/arte/samedi-10-octobre-2026/"
+          ],
+          "checked_at": "2026-10-08T18:10:48.782Z",
+          "status": "verified",
+          "note": "La page ARTE française courante affiche explicitement la diffusion du samedi 10 octobre à 23:20 ; le guide secondaire concorde. À recontrôler au préflight."
+        },
+        "image_research": {
+          "checked_at": "2026-10-08T18:10:48.782Z",
+          "source_page": "https://www.senscritique.com/film/thorin_le_dernier_neandertalien/101841222",
+          "fallback_url": "https://media.senscritique.com/media/000022423251/300/thorin_le_dernier_neandertalien.jpg",
+          "status": "fallback_visually_verified_poster_unavailable",
+          "visually_checked": true,
+          "note": "Image paysage exacte de la fiche, titre cohérent et contenu préhistorique, inspectée visuellement. Le lien Image de la page ARTE renvoie actuellement un visuel générique ARTE ; aucun poster officiel exploitable n'est affirmé. Utiliser uniquement comme fallback, sous contrôle distant du CI."
+        },
+        "dossier_completeness": {
+          "status": "complete_for_editorial_comparison",
+          "completed_at": "2026-10-08T18:10:48.782Z",
+          "fields": {
+            "identity": "verified",
+            "current_broadcast": "verified_official_plus_concordant_guide",
+            "current_offer_and_expiry": "verified_metadata_playback_unchecked",
+            "version": "targeted_arte_54min_conflicts_preserved",
+            "critical_reception": "verified_with_limits",
+            "alternative_quality_evidence": "two_awards_verified",
+            "ratings": "aggregate_unavailable_after_targeted_search",
+            "image": "visual_fallback_verified_official_poster_unavailable"
+          },
+          "not_yet_publication_ready": [
+            "Attribuer un work_id canonique lors de la création de la carte",
+            "Rédiger et revoir les textes de carte",
+            "Contrôler fraîcheur de la diffusion/offre et santé distante du fallback au préflight",
+            "Comparer éditorialement avec les autres candidats ; aucune sélection finale implicite"
+          ]
         }
       },
       {
