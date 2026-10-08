@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T12:18:11.547Z",
+  "updated_at": "2026-10-08T12:20:18.077Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -31,7 +31,8 @@
     "Paris Première : tous les dix ajouts sont recoupés ; sujets des magazines culturels à préciser, téléfilms/spectacles à trier et enrichir, parties La maison sur le lac à identifier sans confusion.",
     "RMC+ : Oppenheimer (Eve Vanderstegen, 2024) et Camps perdus (Benoît Cressent, 2021) ont des pages/expirations affichées ; terminer critiques, notes, droits/lecture, versions 51/55/65 min pour Camps perdus. Tom Hanks : réception contrastée documentée, épisodes français 17/18 et diffusion du 16 à confirmer.",
     "Arte préhistoire : Chauvet, Sulawesi et Thorin (cinq diffusions) ont identités, offres affichées et réception attribuée ; vérifier versions linéaires, droits France, notes moyennes, affiches et comparaison éditoriale. Les 52/53/54 min de Thorin ne sont pas interchangeables.",
-    "France 5 : ICE, Samouraïs et Looking for Cézanne approfondis ; première critique ICE 3/4 Ciné-Télé-Revue, pas de consensus. Offres Cézanne/Samouraïs affichées avec expirations ; droits/lecture, versions (Samouraïs année 2025/2026), réception manquante, notes et affiches à terminer."
+    "France 5 : ICE, Samouraïs et Looking for Cézanne approfondis ; première critique ICE 3/4 Ciné-Télé-Revue, pas de consensus. Offres Cézanne/Samouraïs affichées avec expirations ; droits/lecture, versions (Samouraïs année 2025/2026), réception manquante, notes et affiches à terminer.",
+    "TCM : A Ghost Story et La falaise mystérieuse disposent d'identités ciblées et de critiques contrastées ; index Orange les mentionne mais fiches 451. Horaires indépendants, durée/version TCM, droits/expiration/abonnement, notes et affiches à terminer."
   ],
   "completed_batches": [
     {
@@ -290,6 +291,11 @@
       "id": "inventory-cstar-oct16-second-guide-conflicts",
       "completed_at": "2026-10-08T12:18:11.547Z",
       "description": "Six entrées comparées : un horaire concordant, un conflit de film, quatre épisodes sans rapprochement certain. Aucun ajout, aucune correction arbitraire."
+    },
+    {
+      "id": "cinema-tcm-two-targeted-reception-dossiers",
+      "completed_at": "2026-10-08T12:20:18.077Z",
+      "description": "Deux films déjà inventoriés examinés : identités et quatre critiques intégrales attribuées, réserves explicites, offres Orange non certifiées. Aucun choix ou carte finale."
     }
   ],
   "blockers": [
@@ -13831,6 +13837,125 @@
       },
       "evidence_note": "Un mariage à Noël concorde à 21:10 ; Noël à la carte divergent 22:49/22:45. Quatre Douanes numérotés sans sous-titres dans le second guide, heures divergentes au niveau collection ; identité des épisodes non certifiée. Page explicitement datée du 16 octobre 2026.",
       "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "director",
+        "year",
+        "cast",
+        "identity_distinction"
+      ],
+      "source_urls": [
+        "https://a24films.com/films/a-ghost-story"
+      ],
+      "checked_at": "2026-10-08T12:20:18.077Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "A Ghost Story"
+      },
+      "evidence_note": "{\"director\":\"David Lowery\",\"year\":2017,\"cast\":[\"Casey Affleck\",\"Rooney Mara\"],\"source_urls\":[\"https://a24films.com/films/a-ghost-story\"],\"duration_observations\":[{\"minutes\":92,\"source_url\":\"https://www.theringer.com/2017/07/11/pop-culture/a-ghost-story-movie-rooney-mara-review-204b969cf8bf\"}],\"note\":\"Distinct de Ghost Story (1981) et Ghost Stories (anthologie). Pays/version linéaire à vérifier.\"}",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception"
+      ],
+      "source_urls": [
+        "https://www.theringer.com/2017/07/11/pop-culture/a-ghost-story-movie-rooney-mara-review-204b969cf8bf",
+        "https://rogersmovienation.com/2017/07/13/movie-review-eternitys-quiet-lonely-and-a-trifle-dull-in-a-ghost-story/"
+      ],
+      "checked_at": "2026-10-08T12:20:18.077Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "A Ghost Story"
+      },
+      "evidence_note": "Adam Nayman : Salue l'invention du montage temporel et la représentation de la solitude ; souligne un rythme très exigeant et une ambition qui dépasse parfois les moyens. Roger Moore : Apprécie l'atmosphère et certains sursauts, mais juge la distance émotionnelle et les longueurs insuffisamment compensées. Note graphique non transcrite sans échelle vérifiée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "replay_offer",
+        "expiry",
+        "subscription"
+      ],
+      "source_urls": [
+        "https://tv.orange.fr/replay/chaines/catchuptv_tcm",
+        "https://tv.orange.fr/fiche-info/replay/videos/TCMCU018285"
+      ],
+      "checked_at": "2026-10-08T12:20:18.077Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "A Ghost Story",
+        "platform": "Orange / TCM"
+      },
+      "evidence_note": "Titre présent dans l'index courant TCM/Orange. Fiche précise renvoie HTTP 451 via outil Web ; pas de contournement. Expiration, droits, abonnement et lecture non certifiés. Index replay non utilisé comme preuve d'horaire.",
+      "status": "unavailable"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "director",
+        "year",
+        "cast",
+        "identity_distinction"
+      ],
+      "source_urls": [
+        "https://www.dvdclassik.com/critique/la-falaise-mysterieuse-allen",
+        "https://www.lemagducine.fr/sorties-dvd-blu-ray/la-falaise-mysterieuse-un-film-de-lewis-allen-critique-dvd-65355/"
+      ],
+      "checked_at": "2026-10-08T12:20:18.077Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La falaise mystérieuse"
+      },
+      "evidence_note": "{\"original_title\":\"The Uninvited\",\"director\":\"Lewis Allen\",\"year\":1944,\"country\":\"États-Unis\",\"cast\":[\"Ray Milland\",\"Ruth Hussey\",\"Gail Russell\"],\"source_urls\":[\"https://www.dvdclassik.com/critique/la-falaise-mysterieuse-allen\",\"https://www.lemagducine.fr/sorties-dvd-blu-ray/la-falaise-mysterieuse-un-film-de-lewis-allen-critique-dvd-65355/\"],\"duration_observations\":[{\"minutes\":99,\"version\":\"édition vidéo examinée en 2016\",\"source_url\":\"https://www.dvdclassik.com/critique/la-falaise-mysterieuse-allen\"}],\"imdb_id_from_external_link\":\"tt0037415\",\"note\":\"Lien IMDb identifié depuis DVDClassik, page refusée 403 ; note non lue. La durée vidéo ne certifie pas la version TCM.\"}",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception"
+      ],
+      "source_urls": [
+        "https://www.dvdclassik.com/critique/la-falaise-mysterieuse-allen",
+        "https://www.lemagducine.fr/sorties-dvd-blu-ray/la-falaise-mysterieuse-un-film-de-lewis-allen-critique-dvd-65355/"
+      ],
+      "checked_at": "2026-10-08T12:20:18.077Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La falaise mystérieuse"
+      },
+      "evidence_note": "Justin Kwedi : Valorise le décor, la photographie et l'installation du mystère ; reproche une esthétique impersonnelle, l'explication par les dialogues et un ton comique qui affaiblit l'inquiétude. Thierry Jacquet : Réception nettement réservée : romance envahissante, effets prévisibles et personnages trop peu inquiétants. Cet avis ne doit pas être présenté comme un éloge du classique.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "replay_offer",
+        "expiry",
+        "subscription"
+      ],
+      "source_urls": [
+        "https://tv.orange.fr/replay/chaines/catchuptv_tcm",
+        "https://tv.orange.fr/fiche-info/replay/videos/TCMCU018276"
+      ],
+      "checked_at": "2026-10-08T12:20:18.077Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La falaise mystérieuse",
+        "platform": "Orange / TCM"
+      },
+      "evidence_note": "Titre présent dans l'index courant TCM/Orange. Fiche précise renvoie HTTP 451 via outil Web ; pas de contournement. Expiration, droits, abonnement et lecture non certifiés. Index replay non utilisé comme preuve d'horaire.",
+      "status": "unavailable"
     }
   ],
   "run_metrics": [
@@ -14241,6 +14366,18 @@
       "source_url": "https://www.t18.fr/",
       "status": "unavailable",
       "note": "HTTP 403 ; source officielle datée encore à obtenir, pas de contournement."
+    },
+    {
+      "source_url": "https://www.tcmcinema.fr/",
+      "checked_at": "2026-10-08T12:20:18.077Z",
+      "status": "unavailable",
+      "note": "Page officielle inexploitable par l'outil Web ; aucune grille datée primaire obtenue. Ancien article Canal cycle Brad Pitt sans année certaine exclu."
+    },
+    {
+      "source_url": "https://www.rogerebert.com/reviews/a-ghost-story-2017",
+      "checked_at": "2026-10-08T12:20:18.077Z",
+      "status": "unavailable",
+      "note": "Ouverture 403 ; extrait indexé non retenu comme critique complète. Deux autres critiques complètes lues."
     }
   ],
   "editorial_review": {
