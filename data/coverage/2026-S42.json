@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "partial",
-  "updated_at": "2026-10-08T20:12:34.172Z",
+  "updated_at": "2026-10-08T20:16:17.167Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -16539,6 +16539,127 @@
           "not_yet_publication_ready": [
             "Établir un recoupement indépendant nommant Ciné+ Classic",
             "Compléter les autres choix et réserves du jeudi",
+            "Recontrôler diffusion, note et visuel au préflight",
+            "Achever les 35 exigences de remaining"
+          ]
+        }
+      },
+      {
+        "title": "Cadet d'eau douce",
+        "work_id": "cadet-d-eau-douce-1928",
+        "catalogue_match": "aucun avant ce lot ; entrée canonique créée dans works.json",
+        "decision": "brouillon provisoire mercredi — rang 1 ; provenance indépendante de la chaîne à consolider",
+        "reason": "Identité, version ciblée, réception nuancée, note, liens et affiche sont documentés. Le BroadcastEvent officiel ne nomme pas Ciné+ Classic : ce manque reste ouvert.",
+        "identity_research": {
+          "original_title": "Steamboat Bill, Jr.",
+          "director": "Charles Reisner",
+          "year": 1928,
+          "country": "États-Unis",
+          "type": "long métrage muet",
+          "canonical_work_id": "cadet-d-eau-douce-1928",
+          "status": "verified",
+          "source_urls": [
+            "https://www.canalplus.com/cinema/cadet-d-eau-douce/h/30347560_50002",
+            "https://www.imdb.com/title/tt0019421/",
+            "https://www.senscritique.com/film/cadet_d_eau_douce/449031",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=1609.html",
+            "https://www.critikat.com/actualite-cine/critique/cadet-deau-douce/"
+          ],
+          "checked_at": "2026-10-08T20:16:17.167Z",
+          "duration_observations": [
+            {
+              "minutes": 66,
+              "version": "version annoncée par CANAL+",
+              "source_url": "https://www.canalplus.com/cinema/cadet-d-eau-douce/h/30347560_50002"
+            },
+            {
+              "minutes": 70,
+              "version": "fiche IMDb",
+              "source_url": "https://www.imdb.com/title/tt0019421/"
+            },
+            {
+              "minutes": 71,
+              "version": "fiches SensCritique et AlloCiné",
+              "source_url": "https://www.senscritique.com/film/cadet_d_eau_douce/449031"
+            }
+          ],
+          "note": "La carte vise la version CANAL+ de 66 min. Les durées cinéma de 70/71 min restent distinctes. CANAL+ crédite Charles Reisner ; AlloCiné et SensCritique créditent aussi Buster Keaton, tandis que Critikat précise son implication déterminante."
+        },
+        "critical_evidence": [
+          {
+            "source": "Critikat",
+            "author": "François Giraud",
+            "source_url": "https://www.critikat.com/actualite-cine/critique/cadet-deau-douce/",
+            "kind": "professional_review",
+            "access": "full",
+            "checked_at": "2026-10-08T20:16:17.167Z",
+            "assessment": "Analyse le cadre, le corps de Keaton et la pression sociale, puis salue l'ampleur monumentale du cyclone final."
+          },
+          {
+            "source": "MUBI Critics",
+            "source_url": "https://mubi.com/fr/films/steamboat-bill-jr/critics-reviews",
+            "kind": "critic_review_collection",
+            "access": "full",
+            "checked_at": "2026-10-08T20:16:17.167Z",
+            "assessment": "Les avis consultés valorisent la mise en scène du cyclone et la précision physique, tout en jugeant le récit initial moins cohérent ou moins fort que Le Mécano de la General."
+          },
+          {
+            "source": "L'Œil sur l'écran",
+            "source_url": "https://films.oeil-ecran.com/2009/12/24/cadet-eau-douce/",
+            "kind": "individual_review",
+            "access": "full",
+            "checked_at": "2026-10-08T20:16:17.167Z",
+            "assessment": "Avis très favorable, cinq étoiles, qui souligne un finale exceptionnel sans réduire le début à une simple attente."
+          }
+        ],
+        "ratings_research": {
+          "status": "verified_dynamic",
+          "checked_at": "2026-10-08T20:16:17.167Z",
+          "source_urls": [
+            "https://www.senscritique.com/film/cadet_d_eau_douce/449031",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=1609.html"
+          ],
+          "note": "SensCritique 7,8 ; AlloCiné 4,2/5 pour 292 notes et 32 critiques spectateurs. Seule la note SensCritique prévue par le schéma est publiée."
+        },
+        "broadcast_research": {
+          "date": "2026-10-14",
+          "start": "12:06",
+          "channel": "Ciné+ Classic",
+          "source_urls": [
+            "https://www.canalplus.com/cinema/cadet-d-eau-douce/h/30347560_50002",
+            "https://tv-programme.com/cine-plus-classic/mercredi-14-octobre-2026/"
+          ],
+          "checked_at": "2026-10-08T13:10:57.940341+00:00",
+          "reused_in": [
+            "production-flow-2026-10-08"
+          ],
+          "status": "time_verified_channel_from_grid_independence_pending",
+          "note": "Le BroadcastEvent CANAL+ concorde à 12:06 mais ne nomme pas la chaîne ; TV-Programme nomme Ciné+ Classic. Une provenance indépendante ou une page officielle nommant la chaîne reste requise."
+        },
+        "image_research": {
+          "checked_at": "2026-10-08T20:16:17.167Z",
+          "source_page": "https://www.allocine.fr/film/fichefilm-1609/photos/",
+          "image_url": "https://fr.web.img3.acsta.net/pictures/17/05/19/16/04/134416.jpg",
+          "status": "poster_visually_verified_ci_pending",
+          "visually_checked": true,
+          "note": "Affiche française exacte inspectée visuellement ; provenance AlloCiné conservée, santé distante à contrôler par le CI."
+        },
+        "dossier_completeness": {
+          "status": "draft_card_created_broadcast_independence_pending",
+          "completed_at": "2026-10-08T20:16:17.167Z",
+          "fields": {
+            "identity": "verified",
+            "version": "canal_66min_conflicts_preserved",
+            "critical_reception": "verified_with_reservation",
+            "ratings": "verified_and_dated",
+            "image": "visually_verified_ci_pending",
+            "links": "direct_exact_links_verified",
+            "editorial_copy": "drafted_and_reviewed_for_this_batch",
+            "current_broadcast": "time_verified_channel_provenance_needs_check"
+          },
+          "not_yet_publication_ready": [
+            "Établir un recoupement indépendant nommant Ciné+ Classic",
+            "Compléter les autres choix et réserves du mercredi",
             "Recontrôler diffusion, note et visuel au préflight",
             "Achever les 35 exigences de remaining"
           ]

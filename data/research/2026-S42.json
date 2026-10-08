@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "b619a043c67e5d7790928731c8b0b35563992d05",
   "stage": "enrichment",
-  "updated_at": "2026-10-08T20:12:34.172Z",
+  "updated_at": "2026-10-08T20:16:17.167Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -428,6 +428,11 @@
       "id": "enrichment-point-limite-thursday-draft",
       "completed_at": "2026-10-08T20:12:34.172Z",
       "description": "Point limite matérialisé en carte draft du jeudi depuis la diffusion sauvegardée et une recherche critique ciblée. Le manque d’indépendance du recoupement de chaîne reste explicite."
+    },
+    {
+      "id": "enrichment-cadet-d-eau-douce-wednesday-draft",
+      "completed_at": "2026-10-08T20:16:17.167Z",
+      "description": "Cadet d’eau douce matérialisé en carte draft du mercredi depuis la diffusion sauvegardée et une recherche critique ciblée. Le manque d’indépendance du recoupement de chaîne reste explicite."
     }
   ],
   "blockers": [
@@ -18788,6 +18793,122 @@
       },
       "evidence_note": "Liens directs exacts ; aucun résultat de recherche.",
       "status": "verified"
+    },
+    {
+      "work_id": "cadet-d-eau-douce-1928",
+      "fields": [
+        "title",
+        "aliases",
+        "director",
+        "year",
+        "country",
+        "version.duration"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/cadet-d-eau-douce/h/30347560_50002",
+        "https://www.imdb.com/title/tt0019421/",
+        "https://www.senscritique.com/film/cadet_d_eau_douce/449031",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=1609.html",
+        "https://www.critikat.com/actualite-cine/critique/cadet-deau-douce/"
+      ],
+      "checked_at": "2026-10-08T20:16:17.167Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "version": "CANAL+ 66 min"
+      },
+      "evidence_note": "Identité 1928 établie ; divergences 66/70/71 min et crédits de réalisation conservés.",
+      "status": "verified"
+    },
+    {
+      "work_id": "cadet-d-eau-douce-1928",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/cadet-d-eau-douce/h/30347560_50002",
+        "https://tv-programme.com/cine-plus-classic/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:10:57.940341+00:00",
+      "reused_in": [
+        "production-flow-2026-10-08"
+      ],
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-14 12:06 Ciné+ Classic"
+      },
+      "evidence_note": "Heure officielle concordante ; nom de chaîne issu de la grille et indépendance encore à établir.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": "cadet-d-eau-douce-1928",
+      "fields": [
+        "critical_reception",
+        "critical_reservations",
+        "ratings.senscritique"
+      ],
+      "source_urls": [
+        "https://www.critikat.com/actualite-cine/critique/cadet-deau-douce/",
+        "https://mubi.com/fr/films/steamboat-bill-jr/critics-reviews",
+        "https://films.oeil-ecran.com/2009/12/24/cadet-eau-douce/",
+        "https://www.senscritique.com/film/cadet_d_eau_douce/449031",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=1609.html"
+      ],
+      "checked_at": "2026-10-08T20:16:17.167Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Cadet d'eau douce"
+      },
+      "evidence_note": "Réception argumentée et réserve sur la première partie conservées ; SC 7,8 daté.",
+      "status": "verified"
+    },
+    {
+      "work_id": "cadet-d-eau-douce-1928",
+      "fields": [
+        "image",
+        "image_type",
+        "image_provenance",
+        "image_visual_review"
+      ],
+      "source_urls": [
+        "https://www.allocine.fr/film/fichefilm-1609/photos/",
+        "https://fr.web.img3.acsta.net/pictures/17/05/19/16/04/134416.jpg"
+      ],
+      "checked_at": "2026-10-08T20:16:17.167Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Cadet d'eau douce"
+      },
+      "evidence_note": "Affiche française exacte inspectée visuellement ; CI distant en attente.",
+      "status": "verified"
+    },
+    {
+      "work_id": "cadet-d-eau-douce-1928",
+      "fields": [
+        "links.official",
+        "links.imdb",
+        "links.sc",
+        "links.allocine"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/cadet-d-eau-douce/h/30347560_50002",
+        "https://www.imdb.com/title/tt0019421/",
+        "https://www.senscritique.com/film/cadet_d_eau_douce/449031",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=1609.html"
+      ],
+      "checked_at": "2026-10-08T20:16:17.167Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Cadet d'eau douce"
+      },
+      "evidence_note": "Liens directs exacts ; aucun résultat de recherche.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -19464,7 +19585,44 @@
         "count": 35,
         "reference": "remaining"
       },
-      "stop_reason": "coherent_thursday_draft_batch_ready_for_remote_checkpoint; broadcast_channel_independence_explicitly_open",
+      "stop_reason": "checkpoint_saved_then_next_useful_batch_continued",
+      "next_useful_batch": "Compléter un dossier d’un jour encore vide ou établir une source indépendante de chaîne pour les cartes Ciné+.",
+      "note": "Carte draft non comptée comme complète : provenance indépendante de la chaîne encore ouverte. Flags de couverture inchangés."
+    },
+    {
+      "date": "2026-10-08T20:16:17.167Z",
+      "started_at": "2026-10-08T20:12:34.172Z",
+      "ended_at": "2026-10-08T20:16:17.167Z",
+      "owner": "a68f4d35-6d59-41c1-a5d4-041717ff033a",
+      "prompt_revision": "production-flow-2026-10-08",
+      "stage": "enrichment_draft_cards",
+      "elapsed_seconds": 223,
+      "duration_basis": "wall_clock_between_saved_checkpoints",
+      "completed_batches": [
+        "enrichment-cadet-d-eau-douce-wednesday-draft"
+      ],
+      "new_leads": 0,
+      "previously_researched_incomplete_works_followed_up": 1,
+      "newly_completed_editorial_dossiers": 0,
+      "newly_verified_complete_cards": 0,
+      "draft_cards_created": 1,
+      "dossier_partials_advanced": 1,
+      "deliverables_advanced": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/manifest.json",
+        "data/coverage/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "coverage_requirements_resolved": 0,
+      "images_visually_checked": 1,
+      "remaining": {
+        "stage": "enrichment",
+        "count": 35,
+        "reference": "remaining"
+      },
+      "stop_reason": "coherent_wednesday_draft_batch_ready_for_remote_checkpoint; broadcast_channel_independence_explicitly_open",
       "next_useful_batch": "Compléter un dossier d’un jour encore vide ou établir une source indépendante de chaîne pour les cartes Ciné+.",
       "note": "Carte draft non comptée comme complète : provenance indépendante de la chaîne encore ouverte. Flags de couverture inchangés."
     }
@@ -20159,6 +20317,11 @@
     ],
     "promising_candidates": [
       {
+        "title": "Cadet d'eau douce",
+        "status": "carte draft créée ; dossier presque complet",
+        "remaining": "Consolider l’indépendance du recoupement de chaîne, puis compléter choix/réserves du mercredi et préflight."
+      },
+      {
         "title": "Point limite",
         "status": "carte draft créée ; dossier presque complet",
         "remaining": "Consolider l’indépendance du recoupement de chaîne, puis compléter choix/réserves du jeudi et préflight."
@@ -20327,8 +20490,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "6b37a12e5f75e9d31cf0266afbf760efeaf79fe3",
-    "produced_at": "2026-10-08T20:12:34.172Z",
+    "source_candidate_sha": "b94850e83bb3b5d37559f78cf6025014042aa165",
+    "produced_at": "2026-10-08T20:16:17.167Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -20424,6 +20587,30 @@
             "https://www.criterion.com/current/posts/6801-fail-safe-very-little-left-of-the-world",
             "https://www.slantmagazine.com/dvd/blu-ray-review-sidney-lumet-fail-safe-on-the-criterion-collection/",
             "https://www.posterazzi.com/fail-safe-movie-poster-print-27-x-40-item-moveb77690/"
+          ]
+        }
+      },
+      {
+        "work_id": "cadet-d-eau-douce-1928",
+        "date": "2026-10-14",
+        "rank_provisional": 1,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-08",
+          "identity_version": "Film muet 1928 ; version CANAL+ 66 min ciblée, durées cinéma 70/71 min et crédits de réalisation divergents conservés.",
+          "canonical_fields": "Identité, liens, SC 7,8 et affiche exacte contrôlés.",
+          "current_broadcast": "Heure 12:06 officielle ; attribution Ciné+ Classic issue de la grille, indépendance à consolider.",
+          "editorial_copy": "Textes originaux revus depuis Critikat, MUBI et L’Œil sur l’écran, avec réserve explicite sur le début plus conventionnel.",
+          "evidence_urls": [
+            "https://www.canalplus.com/cinema/cadet-d-eau-douce/h/30347560_50002",
+            "https://tv-programme.com/cine-plus-classic/mercredi-14-octobre-2026/",
+            "https://www.imdb.com/title/tt0019421/",
+            "https://www.senscritique.com/film/cadet_d_eau_douce/449031",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=1609.html",
+            "https://mubi.com/fr/films/steamboat-bill-jr/critics-reviews",
+            "https://www.critikat.com/actualite-cine/critique/cadet-deau-douce/",
+            "https://films.oeil-ecran.com/2009/12/24/cadet-eau-douce/",
+            "https://www.allocine.fr/film/fichefilm-1609/photos/"
           ]
         }
       }

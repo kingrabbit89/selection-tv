@@ -43,9 +43,19 @@
       "id": "jeudi-grille",
       "className": "page",
       "html": "<div class=\"topbar\">Grille filtrée<span class=\"issue\">S42</span></div><div class=\"grid-title\">JEUDI 15 OCTOBRE — la grille commentée</div><table class=\"schedule\"><thead><tr><th>Heure</th><th>Chaîne</th><th>Programme</th><th>Pourquoi le retenir</th><th>Repère</th></tr></thead><tbody><tr><td class=\"time\">20:50</td><td class=\"chan\">Ciné+ Classic</td><td class=\"prog\">Point limite</td><td class=\"reason\">Un huis clos nucléaire tendu où la machine stratégique menace d’effacer toute décision humaine.</td><td class=\"rep\"><span class=\"badge TRÈS_FORT\">TRÈS FORT</span></td></tr></tbody></table><div class=\"footer\"><span>Sélection TV · S42</span><span>6</span></div>"
+    },
+    {
+      "id": "mercredi-selection",
+      "className": "page",
+      "html": "<div class=\"topbar\">Sélection du jour<span class=\"issue\">S42 · 10 au 16 octobre 2026</span></div><div class=\"day-head\"><div><div class=\"kicker\">Les choix développés</div><div class=\"h1\">MERCREDI 14 OCTOBRE</div></div></div><div class=\"rule\"></div><div class=\"feature-columns\"><article class=\"feature\" data-title=\"Cadet d&#39;eau douce\" data-work-id=\"cadet-d-eau-douce-1928\"><div class=\"visual\"><img class=\"poster\" src=\"https://fr.web.img3.acsta.net/pictures/17/05/19/16/04/134416.jpg\" alt=\"Cadet d&#39;eau douce\"><div class=\"fallback\">Cadet d&#39;eau douce</div></div><div style=\"margin-top:2mm\"><span class=\"badge TRÈS_FORT\">TRÈS FORT</span></div><h3>Cadet d&#39;eau douce</h3><div class=\"slot\">12:06 · Ciné+ Classic</div><div class=\"meta\">1928 · Charles Reisner · États-Unis · 66 min · Comédie / muet</div><h4>Ce que ça raconte</h4><p>Le fils maladroit d’un capitaine de bateau à vapeur revient auprès de son père, qui espérait retrouver un solide marin. Amoureux de la fille du propriétaire d’un vapeur rival, il doit choisir son camp quand la concurrence familiale tourne à l’affrontement et qu’un cyclone bouleverse la ville.</p><div class=\"interest\"><h4>Pourquoi c’est intéressant</h4><p>Buster Keaton oppose son corps frêle et impassible aux cadres imposés par son père, puis à un décor entier emporté par la tempête. Le début, plus conventionnel et moins dense en gags, prépare un finale d’une invention physique et visuelle vertigineuse.</p></div></article></div><div class=\"footer\"><span>Sélection TV · S42</span><span>7</span></div>"
+    },
+    {
+      "id": "mercredi-grille",
+      "className": "page",
+      "html": "<div class=\"topbar\">Grille filtrée<span class=\"issue\">S42</span></div><div class=\"grid-title\">MERCREDI 14 OCTOBRE — la grille commentée</div><table class=\"schedule\"><thead><tr><th>Heure</th><th>Chaîne</th><th>Programme</th><th>Pourquoi le retenir</th><th>Repère</th></tr></thead><tbody><tr><td class=\"time\">12:06</td><td class=\"chan\">Ciné+ Classic</td><td class=\"prog\">Cadet d&#39;eau douce</td><td class=\"reason\">Keaton pris entre deux pères, deux bateaux et un cyclone : une mécanique burlesque qui finit par soulever la ville entière.</td><td class=\"rep\"><span class=\"badge TRÈS_FORT\">TRÈS FORT</span></td></tr></tbody></table><div class=\"footer\"><span>Sélection TV · S42</span><span>8</span></div>"
     }
   ],
-  "page_count": 6,
+  "page_count": 8,
   "section_shortages": {},
   "personalization": {
     "schema_version": 1,
@@ -157,6 +167,37 @@
             },
             "ratings": {
               "senscritique": "8,4"
+            }
+          }
+        ]
+      },
+      "mercredi-selection": {
+        "page_id": "mercredi-selection",
+        "container_selector": ".feature-columns",
+        "primary_selector": "article.feature:not(.replacement-generated)",
+        "card_type": "feature",
+        "target": 3,
+        "desired_reserve": 7,
+        "candidates": [
+          {
+            "title": "Cadet d'eau douce",
+            "work_id": "cadet-d-eau-douce-1928",
+            "rank": 1,
+            "quality": "TRÈS FORT",
+            "time": "12:06",
+            "channel": "Ciné+ Classic",
+            "meta": "1928 · Charles Reisner · États-Unis · 66 min · Comédie / muet",
+            "summary": "Le fils maladroit d’un capitaine de bateau à vapeur revient auprès de son père, qui espérait retrouver un solide marin. Amoureux de la fille du propriétaire d’un vapeur rival, il doit choisir son camp quand la concurrence familiale tourne à l’affrontement et qu’un cyclone bouleverse la ville.",
+            "why": "Buster Keaton oppose son corps frêle et impassible aux cadres imposés par son père, puis à un décor entier emporté par la tempête. Le début, plus conventionnel et moins dense en gags, prépare un finale d’une invention physique et visuelle vertigineuse.",
+            "image": "https://fr.web.img3.acsta.net/pictures/17/05/19/16/04/134416.jpg",
+            "links": {
+              "official": "https://www.canalplus.com/cinema/cadet-d-eau-douce/h/30347560_50002",
+              "imdb": "https://www.imdb.com/title/tt0019421/",
+              "sc": "https://www.senscritique.com/film/cadet_d_eau_douce/449031",
+              "allocine": "https://www.allocine.fr/film/fichefilm_gen_cfilm=1609.html"
+            },
+            "ratings": {
+              "senscritique": "7,8"
             }
           }
         ]
