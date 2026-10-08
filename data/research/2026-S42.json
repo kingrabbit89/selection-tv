@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T11:07:46.564Z",
+  "updated_at": "2026-10-08T11:10:08.878Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -27,7 +27,8 @@
     "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma.",
     "france.tv 16 octobre : quatre nouvelles pistes documentées (Replica, Influence mortelle, Lâche ton tel, Sommes-nous tous accros aux écrans ?) ; vérifier offres/expirations, versions et réception manquante avant toute sélection.",
     "TF1/TFX/TMC : poursuivre les sujets/épisodes encore génériques et le tri motivé des formats de magazine ou documentaire de flux repérés ; neuf créneaux TFX, 38 TMC recoupés et deux magazines supplémentaires ajoutés, sans certification artistique.",
-    "TF1 : confirmer sur pages indépendantes Cat's Eyes saison 2 du 12 octobre (21:10 et 22:15) et Les docs du week-end du 11 (16:10) ; sources officielles lues, résultats indépendants indexés mais pages non exploitables. Identités canoniques, critique, durée/version et offres à traiter avant sélection."
+    "TF1 : confirmer sur pages indépendantes Cat's Eyes saison 2 du 12 octobre (21:10 et 22:15) et Les docs du week-end du 11 (16:10) ; sources officielles lues, résultats indépendants indexés mais pages non exploitables. Identités canoniques, critique, durée/version et offres à traiter avant sélection.",
+    "Paris Première : trois J'ai un ticket du 14–16 octobre à recouper, sujets des magazines culturels à préciser ; nouveaux téléfilms/spectacles à trier et enrichir, parties La maison sur le lac à identifier sans confusion."
   ],
   "completed_batches": [
     {
@@ -241,6 +242,11 @@
       "id": "inventory-rtl9-official-full-week",
       "completed_at": "2026-10-08T11:07:46.564Z",
       "description": "18 films recoupés sur sept dates, 83 créneaux examinés ; alias Joker/Wild Card résolu."
+    },
+    {
+      "id": "inventory-paris-premiere-official-full-week",
+      "completed_at": "2026-10-08T11:10:08.878Z",
+      "description": "20 diffusions existantes recoupées et dix omissions ajoutées ; sept ajouts recoupés, trois magazines à recouper."
     }
   ],
   "blockers": [
@@ -12348,6 +12354,404 @@
       },
       "evidence_note": "AlloCiné donne titre français, titre original, réalisateur et année ; le synopsis Nick Wild de RTL9 correspond. Durée/version non transférée.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf",
+        "https://pro.m6.fr/paris-premiere/grille/2026-41.pdf",
+        "https://tv-programme.com/paris-premiere/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:10:08.878Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Paris Première",
+        "slots": 3
+      },
+      "evidence_note": "Colonnes datées du PDF examinées visuellement, nuits rattachées au lendemain civil ; horaires des entrées existantes concordants. Sous-titres Ramsay confirmés dans pages détaillées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf",
+        "https://tv-programme.com/paris-premiere/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:10:08.878Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "Paris Première",
+        "slots": 5
+      },
+      "evidence_note": "Colonnes datées du PDF examinées visuellement, nuits rattachées au lendemain civil ; horaires des entrées existantes concordants. Sous-titres Ramsay confirmés dans pages détaillées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf"
+      ],
+      "checked_at": "2026-10-08T11:10:08.878Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "channel": "Paris Première",
+        "slots": 4
+      },
+      "evidence_note": "Colonnes datées du PDF examinées visuellement, nuits rattachées au lendemain civil ; horaires des entrées existantes concordants. Sous-titres Ramsay confirmés dans pages détaillées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf",
+        "https://tv-programme.com/paris-premiere/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:10:08.878Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "Paris Première",
+        "slots": 2
+      },
+      "evidence_note": "Colonnes datées du PDF examinées visuellement, nuits rattachées au lendemain civil ; horaires des entrées existantes concordants. Sous-titres Ramsay confirmés dans pages détaillées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf",
+        "https://tv-programme.com/paris-premiere/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:10:08.878Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Paris Première",
+        "slots": 1
+      },
+      "evidence_note": "Colonnes datées du PDF examinées visuellement, nuits rattachées au lendemain civil ; horaires des entrées existantes concordants. Sous-titres Ramsay confirmés dans pages détaillées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf",
+        "https://tv-programme.com/paris-premiere/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:10:08.878Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "Paris Première",
+        "slots": 2
+      },
+      "evidence_note": "Colonnes datées du PDF examinées visuellement, nuits rattachées au lendemain civil ; horaires des entrées existantes concordants. Sous-titres Ramsay confirmés dans pages détaillées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf",
+        "https://tv-programme.com/paris-premiere/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:10:08.878Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "channel": "Paris Première",
+        "slots": 3
+      },
+      "evidence_note": "Colonnes datées du PDF examinées visuellement, nuits rattachées au lendemain civil ; horaires des entrées existantes concordants. Sous-titres Ramsay confirmés dans pages détaillées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf",
+        "https://tv-programme.com/paris-premiere/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:10:08.878Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "Paris Première",
+        "start": "01:50",
+        "title": "Thaïs : que la fête continue !"
+      },
+      "evidence_note": "Omission du premier relevé réintégrée avec deux sources consultées ; critique/version/enrichissement non achevés.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf",
+        "https://tv-programme.com/paris-premiere/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:10:08.878Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "Paris Première",
+        "start": "14:05",
+        "title": "Meurtres en pays Cathare"
+      },
+      "evidence_note": "Omission du premier relevé réintégrée avec deux sources consultées ; critique/version/enrichissement non achevés.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf",
+        "https://tv-programme.com/paris-premiere/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:10:08.878Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "Paris Première",
+        "start": "15:55",
+        "title": "Meurtres en Corrèze"
+      },
+      "evidence_note": "Omission du premier relevé réintégrée avec deux sources consultées ; critique/version/enrichissement non achevés.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf",
+        "https://tv-programme.com/paris-premiere/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:10:08.878Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "Paris Première",
+        "start": "21:00",
+        "title": "Meurtres à Strasbourg"
+      },
+      "evidence_note": "Omission du premier relevé réintégrée avec deux sources consultées ; critique/version/enrichissement non achevés.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf",
+        "https://tv-programme.com/paris-premiere/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:10:08.878Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "Paris Première",
+        "start": "22:50",
+        "title": "Meurtres à Sarlat"
+      },
+      "evidence_note": "Omission du premier relevé réintégrée avec deux sources consultées ; critique/version/enrichissement non achevés.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf",
+        "https://tv-programme.com/paris-premiere/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:10:08.878Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "Paris Première",
+        "start": "01:40",
+        "title": "Antonia de Rendinger - Cas cliniques"
+      },
+      "evidence_note": "Omission du premier relevé réintégrée avec deux sources consultées ; critique/version/enrichissement non achevés.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf",
+        "https://tv-programme.com/paris-premiere/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:10:08.878Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "Paris Première",
+        "start": "20:50",
+        "title": "J'ai un ticket"
+      },
+      "evidence_note": "Omission du premier relevé réintégrée avec deux sources consultées ; critique/version/enrichissement non achevés.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf"
+      ],
+      "checked_at": "2026-10-08T11:10:08.878Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Paris Première",
+        "start": "20:50",
+        "title": "J'ai un ticket"
+      },
+      "evidence_note": "Magazine culturel réintégré depuis PDF officiel ; recoupement indépendant encore requis.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf"
+      ],
+      "checked_at": "2026-10-08T11:10:08.878Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "Paris Première",
+        "start": "20:50",
+        "title": "J'ai un ticket"
+      },
+      "evidence_note": "Magazine culturel réintégré depuis PDF officiel ; recoupement indépendant encore requis.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.title",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf"
+      ],
+      "checked_at": "2026-10-08T11:10:08.878Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "channel": "Paris Première",
+        "start": "20:50",
+        "title": "J'ai un ticket"
+      },
+      "evidence_note": "Magazine culturel réintégré depuis PDF officiel ; recoupement indépendant encore requis.",
+      "status": "needs_check"
     }
   ],
   "run_metrics": [
@@ -12861,7 +13265,7 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "0f7f2f1c56e40cc73435471213e79e2de86a49a3",
+    "checkpoint_parent_sha": "ff60e4a533ee72ac7fde31b3d4a85c9495689bc3",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
