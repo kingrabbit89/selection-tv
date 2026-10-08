@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T10:11:28.942Z",
+  "updated_at": "2026-10-08T10:15:21.805Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -24,7 +24,8 @@
     "France 4 documentaires : Wachowski (Thibaut Sève, distinct de Matrix Generation) a des avis attribués mais durée 61/62/70 min à départager ; On ne va pas se défiler réintégré comme documentaire, critique/offre 2026 à compléter.",
     "TV5MONDE+ : Didy dispose de deux critiques attribuées et d'une identité festival ; durée/version, droits France, expiration, notes et affiche à terminer. Trois nouvelles pistes de l'accueil restent à examiner ; grille linéaire FBS à recouper.",
     "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes.",
-    "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma."
+    "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma.",
+    "france.tv 16 octobre : quatre nouvelles pistes documentées (Replica, Influence mortelle, Lâche ton tel, Sommes-nous tous accros aux écrans ?) ; vérifier offres/expirations, versions et réception manquante avant toute sélection."
   ],
   "completed_batches": [
     {
@@ -203,6 +204,11 @@
       "id": "inventory-intracables-official-episodes",
       "completed_at": "2026-10-08T10:11:28.942Z",
       "description": "Deux diffusions du 15 octobre recoupées dans les fiches TF1 Pro ; ambiguïté téléfilm/série levée. Aucun choix éditorial ni fiche complète certifiés."
+    },
+    {
+      "id": "documentary-francetv-oct16-digital-discovery",
+      "completed_at": "2026-10-08T10:15:21.805Z",
+      "description": "Quatre pistes numériques ajoutées à coverage, trois critiques de Replica attribuées, extrait Télérama et Prix Italia d'Influence mortelle vérifiés. Aucun accès vidéo ni sélection finale certifiés."
     }
   ],
   "blockers": [
@@ -11489,6 +11495,159 @@
       },
       "evidence_note": "Horaire et numéro d'épisode concordent ; mini-série confirmée par communiqué. Ne certifie ni durée effective ni sous-titre ni qualité.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "announced_availability",
+        "programme_type"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/contenu-de-presse/78821712",
+        "https://www.francetvpro.fr/contenu-de-presse/78602609"
+      ],
+      "checked_at": "2026-10-08T10:15:21.805Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Replica",
+        "offer": "france.tv"
+      },
+      "status": "needs_check",
+      "evidence_note": "Arrivée numérique annoncée dès le 16 octobre ; Influence mortelle signalé déjà disponible. Diffusion linéaire du 27 octobre hors S42, non ajoutée à l'inventaire. Offre exacte, droits et expiration non certifiés."
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception"
+      ],
+      "source_urls": [
+        "https://lepetitseptieme.ca/en/2026/05/02/hot-docs-replica-the-great-solitude/",
+        "https://skonmovies.ca/review/replica-hot-docs-2026/",
+        "https://www.theguardian.com/film/2026/aug/12/ai-boyfriend-dating-chinese-women-replica-miff-documentary"
+      ],
+      "checked_at": "2026-10-08T10:15:21.805Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Replica"
+      },
+      "status": "verified",
+      "evidence_note": "François Grondin : Favorable : observation sans condescendance, place laissée aux proches et complexité des personnages. 8/10 attribué par ce critique, pas une note publique agrégée. Sean Patrick Kelly : Souligne la neutralité de l'observation et l'ambiguïté persistante du remplacement des relations humaines ; pas de consensus ni note chiffrée déduits. Nick Buckley : Salue le regard sans jugement ; observe que les enjeux industriels restent largement hors champ."
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "announced_availability",
+        "programme_type"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/contenu-de-presse/78821712",
+        "https://www.francetvpro.fr/contenu-de-presse/78602609"
+      ],
+      "checked_at": "2026-10-08T10:15:21.805Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Influence mortelle, la face cachée de TikTok",
+        "offer": "france.tv"
+      },
+      "status": "needs_check",
+      "evidence_note": "Arrivée numérique annoncée dès le 16 octobre ; Influence mortelle signalé déjà disponible. Diffusion linéaire du 27 octobre hors S42, non ajoutée à l'inventaire. Offre exacte, droits et expiration non certifiés."
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception"
+      ],
+      "source_urls": [
+        "https://www.telerama.fr/television/influence-mortelle-la-face-cachee-de-tiktok-une-enquete-implacable-sur-les-effets-dramatiques-du-reseau_cri-7043122.php"
+      ],
+      "checked_at": "2026-10-08T10:15:21.805Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Influence mortelle, la face cachée de TikTok"
+      },
+      "status": "verified",
+      "evidence_note": "Cécile Marchand Ménard : Extrait public favorable à la démonstration par profil adolescent expérimental. Article complet et note réservés aux abonnés : pas présentés comme lus."
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "announced_availability",
+        "programme_type"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/contenu-de-presse/78821712",
+        "https://www.francetvpro.fr/contenu-de-presse/78602609"
+      ],
+      "checked_at": "2026-10-08T10:15:21.805Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Lâche ton tel",
+        "offer": "france.tv"
+      },
+      "status": "needs_check",
+      "evidence_note": "Arrivée numérique annoncée dès le 16 octobre ; Influence mortelle signalé déjà disponible. Diffusion linéaire du 27 octobre hors S42, non ajoutée à l'inventaire. Offre exacte, droits et expiration non certifiés."
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "announced_availability",
+        "programme_type"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/contenu-de-presse/78821712",
+        "https://www.francetvpro.fr/contenu-de-presse/78602609"
+      ],
+      "checked_at": "2026-10-08T10:15:21.805Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Sommes-nous tous accros aux écrans ?",
+        "offer": "france.tv"
+      },
+      "status": "needs_check",
+      "evidence_note": "Arrivée numérique annoncée dès le 16 octobre ; Influence mortelle signalé déjà disponible. Diffusion linéaire du 27 octobre hors S42, non ajoutée à l'inventaire. Offre exacte, droits et expiration non certifiés."
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "identity",
+        "director",
+        "duration"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/contenu-de-presse/78821712",
+        "https://www.eldaproductions.com/film/replica/",
+        "https://www.visionsdureel.ch/film/2026/replica/"
+      ],
+      "checked_at": "2026-10-08T10:15:21.805Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Replica",
+        "version": "offre française à établir"
+      },
+      "status": "conflict",
+      "evidence_note": "Réalisatrice et année identifiées ; durées 90/91/92 selon version/source. Ancien résultat indexé ftvpro annonce 120, page principale actuelle et communiqué récent lus annoncent 90. Ne pas fusionner les durées."
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "award"
+      ],
+      "source_urls": [
+        "https://www.raiplay.it/amp/video/2026/10/Prix-Italia-2026---Prix-Award-Digital-Factual---Influence-mortelle-la-face-cachee-de-TikTok-Deadly-Influence-The-Hidden-Side-of-TikTok---02102026-5e1b7924-074b-4c9d-be3f-4352f64b0a5a.html"
+      ],
+      "checked_at": "2026-10-08T10:15:21.805Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Influence mortelle, la face cachée de TikTok"
+      },
+      "status": "verified",
+      "evidence_note": "Prix Italia Digital Factual 2026 confirmé par la page de remise RaiPlay du 2 octobre ; ne vaut pas consensus critique."
     }
   ],
   "run_metrics": [
@@ -11762,6 +11921,12 @@
       "checked_at": "2026-10-08T09:32:56.558Z",
       "status": "regional_feed_not_established",
       "note": "Le guide public chargé choisit America/New_York et channelId=4. Modifier seulement le fuseau Europe/Paris ne démontre pas l'antenne FBS ; réponse sans paramètre chaîne du 10 commence à 04:05 Secrets de nos vallées, différente du relevé FBS. Liste publique des directs ne renvoie que Voyage et Chef (FAST). Ne pas utiliser ce flux pour certifier les heures FBS ; aucune restriction d'accès contournée."
+    },
+    {
+      "url": "https://www.france.tv/slash/influence-mortelle-la-face-cachee-de-tiktok/",
+      "checked_at": "2026-10-08T10:15:21.805Z",
+      "status": "unavailable",
+      "note": "Lien exact trouvé dans France TV & Vous ; outil Web retourne restricted URL. Aucun accès effectif, droit territorial ou expiration déduit."
     }
   ],
   "editorial_review": {
@@ -11900,6 +12065,18 @@
       "matching_canonical_entries_found": 0,
       "reused_fields": [],
       "note": "Recherche ciblée effectuée avant la recherche TV5 ; aucune fiche canonique correspondante établie."
+    },
+    "digital_oct16_scoped_check": {
+      "checked_at": "2026-10-08T10:15:21.805Z",
+      "candidate_sha": "ca87d97f194bb155c081777f712332f178e3a86a",
+      "titles": [
+        "Replica",
+        "Influence mortelle, la face cachée de TikTok",
+        "Lâche ton tel",
+        "Sommes-nous tous accros aux écrans ?"
+      ],
+      "matching_canonical_entries_found": 0,
+      "reused_fields": []
     }
   },
   "documentary_research_queue": [],
@@ -11917,12 +12094,12 @@
       "Terminer l'inventaire puis la sélection/enrichissement et les livrables. Sceller uniquement après revue factuelle et éditoriale achevée."
     ],
     "publisher": {
-      "last_inspected_run": 37750404538,
+      "last_inspected_run": 37757573729,
       "status": "completed",
       "conclusion": "skipped",
       "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "checked_at": "2026-10-08",
-      "note": "Inspection en début de passage ; aucun publicateur actif observé. La tentative de rafraîchissement via endpoint workflows/runs a été refusée par le connecteur (URL non prise en charge), aucune conclusion nouvelle. Skipped ne vaut pas réussite."
+      "checked_at": "2026-10-08T10:15:21.805Z",
+      "note": "Derniers passages du publicateur terminés/skipped ; aucun publicateur actif observé. Skipped ne vaut pas réussite."
     },
     "last_ci_observation": {
       "checked_at": "2026-10-08T10:11:28.942Z",
