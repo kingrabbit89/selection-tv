@@ -1,13 +1,12 @@
 {
   "schema_version": 1,
   "week": "2026-S42",
-  "base_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
+  "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T06:55:47.403Z",
+  "updated_at": "2026-10-08T07:03:10.807Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
-    "Résoudre l'incompatibilité Paramount Channel obligatoire / chaîne arrêtée, sans déclarer un scan fictif ni changer les seuils.",
     "Réconcilier les horaires et doublons ambigus : Arte 07:50/07:55 aliments transformés ; Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min).",
     "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
     "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV.",
@@ -115,14 +114,19 @@
       "id": "inventory-tnt-editorial-reminder",
       "completed_at": "2026-10-08T06:55:47.403Z",
       "description": "Rappel hebdomadaire comparé aux sept dates ; variantes film/suite distinguées, chaînes supplémentaires scannées, magazines non rapprochés et conflit de titre Marine laissés explicites."
+    },
+    {
+      "id": "inventory-reminder-reconciliation",
+      "completed_at": "2026-10-08T07:03:10.807Z",
+      "description": "30 entrées de magazines récupérées des grilles déjà lues, conservation de leur date de consultation, rappels rapprochés et segments de plateau distingués du documentaire."
     }
   ],
   "blockers": [
     {
       "id": "required-channel-paramount-ceased",
       "type": "editorial-contract",
-      "requires_user": true,
-      "status": "open",
+      "requires_user": false,
+      "status": "resolved",
       "first_seen_at": "2026-10-08T06:09:52.338Z",
       "message": "Paramount Channel reste required_core_channels mais la diffusion française est arrêtée au 31/12/2025 (réponse officielle CANAL+). Aucun scan de grille possible. La préparation des autres chaînes peut continuer ; une décision sur le traitement de cette chaîne inactive est nécessaire avant de certifier la matrice complète.",
       "source_urls": [
@@ -130,7 +134,9 @@
       ],
       "alerted": true,
       "alerted_at": "2026-10-08T06:33:47.082Z",
-      "alert_owner": "a200f4a9-e530-46af-852d-3c0c9604a3f4"
+      "alert_owner": "a200f4a9-e530-46af-852d-3c0c9604a3f4",
+      "resolved_at": "2026-10-08T07:03:10.807Z",
+      "resolution": "main 041fbcda6ffa7c86f258a929010d2a7f7361066b : retrait sourcé de la chaîne arrêtée dans retired_channels ; aucune grille fictive ni modification de seuil par ce lot."
     }
   ],
   "verification_records": [
@@ -7062,6 +7068,936 @@
       },
       "evidence_note": "Même créneau et présentateur que communiqué La grande Histoire de la Marine ; équivalence éditoriale/version non établie, ne pas fusionner les identités sur cette seule base.",
       "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cstar/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:50:20.524Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "CSTAR",
+        "start": "22:58",
+        "title": "Au coeur de l'enquête Orange : au coeur de l'action avec la police municipale"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/france-3/samedi-10-octobre-2026/"
+      ],
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "France 3",
+        "start": "20:40",
+        "title": "Mon côté sud Jamy Gourmaud"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ],
+      "checked_at": "2026-10-08T06:09:52.338Z"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/m6/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:12:21.466Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "M6",
+        "start": "21:10",
+        "title": "Capital Mission pouvoir d'achat : récupérez 400 euros chaque mois !"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/t18/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:15:31.071Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "T18",
+        "start": "20:55",
+        "title": "Les pouvoirs extraordinaires du corps humain Hommes/femmes : la vérité sur nos différences"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/t18/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:15:31.071Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "T18",
+        "start": "22:55",
+        "title": "Les pouvoirs extraordinaires du corps humain Mémoire, concentration, anti-stress: comment stimuler notre cerveau"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/rmc-decouverte/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:12:21.301Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "RMC Découverte",
+        "start": "21:10",
+        "title": "Faites entrer l'accusé S26E13 Sortie de route pour Johann Boucher"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/rmc-decouverte/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:12:21.301Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "RMC Découverte",
+        "start": "22:35",
+        "title": "Faites entrer l'accusé S24E15 Mères à mort"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/t18/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:15:31.071Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "T18",
+        "start": "11:30",
+        "title": "Puremédias, l'hebdo S02E03 Puremédias l'hebdo 11/10/2026"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/m6/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:12:21.466Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "M6",
+        "start": "23:15",
+        "title": "Enquête exclusive Trafics, violences : nos prisons vont-elles craquer ?"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tfx/lundi-12-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:17:03.427Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "channel": "TFX",
+        "start": "21:10",
+        "title": "Appels d'urgence S25E03 Gendarmes de Normandie : La bataille contre la délinquance"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tfx/lundi-12-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:17:03.427Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "channel": "TFX",
+        "start": "22:25",
+        "title": "Appels d'urgence S24E270 Fous du volant, vols et accidents : les gendarmes de Toulouse en première ligne"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tfx/lundi-12-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:17:03.427Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "channel": "TFX",
+        "start": "23:30",
+        "title": "Appels d'urgence S25E278 Marseille : La police municipale contre-attaque"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tmc/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:17.544Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "TMC",
+        "start": "21:25",
+        "title": "90' Enquêtes S18E28 Rodéos, chauffards et fous du vélo : la guerre de la route est déclarée !"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tmc/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:17.544Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "TMC",
+        "start": "22:55",
+        "title": "90' Enquêtes S17E379 Chauffards, insultes et agressions sur la route : la voiture nous rend-elle fou ?"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/t18/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:17.538Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "T18",
+        "start": "00:05",
+        "title": "Non élucidé L'affaire Ghislaine Leclerc"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/t18/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:17.538Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "T18",
+        "start": "05:10",
+        "title": "Non élucidé L'affaire Grégory Mercier"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/t18/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:17.538Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "T18",
+        "start": "06:50",
+        "title": "Non élucidé L'affaire Marie-Michèle Calvez"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/t18/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:17.538Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "T18",
+        "start": "08:30",
+        "title": "Non élucidé S03E03 L'affaire Christiane Commeau"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/t18/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:17.538Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "T18",
+        "start": "12:25",
+        "title": "Non élucidé L'affaire Véronique Duchesne-Meunier"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/t18/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:17.538Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "T18",
+        "start": "14:05",
+        "title": "Non élucidé S03E04 L'affaire Fernando Mourao"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/t18/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:17.538Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "T18",
+        "start": "15:45",
+        "title": "Non élucidé S09E01 L'affaire Cécile Vallin"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/t18/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:17.538Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "T18",
+        "start": "20:55",
+        "title": "Non élucidé L'affaire Suzanne Viguier : l'inexplicable absence"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/france-3/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:38.186Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "France 3",
+        "start": "21:10",
+        "title": "Des racines et des ailes Passion patrimoine : mon île en Normandie"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/w9/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:47.735Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "W9",
+        "start": "21:25",
+        "title": "Enquêtes criminelles Viols de Mazan : j'ai épousé un monstre (1/2)"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/w9/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:47.735Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "W9",
+        "start": "22:30",
+        "title": "Enquêtes criminelles Viols de Mazan : j'ai épousé un monstre (2/2)"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/w9/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:47.735Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "W9",
+        "start": "23:20",
+        "title": "Enquêtes criminelles Vanessa Melet, 37 ans, disparition inquiétante (1/2)"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/novo19/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:18:47.144Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "NOVO19",
+        "start": "21:10",
+        "title": "Vis ma vie S01E08 Vis ma vie de drag-queen"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/w9/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:19:36.443Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "channel": "W9",
+        "start": "21:25",
+        "title": "Enquête d'action Petit territoire, grosse pression : les gendarmes de Belfort à plein régime (1/2)"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/w9/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:19:36.443Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "channel": "W9",
+        "start": "22:30",
+        "title": "Enquête d'action Petit territoire, grosse pression : les gendarmes de Belfort à plein régime (2/2)"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "listed_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/w9/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:19:36.443Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "channel": "W9",
+        "start": "23:10",
+        "title": "Enquête d'action Gendarmes et pompiers de Belfort : interventions sous haute tension"
+      },
+      "evidence_note": "Réemploi de la grille déjà lue ; entrée de magazine conservée pour examen, sans recommandation ni certification indépendante.",
+      "status": "verified",
+      "reused_in": [
+        {
+          "week": "2026-S42",
+          "date": "2026-10-08T07:01:29.976Z",
+          "batch": "inventory-reminder-reconciliation"
+        }
+      ]
     }
   ],
   "run_metrics": [
@@ -7211,6 +8147,16 @@
         "browser-presentation : attente 30 s en échec ; coquille S42 non produite. Contrôles suivants skipped, aucune réussite prétendue. RTL9 et sources primaires précédemment corrigés ne sont plus signalés."
       ],
       "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-08T07:03:10.807Z",
+      "head_sha": "f310af57cda166483234b4da721b8ec9fe63d6f5",
+      "run_id": 37740383022,
+      "conclusion": "failure",
+      "actual_merge_base": "1f9a6edbbf7205ec300b5f0b88eb64cb6aa9cbc3",
+      "event_base_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
+      "cause": "validation-context comparait la fusion avec une base événementielle périmée et imputait les changements de workflow de main à la candidate. Correction déjà présente sur main 041fbcda ; synchronisation normale à suivre.",
+      "note": "Contrôles éditoriaux/navigateur sautés : aucune réussite candidate. Ne pas réutiliser ces résultats pour un autre SHA/base."
     }
   ],
   "catalogue_reuse": {
@@ -7245,14 +8191,14 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "f5a933abe1a12afa0ea1cff3e5dbff101dbc3551",
-    "main_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
+    "checkpoint_parent_sha": "f310af57cda166483234b4da721b8ec9fe63d6f5",
+    "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
-      "Récupérer T18 du 14 octobre sur une grille prouvée datée ; ne pas reprendre les pages génériques périmées enregistrées.",
-      "Achever recoupements indépendants/rappel éditorial ; poursuivre prospection des autres chaînes pertinentes et offres documentaires officielles.",
-      "Poursuivre le travail indépendant du blocage Paramount ; ne pas répéter l'alerte si sa cause est inchangée.",
-      "N'enrichir/sélectionner définitivement qu'après inventaire certifié ; ne pas sceller remaining non vide."
+      "Achever recoupements indépendants des sept jours, rappel cinéma payant et épisodes ambigus consignés.",
+      "Compléter offres documentaires officielles, expirations, critiques et identités ; les quatre dossiers amorcés restent incomplets.",
+      "Consulter le CI du nouveau SHA/base ; le contrôle de préparation doit continuer à interdire toute fusion tant que remaining est non vide.",
+      "Terminer l'inventaire avant sélection définitive, enrichir et produire les livrables ; ne sceller qu'après revue factuelle achevée."
     ],
     "publisher": {
       "last_inspected_run": 37737139368,

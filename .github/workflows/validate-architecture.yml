@@ -23,12 +23,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Resolve weekly candidate
+      - name: Resolve preparation or complete weekly candidate
         if: github.event_name == 'pull_request' && startsWith(github.head_ref, 'auto/')
-        shell: bash
-        run: |
-          echo "SELECTION_TV_VALIDATE_WEEK=${GITHUB_HEAD_REF#auto/}" >> "$GITHUB_ENV"
-          echo "SELECTION_TV_CANDIDATE=1" >> "$GITHUB_ENV"
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          CANDIDATE_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/validation-context.mjs
       - name: Validate publication transition before merge
         if: github.event_name == 'pull_request'
         env:
@@ -40,7 +40,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: node scripts/verify-promotion-attestation.mjs "${GITHUB_HEAD_REF#promote/}" "$BASE_SHA"
-      - run: node --test scripts/test-promotion-transition.mjs scripts/test-editorial-contracts.mjs scripts/test-week-calendar.mjs scripts/test-weekly-watchdog.mjs scripts/test-hybrid-workflow.mjs scripts/test-recover-promotion.mjs scripts/test-editorial-lease.mjs
+      - run: node --test scripts/test-promotion-transition.mjs scripts/test-editorial-contracts.mjs scripts/test-week-calendar.mjs scripts/test-weekly-watchdog.mjs scripts/test-hybrid-workflow.mjs scripts/test-recover-promotion.mjs scripts/test-editorial-lease.mjs scripts/test-validation-context.mjs
       - run: node scripts/validate-automation.mjs
       - run: node scripts/validate-canonical-identities.mjs
       - run: node scripts/sync-asset-versions.mjs --check
@@ -64,20 +64,25 @@ jobs:
           CURRENT="$(git show "$BASE_SHA:data/manifest.json" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>process.stdout.write(JSON.parse(s).latest))")"
           node scripts/verify-public-deployment.mjs "$CURRENT"
 
+      - name: Require a complete candidate before merging
+        run: node scripts/validation-context.mjs --require-ready
+
   browser-presentation:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Resolve weekly candidate
+      - name: Resolve preparation or complete weekly candidate
         if: github.event_name == 'pull_request' && startsWith(github.head_ref, 'auto/')
-        shell: bash
-        run: |
-          echo "SELECTION_TV_VALIDATE_WEEK=${GITHUB_HEAD_REF#auto/}" >> "$GITHUB_ENV"
-          echo "SELECTION_TV_CANDIDATE=1" >> "$GITHUB_ENV"
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          CANDIDATE_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/validation-context.mjs
       - name: Install browser test runtime
         run: |
           npm install --no-save playwright
