@@ -62,7 +62,9 @@ Terminer quand le budget utile touche à sa fin, que les outils ou l'exécution 
 
 ### Paquet de travail ciblé
 
-Avant de relire les checkpoints complets, utiliser `node scripts/editorial-work-packet.mjs YYYY-Sxx --ref SHA_CANDIDATE` depuis un clone disposant du commit courant. L'outil lit une seule révision Git immuable, ne modifie aucun fichier et affiche l'état des livrables, les exigences ouvertes, les dossiers signalés comme complets pour comparaison, les impasses et des correspondances de titre avec le catalogue. La liste des correspondances est alphabétique et bornée (`--limit 1..40`) ; elle ne constitue ni classement artistique ni sélection. Des données présentes dans le catalogue ne deviennent pas vérifiées par cette extraction.
+Avant de relire les checkpoints complets, utiliser `node scripts/editorial-work-packet.mjs YYYY-Sxx --ref SHA_CANDIDATE` depuis un clone disposant du commit courant. L'outil lit une seule révision Git immuable, ne modifie aucun fichier et affiche l'état des livrables, les exigences ouvertes, les dossiers effectivement recherchés, les impasses et des correspondances de titre avec le catalogue. La liste des correspondances est alphabétique et paginée (`--limit 1..40 --offset N`) ; elle ne constitue ni classement artistique ni sélection. Des données présentes dans le catalogue ne deviennent pas vérifiées par cette extraction. L'exposition dans les numéros précédents est un avertissement pour la fraîcheur, jamais une sélection automatique.
+
+`--compact` réduit le JSON et retire seulement la liste globale des exigences, en conservant leur nombre et un avertissement : lire le checkpoint complet avant certification. Les preuves ciblées restent présentes. Les preuves de grille par chaîne/date sont séparées des preuves d'identité ; une impasse sur un épisode ou une diffusion ne masque pas toutes les occurrences du titre.
 
 Pour un dossier choisi, utiliser `--title "Titre exact"` : le paquet rassemble les entrées canoniques possibles, liens centraux, diffusions brutes, dossier critique, tentatives et vérifications enregistrées. Les dates de consultation, statuts de conflit/indisponibilité, versions et limites sont conservés. Les homonymes/remakes restent séparés et les absences restent visibles. Examiner les preuves ainsi regroupées, rechercher seulement les informations manquantes ou périssables, puis intégrer les champs réellement vérifiés et rédiger la fiche draft. Ne jamais utiliser une correspondance de titre seule pour réutiliser l'identité, une note ancienne ou une disponibilité.
 
@@ -144,7 +146,7 @@ Avant chaque fusion, le producteur relit main et le SHA de tête de la PR, exige
 
 Le watchdog maintient une alerte unique par semaine, avec checks en attente ou échoués, et signale aussi un échec Pages après promotion. Une nouvelle vérification réussie clôt l’alerte correspondante.
 
-Le protocole Android 3 est requis pour distinguer l’état played inconnu de false. Installer l’APK compilée après cette mise à jour est nécessaire. Les essais du modèle dans Chromium ne certifient pas le fonctionnement sur un appareil Fire TV physique.
+Le protocole Android minimal requis est défini par la configuration et le contrôle du pont, actuellement version 4. Le pont distingue l’état played inconnu de false. Installer une APK compatible est nécessaire. Les essais du modèle dans Chromium ne certifient pas le fonctionnement sur un appareil Fire TV physique.
 
 ## Production hybride et reprise dans Chat
 

@@ -29,6 +29,14 @@ jobs:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           CANDIDATE_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: node scripts/validation-context.mjs
+      - name: Prove unchanged published regressions on exact main base
+        id: regressions
+        if: env.SELECTION_TV_PREPARATION_WEEK != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          CANDIDATE_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/preparation-regressions.mjs
       - name: Validate publication transition before merge
         if: github.event_name == 'pull_request'
         env:
@@ -40,7 +48,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: node scripts/verify-promotion-attestation.mjs "${GITHUB_HEAD_REF#promote/}" "$BASE_SHA"
-      - run: node --test scripts/test-promotion-transition.mjs scripts/test-editorial-contracts.mjs scripts/test-week-calendar.mjs scripts/test-weekly-watchdog.mjs scripts/test-hybrid-workflow.mjs scripts/test-recover-promotion.mjs scripts/test-editorial-lease.mjs scripts/test-validation-context.mjs scripts/test-editorial-work-packet.mjs
+      - run: node --test scripts/test-promotion-transition.mjs scripts/test-editorial-contracts.mjs scripts/test-week-calendar.mjs scripts/test-weekly-watchdog.mjs scripts/test-hybrid-workflow.mjs scripts/test-recover-promotion.mjs scripts/test-editorial-lease.mjs scripts/test-validation-context.mjs scripts/test-editorial-work-packet.mjs scripts/test-preparation-regressions.mjs scripts/editorial-draft.test.mjs
       - run: node scripts/validate-automation.mjs
       - run: node scripts/validate-canonical-identities.mjs
       - run: node scripts/sync-asset-versions.mjs --check
@@ -51,6 +59,7 @@ jobs:
       - run: node scripts/validate-freshness.mjs
       - run: node scripts/validate-reserves.mjs
       - name: Validate remote image sources
+        if: steps.regressions.outputs.reused != 'true'
         run: node scripts/validate-image-sources.mjs
       - name: Generation audit summary
         if: always()
@@ -83,11 +92,22 @@ jobs:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           CANDIDATE_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: node scripts/validation-context.mjs
+      - name: Prove unchanged published regressions on exact main base
+        id: regressions
+        if: env.SELECTION_TV_PREPARATION_WEEK != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          CANDIDATE_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/preparation-regressions.mjs
       - name: Install browser test runtime
+        if: steps.regressions.outputs.reused != 'true'
         run: |
           npm install --no-save playwright
           npx playwright install --with-deps chromium
       - name: Validate rendered issues
+        if: steps.regressions.outputs.reused != 'true'
         run: node scripts/validate-layout.mjs
       - name: Validate Jellyfin Web bridge
+        if: steps.regressions.outputs.reused != 'true'
         run: node scripts/validate-jellyfin-web.mjs
