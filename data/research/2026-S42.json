@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T10:23:54.738Z",
+  "updated_at": "2026-10-08T10:25:49.850Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -214,6 +214,11 @@
       "id": "inventory-tf1-series-films-official-week",
       "completed_at": "2026-10-08T10:23:54.738Z",
       "description": "Six diffusions déjà relevées recoupées officiellement ; trois épisodes supplémentaires de la mini-série de François Velle ajoutés avec deux sources. Nuits et blocs génériques documentés, inventaire global non certifié."
+    },
+    {
+      "id": "inventory-tmc-official-week",
+      "completed_at": "2026-10-08T10:25:49.850Z",
+      "description": "38 créneaux existants recoupés avec TMC officiel, alias d'un téléfilm réconcilié, un magazine manquant ajouté et recoupé."
     }
   ],
   "blockers": [
@@ -11755,6 +11760,55 @@
       },
       "evidence_note": "Six rapprochements exacts avec TF1 Pro, aucune durée canonique déduite des créneaux. Trois épisodes ajoutés ont leurs enregistrements propres.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title_alias",
+        "director",
+        "year",
+        "original_title"
+      ],
+      "source_urls": [
+        "https://tf1pro.com/programmes/diffusion/2026-10-14-0705-noel-dans-tes-bras",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=269413.html"
+      ],
+      "checked_at": "2026-10-08T10:25:49.850Z",
+      "stability": "stable",
+      "applies_to": "Christmas in Mississippi (2017), et non une autre romance de Noël",
+      "evidence_note": "Noël dans tes bras (TF1 Pro) = Noël dans les bras de mon ex : Emily Moss Wilson, Jana Kramer, Wes Brown, Faith Ford concordants avec AlloCiné 269413 (Christmas in Mississippi, 2017). Pas d'import de durée ni de note ancienne.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "broadcast.title"
+      ],
+      "source_urls": [
+        "https://tf1pro.com/grilles-tv/TMC/2026-10-10",
+        "https://tv-programme.com/tmc/samedi-10-octobre-2026/",
+        "https://tv-programme.com/tmc/dimanche-11-octobre-2026/",
+        "https://tv-programme.com/tmc/lundi-12-octobre-2026/",
+        "https://tv-programme.com/tmc/mardi-13-octobre-2026/",
+        "https://tv-programme.com/tmc/mercredi-14-octobre-2026/",
+        "https://tv-programme.com/tmc/jeudi-15-octobre-2026/",
+        "https://tv-programme.com/tmc/vendredi-16-octobre-2026/",
+        "https://tf1pro.com/programmes/diffusion/2026-10-15-2335-90-enquetes-perpignan-interventions-musclees-pour-les",
+        "https://tv-programme.com/tmc/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T10:25:49.850Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "TMC",
+        "previous_slots": 38,
+        "new_slots": 1
+      },
+      "evidence_note": "38 créneaux existants rapprochés, dont alias Noël dans tes bras vérifié séparément ; un magazine manquant ajouté. Les sujets Animaux à adopter/90' non détaillés dans la grille hebdomadaire restent à confirmer individuellement.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -12197,7 +12251,7 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "32e31bea06fe05c50406275a288a7e63cff1d17f",
+    "checkpoint_parent_sha": "6e4cb907a1b4d0ff5d5671af912f8bd5ce3a5a6a",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
