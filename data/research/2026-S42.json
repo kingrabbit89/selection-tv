@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T08:20:25.249Z",
+  "updated_at": "2026-10-08T08:22:45.174Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -20,7 +20,8 @@
     "France 2/3 : grilles manquantes du 10 et du 15 récupérées ; départager Dodin Bouffant 02:55/03:05 le 12 et fausse entrée La p'tite librairie 12:15 le 15. Collections génériques/épisodes à compléter.",
     "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
     "Public Sénat : Silence dans les rangs documenté (prix et limites de réception), horaires légèrement divergents et replay indisponible ; terminer offre/expiration, notes, affiche et revue comparative.",
-    "France 4 : compléter réception/offres documentaires et épisodes génériques ; résoudre Rachelle Allison 20:30 contre Naimro/Allison 20:35 le 15. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle."
+    "France 4 : compléter réception/offres documentaires et épisodes génériques ; résoudre Rachelle Allison 20:30 contre Naimro/Allison 20:35 le 15. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle.",
+    "France 4 documentaires : Wachowski (Thibaut Sève, distinct de Matrix Generation) a des avis attribués mais durée 61/62/70 min à départager ; On ne va pas se défiler réintégré comme documentaire, critique/offre 2026 à compléter."
   ],
   "completed_batches": [
     {
@@ -154,6 +155,11 @@
       "id": "inventory-france2-france3-missing-grids-recovered",
       "completed_at": "2026-10-08T08:20:25.249Z",
       "description": "Trois grilles récupérées sur domaine officiel alternatif, sept concordances et sept entrées supplémentaires ; formats et conflits consignés sans certifier les collections génériques."
+    },
+    {
+      "id": "documentary-france4-wachowski-defiler",
+      "completed_at": "2026-10-08T08:22:45.174Z",
+      "description": "Deux dossiers partiels : critiques accessibles et limites pour Wachowski ; type documentaire de On ne va pas se défiler corrigé, ancienne expiration exclue."
     }
   ],
   "blockers": [
@@ -10818,6 +10824,104 @@
       },
       "evidence_note": "Téléfilm policier français, Marc Barrat, 96 min annoncées ; le numéro S08E02 correspond au classement en collection de la grille tierce. Pas de nouvelle identité canonique établie.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception"
+      ],
+      "source_urls": [
+        "https://www.telerama.fr/television/de-matrix-a-sense8-la-revolution-wachowski-de-thibaut-seve-notre-critique_cri-7032889.php",
+        "https://letterboxd.com/lamanieducinema/film/de-matrix-a-sense8-la-revolution-wachowski/",
+        "https://letterboxd.com/ayanamirei/film/de-matrix-a-sense8-la-revolution-wachowski/"
+      ],
+      "checked_at": "2026-10-08T08:22:45.174Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "De \"Matrix\" à \"Sense8\", la révolution Wachowski"
+      },
+      "evidence_note": "Trois lectures exactes avec attribution et limites consignées en coverage ; introduction professionnelle partielle, deux avis individuels. Pas de consensus inventé.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "duration",
+        "version"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-4/10-10-2026/15-10-2026",
+        "https://www.telerama.fr/television/de-matrix-a-sense8-la-revolution-wachowski-de-thibaut-seve-notre-critique_cri-7032889.php",
+        "https://letterboxd.com/film/de-matrix-a-sense8-la-revolution-wachowski/"
+      ],
+      "checked_at": "2026-10-08T08:22:45.174Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "De \"Matrix\" à \"Sense8\", la révolution Wachowski"
+      },
+      "evidence_note": "62 min grille officielle, 61 min Télérama/SensCritique, 70 min Letterboxd. Durée de version à départager ; métadonnées officielles restent observation sourcée, pas certitude sur le montage diffusé.",
+      "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "ratings.imdb",
+        "ratings.senscritique"
+      ],
+      "source_urls": [
+        "https://www.imdb.com/title/tt33355302/",
+        "https://www.senscritique.com/film/de_matrix_a_sense8_la_revolution_wachowski/93998946"
+      ],
+      "checked_at": "2026-10-08T08:22:45.174Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "De \"Matrix\" à \"Sense8\", la révolution Wachowski"
+      },
+      "evidence_note": "Identifiant exact relié par Letterboxd ; page 403, aucune note lue. Page retournée avec cache ancien (copyright 2024 ; crawl indiqué 1,8 an) et chiffres sans libellés 9/2/2 : aucune note actuelle ni population de votes déduite.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "director",
+        "year",
+        "format",
+        "producers"
+      ],
+      "source_urls": [
+        "https://www.francetelevisions.fr/et-vous/notre-tele/les-programmes-a-ne-pas-rater/on-ne-va-pas-se-defiler-32749",
+        "https://www.francetvpro.fr/contenu-de-presse/67776790"
+      ],
+      "checked_at": "2026-10-08T08:22:45.174Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "On ne va pas se défiler",
+        "version": "documentaire de 2024"
+      },
+      "evidence_note": "Communiqués des 6 et 9 août 2024 : Waël Sghaier, Origine Productions / Les Films Jack Fébus, documentaire sur la préparation de la parade. La programmation 2024 ne prouve pas de disponibilité 2026.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception",
+        "availability"
+      ],
+      "source_urls": [
+        "https://www.enlargeyourparis.fr/culture/cest-important-de-montrer-quil-se-passe-enormement-de-choses-culturellement-dans-le-93"
+      ],
+      "checked_at": "2026-10-08T08:22:45.174Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "On ne va pas se défiler"
+      },
+      "evidence_note": "Entretien du 14 novembre 2024 : expiration 8 mai 2025 désormais périmée. Pas de disponibilité actuelle ni critique indépendante déduite ; recherches titre/réalisateur ont surtout renvoyé promotion, notices et entretiens.",
+      "status": "needs_check"
     }
   ],
   "run_metrics": [
