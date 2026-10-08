@@ -40,10 +40,34 @@ avec la candidate actuelle, jamais forcé. L'outil ne modifie pas le dépôt ; i
 seulement le paquet demandé et affiche le rapport des revues. Le producteur applique
 les fichiers et met à jour les preuves/checkpoints dans un même lot sous le bail.
 
+## Rubriques, radars, couverture et sommaire
+
+Le même plan peut contenir `sections`, chacune une page explicitement décidée : `kind`, `page` (1 par défaut), `header` rédigé (`kicker`, `h1`, `deck`), `target` facultatif et `cards`. Chaque carte porte le même contrôle d'identité, de champs canoniques, de visuel, de note ou raison d'absence, de lien fort et de `review` que les cartes quotidiennes, avec `rank`, `summary` et `why` rédigés.
+
+| `kind` | Page(s) | Faits propres exigés |
+|---|---|---|
+| `rendezvous` | `rendezvous-1`, `rendezvous-2` (5 visibles, pool `week-card`) | `date`, `time`, `channel`, `quality` |
+| `replay` | `replay-1..3` (3 par page) | `offer` : `service`, `url`, `checked_at`, `available_until` |
+| `platform_free`, `platform_subscription` | `plateformes-gratuites[-N]`, `plateformes-abonnement[-N]` (3 par page) | `offer` : `service`, `url`, `checked_at`, `arrival_date` facultatif |
+| `physical_release` | `sorties-physiques` (pool `release-card`) | `quality`, `release` : `date`, `format`, `editor`, `url`, `checked_at` ; `price`, `restoration`, `bonuses` facultatifs |
+| `streaming_release` | `sorties-streaming` | `offer` avec `arrival_date` |
+| `expiring` | `avant-disparition` | `offer` avec `last_day` |
+| `radar_popularity` | `radar-torrent` ; rangs au-delà de `target` → `popular_deep` | `signal`, `signal_source_url` |
+| `radar_popularity_scan` | `radar-torrent-sillonnage` → `popular_scan` | `signal`, `signal_source_url` |
+| `radar_hd` | `radar-1`, `radar-2` → `hd1`, `hd2` | `added`, `added_source_url` |
+
+Les rubriques à pool (rendez-vous, sorties physiques, radars) affichent les rangs `1..target` et gardent les suivants en réserve complète ; les autres rubriques affichent toutes leurs décisions et refusent un dépassement de capacité au lieu de comprimer la page. Une page déjà présente exige `replace_pages: ["id"]`. `section_shortages` accepte seulement une pénurie structurée (`reason`, au moins deux `searched_sources`, `verified_count` égal au nombre de cartes rendues). `shortage_reason` d'un pool n'est recopié que s'il est fourni.
+
+`cover` (`lead_work_id`, `side_work_ids` ≤ 2, `kicker`, `h1`, `deck` rédigés) construit la couverture et `hero_image/title/meta` à partir de choix développés déjà décidés dans le brouillon : créneau, visuel et métadonnées viennent de ces fiches. `render_toc: true` (ou un sommaire existant) reconstruit mécaniquement le sommaire avec les numéros de page réels ; il ne lie que des pages existantes. `methode` (`h1`, `notes[]`) rend la page Méthode à partir de notes rédigées. Les pages sont rangées dans l'ordre canonique du magazine.
+
+Le fichier `data/radar-reserves/YYYY-Sxx.json` est créé ou complété clé par clé ; les clés non décidées sont conservées.
+
+Test ciblé : `node --test scripts/test-editorial-draft-sections.mjs`.
+
 ## Résultat et limites
 
 Le paquet conserve le schéma public actuel. Il peut créer une semaine **draft**
-partielle, son entrée de manifeste et sa coquille, ou compléter un brouillon.
+partielle, son entrée de manifeste, sa coquille et ses réserves de radar, ou compléter un brouillon.
 `manifest.latest`, les autres numéros et les dates de vérification existantes
 restent inchangés. Les rangs 1 à 3 deviennent les choix développés ; les suivants
 restent dans le pool. Aucun titre supplémentaire ni motif de pénurie n'est ajouté.
