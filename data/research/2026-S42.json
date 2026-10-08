@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T10:15:21.805Z",
+  "updated_at": "2026-10-08T10:23:54.738Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -14,7 +14,7 @@
     "France 5 : Pompéi et Foucault réconciliés par les grilles officielles ; revérifier au préflight. Quatre écarts La p'tite librairie, versions/durées et fins de nuit restent à traiter. Offres replay, expirations, réception complémentaire et notes encore incomplètes.",
     "T18 14 octobre relevée ; identifier les épisodes regroupés et recouper les horaires. LeZapp associe au titre Face à face une description politique incompatible avec son type série : ne pas réutiliser ce synopsis.",
     "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
-    "TF1 Séries Films et CSTAR : 7 jours relevés, recoupements indépendants encore à compléter ; épisodes Douanes sous haute surveillance à identifier avant tout examen approfondi.",
+    "TF1 Séries Films : neuf diffusions recoupées et nuits consultées ; blocs nocturnes génériques non détaillés, réception et cartes à terminer. CSTAR : recoupements indépendants et épisodes Douanes sous haute surveillance encore à compléter.",
     "Rappel TNT : traiter les programmes non rapprochés consignés dans editorial_reminder_passes ; ne pas déduire l'identité d'une simple proximité de titre (soirée Marine notamment). Compléter rappel cinéma payant et recoupements manquants.",
     "Rappel TNT : Fréquenstar résolu sur W9 dimanche 11:20 (Hoshi) ; sujets Envoyé spécial et Au cœur de l'enquête à obtenir. Intraçables : mini-série et épisodes 3/4 confirmés par TF1 ; réception, versions et enrichissement à faire ; Meurtres à Cayenne confirmé téléfilm policier par le diffuseur.",
     "France 2/3 : grilles manquantes du 10 et du 15 récupérées ; départager Dodin Bouffant 02:55/03:05 le 12 et fausse entrée La p'tite librairie 12:15 le 15. Collections génériques/épisodes à compléter.",
@@ -209,6 +209,11 @@
       "id": "documentary-francetv-oct16-digital-discovery",
       "completed_at": "2026-10-08T10:15:21.805Z",
       "description": "Quatre pistes numériques ajoutées à coverage, trois critiques de Replica attribuées, extrait Télérama et Prix Italia d'Influence mortelle vérifiés. Aucun accès vidéo ni sélection finale certifiés."
+    },
+    {
+      "id": "inventory-tf1-series-films-official-week",
+      "completed_at": "2026-10-08T10:23:54.738Z",
+      "description": "Six diffusions déjà relevées recoupées officiellement ; trois épisodes supplémentaires de la mini-série de François Velle ajoutés avec deux sources. Nuits et blocs génériques documentés, inventaire global non certifié."
     }
   ],
   "blockers": [
@@ -11648,6 +11653,108 @@
       },
       "status": "verified",
       "evidence_note": "Prix Italia Digital Factual 2026 confirmé par la page de remise RaiPlay du 2 octobre ; ne vaut pas consensus critique."
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "episode_number",
+        "director"
+      ],
+      "source_urls": [
+        "https://tf1pro.com/programmes/diffusion/2026-10-11-1740-le-mystere-de-la-chambre-jaune-episode-1",
+        "https://tf1pro.com/grilles-tv/TF1%20Series%20Films/jour/2026-10-11",
+        "https://tv-programme.com/tf1-series-films/dimanche-11-octobre-2026/",
+        "https://tf1pro.com/actualites/article/le-mystere-de-la-chambre-jaune-0"
+      ],
+      "checked_at": "2026-10-08T10:23:54.738Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "start": "17:40",
+        "episode": 1
+      },
+      "evidence_note": "Diffusion TF1 Séries Films recoupée, François Velle ; identité distincte du film de Podalydès. Pas de durée canonique ni de qualité certifiée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "episode_number",
+        "director"
+      ],
+      "source_urls": [
+        "https://tf1pro.com/programmes/diffusion/2026-10-11-1845-le-mystere-de-la-chambre-jaune-episode-2",
+        "https://tf1pro.com/grilles-tv/TF1%20Series%20Films/jour/2026-10-11",
+        "https://tv-programme.com/tf1-series-films/dimanche-11-octobre-2026/",
+        "https://tf1pro.com/actualites/article/le-mystere-de-la-chambre-jaune-0"
+      ],
+      "checked_at": "2026-10-08T10:23:54.738Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "start": "18:45",
+        "episode": 2
+      },
+      "evidence_note": "Diffusion TF1 Séries Films recoupée, François Velle ; identité distincte du film de Podalydès. Pas de durée canonique ni de qualité certifiée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "episode_number",
+        "director"
+      ],
+      "source_urls": [
+        "https://tf1pro.com/programmes/diffusion/2026-10-11-1950-le-mystere-de-la-chambre-jaune-episode-3",
+        "https://tf1pro.com/grilles-tv/TF1%20Series%20Films/jour/2026-10-11",
+        "https://tv-programme.com/tf1-series-films/dimanche-11-octobre-2026/",
+        "https://tf1pro.com/actualites/article/le-mystere-de-la-chambre-jaune-0"
+      ],
+      "checked_at": "2026-10-08T10:23:54.738Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "start": "19:50",
+        "episode": 3
+      },
+      "evidence_note": "Diffusion TF1 Séries Films recoupée, François Velle ; identité distincte du film de Podalydès. Pas de durée canonique ni de qualité certifiée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "broadcast.title"
+      ],
+      "source_urls": [
+        "https://tf1pro.com/grilles-tv/TF1%20Series%20Films/2026-10-10",
+        "https://tv-programme.com/tf1-series-films/dimanche-11-octobre-2026/",
+        "https://tv-programme.com/tf1-series-films/lundi-12-octobre-2026/",
+        "https://tv-programme.com/tf1-series-films/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T10:23:54.738Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "TF1 Séries Films",
+        "scope": "six films/téléfilms déjà relevés"
+      },
+      "evidence_note": "Six rapprochements exacts avec TF1 Pro, aucune durée canonique déduite des créneaux. Trois épisodes ajoutés ont leurs enregistrements propres.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -11927,6 +12034,12 @@
       "checked_at": "2026-10-08T10:15:21.805Z",
       "status": "unavailable",
       "note": "Lien exact trouvé dans France TV & Vous ; outil Web retourne restricted URL. Aucun accès effectif, droit territorial ou expiration déduit."
+    },
+    {
+      "url": "https://hodor.canalplus.pro/api/v2/mycanal/channels/6032ba1a32e611d66f832d41d41db4d2/900/broadcasts/day/2?channelPosition=13&displayAvailabilityIcons=false&displayAccessibilityIcons=false",
+      "checked_at": "2026-10-08T10:23:54.738Z",
+      "status": "unavailable",
+      "note": "URL publique du guide CANAL+ retourne HTTP 403 ; aucune grille du 10 octobre récupérée, arrêt de cette voie. Screen+ Grand Écran au 10 octobre indique 22:55 pour The Black Dahlia, différent des 22:58/22:59 ; aucune heure arbitrée, indépendance du flux non établie."
     }
   ],
   "editorial_review": {
@@ -12084,7 +12197,7 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "b6ea50824323deb98a62b5ed78bdf719e519e12d",
+    "checkpoint_parent_sha": "32e31bea06fe05c50406275a288a7e63cff1d17f",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
