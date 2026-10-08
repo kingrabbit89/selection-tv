@@ -25437,7 +25437,8 @@
         "https://www.actiontv.fr/fr/grille-tv",
         "https://www.rtl9.com/fr/grille-tv",
         "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf",
-        "https://pro.m6.fr/gulli/grille/2026-42.pdf"
+        "https://pro.m6.fr/gulli/grille/2026-42.pdf",
+        "https://www.programme-tv.com/chaine/jeudi/321/programme-television-france-4.html"
       ],
       "channel_sources": {
         "Arte": [
@@ -25458,7 +25459,8 @@
         "France 4": [
           "https://tv-programme.com/france-4/jeudi-15-octobre-2026/",
           "https://www.francetvpro.fr/grille/france-4/10-10-2026/15-10-2026",
-          "https://www.francetvpro.fr/grille/france-4/10-10-2026/14-10-2026"
+          "https://www.francetvpro.fr/grille/france-4/10-10-2026/14-10-2026",
+          "https://www.programme-tv.com/chaine/jeudi/321/programme-television-france-4.html"
         ],
         "France 5": [
           "https://tv-programme.com/france-5/jeudi-15-octobre-2026/",
@@ -26554,15 +26556,31 @@
           "verification_status": "observed_in_dated_grid"
         },
         {
-          "title": "Jean-Claude Naimro et Rachelle Allison",
-          "start": "20:35",
+          "title": "Rachelle Allison à la Cigale",
+          "start": "20:30",
           "channel": "France 4",
-          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
-          "source_url": "https://tv-programme.com/france-4/jeudi-15-octobre-2026/",
+          "source": "FranceTvPro — grille officielle, réemploi de la preuve du cycle",
+          "source_url": "https://www.francetvpro.fr/grille/france-4/10-10-2026/15-10-2026",
           "listed_type": "Concert Variétés",
-          "slot_duration": "25min",
-          "verification_status": "schedule_conflict_needs_check",
-          "schedule_note": "Grille officielle : Rachelle Allison à la Cigale 20:30 ; grille tierce : Jean-Claude Naimro et Rachelle Allison 20:35. Programme/montage à départager, ne pas fusionner les identités."
+          "verification_status": "schedule_corroborated_official_identity_pending",
+          "schedule_note": "20:30 et captation Rachelle Allison retenus : grille officielle du cycle et page Programme-TV.com réellement datée 15 octobre obtenue directement. Ancien intitulé Naimro/Allison 20:35 conservé en historique, sans fusion de captations ; préflight requis.",
+          "previous_observations": [
+            {
+              "title": "Jean-Claude Naimro et Rachelle Allison",
+              "start": "20:35",
+              "source_url": "https://tv-programme.com/france-4/jeudi-15-octobre-2026/",
+              "slot_duration": "25min",
+              "status": "superseded_by_official_and_second_guide"
+            }
+          ],
+          "independent_schedule_sources": [
+            {
+              "url": "https://www.programme-tv.com/chaine/jeudi/321/programme-television-france-4.html",
+              "checked_at": "2026-10-08T11:15:01.819Z",
+              "source_kind": "independent_editorial_guide",
+              "scope": "Titre Rachelle Allison à la Cigale et horaire 20:30. Le cache de recherche périmé a été écarté."
+            }
+          ]
         },
         {
           "title": "The Host",
@@ -35629,5 +35647,5 @@
       "missing_primary_grids": []
     }
   ],
-  "updated_at": "2026-10-08T11:11:18.360Z"
+  "updated_at": "2026-10-08T11:15:01.819Z"
 }

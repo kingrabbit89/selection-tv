@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T11:11:18.360Z",
+  "updated_at": "2026-10-08T11:15:01.819Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -20,7 +20,7 @@
     "France 2/3 : grilles manquantes du 10 et du 15 récupérées ; départager Dodin Bouffant 02:55/03:05 le 12 et fausse entrée La p'tite librairie 12:15 le 15. Collections génériques/épisodes à compléter.",
     "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
     "Public Sénat : Silence dans les rangs documenté (prix et limites de réception), horaires légèrement divergents et replay indisponible ; terminer offre/expiration, notes, affiche et revue comparative.",
-    "France 4 : compléter réception/offres documentaires et épisodes génériques ; résoudre Rachelle Allison 20:30 contre Naimro/Allison 20:35 le 15. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle.",
+    "France 4 : compléter réception/offres documentaires et épisodes génériques ; Rachelle Allison à la Cigale retenu à 20:30 après recoupement officiel/guide courant, à revérifier au préflight. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle.",
     "France 4 documentaires : Wachowski (Thibaut Sève, distinct de Matrix Generation) a des avis attribués mais durée 61/62/70 min à départager ; On ne va pas se défiler réintégré comme documentaire, critique/offre 2026 à compléter.",
     "TV5MONDE+ : Didy dispose de deux critiques attribuées et d'une identité festival ; durée/version, droits France, expiration, notes et affiche à terminer. Trois nouvelles pistes de l'accueil restent à examiner ; grille linéaire FBS à recouper.",
     "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes.",
@@ -252,6 +252,11 @@
       "id": "inventory-gulli-official-full-week",
       "completed_at": "2026-10-08T11:11:18.360Z",
       "description": "14 diffusions recoupées ; nuits et sous-titres Dog House contrôlés. Identités Dumbo et Bag of Bones précisées."
+    },
+    {
+      "id": "inventory-f4-conflict-and-saint-ex-evidence",
+      "completed_at": "2026-10-08T11:15:01.819Z",
+      "description": "Un conflit de grille résolu pour l'inventaire (Rachelle Allison) ; preuves contradictoires Saint-Ex/France3 tracées sans fausse certification."
     }
   ],
   "blockers": [
@@ -10699,7 +10704,20 @@
         "channel": "France 4"
       },
       "evidence_note": "Grille officielle : Rachelle Allison à la Cigale 20:30 ; grille tierce : Jean-Claude Naimro et Rachelle Allison 20:35. Programme/montage à départager, ne pas fusionner les identités.",
-      "status": "conflict"
+      "status": "conflict",
+      "resolution": {
+        "resolved_at": "2026-10-08T11:15:01.819Z",
+        "status": "resolved_for_inventory_recheck_at_preflight",
+        "selected_title": "Rachelle Allison à la Cigale",
+        "selected_start": "20:30",
+        "source_urls": [
+          "https://www.francetvpro.fr/grille/france-4/10-10-2026/15-10-2026",
+          "https://www.programme-tv.com/chaine/jeudi/321/programme-television-france-4.html"
+        ]
+      },
+      "reused_in": [
+        "2026-S42"
+      ]
     },
     {
       "work_id": null,
@@ -12964,6 +12982,92 @@
       },
       "evidence_note": "Dossier détaillé confirme Bag of Bones, Mick Garris, 2011 et deux parties ; pas de durée déduite des créneaux.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start",
+        "broadcast.date",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.programme-tv.com/chaine/jeudi/321/programme-television-france-4.html"
+      ],
+      "checked_at": "2026-10-08T11:15:01.819Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "France 4",
+        "title": "Rachelle Allison à la Cigale",
+        "start": "20:30"
+      },
+      "evidence_note": "HTML public courant explicitement daté jeudi 15 octobre, titre et 20:30 concordent avec preuve officielle du 08:18 déjà enregistrée. Montage/identité canonique restent à approfondir.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "broadcast.end",
+        "availability.expires",
+        "duration"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/saint-ex/h/27265954_50002",
+        "https://tv-programme.com/cine-plus-ocs/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:15:01.819Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Ciné+ OCS",
+        "title": "Saint-Ex"
+      },
+      "evidence_note": "Page CANAL+ directe : durée affichée 1h34 et abonnement requis ; JSON-LD BroadcastEvent 03:53–03:59 et expires 03:59, incompatibles avec le film entier. Interface annonce samedi 23:59 et availabilityEndDate=1791669540000 (10 octobre 21:59 UTC). Impossible de certifier début du film et expiration sur ces données contradictoires ; aucune correction arbitraire des deux lignes de grille.",
+      "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "cast"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/saint-ex/h/27265954_50002"
+      ],
+      "checked_at": "2026-10-08T11:15:01.819Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Saint-Ex",
+        "year": 2024
+      },
+      "evidence_note": "Page publique : Pablo Agüero, 2024, Louis Garrel, Diane Kruger et Vincent Cassel. Aucune fiche canonique correspondante trouvée ; durée/version à distinguer des incohérences du planning.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start"
+      ],
+      "source_urls": [
+        "https://www.linternaute.com/television/programme-france-3-jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:15:01.819Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "France 3",
+        "start": "12:15"
+      },
+      "evidence_note": "Page directe datée du 15 conserve La p'tite librairie 12:15 puis Ici12/13 12:26, alors que l'extrait de recherche présentait Ici12/13 12:15. Le conflit avec la grille officielle demeure ; extrait non utilisé pour corriger.",
+      "status": "conflict"
     }
   ],
   "run_metrics": [
@@ -13298,6 +13402,18 @@
       "checked_at": "2026-10-08T10:23:54.738Z",
       "status": "unavailable",
       "note": "URL publique du guide CANAL+ retourne HTTP 403 ; aucune grille du 10 octobre récupérée, arrêt de cette voie. Screen+ Grand Écran au 10 octobre indique 22:55 pour The Black Dahlia, différent des 22:58/22:59 ; aucune heure arbitrée, indépendance du flux non établie."
+    },
+    {
+      "url": "https://www.tcmcinema.fr/",
+      "checked_at": "2026-10-08T11:15:01.819Z",
+      "status": "unavailable",
+      "note": "Accueil officiel HTTP502 et lecture Web indisponible ; recherche ciblée sans grille officielle exploitable. Ne pas substituer le TCM américain."
+    },
+    {
+      "url": "https://www.canalplus.pro/",
+      "checked_at": "2026-10-08T11:15:01.819Z",
+      "status": "unavailable",
+      "note": "Accueil HTTP502 ; ne pas répéter dans ce lot. cineplus.fr redirige vers page CANAL+ publique accessible, liens œuvres utilisables mais pas grille hebdomadaire."
     }
   ],
   "editorial_review": {
@@ -13477,7 +13593,7 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "00befdffc11fb6a37c1eea395977fe5a14794e89",
+    "checkpoint_parent_sha": "1dd50e8aa2be107aaaf4b79752961fd3787fd60c",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
