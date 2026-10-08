@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
   pull-requests: read
   issues: write
 
@@ -32,11 +33,19 @@ jobs:
         with:
           node-version: 22
 
+      - name: Reconcile actual publisher attempts
+        id: trigger
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/publication-trigger-context.mjs watchdog
+
       - name: Resolve upcoming issue
         id: target
+        if: steps.trigger.outputs.allowed == 'true'
         run: node scripts/next-target.mjs --github-output
 
       - name: Verify publication and maintain weekly alert
+        if: steps.trigger.outputs.allowed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           WATCHDOG_RECONCILE_ONLY: ${{ github.event_name == 'workflow_run' && '1' || '0' }}

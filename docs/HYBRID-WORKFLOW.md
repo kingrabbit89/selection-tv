@@ -68,6 +68,8 @@ Sur une préparation qui ne change que research/inventory/coverage, `preparation
 
 Les événements de validation reçus par le publicateur sont limités à main, auto/** et promote/** ; les corrections techniques continuent d'être validées sans lancer un publicateur sans travail possible. Les schedules et déclenchements manuels demeurent.
 
+Une revalidation de promotion dont seul le job `resolve` réussit ne permet pas d'avancer : le publicateur exige le job `validate-promotion` et son étape d'attestation réellement réussis. Le watchdog ne réconcilie pas un publicateur vert dont l'étape d'avancement a été sautée ; les échecs ou preuves API illisibles conservent la surveillance. Quelques exécutions légères restent visibles pour inspecter les jobs sources, sans publication ni traitement d'alerte lorsqu'elles ne trouvent aucun travail.
+
 ## Authentification GitHub : autonomie complète conditionnelle
 
 Par défaut, les workflows emploient GITHUB_TOKEN. Selon la politique du dépôt, la création de PR peut être interdite ou leurs contrôles demander une approbation explicite. Le code ne modifie pas ces politiques et ne contourne pas les protections.

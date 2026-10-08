@@ -31,7 +31,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Require actual source validation before publication
+        id: trigger
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/publication-trigger-context.mjs publisher
       - name: Report credential mode without exposing secrets
+        if: steps.trigger.outputs.allowed == 'true'
         env:
           HAS_DEDICATED_TOKEN: ${{ secrets.WEEKLY_PUBLISH_TOKEN != '' }}
         run: |
@@ -41,6 +47,7 @@ jobs:
             echo "Credential mode: built-in GITHUB_TOKEN; PR workflows may require explicit approval." >> "$GITHUB_STEP_SUMMARY"
           fi
       - name: Advance one verified publication stage
+        if: steps.trigger.outputs.allowed == 'true'
         env:
           GH_TOKEN: ${{ secrets.WEEKLY_PUBLISH_TOKEN || github.token }}
         run: node scripts/weekly-publisher.mjs
