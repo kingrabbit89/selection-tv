@@ -7202,7 +7202,10 @@
         "RMC Découverte",
         "T18",
         "NOVO19",
-        "Canal+ Docs"
+        "Canal+ Docs",
+        "Canal+ Grand Écran",
+        "La Chaîne parlementaire",
+        "Paris Première"
       ],
       "source_pages": [
         "https://tv-programme.com/arte/lundi-12-octobre-2026/",
@@ -7234,7 +7237,10 @@
         "https://tv-programme.com/rmc-decouverte/lundi-12-octobre-2026/",
         "https://tv-programme.com/t18/lundi-12-octobre-2026/",
         "https://tv-programme.com/novo19/lundi-12-octobre-2026/",
-        "https://tv-programme.com/canal-plus-docs/lundi-12-octobre-2026/"
+        "https://tv-programme.com/canal-plus-docs/lundi-12-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-lundi/canal-grand-ecran",
+        "https://television.telerama.fr/programme-tv-lundi/la-chaine-parlementaire",
+        "https://pro.m6.fr/paris-premiere/grille/2026-42"
       ],
       "channel_sources": {
         "Arte": [
@@ -7329,6 +7335,15 @@
         ],
         "Paramount Channel": [
           "https://canal-assistance.canalplus.com/fr/conversations/abonnement-canal-series/suppression-chaine-paramount/69578e44b680bd747e55af6d"
+        ],
+        "Canal+ Grand Écran": [
+          "https://television.telerama.fr/programme-tv-lundi/canal-grand-ecran"
+        ],
+        "La Chaîne parlementaire": [
+          "https://television.telerama.fr/programme-tv-lundi/la-chaine-parlementaire"
+        ],
+        "Paris Première": [
+          "https://pro.m6.fr/paris-premiere/grille/2026-42"
         ]
       },
       "channel_counts": {
@@ -7362,7 +7377,10 @@
         "T18": 3,
         "NOVO19": 10,
         "Canal+ Docs": 17,
-        "Paramount Channel": 0
+        "Paramount Channel": 0,
+        "Canal+ Grand Écran": 12,
+        "La Chaîne parlementaire": 5,
+        "Paris Première": 4
       },
       "channel_scan_notes": {
         "Arte": {
@@ -7698,6 +7716,35 @@
         "Paramount Channel": {
           "status": "ceased_broadcasting_required_channel_conflict",
           "note": "Paramount Channel reste required_core_channels mais la diffusion française est arrêtée au 31/12/2025 (réponse officielle CANAL+). Aucun scan de grille possible. La préparation des autres chaînes peut continuer ; une décision sur le traitement de cette chaîne inactive est nécessaire avant de certifier la matrice complète."
+        },
+        "Canal+ Grand Écran": {
+          "status": "primary_grid_observed_independent_crosscheck_pending",
+          "first_start": "01:20",
+          "last_start": "23:57",
+          "programmes_examined": 13,
+          "carry_in_excluded": {
+            "title": "BlacKkKlansman : J'ai infiltré le Ku Klux Klan",
+            "start": "23:09",
+            "date": "2026-10-11"
+          }
+        },
+        "La Chaîne parlementaire": {
+          "status": "primary_grid_observed_independent_crosscheck_pending",
+          "first_start": "00:51",
+          "last_start": "23:31",
+          "programmes_examined": 24,
+          "carry_in_excluded": {
+            "title": "Une maison à Budapest",
+            "start": "23:56",
+            "date": "2026-10-11"
+          }
+        },
+        "Paris Première": {
+          "status": "primary_grid_observed_independent_crosscheck_pending",
+          "first_start": "00:40",
+          "last_start": "23:20",
+          "programmes_examined": 17,
+          "carry_in_excluded": null
         }
       },
       "items": [
@@ -10430,25 +10477,198 @@
           "listed_type": "Documentaire Sport",
           "slot_duration": "1h40min",
           "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "Fight Club",
+          "start": "01:20",
+          "channel": "Canal+ Grand Écran",
+          "source": "Télérama — grille datée consultée le 08/10/2026",
+          "source_url": "https://television.telerama.fr/programme-tv-lundi/canal-grand-ecran",
+          "listed_type": "Film",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "La Dame de fer",
+          "start": "03:35",
+          "channel": "Canal+ Grand Écran",
+          "source": "Télérama — grille datée consultée le 08/10/2026",
+          "source_url": "https://television.telerama.fr/programme-tv-lundi/canal-grand-ecran",
+          "listed_type": "Film",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "MR 73",
+          "start": "06:54",
+          "channel": "Canal+ Grand Écran",
+          "source": "Télérama — grille datée consultée le 08/10/2026",
+          "source_url": "https://television.telerama.fr/programme-tv-lundi/canal-grand-ecran",
+          "listed_type": "Film",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "The Revenant",
+          "start": "08:55",
+          "channel": "Canal+ Grand Écran",
+          "source": "Télérama — grille datée consultée le 08/10/2026",
+          "source_url": "https://television.telerama.fr/programme-tv-lundi/canal-grand-ecran",
+          "listed_type": "Film",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "Un crime dans la tête",
+          "start": "11:26",
+          "channel": "Canal+ Grand Écran",
+          "source": "Télérama — grille datée consultée le 08/10/2026",
+          "source_url": "https://television.telerama.fr/programme-tv-lundi/canal-grand-ecran",
+          "listed_type": "Film",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "No Pain no Gain",
+          "start": "13:32",
+          "channel": "Canal+ Grand Écran",
+          "source": "Télérama — grille datée consultée le 08/10/2026",
+          "source_url": "https://television.telerama.fr/programme-tv-lundi/canal-grand-ecran",
+          "listed_type": "Film",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "Fighter",
+          "start": "15:37",
+          "channel": "Canal+ Grand Écran",
+          "source": "Télérama — grille datée consultée le 08/10/2026",
+          "source_url": "https://television.telerama.fr/programme-tv-lundi/canal-grand-ecran",
+          "listed_type": "Film",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "Million Dollar Baby",
+          "start": "17:30",
+          "channel": "Canal+ Grand Écran",
+          "source": "Télérama — grille datée consultée le 08/10/2026",
+          "source_url": "https://television.telerama.fr/programme-tv-lundi/canal-grand-ecran",
+          "listed_type": "Film",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "La personne aux deux personnes",
+          "start": "19:38",
+          "channel": "Canal+ Grand Écran",
+          "source": "Télérama — grille datée consultée le 08/10/2026",
+          "source_url": "https://television.telerama.fr/programme-tv-lundi/canal-grand-ecran",
+          "listed_type": "Film",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "Connasse, princesse des coeurs",
+          "start": "21:04",
+          "channel": "Canal+ Grand Écran",
+          "source": "Télérama — grille datée consultée le 08/10/2026",
+          "source_url": "https://television.telerama.fr/programme-tv-lundi/canal-grand-ecran",
+          "listed_type": "Film",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "Marie-Francine",
+          "start": "22:24",
+          "channel": "Canal+ Grand Écran",
+          "source": "Télérama — grille datée consultée le 08/10/2026",
+          "source_url": "https://television.telerama.fr/programme-tv-lundi/canal-grand-ecran",
+          "listed_type": "Film",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "Pas son genre",
+          "start": "23:57",
+          "channel": "Canal+ Grand Écran",
+          "source": "Télérama — grille datée consultée le 08/10/2026",
+          "source_url": "https://television.telerama.fr/programme-tv-lundi/canal-grand-ecran",
+          "listed_type": "Film",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "Les derniers jours d'Yitzhak Rabin",
+          "start": "00:51",
+          "channel": "La Chaîne parlementaire",
+          "source": "Télérama — grille datée consultée le 08/10/2026",
+          "source_url": "https://television.telerama.fr/programme-tv-lundi/la-chaine-parlementaire",
+          "listed_type": "Documentaire",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "Patrimoines de France",
+          "start": "07:02",
+          "channel": "La Chaîne parlementaire",
+          "source": "Télérama — grille datée consultée le 08/10/2026",
+          "source_url": "https://television.telerama.fr/programme-tv-lundi/la-chaine-parlementaire",
+          "listed_type": "Documentaire",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "Trophées médiaClub'Elles 2026",
+          "start": "10:58",
+          "channel": "La Chaîne parlementaire",
+          "source": "Télérama — grille datée consultée le 08/10/2026",
+          "source_url": "https://television.telerama.fr/programme-tv-lundi/la-chaine-parlementaire",
+          "listed_type": "Documentaire",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "Trophées médiaClub'Elles 2026",
+          "start": "14:58",
+          "channel": "La Chaîne parlementaire",
+          "source": "Télérama — grille datée consultée le 08/10/2026",
+          "source_url": "https://television.telerama.fr/programme-tv-lundi/la-chaine-parlementaire",
+          "listed_type": "Documentaire",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "Adolfo Kaminsky, le faussaire libre",
+          "start": "20:37",
+          "channel": "La Chaîne parlementaire",
+          "source": "Télérama — grille datée consultée le 08/10/2026",
+          "source_url": "https://television.telerama.fr/programme-tv-lundi/la-chaine-parlementaire",
+          "listed_type": "Documentaire",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "Meurtres en Cornouaille",
+          "start": "00:40",
+          "channel": "Paris Première",
+          "source": "M6 Pro (diffuseur officiel) — grille datée consultée le 08/10/2026",
+          "source_url": "https://pro.m6.fr/paris-premiere/grille/2026-42",
+          "listed_type": "Téléfilm",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "J'ai un ticket",
+          "start": "20:50",
+          "channel": "Paris Première",
+          "source": "M6 Pro (diffuseur officiel) — grille datée consultée le 08/10/2026",
+          "source_url": "https://pro.m6.fr/paris-premiere/grille/2026-42",
+          "listed_type": "Magazine",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "La revue de presse",
+          "start": "21:00",
+          "channel": "Paris Première",
+          "source": "M6 Pro (diffuseur officiel) — grille datée consultée le 08/10/2026",
+          "source_url": "https://pro.m6.fr/paris-premiere/grille/2026-42",
+          "listed_type": "Spectacle",
+          "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "La revue de presse",
+          "start": "23:20",
+          "channel": "Paris Première",
+          "source": "M6 Pro (diffuseur officiel) — grille datée consultée le 08/10/2026",
+          "source_url": "https://pro.m6.fr/paris-premiere/grille/2026-42",
+          "listed_type": "Spectacle",
+          "verification_status": "observed_in_dated_grid"
         }
       ],
-      "missing_primary_grids": [
-        {
-          "channel_slug": "canal-plus-grand-ecran",
-          "status": "needs_check",
-          "reason": "Page indisponible ou tronquée ; collecte à compléter."
-        },
-        {
-          "channel_slug": "paris-premiere",
-          "status": "needs_check",
-          "reason": "Page indisponible ou tronquée ; collecte à compléter."
-        },
-        {
-          "channel_slug": "la-chaine-parlementaire",
-          "status": "needs_check",
-          "reason": "Page indisponible ou tronquée ; collecte à compléter."
-        }
-      ]
+      "missing_primary_grids": []
     },
     {
       "date": "2026-10-13",
@@ -10485,7 +10705,8 @@
         "RMC Story",
         "RMC Découverte",
         "La Chaîne parlementaire",
-        "T18"
+        "T18",
+        "Canal+ Docs"
       ],
       "source_pages": [
         "https://tv-programme.com/arte/mardi-13-octobre-2026/",
@@ -10518,7 +10739,8 @@
         "https://tv-programme.com/rmc-story/mardi-13-octobre-2026/",
         "https://tv-programme.com/rmc-decouverte/mardi-13-octobre-2026/",
         "https://tv-programme.com/la-chaine-parlementaire/mardi-13-octobre-2026/",
-        "https://tv-programme.com/t18/mardi-13-octobre-2026/"
+        "https://tv-programme.com/t18/mardi-13-octobre-2026/",
+        "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/"
       ],
       "channel_sources": {
         "Arte": [
@@ -10616,6 +10838,9 @@
         ],
         "Paramount Channel": [
           "https://canal-assistance.canalplus.com/fr/conversations/abonnement-canal-series/suppression-chaine-paramount/69578e44b680bd747e55af6d"
+        ],
+        "Canal+ Docs": [
+          "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/"
         ]
       },
       "channel_counts": {
@@ -10650,7 +10875,8 @@
         "RMC Découverte": 10,
         "La Chaîne parlementaire": 5,
         "T18": 2,
-        "Paramount Channel": 0
+        "Paramount Channel": 0,
+        "Canal+ Docs": 17
       },
       "channel_scan_notes": {
         "Arte": {
@@ -10989,6 +11215,17 @@
         "Paramount Channel": {
           "status": "ceased_broadcasting_required_channel_conflict",
           "note": "Paramount Channel reste required_core_channels mais la diffusion française est arrêtée au 31/12/2025 (réponse officielle CANAL+). Aucun scan de grille possible. La préparation des autres chaînes peut continuer ; une décision sur le traitement de cette chaîne inactive est nécessaire avant de certifier la matrice complète."
+        },
+        "Canal+ Docs": {
+          "status": "primary_grid_observed_independent_crosscheck_pending",
+          "first_start": "00:15",
+          "last_start": "23:42",
+          "programmes_examined": 18,
+          "carry_in_excluded": {
+            "title": "I'm Carl Lewis !",
+            "start": "22:35",
+            "date": "2026-10-12"
+          }
         }
       },
       "items": [
@@ -13661,16 +13898,181 @@
           "listed_type": "Documentaire Civilisations",
           "slot_duration": "1h10min",
           "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "Jérôme, les yeux dans le bleu Indonésie",
+          "start": "00:15",
+          "channel": "Canal+ Docs",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/",
+          "listed_type": "Documentaire Découvertes",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "57min"
+        },
+        {
+          "title": "Planète chefs La suite : Pierre Siewe, Cameroun",
+          "start": "01:12",
+          "channel": "Canal+ Docs",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/",
+          "listed_type": "Documentaire Gastronomie",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "56min"
+        },
+        {
+          "title": "Plus vite ! Le lave-vaisselle",
+          "start": "06:58",
+          "channel": "Canal+ Docs",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/",
+          "listed_type": "Documentaire Société",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "49min"
+        },
+        {
+          "title": "Mon nom est Moore, Roger Moore",
+          "start": "07:47",
+          "channel": "Canal+ Docs",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/",
+          "listed_type": "Documentaire Cinéma",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h33min"
+        },
+        {
+          "title": "Les géants d'Hollywood Naissance d'un empire",
+          "start": "09:20",
+          "channel": "Canal+ Docs",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/",
+          "listed_type": "Documentaire Histoire",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "49min"
+        },
+        {
+          "title": "Les géants d'Hollywood La cité du péché",
+          "start": "10:09",
+          "channel": "Canal+ Docs",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/",
+          "listed_type": "Documentaire Histoire",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "53min"
+        },
+        {
+          "title": "Les disparues",
+          "start": "11:02",
+          "channel": "Canal+ Docs",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/",
+          "listed_type": "Documentaire Société-10",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h40min"
+        },
+        {
+          "title": "Zuckerberg, roi du Métaverse",
+          "start": "12:42",
+          "channel": "Canal+ Docs",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/",
+          "listed_type": "Documentaire Société",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h35min"
+        },
+        {
+          "title": "Coeurs de lions",
+          "start": "14:17",
+          "channel": "Canal+ Docs",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/",
+          "listed_type": "Documentaire sportif Indycar",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h51min"
+        },
+        {
+          "title": "Opérations spéciales L'arrestation de Momcilo Krajisnik",
+          "start": "16:08",
+          "channel": "Canal+ Docs",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/",
+          "listed_type": "Documentaire Histoire-10",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h10min"
+        },
+        {
+          "title": "I'm Carl Lewis !",
+          "start": "17:18",
+          "channel": "Canal+ Docs",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/",
+          "listed_type": "Documentaire Sport",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h43min"
+        },
+        {
+          "title": "Pour ma soeur : L'affaire Jennifer Pandos Disparition",
+          "start": "19:01",
+          "channel": "Canal+ Docs",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/",
+          "listed_type": "Documentaire Justice-10",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "57min"
+        },
+        {
+          "title": "Pour ma soeur : L'affaire Jennifer Pandos Révélations",
+          "start": "19:58",
+          "channel": "Canal+ Docs",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/",
+          "listed_type": "Documentaire Justice-10",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h02min"
+        },
+        {
+          "title": "Napoléon III, le prix de l'audace A la conquête du monde",
+          "start": "21:00",
+          "channel": "Canal+ Docs",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/",
+          "listed_type": "Documentaire Histoire",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "53min"
+        },
+        {
+          "title": "Napoléon III, le prix de l'audace Le couronnement de l'édifice",
+          "start": "21:53",
+          "channel": "Canal+ Docs",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/",
+          "listed_type": "Documentaire Histoire",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "59min"
+        },
+        {
+          "title": "Les géants d'Hollywood L'ère du parlant",
+          "start": "22:52",
+          "channel": "Canal+ Docs",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/",
+          "listed_type": "Documentaire Histoire",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "50min"
+        },
+        {
+          "title": "Les géants d'Hollywood Le crépuscule des rois",
+          "start": "23:42",
+          "channel": "Canal+ Docs",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/",
+          "listed_type": "Documentaire Histoire",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "53min"
         }
       ],
       "missing_primary_grids": [
         {
           "channel_slug": "novo19",
-          "status": "needs_check",
-          "reason": "Page indisponible ou tronquée ; collecte à compléter."
-        },
-        {
-          "channel_slug": "canal-plus-docs",
           "status": "needs_check",
           "reason": "Page indisponible ou tronquée ; collecte à compléter."
         }
@@ -16994,7 +17396,9 @@
         "RMC Découverte",
         "La Chaîne parlementaire",
         "NOVO19",
-        "Canal+ Docs"
+        "Canal+ Docs",
+        "TV5MONDE",
+        "Canal+ Box Office"
       ],
       "source_pages": [
         "https://tv-programme.com/arte/jeudi-15-octobre-2026/",
@@ -17026,7 +17430,9 @@
         "https://tv-programme.com/rmc-decouverte/jeudi-15-octobre-2026/",
         "https://tv-programme.com/la-chaine-parlementaire/jeudi-15-octobre-2026/",
         "https://tv-programme.com/novo19/jeudi-15-octobre-2026/",
-        "https://tv-programme.com/canal-plus-docs/jeudi-15-octobre-2026/"
+        "https://tv-programme.com/canal-plus-docs/jeudi-15-octobre-2026/",
+        "https://tv-programme.com/tv5monde/jeudi-15-octobre-2026/",
+        "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/"
       ],
       "channel_sources": {
         "Arte": [
@@ -17121,6 +17527,12 @@
         ],
         "Paramount Channel": [
           "https://canal-assistance.canalplus.com/fr/conversations/abonnement-canal-series/suppression-chaine-paramount/69578e44b680bd747e55af6d"
+        ],
+        "TV5MONDE": [
+          "https://tv-programme.com/tv5monde/jeudi-15-octobre-2026/"
+        ],
+        "Canal+ Box Office": [
+          "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/"
         ]
       },
       "channel_counts": {
@@ -17154,7 +17566,9 @@
         "La Chaîne parlementaire": 2,
         "NOVO19": 8,
         "Canal+ Docs": 18,
-        "Paramount Channel": 0
+        "Paramount Channel": 0,
+        "TV5MONDE": 5,
+        "Canal+ Box Office": 12
       },
       "channel_scan_notes": {
         "Arte": {
@@ -17486,6 +17900,28 @@
         "Paramount Channel": {
           "status": "ceased_broadcasting_required_channel_conflict",
           "note": "Paramount Channel reste required_core_channels mais la diffusion française est arrêtée au 31/12/2025 (réponse officielle CANAL+). Aucun scan de grille possible. La préparation des autres chaînes peut continuer ; une décision sur le traitement de cette chaîne inactive est nécessaire avant de certifier la matrice complète."
+        },
+        "TV5MONDE": {
+          "status": "primary_grid_observed_independent_crosscheck_pending",
+          "first_start": "00:54",
+          "last_start": "23:13",
+          "programmes_examined": 49,
+          "carry_in_excluded": {
+            "title": "Un dimanche à la campagne",
+            "start": "23:09",
+            "date": "2026-10-14"
+          }
+        },
+        "Canal+ Box Office": {
+          "status": "primary_grid_observed_independent_crosscheck_pending",
+          "first_start": "00:11",
+          "last_start": "22:45",
+          "programmes_examined": 17,
+          "carry_in_excluded": {
+            "title": "Marsupilami",
+            "start": "22:35",
+            "date": "2026-10-14"
+          }
         }
       },
       "items": [
@@ -20178,19 +20614,179 @@
           "listed_type": "Documentaire sportif Indycar",
           "slot_duration": "1h51min",
           "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "Bouquinistes, le charme de Paris",
+          "start": "01:24",
+          "channel": "TV5MONDE",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/tv5monde/jeudi-15-octobre-2026/",
+          "listed_type": "Documentaire Beaux-arts",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "49min"
+        },
+        {
+          "title": "La Vénus de Botticelli, naissance d'une icône",
+          "start": "02:13",
+          "channel": "TV5MONDE",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/tv5monde/jeudi-15-octobre-2026/",
+          "listed_type": "Documentaire Beaux-arts",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "53min"
+        },
+        {
+          "title": "Secrets de nos vallées La rivière secrète du poisson migrateur",
+          "start": "16:16",
+          "channel": "TV5MONDE",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/tv5monde/jeudi-15-octobre-2026/",
+          "listed_type": "Documentaire Nature",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "25min"
+        },
+        {
+          "title": "La rencontre, francophonie et ambassadeurs Laos",
+          "start": "21:01",
+          "channel": "TV5MONDE",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/tv5monde/jeudi-15-octobre-2026/",
+          "listed_type": "Documentaire Autre",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "5min"
+        },
+        {
+          "title": "Les Maîtres des Saveurs Les maîtres des champignons",
+          "start": "23:13",
+          "channel": "TV5MONDE",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/tv5monde/jeudi-15-octobre-2026/",
+          "listed_type": "Documentaire Gastronomie",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "51min"
+        },
+        {
+          "title": "L'épreuve du feu",
+          "start": "00:28",
+          "channel": "Canal+ Box Office",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
+          "listed_type": "Film Comédie dramatique-10",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h43min"
+        },
+        {
+          "title": "Evanouis",
+          "start": "02:11",
+          "channel": "Canal+ Box Office",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
+          "listed_type": "Film Film d'horreur-16",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "2h04min"
+        },
+        {
+          "title": "Cinéastes en séries",
+          "start": "07:24",
+          "channel": "Canal+ Box Office",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
+          "listed_type": "Documentaire Cinéma-10",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h01min"
+        },
+        {
+          "title": "La Tour de glace",
+          "start": "08:25",
+          "channel": "Canal+ Box Office",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
+          "listed_type": "Film Drame",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h53min"
+        },
+        {
+          "title": "De fil et de sang",
+          "start": "10:18",
+          "channel": "Canal+ Box Office",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
+          "listed_type": "Film Thriller-10",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h37min"
+        },
+        {
+          "title": "Nouvelle Vague",
+          "start": "11:55",
+          "channel": "Canal+ Box Office",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
+          "listed_type": "Film Comédie",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h43min"
+        },
+        {
+          "title": "Superman",
+          "start": "13:38",
+          "channel": "Canal+ Box Office",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
+          "listed_type": "Film Film fantastique-10",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "2h06min"
+        },
+        {
+          "title": "Les Schtroumpfs : Le film",
+          "start": "15:44",
+          "channel": "Canal+ Box Office",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
+          "listed_type": "Film Film d'animation",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h28min"
+        },
+        {
+          "title": "Rembrandt",
+          "start": "17:26",
+          "channel": "Canal+ Box Office",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
+          "listed_type": "Film Thriller",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h44min"
+        },
+        {
+          "title": "Les tourmentés",
+          "start": "19:10",
+          "channel": "Canal+ Box Office",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
+          "listed_type": "Film Drame-10",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h50min"
+        },
+        {
+          "title": "Marche ou crève",
+          "start": "21:00",
+          "channel": "Canal+ Box Office",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
+          "listed_type": "Film Film d'horreur-16",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h45min"
+        },
+        {
+          "title": "28 Ans plus tard",
+          "start": "22:45",
+          "channel": "Canal+ Box Office",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/",
+          "listed_type": "Film Film d'horreur-16",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h51min"
         }
       ],
       "missing_primary_grids": [
-        {
-          "channel_slug": "tv5monde",
-          "status": "needs_check",
-          "reason": "Page indisponible ou tronquée ; collecte à compléter."
-        },
-        {
-          "channel_slug": "canal-plus-box-office",
-          "status": "needs_check",
-          "reason": "Page indisponible ou tronquée ; collecte à compléter."
-        },
         {
           "channel_slug": "t18",
           "status": "needs_check",
@@ -20232,7 +20828,9 @@
         "RMC Découverte",
         "La Chaîne parlementaire",
         "T18",
-        "Canal+ Docs"
+        "Canal+ Docs",
+        "France 2",
+        "NOVO19"
       ],
       "source_pages": [
         "https://tv-programme.com/arte/vendredi-16-octobre-2026/",
@@ -20264,7 +20862,9 @@
         "https://tv-programme.com/rmc-decouverte/vendredi-16-octobre-2026/",
         "https://tv-programme.com/la-chaine-parlementaire/vendredi-16-octobre-2026/",
         "https://tv-programme.com/t18/vendredi-16-octobre-2026/",
-        "https://tv-programme.com/canal-plus-docs/vendredi-16-octobre-2026/"
+        "https://tv-programme.com/canal-plus-docs/vendredi-16-octobre-2026/",
+        "https://tv-programme.com/france-2/vendredi-16-octobre-2026/",
+        "https://tv-programme.com/novo19/vendredi-16-octobre-2026/"
       ],
       "channel_sources": {
         "Arte": [
@@ -20359,6 +20959,12 @@
         ],
         "Paramount Channel": [
           "https://canal-assistance.canalplus.com/fr/conversations/abonnement-canal-series/suppression-chaine-paramount/69578e44b680bd747e55af6d"
+        ],
+        "France 2": [
+          "https://tv-programme.com/france-2/vendredi-16-octobre-2026/"
+        ],
+        "NOVO19": [
+          "https://tv-programme.com/novo19/vendredi-16-octobre-2026/"
         ]
       },
       "channel_counts": {
@@ -20392,7 +20998,9 @@
         "La Chaîne parlementaire": 7,
         "T18": 5,
         "Canal+ Docs": 18,
-        "Paramount Channel": 0
+        "Paramount Channel": 0,
+        "France 2": 2,
+        "NOVO19": 10
       },
       "channel_scan_notes": {
         "Arte": {
@@ -20720,6 +21328,28 @@
         "Paramount Channel": {
           "status": "ceased_broadcasting_required_channel_conflict",
           "note": "Paramount Channel reste required_core_channels mais la diffusion française est arrêtée au 31/12/2025 (réponse officielle CANAL+). Aucun scan de grille possible. La préparation des autres chaînes peut continuer ; une décision sur le traitement de cette chaîne inactive est nécessaire avant de certifier la matrice complète."
+        },
+        "France 2": {
+          "status": "primary_grid_observed_independent_crosscheck_pending",
+          "first_start": "00:15",
+          "last_start": "23:45",
+          "programmes_examined": 39,
+          "carry_in_excluded": {
+            "title": "Complément d'enquête Carrefour : révélations sur un géant face à la crise",
+            "start": "23:00",
+            "date": "2026-10-15"
+          }
+        },
+        "NOVO19": {
+          "status": "primary_grid_observed_independent_crosscheck_pending",
+          "first_start": "00:15",
+          "last_start": "23:15",
+          "programmes_examined": 21,
+          "carry_in_excluded": {
+            "title": "Braveheart",
+            "start": "21:10",
+            "date": "2026-10-15"
+          }
         }
       },
       "items": [
@@ -23582,21 +24212,131 @@
           "listed_type": "Documentaire Histoire-10",
           "slot_duration": "1h18min",
           "verification_status": "observed_in_dated_grid"
+        },
+        {
+          "title": "Les reines du lagon",
+          "start": "04:35",
+          "channel": "France 2",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/france-2/vendredi-16-octobre-2026/",
+          "listed_type": "Documentaire Nature",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "30min"
+        },
+        {
+          "title": "La p'tite librairie \"Voyage avec Charley\", de John Steinbeck",
+          "start": "13:45",
+          "channel": "France 2",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/france-2/vendredi-16-octobre-2026/",
+          "listed_type": "Magazine Magazine littéraire",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "10min"
+        },
+        {
+          "title": "Terminator : Genisys",
+          "start": "00:15",
+          "channel": "NOVO19",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/novo19/vendredi-16-octobre-2026/",
+          "listed_type": "Film Film de science-fiction-10",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "2h20min"
+        },
+        {
+          "title": "Les visages du crime Affaire Samira Ben Saad : Les amants terribles",
+          "start": "07:40",
+          "channel": "NOVO19",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/novo19/vendredi-16-octobre-2026/",
+          "listed_type": "Documentaire Justice-10",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h04min"
+        },
+        {
+          "title": "Les visages du crime en région Vent de panique sur la Côte d'Azur",
+          "start": "08:44",
+          "channel": "NOVO19",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/novo19/vendredi-16-octobre-2026/",
+          "listed_type": "Documentaire Justice-10",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h41min"
+        },
+        {
+          "title": "Les visages du crime en région L'étrange décès de l'actrice Marie-France Pisier",
+          "start": "10:25",
+          "channel": "NOVO19",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/novo19/vendredi-16-octobre-2026/",
+          "listed_type": "Documentaire Justice-10",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h39min"
+        },
+        {
+          "title": "Les visages du crime en région Savoie : un détour en enfer",
+          "start": "12:04",
+          "channel": "NOVO19",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/novo19/vendredi-16-octobre-2026/",
+          "listed_type": "Documentaire Justice-10",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h41min"
+        },
+        {
+          "title": "Les visages du crime en région Crimes en Midi-Pyrénées",
+          "start": "13:45",
+          "channel": "NOVO19",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/novo19/vendredi-16-octobre-2026/",
+          "listed_type": "Documentaire Justice-10",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h45min"
+        },
+        {
+          "title": "Les visages du crime en région Spéciale : mon collègue de bureau est un criminel",
+          "start": "15:30",
+          "channel": "NOVO19",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/novo19/vendredi-16-octobre-2026/",
+          "listed_type": "Documentaire Justice-10",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h35min"
+        },
+        {
+          "title": "Falaises de Bonifacio : érosion inévitable ?",
+          "start": "21:10",
+          "channel": "NOVO19",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/novo19/vendredi-16-octobre-2026/",
+          "listed_type": "Documentaire Environnement",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h"
+        },
+        {
+          "title": "Mont-Saint-Michel : les dernières énigmes de l'abbaye",
+          "start": "22:10",
+          "channel": "NOVO19",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/novo19/vendredi-16-octobre-2026/",
+          "listed_type": "Documentaire Histoire",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h05min"
+        },
+        {
+          "title": "Lourdes : capitale des miracles",
+          "start": "23:15",
+          "channel": "NOVO19",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/novo19/vendredi-16-octobre-2026/",
+          "listed_type": "Documentaire Culture",
+          "verification_status": "observed_in_dated_grid",
+          "slot_duration": "1h05min"
         }
       ],
       "missing_primary_grids": [
         {
-          "channel_slug": "france-2",
-          "status": "needs_check",
-          "reason": "Page indisponible ou tronquée ; collecte à compléter."
-        },
-        {
           "channel_slug": "tv5monde",
-          "status": "needs_check",
-          "reason": "Page indisponible ou tronquée ; collecte à compléter."
-        },
-        {
-          "channel_slug": "novo19",
           "status": "needs_check",
           "reason": "Page indisponible ou tronquée ; collecte à compléter."
         }

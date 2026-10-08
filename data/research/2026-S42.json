@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
   "stage": "inventory",
-  "updated_at": "2026-10-08T06:19:38.210Z",
+  "updated_at": "2026-10-08T06:21:59.517Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -12,7 +12,7 @@
     "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
     "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV.",
     "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue.",
-    "Compléter les grilles primaires manquantes signalées dans chaque journée (lundi : Canal+ Grand Écran, Paris Première, LCP). Des pistes Télérama datées et bulletin officiel M6 existent ; encore à ouvrir."
+    "Compléter cinq grilles primaires encore absentes : NOVO19 mardi ; Ciné+ Emotion et T18 mercredi ; T18 jeudi ; TV5MONDE vendredi. Les autres chaînes ont une première source, recoupements encore requis."
   ],
   "completed_batches": [
     {
@@ -56,6 +56,11 @@
       "completed_at": "2026-10-08T06:19:38.210Z",
       "description": "Premier relevé de 30 chaînes actives ; 286 entrées brutes ; journée non validée.",
       "items": 286
+    },
+    {
+      "id": "inventory-source-gaps-round-1",
+      "completed_at": "2026-10-08T06:21:59.530Z",
+      "description": "Huit grilles manquantes récupérées ; Télérama réellement daté et bulletin M6 officiel pour le lundi. Autres pages Télérama périmées écartées."
     }
   ],
   "blockers": [
@@ -4666,6 +4671,174 @@
       },
       "evidence_note": "Grille datée lue ; créneaux de la veille exclus. Durée de créneau, non durée certifiée de version. Recoupement indépendant et rappel éditorial encore requis.",
       "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://television.telerama.fr/programme-tv-lundi/canal-grand-ecran"
+      ],
+      "checked_at": "2026-10-08T06:20:47.908Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "channel": "Canal+ Grand Écran"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://television.telerama.fr/programme-tv-lundi/la-chaine-parlementaire"
+      ],
+      "checked_at": "2026-10-08T06:20:47.908Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "channel": "La Chaîne parlementaire"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/paris-premiere/grille/2026-42"
+      ],
+      "checked_at": "2026-10-08T06:21:21.551Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "channel": "Paris Première"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/canal-plus-docs/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:21:22.948Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "Canal+ Docs"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tv5monde/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:21:23.136Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "TV5MONDE"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/canal-plus-box-office/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:21:23.404Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "Canal+ Box Office"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/france-2/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:21:22.563Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "channel": "France 2"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/novo19/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:21:22.536Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "channel": "NOVO19"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -4731,6 +4904,31 @@
       "url": "https://tv-programme.com/la-chaine-parlementaire/lundi-12-octobre-2026/",
       "status": "unavailable",
       "note": "Outil de lecture inaccessible ; aucun scan fictif. Pistes alternatives obtenues par recherche, lecture encore requise."
+    },
+    {
+      "url": "https://television.telerama.fr/programme-tv-mercredi/cine-emotion",
+      "status": "stale",
+      "note": "Page ouverte datée mercredi 18 Mars au lieu du 14 octobre ; non utilisée."
+    },
+    {
+      "url": "https://television.telerama.fr/programme-tv-jeudi/tv5-monde",
+      "status": "stale",
+      "note": "Page ouverte datée jeudi 01 Octobre au lieu du 15 octobre ; non utilisée."
+    },
+    {
+      "url": "https://television.telerama.fr/programme-tv-jeudi/canal-box-office",
+      "status": "stale",
+      "note": "Page ouverte datée jeudi 10 Septembre au lieu du 15 octobre ; non utilisée."
+    },
+    {
+      "url": "https://television.telerama.fr/programme-tv-vendredi/france-2",
+      "status": "stale",
+      "note": "Page ouverte datée vendredi 02 Octobre au lieu du 16 octobre ; non utilisée."
+    },
+    {
+      "url": "https://television.telerama.fr/programme-tv-vendredi/tv5-monde",
+      "status": "stale",
+      "note": "Page ouverte datée vendredi 27 Mars au lieu du 16 octobre ; non utilisée."
     }
   ],
   "editorial_review": {
