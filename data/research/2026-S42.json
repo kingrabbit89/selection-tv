@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T08:16:36.041Z",
+  "updated_at": "2026-10-08T08:18:32.717Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -19,7 +19,8 @@
     "Rappel TNT : Fréquenstar annoncé dimanche 11:20 mais grille M6 Turbo 11:00/11:25 ; sujets Envoyé spécial et Au cœur de l'enquête à obtenir. Intraçables et Meurtres à Cayenne : types épisode/téléfilm à réconcilier.",
     "France 2/3 : compléter grilles officielles du 10 (France 2) et du 15 (France 2/3), renvoyées périmées/vides ; départager Dodin Bouffant 02:55/03:05 le 12. Les collections génériques ne certifient pas leurs épisodes.",
     "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
-    "Public Sénat : Silence dans les rangs documenté (prix et limites de réception), horaires légèrement divergents et replay indisponible ; terminer offre/expiration, notes, affiche et revue comparative."
+    "Public Sénat : Silence dans les rangs documenté (prix et limites de réception), horaires légèrement divergents et replay indisponible ; terminer offre/expiration, notes, affiche et revue comparative.",
+    "France 4 : compléter réception/offres documentaires et épisodes génériques ; résoudre Rachelle Allison 20:30 contre Naimro/Allison 20:35 le 15. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle."
   ],
   "completed_batches": [
     {
@@ -143,6 +144,11 @@
       "id": "documentary-silence-source-dossier",
       "completed_at": "2026-10-08T08:16:36.041Z",
       "description": "Un dossier documentaire avec sources exactes, prix extérieur motivé, contexte distingué de la critique, notes non établies et replay indisponible."
+    },
+    {
+      "id": "inventory-france4-official-complement",
+      "completed_at": "2026-10-08T08:18:32.717Z",
+      "description": "25 rapprochements supplémentaires dans six grilles officielles (avec nuits), deux captations ajoutées et conflit Rachelle Allison conservé."
     }
   ],
   "blockers": [
@@ -10289,6 +10295,347 @@
       },
       "evidence_note": "Recherches exactes titre/réalisatrice avec deux moteurs : aucun identifiant IMDb exact établi ; fiche SensCritique identifiée mais lecture échouée, aucune note visible dans résultats. Ne prouve pas l'absence de notes ; contrôle incomplet.",
       "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-4/03-10-2026/09-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:17:01.882Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 4",
+        "grid_date": "2026-10-09"
+      },
+      "evidence_note": "Grille officielle lue intégralement, dates civiles de chaque ligne préservées. Concordances consignées uniquement ; libellés jeunesse regroupés ne certifient pas leurs épisodes. Ne prouve ni qualité, ni replay.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-10",
+          "start": "01:10",
+          "title": "Alex Vizorek : Ad vitam",
+          "official_title": "Alex Vizorek : Ad vitam"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "03:15",
+          "title": "Birds on a Wire - Le Chant des oiseaux",
+          "official_title": "Birds on a Wire - Le Chant des oiseaux (à la Philharmonie de Paris)"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-4/10-10-2026/10-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:17:01.136Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 4",
+        "grid_date": "2026-10-10"
+      },
+      "evidence_note": "Grille officielle lue intégralement, dates civiles de chaque ligne préservées. Concordances consignées uniquement ; libellés jeunesse regroupés ne certifient pas leurs épisodes. Ne prouve ni qualité, ni replay.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-10",
+          "start": "23:00",
+          "title": "Le refuge",
+          "official_title": "Le Refuge"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "02:30",
+          "title": "Contes et légendes",
+          "official_title": "Contes et légendes"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "20:25",
+          "title": "C'est toujours pas sorcier S02E08 Sucre : pour le meilleur et pour le pire",
+          "official_title": "C'est toujours pas sorcier"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-4/10-10-2026/13-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:17:02.046Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 4",
+        "grid_date": "2026-10-13"
+      },
+      "evidence_note": "Grille officielle lue intégralement, dates civiles de chaque ligne préservées. Concordances consignées uniquement ; libellés jeunesse regroupés ne certifient pas leurs épisodes. Ne prouve ni qualité, ni replay.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-13",
+          "start": "21:00",
+          "title": "France",
+          "official_title": "France"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "00:10",
+          "title": "The One Man Show : Booder",
+          "official_title": "THE ONE MAN SHOW - BOODER"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "02:45",
+          "title": "C'est beau !",
+          "official_title": "C'est beau !"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "03:50",
+          "title": "De la rue aux Jeux",
+          "official_title": "De la Rue aux Jeux"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "20:25",
+          "title": "C'est toujours pas sorcier S04E10 Le secret des fruits et légumes",
+          "official_title": "C'est toujours pas sorcier"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "01:30",
+          "title": "Top Comedy Club Bordeaux, Le Fire Comedy Club",
+          "official_title": "Top Comedy Club"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-4/10-10-2026/14-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:17:02.052Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 4",
+        "grid_date": "2026-10-14"
+      },
+      "evidence_note": "Grille officielle lue intégralement, dates civiles de chaque ligne préservées. Concordances consignées uniquement ; libellés jeunesse regroupés ne certifient pas leurs épisodes. Ne prouve ni qualité, ni replay.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-14",
+          "start": "21:00",
+          "title": "Johnny Hallyday symphonique",
+          "official_title": "JOHNNY HALLYDAY SYMPHONIQUE"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "20:25",
+          "title": "C'est toujours pas sorcier S05E22 Tous les goûts sont dans la nature",
+          "official_title": "C'est toujours pas sorcier"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "22:45",
+          "title": "Archives secrètes Les Phénix",
+          "official_title": "Archives secrètes"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-4/10-10-2026/15-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:17:01.718Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 4",
+        "grid_date": "2026-10-15"
+      },
+      "evidence_note": "Grille officielle lue intégralement, dates civiles de chaque ligne préservées. Concordances consignées uniquement ; libellés jeunesse regroupés ne certifient pas leurs épisodes. Ne prouve ni qualité, ni replay.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-15",
+          "start": "21:00",
+          "title": "The Host",
+          "official_title": "The Host"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "23:00",
+          "title": "Success",
+          "official_title": "Success"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "23:25",
+          "title": "Flush",
+          "official_title": "FLUSH"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "00:00",
+          "title": "De \"Matrix\" à \"Sense8\", la révolution Wachowski",
+          "official_title": "DE MATRIX A SENSE8, LA REVOLUTION WACHOWSKI"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "03:15",
+          "title": "On ne va pas se défiler",
+          "official_title": "On ne va pas se défiler"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "23:45",
+          "title": "Rouge",
+          "official_title": "Histoires courtes - Promenons-nous dans les bois : Rouge"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "01:45",
+          "title": "Hiba Tawaji",
+          "official_title": "HIBA TAWAJI - LIVE A L'OLYMPIA"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-4/10-10-2026/16-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:17:03.417Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 4",
+        "grid_date": "2026-10-16"
+      },
+      "evidence_note": "Grille officielle lue intégralement, dates civiles de chaque ligne préservées. Concordances consignées uniquement ; libellés jeunesse regroupés ne certifient pas leurs épisodes. Ne prouve ni qualité, ni replay.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-16",
+          "start": "21:00",
+          "title": "Le concert des nuits d'été de Schönbrunn 2026",
+          "official_title": "Le Concert des nuits d’été de Schönbrunn 2026"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "22:30",
+          "title": "Le grand concert des pyramides avec Fatma Saïd",
+          "official_title": "Le grand concert des pyramides avec Fatma Said"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "20:25",
+          "title": "C'est toujours pas sorcier S02E08 Sucre : pour le meilleur et pour le pire",
+          "official_title": "C'est toujours pas sorcier"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "23:55",
+          "title": "Charles Dutoit et David Fray au Palais princier de Monaco",
+          "official_title": "CONCERTS AU PALAIS PRINCIER DE MONACO 2025"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "programme_title",
+        "broadcast.start"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-4/10-10-2026/15-10-2026",
+        "https://tv-programme.com/france-4/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T08:18:32.717Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "France 4"
+      },
+      "evidence_note": "Grille officielle : Rachelle Allison à la Cigale 20:30 ; grille tierce : Jean-Claude Naimro et Rachelle Allison 20:35. Programme/montage à départager, ne pas fusionner les identités.",
+      "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "programme_format",
+        "director_capture",
+        "recording_date"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-4/10-10-2026/13-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:18:32.717Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "De la rue aux Jeux"
+      },
+      "evidence_note": "Captation chorégraphique Pockemon Crew, réalisation Mohamed Athamna, Oyonnax le 4 avril 2024. Le libellé tiers Concert Variétés ne constitue pas une identité fiable.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "director",
+        "year",
+        "duration",
+        "identity"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-4/10-10-2026/15-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:18:32.717Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "De \"Matrix\" à \"Sense8\", la révolution Wachowski"
+      },
+      "evidence_note": "Thibaut Sève, coécriture Erwan Desbois, Capa Presse 2024, 62 minutes annoncées. Ne pas confondre avec Matrix Generation ; aucun candidat canonique correspondant trouvé.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
