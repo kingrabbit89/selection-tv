@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T14:40:33.431Z",
+  "updated_at": "2026-10-08T14:45:27.372Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -22,7 +22,7 @@
     "Public Sénat : Silence dans les rangs documenté (prix et limites de réception), horaires légèrement divergents et replay indisponible ; terminer offre/expiration, notes, affiche et revue comparative.",
     "France 4 : compléter réception/offres documentaires et épisodes génériques ; Rachelle Allison à la Cigale retenu à 20:30 après recoupement officiel/guide courant, à revérifier au préflight. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle.",
     "France 4 documentaires : Wachowski (Thibaut Sève, distinct de Matrix Generation) a des avis attribués mais durée 61/62/70 min à départager ; On ne va pas se défiler réintégré comme documentaire, critique/offre 2026 à compléter.",
-    "TV5MONDE+ : Didy déjà documenté ; Werga et En route pour Broadway maintenant identifiés avec preuves alternatives et visuels vus. Broadway : quatre épisodes et FR explicite/fin technique2030 contrôlés ; Werga : 51min offre,42/35min autres versions,pays/territoire à départager. Réception indépendante forte, accès et revue comparative restent ouverts ; troisième piste initiale encore à examiner.",
+    "TV5MONDE+ : quatre pistes initiales examinées. Didy : offre84min mais FRabsent des9listes territoriales, rechercher autre offreFrance avant retenue. Werga/Broadway/Edgar : identités, versionsoffre, fenêtres techniques, visuels contrôlés ; limites territoriales/critiques et tâches de cartes détaillées danscoverage. Aucun consensus ni accès effectif déduit.",
     "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes. Nouvelle piste TV5Pro mène à une connexion ; guide public reste channel4/NewYork, aucune preuve FBS.",
     "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma.",
     "france.tv 16 octobre : quatre nouvelles pistes documentées (Replica, Influence mortelle, Lâche ton tel, Sommes-nous tous accros aux écrans ?) ; vérifier offres/expirations, versions et réception manquante avant toute sélection.",
@@ -370,6 +370,11 @@
       "id": "research-tv5-werga-broadway-offers-and-alternative-evidence",
       "completed_at": "2026-10-08T14:40:33.431Z",
       "description": "Deux pistes existantes identifiées ; quatre épisodes Broadway/territoireFR/dates techniques, versionsWerga, réception classée sans consensus inventé, quatre visuels exacts vus. Limites des nouvelles pistes grilleFBS consignées."
+    },
+    {
+      "id": "research-tv5-didy-territory-and-edgar-portrait",
+      "completed_at": "2026-10-08T14:45:27.372Z",
+      "description": "OffreDidy84min inspectée : FRabsent deslistes. Edgar-YvesJulianFenard2025 identifié, version68min/fin technique, article+avisunique avec réserves. Quatre visuels vus et notes noninventées."
     }
   ],
   "blockers": [
@@ -11200,7 +11205,10 @@
         "title": "Didy"
       },
       "evidence_note": "Festival primaire : documentaire 2024, Destors/Kamilindi, Suisse-France-Rwanda, version festival 85 min. Identité certaine, work_id non encore attribué.",
-      "status": "verified"
+      "status": "verified",
+      "reused_in": [
+        "2026-S42"
+      ]
     },
     {
       "work_id": null,
@@ -11240,7 +11248,10 @@
         "title": "Didy"
       },
       "evidence_note": "Deux avis attribués consultés, appréciations de forme et réserve sauvegardées dans coverage ; critique Télérama partiellement accessible. Aucun consensus global revendiqué.",
-      "status": "verified"
+      "status": "verified",
+      "reused_in": [
+        "2026-S42"
+      ]
     },
     {
       "work_id": null,
@@ -17809,6 +17820,89 @@
       },
       "evidence_note": "{\"checked_at\":\"2026-10-08T14:40:33.431Z\",\"source_urls\":[\"https://www.tv5mondeplus.com/fr/documentaires/culture/en-route-pour-broadway\",\"https://www.tv5mondeplus.com/fr/documentaires/culture/en-route-pour-broadway-s-1-e1-le-casting\",\"https://www.tv5mondeplus.com/fr/documentaires/culture/en-route-pour-broadway-s-1-e2-decrocher-un-solo\",\"https://www.tv5mondeplus.com/fr/documentaires/culture/en-route-pour-broadway-s-1-e3-devenir-un-artiste\",\"https://www.tv5mondeplus.com/fr/documentaires/culture/en-route-pour-broadway-s-1-e4-la-premiere\"],\"method\":\"HTML public et objet asset embarqué de chaque épisode\",\"from_utc\":\"2026-03-31T22:00:00Z\",\"technical_to_utc\":\"2030-03-31T22:00:00Z\",\"territory\":\"FR explicitement dans publication channel-61_74079A de chacun des4épisodes\",\"login\":\"Se connecter affiché ; lecture non testée\",\"status\":\"offer_metadata_verified_playback_unchecked\"} Images vues, CI encore requis.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "offer_version",
+        "offer_publication_window",
+        "territory_metadata",
+        "image_provenance"
+      ],
+      "source_urls": [
+        "https://www.tv5mondeplus.com/fr/documentaires/societe/didy"
+      ],
+      "checked_at": "2026-10-08T14:45:27.372Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Didy",
+        "offer": "TV5MONDE+"
+      },
+      "evidence_note": "Asset107551539_74079A durée5061520ms/84min ; publications jusqu'au2028-03-31T22:00Z mais FRabsent de toutesleslistes explicites. Ne pas annoncer offreFR. Affiche etfallbackpaysage officiels téléchargés200/vus ; intégrationCI restante.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "offer_version",
+        "offer_publication_window",
+        "territory_metadata",
+        "image_provenance"
+      ],
+      "source_urls": [
+        "https://www.tv5mondeplus.com/fr/films/documentaires/edgar-yves-jr-le-prix-de-la-liberte"
+      ],
+      "checked_at": "2026-10-08T14:45:27.372Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Edgar-Yves Jr, le prix de la liberté",
+        "offer": "TV5MONDE+"
+      },
+      "evidence_note": "Asset107232548_74079A :JulianFenard,France2025,4108840ms/68min ; fin technique2027-09-30T21:59:59Z, territoires[]insuffisants pourFrance. Affiche etfallbackpaysage officiels téléchargés200/vus ; intégrationCI restante.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "reception",
+        "reservation",
+        "identity"
+      ],
+      "source_urls": [
+        "https://presse.tv5monde.com/soiree-evenement-dediee-a-lhumoriste-edgar-yves/?lang=fr",
+        "https://broadster.fr/productions/",
+        "https://1jour1sortie.com/index.php/2026/04/06/le-prix-de-la-liberte-le-documentaire-sur-lhumoriste-edgar-yves-a-voir-sur-tv5-monde/",
+        "https://www.billetreduc.com/spectacle/edgar-yves-jr-documentaire-le-prix-de-la-liberte-397822",
+        "https://www.imdb.com/title/tt39989785/"
+      ],
+      "checked_at": "2026-10-08T14:45:27.372Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Edgar-Yves Jr, le prix de la liberté"
+      },
+      "evidence_note": "Laura Bruneau6avril2026 article favorable limité ; jp22avril2026 unavis6/10réserves surclichés dugénie. Aucunconsensus ; citation finale del'artiste nonassimilée àunavisjournaliste. Annéeproduction2025/sourceprimaire,sortie2026IMDbindexée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "ratings_search"
+      ],
+      "source_urls": [
+        "https://www.senscritique.com/film/didy/101340426",
+        "https://www.imdb.com/title/tt28814430/"
+      ],
+      "checked_at": "2026-10-08T14:45:27.372Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Didy"
+      },
+      "evidence_note": "SC page lisible avec11/6/0sansmoyenne identifiée ; HTTP complémentaire timeout. IMDb403. Aucune note déduite.",
+      "status": "unavailable"
     }
   ],
   "run_metrics": [
@@ -18225,27 +18319,29 @@
       "senscritique_ratings_directly_checked": 2
     },
     {
-      "date": "2026-10-08T14:40:33.431Z",
+      "date": "2026-10-08T14:45:27.372Z",
       "started_at": "2026-10-08T14:28:08.580Z",
       "owner": "363fe031-39e8-429d-a382-4e6b818f960c",
       "stage": "inventory_documentary_followup",
-      "elapsed_seconds": 745,
+      "elapsed_seconds": 1039,
       "duration_basis": "wall_clock_until_checkpoint",
       "completed_batches": [
-        "research-tv5-werga-broadway-offers-and-alternative-evidence"
+        "research-tv5-werga-broadway-offers-and-alternative-evidence",
+        "research-tv5-didy-territory-and-edgar-portrait"
       ],
       "reused_complete_cards": 0,
       "newly_verified_complete_cards": 0,
-      "newly_researched_incomplete_works": 2,
+      "newly_researched_incomplete_works": 3,
       "episode_offer_pages_checked": 4,
-      "images_visually_checked": 4,
+      "images_visually_checked": 8,
       "raw_schedule_entries": 2230,
       "blockers": [],
       "remaining": {
         "stage": "inventory",
         "count": 37,
         "reference": "remaining"
-      }
+      },
+      "previously_researched_incomplete_works_followed_up": 1
     }
   ],
   "source_issues": [
@@ -18699,6 +18795,17 @@
       "logs_read": true,
       "cause": "Seul échec Require a complete candidate before merging (inventory,37 tâches). Browser vérifie numéropublicS41, pas readinessS42. Aucun skipped compté succès.",
       "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-08T14:45:27.372Z",
+      "head_sha": "8a21b16300d1b8b444b0099c56894765aeb5ed59",
+      "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "run_id": 37794476008,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": true,
+      "cause": "Require a complete candidate before merging uniquement :37restes,inventory. BrowserpublicS41, pasvalidationcandidateS42 ; skipped≠réussite.",
+      "reusable_only_for_exact_sha": true
     }
   ],
   "catalogue_reuse": {
@@ -18793,10 +18900,11 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "0b2bde6dc5574e7bc9aadbcb3180a07eb4a309b7",
+    "checkpoint_parent_sha": "8a21b16300d1b8b444b0099c56894765aeb5ed59",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
+      "Didy : ne pas reprendre comme offreTV5France (FRabsent deslistes). Edgar-Yves identifié et réception limitée documentée. Réutiliser quatre visuels et preuves de ce lot ; aucun contrôle de lecture authentifiée.",
       "Réutiliser Werga/Broadway : identités, publications HTML, épisodes et images vérifiés ce passage. Ne pas assimiler notes de programmation/entretiens à des critiques ; restes précis dans les deux dossiers. TV5Pro bloqué par connexion, aucune grille FBS attestée.",
       "Kotelnitch/Huppert : identités maintenant documentées ; Kotelnitch dispose de critiques et d'un événement primaire sans chaîne, Huppert reste sans réception argumentée. Réutiliser les preuves du dernier lot, poursuivre seulement les manques.",
       "Réutiliser le lot documentaires Festival : Kouté Vwa, Les mots, Kawase et Trier, notes SC directes, cinq articles et deux événements CANAL+. Ne pas refaire ces consultations sans changement ; résoudre antenne/offres/versions et conflit d'épisode.",
@@ -18821,25 +18929,25 @@
       "note": "Pas de progression active à dupliquer."
     },
     "last_ci_observation": {
-      "checked_at": "2026-10-08T14:40:33.431Z",
-      "head_sha": "0b2bde6dc5574e7bc9aadbcb3180a07eb4a309b7",
+      "checked_at": "2026-10-08T14:45:27.372Z",
+      "head_sha": "8a21b16300d1b8b444b0099c56894765aeb5ed59",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37792449199,
+      "run_id": 37794476008,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Seul échec Require a complete candidate before merging (inventory,37 tâches). Browser vérifie numéropublicS41, pas readinessS42. Aucun skipped compté succès.",
+      "cause": "Require a complete candidate before merging uniquement :37restes,inventory. BrowserpublicS41, pasvalidationcandidateS42 ; skipped≠réussite.",
       "reusable_only_for_exact_sha": true
     },
     "latest_candidate_ci": {
-      "checked_at": "2026-10-08T14:40:33.431Z",
-      "head_sha": "0b2bde6dc5574e7bc9aadbcb3180a07eb4a309b7",
+      "checked_at": "2026-10-08T14:45:27.372Z",
+      "head_sha": "8a21b16300d1b8b444b0099c56894765aeb5ed59",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37792449199,
+      "run_id": 37794476008,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Seul échec Require a complete candidate before merging (inventory,37 tâches). Browser vérifie numéropublicS41, pas readinessS42. Aucun skipped compté succès.",
+      "cause": "Require a complete candidate before merging uniquement :37restes,inventory. BrowserpublicS41, pasvalidationcandidateS42 ; skipped≠réussite.",
       "reusable_only_for_exact_sha": true
     }
   },

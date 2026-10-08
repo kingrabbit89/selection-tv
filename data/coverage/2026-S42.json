@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "partial",
-  "updated_at": "2026-10-08T14:40:33.431Z",
+  "updated_at": "2026-10-08T14:45:27.372Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -3710,6 +3710,22 @@
           "https://www.le-courrier.ch/servion-2025-annee-remarquable-pour-les-ami%C2%B7e%C2%B7s-du-cafe-theatre-barnabe/"
         ],
         "note": "Deux dossiers et quatre épisodes approfondis ; six pages officielles accessibles. Aucune sélection ni certification générale d'inventaire."
+      },
+      {
+        "broadcaster": "TV5MONDE+",
+        "mode": "didy_territory_and_edgar_documentary_followup",
+        "checked_at": "2026-10-08T14:45:27.372Z",
+        "source_urls": [
+          "https://www.tv5mondeplus.com/fr/documentaires/societe/didy",
+          "https://www.tv5mondeplus.com/fr/films/documentaires/edgar-yves-jr-le-prix-de-la-liberte",
+          "https://presse.tv5monde.com/soiree-evenement-dediee-a-lhumoriste-edgar-yves/?lang=fr",
+          "https://broadster.fr/productions/",
+          "https://1jour1sortie.com/index.php/2026/04/06/le-prix-de-la-liberte-le-documentaire-sur-lhumoriste-edgar-yves-a-voir-sur-tv5-monde/",
+          "https://www.billetreduc.com/spectacle/edgar-yves-jr-documentaire-le-prix-de-la-liberte-397822",
+          "https://www.imdb.com/title/tt39989785/",
+          "https://www.senscritique.com/film/didy/101340426"
+        ],
+        "note": "Didy : offre exclutFR dans métadonnées, durée84minprécise. Edgar :2025/68minoffre, article et avisunique distingués, fin technique2027. Quatre visuels vus ; cartes noncomplètes."
       }
     ],
     "candidates": [
@@ -13015,7 +13031,7 @@
         "channel": "TV5MONDE+",
         "decision": "à vérifier",
         "availability_source": "https://www.tv5mondeplus.com/fr/documentaires/societe/didy",
-        "reason": "Piste documentaire soutenue par deux critiques argumentées, dont une réserve explicite ; offre France et version à confirmer avant sélection.",
+        "reason": "Réception déjà étayée ; offre TV5MONDE+ examinée exclut FR de toutes les listes territoriales. Ne pas recommander comme replay disponible en France sans autre offre attestée.",
         "official_sources": [
           "https://www.tv5monde.com/",
           "https://www.tv5mondeplus.com/fr/documentaires/societe/didy",
@@ -13033,7 +13049,10 @@
             "Rwanda"
           ],
           "format": "documentaire",
-          "festival_version_duration_minutes": 85
+          "festival_version_duration_minutes": 85,
+          "offer_asset_id": "107551539_74079A",
+          "offer_duration_ms": 5061520,
+          "offer_duration_display_minutes": 84
         },
         "critical_evidence": [
           {
@@ -13054,24 +13073,131 @@
         ],
         "rating_search": {
           "imdb_url": "https://www.imdb.com/title/tt28814430/ratings/",
-          "imdb_status": "403 lors de la lecture ; aucune note reprise",
+          "imdb_status": "Fiche exacte tt28814430 encore403 lors de ce suivi ; aucune note reprise.",
           "senscritique_url": "https://www.senscritique.com/film/didy/101340426",
-          "senscritique_status": "Fiche exacte identifiée ; extraction indexée ancienne aux compteurs non légendés 10/6/0, pas de note actuelle inférée. Distinct de Dìdi de Sean Wang."
+          "senscritique_status": "Page exacte directement lue : compteurs11/6/0 sans moyenne identifiée. Tentative HTML expirée ; ne pas interpréter6 comme note. Aucune note inventée.",
+          "checked_at": "2026-10-08T14:45:27.372Z"
         },
         "remaining": [
-          "Droits France et disponibilité S42/expiration de l'offre directe",
-          "Version/durée : 84 min offre indexée/Abus, 85 min festival, 90 min Télérama/SensCritique",
-          "Notes actualisées après accès lisible aux services",
-          "Affiche/provenance/fallback",
-          "work_id canonique et revue comparative après inventaire"
-        ]
+          "Trouver une offre française attestée : FR absent des territoires TV5MONDE+ observés ; ne pas proposer ce replay en France",
+          "Conserver versionTV5 84min distincte des85/90min ; préciser version de toute autre offre",
+          "Notes : IMDb inaccessible, moyenneSC non identifiée ; ne pas inventer",
+          "work_id canonique et intégration des visuels/fallbacks si retenu après inventaire"
+        ],
+        "availability_observations": {
+          "checked_at": "2026-10-08T14:45:27.372Z",
+          "source_url": "https://www.tv5mondeplus.com/fr/documentaires/societe/didy",
+          "method": "HTML public, objet asset exact",
+          "from_utc": "2026-03-31T22:00:00Z",
+          "technical_to_utc": "2028-03-31T22:00:00Z",
+          "territory": "FR absent des neuf listes explicites (249/250 territoires) ; autre offre française nécessaire",
+          "status": "france_not_in_published_territory_lists",
+          "playback_tested": false
+        },
+        "image_observations": {
+          "checked_at": "2026-10-08T14:45:27.372Z",
+          "source_url": "https://www.tv5mondeplus.com/fr/documentaires/societe/didy",
+          "assets": [
+            {
+              "type": "thumbnail",
+              "url": "https://assets.tv5mondeplus.com/imagescaler002/tv5monde/tv5mondeplus/assets/107551539_74079A/posters/639ed2578efb818a7f419c691505295c/639ed2578efb818a7f419c691505295c.jpg",
+              "width": 2560,
+              "height": 1440
+            },
+            {
+              "type": "poster",
+              "url": "https://assets.tv5mondeplus.com/imagescaler002/tv5monde/tv5mondeplus/assets/107551539_74079A/posters/971da602dfc5e249e4cdc998f1b3599a/971da602dfc5e249e4cdc998f1b3599a.jpg",
+              "width": 940,
+              "height": 1440
+            }
+          ],
+          "review": "Affiche exacte titréeDidy et vignette vues, HTTP200. À intégrer/contrôler parCI uniquement si offreFR établie."
+        }
       },
       {
         "title": "Edgar-Yves Jr, le prix de la liberté",
         "channel": "TV5MONDE+",
         "decision": "à vérifier",
         "availability_source": "https://www.tv5mondeplus.com/fr/films/documentaires/edgar-yves-jr-le-prix-de-la-liberte",
-        "reason": "Repéré sur l'accueil officiel, page exacte renvoyant 403 à l'outil ; identité, réception, droits France et expiration encore à examiner. Pas une indisponibilité prouvée pour le spectateur."
+        "reason": "Portrait documentaire précisément identifié ; article favorable et un avis spectateur nuancé trouvés, échantillon trop faible pour un consensus. Ne pas confondre avec spectacleSolide.",
+        "official_sources": [
+          "https://www.tv5mondeplus.com/fr/films/documentaires/edgar-yves-jr-le-prix-de-la-liberte",
+          "https://presse.tv5monde.com/soiree-evenement-dediee-a-lhumoriste-edgar-yves/?lang=fr",
+          "https://broadster.fr/productions/"
+        ],
+        "verified_metadata_observations": {
+          "director": "Julian Fenard",
+          "year": 2025,
+          "country": "France",
+          "offer_duration_ms": 4108840,
+          "offer_duration_display_minutes": 68,
+          "asset_id": "107232548_74079A",
+          "producer_format_minutes": 70,
+          "release_observation": "IMDb indexé2026/sortie5avril ; production2025 sur offre officielle. AnnonceTV5différencie spectacle et documentaire, anciennes datesavril non réutilisées commehorairesS42."
+        },
+        "critical_evidence": [
+          {
+            "source_url": "https://1jour1sortie.com/index.php/2026/04/06/le-prix-de-la-liberte-le-documentaire-sur-lhumoriste-edgar-yves-a-voir-sur-tv5-monde/",
+            "checked_at": "2026-10-08T14:45:27.372Z",
+            "author": "Laura Bruneau",
+            "published_at": "2026-04-06",
+            "type": "independent_article_with_limited_evaluation",
+            "assessment": "Décrit accès à l'intimité, archives et parcours ; apprécie lucidité/humilité. Formule finale laudative attribuée à l'artiste, pas à la journaliste ; pas de réserve explicite dans cet article."
+          },
+          {
+            "source_url": "https://www.billetreduc.com/spectacle/edgar-yves-jr-documentaire-le-prix-de-la-liberte-397822",
+            "checked_at": "2026-10-08T14:45:27.372Z",
+            "author": "jp",
+            "published_at": "2026-04-22",
+            "type": "single_audience_review",
+            "rating": "6/10",
+            "assessment": "Apprécie proximité et travail montré ; estime que les clichés du génie sont déplacés mais pas entièrement renversés. Un seul avis, aucune représentativité ni critique professionnelle déduite."
+          }
+        ],
+        "availability_observations": {
+          "checked_at": "2026-10-08T14:45:27.372Z",
+          "source_url": "https://www.tv5mondeplus.com/fr/films/documentaires/edgar-yves-jr-le-prix-de-la-liberte",
+          "method": "HTML public, objet asset exact",
+          "from_utc": "2026-04-05T22:00:00Z",
+          "technical_to_utc": "2027-09-30T21:59:59Z",
+          "territory": "countries=[] dans les9publications ; ne prouve pas à lui seul France/tous territoires",
+          "status": "needs_check",
+          "playback_tested": false
+        },
+        "rating_search": {
+          "checked_at": "2026-10-08T14:45:27.372Z",
+          "imdb_url": "https://www.imdb.com/title/tt39989785/",
+          "imdb_status": "Fiche indexée exacte identifiée, sans moyenne dans l'extrait ; ouverturedirecte erreur, aucune note reprise",
+          "senscritique_status": "Recherche titre+siteSC sans fiche exacte trouvée ; ne pas transférer la note du spectacleSolide",
+          "queries": [
+            "\"Edgar Yves\" \"prix de la liberté\" site:senscritique.com",
+            "\"Edgar-Yves\" \"prix de la liberté\" critique film avis"
+          ]
+        },
+        "image_observations": {
+          "checked_at": "2026-10-08T14:45:27.372Z",
+          "source_url": "https://www.tv5mondeplus.com/fr/films/documentaires/edgar-yves-jr-le-prix-de-la-liberte",
+          "assets": [
+            {
+              "type": "poster",
+              "url": "https://assets.tv5mondeplus.com/imagescaler002/tv5monde/tv5mondeplus/assets/107232548_74079A/posters/b26eafebf70693e96060d7ce835f1d10/b26eafebf70693e96060d7ce835f1d10.jpg",
+              "width": 940,
+              "height": 1440
+            },
+            {
+              "type": "thumbnail",
+              "url": "https://assets.tv5mondeplus.com/imagescaler002/tv5monde/tv5mondeplus/assets/107232548_74079A/posters/6614456b7de998da0ac945359d854165/6614456b7de998da0ac945359d854165.jpg",
+              "width": 2560,
+              "height": 1440
+            }
+          ],
+          "review": "Affiche titrée et vignette officielles vues, HTTP200. Intégration/fallbacks etCI requis."
+        },
+        "remaining": [
+          "Accès/territoireFR et fin technique à confirmer avant recommandation",
+          "Réception comparative et portée de l'avis unique ; pas deconsensus",
+          "work_id, notesjustifiées, intégrationvisuels/fallbacks et carte après inventaire"
+        ]
       },
       {
         "title": "Werga, son, rythme, vie",
