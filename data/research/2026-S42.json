@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "6cf168c169423e57c235c053db66bf92ff4cd749",
   "stage": "enrichment",
-  "updated_at": "2026-10-08T18:59:06.950Z",
+  "updated_at": "2026-10-08T19:48:05.653Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -408,6 +408,11 @@
       "id": "enrichment-thorin-first-draft-card",
       "completed_at": "2026-10-08T18:59:06.950Z",
       "description": "Décision provisoire Thorin transformée en catalogue, liens exacts, carte et pool samedi, JSON hebdomadaire et coquille draft. Preuves du 8 octobre réutilisées sans consultation nouvelle. Comparaison, réserves et préflight non achevés."
+    },
+    {
+      "id": "coverage-channels-scanned-representation",
+      "completed_at": "2026-10-08T19:48:05.653Z",
+      "description": "channels_scanned reporté de l'inventaire vers coverage.days[] après examen des sources et notes de relevé ; les chaînes sans occurrence ont une grille examinée. Aucun flag de scan, recoupement, rappel ni full_week_reaudit_completed modifié."
     }
   ],
   "blockers": [
@@ -18957,6 +18962,34 @@
       "stop_reason": "corrective_audit_completed_handoff_to_scheduled_producer",
       "next_useful_batch": "Cartes des jours déficitaires et nouveaux films déjà officiellement recoupés ; autres rubriques en parallèle.",
       "note": "Lot de transformation mécanique et rédaction depuis les preuves sauvegardées. Rang provisoire ; aucun temps ni consultation inventé, aucune certification finale."
+    },
+    {
+      "date": "2026-10-08T19:48:05.653Z",
+      "started_at": "2026-10-08T19:47:53.000Z",
+      "ended_at": "2026-10-08T19:48:05.653Z",
+      "owner": "0358cee8-a14e-4ee9-a806-21b5c03ef65a",
+      "prompt_revision": "technical-intervention-claude-2026-10-08",
+      "stage": "enrichment_representation_fix",
+      "duration_basis": "wall_clock_measured_since_lease_acquisition",
+      "completed_batches": [
+        "coverage-channels-scanned-representation"
+      ],
+      "deliverables_changed": [
+        "data/coverage/2026-S42.json"
+      ],
+      "web_consultations": 0,
+      "new_leads": 0,
+      "newly_verified_complete_cards": 0,
+      "draft_cards_created": 0,
+      "coverage_requirements_resolved": 0,
+      "remaining": {
+        "stage": "enrichment",
+        "count": 35,
+        "reference": "remaining"
+      },
+      "stop_reason": "technical_representation_fix_completed_handoff_to_scheduled_producer",
+      "next_useful_batch": "Présélection par jour et rubrique, puis cartes par lots des dossiers les plus proches de la complétude ; rubriques hors grilles en parallèle.",
+      "note": "Intervention technique hors passage planifié : aucune recherche Web, aucune carte, aucune exigence close."
     }
   ],
   "source_issues": [
