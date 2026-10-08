@@ -36,6 +36,8 @@ Le registre additionnel `research_attempts` conserve les impasses et leurs condi
 
 Une sauvegarde de checkpoint n'achève pas automatiquement le passage : appliquer « Enchaîner les lots pendant un passage » d'AUTOMATION.md, continuer immédiatement tant qu'un lot utile peut avancer, puis consigner `stop_reason` et le prochain lot dans `run_metrics` lorsque l'exécution le permet. La reprise horaire récupère une interruption ; elle ne limite pas le passage à une seule fiche.
 
+Un clone peut extraire une vue de travail en lecture seule avec `node scripts/editorial-work-packet.mjs YYYY-Sxx --ref SHA_CANDIDATE`, puis `--title "Titre exact"` pour réunir les données et preuves d'une œuvre. Le SHA doit être celui du checkpoint réellement lu. Ce paquet ciblé est distinct du handoff d'import ; il ne contient aucune attestation de qualité ou autorisation de publication.
+
 Avec un environnement de code :
 
 ```sh
