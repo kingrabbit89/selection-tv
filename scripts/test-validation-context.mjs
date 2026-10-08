@@ -75,7 +75,7 @@ test('CLI writes preparation context without candidate preview and leaves files 
     for(const p of Object.keys(f.files))write(p);
     execFileSync('git',['add','.'],{cwd:dir});execFileSync('git',['-c','user.name=Test','-c','user.email=test@example.com','commit','-qm','checkpoint'],{cwd:dir});
     const envFile=path.join(dir,'env');
-    const env={...process.env,GITHUB_HEAD_REF:branch,BASE_SHA:base,SELECTION_TV_TODAY:today,GITHUB_ENV:envFile};delete env.GITHUB_STEP_SUMMARY;
+    const env={...process.env,GITHUB_HEAD_REF:branch,BASE_SHA:base,SELECTION_TV_TODAY:today,GITHUB_ENV:envFile};delete env.GITHUB_STEP_SUMMARY;delete env.GITHUB_REF;delete env.CANDIDATE_HEAD_SHA;
     execFileSync(process.execPath,[path.resolve('scripts/validation-context.mjs')],{cwd:dir,env});
     assert.equal(fs.readFileSync(envFile,'utf8'),`SELECTION_TV_PREPARATION_WEEK=${week}\n`);
     assert.equal(fs.readFileSync(path.join(dir,'data/manifest.json'),'utf8'),manifest);
