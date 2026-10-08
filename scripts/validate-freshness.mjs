@@ -1,9 +1,10 @@
 import {dailyReserveCandidates} from './editorial-contracts.mjs';
+import {htmlText} from './html-text.mjs';
 import fs from 'node:fs';
 
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
-const clean=s=>String(s||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+const clean=htmlText;
 
 const manifest=read('data/manifest.json');
 const pconfig=read('data/personalization-config.json');

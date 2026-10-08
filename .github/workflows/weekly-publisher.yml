@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
   workflow_run:
     workflows: ['Validate architecture', 'Validate merged weekly issue for promotion']
+    branches: [main, 'auto/**', 'promote/**']
     types: [completed]
 permissions:
   contents: write
