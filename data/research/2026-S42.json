@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T08:18:32.717Z",
+  "updated_at": "2026-10-08T08:20:25.249Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -16,8 +16,8 @@
     "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
     "TF1 Séries Films et CSTAR : 7 jours relevés, recoupements indépendants encore à compléter ; épisodes Douanes sous haute surveillance à identifier avant tout examen approfondi.",
     "Rappel TNT : traiter les programmes non rapprochés consignés dans editorial_reminder_passes ; ne pas déduire l'identité d'une simple proximité de titre (soirée Marine notamment). Compléter rappel cinéma payant et recoupements manquants.",
-    "Rappel TNT : Fréquenstar annoncé dimanche 11:20 mais grille M6 Turbo 11:00/11:25 ; sujets Envoyé spécial et Au cœur de l'enquête à obtenir. Intraçables et Meurtres à Cayenne : types épisode/téléfilm à réconcilier.",
-    "France 2/3 : compléter grilles officielles du 10 (France 2) et du 15 (France 2/3), renvoyées périmées/vides ; départager Dodin Bouffant 02:55/03:05 le 12. Les collections génériques ne certifient pas leurs épisodes.",
+    "Rappel TNT : Fréquenstar annoncé dimanche 11:20 mais grille M6 Turbo 11:00/11:25 ; sujets Envoyé spécial et Au cœur de l'enquête à obtenir. Intraçables : type épisode/téléfilm à réconcilier ; Meurtres à Cayenne confirmé téléfilm policier par le diffuseur.",
+    "France 2/3 : grilles manquantes du 10 et du 15 récupérées ; départager Dodin Bouffant 02:55/03:05 le 12 et fausse entrée La p'tite librairie 12:15 le 15. Collections génériques/épisodes à compléter.",
     "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
     "Public Sénat : Silence dans les rangs documenté (prix et limites de réception), horaires légèrement divergents et replay indisponible ; terminer offre/expiration, notes, affiche et revue comparative.",
     "France 4 : compléter réception/offres documentaires et épisodes génériques ; résoudre Rachelle Allison 20:30 contre Naimro/Allison 20:35 le 15. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle."
@@ -149,6 +149,11 @@
       "id": "inventory-france4-official-complement",
       "completed_at": "2026-10-08T08:18:32.717Z",
       "description": "25 rapprochements supplémentaires dans six grilles officielles (avec nuits), deux captations ajoutées et conflit Rachelle Allison conservé."
+    },
+    {
+      "id": "inventory-france2-france3-missing-grids-recovered",
+      "completed_at": "2026-10-08T08:20:25.249Z",
+      "description": "Trois grilles récupérées sur domaine officiel alternatif, sept concordances et sept entrées supplémentaires ; formats et conflits consignés sans certifier les collections génériques."
     }
   ],
   "blockers": [
@@ -10636,6 +10641,183 @@
       },
       "evidence_note": "Thibaut Sève, coécriture Erwan Desbois, Capa Presse 2024, 62 minutes annoncées. Ne pas confondre avec Matrix Generation ; aucun candidat canonique correspondant trouvé.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://ftvpro.francetv.fr/grille/france-2/10-10-2026/10-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:18:58.193Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 2",
+        "grid_date": "2026-10-10"
+      },
+      "evidence_note": "Page officielle alternative lue intégralement avec dates de lignes exactes. Récupération de la grille auparavant vide/périmée. Collections génériques non utilisées pour certifier leurs sujets.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-10",
+          "start": "05:00",
+          "title": "Pays et marchés du monde Mayotte : Petite Terre"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "21:10",
+          "title": "Taratata fête le Zénith 1984"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "04:25",
+          "title": "Moorea : l'île aux requins citron"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "04:50",
+          "title": "Pays et marchés du monde France : Haut-Var-Aups"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "14:05",
+          "title": "Au bout de l'enquête — Affaire Toni Musulin, le convoyeur qui valait 11 millions (1/2)"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "15:05",
+          "title": "Au bout de l'enquête — Affaire Toni Musulin, le convoyeur qui valait 11 millions (2/2)"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "16:05",
+          "title": "Au bout de l'enquête — Affaire Cons-Boutboul"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://ftvpro.francetv.fr/grille/france-2/10-10-2026/15-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:18:59.069Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 2",
+        "grid_date": "2026-10-15"
+      },
+      "evidence_note": "Page officielle alternative lue intégralement avec dates de lignes exactes. Récupération de la grille auparavant vide/périmée. Collections génériques non utilisées pour certifier leurs sujets.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-16",
+          "start": "04:35",
+          "title": "Les reines du lagon"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "21:10",
+          "title": "Envoyé spécial"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "23:00",
+          "title": "Complément d'enquête"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://ftvpro.francetv.fr/grille/france-3/10-10-2026/15-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:18:58.028Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 3",
+        "grid_date": "2026-10-15"
+      },
+      "evidence_note": "Page officielle alternative lue intégralement avec dates de lignes exactes. Récupération de la grille auparavant vide/périmée. Collections génériques non utilisées pour certifier leurs sujets.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-15",
+          "start": "21:10",
+          "title": "Meurtres à... S08E02 Meurtres à Cayenne"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "00:40",
+          "title": "Le clan Delon, l'impossible héritage"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "10:30",
+          "title": "Escales en France — Lyon"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "02:15",
+          "title": "Des Racines & des ailes — Passion Patrimoine : L'Alsace, terre de passion"
+        }
+      ]
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "programme_title",
+        "broadcast.start"
+      ],
+      "source_urls": [
+        "https://ftvpro.francetv.fr/grille/france-3/10-10-2026/15-10-2026",
+        "https://tv-programme.com/france-3/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T08:20:25.249Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "France 3",
+        "start": "12:15"
+      },
+      "evidence_note": "La grille officielle annonce Ici 12/13 à 12:15, pas La p'tite librairie. Entrée tierce à revérifier/écarter avant certification ; ne pas compter comme programme confirmé.",
+      "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "format",
+        "director",
+        "country",
+        "duration"
+      ],
+      "source_urls": [
+        "https://ftvpro.francetv.fr/grille/france-3/10-10-2026/15-10-2026"
+      ],
+      "checked_at": "2026-10-08T08:20:25.249Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Meurtres à Cayenne"
+      },
+      "evidence_note": "Téléfilm policier français, Marc Barrat, 96 min annoncées ; le numéro S08E02 correspond au classement en collection de la grille tierce. Pas de nouvelle identité canonique établie.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -10785,20 +10967,26 @@
     {
       "url": "https://www.francetvpro.fr/grille/france-2/10-10-2026/10-10-2026",
       "checked_at": "2026-10-08T08:07:19.993Z",
-      "status": "wrong_date",
-      "note": "La page demandée du 10 renvoie les lignes du 9 et la nuit du 10 ; aucun scan de la journée du 10 certifié."
+      "status": "resolved",
+      "note": "La page demandée du 10 renvoie les lignes du 9 et la nuit du 10 ; aucun scan de la journée du 10 certifié.",
+      "resolved_at": "2026-10-08T08:20:25.249Z",
+      "resolution": "Grille correspondante récupérée sur ftvpro.francetv.fr ; ancienne réponse conservée comme preuve de source défaillante."
     },
     {
       "url": "https://www.francetvpro.fr/grille/france-2/10-10-2026/15-10-2026",
       "checked_at": "2026-10-08T08:07:19.829Z",
-      "status": "empty_grid",
-      "note": "Page sans grille exploitable ; ne prouve aucune absence de programme."
+      "status": "resolved",
+      "note": "Page sans grille exploitable ; ne prouve aucune absence de programme.",
+      "resolved_at": "2026-10-08T08:20:25.249Z",
+      "resolution": "Grille correspondante récupérée sur ftvpro.francetv.fr ; ancienne réponse conservée comme preuve de source défaillante."
     },
     {
       "url": "https://www.francetvpro.fr/grille/france-3/03-10-2026/15-10-2026",
       "checked_at": "2026-10-08T08:07:20.270Z",
-      "status": "empty_grid",
-      "note": "Page sans grille exploitable ; ne prouve aucune absence de programme."
+      "status": "resolved",
+      "note": "Page sans grille exploitable ; ne prouve aucune absence de programme.",
+      "resolved_at": "2026-10-08T08:20:25.249Z",
+      "resolution": "Grille correspondante récupérée sur ftvpro.francetv.fr ; ancienne réponse conservée comme preuve de source défaillante."
     }
   ],
   "editorial_review": {
