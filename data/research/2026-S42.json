@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T13:13:50.799Z",
+  "updated_at": "2026-10-08T13:22:13.544Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -34,7 +34,8 @@
     "France 5 : ICE, Samouraïs et Looking for Cézanne approfondis ; première critique ICE 3/4 Ciné-Télé-Revue, pas de consensus. Offres Cézanne/Samouraïs affichées avec expirations ; droits/lecture, versions (Samouraïs année 2025/2026), réception manquante, notes et affiches à terminer.",
     "TCM : A Ghost Story et La falaise mystérieuse disposent d'identités ciblées et de critiques contrastées ; index Orange les mentionne mais fiches 451. Horaires indépendants, durée/version TCM, droits/expiration/abonnement, notes et affiches à terminer.",
     "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer.",
-    "Ciné+ : 45 fiches CANAL+ consultées, 14 heures concordantes (dont La gueule ouverte sur Festival), 4 écarts et 27 BroadcastEvent hors cible. Chaîne absente des objets officiels : certifier les chaînes/grilles et les autres rediffusions, ne pas réutiliser les événements anciens. Durées de versions et droits replay à distinguer des créneaux."
+    "Ciné+ : 45 fiches CANAL+ consultées, 14 heures concordantes (dont La gueule ouverte sur Festival), 4 écarts et 27 BroadcastEvent hors cible. Chaîne absente des objets officiels : certifier les chaînes/grilles et les autres rediffusions, ne pas réutiliser les événements anciens. Durées de versions et droits replay à distinguer des créneaux.",
+    "Ciné+ documentaires : Shirley MacLaine et Becoming Hitchcock disposent de quatre critiques indépendantes attribuées avec réserves ; Simenon reste sans avis argumenté trouvé dans les recherches. Résoudre années/durées, chaîne/horaire S42, accès français/expirations, notes directes et affiches ; ne pas convertir les compteurs SC ni l'ancien replay Arte en preuves actuelles."
   ],
   "completed_batches": [
     {
@@ -308,6 +309,11 @@
       "id": "inventory-cine-classic-official-film-pages",
       "completed_at": "2026-10-08T13:13:50.799Z",
       "description": "45 fiches officielles examinées : 14 heures concordantes, 4 divergentes et 27 événements hors cible. Identités tracées séparément, aucune carte complète."
+    },
+    {
+      "id": "documentary-cine-classic-three-films-critical-dossiers",
+      "completed_at": "2026-10-08T13:22:13.544Z",
+      "description": "Trois dossiers partiels ; quatre avis argumentés, recherches de notes tracées et conflits de versions conservés. Aucune carte complète."
     }
   ],
   "blockers": [
@@ -15860,6 +15866,127 @@
       },
       "evidence_note": "Heure 2026-10-16T23:22:00.000+02:00 concorde avec l'entrée Ciné+ Classic. Durée affichée PT1H31M distincte de la longueur du créneau ; chaîne non nommée dans le BroadcastEvent, disponibilité replay non certifiée.",
       "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director"
+      ],
+      "source_urls": [
+        "https://boutique.arte.tv/detail/shirley-maclaine-comme-un-torrent",
+        "https://www.justwatch.com/fr/film/shirley-maclaine-comme-un-torrent"
+      ],
+      "checked_at": "2026-10-08T13:16:22Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Shirley MacLaine, comme un torrent",
+        "version": "identité documentaire, version de diffusion à confirmer"
+      },
+      "evidence_note": "Réalisation identifiée : Jean Lauritano. Aucun work_id catalogue certain ; année/durée traitées séparément.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception",
+        "ratings_research",
+        "version"
+      ],
+      "source_urls": [
+        "https://boutique.arte.tv/detail/shirley-maclaine-comme-un-torrent",
+        "https://www.justwatch.com/fr/film/shirley-maclaine-comme-un-torrent",
+        "https://www.premiere.fr/Cinema/News-Cinema/Shirley-MacLaine-comme-un-torrent-sur-Arte-une-singularite-hollywoodienne",
+        "https://www.telerama.fr/television/shirley-maclaine-comme-un-torrent-les-milles-vies-d-une-icone-hollywoodienne_cri-7043564.php"
+      ],
+      "checked_at": "2026-10-08T13:16:22Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Shirley MacLaine, comme un torrent"
+      },
+      "evidence_note": "Deux avis indépendants attribués, dont les réserves de Première, sont documentés ; aucune sélection scellée. Horaire S42, année/version, accès exact, notes, affiche et comparaison éditoriale restent ouverts. Détails et accès consignés dans coverage.documentary_discovery.candidates.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director"
+      ],
+      "source_urls": [
+        "https://www.tcm.com/articles/021960/becoming-hitchcock-and-early-hitchcock-festival",
+        "https://www.eyeforfilm.co.uk/review/becoming-hitchcock-the-legacy-of-blackmail-2024-film-review-by-amber-wilkinson"
+      ],
+      "checked_at": "2026-10-08T13:16:22Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Becoming Hitchcock: The Legacy of Blackmail",
+        "version": "identité documentaire, version de diffusion à confirmer"
+      },
+      "evidence_note": "Réalisation identifiée : Laurent Bouzereau. Aucun work_id catalogue certain ; année/durée traitées séparément.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception",
+        "ratings_research",
+        "version"
+      ],
+      "source_urls": [
+        "https://www.tcm.com/articles/021960/becoming-hitchcock-and-early-hitchcock-festival",
+        "https://www.eyeforfilm.co.uk/review/becoming-hitchcock-the-legacy-of-blackmail-2024-film-review-by-amber-wilkinson",
+        "https://www.eyeforfilm.co.uk/review/becoming-hitchcock-the-legacy-of-blackmail-2024-film-review-by-amber-wilkinson",
+        "https://filmuforia.com/becoming-hitchcock-the-legacy-of-blackmail-2024/"
+      ],
+      "checked_at": "2026-10-08T13:16:22Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Becoming Hitchcock: The Legacy of Blackmail"
+      },
+      "evidence_note": "Réception contrastée réellement documentée ; aucun consensus. Version, chaîne/diffusion complète, droits, notes, affiche et arbitrage éditorial encore à vérifier. Détails et accès consignés dans coverage.documentary_discovery.candidates.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/decouverte/les-romans-durs-de-georges-simenon/h/30288358_50002",
+        "https://television.telerama.fr/tele/documentaire/les-romans-durs-de-georges-simenon-1-397777680.php"
+      ],
+      "checked_at": "2026-10-08T13:16:22Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Les romans durs de Georges Simenon",
+        "version": "identité documentaire, version de diffusion à confirmer"
+      },
+      "evidence_note": "Réalisation identifiée : Linda Tahir. Aucun work_id catalogue certain ; année/durée traitées séparément.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception",
+        "ratings_research",
+        "version"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/decouverte/les-romans-durs-de-georges-simenon/h/30288358_50002",
+        "https://television.telerama.fr/tele/documentaire/les-romans-durs-de-georges-simenon-1-397777680.php"
+      ],
+      "checked_at": "2026-10-08T13:16:22Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Les romans durs de Georges Simenon"
+      },
+      "evidence_note": "Identité partiellement documentée et horaire rapproché ; réception critique et preuves alternatives à poursuivre sans rejet pour manque de notoriété. Année, droits, notes, affiche et revue restent ouverts. Détails et accès consignés dans coverage.documentary_discovery.candidates.",
+      "status": "needs_check"
     }
   ],
   "run_metrics": [
@@ -16188,15 +16315,16 @@
       "note": "Six sous-lots sauvegardés. Aucune phase complète, aucune nouvelle carte certifiée, aucun quota estimé. Pas de notification requise."
     },
     {
-      "date": "2026-10-08T13:13:50.799Z",
+      "date": "2026-10-08T13:22:13.544Z",
       "started_at": "2026-10-08T12:56:49.756Z",
       "owner": "109c9a33-d9f8-4e3a-bebb-bc1f8cceb754",
       "stage": "inventory_crosschecks",
-      "elapsed_seconds": 1021,
+      "elapsed_seconds": 1524,
       "duration_basis": "wall_clock_until_checkpoint",
       "completed_batches": [
         "inventory-rmc-seven-days-second-guide-and-reminder",
-        "inventory-cine-classic-official-film-pages"
+        "inventory-cine-classic-official-film-pages",
+        "documentary-cine-classic-three-films-critical-dossiers"
       ],
       "reused_complete_cards": 0,
       "newly_verified_complete_cards": 0,
@@ -16206,12 +16334,14 @@
       "blockers": [],
       "remaining": {
         "stage": "inventory",
-        "count": 30,
+        "count": 31,
         "reference": "remaining"
       },
       "note": "Indépendance de la seconde grille non certifiée ; aucune phase complète, aucun quota estimé.",
       "official_film_pages_examined": 45,
-      "official_broadcast_start_matches": 14
+      "official_broadcast_start_matches": 14,
+      "new_documentary_dossiers": 3,
+      "independent_reviews_read": 4
     }
   ],
   "source_issues": [
@@ -16529,6 +16659,17 @@
       "logs_read": true,
       "cause": "Require a complete candidate before merging uniquement. Contrôles préparation/public S41 ; base-attestation non applicable skipped. S42 reste incomplète.",
       "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-08T13:23:00.170Z",
+      "head_sha": "93af33f1983a6ddb4d1fd8f23eb43ba5b4d18997",
+      "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "run_id": 37782756857,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": true,
+      "cause": "Seul échec : Require a complete candidate before merging. Préparation incomplète attendue, pas de panne. Contrôles/browser couvrent le public S41, pas la complétude S42. Attestation base skipped non comptée comme réussite.",
+      "reusable_only_for_exact_sha": true
     }
   ],
   "catalogue_reuse": {
@@ -16612,10 +16753,11 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "8a109406ca10e547d537292e8be7b421dc3b3162",
+    "checkpoint_parent_sha": "93af33f1983a6ddb4d1fd8f23eb43ba5b4d18997",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
+      "Réutiliser les trois dossiers documentaires Ciné+ de ce passage ; quatre critiques conservées avec réserves. Simenon : approfondir réception/preuves alternatives. Années/versions, droits, notes directes et affiches restent ouverts.",
       "RMC : réutiliser les 16 grilles SCREEN+ datées et les 127 rapprochements ; résoudre deux conflits et trois alias, identifier les épisodes génériques, établir l'indépendance ou obtenir une source officielle. Quatre ajouts restent à recouper.",
       "Reprendre uniquement les recoupements/identités/conflits encore ouverts dans remaining. TF1 trois ajouts et Paris Première trois J'ai un ticket sont désormais recoupés : ne pas répéter.",
       "T18 14 : neuf titres précisés ; confirmer source officielle/indépendance. CSTAR 16 : Noël à la carte 22:49/22:45, quatre numéros Douanes sans titres rapprochés ; conserver divergences.",
@@ -16632,22 +16774,28 @@
       "note": "Aucune progression active ; aucun déclenchement agent."
     },
     "last_ci_observation": {
-      "checked_at": "2026-10-08T13:13:50.799Z",
-      "head_sha": "8a109406ca10e547d537292e8be7b421dc3b3162",
+      "checked_at": "2026-10-08T13:23:00.170Z",
+      "head_sha": "93af33f1983a6ddb4d1fd8f23eb43ba5b4d18997",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37781903921,
+      "run_id": 37782756857,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Require a complete candidate before merging uniquement. Contrôles préparation/public S41 ; base-attestation non applicable skipped. S42 reste incomplète.",
+      "cause": "Seul échec : Require a complete candidate before merging. Préparation incomplète attendue, pas de panne. Contrôles/browser couvrent le public S41, pas la complétude S42. Attestation base skipped non comptée comme réussite.",
       "reusable_only_for_exact_sha": true
     },
     "latest_candidate_ci": {
-      "head_sha": "3473e8235bbe0c2d1ece167095793ba22f3ce59a",
-      "run_id": 37776229433,
-      "status": "in_progress",
-      "checked_at": "2026-10-08T12:21:55.491Z",
-      "note": "Observation avant le commit de bilan ; le prochain SHA requiert ses propres contrôles."
+      "checked_at": "2026-10-08T13:23:00.170Z",
+      "head_sha": "93af33f1983a6ddb4d1fd8f23eb43ba5b4d18997",
+      "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "run_id": 37782756857,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": true,
+      "cause": "Seul échec : Require a complete candidate before merging. Préparation incomplète attendue, pas de panne. Contrôles/browser couvrent le public S41, pas la complétude S42. Attestation base skipped non comptée comme réussite.",
+      "reusable_only_for_exact_sha": true,
+      "status": "completed",
+      "note": "État observé avant la sauvegarde documentaire ; le SHA suivant nécessite ses propres contrôles."
     }
   },
   "structure_check": {
