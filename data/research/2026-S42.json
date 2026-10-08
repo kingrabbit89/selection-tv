@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T09:08:41.901Z",
+  "updated_at": "2026-10-08T09:17:11.613Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -16,14 +16,14 @@
     "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
     "TF1 Séries Films et CSTAR : 7 jours relevés, recoupements indépendants encore à compléter ; épisodes Douanes sous haute surveillance à identifier avant tout examen approfondi.",
     "Rappel TNT : traiter les programmes non rapprochés consignés dans editorial_reminder_passes ; ne pas déduire l'identité d'une simple proximité de titre (soirée Marine notamment). Compléter rappel cinéma payant et recoupements manquants.",
-    "Rappel TNT : Fréquenstar annoncé dimanche 11:20 mais grille M6 Turbo 11:00/11:25 ; sujets Envoyé spécial et Au cœur de l'enquête à obtenir. Intraçables : type épisode/téléfilm à réconcilier ; Meurtres à Cayenne confirmé téléfilm policier par le diffuseur.",
+    "Rappel TNT : Fréquenstar résolu sur W9 dimanche 11:20 (Hoshi) ; sujets Envoyé spécial et Au cœur de l'enquête à obtenir. Intraçables : type épisode/téléfilm à réconcilier ; Meurtres à Cayenne confirmé téléfilm policier par le diffuseur.",
     "France 2/3 : grilles manquantes du 10 et du 15 récupérées ; départager Dodin Bouffant 02:55/03:05 le 12 et fausse entrée La p'tite librairie 12:15 le 15. Collections génériques/épisodes à compléter.",
     "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
     "Public Sénat : Silence dans les rangs documenté (prix et limites de réception), horaires légèrement divergents et replay indisponible ; terminer offre/expiration, notes, affiche et revue comparative.",
     "France 4 : compléter réception/offres documentaires et épisodes génériques ; résoudre Rachelle Allison 20:30 contre Naimro/Allison 20:35 le 15. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle.",
     "France 4 documentaires : Wachowski (Thibaut Sève, distinct de Matrix Generation) a des avis attribués mais durée 61/62/70 min à départager ; On ne va pas se défiler réintégré comme documentaire, critique/offre 2026 à compléter.",
     "TV5MONDE+ : Didy dispose de deux critiques attribuées et d'une identité festival ; durée/version, droits France, expiration, notes et affiche à terminer. Trois nouvelles pistes de l'accueil restent à examiner ; grille linéaire FBS à recouper.",
-    "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux attendus, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes."
+    "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes."
   ],
   "completed_batches": [
     {
@@ -172,6 +172,11 @@
       "id": "inventory-tv5-fbs-dated-guide-comparison",
       "completed_at": "2026-10-08T09:08:41.901Z",
       "description": "50 créneaux TV5MONDE FBS comparés sur sept dates ; erreurs de pages périmées contournées par navigation datée, indépendance non présumée."
+    },
+    {
+      "id": "inventory-m6-w9-6ter-official-week",
+      "completed_at": "2026-10-08T09:17:11.613Z",
+      "description": "72 recoupements horaires officiels et cinq omissions documentaires/musicales ajoutées ; conflit Fréquenstar résolu."
     }
   ],
   "blockers": [
@@ -11234,6 +11239,32 @@
         "channel": "TV5MONDE FBS"
       },
       "evidence_note": "Grille explicitement datée 16 octobre lue ; 12 créneaux existants rapprochés à heure exacte. Titres de collections seulement, détails d'épisode et indépendance du flux non établis. Les pages initialement retournées en mars/mai ou le 9 octobre ont été exclues, navigation datée utilisée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/m6/grille/2026-42.pdf",
+        "https://pro.m6.fr/w9/grille/2026-42.pdf",
+        "https://pro.m6.fr/6ter/grille/2026-42.pdf"
+      ],
+      "checked_at": "2026-10-08T09:17:11.613Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channels": [
+          "M6",
+          "W9",
+          "6ter"
+        ]
+      },
+      "evidence_note": "Dossiers officiels et tableau page 2 lus et rendus visuellement : 72 entrées existantes concordent titre/heure avec guides édités séparément ; 5 omissions de rappel ajoutées, encore sans seconde source. Conversion des cases après minuit vers date civile suivante. Le début du samedi avant 06h n'est pas couvert par le dossier S42. Collections génériques ne certifient pas les épisodes.",
       "status": "verified"
     }
   ],
