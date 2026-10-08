@@ -58,6 +58,7 @@ jobs:
       - run: node scripts/validate-editorial.mjs
       - run: node scripts/validate-links.mjs
       - run: node scripts/validate-freshness.mjs
+      - run: node --test scripts/test-editorial-draft-sections.mjs
       - run: node scripts/validate-reserves.mjs
       - name: Validate remote image sources
         if: steps.regressions.outputs.reused != 'true'
