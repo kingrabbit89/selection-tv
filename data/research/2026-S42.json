@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
   "stage": "inventory",
-  "updated_at": "2026-10-08T06:51:09.723Z",
+  "updated_at": "2026-10-08T06:55:47.403Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -15,7 +15,8 @@
     "France 5 : Pompéi et Foucault réconciliés par les grilles officielles ; revérifier au préflight. Quatre écarts La p'tite librairie, versions/durées et fins de nuit restent à traiter. Offres replay, expirations, réception complémentaire et notes encore incomplètes.",
     "T18 14 octobre relevée ; identifier les épisodes regroupés et recouper les horaires. LeZapp associe au titre Face à face une description politique incompatible avec son type série : ne pas réutiliser ce synopsis.",
     "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
-    "TF1 Séries Films et CSTAR : 7 jours relevés, recoupements indépendants encore à compléter ; épisodes Douanes sous haute surveillance à identifier avant tout examen approfondi."
+    "TF1 Séries Films et CSTAR : 7 jours relevés, recoupements indépendants encore à compléter ; épisodes Douanes sous haute surveillance à identifier avant tout examen approfondi.",
+    "Rappel TNT : traiter les programmes non rapprochés consignés dans editorial_reminder_passes ; ne pas déduire l'identité d'une simple proximité de titre (soirée Marine notamment). Compléter rappel cinéma payant et recoupements manquants."
   ],
   "completed_batches": [
     {
@@ -109,6 +110,11 @@
       "id": "inventory-discovered-tf1sf-cstar-week",
       "completed_at": "2026-10-08T06:51:09.723Z",
       "description": "Deux chaînes repérées dans le rappel hebdomadaire ajoutées sur 7 jours : 44 entrées brutes conservées. Deux grilles CSTAR indisponibles remplacées par des pages LeZapp datées ; zéros de TF1 Séries Films conservés sans faux remplissage."
+    },
+    {
+      "id": "inventory-tnt-editorial-reminder",
+      "completed_at": "2026-10-08T06:55:47.403Z",
+      "description": "Rappel hebdomadaire comparé aux sept dates ; variantes film/suite distinguées, chaînes supplémentaires scannées, magazines non rapprochés et conflit de titre Marine laissés explicites."
     }
   ],
   "blockers": [
@@ -6308,7 +6314,7 @@
       "source_urls": [
         "https://www.francetvpro.fr/grille/france-4/10-10-2026/12-10-2026"
       ],
-      "checked_at": "2026-10-08T06:47:37.268Z",
+      "checked_at": "2026-10-08T06:52:23.602Z",
       "stability": "dynamic",
       "applies_to": {
         "week": "2026-S42",
@@ -6316,8 +6322,39 @@
         "grid_date": "2026-10-12"
       },
       "status": "verified",
-      "evidence_note": "Grille officielle consultée ; créneaux concordants uniquement. Ne vaut ni durée canonique ni certification de l'ensemble de la nuit.",
-      "observations": []
+      "evidence_note": "Grille officielle effectivement lue après première réponse ne contenant que l'en-tête ; créneaux concordants seulement.",
+      "observations": [
+        {
+          "date": "2026-10-12",
+          "start": "20:25",
+          "title": "C'est toujours pas sorcier S05E25 Le riz, une céréale fascinante"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "21:00",
+          "title": "Route 66, une légende américaine"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "21:50",
+          "title": "Et Dieu créa la Côte d'Azur"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "23:25",
+          "title": "Surf, le feu sacré"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "00:55",
+          "title": "Chasing Rainbows : hommage à l'âge d'or de la comédie musicale"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "03:15",
+          "title": "TIF à l'Olympia"
+        }
+      ]
     },
     {
       "fields": [
@@ -7004,6 +7041,27 @@
       },
       "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
       "status": "verified"
+    },
+    {
+      "fields": [
+        "programme_title",
+        "version"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/france-2/mardi-13-octobre-2026/",
+        "https://www.francetvpro.fr/grille/france-2/10-10-2026/13-10-2026",
+        "https://www.francetvpro.fr/contenu-de-presse/78065129"
+      ],
+      "checked_at": "2026-10-08T06:55:47.403Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "France 2",
+        "start": "21:10"
+      },
+      "evidence_note": "Même créneau et présentateur que communiqué La grande Histoire de la Marine ; équivalence éditoriale/version non établie, ne pas fusionner les identités sur cette seule base.",
+      "status": "conflict"
     }
   ],
   "run_metrics": [
@@ -7104,6 +7162,12 @@
       "url": "https://television.telerama.fr/programme-tv-vendredi/tv5-monde",
       "status": "stale",
       "note": "Page ouverte datée vendredi 27 Mars au lieu du 16 octobre ; non utilisée."
+    },
+    {
+      "url": "https://arte-magazine.arte.tv/archive",
+      "status": "no_current_weekly_grid",
+      "checked_at": "2026-10-08T06:55:47.403Z",
+      "note": "Archives consultées via FAQ officielle : édition mensuelle visible jusqu'à septembre 2026 ; pas de grille S42. Aucun PDF historique réutilisé pour 2026."
     }
   ],
   "editorial_review": {
