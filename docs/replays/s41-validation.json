@@ -1,0 +1,459 @@
+{
+  "simulation": true,
+  "non_certifying": true,
+  "source_sha": "2c661aaf235903f4a98ffc02e115ca7864892bb9",
+  "week": "2026-S41",
+  "historical_clock": "2026-10-02",
+  "actual_measurement_at": "2026-10-08T21:47:59.761Z",
+  "shadow_setup": {
+    "manifest_latest": "2026-S40",
+    "manifest_week_status": "draft",
+    "week_publication_status": "draft",
+    "lowered_config_thresholds": [
+      "editorial.quality_gates.strict_inventory_from_week",
+      "editorial.quality_gates.strict_section_targets_from_week",
+      "editorial.quality_gates.remote_image_health_from_week",
+      "personalization.freshness.enabled_from_week",
+      "personalization.reserve_readiness.enabled_from_week"
+    ],
+    "no_programme_dates_changed": true,
+    "no_sources_added": true
+  },
+  "preservation": {
+    "pages_identical": true,
+    "pools_identical": true,
+    "unchanged_files": [
+      {
+        "file": "data/inventory/2026-S41.json",
+        "identical": true
+      },
+      {
+        "file": "data/coverage/2026-S41.json",
+        "identical": true
+      },
+      {
+        "file": "data/radar-reserves/2026-S41.json",
+        "identical": true
+      },
+      {
+        "file": "data/works.json",
+        "identical": true
+      },
+      {
+        "file": "data/links.json",
+        "identical": true
+      },
+      {
+        "file": "semaines/2026-S41/index.html",
+        "identical": true
+      }
+    ],
+    "pages_sha256": {
+      "source": "73135f07b805799f1b233aa6dfc03be98ca8aab293696cbc91ef9c4a2ff1163b",
+      "shadow": "73135f07b805799f1b233aa6dfc03be98ca8aab293696cbc91ef9c4a2ff1163b"
+    },
+    "personalization_sha256": {
+      "source": "937d8e5dd1080376a34c477758768d059850e9e515414031eeaf7a840e4f818b",
+      "shadow": "937d8e5dd1080376a34c477758768d059850e9e515414031eeaf7a840e4f818b"
+    }
+  },
+  "gate_results": [
+    {
+      "profile": "current-published-legacy",
+      "script": "validate-canonical-identities",
+      "status": 0,
+      "duration_ms": 67.8,
+      "summary": [
+        "✓ Canonical IDs, legacy aliases and migrated references are coherent"
+      ],
+      "detail_lines_printed": 0
+    },
+    {
+      "profile": "current-published-legacy",
+      "script": "validate-architecture",
+      "status": 0,
+      "duration_ms": 64.8,
+      "summary": [
+        "✓ 2026-S41 : 26 pages, coquille 285 octets",
+        "✓ 2026-S40 : 40 pages, coquille 429 octets",
+        "✓ 2026-S39 : 15 pages, coquille 422 octets",
+        "✓ 2026-S38 : 15 pages, coquille 422 octets",
+        "✓ 2026-S37 : 15 pages, coquille 421 octets",
+        "✓ Architecture valide"
+      ],
+      "detail_lines_printed": 0
+    },
+    {
+      "profile": "current-published-legacy",
+      "script": "validate-publication-candidate",
+      "status": 0,
+      "duration_ms": 54.6,
+      "summary": [
+        "✓ Candidate publication validation skipped outside an auto/* candidate"
+      ],
+      "detail_lines_printed": 0
+    },
+    {
+      "profile": "current-published-legacy",
+      "script": "validate-editorial",
+      "status": 0,
+      "duration_ms": 70.9,
+      "summary": [
+        "Latest: 2026-S41 retained daily titles: 34 without central exact link: 0",
+        "✓ Editorial validation passed"
+      ],
+      "detail_lines_printed": 0
+    },
+    {
+      "profile": "current-published-legacy",
+      "script": "validate-links",
+      "status": 0,
+      "duration_ms": 68.1,
+      "summary": [
+        "✓ Exact-link policy: no search-result URLs; IMDb/SensCritique links are canonical work pages."
+      ],
+      "detail_lines_printed": 0
+    },
+    {
+      "profile": "current-published-legacy",
+      "script": "validate-freshness",
+      "status": 0,
+      "duration_ms": 57.5,
+      "summary": [
+        "✓ Freshness validation skipped before 2026-S42"
+      ],
+      "detail_lines_printed": 0
+    },
+    {
+      "profile": "current-published-legacy",
+      "script": "validate-reserves",
+      "status": 0,
+      "duration_ms": 61.9,
+      "summary": [
+        "Reserve readiness 2026-S41: 28/66 candidats complets (42%), réserves 12/45 (27%)",
+        "✓ Semaine antérieure au blocage strict; diagnostic de réserve seulement"
+      ],
+      "detail_lines_printed": 80
+    },
+    {
+      "profile": "strict-shadow-candidate",
+      "script": "validate-canonical-identities",
+      "status": 0,
+      "duration_ms": 63,
+      "summary": [
+        "✓ Canonical IDs, legacy aliases and migrated references are coherent"
+      ],
+      "detail_lines_printed": 0
+    },
+    {
+      "profile": "strict-shadow-candidate",
+      "script": "validate-architecture",
+      "status": 0,
+      "duration_ms": 56.5,
+      "summary": [
+        "✓ 2026-S41 : 26 pages, coquille 285 octets",
+        "✓ 2026-S40 : 40 pages, coquille 429 octets",
+        "✓ 2026-S39 : 15 pages, coquille 422 octets",
+        "✓ 2026-S38 : 15 pages, coquille 422 octets",
+        "✓ 2026-S37 : 15 pages, coquille 421 octets",
+        "✓ Architecture valide"
+      ],
+      "detail_lines_printed": 0
+    },
+    {
+      "profile": "strict-shadow-candidate",
+      "script": "validate-publication-candidate",
+      "status": 1,
+      "duration_ms": 55,
+      "summary": [],
+      "detail_lines_printed": 19
+    },
+    {
+      "profile": "strict-shadow-candidate",
+      "script": "validate-editorial",
+      "status": 1,
+      "duration_ms": 75.3,
+      "summary": [
+        "Latest: 2026-S41 retained daily titles: 34 without central exact link: 0"
+      ],
+      "detail_lines_printed": 420
+    },
+    {
+      "profile": "strict-shadow-candidate",
+      "script": "validate-links",
+      "status": 0,
+      "duration_ms": 72.3,
+      "summary": [
+        "✓ Exact-link policy: no search-result URLs; IMDb/SensCritique links are canonical work pages."
+      ],
+      "detail_lines_printed": 0
+    },
+    {
+      "profile": "strict-shadow-candidate",
+      "script": "validate-freshness",
+      "status": 1,
+      "duration_ms": 61.7,
+      "summary": [],
+      "detail_lines_printed": 0
+    },
+    {
+      "profile": "strict-shadow-candidate",
+      "script": "validate-reserves",
+      "status": 1,
+      "duration_ms": 63.8,
+      "summary": [
+        "Reserve readiness 2026-S41: 28/66 candidats complets (42%), réserves 12/45 (27%)"
+      ],
+      "detail_lines_printed": 126
+    }
+  ],
+  "gate_summary": {
+    "legacy": "7 commands exit 0; publication candidate skipped, freshness skipped; reserve diagnostics tolerate S41 historical missing data",
+    "strict_shadow": "Canonical identities, architecture and links pass; publication candidate, editorial, freshness and reserves fail",
+    "candidate_problem_count": 18,
+    "editorial_problem_lines": 420,
+    "reserve_problem_count": 214,
+    "counts_overlap_between_validators": true,
+    "legacy_reserve_readiness": {
+      "complete_candidates": 28,
+      "candidate_occurrences": 66,
+      "complete_reserves": 12,
+      "reserve_occurrences": 45
+    },
+    "legacy_warning_output_capped_at": 80
+  },
+  "daily_candidates": {
+    "occurrences": 66,
+    "distinct_works": 63,
+    "missing_central_fields": {
+      "image": {
+        "occurrences": 15,
+        "distinct_works": 15
+      },
+      "image_source_url": {
+        "occurrences": 21,
+        "distinct_works": 20
+      },
+      "image_checked": {
+        "occurrences": 21,
+        "distinct_works": 20
+      },
+      "director": {
+        "occurrences": 16,
+        "distinct_works": 16
+      },
+      "year": {
+        "occurrences": 16,
+        "distinct_works": 16
+      },
+      "country": {
+        "occurrences": 16,
+        "distinct_works": 16
+      },
+      "duration": {
+        "occurrences": 16,
+        "distinct_works": 16
+      },
+      "genre": {
+        "occurrences": 16,
+        "distinct_works": 16
+      }
+    }
+  },
+  "availability": {
+    "candidate_occurrences": 66,
+    "with_matching_inventory_row": 66,
+    "with_inventory_source_url": 66,
+    "with_direct_candidate_source_url": 0,
+    "with_structured_consulted_at": 0,
+    "narrative": "All 66 daily candidate occurrences match an inventory title/channel/time row and existing source_url. No structured consulted_at is saved; source text states verification on 27/09/2026. No new consultation asserted."
+  },
+  "inventory": [
+    {
+      "date": "2026-10-03",
+      "rows": 10,
+      "minimum_current_strict": 30,
+      "source_pages": 4,
+      "source_domains": 3,
+      "overnight_rows": 3,
+      "required_channels": 29,
+      "missing_channel_sources": 29,
+      "missing_channel_counts": 29
+    },
+    {
+      "date": "2026-10-04",
+      "rows": 10,
+      "minimum_current_strict": 30,
+      "source_pages": 4,
+      "source_domains": 1,
+      "overnight_rows": 1,
+      "required_channels": 29,
+      "missing_channel_sources": 29,
+      "missing_channel_counts": 29
+    },
+    {
+      "date": "2026-10-05",
+      "rows": 10,
+      "minimum_current_strict": 30,
+      "source_pages": 3,
+      "source_domains": 2,
+      "overnight_rows": 0,
+      "required_channels": 29,
+      "missing_channel_sources": 29,
+      "missing_channel_counts": 29
+    },
+    {
+      "date": "2026-10-06",
+      "rows": 10,
+      "minimum_current_strict": 30,
+      "source_pages": 5,
+      "source_domains": 2,
+      "overnight_rows": 5,
+      "required_channels": 29,
+      "missing_channel_sources": 29,
+      "missing_channel_counts": 29
+    },
+    {
+      "date": "2026-10-07",
+      "rows": 10,
+      "minimum_current_strict": 30,
+      "source_pages": 3,
+      "source_domains": 1,
+      "overnight_rows": 1,
+      "required_channels": 29,
+      "missing_channel_sources": 29,
+      "missing_channel_counts": 29
+    },
+    {
+      "date": "2026-10-08",
+      "rows": 8,
+      "minimum_current_strict": 30,
+      "source_pages": 4,
+      "source_domains": 3,
+      "overnight_rows": 0,
+      "required_channels": 29,
+      "missing_channel_sources": 29,
+      "missing_channel_counts": 29
+    },
+    {
+      "date": "2026-10-09",
+      "rows": 8,
+      "minimum_current_strict": 30,
+      "source_pages": 4,
+      "source_domains": 4,
+      "overnight_rows": 1,
+      "required_channels": 29,
+      "missing_channel_sources": 29,
+      "missing_channel_counts": 29
+    }
+  ],
+  "main_blocker_classes": [
+    {
+      "class": "inventory evidence",
+      "detail": "203 required channel/day source records and 203 count records absent; 66 raw rows vs current minimum 210; source domains only 1 on two days; no overnight row on two days"
+    },
+    {
+      "class": "visual and central metadata",
+      "detail": "15 distinct daily works have no canonical image; 16 have missing director/year/country/duration/genre fields; 20 distinct works lack image provenance/check fields"
+    },
+    {
+      "class": "reserve readiness",
+      "detail": "Only 28 of 66 daily occurrences meet current readiness criteria, including 12 of 45 reserves. Strict reserve validator reports 214 issues with overlapping field failures."
+    },
+    {
+      "class": "section completeness",
+      "detail": "Rendezvous 5 vs target 10, subscription 3 vs 9, HD radar 5 vs 10; expiration shortage reason not structured under strict policy"
+    },
+    {
+      "class": "freshness",
+      "detail": "First blocking check finds 4 central titles repeated from S40; validator stops at first freshness failure."
+    }
+  ],
+  "browser": {
+    "local_status": "unavailable",
+    "reason": "Chromium absent; attempted download failed because CDN returned empty/truncated ZIP",
+    "fresh_local_render_measured": false,
+    "current_ci": {
+      "sha": "2c661aaf235903f4a98ffc02e115ca7864892bb9",
+      "run_id": 37843875538,
+      "browser_job_id": 113539756700,
+      "browser_job_elapsed_seconds": 74,
+      "render_step_seconds": 34,
+      "jellyfin_step_seconds": 2,
+      "images_step_seconds": 11,
+      "all_three_steps_conclusion": "success"
+    },
+    "separate_from_shadow_certification": true
+  },
+  "history": [
+    {
+      "date": "2026-09-27T06:46:24Z",
+      "sha": "c387d5e3c44770ac3a98528dd7d35da3a10cc090",
+      "action": "Add S41 shell"
+    },
+    {
+      "date": "2026-09-27T06:48:50Z",
+      "sha": "b3f91273356f42412ea30dcbef7ff51be537b293",
+      "action": "Direct main initial S41 publication",
+      "validation_run_id": 36301205719,
+      "pages_run_id": 36301205534
+    },
+    {
+      "date": "2026-09-27T08:16:00Z",
+      "sha": "74743763cbd3d88e163d9ee99f5ce5ba22f6ab8f",
+      "action": "Withdraw incomplete S41 from latest; restore S40"
+    },
+    {
+      "date": "2026-09-27T08:17:39Z",
+      "sha": "41ab8a8f97516346cce71cbf7081b8de00c9a943",
+      "action": "Mark S41 week JSON draft"
+    },
+    {
+      "date": "2026-09-27T10:18:25Z",
+      "sha": "ca775adb6c4b941936d0d1c4050708135df1ba81",
+      "action": "Direct main rebuild and republish S41",
+      "validation_run_id": 36312108745,
+      "pages_run_id": 36312108449
+    },
+    {
+      "date": "2026-09-27T12:40:30Z",
+      "sha": "c407c84cf12459737b39be7d3e819f17692cd751",
+      "action": "Image pipeline/S41 fixes"
+    },
+    {
+      "date": "2026-09-27T15:03:55Z",
+      "sha": "c26aace9fe3d19735464930820a3d59947c70337",
+      "action": "Enrich S41 reserves"
+    },
+    {
+      "date": "2026-09-27T17:44:56Z",
+      "sha": "1aa487510a310bbddf39aaa9865dbf5a4290466f",
+      "action": "Repair S41 section reserves"
+    },
+    {
+      "date": "2026-09-27T19:08:17Z",
+      "sha": "a650fe4f91978f8632be979bccc8868b950a35eb",
+      "action": "Weekly recovery, identity and TV reserve corrections",
+      "validation_run_id": 36343245533
+    }
+  ],
+  "reproduction": {
+    "source_checkout": "2c661aaf235903f4a98ffc02e115ca7864892bb9",
+    "procedure": "../rejeu-s41-2026-10-08.md#reproduire-les-profils-de-validation",
+    "notes": "Seven standard validators executed on two isolated copies; shadow changes are explicitly listed in shadow_setup."
+  },
+  "limitations": [
+    "Missing stored metadata or proof does not prove factual inaccuracy.",
+    "Existing inventory source descriptions are historical statements; no new consultation is asserted.",
+    "Strict failures identify a missing historical evidence/data contract, not the number of new programmes to research.",
+    "Shadow config is test-only and cannot certify production readiness or a public promotion.",
+    "Local elapsed timings are measured validator execution times, not historical active editorial work time."
+  ],
+  "local_image_probe": {
+    "status": 0,
+    "duration_ms": 40783,
+    "measured_at": "2026-10-08T21:49:22.855Z",
+    "scope": "34 Android TV grid works; S41 legacy image policy, actual current network, not a historical or full strict image certification",
+    "summary": "✓ Remote image health: 34 Android TV grid works have at least one usable source or a documented exception"
+  }
+}
