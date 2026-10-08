@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T13:37:58.645Z",
+  "updated_at": "2026-10-08T13:41:46.610Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -36,7 +36,8 @@
     "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer. Programmetvcesoir et Ouest-France soutiennent les titres inventoriés ; suivis ciblés enregistrés, indépendance non établie, conflits non clos.",
     "Ciné+ : 45 fiches CANAL+ consultées, 14 heures concordantes (dont La gueule ouverte sur Festival), 4 écarts et 27 BroadcastEvent hors cible. Chaîne absente des objets officiels : certifier les chaînes/grilles et les autres rediffusions, ne pas réutiliser les événements anciens. Durées de versions et droits replay à distinguer des créneaux.",
     "Ciné+ documentaires : Shirley MacLaine et Becoming Hitchcock disposent de quatre critiques indépendantes attribuées avec réserves ; Simenon reste sans avis argumenté trouvé dans les recherches. Résoudre années/durées, chaîne/horaire S42, accès français/expirations, notes directes et affiches ; ne pas convertir les compteurs SC ni l'ancien replay Arte en preuves actuelles.",
-    "TCM : 98 créneaux comparés aux sept grilles Télérama courantes, aucun écart d'heure ; Nashville Blues/The Thing Called Love rapprochés par la fiche liée. Source officielle ou indépendance des flux encore à obtenir ; Flics et voyous reste un titre d'épisode à confirmer. Documentaires et autres films à enrichir."
+    "TCM : 98 créneaux comparés aux sept grilles Télérama courantes, aucun écart d'heure ; Nashville Blues/The Thing Called Love rapprochés par la fiche liée. Source officielle ou indépendance des flux encore à obtenir ; Flics et voyous reste un titre d'épisode à confirmer. Documentaires et autres films à enrichir.",
+    "TCM : Regrouping, Roger Corman et Burning an Illusion approfondis, critiques attribuées avec réserves. Résoudre versions (Regrouping75/80min, Burning101/105/107min), année Corman2019/2020/2021, offres France/expirations, notes et affiches. Thrillers identifié via fiche liée ; Flics et voyous encore générique. Aucune carte complète ni consensus déduit."
   ],
   "completed_batches": [
     {
@@ -330,6 +331,11 @@
       "id": "inventory-tcm-seven-current-secondary-grids",
       "completed_at": "2026-10-08T13:37:58.645Z",
       "description": "98 créneaux comparés (95 titres/horaires concordants, 2 collections génériques, 1 alias documenté) ; aucune certification d'indépendance des grilles."
+    },
+    {
+      "id": "research-tcm-three-works-two-documentary-episodes",
+      "completed_at": "2026-10-08T13:41:46.610Z",
+      "description": "Trois œuvres approfondies et deux épisodes documentaires examinés ; provenance, réception nuancée et limites explicites. Catalogue courant consulté avant recherche, aucune fiche réutilisée."
     }
   ],
   "blockers": [
@@ -16362,6 +16368,214 @@
       },
       "evidence_note": "13 débuts comparés, dont nuit 00:00–05:59 ; reports de la veille exclus. Aucun écart d'heure. Deux épisodes génériques le 13 et alias Nashville Blues le 14 détaillés dans coverage. Lecture de grille vérifiée, indépendance des flux non établie.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "director",
+        "country",
+        "identity"
+      ],
+      "source_urls": [
+        "https://filmfreeway.com/RogerCormanthepopeofpopcinema",
+        "https://www.film-documentaire.fr/4DACTION/w_fiche_film/65318"
+      ],
+      "checked_at": "2026-10-08T13:41:46.610Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Roger Corman, le pape du pop cinéma"
+      },
+      "evidence_note": "Bertrand Tessier, France, film distinct de Corman's World. Année canonique et version non incluses dans ce groupe vérifié.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "year",
+        "duration.version"
+      ],
+      "source_urls": [
+        "https://filmfreeway.com/RogerCormanthepopeofpopcinema",
+        "https://www.film-documentaire.fr/4DACTION/w_fiche_film/65318",
+        "https://www.senscritique.com/film/roger_corman_le_pape_du_pop_cinema/43819715"
+      ],
+      "checked_at": "2026-10-08T13:41:46.610Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Roger Corman, le pape du pop cinéma"
+      },
+      "evidence_note": "Achèvement projet 09/01/2021 et base2021, SC2019, guides2020. 52 min de film contre55 de créneau : identité certaine, année/version à résoudre.",
+      "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception"
+      ],
+      "source_urls": [
+        "https://www.cinechronicle.com/2021/01/television-roger-corman-le-pape-du-pop-cinema-de-bertrand-tessier-critique-128482/"
+      ],
+      "checked_at": "2026-10-08T13:41:46.610Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Roger Corman, le pape du pop cinéma"
+      },
+      "evidence_note": "Critique argumentée attribuée à Raphaël Mussard, réserves conservées ; un avis, pas un consensus.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "director",
+        "year",
+        "country",
+        "documentary_identity"
+      ],
+      "source_urls": [
+        "https://sites.saic.edu/cate/2024/03/28/lizzie-borden/"
+      ],
+      "checked_at": "2026-10-08T13:41:46.610Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Regrouping"
+      },
+      "evidence_note": "Lizzie Borden, 1976, États-Unis ; documentaire expérimental, pas Born in Flames.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception"
+      ],
+      "source_urls": [
+        "https://www.4columns.org/anderson-melissa/regrouping",
+        "https://www.bfi.org.uk/sight-and-sound/news/regrouping-again-lizzie-bordens-diabolical-hour-comes-around",
+        "https://criterionforum.org/review/born-in-flames-the-criterion-collection-blu-ray"
+      ],
+      "checked_at": "2026-10-08T13:41:46.610Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Regrouping"
+      },
+      "evidence_note": "Trois lectures critiques attribuées, qualités de montage et difficulté formelle. Les notes techniques du disque Born in Flames exclues.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "duration.version"
+      ],
+      "source_urls": [
+        "https://sites.saic.edu/cate/2024/03/28/lizzie-borden/",
+        "https://criterionforum.org/review/born-in-flames-the-criterion-collection-blu-ray"
+      ],
+      "checked_at": "2026-10-08T13:41:46.610Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Regrouping"
+      },
+      "evidence_note": "80 min programme16mm/fiche et75 min édition vidéo ; version TCM non certifiée.",
+      "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "director",
+        "year",
+        "country",
+        "cast"
+      ],
+      "source_urls": [
+        "https://www.bfi.org.uk/film/9f414225-7cf9-5883-8980-76d5078ffcf1/burning-an-illusion",
+        "https://www.bbfc.co.uk/release/burning-an-illusion-q29sbgvjdglvbjpwwc0zmdq3ndi"
+      ],
+      "checked_at": "2026-10-08T13:41:46.610Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Burning an Illusion"
+      },
+      "evidence_note": "Menelik Shabazz,1981,Royaume-Uni ; versions BBFC identifiées, pas assimilées à la diffusion TCM.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "duration.version"
+      ],
+      "source_urls": [
+        "https://www.bbfc.co.uk/release/burning-an-illusion-q29sbgvjdglvbjpwwc0zmdq3ndi",
+        "https://www.telerama.fr/cinema/burning-an-illusion-de-menelik-shabazz-notre-critique_cri-7042929.php"
+      ],
+      "checked_at": "2026-10-08T13:41:46.610Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Burning an Illusion"
+      },
+      "evidence_note": "105m37s cinéma2022,105m17s16mm1982,101m04svidéo2000 ; 107minTélérama non précisée. Version TCM à établir.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception"
+      ],
+      "source_urls": [
+        "https://www.backseatmafia.com/blu-ray-review-burning-an-illusion/",
+        "https://www.telerama.fr/cinema/burning-an-illusion-de-menelik-shabazz-notre-critique_cri-7042929.php",
+        "https://www.rottentomatoes.com/m/burning_an_illusion"
+      ],
+      "checked_at": "2026-10-08T13:41:46.610Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Burning an Illusion"
+      },
+      "evidence_note": "Aldam lu directement ; Didier partiellement ; réserve Andrews relayée par RT, original non lu.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "ratings"
+      ],
+      "source_urls": [
+        "https://www.rottentomatoes.com/m/burning_an_illusion"
+      ],
+      "checked_at": "2026-10-08T13:41:46.610Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Burning an Illusion"
+      },
+      "evidence_note": "4critiques,moinsde50évaluations; aucune moyenne exploitable dans la page lue. Recherche d'autres notes non achevée.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "director",
+        "episode_title",
+        "year"
+      ],
+      "source_urls": [
+        "https://television.telerama.fr/tele/documentaire/une-nuit-au-cinema,9743488,emission38214942.php"
+      ],
+      "checked_at": "2026-10-08T13:41:46.610Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Une nuit au cinéma Les thrillers"
+      },
+      "evidence_note": "Fiche liée à la grille13/10 06:55 : Laurent Bouzereau,Les thrillers,2009 ; durée58minfiche ne certifie pas versionTCM.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -16721,15 +16935,16 @@
       "targeted_conflict_followups": 2
     },
     {
-      "date": "2026-10-08T13:37:58.645Z",
+      "date": "2026-10-08T13:41:46.610Z",
       "started_at": "2026-10-08T13:28:36.405Z",
       "owner": "9a1435f5-4932-49e3-a046-7130b9a4fd66",
       "stage": "inventory_arbitration_crosscheck",
-      "elapsed_seconds": 562,
+      "elapsed_seconds": 790,
       "duration_basis": "wall_clock_until_checkpoint",
       "completed_batches": [
         "inventory-france-televisions-six-schedule-arbitrations",
-        "inventory-tcm-seven-current-secondary-grids"
+        "inventory-tcm-seven-current-secondary-grids",
+        "research-tcm-three-works-two-documentary-episodes"
       ],
       "reused_complete_cards": 0,
       "newly_verified_complete_cards": 0,
@@ -16738,10 +16953,12 @@
       "blockers": [],
       "remaining": {
         "stage": "inventory",
-        "count": 32,
+        "count": 33,
         "reference": "remaining"
       },
-      "tcm_schedule_entries_compared": 98
+      "tcm_schedule_entries_compared": 98,
+      "newly_researched_incomplete_works": 3,
+      "documentary_episodes_examined": 2
     }
   ],
   "source_issues": [
@@ -17177,6 +17394,17 @@
         "Influence mortelle, la face cachée de TikTok",
         "Lâche ton tel",
         "Sommes-nous tous accros aux écrans ?"
+      ],
+      "matching_canonical_entries_found": 0,
+      "reused_fields": []
+    },
+    "tcm_scoped_check": {
+      "checked_at": "2026-10-08T13:41:46.610Z",
+      "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "titles": [
+        "Roger Corman, le pape du pop cinéma",
+        "Regrouping",
+        "Burning an Illusion"
       ],
       "matching_canonical_entries_found": 0,
       "reused_fields": []
