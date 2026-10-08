@@ -48,19 +48,32 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: node scripts/verify-promotion-attestation.mjs "${GITHUB_HEAD_REF#promote/}" "$BASE_SHA"
-      - run: node --test scripts/test-promotion-transition.mjs scripts/test-editorial-contracts.mjs scripts/test-week-calendar.mjs scripts/test-weekly-watchdog.mjs scripts/test-hybrid-workflow.mjs scripts/test-recover-promotion.mjs scripts/test-editorial-lease.mjs scripts/test-validation-context.mjs scripts/test-editorial-work-packet.mjs scripts/test-preparation-regressions.mjs scripts/editorial-draft.test.mjs scripts/test-html-text.mjs scripts/test-publication-trigger-context.mjs
+      - run: node --test scripts/test-promotion-transition.mjs scripts/test-editorial-contracts.mjs scripts/test-week-calendar.mjs scripts/test-weekly-watchdog.mjs scripts/test-hybrid-workflow.mjs scripts/test-recover-promotion.mjs scripts/test-editorial-lease.mjs scripts/test-validation-context.mjs scripts/test-editorial-work-packet.mjs scripts/test-preparation-regressions.mjs scripts/editorial-draft.test.mjs scripts/test-html-text.mjs scripts/test-publication-trigger-context.mjs scripts/test-promotion-attestation.mjs
       - run: node scripts/validate-automation.mjs
       - run: node scripts/validate-canonical-identities.mjs
       - run: node scripts/sync-asset-versions.mjs --check
       - run: node scripts/validate-architecture.mjs
+      - run: node --test scripts/test-editorial-progress.mjs
       - run: node scripts/validate-publication-candidate.mjs
       - run: node scripts/validate-editorial.mjs
       - run: node scripts/validate-links.mjs
       - run: node scripts/validate-freshness.mjs
+      - run: node --test scripts/test-editorial-draft-sections.mjs
       - run: node scripts/validate-reserves.mjs
       - name: Validate remote image sources
         if: steps.regressions.outputs.reused != 'true'
         run: node scripts/validate-image-sources.mjs
+      - name: Report gaps before ready (informative, non-certifying)
+        if: env.SELECTION_TV_PREPARATION_WEEK != ''
+        run: node scripts/preparation-gaps.mjs --json preparation-gaps.json
+      - name: Keep gap report for the editorial producer
+        if: always() && env.SELECTION_TV_PREPARATION_WEEK != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: preparation-gaps-${{ env.SELECTION_TV_PREPARATION_WEEK }}
+          path: preparation-gaps.json
+          if-no-files-found: ignore
+          retention-days: 7
       - name: Generation audit summary
         if: always()
         run: node scripts/generation-report.mjs

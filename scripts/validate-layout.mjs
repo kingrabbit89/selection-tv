@@ -274,7 +274,7 @@ try{
  const tvStable=await browser.newPage({viewport:{width:1440,height:1000}});
  await tvStable.route('**/*',route=>new URL(route.request().url()).hostname==='127.0.0.1'?route.continue():route.abort());
  await tvStable.clock.install();
- await tvStable.addInitScript(()=>{
+ const stableFixture=()=>{
    window.tvFixture={calls:[],opens:[],fail:false,library:'loading'};
    window.SelectionTvAndroid={
      protocolVersion:()=>4,supportsLiveQuick:()=>true,isLibraryReady:()=>false,
@@ -288,10 +288,15 @@ try{
      lookup:raw=>{const r=JSON.parse(raw);setTimeout(()=>window.SelectionTvAndroidResult({key:r.key,error:'offline'}),0)},
      openItem:id=>window.tvFixture.opens.push(id)
    };
- });
- await tvStable.goto(`${origin}/semaines/${latest}/${tvQuery}`,{waitUntil:'domcontentloaded'});
- await tvStable.waitForFunction(()=>window.SelectionTvAndroidModels?.filter(m=>!m.isReserve&&m.tile?.isConnected).every(m=>m.sessionVerified));
- const identityPayloads=await tvStable.evaluate(()=>{
+ };
+ await tvStable.addInitScript(stableFixture);
+ // Localized-identity regression uses fixed S41 titles, whatever week is under test.
+ const tvIdentity=await browser.newPage({viewport:{width:1440,height:1000}});
+ await tvIdentity.route('**/*',route=>new URL(route.request().url()).hostname==='127.0.0.1'?route.continue():route.abort());
+ await tvIdentity.addInitScript(stableFixture);
+ await tvIdentity.goto(`${origin}/semaines/2026-S41/${tvQuery}`,{waitUntil:'domcontentloaded'});
+ await tvIdentity.waitForFunction(()=>window.SelectionTvAndroidModels?.filter(m=>!m.isReserve&&m.tile?.isConnected).every(m=>m.sessionVerified));
+ const identityPayloads=await tvIdentity.evaluate(()=>{
    const ids=['tt30825738','tt27165187'];
    return ids.map(id=>{
      const model=SelectionTvAndroidModels.find(m=>m.imdbId===id&&m.tile?.isConnected);
@@ -302,6 +307,9 @@ try{
  for(const p of identityPayloads)assert(p.exists&&p.year==='2026','Missing recent-film identity '+JSON.stringify(p));
  assert(identityPayloads[0].aliases.includes('The Mandalorian and Grogu'),'Missing short Mandalorian title');
  assert(identityPayloads[1].aliases.includes("La Fin d'Oak Street"),'Missing localized Oak Street title');
+ await tvIdentity.close();
+ await tvStable.goto(`${origin}/semaines/${latest}/${tvQuery}`,{waitUntil:'domcontentloaded'});
+ await tvStable.waitForFunction(()=>window.SelectionTvAndroidModels?.filter(m=>!m.isReserve&&m.tile?.isConnected).every(m=>m.sessionVerified));
  const beforeIdle=await tvStable.evaluate(()=>({calls:tvFixture.calls.length,rows:SelectionTvAndroidPersonalizedRows.map(r=>r.activeModels.map(m=>m.key))}));
  await tvStable.clock.fastForward(61000);
  const afterIdle=await tvStable.evaluate(()=>({calls:tvFixture.calls.length,rows:SelectionTvAndroidPersonalizedRows.map(r=>r.activeModels.map(m=>m.key))}));
@@ -482,26 +490,28 @@ try{
 
  // Section reserve regression: S41 exposed a generic "seen hidden" notice on
  // weekly rendezvous and physical releases but did not refill the page. Recreate
- // the exact failure: four seen rendezvous must still leave five visible cards,
- // and two seen physical releases must still leave four visible cards.
+ // the exact failure with each pool's own target: up to four seen rendezvous and
+ // two seen physical releases must be replaced so every page stays full.
  await page.evaluate(()=>localStorage.clear());
  const sectionReservePools=await page.evaluate(()=>{
    const pools=window.SELECTION_TV_WEEK_DATA?.personalization?.pools||{};
-   return !!(pools['rendezvous-1']&&pools['sorties-physiques']);
+   const rv=pools['rendezvous-1'],ph=pools['sorties-physiques'];
+   return rv&&ph?{rendezvousTarget:Number(rv.target),physicalTarget:Number(ph.target),
+     rendezvousSeen:Math.min(4,Number(rv.target)),physicalSeen:Math.min(2,Number(ph.target))}:null;
  });
  if(sectionReservePools){
-   await page.evaluate(()=>{
+   await page.evaluate(expected=>{
      const pools=window.SELECTION_TV_WEEK_DATA.personalization.pools;
      const seen={};
-     for(const c of (pools['rendezvous-1'].candidates||[]).slice(0,4)){
+     for(const c of (pools['rendezvous-1'].candidates||[]).slice(0,expected.rendezvousSeen)){
        seen[c.work_id||('title:'+c.title)]={title:c.title,work_id:c.work_id||null,seen_at:new Date().toISOString()};
      }
-     for(const c of (pools['sorties-physiques'].candidates||[]).slice(0,2)){
+     for(const c of (pools['sorties-physiques'].candidates||[]).slice(0,expected.physicalSeen)){
        seen[c.work_id||('title:'+c.title)]={title:c.title,work_id:c.work_id||null,seen_at:new Date().toISOString()};
      }
      localStorage.setItem('selectionTV_seen_v2',JSON.stringify(seen));
      localStorage.setItem('selectionTV_hide_seen_v1','1');
-   });
+   },sectionReservePools);
    await page.reload({waitUntil:'domcontentloaded'});
    await settle();
    await page.waitForTimeout(500);
@@ -528,13 +538,14 @@ try{
      };
    });
    assert.equal(sectionReserveState.missing,false,latest+': section reserve pages missing');
-   assert.equal(sectionReserveState.rendezvousVisible,5,latest+': four seen weekly rendezvous must be refilled to five: '+JSON.stringify(sectionReserveState));
-   assert(sectionReserveState.rendezvousReplacements>=4,latest+': weekly rendezvous did not draw four replacements: '+JSON.stringify(sectionReserveState));
-   assert.match(sectionReserveState.rendezvousSummary,/4 remplacées par la réserve éditoriale/,latest+': weekly rendezvous replacement summary is wrong');
-   assert.equal(sectionReserveState.physicalVisible,4,latest+': two seen physical releases must be refilled to four: '+JSON.stringify(sectionReserveState));
-   assert(sectionReserveState.physicalReplacements>=2,latest+': physical releases did not draw two replacements: '+JSON.stringify(sectionReserveState));
+   const {rendezvousTarget,physicalTarget,rendezvousSeen,physicalSeen}=sectionReservePools;
+   assert.equal(sectionReserveState.rendezvousVisible,rendezvousTarget,latest+`: ${rendezvousSeen} seen weekly rendezvous must be refilled to ${rendezvousTarget}: `+JSON.stringify(sectionReserveState));
+   assert(sectionReserveState.rendezvousReplacements>=rendezvousSeen,latest+`: weekly rendezvous did not draw ${rendezvousSeen} replacements: `+JSON.stringify(sectionReserveState));
+   assert.match(sectionReserveState.rendezvousSummary,new RegExp(rendezvousSeen+' remplacées par la réserve éditoriale'),latest+': weekly rendezvous replacement summary is wrong');
+   assert.equal(sectionReserveState.physicalVisible,physicalTarget,latest+`: ${physicalSeen} seen physical releases must be refilled to ${physicalTarget}: `+JSON.stringify(sectionReserveState));
+   assert(sectionReserveState.physicalReplacements>=physicalSeen,latest+`: physical releases did not draw ${physicalSeen} replacements: `+JSON.stringify(sectionReserveState));
    assert(sectionReserveState.physicalReplacementTypes.every(x=>/release-card/.test(x)),latest+': physical reserve rendered with the wrong card type');
-   assert.match(sectionReserveState.physicalSummary,/2 remplacées par la réserve éditoriale/,latest+': physical release replacement summary is wrong');
+   assert.match(sectionReserveState.physicalSummary,new RegExp(physicalSeen+' remplacées par la réserve éditoriale'),latest+': physical release replacement summary is wrong');
    for(const width of [390,768,1100,1440]){
      await page.setViewportSize({width,height:1000});await settle();
      assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),latest+': section reserves overflow at '+width);

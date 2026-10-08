@@ -40,7 +40,7 @@ Un clone peut extraire une vue de travail en lecture seule avec `node scripts/ed
 
 Utiliser `--compact` pour les lectures de travail et `--offset N --limit N` pour parcourir les correspondances. Relire les exigences globales avant certification. Pour transformer plusieurs décisions revues en catalogue, liens, cartes, pools et grilles, suivre `docs/EDITORIAL-DRAFTS.md` et `scripts/editorial-draft-cards.mjs`. L'outil rend un handoff partiel, jamais une sélection ou une publication automatique.
 
-La consigne active est conservée dans `docs/EDITORIAL-AGENT-PROMPT.md`. Les anciens champs de reprise ne priment pas sur les contrats courants : réconcilier leur phase et leurs prochaines actions avec les preuves et livrables réels. Réutiliser la lecture d'un document statique seulement si son blob et sa lecture précédente sont attestés ; les disponibilités du cycle restent à vérifier.
+Avant de choisir un lot, `node scripts/preparation-gaps.mjs YYYY-Sxx` (ou l'artefact `preparation-gaps-YYYY-Sxx` de la CI) liste les écarts des validateurs de candidate par jour, rubrique et livrable, à titre informatif et non certifiant. La présélection `shortlist` et le champ facultatif `remaining_items` sont décrits dans AUTOMATION.md. La consigne active est conservée dans `docs/EDITORIAL-AGENT-PROMPT.md`. Les anciens champs de reprise ne priment pas sur les contrats courants : réconcilier leur phase et leurs prochaines actions avec les preuves et livrables réels. Réutiliser la lecture d'un document statique seulement si son blob et sa lecture précédente sont attestés ; les disponibilités du cycle restent à vérifier.
 
 Avec un environnement de code :
 
