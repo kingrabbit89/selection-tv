@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T12:16:34.846Z",
+  "updated_at": "2026-10-08T12:18:11.547Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -14,7 +14,7 @@
     "France 5 : Pompéi et Foucault réconciliés par les grilles officielles ; revérifier au préflight. Quatre écarts La p'tite librairie, versions/durées et fins de nuit restent à traiter. Offres replay, expirations, réception complémentaire et notes encore incomplètes.",
     "T18 14 octobre : neuf épisodes/sujets nommés et horaires concordants entre deux guides ; indépendance des flux/source officielle encore à établir. Face à face identifié comme fiction policière ; descriptif politique LeZapp exclu.",
     "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
-    "TF1 Séries Films : neuf diffusions recoupées et nuits consultées ; blocs nocturnes génériques non détaillés, réception et cartes à terminer. CSTAR : recoupements indépendants et épisodes Douanes sous haute surveillance encore à compléter.",
+    "TF1 Séries Films : neuf diffusions recoupées et nuits consultées ; blocs nocturnes génériques non détaillés, réception et cartes à terminer. CSTAR 16 octobre : Un mariage à Noël concorde à 21:10 ; Noël à la carte 22:49/22:45 et identité des quatre Douanes à départager ; indépendance et nuits restent à certifier.",
     "Rappel TNT : traiter les programmes non rapprochés consignés dans editorial_reminder_passes ; ne pas déduire l'identité d'une simple proximité de titre (soirée Marine notamment). Compléter rappel cinéma payant et recoupements manquants.",
     "Rappel TNT : Fréquenstar résolu sur W9 dimanche 11:20 (Hoshi) ; sujets Envoyé spécial et Au cœur de l'enquête à obtenir. Intraçables : mini-série et épisodes 3/4 confirmés par TF1 ; réception, versions et enrichissement à faire ; Meurtres à Cayenne confirmé téléfilm policier par le diffuseur.",
     "France 2/3 : grilles manquantes du 10 et du 15 récupérées ; départager Dodin Bouffant 02:55/03:05 le 12 et fausse entrée La p'tite librairie 12:15 le 15. Collections génériques/épisodes à compléter.",
@@ -285,6 +285,11 @@
       "id": "documentary-france5-three-targeted-dossiers",
       "completed_at": "2026-10-08T12:16:34.846Z",
       "description": "Trois identités/dossiers, deux offres france.tv avec expirations affichées, une critique indépendante ICE et conflits de versions consignés. Aucun dossier complet ni choix arrêté."
+    },
+    {
+      "id": "inventory-cstar-oct16-second-guide-conflicts",
+      "completed_at": "2026-10-08T12:18:11.547Z",
+      "description": "Six entrées comparées : un horaire concordant, un conflit de film, quatre épisodes sans rapprochement certain. Aucun ajout, aucune correction arbitraire."
     }
   ],
   "blockers": [
@@ -13806,6 +13811,26 @@
       },
       "evidence_note": "Recherches réelles : guides sans avis argumenté trouvé dans les pages lues. Communiqués/coproductions et entretien d'auteur ne constituent pas une réception indépendante ; poursuivre preuves alternatives et critique. Aucune absence globale de notes certifiée.",
       "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "schedule_comparison",
+        "episode_mapping"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cstar/vendredi-16-octobre-2026/",
+        "https://www.programme-tv.com/chaine/vendredi-prochain/1033/programme-television-cstar.html"
+      ],
+      "checked_at": "2026-10-08T12:18:11.547Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "channel": "CSTAR"
+      },
+      "evidence_note": "Un mariage à Noël concorde à 21:10 ; Noël à la carte divergent 22:49/22:45. Quatre Douanes numérotés sans sous-titres dans le second guide, heures divergentes au niveau collection ; identité des épisodes non certifiée. Page explicitement datée du 16 octobre 2026.",
+      "status": "conflict"
     }
   ],
   "run_metrics": [
