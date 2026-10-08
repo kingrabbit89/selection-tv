@@ -254,11 +254,17 @@ const tocLabels = [['rendezvous-1','Rendez-vous de la semaine'],['replay-1','Rep
 export function renderToc(pageList, {short, range, from}) {
   const numbers = predicate => pageList.map((page,index) => predicate(page.id) ? index+1 : 0).filter(Boolean);
   const pagesLabel = list => list.length > 1 ? `p. ${list[0]}–${list.at(-1)}` : `p. ${list[0]}`;
-  const links = tocLabels.map(([id,label]) => [id,label,numbers(pid => id === 'methode' ? pid === id : sectionPageMatches(pid, id))])
-    .filter(([,,list]) => list.length).map(([id,label,list]) => `<a class="toc-link" href="#${id}"><span class="toc-label">${label}</span><span class="toc-page">${pagesLabel(list)}</span></a>`).join('');
+  const links = tocLabels.map(([base,label]) => {
+    const matches = pid => base === 'methode' ? pid === base : sectionPageMatches(pid, base);
+    const matching = pageList.filter(page => matches(page.id));
+    const id = matching.some(page => page.id === base) ? base : matching[0]?.id;
+    return [id,label,numbers(matches)];
+  }).filter(([,,list]) => list.length).map(([id,label,list]) => `<a class="toc-link" href="#${escape(id)}"><span class="toc-label">${label}</span><span class="toc-page">${pagesLabel(list)}</span></a>`).join('');
   const dayLinks = days.map((day,index) => [day,index,numbers(pid => pid === day+'-selection' || pid.startsWith(day+'-grille'))]).filter(([,,list]) => list.length).map(([day,index,list]) => {
     const label = new Intl.DateTimeFormat('fr-FR',{weekday:'long',day:'numeric',month:'long',timeZone:'UTC'}).format(new Date(addDays(from,index)+'T12:00:00Z'));
-    return `<a class="toc-link" href="#${day}-selection"><span class="toc-label">${escape(label[0].toUpperCase()+label.slice(1))}<span class="toc-sub">${list.length > 1 ? 'sélection + grille' : 'sélection'}</span></span><span class="toc-page">${pagesLabel(list)}</span></a>`;
+    const selection = day+'-selection';
+    const id = pageList.some(page => page.id === selection) ? selection : pageList[list[0]-1].id;
+    return `<a class="toc-link" href="#${escape(id)}"><span class="toc-label">${escape(label[0].toUpperCase()+label.slice(1))}<span class="toc-sub">${list.length > 1 ? 'sélection + grille' : 'sélection'}</span></span><span class="toc-page">${pagesLabel(list)}</span></a>`;
   }).join('');
   return `<div class="topbar">Sommaire<span class="issue">${escape(short)} · ${escape(range)}</span></div><div class="kicker">Navigation</div><div class="h1">Sommaire</div><div class="deck">Le numéro complet, puis la sélection jour par jour.</div><div class="rule"></div><div class="toc-grid"><div class="toc-group"><h3>Le numéro</h3>${links}</div><div class="toc-group"><h3>Jour par jour</h3>${dayLinks}</div></div>${footer(short)}`;
 }

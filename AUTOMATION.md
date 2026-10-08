@@ -40,6 +40,14 @@ Chaque ligne d'inventaire conserve title, start, channel, source et source_url. 
 
 Une seconde source indépendante et une passe de rappel éditoriale sont obligatoires. Télérama peut servir à détecter des omissions mais son jugement ne doit pas être copié.
 
+### Trois niveaux de vérification
+
+1. **Inventaire large** : sept jours, chaînes requises et pertinentes, journées complètes et nuits 00:00–05:59, sources datées, comptes par chaîne et contradictions conservés. Chaque chaîne déclarée relevée l'est dans l'inventaire et dans `coverage.days[].channels_scanned`, avec sa grille lue et sa source.
+2. **Rappel indépendant** : une seconde lecture indépendante, par jour et par chaîne du périmètre, recherche les omissions et consigne les écarts. Elle ne transforme pas chaque horaire brut en enquête : elle n'exige pas de certifier individuellement les 2 000+ créneaux de l'inventaire. Deux agrégateurs qui partagent le même flux ne sont pas deux sources indépendantes ; si aucune seconde source indépendante n'existe pour une chaîne, le noter précisément. Une véritable lacune de couverture (chaîne, jour ou nuit non relus) reste bloquante.
+3. **Propositions publiables** : pour chaque programme retenu, réserve, ligne de grille commentée et proposition de rubrique, vérifier réellement identité, version, diffusion (source officielle ou deux grilles indépendantes), disponibilité/expiration, réception critique, métadonnées, liens exacts et visuel. Ce niveau n'est jamais allégé.
+
+Les flags `primary_scan_complete`, `independent_crosscheck_complete`, `editorial_reminder_complete` et `full_week_reaudit_completed` se déclarent après revue des preuves de ces niveaux, jamais d'après des compteurs ni par simple report de représentation.
+
 ## Progression de la recherche et impasses
 
 « Inventaire avant sélection » impose la prospection large des sept jours avant le choix final ; cela n'impose pas d'achever une fiche complète pour chaque entrée brute ni de résoudre chaque conflit avant de commencer l'enrichissement. Une fois le relevé primaire des sept jours et des chaînes actives effectué, approfondir les candidats prometteurs et leurs alternatives pendant que les recoupements de couverture encore nécessaires se poursuivent. Le stade `enrichment` peut donc conserver des tâches d'inventaire dans `remaining`. La certification finale des sept jours, la seconde source indépendante, le rappel éditorial, la passe documentaire et tous les seuils restent obligatoires avant `ready`.
@@ -58,7 +66,7 @@ La cadence horaire est un filet de reprise, pas un quota d'un lot par exécution
 
 Pour un candidat déjà documenté, enchaîner la création de sa fiche draft (identité canonique, champs sourcés, textes, liens et visuel), sa revue et sa sauvegarde dès que les preuves le permettent ; ne pas repousser mécaniquement cette intégration au passage suivant. Un dossier de recherche complet n'est pas compté comme une carte complète. Continuer ensuite avec un autre candidat ou une rubrique ; les étapes déjà achevées restent réutilisées.
 
-Terminer quand le budget utile touche à sa fin, que les outils ou l'exécution sont interrompus, que le bail est perdu/expiré, que toutes les tâches accessibles attendent une dépendance réelle, ou que le numéro est prêt et remis au publicateur. Ne jamais poursuivre sans bail ni contourner une permission. Si possible avant l'arrêt, sauvegarder le travail et enregistrer dans le dernier `run_metrics` un `stop_reason` précis ainsi que le prochain lot utile ; si une interruption empêche cette écriture, la reprise doit l'indiquer comme inconnue, sans inventer sa cause ou sa durée. Ne pas attendre pour atteindre artificiellement 35 minutes. La durée visée ne garantit ni durée réelle d'exécution ni quota disponible.
+Terminer quand le budget utile touche à sa fin, que les outils ou l'exécution sont interrompus, que le bail est perdu/expiré, que toutes les tâches accessibles attendent une dépendance réelle, ou que le numéro est prêt et remis au publicateur. Ne jamais poursuivre sans bail ni contourner une permission. Si possible avant l'arrêt, sauvegarder le travail et enregistrer dans le dernier `run_metrics` : `prompt_revision`, `started_at` et `ended_at` réellement connus (sinon `null` avec `duration_basis` expliquant pourquoi), `completed_batches`, `deliverables_changed`, un `stop_reason` précis et `next_useful_batch` ; si une interruption empêche cette écriture, la reprise doit l'indiquer comme inconnue, sans inventer sa cause ou sa durée. Ne pas attendre pour atteindre artificiellement 35 minutes. La durée visée ne garantit ni durée réelle d'exécution ni quota disponible.
 
 ### Paquet de travail ciblé
 
@@ -69,6 +77,20 @@ Avant de relire les checkpoints complets, utiliser `node scripts/editorial-work-
 Pour un dossier choisi, utiliser `--title "Titre exact"` : le paquet rassemble les entrées canoniques possibles, liens centraux, diffusions brutes, dossier critique, tentatives et vérifications enregistrées. Les dates de consultation, statuts de conflit/indisponibilité, versions et limites sont conservés. Les homonymes/remakes restent séparés et les absences restent visibles. Examiner les preuves ainsi regroupées, rechercher seulement les informations manquantes ou périssables, puis intégrer les champs réellement vérifiés et rédiger la fiche draft. Ne jamais utiliser une correspondance de titre seule pour réutiliser l'identité, une note ancienne ou une disponibilité.
 
 Le paquet n'atteste jamais `ready`, ne choisit pas les programmes, ne remplit pas de textes et ne scelle pas la revue. Si le shell/Git n'est pas disponible, effectuer la même extraction ciblée avec les outils connectés en conservant le SHA et toutes les limites ; ne pas prétendre avoir exécuté le helper. La petite vue de travail réduit les lectures répétées, pas les critères. Refaire l'extraction après un changement du checkpoint pertinent.
+
+### Présélection révisable
+
+Après le relevé primaire, constituer dans `data/research/YYYY-Sxx.json` une présélection `shortlist.entries` par jour (`scope.day`) et par rubrique (`scope.rubrique`, par exemple `replay-1`, `plateformes-abonnement`, `radar-1`). Chaque piste conservée porte au moins un signal éditorial vérifiable et sourcé (`signals[]` : `kind`, `note`, `source_url`) : critique argumentée, distinction précise, auteur, importance patrimoniale, rareté de diffusion, disponibilité nouvelle. Statuts : `to_research`, `researching`, `dossier_complete`, `card_drafted`, `card_complete`, `rejected`, `deferred` ; un rejet ou un report porte `decision_note`. `alternatives` relie les pistes de remplacement.
+
+La présélection oriente l'approfondissement : rechercher en priorité ses pistes, ne pas reconsidérer tout l'inventaire à chaque passage, la réviser seulement sur un fait nouveau ou si elle s'épuise. Viser environ une fois et demie à deux fois le nombre de positions à pourvoir, sans jamais ajouter un titre faible pour atteindre un nombre. Elle n'est ni une sélection publiée ni une personnalisation ; une œuvre peut alimenter plusieurs emplacements (choix développé, grille, réserve) sans nouvelle recherche, dans le respect de la déduplication et de la fraîcheur.
+
+Travailler ensuite par lots cohérents : `editorial-work-packet.mjs --title` pour réunir les preuves, recherche des seuls champs manquants ou périssables, rédaction, rendu des cartes avec `editorial-draft-cards.mjs`, contrôle du paquet, sauvegarde sous bail, mise à jour du statut de la piste. Les rubriques indépendantes des grilles TV (plateformes, sorties, radars) avancent en parallèle des journées.
+
+### Écarts avant ready
+
+`remaining` reste le tableau de chaînes de caractères faisant autorité. Un champ voisin facultatif `remaining_items` peut décrire chaque exigence : `id`, `text` (identique à une ligne de `remaining`), `scope` (`kind` parmi global, coverage, day, rubrique, deliverable, candidate, et `value`), `blocking` et `closes_when`. `validation-context.mjs` refuse un `remaining_items` qui perdrait ou ajouterait une exigence.
+
+`node scripts/preparation-gaps.mjs YYYY-Sxx --json FICHIER` exécute sur un clone de la candidate les validateurs de candidate existants et classe leurs écarts par jour, rubrique, couverture et livrable. En préparation, la CI publie le même rapport dans le résumé et l'artefact `preparation-gaps-YYYY-Sxx`. Ce rapport est **informatif et non certifiant** : un écart absent ne vaut ni vérification ni autorisation ; la barrière `--require-ready` et les contrôles complets restent obligatoires.
 
 ## Prospection documentaire et exigence critique
 

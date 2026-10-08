@@ -53,6 +53,7 @@ jobs:
       - run: node scripts/validate-canonical-identities.mjs
       - run: node scripts/sync-asset-versions.mjs --check
       - run: node scripts/validate-architecture.mjs
+      - run: node --test scripts/test-editorial-progress.mjs
       - run: node scripts/validate-publication-candidate.mjs
       - run: node scripts/validate-editorial.mjs
       - run: node scripts/validate-links.mjs
@@ -62,6 +63,17 @@ jobs:
       - name: Validate remote image sources
         if: steps.regressions.outputs.reused != 'true'
         run: node scripts/validate-image-sources.mjs
+      - name: Report gaps before ready (informative, non-certifying)
+        if: env.SELECTION_TV_PREPARATION_WEEK != ''
+        run: node scripts/preparation-gaps.mjs --json preparation-gaps.json
+      - name: Keep gap report for the editorial producer
+        if: always() && env.SELECTION_TV_PREPARATION_WEEK != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: preparation-gaps-${{ env.SELECTION_TV_PREPARATION_WEEK }}
+          path: preparation-gaps.json
+          if-no-files-found: ignore
+          retention-days: 7
       - name: Generation audit summary
         if: always()
         run: node scripts/generation-report.mjs

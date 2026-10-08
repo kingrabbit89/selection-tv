@@ -134,6 +134,26 @@ test('existing rubrique pages need explicit replacement; shortages must be struc
   assert.throws(() => buildDraftBundle(context(), plan({sections, section_shortages:{'plateformes-gratuites':'raison libre'}})), /structured/);
 });
 
+test('partial continuation-only families link to actual pages and return to base anchors when completed', () => {
+  const ctx = context();
+  const sections = [
+    {kind:'replay',page:2,header,cards:[base(1,1,{offer:offer({available_until:'2026-12-20'})})]},
+    {kind:'platform_subscription',page:2,header,cards:[base(2,1,{offer:offer({service:'CANAL+'})})]},
+    {kind:'rendezvous',page:2,header,cards:[tv(3,1)]},
+    {kind:'radar_hd',page:2,header,cards:[base(4,1,{added:'Ajout HD repéré · 8 octobre',added_source_url:'https://hd.example.test/list'})]}];
+  const partial=issueOf(buildDraftBundle(ctx,plan({sections,render_toc:true}))),toc=partial.pages.find(page => page.id === 'sommaire').html;
+  const anchors=[...toc.matchAll(/href="#([^"]+)"/g)].map(match => match[1]);
+  assert.deepEqual(anchors,['rendezvous-2','replay-2','plateformes-abonnement-2','radar-2']);
+  for(const id of anchors) assert(partial.pages.some(page => page.id === id),'TOC target must exist: '+id);
+  assert(!toc.includes('href="#replay-1"') && !toc.includes('href="#radar-1"'));
+  const complete=issueOf(buildDraftBundle(context({issue:partial}),plan({render_toc:true,sections:[
+    {kind:'replay',page:1,header,cards:[base(5,1,{offer:offer({available_until:'2026-12-20'})})]},
+    {kind:'radar_hd',page:1,header,cards:[base(6,1,{added:'Ajout HD repéré · 8 octobre',added_source_url:'https://hd.example.test/list'})]}]})));
+  const completedToc=complete.pages.find(page => page.id === 'sommaire').html;
+  assert.match(completedToc,/href="#replay-1"/);assert.match(completedToc,/href="#radar-1"/);
+  assert(!completedToc.includes('href="#replay-2"') && !completedToc.includes('href="#radar-2"'));
+});
+
 test('section copy is escaped and unknown identities or unsupported kinds are refused', () => {
   const ctx = context();
   const html = issueOf(buildDraftBundle(ctx, plan({sections:[{kind:'replay', header:{...header, h1:'<script>x</script>'},
