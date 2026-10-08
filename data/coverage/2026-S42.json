@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "partial",
-  "updated_at": "2026-10-08T14:53:46.410Z",
+  "updated_at": "2026-10-08T15:05:29.254Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -2835,7 +2835,13 @@
             "listed_type": "Documentaire",
             "inventory_title": "L'image originelle Joachim Trier",
             "status": "episode_conflict",
-            "note": "Fiche Télérama liée décrit Sofia Coppola, inventaire Joachim Trier ; ne pas arbitrer par titre de collection."
+            "note": "Conflit accru, non arbitrable : Télérama/programme-tv.com décrivent Sofia Coppola à 06:00–06:02 ; Ouest-France indexe Joachim Trier à 06:02 ; LeZappTV décrit Bong Joon-ho à 06:02. Les agrégateurs peuvent partager ou désynchroniser leurs flux. Ne pas modifier l'identité brute sans source officielle ou second flux réellement indépendant.",
+            "followup_checked_at": "2026-10-08T15:05:29.254Z",
+            "followup_sources": [
+              "https://www.programme-tv.com/television/1253678919/limage-originelle.html",
+              "https://programmetv.ouest-france.fr/documentaire/cinema/l-image-originelle-m141995075/s03-l-image-originelle-c440100422/",
+              "https://lezapptv.fr/chaine/cine-festival/2026-10-15"
+            ]
           },
           {
             "title": "Bird",
@@ -9951,7 +9957,7 @@
         "decision": "à vérifier",
         "availability_source": "https://tv-programme.com/cine-plus-classic/jeudi-15-octobre-2026/",
         "critical_evidence": [],
-        "reason": "Identité partiellement documentée et horaire rapproché ; réception critique et preuves alternatives à poursuivre sans rejet pour manque de notoriété. Année, droits, notes, affiche et revue restent ouverts.",
+        "reason": "Identité, durée et horaire partiellement documentés. Les matériaux, intervenants, contexte littéraire et parcours de la réalisatrice sont consignés avec leurs limites ; aucune réception critique du film ni distinction trouvée. Année, chaîne officielle, droits, notes, affiche et revue comparative restent ouverts.",
         "identity_research": {
           "director": "Linda Tahir",
           "country": "France",
@@ -9974,18 +9980,21 @@
           "note": "Début officiel du 15 octobre à 05:44 concordant, chaîne absente de BroadcastEvent. expires correspond à la fin du créneau et ne prouve pas une fin de replay. Offre abonnement, droits et expiration à établir."
         },
         "critical_research": {
-          "checked_at": "2026-10-08T13:16:22Z",
+          "checked_at": "2026-10-08T15:05:29.254Z",
           "status": "needs_check",
           "searches": [
             "Titre exact + critique/avis (deux moteurs)",
-            "Titre exact + IMDb/SensCritique"
+            "Titre exact + festival/prix",
+            "Titre exact + Linda Tahir",
+            "IMDb/SensCritique ciblés"
           ],
           "source_urls": [
             "https://www.canalplus.com/decouverte/les-romans-durs-de-georges-simenon/h/30288358_50002",
             "https://television.telerama.fr/tele/documentaire/les-romans-durs-de-georges-simenon-1-397777680.php",
+            "https://screenplus.fr/programmestv/programmes/les-romans-durs-de-georges-simenon-ad623b3cc52d0b3d/",
             "https://www.imdb.com/title/tt39255166/"
           ],
-          "note": "Pages CANAL+ et Télérama lues : fiches/synopsis, pas de critique argumentée. Recherches renvoient surtout les livres de Simenon et des notices ; aucune réception argumentée identifiée dans les résultats consultés. Ne pas affirmer qu'il n'en existe pas. Événement de projection et interviews restent des pistes non vérifiées, pas des distinctions."
+          "note": "Nouvelle recherche ciblée : aucune critique argumentée du documentaire ni distinction de festival trouvée dans les résultats lus. SCREEN+ apporte des participants et matériaux, pas une appréciation. Les résultats consacrés aux livres de Simenon ont été exclus comme preuve de qualité du film. Ne pas affirmer qu'aucune critique n'existe."
         },
         "ratings_research": {
           "checked_at": "2026-10-08T13:16:22Z",
@@ -9993,6 +10002,42 @@
           "imdb_id": "tt39255166",
           "imdb_access": "contenu direct vide/inexploitable ; aucune note consultée",
           "senscritique": "Fiche du documentaire non établie ; résultats de livres exclus."
+        },
+        "alternative_evidence": [
+          {
+            "source_url": "https://screenplus.fr/programmestv/programmes/les-romans-durs-de-georges-simenon-ad623b3cc52d0b3d/",
+            "checked_at": "2026-10-08T15:05:29.254Z",
+            "type": "materials_and_participants",
+            "evidence": "La fiche annonce John Simenon, Patrice Leconte, Laurent Heynemann et l'historien Claude Gauteur.",
+            "limitation": "Composition et intervenants seulement ; aucune réception critique ni qualité artistique déduite."
+          },
+          {
+            "source_url": "https://www.lemonde.fr/culture/article/2024/08/21/pierre-assouline-simenon-a-mythifie-l-homme-ordinaire_6288714_3246.html",
+            "checked_at": "2026-10-08T15:05:29.254Z",
+            "type": "subject_context",
+            "evidence": "Entretien avec Pierre Assouline sur la richesse et l'universalité des romans durs.",
+            "limitation": "Concerne l'œuvre littéraire de Simenon, pas le documentaire de Linda Tahir."
+          },
+          {
+            "source_url": "https://www.capuseen.com/auteurs/490-linda-tahir",
+            "checked_at": "2026-10-08T15:05:29.254Z",
+            "type": "director_background",
+            "evidence": "Notice professionnelle : formation cinéma et réalisation/production de documentaires depuis 2001.",
+            "limitation": "Expérience de la réalisatrice, pas preuve de qualité de ce film."
+          }
+        ],
+        "image_research": {
+          "source_page": "https://www.canalplus.com/decouverte/les-romans-durs-de-georges-simenon/h/30288358_50002",
+          "candidate_url": "https://thumb.canalplus.pro/http/unsafe/1200x630/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/unit/30288358/canal-ouah_50002/STD169/myCANAL_16x9_MEA_1920x1080-F5LK",
+          "checked_at": "2026-10-08T15:05:29.254Z",
+          "status": "unavailable",
+          "http_status": 403,
+          "attempts": [
+            "requête directe",
+            "requête avec Referer de la fiche CANAL+"
+          ],
+          "visually_checked": false,
+          "note": "URL og:image extraite de la fiche ; téléchargement refusé dans les deux essais. Aucun visuel validé ni ajouté."
         }
       },
       {
@@ -13904,33 +13949,65 @@
         "version_note": "CANAL+ 50 min, Télérama 52 min ; créneaux listés séparément, version linéaire non certifiée.",
         "critical_evidence": [],
         "critical_search": {
-          "checked_at": "2026-10-08T14:03:53.608Z",
+          "checked_at": "2026-10-08T15:05:29.254Z",
           "status": "needs_check",
           "queries": [
-            "\"Le cinéma qui respire\" critique",
-            "\"Le cinéma qui respire\" réalisateur production",
-            "\"Le cinéma qui respire\" IMDb SensCritique"
+            "\"Le cinéma qui respire\" critique avis",
+            "\"Le cinéma qui respire\" festival prix",
+            "\"Le cinéma qui respire\" Murarotto Simon"
           ],
           "sources_examined": [
             "https://www.canalplus.com/cinema/le-cinema-qui-respire/h/31609179_50002/resume-casting/",
-            "https://television.telerama.fr/tele/documentaire/le-cinema-qui-respire-1-426984922.php"
+            "https://television.telerama.fr/tele/documentaire/le-cinema-qui-respire-1-426984922.php",
+            "https://www.programmetvcesoir.net/emission/le-cinema-qui-respire-3c548174f7"
           ],
-          "result": "Recherches ciblées dans deux moteurs : surtout fiches/synopsis, aucune critique argumentée ni preuve alternative spécifique de qualité trouvée dans les résultats lus. Fiche Télérama consultée : synopsis et métadonnées sans critique. Pas de déclaration d'absence universelle de critiques.",
-          "followup": "Chercher réception spécialisée ou preuve alternative vérifiable ; ne pas rejeter mécaniquement faute de notes."
+          "result": "Nouvelle recherche ciblée : les résultats utiles lus restent des fiches de programme ou de diffusion. Aucun avis critique argumenté, sélection de festival ou distinction propre au documentaire n'a été trouvé. Cela ne prouve pas une absence universelle.",
+          "followup": "Conserver hors sélection tant qu'une réception indépendante ou une preuve alternative de qualité vérifiable n'est pas établie ; le thème et les films cités ne suffisent pas."
         },
         "availability_research": {
           "status": "needs_check",
           "source_url": "https://www.canalplus.com/cinema/le-cinema-qui-respire/h/31609179_50002/resume-casting/",
           "checked_at": "2026-10-08T14:03:53.608Z",
           "displayed_window": "Disponible plus de 6 mois",
-          "note": "Mention relative affichée dans la page consultée, bouton abonnement ; pas de date absolue inventée. Droits France, offre exacte, accès à la lecture et expiration à confirmer."
+          "note": "Mention relative affichée dans la page consultée, bouton abonnement ; pas de date absolue inventée. Droits France, offre exacte, accès à la lecture et expiration à confirmer.",
+          "secondary_schedule": {
+            "source_url": "https://www.programmetvcesoir.net/emission/le-cinema-qui-respire-3c548174f7",
+            "checked_at": "2026-10-08T15:05:29.254Z",
+            "observed_broadcasts": [
+              {
+                "date": "2026-10-10",
+                "channel": "Ciné+ OCS",
+                "start": "05:45"
+              },
+              {
+                "date": "2026-10-10",
+                "channel": "Ciné+ Emotion",
+                "start": "06:08"
+              }
+            ],
+            "status": "needs_check",
+            "note": "Deux horaires S42 concordent avec l'inventaire ; indépendance du flux et chaîne officielle non établies."
+          }
         },
         "ratings_research": {
           "status": "needs_check",
           "checked_at": "2026-10-08T14:03:53.608Z",
           "note": "Aucune fiche IMDb/SensCritique exacte confirmée par les recherches ciblées ; aucune note inventée ni absence universelle affirmée."
         },
-        "reason": "Nature au cinéma, archives et témoignages ; le sujet ou les qualités des films cités ne prouvent pas celles du documentaire. Réception, recoupements indépendants, version, offre, notes et affiche encore incomplets."
+        "reason": "Identité et deux créneaux recoupés par un second guide, sans indépendance prouvée. Aucune réception critique argumentée ni preuve alternative de qualité trouvée après nouvelle recherche ; offre, version, notes et affiche restent incomplètes.",
+        "image_research": {
+          "source_page": "https://www.canalplus.com/cinema/le-cinema-qui-respire/h/31609179_50002/resume-casting/",
+          "candidate_url": "https://thumb.canalplus.pro/http/unsafe/1200x630/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/unit/31609179/canal-ouah_50002/STD169/myCANAL_16x9_MEA_1920x1080-YrEn",
+          "checked_at": "2026-10-08T15:05:29.254Z",
+          "status": "unavailable",
+          "http_status": 403,
+          "attempts": [
+            "requête directe",
+            "requête avec Referer de la fiche CANAL+"
+          ],
+          "visually_checked": false,
+          "note": "URL og:image extraite de la fiche ; téléchargement refusé dans les deux essais. Aucun visuel validé ni ajouté."
+        }
       },
       {
         "title": "Des animaux et des monstres",
@@ -13969,33 +14046,53 @@
         "version_note": "CANAL+ 53 min, Télérama 53 min ; créneaux listés séparément, version linéaire non certifiée.",
         "critical_evidence": [],
         "critical_search": {
-          "checked_at": "2026-10-08T14:03:53.608Z",
+          "checked_at": "2026-10-08T15:05:29.254Z",
           "status": "needs_check",
           "queries": [
-            "\"Des animaux et des monstres\" critique",
-            "\"Des animaux et des monstres\" réalisateur production",
-            "\"Des animaux et des monstres\" IMDb SensCritique"
+            "\"Des animaux et des monstres\" critique avis",
+            "\"Des animaux et des monstres\" festival prix",
+            "\"Des animaux et des monstres\" Anne Martinetti"
           ],
           "sources_examined": [
             "https://www.canalplus.com/cinema/des-animaux-et-des-monstres/h/28449007_50002/resume-casting/",
-            "https://television.telerama.fr/tele/documentaire/des-animaux-et-des-monstres-1-366694389.php"
+            "https://television.telerama.fr/tele/documentaire/des-animaux-et-des-monstres-1-366694389.php",
+            "https://www.molotov.tv/fr_fr/p/6556215/des-animaux-et-des-monstres"
           ],
-          "result": "Recherches ciblées dans deux moteurs : surtout fiches/synopsis, aucune critique argumentée ni preuve alternative spécifique de qualité trouvée dans les résultats lus. Fiche Télérama consultée : synopsis et métadonnées sans critique. Pas de déclaration d'absence universelle de critiques.",
-          "followup": "Chercher réception spécialisée ou preuve alternative vérifiable ; ne pas rejeter mécaniquement faute de notes."
+          "result": "Nouvelle recherche ciblée : fiches, synopsis et pages d'offre, mais aucun avis critique argumenté, sélection de festival ou distinction propre au documentaire dans les résultats lus. Cela ne prouve pas une absence universelle.",
+          "followup": "Conserver hors sélection tant qu'une réception indépendante ou une preuve alternative vérifiable n'est pas établie ; ne pas rejeter mécaniquement pour absence de note."
         },
         "availability_research": {
           "status": "needs_check",
           "source_url": "https://www.canalplus.com/cinema/des-animaux-et-des-monstres/h/28449007_50002/resume-casting/",
           "checked_at": "2026-10-08T14:03:53.608Z",
           "displayed_window": "Disponible plus de 6 mois",
-          "note": "Mention relative affichée dans la page consultée, bouton abonnement ; pas de date absolue inventée. Droits France, offre exacte, accès à la lecture et expiration à confirmer."
+          "note": "Mention relative affichée dans la page consultée, bouton abonnement ; pas de date absolue inventée. Droits France, offre exacte, accès à la lecture et expiration à confirmer.",
+          "additional_observation": {
+            "source_url": "https://www.molotov.tv/fr_fr/p/6556215/des-animaux-et-des-monstres",
+            "checked_at": "2026-10-08T15:05:29.254Z",
+            "status": "needs_check",
+            "note": "Page payante/replay indexée avec une date de diffusion en mai, hors S42. Elle ne prouve ni offre France actuelle pour la semaine ni expiration."
+          }
         },
         "ratings_research": {
           "status": "needs_check",
           "checked_at": "2026-10-08T14:03:53.608Z",
           "note": "Aucune fiche IMDb/SensCritique exacte confirmée par les recherches ciblées ; aucune note inventée ni absence universelle affirmée."
         },
-        "reason": "Représentations animales au cinéma ; aucune qualité artistique déduite du sujet. Réception, recoupements indépendants, version, offre, notes et affiche encore incomplets."
+        "reason": "Identité et deux diffusions inventoriées ; l'offre Molotov trouvée est hors cycle. Aucune réception argumentée ni preuve alternative de qualité trouvée après nouvelle recherche ; recoupements indépendants, droits, version, notes et affiche restent ouverts.",
+        "image_research": {
+          "source_page": "https://www.canalplus.com/cinema/des-animaux-et-des-monstres/h/28449007_50002/resume-casting/",
+          "candidate_url": "https://thumb.canalplus.pro/http/unsafe/1200x630/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/plmws/images.media-press.cloud/c71d/c71d45fb55f4496f861df31c5ca110e1",
+          "checked_at": "2026-10-08T15:05:29.254Z",
+          "status": "unavailable",
+          "http_status": 403,
+          "attempts": [
+            "requête directe",
+            "requête avec Referer de la fiche CANAL+"
+          ],
+          "visually_checked": false,
+          "note": "URL og:image extraite de la fiche ; téléchargement refusé dans les deux essais. Aucun visuel validé ni ajouté."
+        }
       },
       {
         "title": "Kouté Vwa",
@@ -14253,7 +14350,7 @@
             "source_url": "https://tv-programme.com/cine-plus-festival/jeudi-15-octobre-2026/"
           }
         ],
-        "version_note": "Conflit non résolu : fiche liée à la grille du 15/10 décrit Sofia Coppola contre Joachim Trier dans le premier guide. Créneau 32 min ne prouve pas l'épisode.",
+        "version_note": "Conflit non résolu : Sofia Coppola, Joachim Trier et Bong Joon-ho sont associés au même créneau par trois guides. La durée du créneau ne permet pas d'identifier l'épisode.",
         "critical_evidence": [
           {
             "source_url": "https://cult.news/ecrans/limage-originelle-saison-2-portraits-de-cineastes-dune-belle-profondeur/",
@@ -14281,7 +14378,34 @@
           "status": "needs_check",
           "note": "Page de collection et HTML examinés : deux épisodes actuellement listés, Agnès Jaoui et Marco Bellocchio. Aucune offre individuelle ni expiration du portrait étudié confirmée ; ne pas transférer les dates de ces deux autres épisodes."
         },
-        "reason": "Identité possible et preuve alternative du programme établies, mais épisode diffusé encore conflictuel."
+        "reason": "Le portrait Joachim Trier et une preuve alternative du programme sont documentés, mais son attribution au créneau du 15/10 est en conflit entre trois guides ; aucune carte ne peut être finalisée avant arbitrage fiable.",
+        "identity_conflict": {
+          "checked_at": "2026-10-08T15:05:29.254Z",
+          "status": "conflict",
+          "scheduled_slot": {
+            "date": "2026-10-15",
+            "start": "06:02",
+            "channel": "Ciné+ Festival"
+          },
+          "observations": [
+            {
+              "subject": "Sofia Coppola",
+              "source_url": "https://www.programme-tv.com/television/1253678919/limage-originelle.html",
+              "observed_start": "06:00"
+            },
+            {
+              "subject": "Joachim Trier",
+              "source_url": "https://programmetv.ouest-france.fr/documentaire/cinema/l-image-originelle-m141995075/s03-l-image-originelle-c440100422/",
+              "observed_start": "06:02"
+            },
+            {
+              "subject": "Bong Joon-ho",
+              "source_url": "https://lezapptv.fr/chaine/cine-festival/2026-10-15",
+              "observed_start": "06:02"
+            }
+          ],
+          "note": "Trois sujets incompatibles pour le même créneau ; aucune majorité d'agrégateurs n'est tenue pour preuve indépendante. Source officielle/guide indépendant requis."
+        }
       },
       {
         "title": "Retour à Kotelnitch",
