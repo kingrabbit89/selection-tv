@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T08:15:08.911Z",
+  "updated_at": "2026-10-08T08:16:36.041Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -18,7 +18,8 @@
     "Rappel TNT : traiter les programmes non rapprochés consignés dans editorial_reminder_passes ; ne pas déduire l'identité d'une simple proximité de titre (soirée Marine notamment). Compléter rappel cinéma payant et recoupements manquants.",
     "Rappel TNT : Fréquenstar annoncé dimanche 11:20 mais grille M6 Turbo 11:00/11:25 ; sujets Envoyé spécial et Au cœur de l'enquête à obtenir. Intraçables et Meurtres à Cayenne : types épisode/téléfilm à réconcilier.",
     "France 2/3 : compléter grilles officielles du 10 (France 2) et du 15 (France 2/3), renvoyées périmées/vides ; départager Dodin Bouffant 02:55/03:05 le 12. Les collections génériques ne certifient pas leurs épisodes.",
-    "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection."
+    "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
+    "Public Sénat : Silence dans les rangs documenté (prix et limites de réception), horaires légèrement divergents et replay indisponible ; terminer offre/expiration, notes, affiche et revue comparative."
   ],
   "completed_batches": [
     {
@@ -137,6 +138,11 @@
       "id": "inventory-canal-cine-official-eight",
       "completed_at": "2026-10-08T08:15:08.911Z",
       "description": "Rappel mensuel et huit pages exactes rapprochés de la grille ; horaires corroborés, métadonnées de version consignées sans créer de fiches complètes."
+    },
+    {
+      "id": "documentary-silence-source-dossier",
+      "completed_at": "2026-10-08T08:16:36.041Z",
+      "description": "Un dossier documentaire avec sources exactes, prix extérieur motivé, contexte distingué de la critique, notes non établies et replay indisponible."
     }
   ],
   "blockers": [
@@ -10180,6 +10186,109 @@
       },
       "evidence_note": "Métadonnées affichées : Colas Rifkiss / Mathias Rifkiss, 2025, France, 94 min. Durée de l'œuvre distincte du créneau de grille. Aucun rattachement canonique ni note repris.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "director",
+        "year",
+        "duration",
+        "country"
+      ],
+      "source_urls": [
+        "https://pro.publicsenat.fr/actualites/silence-dans-les-rangs-suivi-d-un-debat-avec-rebecca-fitoussi-dans-un-monde-en-doc-samedi-10-octobre-a-21h-4b18a-02e48.html",
+        "https://www.publicsenat.fr/emission/documentaire/violences-sexuelles-a-lecole-silence-dans-les-rangs-e0",
+        "https://television.telerama.fr/tele/documentaire/violences-sexuelles-a-l-ecole-silence-dans-les-rangs-1-399164064.php"
+      ],
+      "checked_at": "2026-10-08T08:16:36.041Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Violences sexuelles à l'école : silence dans les rangs",
+        "version": "documentaire 52 minutes"
+      },
+      "evidence_note": "Sophie Romillat, 2025, France, 52 minutes. Catalogue canonique consulté sans correspondance établie.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start"
+      ],
+      "source_urls": [
+        "https://pro.publicsenat.fr/actualites/silence-dans-les-rangs-suivi-d-un-debat-avec-rebecca-fitoussi-dans-un-monde-en-doc-samedi-10-octobre-a-21h-4b18a-02e48.html"
+      ],
+      "checked_at": "2026-10-08T08:16:36.041Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Violences sexuelles à l'école : silence dans les rangs",
+        "dates": [
+          "2026-10-10",
+          "2026-10-11"
+        ]
+      },
+      "evidence_note": "Annonce 21:00 le 10 et 09:35 le 11 ; grille tierce 21:02 et 09:34. Aucun horaire remplacé sans départage.",
+      "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "availability",
+        "expiration"
+      ],
+      "source_urls": [
+        "https://www.publicsenat.fr/emission/documentaire/violences-sexuelles-a-lecole-silence-dans-les-rangs-e0",
+        "https://pro.publicsenat.fr/actualites/silence-dans-les-rangs-suivi-d-un-debat-avec-rebecca-fitoussi-dans-un-monde-en-doc-samedi-10-octobre-a-21h-4b18a-02e48.html"
+      ],
+      "checked_at": "2026-10-08T08:16:36.041Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Violences sexuelles à l'école : silence dans les rangs",
+        "offer": "Public Sénat"
+      },
+      "evidence_note": "Replay non disponible lors de la lecture. Avant-première presse non publique. Aucun droit de lecture ou date d'expiration inventé.",
+      "status": "unavailable"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception",
+        "alternative_evidence"
+      ],
+      "source_urls": [
+        "https://enfance-majuscule.fr/palmares-du-prix-media-enfance-majuscule-2026-nos-8-programmes-laureats-2/",
+        "https://www.lemonde.fr/m-le-mag/article/2025/12/03/jusqu-au-bout-elle-n-a-rien-lache-une-prof-lanceuse-d-alerte-contre-les-violences-sexuelles_6655777_4500055.html",
+        "https://www.blast-info.fr/emissions/2025/pedocriminalite-a-lecole-le-silence-organise--cs5GMbkS_2zB3a5y0Vm7A",
+        "https://television.telerama.fr/tele/documentaire/violences-sexuelles-a-l-ecole-silence-dans-les-rangs-1-399164064.php"
+      ],
+      "checked_at": "2026-10-08T08:16:36.041Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Violences sexuelles à l'école : silence dans les rangs"
+      },
+      "evidence_note": "Prix ex aequo Enfance Majuscule 2026 vérifié ; portée limitée et réserves consignées en coverage. Le Monde et Blast contextualisent, Télérama est une notice. Ne constituent pas un consensus de critiques.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "ratings.imdb",
+        "ratings.senscritique"
+      ],
+      "source_urls": [
+        "https://www.senscritique.com/film/violences_sexuelles_a_l_ecole_silence_dans_les_rangs/139752032"
+      ],
+      "checked_at": "2026-10-08T08:16:36.041Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Violences sexuelles à l'école : silence dans les rangs"
+      },
+      "evidence_note": "Recherches exactes titre/réalisatrice avec deux moteurs : aucun identifiant IMDb exact établi ; fiche SensCritique identifiée mais lecture échouée, aucune note visible dans résultats. Ne prouve pas l'absence de notes ; contrôle incomplet.",
+      "status": "needs_check"
     }
   ],
   "run_metrics": [
@@ -10450,6 +10559,13 @@
       ],
       "matching_canonical_entries_found": 0,
       "note": "Catalogue et registre du cycle consultés ; aucune entrée correspondante établie, aucune fiche ancienne réutilisée."
+    },
+    "documentary_scoped_check": {
+      "checked_at": "2026-10-08T08:16:36.041Z",
+      "title": "Violences sexuelles à l'école : silence dans les rangs",
+      "catalogue_blob_sha": "011262fdd0d57c78b033cf0ce7492d031bc1e47d",
+      "matching_canonical_entries_found": 0,
+      "reused_fields": []
     }
   },
   "documentary_research_queue": [],
