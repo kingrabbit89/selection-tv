@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T12:21:55.491Z",
+  "updated_at": "2026-10-08T13:07:07.781Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -32,7 +32,8 @@
     "RMC+ : Oppenheimer (Eve Vanderstegen, 2024) et Camps perdus (Benoît Cressent, 2021) ont des pages/expirations affichées ; terminer critiques, notes, droits/lecture, versions 51/55/65 min pour Camps perdus. Tom Hanks : réception contrastée documentée, épisodes français 17/18 et diffusion du 16 à confirmer.",
     "Arte préhistoire : Chauvet, Sulawesi et Thorin (cinq diffusions) ont identités, offres affichées et réception attribuée ; vérifier versions linéaires, droits France, notes moyennes, affiches et comparaison éditoriale. Les 52/53/54 min de Thorin ne sont pas interchangeables.",
     "France 5 : ICE, Samouraïs et Looking for Cézanne approfondis ; première critique ICE 3/4 Ciné-Télé-Revue, pas de consensus. Offres Cézanne/Samouraïs affichées avec expirations ; droits/lecture, versions (Samouraïs année 2025/2026), réception manquante, notes et affiches à terminer.",
-    "TCM : A Ghost Story et La falaise mystérieuse disposent d'identités ciblées et de critiques contrastées ; index Orange les mentionne mais fiches 451. Horaires indépendants, durée/version TCM, droits/expiration/abonnement, notes et affiches à terminer."
+    "TCM : A Ghost Story et La falaise mystérieuse disposent d'identités ciblées et de critiques contrastées ; index Orange les mentionne mais fiches 451. Horaires indépendants, durée/version TCM, droits/expiration/abonnement, notes et affiches à terminer.",
+    "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer."
   ],
   "completed_batches": [
     {
@@ -296,6 +297,11 @@
       "id": "cinema-tcm-two-targeted-reception-dossiers",
       "completed_at": "2026-10-08T12:20:18.077Z",
       "description": "Deux films déjà inventoriés examinés : identités et quatre critiques intégrales attribuées, réserves explicites, offres Orange non certifiées. Aucun choix ou carte finale."
+    },
+    {
+      "id": "inventory-rmc-seven-days-second-guide-and-reminder",
+      "completed_at": "2026-10-08T13:06:44.117Z",
+      "description": "127 créneaux comparés ; 2 conflits, trois alias, 4 ajouts bruts. Indépendance non certifiée."
     }
   ],
   "blockers": [
@@ -13956,6 +13962,185 @@
       },
       "evidence_note": "Titre présent dans l'index courant TCM/Orange. Fiche précise renvoie HTTP 451 via outil Web ; pas de contournement. Expiration, droits, abonnement et lecture non certifiés. Index replay non utilisé comme preuve d'horaire.",
       "status": "unavailable"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_title",
+        "broadcast_start",
+        "episode_label"
+      ],
+      "source_urls": [
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-10",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-09",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-10"
+      ],
+      "checked_at": "2026-10-08T13:06:44.117Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channels": [
+          "RMC Story",
+          "RMC Découverte"
+        ]
+      },
+      "evidence_note": "6 créneaux rapprochés à même heure. Titres/épisodes et divergences consignés dans coverage ; fournisseur de données SCREEN+ non identifié, aucune certification indépendante. Les entrées +1 jour sont rattachées à leur date civile.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_title",
+        "broadcast_start",
+        "episode_label"
+      ],
+      "source_urls": [
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-11",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-10",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-11"
+      ],
+      "checked_at": "2026-10-08T13:06:44.117Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channels": [
+          "RMC Story",
+          "RMC Découverte"
+        ]
+      },
+      "evidence_note": "22 créneaux rapprochés à même heure. Titres/épisodes et divergences consignés dans coverage ; fournisseur de données SCREEN+ non identifié, aucune certification indépendante. Les entrées +1 jour sont rattachées à leur date civile.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_title",
+        "broadcast_start",
+        "episode_label"
+      ],
+      "source_urls": [
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-11",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-12",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-12"
+      ],
+      "checked_at": "2026-10-08T13:06:44.117Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "channels": [
+          "RMC Story",
+          "RMC Découverte"
+        ]
+      },
+      "evidence_note": "16 créneaux rapprochés à même heure. Titres/épisodes et divergences consignés dans coverage ; fournisseur de données SCREEN+ non identifié, aucune certification indépendante. Les entrées +1 jour sont rattachées à leur date civile.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_title",
+        "broadcast_start",
+        "episode_label"
+      ],
+      "source_urls": [
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-12",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-13",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-12",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-13"
+      ],
+      "checked_at": "2026-10-08T13:06:44.117Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channels": [
+          "RMC Story",
+          "RMC Découverte"
+        ]
+      },
+      "evidence_note": "21 créneaux rapprochés à même heure. Titres/épisodes et divergences consignés dans coverage ; fournisseur de données SCREEN+ non identifié, aucune certification indépendante. Les entrées +1 jour sont rattachées à leur date civile.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_title",
+        "broadcast_start",
+        "episode_label"
+      ],
+      "source_urls": [
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-13",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-14",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-13",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-14"
+      ],
+      "checked_at": "2026-10-08T13:06:44.117Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channels": [
+          "RMC Story",
+          "RMC Découverte"
+        ]
+      },
+      "evidence_note": "20 créneaux rapprochés à même heure. Titres/épisodes et divergences consignés dans coverage ; fournisseur de données SCREEN+ non identifié, aucune certification indépendante. Les entrées +1 jour sont rattachées à leur date civile.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_title",
+        "broadcast_start",
+        "episode_label"
+      ],
+      "source_urls": [
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-14",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-15",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-14",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-15"
+      ],
+      "checked_at": "2026-10-08T13:06:44.117Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channels": [
+          "RMC Story",
+          "RMC Découverte"
+        ]
+      },
+      "evidence_note": "21 créneaux rapprochés à même heure. Titres/épisodes et divergences consignés dans coverage ; fournisseur de données SCREEN+ non identifié, aucune certification indépendante. Les entrées +1 jour sont rattachées à leur date civile.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast_title",
+        "broadcast_start",
+        "episode_label"
+      ],
+      "source_urls": [
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-15",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-16",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-15",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-16"
+      ],
+      "checked_at": "2026-10-08T13:06:44.117Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "channels": [
+          "RMC Story",
+          "RMC Découverte"
+        ]
+      },
+      "evidence_note": "21 créneaux rapprochés à même heure. Titres/épisodes et divergences consignés dans coverage ; fournisseur de données SCREEN+ non identifié, aucune certification indépendante. Les entrées +1 jour sont rattachées à leur date civile.",
+      "status": "needs_check"
     }
   ],
   "run_metrics": [
@@ -14282,6 +14467,29 @@
         "summary": "Recoupements indépendants, conflits de versions/horaires, offres et critique incomplètes ; sélection, cartes, réserves et revue à produire."
       },
       "note": "Six sous-lots sauvegardés. Aucune phase complète, aucune nouvelle carte certifiée, aucun quota estimé. Pas de notification requise."
+    },
+    {
+      "date": "2026-10-08T13:07:07.781Z",
+      "started_at": "2026-10-08T12:56:49.756Z",
+      "owner": "109c9a33-d9f8-4e3a-bebb-bc1f8cceb754",
+      "stage": "inventory_crosschecks",
+      "elapsed_seconds": 618,
+      "duration_basis": "wall_clock_until_checkpoint",
+      "completed_batches": [
+        "inventory-rmc-seven-days-second-guide-and-reminder"
+      ],
+      "reused_complete_cards": 0,
+      "newly_verified_complete_cards": 0,
+      "raw_schedule_entries": 2229,
+      "new_raw_schedule_entries": 4,
+      "schedule_slots_compared": 127,
+      "blockers": [],
+      "remaining": {
+        "stage": "inventory",
+        "count": 29,
+        "reference": "remaining"
+      },
+      "note": "Indépendance de la seconde grille non certifiée ; aucune phase complète, aucun quota estimé."
     }
   ],
   "source_issues": [
@@ -14429,6 +14637,36 @@
       "checked_at": "2026-10-08T12:20:18.077Z",
       "status": "unavailable",
       "note": "Ouverture 403 ; extrait indexé non retenu comme critique complète. Deux autres critiques complètes lues."
+    },
+    {
+      "source_url": "https://www.rmcplus.fr/chaine/rmc-decouverte",
+      "checked_at": "2026-10-08T13:06:44.117Z",
+      "status": "unavailable",
+      "note": "Page officielle accessible mais horaires du direct 00:00–00:00 et aucune grille datée ; non utilisable comme preuve d'horaire."
+    },
+    {
+      "source_url": "https://www.rmcplus.fr/programme-tv",
+      "checked_at": "2026-10-08T13:06:44.117Z",
+      "status": "unavailable",
+      "note": "Page non exploitable via outil Web."
+    },
+    {
+      "source_url": "https://rmcdecouverte.bfmtv.com/programme-tv/",
+      "checked_at": "2026-10-08T13:06:44.117Z",
+      "status": "unavailable",
+      "note": "Erreur de lecture Web."
+    },
+    {
+      "source_url": "https://rmcstory.bfmtv.com/programme-tv/",
+      "checked_at": "2026-10-08T13:06:44.117Z",
+      "status": "unavailable",
+      "note": "Erreur de lecture Web."
+    },
+    {
+      "source_url": "https://press.wbd.com/fr-fr/brands/tcm-cinema",
+      "checked_at": "2026-10-08T13:06:44.117Z",
+      "status": "unavailable",
+      "note": "Lecture Web refusée 403 ; aucune grille française obtenue."
     }
   ],
   "editorial_review": {
@@ -14547,6 +14785,17 @@
       "logs_read": true,
       "cause": "Seul échec : Require a complete candidate before merging, préparation S42 incomplète. Préparation/public S41 réussis ; navigateur vérifie S41, pas S42 ; étape base-attestation non applicable skipped, pas assimilée à un succès.",
       "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-08T13:06:44.117Z",
+      "head_sha": "77c5df5514cb55cf7a84277d65e78e0288dc2d6f",
+      "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "run_id": 37776425926,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": true,
+      "cause": "Seul échec : Require a complete candidate before merging. Préparation S42 incomplète ; navigateur public S41, pas certification S42. Base-attestation non applicable skipped.",
+      "reusable_only_for_exact_sha": true
     }
   ],
   "catalogue_reuse": {
@@ -14630,10 +14879,11 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "3473e8235bbe0c2d1ece167095793ba22f3ce59a",
+    "checkpoint_parent_sha": "77c5df5514cb55cf7a84277d65e78e0288dc2d6f",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
+      "RMC : réutiliser les 16 grilles SCREEN+ datées et les 127 rapprochements ; résoudre deux conflits et trois alias, identifier les épisodes génériques, établir l'indépendance ou obtenir une source officielle. Quatre ajouts restent à recouper.",
       "Reprendre uniquement les recoupements/identités/conflits encore ouverts dans remaining. TF1 trois ajouts et Paris Première trois J'ai un ticket sont désormais recoupés : ne pas répéter.",
       "T18 14 : neuf titres précisés ; confirmer source officielle/indépendance. CSTAR 16 : Noël à la carte 22:49/22:45, quatre numéros Douanes sans titres rapprochés ; conserver divergences.",
       "Continuer cinéma payant, TV5 FBS et arbitrage des écarts Canal/France Télévisions ; Saint-Ex toujours contradictoire.",
@@ -14641,22 +14891,22 @@
       "Finir inventaire certifié puis sélection/enrichissement/réserves/cartes et revue factuelle ; consulter CI du SHA courant, ne pas sceller avant remaining vide."
     ],
     "publisher": {
-      "checked_at": "2026-10-08T12:21:55.491Z",
-      "run_id": 37775897582,
+      "checked_at": "2026-10-08T13:06:44.117Z",
+      "run_id": 37776578643,
       "head_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
       "status": "completed",
       "conclusion": "skipped",
-      "note": "Run observé sans progression de publication ; skipped ne vaut pas succès. Aucun déclenchement agent."
+      "note": "Aucune progression active ; aucun déclenchement agent."
     },
     "last_ci_observation": {
-      "checked_at": "2026-10-08T12:21:55.491Z",
-      "head_sha": "9bb099c4a41d4dbb207743d2039fa784359ff641",
+      "checked_at": "2026-10-08T13:06:44.117Z",
+      "head_sha": "77c5df5514cb55cf7a84277d65e78e0288dc2d6f",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37775759801,
+      "run_id": 37776425926,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Seul échec : Require a complete candidate before merging, préparation S42 incomplète. Préparation/public S41 réussis ; navigateur vérifie S41, pas S42 ; étape base-attestation non applicable skipped, pas assimilée à un succès.",
+      "cause": "Seul échec : Require a complete candidate before merging. Préparation S42 incomplète ; navigateur public S41, pas certification S42. Base-attestation non applicable skipped.",
       "reusable_only_for_exact_sha": true
     },
     "latest_candidate_ci": {
