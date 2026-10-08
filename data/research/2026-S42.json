@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T10:25:49.850Z",
+  "updated_at": "2026-10-08T10:27:58.818Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -25,7 +25,8 @@
     "TV5MONDE+ : Didy dispose de deux critiques attribuées et d'une identité festival ; durée/version, droits France, expiration, notes et affiche à terminer. Trois nouvelles pistes de l'accueil restent à examiner ; grille linéaire FBS à recouper.",
     "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes.",
     "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma.",
-    "france.tv 16 octobre : quatre nouvelles pistes documentées (Replica, Influence mortelle, Lâche ton tel, Sommes-nous tous accros aux écrans ?) ; vérifier offres/expirations, versions et réception manquante avant toute sélection."
+    "france.tv 16 octobre : quatre nouvelles pistes documentées (Replica, Influence mortelle, Lâche ton tel, Sommes-nous tous accros aux écrans ?) ; vérifier offres/expirations, versions et réception manquante avant toute sélection.",
+    "TF1/TFX/TMC : poursuivre les sujets/épisodes encore génériques et le tri motivé des formats de magazine ou documentaire de flux repérés ; neuf créneaux TFX, 38 TMC recoupés et deux magazines supplémentaires ajoutés, sans certification artistique."
   ],
   "completed_batches": [
     {
@@ -219,6 +220,11 @@
       "id": "inventory-tmc-official-week",
       "completed_at": "2026-10-08T10:25:49.850Z",
       "description": "38 créneaux existants recoupés avec TMC officiel, alias d'un téléfilm réconcilié, un magazine manquant ajouté et recoupé."
+    },
+    {
+      "id": "inventory-tfx-official-week",
+      "completed_at": "2026-10-08T10:27:58.818Z",
+      "description": "Neuf diffusions recoupées, une omission nocturne réintégrée avec date civile et sujet, version de Sacrées Sorcières identifiée."
     }
   ],
   "blockers": [
@@ -11809,6 +11815,46 @@
       },
       "evidence_note": "38 créneaux existants rapprochés, dont alias Noël dans tes bras vérifié séparément ; un magazine manquant ajouté. Les sujets Animaux à adopter/90' non détaillés dans la grille hebdomadaire restent à confirmer individuellement.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "broadcast.title"
+      ],
+      "source_urls": [
+        "https://tf1pro.com/grilles-tv/TFX/2026-10-10",
+        "https://tf1pro.com/grilles-tv/tfx/jour/2026-10-12",
+        "https://tv-programme.com/tfx/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T10:27:58.818Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "TFX",
+        "existing_slots": 9,
+        "new_slots": 1
+      },
+      "evidence_note": "Neuf créneaux existants concordants ; une émission nocturne ajoutée le 13. Sous-titres des autres magazines non tous recoupés.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "director",
+        "cast",
+        "version_identity"
+      ],
+      "source_urls": [
+        "https://tf1pro.com/programmes/diffusion/2026-10-16-2110-sacrees-sorcieres"
+      ],
+      "checked_at": "2026-10-08T10:27:58.818Z",
+      "stability": "stable",
+      "applies_to": "Sacrées Sorcières diffusé le 16 octobre sur TFX",
+      "evidence_note": "Version réalisée par Robert Zemeckis avec Anne Hathaway, Octavia Spencer et Stanley Tucci (fiche TF1 Pro du 16 octobre) ; ne pas confondre avec la version de Nicolas Roeg.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -12251,7 +12297,7 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "6e4cb907a1b4d0ff5d5671af912f8bd5ce3a5a6a",
+    "checkpoint_parent_sha": "3358b4413b2afe8d56f21e7b2371a759e86d5586",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
