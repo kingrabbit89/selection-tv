@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T10:27:58.818Z",
+  "updated_at": "2026-10-08T10:30:12.194Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -26,7 +26,8 @@
     "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes.",
     "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma.",
     "france.tv 16 octobre : quatre nouvelles pistes documentées (Replica, Influence mortelle, Lâche ton tel, Sommes-nous tous accros aux écrans ?) ; vérifier offres/expirations, versions et réception manquante avant toute sélection.",
-    "TF1/TFX/TMC : poursuivre les sujets/épisodes encore génériques et le tri motivé des formats de magazine ou documentaire de flux repérés ; neuf créneaux TFX, 38 TMC recoupés et deux magazines supplémentaires ajoutés, sans certification artistique."
+    "TF1/TFX/TMC : poursuivre les sujets/épisodes encore génériques et le tri motivé des formats de magazine ou documentaire de flux repérés ; neuf créneaux TFX, 38 TMC recoupés et deux magazines supplémentaires ajoutés, sans certification artistique.",
+    "TF1 : confirmer sur pages indépendantes Cat's Eyes saison 2 du 12 octobre (21:10 et 22:15) et Les docs du week-end du 11 (16:10) ; sources officielles lues, résultats indépendants indexés mais pages non exploitables. Identités canoniques, critique, durée/version et offres à traiter avant sélection."
   ],
   "completed_batches": [
     {
@@ -225,6 +226,11 @@
       "id": "inventory-tfx-official-week",
       "completed_at": "2026-10-08T10:27:58.818Z",
       "description": "Neuf diffusions recoupées, une omission nocturne réintégrée avec date civile et sujet, version de Sacrées Sorcières identifiée."
+    },
+    {
+      "id": "inventory-tf1-official-week",
+      "completed_at": "2026-10-08T10:30:12.194Z",
+      "description": "16 créneaux existants recoupés, trois omissions réintégrées depuis les sources officielles ; deuxième source directe encore à obtenir pour ces trois ajouts."
     }
   ],
   "blockers": [
@@ -11855,6 +11861,139 @@
       "applies_to": "Sacrées Sorcières diffusé le 16 octobre sur TFX",
       "evidence_note": "Version réalisée par Robert Zemeckis avec Anne Hathaway, Octavia Spencer et Stanley Tucci (fiche TF1 Pro du 16 octobre) ; ne pas confondre avec la version de Nicolas Roeg.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "season",
+        "episode_title",
+        "director"
+      ],
+      "source_urls": [
+        "https://tf1pro.com/programmes/diffusion/2026-10-12-2110-cats-eyes-un-nouvel-espoir"
+      ],
+      "checked_at": "2026-10-08T10:30:12.194Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "start": "21:10",
+        "season": 2
+      },
+      "evidence_note": "Source officielle lue ; saison 2 et épisode précis identifiés. Ne prouve ni accès TF1+ ni réception critique.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "independent_schedule_crosscheck"
+      ],
+      "source_urls": [
+        "https://programme-tv.nouvelobs.com/serie/cat-s-eyes-s38551/saison-2/episode-1-un-nouvel-espoir-1977343/"
+      ],
+      "checked_at": "2026-10-08T10:30:12.194Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "start": "21:10"
+      },
+      "evidence_note": "Résultat indexé concordant consulté ; ouverture de la page en erreur. Confirmation sur page indépendante restant nécessaire.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "season",
+        "episode_title",
+        "director"
+      ],
+      "source_urls": [
+        "https://tf1pro.com/programmes/diffusion/2026-10-12-2215-cats-eyes-linconnu-du-train"
+      ],
+      "checked_at": "2026-10-08T10:30:12.194Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "start": "22:15",
+        "season": 2
+      },
+      "evidence_note": "Source officielle lue ; saison 2 et épisode précis identifiés. Ne prouve ni accès TF1+ ni réception critique.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "independent_schedule_crosscheck"
+      ],
+      "source_urls": [
+        "https://programme-tv.nouvelobs.com/serie/cat-s-eyes-s38551/saison-2/episode-2-l-inconnu-du-train-1977344/"
+      ],
+      "checked_at": "2026-10-08T10:30:12.194Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "start": "22:15"
+      },
+      "evidence_note": "Résultat indexé concordant consulté ; ouverture de la page en erreur. Confirmation sur page indépendante restant nécessaire.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "episode_title"
+      ],
+      "source_urls": [
+        "https://tf1pro.com/programmes/diffusion/2026-10-11-1610-les-docs-du-week-end-fini-le-gaspi-bonjour-les-economies"
+      ],
+      "checked_at": "2026-10-08T10:30:12.194Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "start": "16:10"
+      },
+      "evidence_note": "Sujet et diffusion lus sur TF1 Pro ; Ouest-France fournit un indice indépendant mais recoupement direct à terminer.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "broadcast.title"
+      ],
+      "source_urls": [
+        "https://tf1pro.com/grilles-tv/TF1/2026-10-10",
+        "https://tv-programme.com/tf1/samedi-10-octobre-2026/",
+        "https://tv-programme.com/tf1/dimanche-11-octobre-2026/",
+        "https://tv-programme.com/tf1/lundi-12-octobre-2026/",
+        "https://tv-programme.com/tf1/mardi-13-octobre-2026/",
+        "https://tv-programme.com/tf1/mercredi-14-octobre-2026/",
+        "https://tv-programme.com/tf1/jeudi-15-octobre-2026/",
+        "https://tv-programme.com/tf1/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T10:30:12.194Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "TF1",
+        "newly_compared_existing_slots": 16
+      },
+      "evidence_note": "16 créneaux existants recoupés ; Intraçables déjà contrôlé dans ce passage n'est pas compté à nouveau. Sujets Grands reportages à confirmer séparément.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -12297,7 +12436,7 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "3358b4413b2afe8d56f21e7b2371a759e86d5586",
+    "checkpoint_parent_sha": "b697fe96179247f77e76c95ef467ec06dbb74f6b",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
