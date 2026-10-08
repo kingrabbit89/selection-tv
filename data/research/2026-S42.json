@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
   "stage": "inventory",
-  "updated_at": "2026-10-08T06:24:20.777Z",
+  "updated_at": "2026-10-08T06:27:31.236Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -12,7 +12,8 @@
     "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
     "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV.",
     "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue.",
-    "Compléter les grilles T18 des 14 et 15 octobre : TV-Programme indisponible, Télérama/Télé7/Vualatele ouverts périmés. Autres sources datées nécessaires."
+    "Compléter les grilles T18 des 14 et 15 octobre : TV-Programme indisponible, Télérama/Télé7/Vualatele ouverts périmés. Autres sources datées nécessaires.",
+    "Réconcilier les titres/horaires signalés conflict dans l'inventaire après consultation des guides officiels Arte ; ne pas traiter automatiquement une variante comme même œuvre."
   ],
   "completed_batches": [
     {
@@ -71,6 +72,11 @@
       "id": "inventory-structural-reconciliation",
       "completed_at": "2026-10-08T06:25:01.065Z",
       "description": "Libellé RTL9 normalisé, compteurs réconciliés ; deux interstitiels Imprévus retirés ; contrôle du théâtre dans les relevés."
+    },
+    {
+      "id": "inventory-arte-official-crosscheck",
+      "completed_at": "2026-10-08T06:27:31.236Z",
+      "description": "Guides officiels Arte du 9, 11 et 14 octobre consultés (nuit reportée sur date civile) ; 38 créneaux concordants, 5 entrées complémentaires, 5 rapprochements à revoir."
     }
   ],
   "blockers": [
@@ -4912,6 +4918,356 @@
       },
       "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
       "status": "verified"
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "raw_title",
+        "programme_type"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/guide/20261009/"
+      ],
+      "checked_at": "2026-10-08T06:26:33.716Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "Arte"
+      },
+      "evidence_note": "Guide officiel ARTE lu. Changement de date après minuit appliqué ; preuves indépendantes du guide tiers. Les discordances restent ouvertes et ne valent pas qualité éditoriale.",
+      "status": "verified",
+      "observations": [
+        {
+          "title": "Monk, Pannonica - Une histoire américaine",
+          "start": "01:25",
+          "status": "corroborated"
+        },
+        {
+          "title": "ARTE Regards Pologne : Le retour au pays du \"plombier polonais\"",
+          "start": "03:30",
+          "status": "corroborated"
+        }
+      ]
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "raw_title",
+        "programme_type"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/guide/20261011/"
+      ],
+      "checked_at": "2026-10-08T06:26:32.595Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "Arte"
+      },
+      "evidence_note": "Guide officiel ARTE lu. Changement de date après minuit appliqué ; preuves indépendantes du guide tiers. Les discordances restent ouvertes et ne valent pas qualité éditoriale.",
+      "status": "verified",
+      "observations": [
+        {
+          "title": "Construire autrement L'économie circulaire dans le bâtiment",
+          "start": "05:05",
+          "status": "corroborated"
+        },
+        {
+          "title": "Les étonnantes techniques des bâtisseurs de la pyramide de Khéops",
+          "start": "06:00",
+          "status": "corroborated"
+        },
+        {
+          "title": "Secrets sauvages du patrimoine Au fil de l'eau",
+          "start": "06:50",
+          "status": "corroborated"
+        },
+        {
+          "title": "L'ancien fait peau neuve - Une nouvelle vie pour des bâtiments historiques Des bâtiments industriels",
+          "start": "07:35",
+          "status": "needs_reconciliation"
+        },
+        {
+          "title": "Mary Cassatt, peintre impressionniste",
+          "start": "08:35",
+          "status": "corroborated"
+        },
+        {
+          "title": "Les mythes vikings Sigurd et la Valkyrie déchue",
+          "start": "09:30",
+          "status": "corroborated"
+        },
+        {
+          "title": "Les délices de Ligurie Les golfes Paradiso et Tigullio - L'alchimie des saveurs",
+          "start": "09:55",
+          "status": "corroborated"
+        },
+        {
+          "title": "De l’art ou du cochon ?La créativité animale en question",
+          "start": "10:30",
+          "status": "corroborated"
+        },
+        {
+          "title": "Les animaux, sauveurs des forêts tropicales Au cœur de la forêt",
+          "start": "11:15",
+          "status": "needs_reconciliation"
+        },
+        {
+          "title": "Les animaux, sauveurs des forêts tropicales À la lisière de la forêt",
+          "start": "11:55",
+          "status": "corroborated"
+        },
+        {
+          "title": "Les animaux, sauveurs des forêts tropicales Les alliés de la forêt",
+          "start": "12:40",
+          "status": "corroborated"
+        },
+        {
+          "title": "Stardust, le mystère de l'étoile",
+          "start": "13:30",
+          "status": "corroborated"
+        },
+        {
+          "title": "Cuisines des terroirs Le massif de la Rhön, Allemagne",
+          "start": "15:40",
+          "status": "corroborated"
+        },
+        {
+          "title": "Le château de Schönbrunn Les fastes de la cour de Vienne",
+          "start": "16:10",
+          "status": "corroborated"
+        },
+        {
+          "title": "Monet et les \"Nymphéas\", l’éternité retrouvée",
+          "start": "17:45",
+          "status": "corroborated"
+        },
+        {
+          "title": "Riccardo Chailly et Lukas Sternath interprètent Rachmaninov Festival de Lucerne 2026",
+          "start": "18:40",
+          "status": "corroborated"
+        },
+        {
+          "title": "Couples mythiques du cinéma Ali MacGraw et Steve McQueen",
+          "start": "20:05",
+          "status": "corroborated"
+        },
+        {
+          "title": "Shutter Island",
+          "start": "21:00",
+          "status": "corroborated"
+        },
+        {
+          "title": "Matrix Generation",
+          "start": "23:10",
+          "status": "corroborated"
+        }
+      ]
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "raw_title",
+        "programme_type"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/guide/20261011/"
+      ],
+      "checked_at": "2026-10-08T06:26:32.595Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "channel": "Arte"
+      },
+      "evidence_note": "Guide officiel ARTE lu. Changement de date après minuit appliqué ; preuves indépendantes du guide tiers. Les discordances restent ouvertes et ne valent pas qualité éditoriale.",
+      "status": "verified",
+      "observations": [
+        {
+          "title": "L'enfant seul",
+          "start": "00:05",
+          "status": "corroborated"
+        },
+        {
+          "title": "Turbulence",
+          "start": "00:35",
+          "status": "corroborated"
+        },
+        {
+          "title": "L'homme au cheval blanc",
+          "start": "01:50",
+          "status": "corroborated"
+        },
+        {
+          "title": "360° Reportage Vietnam, des ponts pour sauver les singes",
+          "start": "03:25",
+          "status": "corroborated"
+        },
+        {
+          "title": "Les Blackfoot de l’Alberta Sur la piste des peuples premiers",
+          "start": "04:00",
+          "status": "corroborated"
+        }
+      ]
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "raw_title",
+        "programme_type"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/guide/20261014/"
+      ],
+      "checked_at": "2026-10-08T06:26:33.337Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "Arte"
+      },
+      "evidence_note": "Guide officiel ARTE lu. Changement de date après minuit appliqué ; preuves indépendantes du guide tiers. Les discordances restent ouvertes et ne valent pas qualité éditoriale.",
+      "status": "verified",
+      "observations": [
+        {
+          "title": "Comment enrayer l’extinction des espèces ?42 - La réponse à presque tout",
+          "start": "05:00",
+          "status": "needs_reconciliation"
+        },
+        {
+          "title": "Babylone - Prague (1/2)Les années folles",
+          "start": "05:25",
+          "status": "needs_reconciliation"
+        },
+        {
+          "title": "Babylone - Prague (2/2)Une tempête se prépare",
+          "start": "06:10",
+          "status": "needs_reconciliation"
+        },
+        {
+          "title": "360° Reportage Cuba, le grand retour des boxeuses",
+          "start": "06:55",
+          "status": "corroborated"
+        },
+        {
+          "title": "Invitation au voyage La Turquie d'Emin Alper / Angleterre / Norvège",
+          "start": "08:20",
+          "status": "needs_reconciliation"
+        },
+        {
+          "title": "Invitation au voyage Nancy / Philippines / Grande-Bretagne",
+          "start": "09:05",
+          "status": "needs_reconciliation"
+        },
+        {
+          "title": "Orient-Express, le voyage d'une légende",
+          "start": "09:55",
+          "status": "corroborated"
+        },
+        {
+          "title": "Un billet de train pour l'Afrique du Sud",
+          "start": "11:15",
+          "status": "corroborated"
+        },
+        {
+          "title": "Zèbres, la grande galopade",
+          "start": "12:00",
+          "status": "corroborated"
+        },
+        {
+          "title": "ARTE Regards Les disparus de la guerre du Kosovo",
+          "start": "13:00",
+          "status": "corroborated"
+        },
+        {
+          "title": "Arabesque",
+          "start": "13:35",
+          "status": "corroborated"
+        },
+        {
+          "title": "Nomade des mers, les escales de l'innovation Madagascar, Tuléar",
+          "start": "15:15",
+          "status": "corroborated"
+        },
+        {
+          "title": "Les lionnes de Namibie, reines de la côte des Squelettes",
+          "start": "15:45",
+          "status": "corroborated"
+        },
+        {
+          "title": "Inde - Le monde merveilleux des grenouilles",
+          "start": "16:40",
+          "status": "corroborated"
+        },
+        {
+          "title": "Invitation au voyage Groenland / Paris / États-Unis",
+          "start": "17:25",
+          "status": "needs_reconciliation"
+        },
+        {
+          "title": "Invitation au voyage Bosnie / La Tunisie de Bourguiba / États-Unis",
+          "start": "18:10",
+          "status": "needs_reconciliation"
+        },
+        {
+          "title": "Le dessous des cartes - L'essentiel",
+          "start": "20:50",
+          "status": "needs_reconciliation"
+        },
+        {
+          "title": "Miséricorde",
+          "start": "21:00",
+          "status": "corroborated"
+        },
+        {
+          "title": "Compétition officielle",
+          "start": "22:40",
+          "status": "corroborated"
+        }
+      ]
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "raw_title",
+        "programme_type"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/guide/20261014/"
+      ],
+      "checked_at": "2026-10-08T06:26:33.337Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "Arte"
+      },
+      "evidence_note": "Guide officiel ARTE lu. Changement de date après minuit appliqué ; preuves indépendantes du guide tiers. Les discordances restent ouvertes et ne valent pas qualité éditoriale.",
+      "status": "verified",
+      "observations": [
+        {
+          "title": "Hollywood : sexe et puritanisme",
+          "start": "02:00",
+          "status": "corroborated"
+        },
+        {
+          "title": "Barbie, la femme parfaite ?",
+          "start": "02:55",
+          "status": "corroborated"
+        },
+        {
+          "title": "ARTE Regards Les bienfaits du jeûne thérapeutique",
+          "start": "03:50",
+          "status": "corroborated"
+        }
+      ]
     }
   ],
   "run_metrics": [
@@ -5006,5 +5362,22 @@
   ],
   "editorial_review": {
     "completed": false
-  }
+  },
+  "ci_evidence": [
+    {
+      "run_id": 37737217592,
+      "head_sha": "52731e57cd4b7971a69fbd02184d0a6f99334828",
+      "base_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
+      "status": "failure",
+      "checked_at": "2026-10-08T06:25:37.254Z",
+      "url": "https://github.com/kingrabbit89/selection-tv/actions/runs/37737217592",
+      "causes": [
+        "Livrables hebdomadaires non encore produits (manifeste draft, weeks, radar-reserves, coquille).",
+        "Inventaire non certifié, recoupements non terminés, Paramount inactive.",
+        "Libellé RTL9 corrigé dans e7d1d4542ee014fc53822f749260414e378f663d ; grilles Ciné+ Emotion/TV5MONDE récupérées.",
+        "browser-presentation : Timeout 30000ms dans settle (validate-layout.mjs), coquille S42 encore absente. À recontrôler après création des livrables."
+      ],
+      "reusable_as_success": false
+    }
+  ]
 }
