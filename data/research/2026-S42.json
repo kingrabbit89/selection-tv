@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T09:28:04.631Z",
+  "updated_at": "2026-10-08T09:32:56.558Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -193,6 +193,11 @@
       "id": "inventory-m6-group-night-boundaries-and-w9-subjects",
       "completed_at": "2026-10-08T09:28:04.631Z",
       "description": "Frontières nocturnes contrôlées ; six émissions W9 ajoutées et six sujets recoupés."
+    },
+    {
+      "id": "inventory-final-night-and-portobello-crosschecks",
+      "completed_at": "2026-10-08T09:32:56.558Z",
+      "description": "Onze ajouts récents recoupés avec le guide TV-Programme, dont six émissions de nuit W9, Fréquenstar et les trois Portobello."
     }
   ],
   "blockers": [
@@ -11388,6 +11393,47 @@
       },
       "evidence_note": "Six sujets de magazines déjà inventoriés confirmés par dossier détaillé ; six départs nocturnes ajoutés aux 10 et 15 octobre. Pas de réception critique inférée.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "date",
+        "start",
+        "programme_title",
+        "episode_subject"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/w9/samedi-10-octobre-2026/",
+        "https://tv-programme.com/w9/dimanche-11-octobre-2026/",
+        "https://tv-programme.com/w9/jeudi-15-octobre-2026/",
+        "https://tv-programme.com/arte/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T09:32:56.558Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channels": [
+          "W9",
+          "Arte"
+        ]
+      },
+      "evidence_note": "11 entrées récentes corroborées avec les dossiers officiels : Montargis 1/2,2/2, Home-jacking le 10 ; Fréquenstar/Hoshi le 11 ; Vanessa Melet 2/2, Amiens 1/2,2/2 le 15 ; Dessous des images/frites et Portobello 1–3 le 15. Lecture via moteur Web après boucle HTTP 302 en accès direct. Pas de certification artistique.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "source_independence"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cgu",
+        "https://www.programme-tv.com/privacy.html"
+      ],
+      "checked_at": "2026-10-08",
+      "stability": "stable",
+      "applies_to": "inventory source families",
+      "evidence_note": "Pages légales consultées : TV-Programme édité par Tabom ; Programme-TV.com, Mon-Programme-TV.be et Mijn-TV-Gids.be appartiennent à Pragma Consult. Ces trois derniers ne constituent pas trois sources indépendantes. Origine des flux Télérama/TV-Programme non établie : comparaisons TV5 séparées des recoupements officiels.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -11515,6 +11561,53 @@
         "TV5MONDE+ : Didy dispose de deux critiques attribuées et d'une identité festival ; durée/version, droits France, expiration, notes et affiche à terminer. Trois nouvelles pistes de l'accueil restent à examiner ; grille linéaire FBS à recouper."
       ],
       "note": "Volumes bruts incluent les entrées en conflit conservées pour audit. Aucun chiffre de quota/crédits disponible ; aucune sélection finale ou nouvelle fiche complète certifiée."
+    },
+    {
+      "date": "2026-10-08T09:32:56.558Z",
+      "started_at": "2026-10-08T09:05:26.120Z",
+      "owner": "07e5c90a-d7ee-4404-ac83-6e3e3889ebbc",
+      "stage": "inventory_crosschecks_and_editorial_reminder",
+      "elapsed_seconds": 1650,
+      "duration_basis": "wall_clock_measured_until_final_checkpoint_preparation",
+      "completed_batches": [
+        "inventory-tv5-fbs-dated-guide-comparison",
+        "inventory-m6-w9-6ter-official-week",
+        "inventory-canal-monthly-three-channels",
+        "inventory-arte-five-official-grids-recovered",
+        "inventory-m6-group-night-boundaries-and-w9-subjects",
+        "inventory-final-night-and-portobello-crosschecks"
+      ],
+      "reused_complete_cards": 0,
+      "newly_verified_complete_cards": 0,
+      "raw_schedule_entries": 2207,
+      "new_raw_schedule_entries": 21,
+      "exact_schedule_comparisons_with_official_sources": 213,
+      "second_guide_comparisons_independence_pending": 50,
+      "canal_time_conflicts": 149,
+      "blockers": [],
+      "remaining": [
+        "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+        "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+        "Réconcilier les horaires et doublons ambigus : Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min).",
+        "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
+        "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV.",
+        "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue.",
+        "France 5 : Pompéi et Foucault réconciliés par les grilles officielles ; revérifier au préflight. Quatre écarts La p'tite librairie, versions/durées et fins de nuit restent à traiter. Offres replay, expirations, réception complémentaire et notes encore incomplètes.",
+        "T18 14 octobre relevée ; identifier les épisodes regroupés et recouper les horaires. LeZapp associe au titre Face à face une description politique incompatible avec son type série : ne pas réutiliser ce synopsis.",
+        "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
+        "TF1 Séries Films et CSTAR : 7 jours relevés, recoupements indépendants encore à compléter ; épisodes Douanes sous haute surveillance à identifier avant tout examen approfondi.",
+        "Rappel TNT : traiter les programmes non rapprochés consignés dans editorial_reminder_passes ; ne pas déduire l'identité d'une simple proximité de titre (soirée Marine notamment). Compléter rappel cinéma payant et recoupements manquants.",
+        "Rappel TNT : Fréquenstar résolu sur W9 dimanche 11:20 (Hoshi) ; sujets Envoyé spécial et Au cœur de l'enquête à obtenir. Intraçables : type épisode/téléfilm à réconcilier ; Meurtres à Cayenne confirmé téléfilm policier par le diffuseur.",
+        "France 2/3 : grilles manquantes du 10 et du 15 récupérées ; départager Dodin Bouffant 02:55/03:05 le 12 et fausse entrée La p'tite librairie 12:15 le 15. Collections génériques/épisodes à compléter.",
+        "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
+        "Public Sénat : Silence dans les rangs documenté (prix et limites de réception), horaires légèrement divergents et replay indisponible ; terminer offre/expiration, notes, affiche et revue comparative.",
+        "France 4 : compléter réception/offres documentaires et épisodes génériques ; résoudre Rachelle Allison 20:30 contre Naimro/Allison 20:35 le 15. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle.",
+        "France 4 documentaires : Wachowski (Thibaut Sève, distinct de Matrix Generation) a des avis attribués mais durée 61/62/70 min à départager ; On ne va pas se défiler réintégré comme documentaire, critique/offre 2026 à compléter.",
+        "TV5MONDE+ : Didy dispose de deux critiques attribuées et d'une identité festival ; durée/version, droits France, expiration, notes et affiche à terminer. Trois nouvelles pistes de l'accueil restent à examiner ; grille linéaire FBS à recouper.",
+        "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes.",
+        "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma."
+      ],
+      "note": "213 rapprochements exacts de créneaux pendant ce passage, incluant quelques diffusions déjà corroborées avant le passage ; aucun décompte de fiches complètes ni de quota. 149 divergences horaires Canal conservées. Les 50 comparaisons TV5 ne sont pas certifiées indépendantes."
     }
   ],
   "source_issues": [
@@ -11608,6 +11701,12 @@
       "checked_at": "2026-10-08T09:08:41.901Z",
       "status": "resolved_via_dated_navigation",
       "note": "Ouverture directe renvoyait 30 mars malgré index 12 octobre ; lien daté depuis samedi, avec slash terminal, a fourni la grille 12 octobre. Même anomalie mercredi (mai), jeudi (mars), vendredi (9 octobre) : seuls contenus datés du cycle utilisés."
+    },
+    {
+      "url": "https://www.tv5mondeplus.com/fr/guide-tv",
+      "checked_at": "2026-10-08T09:32:56.558Z",
+      "status": "regional_feed_not_established",
+      "note": "Le guide public chargé choisit America/New_York et channelId=4. Modifier seulement le fuseau Europe/Paris ne démontre pas l'antenne FBS ; réponse sans paramètre chaîne du 10 commence à 04:05 Secrets de nos vallées, différente du relevé FBS. Liste publique des directs ne renvoie que Voyage et Chef (FAST). Ne pas utiliser ce flux pour certifier les heures FBS ; aucune restriction d'accès contournée."
     }
   ],
   "editorial_review": {
@@ -11671,6 +11770,17 @@
       "browser_presentation": "success",
       "cause": "Seul échec effectif : Require a complete candidate before merging, préparation S42 inachevée. Contrôles précédents du numéro publié réussis ; revalidation base non applicable sautée. Aucun résultat ne valide S42.",
       "action": "Poursuivre les recherches ; aucun contournement ni relance du même SHA."
+    },
+    {
+      "checked_at": "2026-10-08T09:32:56.558Z",
+      "head_sha": "b6ea50824323deb98a62b5ed78bdf719e519e12d",
+      "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "run_id": 37756865929,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": true,
+      "cause": "Seul échec : Require a complete candidate before merging ; S42 encore en préparation. Étapes précédentes du contexte préparation/public S41 réussies ; revalidation base non applicable skipped. Aucun de ces résultats ne certifie S42 prête.",
+      "reusable_only_for_exact_sha": true
     }
   ],
   "catalogue_reuse": {
@@ -11742,7 +11852,7 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "cb048b8585fe0d9a5998345618ca57e60f3b9f3a",
+    "checkpoint_parent_sha": "b6ea50824323deb98a62b5ed78bdf719e519e12d",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
@@ -11752,42 +11862,45 @@
       "Terminer l'inventaire puis la sélection/enrichissement et les livrables. Sceller uniquement après revue factuelle et éditoriale achevée."
     ],
     "publisher": {
-      "last_inspected_run": 37749111981,
+      "last_inspected_run": 37750404538,
       "status": "completed",
       "conclusion": "skipped",
       "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "checked_at": "2026-10-08T08:30:00.672Z",
-      "note": "État relu pendant ce passage : dernière exécution completed/skipped ; aucune promotion active observée. Skipped ne vaut pas réussite ; fenêtre de fusion non ouverte."
+      "checked_at": "2026-10-08",
+      "note": "Inspection en début de passage ; aucun publicateur actif observé. La tentative de rafraîchissement via endpoint workflows/runs a été refusée par le connecteur (URL non prise en charge), aucune conclusion nouvelle. Skipped ne vaut pas réussite."
     },
     "last_ci_observation": {
-      "run_id": 37750134738,
-      "head_sha": "cb048b8585fe0d9a5998345618ca57e60f3b9f3a",
+      "checked_at": "2026-10-08T09:32:56.558Z",
+      "head_sha": "b6ea50824323deb98a62b5ed78bdf719e519e12d",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "status": "queued",
-      "checked_at": "2026-10-08T08:30:00.672Z",
-      "note": "Contrôle du sous-lot TV5 en attente. Le checkpoint final produit un nouveau SHA : consulter ses propres contrôles à la reprise. Succès S41 n'atteste pas S42."
+      "run_id": 37756865929,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": true,
+      "cause": "Seul échec : Require a complete candidate before merging ; S42 encore en préparation. Étapes précédentes du contexte préparation/public S41 réussies ; revalidation base non applicable skipped. Aucun de ces résultats ne certifie S42 prête.",
+      "reusable_only_for_exact_sha": true
     }
   },
   "structure_check": {
-    "checked_at": "2026-10-08T08:30:00.672Z",
+    "checked_at": "2026-10-08T09:30:58.825Z",
     "errors": [],
-    "raw_total": 2186,
+    "raw_total": 2207,
     "days": [
       {
         "date": "2026-10-10",
-        "count": 301
+        "count": 307
       },
       {
         "date": "2026-10-11",
-        "count": 327
+        "count": 330
       },
       {
         "date": "2026-10-12",
-        "count": 306
+        "count": 308
       },
       {
         "date": "2026-10-13",
-        "count": 315
+        "count": 316
       },
       {
         "date": "2026-10-14",
@@ -11795,13 +11908,13 @@
       },
       {
         "date": "2026-10-15",
-        "count": 304
+        "count": 311
       },
       {
         "date": "2026-10-16",
-        "count": 320
+        "count": 322
       }
     ],
-    "note": "Comptes par chaîne et coverage réconciliés sur sept dates. Référence historique d'arrêt Paramount ajoutée aux source_pages déjà présentes dans channel_sources ; pas une nouvelle consultation ni une chaîne scannée. Contrôle de structure seulement, aucune certification des 2186 entrées."
+    "note": "Sept dates et comptes par chaîne/coverage réconciliés. Vérification de structure uniquement, pas certification factuelle ou artistique de toutes les entrées."
   }
 }
