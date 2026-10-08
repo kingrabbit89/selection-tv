@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "partial",
-  "updated_at": "2026-10-08T12:09:08.897Z",
+  "updated_at": "2026-10-08T12:16:34.846Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -451,6 +451,27 @@
         ],
         "checked_at": "2026-10-08T12:06:46.361Z",
         "note": "Trois documentaires de préhistoire déjà inventoriés ; grilles officielles du lot antérieur réutilisées avec leur date d'origine. Hominides fiche Thorin reprend le descriptif Arte : non comptée comme critique indépendante ; article de jury distinct identifié."
+      },
+      {
+        "broadcaster": "France 5 / france.tv",
+        "mode": "targeted_identity_replay_and_critical_research",
+        "source_urls": [
+          "https://ftvpro.francetv.fr/contenu-de-presse/78546934",
+          "https://www.incognita-distribution.com/programme/ice-la-chasse-a-lhomme/",
+          "https://programmestv.sudinfo.be/series/ice-la-chasse-a-l-homme/1002093789",
+          "https://www.francetvpro.fr/contenu-de-presse/78675757",
+          "https://www.film-documentaire.fr/4DACTION/w_fiche_film/80678",
+          "https://www.programme-television.org/type/documentaires/autres/culture/on-les-appelle-samourais-439086743",
+          "https://shows.acast.com/notabenemovies/episodes/des-empruntes-de-pas-ensanglantees-sur-le-plafond-dun-temple",
+          "https://www.france.tv/documentaires/documentaires-histoire/8600927-on-les-appelle-samourais.html",
+          "https://ftvpro.francetv.fr/contenu-de-presse/78406824",
+          "https://www.musee-orsay.fr/fr/magazine/2026-10-06/documentaire-looking-cezanne",
+          "https://www.programme-television.org/type/documentaires/autres/art/looking-for-cezanne-443097484",
+          "https://television.telerama.fr/tele/documentaire/looking-for-cezanne-1-443097484.php",
+          "https://www.france.tv/documentaires/documentaires-art-et-culture/8858031-looking-for-cezanne.html"
+        ],
+        "checked_at": "2026-10-08T12:16:34.846Z",
+        "note": "Trois documentaires déjà inventoriés, sans nouvelle sélection. Musée d'Orsay coproduit Cézanne ; entretien Nota Bene autopromotion : non comptés comme critique indépendante. Offres affichées ne prouvent pas la lecture."
       }
     ],
     "candidates": [
@@ -1996,8 +2017,64 @@
         "start": "21:07",
         "decision": "à vérifier",
         "availability_source": "https://tv-programme.com/france-5/dimanche-11-octobre-2026/",
-        "critical_evidence": [],
-        "reason": "Inventaire brut ; identité, qualité critique et disponibilité numérique à examiner."
+        "critical_evidence": [
+          {
+            "source": "Ciné-Télé-Revue / Sudinfo",
+            "source_url": "https://programmestv.sudinfo.be/series/ice-la-chasse-a-l-homme/1002093789",
+            "kind": "professional_review",
+            "access": "full",
+            "assessment": "La rédaction souligne l'impact de l'analyse du dispositif de violence étatique et de sa représentation.",
+            "rating": {
+              "value": 3,
+              "scale": 4,
+              "kind": "editorial"
+            },
+            "limit": "Avis bref, sans signature ni date de publication affichées ; une seule appréciation, pas un consensus.",
+            "checked_at": "2026-10-08T12:16:34.846Z"
+          }
+        ],
+        "reason": "Piste documentaire en cours d'examen ; identité/offre/recherche critique avancées, versions, droits, notes, affiche et revue comparative à terminer. Aucune sélection ni rejet automatique.",
+        "identity_research": {
+          "director": [
+            "Julie Peyrard",
+            "Christophe Astruc"
+          ],
+          "writers": [
+            "Julie Peyrard",
+            "Marine Pradel"
+          ],
+          "year": 2026,
+          "country": "France",
+          "type": "documentaire",
+          "source_urls": [
+            "https://ftvpro.francetv.fr/contenu-de-presse/78546934",
+            "https://www.incognita-distribution.com/programme/ice-la-chasse-a-lhomme/"
+          ],
+          "checked_at": "2026-10-08T12:16:34.846Z",
+          "canonical_work_id": null,
+          "catalogue_match": "aucun dans works.json courant"
+        },
+        "availability_research": {
+          "status": "needs_check",
+          "note": "Diffusion S42 déjà corroborée dans la grille officielle (preuve antérieure conservée). URL lecteur française et expiration non obtenues ; offre RTS/Belgique non transférée à la France.",
+          "checked_at": "2026-10-08T12:16:34.846Z"
+        },
+        "version_note": "Dossier FranceTV 80 min ; distributeur 80 et 52 min. Créneau France 5 78 min (21:07–22:25) : ne pas confondre durée du film et créneau. Dossier annonce 21:05/21:10 ; grille précise 21:07 conservée.",
+        "critical_research": {
+          "checked_at": "2026-10-08T12:16:34.846Z",
+          "status": "partial",
+          "searches": [
+            "Titre exact + critique/avis",
+            "Titre exact + Télérama",
+            "Titre exact + SensCritique (Cézanne/Samouraïs) ; ICE + IMDb/SensCritique"
+          ],
+          "source_urls": [
+            "https://ftvpro.francetv.fr/contenu-de-presse/78546934",
+            "https://www.incognita-distribution.com/programme/ice-la-chasse-a-lhomme/",
+            "https://programmestv.sudinfo.be/series/ice-la-chasse-a-l-homme/1002093789"
+          ],
+          "note": "Premier avis attribué avec note éditoriale native ; compléter comparaison et réserves. IMDb/SC non établis."
+        }
       },
       {
         "title": "On les appelle Samouraïs",
@@ -2007,7 +2084,59 @@
         "decision": "à vérifier",
         "availability_source": "https://tv-programme.com/france-5/dimanche-11-octobre-2026/",
         "critical_evidence": [],
-        "reason": "Inventaire brut ; identité, qualité critique et disponibilité numérique à examiner."
+        "reason": "Piste documentaire en cours d'examen ; identité/offre/recherche critique avancées, versions, droits, notes, affiche et revue comparative à terminer. Aucune sélection ni rejet automatique.",
+        "identity_research": {
+          "director": "Laureline Amanieux",
+          "writers": [
+            "Laureline Amanieux",
+            "Benjamin Brillaud"
+          ],
+          "country": "France",
+          "year_status": "conflict",
+          "year_observations": [
+            {
+              "value": 2026,
+              "source": "dossier FranceTV"
+            },
+            {
+              "value": 2025,
+              "source": "film-documentaire.fr"
+            }
+          ],
+          "type": "documentaire",
+          "source_urls": [
+            "https://www.francetvpro.fr/contenu-de-presse/78675757",
+            "https://www.film-documentaire.fr/4DACTION/w_fiche_film/80678"
+          ],
+          "checked_at": "2026-10-08T12:16:34.846Z",
+          "canonical_work_id": null,
+          "catalogue_match": "aucun dans works.json courant"
+        },
+        "availability_research": {
+          "source_url": "https://www.france.tv/documentaires/documentaires-histoire/8600927-on-les-appelle-samourais.html",
+          "displayed_duration_minutes": 60,
+          "displayed_expiry_date": "2028-07-07",
+          "status": "needs_check",
+          "note": "HTML public courant lu directement HTTP 200 ; disponibilité affichée relevée. Aucun test du lecteur ni validation du territoire/compte ; heure de fin non indiquée.",
+          "checked_at": "2026-10-08T12:16:34.846Z"
+        },
+        "version_note": "FranceTV : collection 2x52 min (Samouraïs et Cowboys, deux films distincts), film-documentaire 54 min/2025, Télé7 55 min/2026, offre france.tv 1 h. Version exacte et année à résoudre ; pas d'identité canonique scellée.",
+        "critical_research": {
+          "checked_at": "2026-10-08T12:16:34.846Z",
+          "status": "needs_check",
+          "searches": [
+            "Titre exact + critique/avis",
+            "Titre exact + Télérama",
+            "Titre exact + SensCritique (Cézanne/Samouraïs) ; ICE + IMDb/SensCritique"
+          ],
+          "source_urls": [
+            "https://www.francetvpro.fr/contenu-de-presse/78675757",
+            "https://www.film-documentaire.fr/4DACTION/w_fiche_film/80678",
+            "https://www.programme-television.org/type/documentaires/autres/culture/on-les-appelle-samourais-439086743",
+            "https://shows.acast.com/notabenemovies/episodes/des-empruntes-de-pas-ensanglantees-sur-le-plafond-dun-temple"
+          ],
+          "note": "Recherches réelles : guides sans avis argumenté trouvé dans les pages lues. Communiqués/coproductions et entretien d'auteur ne constituent pas une réception indépendante ; poursuivre preuves alternatives et critique. Aucune absence globale de notes certifiée."
+        }
       },
       {
         "title": "La faune connectée Les chemins du caribou",
@@ -3242,7 +3371,47 @@
         "decision": "à vérifier",
         "availability_source": "https://tv-programme.com/france-5/lundi-12-octobre-2026/",
         "critical_evidence": [],
-        "reason": "Inventaire brut ; identité, qualité critique et disponibilité numérique à examiner."
+        "reason": "Piste documentaire en cours d'examen ; identité/offre/recherche critique avancées, versions, droits, notes, affiche et revue comparative à terminer. Aucune sélection ni rejet automatique.",
+        "identity_research": {
+          "director": "Anne Richard",
+          "year": 2026,
+          "country": "France",
+          "type": "documentaire",
+          "source_urls": [
+            "https://ftvpro.francetv.fr/contenu-de-presse/78406824",
+            "https://www.musee-orsay.fr/fr/magazine/2026-10-06/documentaire-looking-cezanne",
+            "https://www.programme-television.org/type/documentaires/autres/art/looking-for-cezanne-443097484"
+          ],
+          "checked_at": "2026-10-08T12:16:34.846Z",
+          "canonical_work_id": null,
+          "catalogue_match": "aucun dans works.json courant"
+        },
+        "availability_research": {
+          "source_url": "https://www.france.tv/documentaires/documentaires-art-et-culture/8858031-looking-for-cezanne.html",
+          "displayed_duration_minutes": 64,
+          "displayed_expiry_date": "2029-01-23",
+          "displayed_previous_broadcast": "2026-10-02T22:27:00+02:00",
+          "status": "needs_check",
+          "note": "Lien officiel trouvé chez le Musée d'Orsay puis page publique lue directement HTTP 200. Expiration affichée ; lecture, territoire/compte et heure de fin non testés.",
+          "checked_at": "2026-10-08T12:16:34.846Z"
+        },
+        "version_note": "Dossier de septembre 65 min, lecteur france.tv 64 min, guides 60 min ; version linéaire à identifier. Diffusion initiale du 2 octobre distincte de la rediffusion S42 du 12 à 01:40.",
+        "critical_research": {
+          "checked_at": "2026-10-08T12:16:34.846Z",
+          "status": "needs_check",
+          "searches": [
+            "Titre exact + critique/avis",
+            "Titre exact + Télérama",
+            "Titre exact + SensCritique (Cézanne/Samouraïs) ; ICE + IMDb/SensCritique"
+          ],
+          "source_urls": [
+            "https://ftvpro.francetv.fr/contenu-de-presse/78406824",
+            "https://www.musee-orsay.fr/fr/magazine/2026-10-06/documentaire-looking-cezanne",
+            "https://www.programme-television.org/type/documentaires/autres/art/looking-for-cezanne-443097484",
+            "https://television.telerama.fr/tele/documentaire/looking-for-cezanne-1-443097484.php"
+          ],
+          "note": "Recherches réelles : guides sans avis argumenté trouvé dans les pages lues. Communiqués/coproductions et entretien d'auteur ne constituent pas une réception indépendante ; poursuivre preuves alternatives et critique. Aucune absence globale de notes certifiée."
+        }
       },
       {
         "title": "Les 5 vies de la Terre L'Homme",

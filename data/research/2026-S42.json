@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T12:09:08.897Z",
+  "updated_at": "2026-10-08T12:16:34.846Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -30,7 +30,8 @@
     "TF1 : trois ajouts recoupés directement (Cat's Eyes S2 épisodes 1/2 le 12 à 21:10/22:15 et Les docs du week-end le 11 à 16:10). Identités canoniques, critique, durée/version et offres à traiter avant sélection.",
     "Paris Première : tous les dix ajouts sont recoupés ; sujets des magazines culturels à préciser, téléfilms/spectacles à trier et enrichir, parties La maison sur le lac à identifier sans confusion.",
     "RMC+ : Oppenheimer (Eve Vanderstegen, 2024) et Camps perdus (Benoît Cressent, 2021) ont des pages/expirations affichées ; terminer critiques, notes, droits/lecture, versions 51/55/65 min pour Camps perdus. Tom Hanks : réception contrastée documentée, épisodes français 17/18 et diffusion du 16 à confirmer.",
-    "Arte préhistoire : Chauvet, Sulawesi et Thorin (cinq diffusions) ont identités, offres affichées et réception attribuée ; vérifier versions linéaires, droits France, notes moyennes, affiches et comparaison éditoriale. Les 52/53/54 min de Thorin ne sont pas interchangeables."
+    "Arte préhistoire : Chauvet, Sulawesi et Thorin (cinq diffusions) ont identités, offres affichées et réception attribuée ; vérifier versions linéaires, droits France, notes moyennes, affiches et comparaison éditoriale. Les 52/53/54 min de Thorin ne sont pas interchangeables.",
+    "France 5 : ICE, Samouraïs et Looking for Cézanne approfondis ; première critique ICE 3/4 Ciné-Télé-Revue, pas de consensus. Offres Cézanne/Samouraïs affichées avec expirations ; droits/lecture, versions (Samouraïs année 2025/2026), réception manquante, notes et affiches à terminer."
   ],
   "completed_batches": [
     {
@@ -279,6 +280,11 @@
       "id": "inventory-t18-oct14-episode-identification",
       "completed_at": "2026-10-08T12:09:08.897Z",
       "description": "Neuf entrées génériques précisées sans ajout ni suppression ; nuit incluse. Recoupement de guides consigné sans certifier leur indépendance."
+    },
+    {
+      "id": "documentary-france5-three-targeted-dossiers",
+      "completed_at": "2026-10-08T12:16:34.846Z",
+      "description": "Trois identités/dossiers, deux offres france.tv avec expirations affichées, une critique indépendante ICE et conflits de versions consignés. Aucun dossier complet ni choix arrêté."
     }
   ],
   "blockers": [
@@ -13589,6 +13595,217 @@
       },
       "evidence_note": "Omission/Collatéral : fiches de fiction policière avec Claire Borotra et Constance Gay, pas un débat politique. Pas de reprise des réalisateurs multiples du guide sans générique officiel.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "director",
+        "writers",
+        "country",
+        "year_observations"
+      ],
+      "source_urls": [
+        "https://ftvpro.francetv.fr/contenu-de-presse/78546934",
+        "https://www.incognita-distribution.com/programme/ice-la-chasse-a-lhomme/"
+      ],
+      "checked_at": "2026-10-08T12:16:34.846Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "ICE, la chasse à l'homme",
+        "date": "2026-10-11",
+        "channel": "France 5",
+        "version": "à départager"
+      },
+      "evidence_note": "Dossier FranceTV 80 min ; distributeur 80 et 52 min. Créneau France 5 78 min (21:07–22:25) : ne pas confondre durée du film et créneau. Dossier annonce 21:05/21:10 ; grille précise 21:07 conservée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "offer_page",
+        "displayed_expiry",
+        "displayed_duration"
+      ],
+      "source_urls": [
+        "https://ftvpro.francetv.fr/contenu-de-presse/78546934",
+        "https://www.incognita-distribution.com/programme/ice-la-chasse-a-lhomme/"
+      ],
+      "checked_at": "2026-10-08T12:16:34.846Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "ICE, la chasse à l'homme",
+        "date": "2026-10-11",
+        "channel": "France 5",
+        "version": "à départager"
+      },
+      "evidence_note": "Diffusion S42 déjà corroborée dans la grille officielle (preuve antérieure conservée). URL lecteur française et expiration non obtenues ; offre RTS/Belgique non transférée à la France.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception",
+        "rating_search"
+      ],
+      "source_urls": [
+        "https://ftvpro.francetv.fr/contenu-de-presse/78546934",
+        "https://www.incognita-distribution.com/programme/ice-la-chasse-a-lhomme/",
+        "https://programmestv.sudinfo.be/series/ice-la-chasse-a-l-homme/1002093789"
+      ],
+      "checked_at": "2026-10-08T12:16:34.846Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "ICE, la chasse à l'homme",
+        "date": "2026-10-11",
+        "channel": "France 5",
+        "version": "à départager"
+      },
+      "evidence_note": "Ciné-Télé-Revue 3/4 rédaction, avis bref favorable sur l'analyse du dispositif et sa représentation ; pas moyenne publique ni consensus.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "director",
+        "writers",
+        "country",
+        "year_observations"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/contenu-de-presse/78675757",
+        "https://www.film-documentaire.fr/4DACTION/w_fiche_film/80678"
+      ],
+      "checked_at": "2026-10-08T12:16:34.846Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "On les appelle Samouraïs",
+        "date": "2026-10-11",
+        "channel": "France 5",
+        "version": "à départager"
+      },
+      "evidence_note": "FranceTV : collection 2x52 min (Samouraïs et Cowboys, deux films distincts), film-documentaire 54 min/2025, Télé7 55 min/2026, offre france.tv 1 h. Version exacte et année à résoudre ; pas d'identité canonique scellée.",
+      "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "offer_page",
+        "displayed_expiry",
+        "displayed_duration"
+      ],
+      "source_urls": [
+        "https://www.france.tv/documentaires/documentaires-histoire/8600927-on-les-appelle-samourais.html"
+      ],
+      "checked_at": "2026-10-08T12:16:34.846Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "On les appelle Samouraïs",
+        "date": "2026-10-11",
+        "channel": "France 5",
+        "version": "à départager"
+      },
+      "evidence_note": "HTML public courant lu directement HTTP 200 ; disponibilité affichée relevée. Aucun test du lecteur ni validation du territoire/compte ; heure de fin non indiquée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception",
+        "rating_search"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/contenu-de-presse/78675757",
+        "https://www.film-documentaire.fr/4DACTION/w_fiche_film/80678",
+        "https://www.programme-television.org/type/documentaires/autres/culture/on-les-appelle-samourais-439086743",
+        "https://shows.acast.com/notabenemovies/episodes/des-empruntes-de-pas-ensanglantees-sur-le-plafond-dun-temple"
+      ],
+      "checked_at": "2026-10-08T12:16:34.846Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "On les appelle Samouraïs",
+        "date": "2026-10-11",
+        "channel": "France 5",
+        "version": "à départager"
+      },
+      "evidence_note": "Recherches réelles : guides sans avis argumenté trouvé dans les pages lues. Communiqués/coproductions et entretien d'auteur ne constituent pas une réception indépendante ; poursuivre preuves alternatives et critique. Aucune absence globale de notes certifiée.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "director",
+        "writers",
+        "country",
+        "year_observations"
+      ],
+      "source_urls": [
+        "https://ftvpro.francetv.fr/contenu-de-presse/78406824",
+        "https://www.musee-orsay.fr/fr/magazine/2026-10-06/documentaire-looking-cezanne",
+        "https://www.programme-television.org/type/documentaires/autres/art/looking-for-cezanne-443097484"
+      ],
+      "checked_at": "2026-10-08T12:16:34.846Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Looking for Cézanne",
+        "date": "2026-10-12",
+        "channel": "France 5",
+        "version": "à départager"
+      },
+      "evidence_note": "Dossier de septembre 65 min, lecteur france.tv 64 min, guides 60 min ; version linéaire à identifier. Diffusion initiale du 2 octobre distincte de la rediffusion S42 du 12 à 01:40.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "offer_page",
+        "displayed_expiry",
+        "displayed_duration"
+      ],
+      "source_urls": [
+        "https://www.france.tv/documentaires/documentaires-art-et-culture/8858031-looking-for-cezanne.html"
+      ],
+      "checked_at": "2026-10-08T12:16:34.846Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Looking for Cézanne",
+        "date": "2026-10-12",
+        "channel": "France 5",
+        "version": "à départager"
+      },
+      "evidence_note": "Lien officiel trouvé chez le Musée d'Orsay puis page publique lue directement HTTP 200. Expiration affichée ; lecture, territoire/compte et heure de fin non testés.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_reception",
+        "rating_search"
+      ],
+      "source_urls": [
+        "https://ftvpro.francetv.fr/contenu-de-presse/78406824",
+        "https://www.musee-orsay.fr/fr/magazine/2026-10-06/documentaire-looking-cezanne",
+        "https://www.programme-television.org/type/documentaires/autres/art/looking-for-cezanne-443097484",
+        "https://television.telerama.fr/tele/documentaire/looking-for-cezanne-1-443097484.php"
+      ],
+      "checked_at": "2026-10-08T12:16:34.846Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Looking for Cézanne",
+        "date": "2026-10-12",
+        "channel": "France 5",
+        "version": "à départager"
+      },
+      "evidence_note": "Recherches réelles : guides sans avis argumenté trouvé dans les pages lues. Communiqués/coproductions et entretien d'auteur ne constituent pas une réception indépendante ; poursuivre preuves alternatives et critique. Aucune absence globale de notes certifiée.",
+      "status": "needs_check"
     }
   ],
   "run_metrics": [
