@@ -30,6 +30,10 @@ Chemins autorisés : les neuf livrables de data/automation-config.json et `data/
 
 Ne jamais écrire « ready » pour un simple inventaire. Avant de déclarer la revue complète, résoudre toutes les lignes remaining, vérifier les preuves et les exigences d'AUTOMATION.md. Le CI ne remplace pas cette revue.
 
+Pour la reprise, appliquer la section « Progression de la recherche et impasses » d'AUTOMATION.md. Le champ `stage` indique le travail en cours, pas une certification de toutes les phases précédentes : `enrichment` est autorisé après le relevé primaire des sept jours, même si des recoupements restent dans `remaining`. `ready` exige toujours leur résolution réelle et tous les livrables revus.
+
+Le registre additionnel `research_attempts` conserve les impasses et leurs conditions de reprise. Un dossier non retenu reste documenté, mais ne doit pas monopoliser les passages sans piste nouvelle. Les lacunes de couverture obligatoire et les défauts des recommandations/réserves restent bloquants. La réorganisation de `remaining` doit conserver chaque exigence ouverte ; ni report ni regroupement ne vaut achèvement.
+
 Avec un environnement de code :
 
 ```sh
