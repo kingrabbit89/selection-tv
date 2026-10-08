@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "partial",
-  "updated_at": "2026-10-08T13:25:27.207Z",
+  "updated_at": "2026-10-08T13:31:48.583Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -392,7 +392,27 @@
         "exact_start": 4,
         "time_conflicts": 0,
         "channel_in_broadcast_event": false
-      }
+      },
+      "official_schedule_resolutions": [
+        {
+          "title": "La p'tite librairie",
+          "channel": "France 5",
+          "previous_start": "00:11",
+          "selected_start": "00:10",
+          "source_url": "https://www.francetvpro.fr/grille/france-5/10-10-2026/10-10-2026",
+          "checked_at": "2026-10-08T13:31:48.583Z",
+          "episode_identity_pending": true
+        },
+        {
+          "title": "La p'tite librairie",
+          "channel": "France 5",
+          "previous_start": "09:16",
+          "selected_start": "09:15",
+          "source_url": "https://www.francetvpro.fr/grille/france-5/10-10-2026/11-10-2026",
+          "checked_at": "2026-10-08T13:31:48.583Z",
+          "episode_identity_pending": true
+        }
+      ]
     },
     {
       "date": "2026-10-12",
@@ -601,7 +621,18 @@
         "exact_start": 2,
         "time_conflicts": 0,
         "channel_in_broadcast_event": false
-      }
+      },
+      "official_schedule_resolutions": [
+        {
+          "title": "La passion de Dodin Bouffant",
+          "channel": "France 2",
+          "previous_start": "03:05",
+          "selected_start": "02:55",
+          "source_url": "https://www.francetvpro.fr/grille/france-2/10-10-2026/11-10-2026",
+          "checked_at": "2026-10-08T13:31:48.583Z",
+          "episode_identity_pending": false
+        }
+      ]
     },
     {
       "date": "2026-10-13",
@@ -860,7 +891,18 @@
         "exact_start": 0,
         "time_conflicts": 1,
         "channel_in_broadcast_event": false
-      }
+      },
+      "official_schedule_resolutions": [
+        {
+          "title": "La p'tite librairie",
+          "channel": "France 5",
+          "previous_start": "09:55",
+          "selected_start": "10:00",
+          "source_url": "https://www.francetvpro.fr/grille/france-5/10-10-2026/13-10-2026",
+          "checked_at": "2026-10-08T13:31:48.583Z",
+          "episode_identity_pending": true
+        }
+      ]
     },
     {
       "date": "2026-10-14",
@@ -1115,11 +1157,22 @@
         "exact_start": 2,
         "time_conflicts": 0,
         "channel_in_broadcast_event": false
-      }
+      },
+      "official_schedule_resolutions": [
+        {
+          "title": "La p'tite librairie",
+          "channel": "France 5",
+          "previous_start": "00:01",
+          "selected_start": "00:00",
+          "source_url": "https://www.francetvpro.fr/grille/france-5/10-10-2026/13-10-2026",
+          "checked_at": "2026-10-08T13:31:48.583Z",
+          "episode_identity_pending": true
+        }
+      ]
     },
     {
       "date": "2026-10-15",
-      "raw_items": 313,
+      "raw_items": 312,
       "overnight_items": 68,
       "primary_scan_complete": false,
       "independent_crosscheck_complete": false,
@@ -1387,6 +1440,23 @@
           "note": "Index Ouest-France : Meilleures ennemies le 15 à 22:30. Fiche épisode : Senlis (Micheline/Aurélie), ferme-cabaret et médiation à Toulouse, mais liste de diffusions arrêtée au 9 octobre. Aucune équivalence établie avec Menaces et règlements de compte de SCREEN+. Indépendance de flux non certifiée.",
           "status": "conflict",
           "checked_at": "2026-10-08T13:25:27.207Z"
+        }
+      ],
+      "rejected_observations": [
+        {
+          "title": "La p'tite librairie \"Le Très-Bas\", de Christian Bobin",
+          "start": "12:15",
+          "channel": "France 3",
+          "source": "TV-Programme.com — grille datée consultée le 08/10/2026",
+          "source_url": "https://tv-programme.com/france-3/jeudi-15-octobre-2026/",
+          "listed_type": "Magazine Magazine littéraire",
+          "slot_duration": "10min",
+          "verification_status": "schedule_conflict_needs_check",
+          "schedule_note": "La grille officielle annonce Ici 12/13 à 12:15, pas La p'tite librairie. Entrée tierce à revérifier/écarter avant certification ; ne pas compter comme programme confirmé.",
+          "decision": "écarté du relevé actif",
+          "reason": "Grille officielle relue : Ici 12/13 à 12:15 (météo régionale 12:20, journal 12:25). La p'tite librairie est placée à 10:25 ; ne pas compter une seconde diffusion à 12:15 non confirmée.",
+          "source_url_official": "https://ftvpro.francetv.fr/grille/france-3/10-10-2026/15-10-2026",
+          "checked_at": "2026-10-08T13:31:48.583Z"
         }
       ]
     },

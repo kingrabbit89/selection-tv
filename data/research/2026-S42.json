@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T13:25:58.653Z",
+  "updated_at": "2026-10-08T13:31:48.583Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -11,13 +11,13 @@
     "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
     "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV.",
     "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue.",
-    "France 5 : Pompéi et Foucault réconciliés par les grilles officielles ; revérifier au préflight. Quatre écarts La p'tite librairie, versions/durées et fins de nuit restent à traiter. Offres replay, expirations, réception complémentaire et notes encore incomplètes.",
+    "France 5 : horaires des quatre La p'tite librairie arbitrés sur les grilles officielles courantes ; livres/sujets tiers encore à identifier. Pompéi/Foucault et horaires retenus à revérifier au préflight ; versions/durées, fins de nuit, offres et critique encore incomplètes.",
     "T18 14 octobre : neuf épisodes/sujets nommés et horaires concordants entre deux guides ; indépendance des flux/source officielle encore à établir. Face à face identifié comme fiction policière ; descriptif politique LeZapp exclu.",
     "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
     "TF1 Séries Films : neuf diffusions recoupées et nuits consultées ; blocs nocturnes génériques non détaillés, réception et cartes à terminer. CSTAR 16 octobre : Un mariage à Noël concorde à 21:10 ; Noël à la carte 22:49/22:45 et identité des quatre Douanes à départager ; indépendance et nuits restent à certifier.",
     "Rappel TNT : traiter les programmes non rapprochés consignés dans editorial_reminder_passes ; ne pas déduire l'identité d'une simple proximité de titre (soirée Marine notamment). Compléter rappel cinéma payant et recoupements manquants.",
     "Rappel TNT : Fréquenstar résolu sur W9 dimanche 11:20 (Hoshi) ; sujets Envoyé spécial et Au cœur de l'enquête à obtenir. Intraçables : mini-série et épisodes 3/4 confirmés par TF1 ; réception, versions et enrichissement à faire ; Meurtres à Cayenne confirmé téléfilm policier par le diffuseur.",
-    "France 2/3 : grilles manquantes du 10 et du 15 récupérées ; départager Dodin Bouffant 02:55/03:05 le 12 et fausse entrée La p'tite librairie 12:15 le 15. Collections génériques/épisodes à compléter.",
+    "France 2/3 : Dodin Bouffant retenu à 02:55 le 12 selon la grille officielle relue ; entrée tierce La p'tite librairie du 15 à 12:15 exclue du relevé actif (Ici 12/13). Recontrôler au préflight les programmes retenus ; collections génériques/épisodes encore à compléter.",
     "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
     "Public Sénat : Silence dans les rangs documenté (prix et limites de réception), horaires légèrement divergents et replay indisponible ; terminer offre/expiration, notes, affiche et revue comparative.",
     "France 4 : compléter réception/offres documentaires et épisodes génériques ; Rachelle Allison à la Cigale retenu à 20:30 après recoupement officiel/guide courant, à revérifier au préflight. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle.",
@@ -319,6 +319,11 @@
       "id": "inventory-rmc-two-conflicts-targeted-followup",
       "completed_at": "2026-10-08T13:25:27.207Z",
       "description": "Deux conflits documentés par un troisième guide et des pages exactes ; restent ouverts, indépendance/confirmation officielle non obtenues."
+    },
+    {
+      "id": "inventory-france-televisions-six-schedule-arbitrations",
+      "completed_at": "2026-10-08T13:31:48.583Z",
+      "description": "Cinq heures retenues selon les grilles officielles relues ; une fausse seconde diffusion exclue, observations précédentes conservées. Sujets génériques non certifiés."
     }
   ],
   "blockers": [
@@ -5758,7 +5763,13 @@
         "title": "La p'tite librairie \"Vie des artistes\", de Giorgio Vasari"
       },
       "evidence_note": "Horaire tiers 00:11 / officiel 00:10 ; conflit conservé pour préflight.",
-      "status": "conflict"
+      "status": "conflict",
+      "resolution": {
+        "status": "resolved_for_preparation",
+        "checked_at": "2026-10-08T13:31:48.583Z",
+        "selected_start": "00:10",
+        "source_url": "https://www.francetvpro.fr/grille/france-5/10-10-2026/10-10-2026"
+      }
     },
     {
       "fields": [
@@ -5777,7 +5788,13 @@
         "title": "La p'tite librairie \"Pèlerin parmi les ombres\", de Boris Pahor"
       },
       "evidence_note": "Horaire tiers 09:16 / officiel 09:15 ; conflit conservé pour préflight.",
-      "status": "conflict"
+      "status": "conflict",
+      "resolution": {
+        "status": "resolved_for_preparation",
+        "checked_at": "2026-10-08T13:31:48.583Z",
+        "selected_start": "09:15",
+        "source_url": "https://www.francetvpro.fr/grille/france-5/10-10-2026/11-10-2026"
+      }
     },
     {
       "fields": [
@@ -5796,7 +5813,13 @@
         "title": "La p'tite librairie \"J'irai jusqu'au rivage du soleil\", de Forough Farrokhzad"
       },
       "evidence_note": "Horaire tiers 09:55 / officiel 10:00 ; conflit conservé pour préflight.",
-      "status": "conflict"
+      "status": "conflict",
+      "resolution": {
+        "status": "resolved_for_preparation",
+        "checked_at": "2026-10-08T13:31:48.583Z",
+        "selected_start": "10:00",
+        "source_url": "https://www.francetvpro.fr/grille/france-5/10-10-2026/13-10-2026"
+      }
     },
     {
       "fields": [
@@ -5815,7 +5838,13 @@
         "title": "La p'tite librairie \"J'irai jusqu'au rivage du soleil\", de Forough Farrokhzad"
       },
       "evidence_note": "Horaire tiers 00:01 / officiel 00:00 ; conflit conservé pour préflight.",
-      "status": "conflict"
+      "status": "conflict",
+      "resolution": {
+        "status": "resolved_for_preparation",
+        "checked_at": "2026-10-08T13:31:48.583Z",
+        "selected_start": "00:00",
+        "source_url": "https://www.francetvpro.fr/grille/france-5/10-10-2026/13-10-2026"
+      }
     },
     {
       "fields": [
@@ -9993,7 +10022,13 @@
         "title": "La passion de Dodin Bouffant"
       },
       "evidence_note": "Début 02:55 dans la grille officielle, 03:05 dans la grille primaire : écart conservé, à départager au préflight.",
-      "status": "conflict"
+      "status": "conflict",
+      "resolution": {
+        "status": "resolved_for_preparation",
+        "checked_at": "2026-10-08T13:31:48.583Z",
+        "selected_start": "02:55",
+        "source_url": "https://www.francetvpro.fr/grille/france-2/10-10-2026/11-10-2026"
+      }
     },
     {
       "work_id": null,
@@ -10975,7 +11010,12 @@
         "start": "12:15"
       },
       "evidence_note": "La grille officielle annonce Ici 12/13 à 12:15, pas La p'tite librairie. Entrée tierce à revérifier/écarter avant certification ; ne pas compter comme programme confirmé.",
-      "status": "conflict"
+      "status": "conflict",
+      "resolution": {
+        "status": "excluded_from_active_inventory",
+        "checked_at": "2026-10-08T13:31:48.583Z",
+        "source_url": "https://ftvpro.francetv.fr/grille/france-3/10-10-2026/15-10-2026"
+      }
     },
     {
       "work_id": null,
@@ -13129,7 +13169,12 @@
         "start": "12:15"
       },
       "evidence_note": "Page directe datée du 15 conserve La p'tite librairie 12:15 puis Ici12/13 12:26, alors que l'extrait de recherche présentait Ici12/13 12:15. Le conflit avec la grille officielle demeure ; extrait non utilisé pour corriger.",
-      "status": "conflict"
+      "status": "conflict",
+      "resolution": {
+        "status": "excluded_from_active_inventory",
+        "checked_at": "2026-10-08T13:31:48.583Z",
+        "source_url": "https://ftvpro.francetv.fr/grille/france-3/10-10-2026/15-10-2026"
+      }
     },
     {
       "work_id": null,
@@ -16035,6 +16080,142 @@
       },
       "evidence_note": "Index Ouest-France : Meilleures ennemies le 15 à 22:30. Fiche épisode : Senlis (Micheline/Aurélie), ferme-cabaret et médiation à Toulouse, mais liste de diffusions arrêtée au 9 octobre. Aucune équivalence établie avec Menaces et règlements de compte de SCREEN+. Indépendance de flux non certifiée.",
       "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "broadcast.date",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-2/10-10-2026/11-10-2026",
+        "https://tv-programme.com/france-2/lundi-12-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:31:48.583Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "channel": "France 2",
+        "title": "La passion de Dodin Bouffant"
+      },
+      "evidence_note": "Grille officielle relue : 02:55 retenu pour la préparation contre 03:05 du guide tiers. Identité/version du film à enrichir séparément. Recontrôle préflight si retenu.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "broadcast.date",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/10-10-2026",
+        "https://tv-programme.com/france-5/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:31:48.583Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "France 5",
+        "title": "La p'tite librairie"
+      },
+      "evidence_note": "Grille officielle relue : 00:10 retenu pour la préparation contre 00:11 du guide tiers. Titre de collection uniquement ; livre/sujet à identifier. Recontrôle préflight si retenu.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "broadcast.date",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/11-10-2026",
+        "https://tv-programme.com/france-5/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:31:48.583Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "France 5",
+        "title": "La p'tite librairie"
+      },
+      "evidence_note": "Grille officielle relue : 09:15 retenu pour la préparation contre 09:16 du guide tiers. Titre de collection uniquement ; livre/sujet à identifier. Recontrôle préflight si retenu.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "broadcast.date",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/13-10-2026",
+        "https://tv-programme.com/france-5/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:31:48.583Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "France 5",
+        "title": "La p'tite librairie"
+      },
+      "evidence_note": "Grille officielle relue : 10:00 retenu pour la préparation contre 09:55 du guide tiers. Titre de collection uniquement ; livre/sujet à identifier. Recontrôle préflight si retenu.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.start",
+        "broadcast.date",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/13-10-2026",
+        "https://tv-programme.com/france-5/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:31:48.583Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "France 5",
+        "title": "La p'tite librairie"
+      },
+      "evidence_note": "Grille officielle relue : 00:00 retenu pour la préparation contre 00:01 du guide tiers. Titre de collection uniquement ; livre/sujet à identifier. Recontrôle préflight si retenu.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start"
+      ],
+      "source_urls": [
+        "https://ftvpro.francetv.fr/grille/france-3/10-10-2026/15-10-2026",
+        "https://tv-programme.com/france-3/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:31:48.583Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "France 3",
+        "start": "12:15"
+      },
+      "evidence_note": "Grille officielle relue : Ici 12/13 à 12:15 (météo régionale 12:20, journal 12:25). La p'tite librairie est placée à 10:25 ; ne pas compter une seconde diffusion à 12:15 non confirmée.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -16392,6 +16573,27 @@
       "new_documentary_dossiers": 3,
       "independent_reviews_read": 4,
       "targeted_conflict_followups": 2
+    },
+    {
+      "date": "2026-10-08T13:31:48.583Z",
+      "started_at": "2026-10-08T13:28:36.405Z",
+      "owner": "9a1435f5-4932-49e3-a046-7130b9a4fd66",
+      "stage": "inventory_arbitration",
+      "elapsed_seconds": 192,
+      "duration_basis": "wall_clock_until_checkpoint",
+      "completed_batches": [
+        "inventory-france-televisions-six-schedule-arbitrations"
+      ],
+      "reused_complete_cards": 0,
+      "newly_verified_complete_cards": 0,
+      "raw_schedule_entries": 2228,
+      "official_schedule_arbitrations": 6,
+      "blockers": [],
+      "remaining": {
+        "stage": "inventory",
+        "count": 31,
+        "reference": "remaining"
+      }
     }
   ],
   "source_issues": [
@@ -16743,6 +16945,17 @@
       "logs_read": true,
       "cause": "Seul échec : Require a complete candidate before merging (préparation encore incomplète). Contrôles publics S41 ne prouvent pas S42 ; attestation base skipped non comptée comme réussite.",
       "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-08T13:31:48.583Z",
+      "head_sha": "3c325c4a1312f451b355d922444a86d4c3dfead9",
+      "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "run_id": 37784330707,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": true,
+      "cause": "Seul échec attendu : Require a complete candidate before merging ; public S41 validé, pas de preuve de complétude S42.",
+      "reusable_only_for_exact_sha": true
     }
   ],
   "catalogue_reuse": {
@@ -16826,10 +17039,11 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "c329233cc8395202992310749b79adcd13bd68d0",
+    "checkpoint_parent_sha": "3c325c4a1312f451b355d922444a86d4c3dfead9",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
+      "France Télévisions : six arbitrages effectués, ne pas rouvrir les mêmes divergences sans changement de source. Dodin 02:55 et quatre créneaux La p'tite librairie officiels ; F3 15/10 12:15 exclu. Livres des capsules encore à confirmer, contrôle préflight si retenus.",
       "Réutiliser les trois dossiers documentaires Ciné+ de ce passage ; quatre critiques conservées avec réserves. Simenon : approfondir réception/preuves alternatives. Années/versions, droits, notes directes et affiches restent ouverts.",
       "RMC : réutiliser les 16 grilles SCREEN+ datées et les 127 rapprochements ; résoudre deux conflits et trois alias, identifier les épisodes génériques, établir l'indépendance ou obtenir une source officielle. Quatre ajouts restent à recouper. Ne pas répéter les troisièmes guides RMC : détails/limites dans rmc_conflict_followup.",
       "Reprendre uniquement les recoupements/identités/conflits encore ouverts dans remaining. TF1 trois ajouts et Paris Première trois J'ai un ticket sont désormais recoupés : ne pas répéter.",
@@ -16847,14 +17061,14 @@
       "note": "Aucune progression active ; aucun déclenchement agent."
     },
     "last_ci_observation": {
-      "checked_at": "2026-10-08T13:25:58.653Z",
-      "head_sha": "c329233cc8395202992310749b79adcd13bd68d0",
+      "checked_at": "2026-10-08T13:31:48.583Z",
+      "head_sha": "3c325c4a1312f451b355d922444a86d4c3dfead9",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37783939765,
+      "run_id": 37784330707,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Seul échec : Require a complete candidate before merging (préparation encore incomplète). Contrôles publics S41 ne prouvent pas S42 ; attestation base skipped non comptée comme réussite.",
+      "cause": "Seul échec attendu : Require a complete candidate before merging ; public S41 validé, pas de preuve de complétude S42.",
       "reusable_only_for_exact_sha": true
     },
     "latest_candidate_ci": {
