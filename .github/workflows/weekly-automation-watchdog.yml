@@ -20,6 +20,8 @@ concurrency:
 
 jobs:
   watchdog:
+    # A skipped publisher changed nothing; failures still deserve reconciliation.
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion != 'skipped'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

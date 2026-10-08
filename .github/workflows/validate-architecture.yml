@@ -27,6 +27,7 @@ jobs:
         if: github.event_name == 'pull_request' && startsWith(github.head_ref, 'auto/')
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          CANDIDATE_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: node scripts/validation-context.mjs
       - name: Validate publication transition before merge
         if: github.event_name == 'pull_request'
@@ -80,6 +81,7 @@ jobs:
         if: github.event_name == 'pull_request' && startsWith(github.head_ref, 'auto/')
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          CANDIDATE_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: node scripts/validation-context.mjs
       - name: Install browser test runtime
         run: |
