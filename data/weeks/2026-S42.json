@@ -53,9 +53,19 @@
       "id": "mercredi-grille",
       "className": "page",
       "html": "<div class=\"topbar\">Grille filtrée<span class=\"issue\">S42</span></div><div class=\"grid-title\">MERCREDI 14 OCTOBRE — la grille commentée</div><table class=\"schedule\"><thead><tr><th>Heure</th><th>Chaîne</th><th>Programme</th><th>Pourquoi le retenir</th><th>Repère</th></tr></thead><tbody><tr><td class=\"time\">12:06</td><td class=\"chan\">Ciné+ Classic</td><td class=\"prog\">Cadet d&#39;eau douce</td><td class=\"reason\">Keaton pris entre deux pères, deux bateaux et un cyclone : une mécanique burlesque qui finit par soulever la ville entière.</td><td class=\"rep\"><span class=\"badge TRÈS_FORT\">TRÈS FORT</span></td></tr></tbody></table><div class=\"footer\"><span>Sélection TV · S42</span><span>8</span></div>"
+    },
+    {
+      "id": "mardi-selection",
+      "className": "page",
+      "html": "<div class=\"topbar\">Sélection du jour<span class=\"issue\">S42 · 10 au 16 octobre 2026</span></div><div class=\"day-head\"><div><div class=\"kicker\">Les choix développés</div><div class=\"h1\">MARDI 13 OCTOBRE</div></div></div><div class=\"rule\"></div><div class=\"feature-columns\"><article class=\"feature\" data-title=\"Les mots qu&#39;elles eurent un jour\" data-work-id=\"les-mots-qu-elles-eurent-un-jour-2024\"><div class=\"visual\"><img class=\"poster\" src=\"https://fr.web.img4.acsta.net/r_1920_1080/img/24/f5/24f5fc33d42db4ddb2aff1f48f0a1987.jpg\" alt=\"Les mots qu&#39;elles eurent un jour\"><div class=\"fallback\">Les mots qu&#39;elles eurent un jour</div></div><div style=\"margin-top:2mm\"><span class=\"badge TRÈS_FORT\">TRÈS FORT</span></div><h3>Les mots qu&#39;elles eurent un jour</h3><div class=\"slot\">19:22 · Ciné+ Festival</div><div class=\"meta\">2024 · Raphaël Pillosio · France · 84 min · Documentaire / histoire</div><h4>Ce que ça raconte</h4><p>En 1962, Yann Le Masson filme des militantes algériennes tout juste libérées d’une prison française, mais la bande sonore disparaît. Plus de cinquante ans après, Raphaël Pillosio recherche ces femmes et fait lire sur leurs lèvres les fragments d’une parole dont l’histoire avait effacé le son.</p><div class=\"interest\"><h4>Pourquoi c’est intéressant</h4><p>Le film transforme une archive muette en enquête sur ce que le cinéma conserve, perd ou rend à celles qu’il a filmées. Sa retenue évite de parler à la place des militantes, au risque d’une forme parfois trop académique et d’un geste critique qui aurait pu être plus affirmé.</p></div></article></div><div class=\"footer\"><span>Sélection TV · S42</span><span>9</span></div>"
+    },
+    {
+      "id": "mardi-grille",
+      "className": "page",
+      "html": "<div class=\"topbar\">Grille filtrée<span class=\"issue\">S42</span></div><div class=\"grid-title\">MARDI 13 OCTOBRE — la grille commentée</div><table class=\"schedule\"><thead><tr><th>Heure</th><th>Chaîne</th><th>Programme</th><th>Pourquoi le retenir</th><th>Repère</th></tr></thead><tbody><tr><td class=\"time\">19:22</td><td class=\"chan\">Ciné+ Festival</td><td class=\"prog\">Les mots qu&#39;elles eurent un jour</td><td class=\"reason\">Une enquête d’archives qui tente de rendre leur parole à des militantes algériennes filmées en 1962 sans bande sonore.</td><td class=\"rep\"><span class=\"badge TRÈS_FORT\">TRÈS FORT</span></td></tr></tbody></table><div class=\"footer\"><span>Sélection TV · S42</span><span>10</span></div>"
     }
   ],
-  "page_count": 8,
+  "page_count": 10,
   "section_shortages": {},
   "personalization": {
     "schema_version": 1,
@@ -198,6 +208,37 @@
             },
             "ratings": {
               "senscritique": "7,8"
+            }
+          }
+        ]
+      },
+      "mardi-selection": {
+        "page_id": "mardi-selection",
+        "container_selector": ".feature-columns",
+        "primary_selector": "article.feature:not(.replacement-generated)",
+        "card_type": "feature",
+        "target": 3,
+        "desired_reserve": 7,
+        "candidates": [
+          {
+            "title": "Les mots qu'elles eurent un jour",
+            "work_id": "les-mots-qu-elles-eurent-un-jour-2024",
+            "rank": 1,
+            "quality": "TRÈS FORT",
+            "time": "19:22",
+            "channel": "Ciné+ Festival",
+            "meta": "2024 · Raphaël Pillosio · France · 84 min · Documentaire / histoire",
+            "summary": "En 1962, Yann Le Masson filme des militantes algériennes tout juste libérées d’une prison française, mais la bande sonore disparaît. Plus de cinquante ans après, Raphaël Pillosio recherche ces femmes et fait lire sur leurs lèvres les fragments d’une parole dont l’histoire avait effacé le son.",
+            "why": "Le film transforme une archive muette en enquête sur ce que le cinéma conserve, perd ou rend à celles qu’il a filmées. Sa retenue évite de parler à la place des militantes, au risque d’une forme parfois trop académique et d’un geste critique qui aurait pu être plus affirmé.",
+            "image": "https://fr.web.img4.acsta.net/r_1920_1080/img/24/f5/24f5fc33d42db4ddb2aff1f48f0a1987.jpg",
+            "links": {
+              "official": "https://www.jhrfilms.com/catalogue/les-mots-quelles-eurent-un-jour",
+              "imdb": "https://www.imdb.com/title/tt36917557/",
+              "sc": "https://www.senscritique.com/film/les_mots_quelles_eurent_un_jour/82836380",
+              "allocine": "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000013187.html"
+            },
+            "ratings": {
+              "senscritique": "6,6"
             }
           }
         ]

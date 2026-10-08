@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "b619a043c67e5d7790928731c8b0b35563992d05",
   "stage": "enrichment",
-  "updated_at": "2026-10-08T20:16:17.167Z",
+  "updated_at": "2026-10-08T20:19:57.076Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -433,6 +433,11 @@
       "id": "enrichment-cadet-d-eau-douce-wednesday-draft",
       "completed_at": "2026-10-08T20:16:17.167Z",
       "description": "Cadet d’eau douce matérialisé en carte draft du mercredi depuis la diffusion sauvegardée et une recherche critique ciblée. Le manque d’indépendance du recoupement de chaîne reste explicite."
+    },
+    {
+      "id": "enrichment-les-mots-tuesday-draft",
+      "completed_at": "2026-10-08T20:19:57.076Z",
+      "description": "Les mots qu’elles eurent un jour matérialisé en carte draft du mardi. La fiche Ouest-France exacte ferme le manque de recoupement indépendant du créneau ; aucune exigence globale n’est retirée."
     }
   ],
   "blockers": [
@@ -18909,6 +18914,125 @@
       },
       "evidence_note": "Liens directs exacts ; aucun résultat de recherche.",
       "status": "verified"
+    },
+    {
+      "work_id": "les-mots-qu-elles-eurent-un-jour-2024",
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "version.duration"
+      ],
+      "source_urls": [
+        "https://www.jhrfilms.com/catalogue/les-mots-quelles-eurent-un-jour",
+        "https://www.film-documentaire.fr/4DACTION/w_fiche_film/70940",
+        "https://www.cinemadureel.org/les-mots-quelles-eurent-un-jour-sortie-nationale/",
+        "https://www.canalplus.com/cinema/les-mots-qu-elles-eurent-un-jour/h/29411889_50002",
+        "https://www.senscritique.com/film/les_mots_quelles_eurent_un_jour/82836380",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000013187.html"
+      ],
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "reused_in": [
+        "production-flow-2026-10-08"
+      ],
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "version": "84 min"
+      },
+      "evidence_note": "Identité 2024 et sortie 2025 séparées ; version 84 min concordante, case 88 min distincte.",
+      "status": "verified"
+    },
+    {
+      "work_id": "les-mots-qu-elles-eurent-un-jour-2024",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/les-mots-qu-elles-eurent-un-jour/h/29411889_50002",
+        "https://tv-programme.com/cine-plus-festival/mardi-13-octobre-2026/",
+        "https://programmetv.ouest-france.fr/film/documentaire/les-mots-qu-elles-eurent-un-jour-c310161562/"
+      ],
+      "checked_at": "2026-10-08T20:19:57.076Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-13 19:22 Ciné+ Festival"
+      },
+      "evidence_note": "Événement officiel réutilisé et fiche Ouest-France exacte consultée ce passage : chaîne et horaire recoupés indépendamment.",
+      "status": "verified"
+    },
+    {
+      "work_id": "les-mots-qu-elles-eurent-un-jour-2024",
+      "fields": [
+        "critical_reception",
+        "critical_reservations",
+        "ratings.senscritique"
+      ],
+      "source_urls": [
+        "https://www.avoir-alire.com/les-mots-qu-elles-eurent-un-jour-raphael-pillosio-critique",
+        "https://www.citizenpoulpe.com/les-mots-qu-elles-eurent-un-jour/",
+        "https://www.senscritique.com/film/les_mots_quelles_eurent_un_jour/82836380",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000013187.html"
+      ],
+      "checked_at": "2026-10-08T14:21:55.226Z",
+      "reused_in": [
+        "production-flow-2026-10-08"
+      ],
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Les mots qu'elles eurent un jour"
+      },
+      "evidence_note": "Deux avis attribués avec réserves ; SC 6,6 sauvegardé. Observation AlloCiné actuelle non publiée.",
+      "status": "verified"
+    },
+    {
+      "work_id": "les-mots-qu-elles-eurent-un-jour-2024",
+      "fields": [
+        "image",
+        "image_type",
+        "image_provenance",
+        "image_visual_review"
+      ],
+      "source_urls": [
+        "https://www.jhrfilms.com/catalogue/les-mots-quelles-eurent-un-jour",
+        "https://fr.web.img4.acsta.net/r_1920_1080/img/24/f5/24f5fc33d42db4ddb2aff1f48f0a1987.jpg"
+      ],
+      "checked_at": "2026-10-08T20:19:57.076Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Les mots qu'elles eurent un jour"
+      },
+      "evidence_note": "Affiche exacte inspectée visuellement ; provenance primaire conservée, CI distant en attente.",
+      "status": "verified"
+    },
+    {
+      "work_id": "les-mots-qu-elles-eurent-un-jour-2024",
+      "fields": [
+        "links.official",
+        "links.imdb",
+        "links.sc",
+        "links.allocine"
+      ],
+      "source_urls": [
+        "https://www.jhrfilms.com/catalogue/les-mots-quelles-eurent-un-jour",
+        "https://www.imdb.com/title/tt36917557/",
+        "https://www.senscritique.com/film/les_mots_quelles_eurent_un_jour/82836380",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000013187.html"
+      ],
+      "checked_at": "2026-10-08T20:19:57.076Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Les mots qu'elles eurent un jour"
+      },
+      "evidence_note": "Liens directs exacts ; IMDb indisponible à la lecture antérieure mais identité du lien concordante.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -19622,9 +19746,45 @@
         "count": 35,
         "reference": "remaining"
       },
-      "stop_reason": "coherent_wednesday_draft_batch_ready_for_remote_checkpoint; broadcast_channel_independence_explicitly_open",
+      "stop_reason": "checkpoint_saved_then_next_useful_batch_continued",
       "next_useful_batch": "Compléter un dossier d’un jour encore vide ou établir une source indépendante de chaîne pour les cartes Ciné+.",
       "note": "Carte draft non comptée comme complète : provenance indépendante de la chaîne encore ouverte. Flags de couverture inchangés."
+    },
+    {
+      "date": "2026-10-08T20:19:57.076Z",
+      "started_at": "2026-10-08T20:16:17.167Z",
+      "ended_at": "2026-10-08T20:19:57.076Z",
+      "owner": "a68f4d35-6d59-41c1-a5d4-041717ff033a",
+      "prompt_revision": "production-flow-2026-10-08",
+      "stage": "enrichment_draft_cards",
+      "elapsed_seconds": 220,
+      "duration_basis": "wall_clock_between_saved_checkpoints",
+      "completed_batches": [
+        "enrichment-les-mots-tuesday-draft"
+      ],
+      "new_leads": 1,
+      "previously_researched_incomplete_works_followed_up": 1,
+      "newly_completed_editorial_dossiers": 1,
+      "newly_verified_complete_cards": 1,
+      "draft_cards_created": 1,
+      "deliverables_advanced": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/manifest.json",
+        "data/coverage/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "coverage_requirements_resolved": 0,
+      "images_visually_checked": 1,
+      "remaining": {
+        "stage": "enrichment",
+        "count": 35,
+        "reference": "remaining"
+      },
+      "stop_reason": "coherent_tuesday_complete_draft_batch_ready_for_remote_checkpoint",
+      "next_useful_batch": "Compléter un dossier d’un lundi ou vendredi encore vide, puis poursuivre choix/réserves et recoupements obligatoires.",
+      "note": "Une carte draft complète supplémentaire ; mardi et semaine restent incomplets. Les 35 exigences et tous les flags de couverture restent inchangés."
     }
   ],
   "source_issues": [
@@ -20343,8 +20503,8 @@
       },
       {
         "title": "Les mots qu'elles eurent un jour",
-        "status": "proche de la complétude",
-        "remaining": "Établir une provenance réellement indépendante du créneau Ciné+ Festival, contrôler le visuel primaire et trancher l'accès exact à l'offre."
+        "status": "dossier et carte draft complets pour comparaison",
+        "remaining": "Achever les deux autres choix du mardi, les réserves, la comparaison hebdomadaire et le préflight."
       },
       {
         "title": "Kouté Vwa",
@@ -20490,8 +20650,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "b94850e83bb3b5d37559f78cf6025014042aa165",
-    "produced_at": "2026-10-08T20:16:17.167Z",
+    "source_candidate_sha": "75be67b66853374ffd50476567821573d5f8542f",
+    "produced_at": "2026-10-08T20:19:57.076Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -20611,6 +20771,31 @@
             "https://www.critikat.com/actualite-cine/critique/cadet-deau-douce/",
             "https://films.oeil-ecran.com/2009/12/24/cadet-eau-douce/",
             "https://www.allocine.fr/film/fichefilm-1609/photos/"
+          ]
+        }
+      },
+      {
+        "work_id": "les-mots-qu-elles-eurent-un-jour-2024",
+        "date": "2026-10-13",
+        "rank_provisional": 1,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-08",
+          "identity_version": "Documentaire 2024 sorti en France en 2025 ; version 84 min ciblée, créneau 88 min distinct.",
+          "canonical_fields": "Identité, liens, SC 6,6 et affiche exacte contrôlés.",
+          "current_broadcast": "Mardi 13 octobre 19:22, Ciné+ Festival, recoupé par événement officiel et fiche indépendante exacte.",
+          "editorial_copy": "Textes originaux revus depuis deux critiques attribuées, avec réserves explicites sur la forme.",
+          "evidence_urls": [
+            "https://www.canalplus.com/cinema/les-mots-qu-elles-eurent-un-jour/h/29411889_50002",
+            "https://tv-programme.com/cine-plus-festival/mardi-13-octobre-2026/",
+            "https://programmetv.ouest-france.fr/film/documentaire/les-mots-qu-elles-eurent-un-jour-c310161562/",
+            "https://www.jhrfilms.com/catalogue/les-mots-quelles-eurent-un-jour",
+            "https://www.film-documentaire.fr/4DACTION/w_fiche_film/70940",
+            "https://www.cinemadureel.org/les-mots-quelles-eurent-un-jour-sortie-nationale/",
+            "https://www.avoir-alire.com/les-mots-qu-elles-eurent-un-jour-raphael-pillosio-critique",
+            "https://www.citizenpoulpe.com/les-mots-qu-elles-eurent-un-jour/",
+            "https://www.senscritique.com/film/les_mots_quelles_eurent_un_jour/82836380",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000013187.html"
           ]
         }
       }
