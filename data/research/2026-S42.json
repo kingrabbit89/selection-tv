@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
   "stage": "inventory",
-  "updated_at": "2026-10-08T06:31:49.738Z",
+  "updated_at": "2026-10-08T06:33:47.082Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -95,7 +95,9 @@
       "source_urls": [
         "https://canal-assistance.canalplus.com/fr/conversations/abonnement-canal-series/suppression-chaine-paramount/69578e44b680bd747e55af6d"
       ],
-      "alerted": false
+      "alerted": true,
+      "alerted_at": "2026-10-08T06:33:47.082Z",
+      "alert_owner": "a200f4a9-e530-46af-852d-3c0c9604a3f4"
     }
   ],
   "verification_records": [
@@ -5482,10 +5484,12 @@
   ],
   "run_metrics": [
     {
-      "date": "2026-10-08T06:19:38.210Z",
+      "date": "2026-10-08T06:33:47.082Z",
+      "started_at": "2026-10-08T06:03:47.584Z",
       "owner": "a200f4a9-e530-46af-852d-3c0c9604a3f4",
-      "stage": "inventory",
-      "elapsed_seconds": 951,
+      "stage": "inventory_and_documentary_discovery",
+      "elapsed_seconds": 1800,
+      "duration_basis": "wall_clock_measured",
       "completed_batches": [
         "inventory-2026-10-10-primary",
         "inventory-2026-10-11-primary",
@@ -5493,11 +5497,18 @@
         "inventory-2026-10-13-primary",
         "inventory-2026-10-14-primary",
         "inventory-2026-10-15-primary",
-        "inventory-2026-10-16-primary"
+        "inventory-2026-10-16-primary",
+        "inventory-source-gaps-round-1",
+        "inventory-source-gaps-round-2",
+        "inventory-structural-reconciliation",
+        "inventory-arte-official-crosscheck",
+        "documentary-official-discovery-and-critical-evidence"
       ],
       "reused_complete_cards": 0,
       "newly_verified_complete_cards": 0,
-      "raw_schedule_entries": 1967,
+      "raw_schedule_entries": 2079,
+      "schedule_entries_corroborated_arte_initial_pass": 38,
+      "new_documentary_source_groups": 3,
       "blockers": [
         "required-channel-paramount-ceased"
       ],
@@ -5509,7 +5520,8 @@
         "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
         "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV.",
         "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue.",
-        "Compléter les grilles primaires manquantes signalées dans chaque journée (lundi : Canal+ Grand Écran, Paris Première, LCP). Des pistes Télérama datées et bulletin officiel M6 existent ; encore à ouvrir."
+        "Compléter la grille T18 du 14 octobre ; les pages ouvertes sont indisponibles ou périmées. T18 du 15 octobre récupérée sur L'Internaute exactement daté.",
+        "Résoudre les horaires France 5 : Pompéi 21:05/21:07 le 15 ; Foucault 22:35/23:35 le 16. Finir les offres replay et expirations, puis critiques complémentaires et notes sans inventer de consensus."
       ]
     }
   ],
@@ -5588,6 +5600,16 @@
         "browser-presentation : Timeout 30000ms dans settle (validate-layout.mjs), coquille S42 encore absente. À recontrôler après création des livrables."
       ],
       "reusable_as_success": false
+    },
+    {
+      "run_id": 37738124935,
+      "head_sha": "f5a933abe1a12afa0ea1cff3e5dbff101dbc3551",
+      "base_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
+      "status": "in_progress",
+      "checked_at": "2026-10-08T06:33:47.082Z",
+      "url": "https://github.com/kingrabbit89/selection-tv/actions/runs/37738124935",
+      "reusable_as_success": false,
+      "note": "Un nouveau checkpoint changera encore le SHA ; tous les contrôles applicables restent requis sur son état exact."
     }
   ],
   "catalogue_reuse": {
@@ -5616,5 +5638,25 @@
         "https://www.serie-news.com/tnt/france-2/55098-unite-ados-93-sur-france-2-une-plongee-pudique-dans-un-service-de-pedopsychiatrie-07-10-2026/"
       ]
     }
-  ]
+  ],
+  "status": "in_progress",
+  "resume": {
+    "candidate_branch": "auto/2026-S42",
+    "pr_number": 33,
+    "checkpoint_parent_sha": "f5a933abe1a12afa0ea1cff3e5dbff101dbc3551",
+    "main_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
+    "first_incomplete_stage": "inventory",
+    "next_actions": [
+      "Récupérer T18 du 14 octobre sur une grille prouvée datée ; ne pas reprendre les pages génériques périmées enregistrées.",
+      "Achever recoupements indépendants/rappel éditorial ; poursuivre prospection des autres chaînes pertinentes et offres documentaires officielles.",
+      "Poursuivre le travail indépendant du blocage Paramount ; ne pas répéter l'alerte si sa cause est inchangée.",
+      "N'enrichir/sélectionner définitivement qu'après inventaire certifié ; ne pas sceller remaining non vide."
+    ],
+    "publisher": {
+      "last_inspected_run": 37737139368,
+      "status": "skipped",
+      "main_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
+      "note": "Aucune promotion en cours observée. Ne pas assimiler skipped à un contrôle vert ; fenêtre de fusion pas encore ouverte."
+    }
+  }
 }
