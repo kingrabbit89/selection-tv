@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "partial",
-  "updated_at": "2026-10-08T15:05:29.254Z",
+  "updated_at": "2026-10-08T17:05:22.976Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -1728,9 +1728,20 @@
             "start": "07:55",
             "inventory_title": "Une nuit au cinéma Flics et voyous",
             "listed_title": "Une nuit au cinéma",
-            "status": "collection_time_agree",
-            "detail_url": "https://television.telerama.fr/tele/documentaire/une-nuit-au-cinema,9743488,emission83322143.php",
-            "note": "Grille et titre de fiche génériques ; synopsis de la fiche liée concerne les films de gangsters, Laurent Bouzereau, 55 min. Titre exact de l'épisode à confirmer."
+            "status": "episode_identity_confirmed_time_agree",
+            "detail_url": "https://screenplus.fr/programmestv/programmes/une-nuit-au-cinema-flics-et-voyous-559ab2ac68669984/",
+            "note": "Identité d’épisode établie : « Une nuit au cinéma : flics et voyous » / « A Night at the Movies: Cops & Robbers and Crime Writers », Laurent Bouzereau, 2013, 55 min. SCREEN+ et Linternaute nomment l’épisode ; la filmographie du réalisateur le distingue des autres épisodes. Les pages de grille courantes concordent sur mardi 13/10 à 07:55 sur TCM Cinéma, mais l’indépendance des flux et la chaîne officielle restent à certifier.",
+            "identity_sources": [
+              "https://screenplus.fr/programmestv/programmes/une-nuit-au-cinema-flics-et-voyous-559ab2ac68669984/",
+              "https://www.linternaute.com/television/documentaire-une-nuit-au-cinema-p3124489/flics-et-voyous-e2880122/",
+              "https://dev.nedlandmedia.com/work/a-night-at-the-movies/"
+            ],
+            "broadcast_sources": [
+              "https://screenplus.fr/programmestv/programmes/une-nuit-au-cinema-flics-et-voyous-559ab2ac68669984/",
+              "https://xmltvfr.fr/xmltvreader.php?channel=TCM.fr",
+              "https://www.linternaute.com/television/programme-tcm-mardi-13-octobre-2026/"
+            ],
+            "checked_at": "2026-10-08T17:05:22.976Z"
           },
           {
             "start": "08:55",
@@ -2834,14 +2845,24 @@
             "start": "06:02",
             "listed_type": "Documentaire",
             "inventory_title": "L'image originelle Joachim Trier",
-            "status": "episode_conflict",
-            "note": "Conflit accru, non arbitrable : Télérama/programme-tv.com décrivent Sofia Coppola à 06:00–06:02 ; Ouest-France indexe Joachim Trier à 06:02 ; LeZappTV décrit Bong Joon-ho à 06:02. Les agrégateurs peuvent partager ou désynchroniser leurs flux. Ne pas modifier l'identité brute sans source officielle ou second flux réellement indépendant.",
-            "followup_checked_at": "2026-10-08T15:05:29.254Z",
+            "status": "episode_conflict_official_inconclusive",
+            "note": "Conflit toujours non arbitrable : Programme-TV associe Sofia Coppola, Ouest-France Joachim Trier, LeZapp Bong Joon-ho au même créneau. La page officielle CANAL+ de la saison 3 expose seulement un épisode 1 générique (35 min) et un événement du 04/10, sans sujet ni rattachement au 15/10. LeZapp est en outre incohérent : description Bong Joon-ho mais alternateName « Agnès Jaoui ». Aucune identité brute modifiée.",
+            "followup_checked_at": "2026-10-08T17:05:22.976Z",
             "followup_sources": [
               "https://www.programme-tv.com/television/1253678919/limage-originelle.html",
               "https://programmetv.ouest-france.fr/documentaire/cinema/l-image-originelle-m141995075/s03-l-image-originelle-c440100422/",
-              "https://lezapptv.fr/chaine/cine-festival/2026-10-15"
-            ]
+              "https://lezapptv.fr/chaine/cine-festival/2026-10-15",
+              "https://www.canalplus.com/bl/cinema/l-image-originelle/h/10469411_50002/saison-3/",
+              "https://www.canalplus.com/cinema/l-image-originelle-l-image-originelle-saison-3-episode-1/h/32064817_50002",
+              "https://lezapptv.fr/programme/limage-originelle"
+            ],
+            "image_observation": {
+              "source_url": "https://img.lezapptv.fr/program_image/4bae71214c4930d38b0f7a9897f75e066825cebc262a7f7a48d8fb501b6a5f6f.jpg",
+              "checked_at": "2026-10-08T17:05:22.976Z",
+              "visually_checked": true,
+              "observation": "Le visuel montre Bong Joon-ho.",
+              "limitation": "Le visuel appartient à une fiche dont les métadonnées se contredisent ; il confirme l’illustration de cette fiche, pas l’identité du créneau."
+            }
           },
           {
             "title": "Bird",
@@ -8289,23 +8310,78 @@
         }
       },
       {
-        "title": "Une nuit au cinéma Flics et voyous",
+        "title": "Une nuit au cinéma : Flics et voyous",
         "channel": "TCM Cinéma",
         "date": "2026-10-13",
         "start": "07:55",
         "decision": "à vérifier",
         "availability_source": "https://tv-programme.com/tcm-cinema/mardi-13-octobre-2026/",
-        "critical_evidence": [],
-        "reason": "Fiche générique de Laurent Bouzereau, synopsis sur le film de gangsters ; ne suffit pas à certifier le titre d'épisode. Aucun avis argumenté visible. Durée/version TCM, offre, notes, affiche et revue comparative à terminer.",
+        "critical_evidence": [
+          {
+            "source_url": "https://www.senscritique.com/film/une_nuit_au_cinema_flics_et_voyous/47987917",
+            "author": "PierreAmoFFsevrageSC",
+            "published_at": "2022-06-17",
+            "checked_at": "2026-10-08T17:05:22.976Z",
+            "rating": 8,
+            "rating_scale": 10,
+            "positive": "Un unique avis public décrit les entretiens avec les auteurs de polars comme passionnants et apprécie leur éclairage sur le cinéma criminel.",
+            "reservations": "Avis d’internaute unique ; il ne constitue ni une réception critique professionnelle ni un consensus.",
+            "applies_to": "documentaire de Laurent Bouzereau, 2013"
+          }
+        ],
+        "reason": "Épisode désormais identifié avec certitude et un avis public unique consigné sans consensus. La source officielle de grille, l’indépendance des flux, la copie TCM, l’offre France, les notes consolidées et l’affiche/provenance restent à terminer.",
         "identity_research": {
+          "original_title": "A Night at the Movies: Cops & Robbers and Crime Writers",
           "director": "Laurent Bouzereau",
+          "year": 2013,
           "country": "États-Unis",
-          "source_urls": [
-            "https://television.telerama.fr/tele/documentaire/une-nuit-au-cinema,9743488,emission83322143.php"
+          "duration_minutes": 55,
+          "participants": [
+            "Lee Child",
+            "Michael Connelly",
+            "James Ellroy",
+            "Tess Gerritsen",
+            "Heywood Gould"
           ],
-          "checked_at": "2026-10-08T13:41:46.610Z",
-          "listed_duration_minutes": 55,
-          "note": "Fiche générique de Laurent Bouzereau, synopsis sur le film de gangsters ; ne suffit pas à certifier le titre d'épisode. Aucun avis argumenté visible."
+          "source_urls": [
+            "https://screenplus.fr/programmestv/programmes/une-nuit-au-cinema-flics-et-voyous-559ab2ac68669984/",
+            "https://www.linternaute.com/television/documentaire-une-nuit-au-cinema-p3124489/flics-et-voyous-e2880122/",
+            "https://dev.nedlandmedia.com/work/a-night-at-the-movies/"
+          ],
+          "checked_at": "2026-10-08T17:05:22.976Z",
+          "status": "verified",
+          "catalogue_match": "aucun work_id canonique établi",
+          "note": "Les trois sources convergent sur l’épisode, le réalisateur, l’année et le format ; cette œuvre est distincte du long métrage Flics et voyous/Cops and Robbers d’Aram Avakian (1973)."
+        },
+        "work_id": null,
+        "broadcasts": [
+          {
+            "date": "2026-10-13",
+            "start": "07:55",
+            "channel": "TCM Cinéma",
+            "slot_duration": "60min",
+            "source_urls": [
+              "https://screenplus.fr/programmestv/programmes/une-nuit-au-cinema-flics-et-voyous-559ab2ac68669984/",
+              "https://xmltvfr.fr/xmltvreader.php?channel=TCM.fr",
+              "https://www.linternaute.com/television/programme-tcm-mardi-13-octobre-2026/"
+            ],
+            "status": "needs_check",
+            "note": "Horaire concordant sur trois pages courantes ; source officielle TCM et indépendance des flux non établies."
+          }
+        ],
+        "version_note": "Contenu annoncé à 55 min dans un créneau de 60 min ; aucune autre version identifiée, mais la copie TCM n’est pas certifiée par une source officielle.",
+        "alternative_evidence": [
+          {
+            "source_url": "https://dev.nedlandmedia.com/work/a-night-at-the-movies/",
+            "checked_at": "2026-10-08T17:05:22.976Z",
+            "evidence": "La filmographie du réalisateur/producteur répertorie explicitement Cops & Robbers and Crime Writers en 2013 parmi les épisodes A Night at the Movies.",
+            "limitation": "Source de l’auteur/producteur : preuve d’identité, pas jugement critique indépendant."
+          }
+        ],
+        "availability_research": {
+          "checked_at": "2026-10-08T17:05:22.976Z",
+          "status": "needs_check",
+          "note": "Aucune offre France courante, condition d’abonnement ni expiration vérifiée dans ce lot ; la diffusion linéaire seule est documentée."
         }
       },
       {
@@ -14350,7 +14426,7 @@
             "source_url": "https://tv-programme.com/cine-plus-festival/jeudi-15-octobre-2026/"
           }
         ],
-        "version_note": "Conflit non résolu : Sofia Coppola, Joachim Trier et Bong Joon-ho sont associés au même créneau par trois guides. La durée du créneau ne permet pas d'identifier l'épisode.",
+        "version_note": "Conflit non résolu : Sofia Coppola, Joachim Trier et Bong Joon-ho sont associés au même créneau par trois guides. La page CANAL+ S3E1 reste générique (35 min, événement du 04/10) et ne permet pas d’identifier la diffusion du 15/10.",
         "critical_evidence": [
           {
             "source_url": "https://cult.news/ecrans/limage-originelle-saison-2-portraits-de-cineastes-dune-belle-profondeur/",
@@ -14378,9 +14454,9 @@
           "status": "needs_check",
           "note": "Page de collection et HTML examinés : deux épisodes actuellement listés, Agnès Jaoui et Marco Bellocchio. Aucune offre individuelle ni expiration du portrait étudié confirmée ; ne pas transférer les dates de ces deux autres épisodes."
         },
-        "reason": "Le portrait Joachim Trier et une preuve alternative du programme sont documentés, mais son attribution au créneau du 15/10 est en conflit entre trois guides ; aucune carte ne peut être finalisée avant arbitrage fiable.",
+        "reason": "Le portrait Joachim Trier et une preuve alternative du programme sont documentés, mais son attribution au créneau du 15/10 reste contradictoire. La fiche officielle générique ne tranche pas et LeZapp se contredit ; aucune carte ne peut être finalisée avant arbitrage fiable.",
         "identity_conflict": {
-          "checked_at": "2026-10-08T15:05:29.254Z",
+          "checked_at": "2026-10-08T17:05:22.976Z",
           "status": "conflict",
           "scheduled_slot": {
             "date": "2026-10-15",
@@ -14402,9 +14478,28 @@
               "subject": "Bong Joon-ho",
               "source_url": "https://lezapptv.fr/chaine/cine-festival/2026-10-15",
               "observed_start": "06:02"
+            },
+            {
+              "subject": "non indiqué (S3E1 générique)",
+              "source_url": "https://www.canalplus.com/cinema/l-image-originelle-l-image-originelle-saison-3-episode-1/h/32064817_50002",
+              "observed_event": "2026-10-04T12:47+02:00",
+              "note": "Page officielle CANAL+, 35 min, sans sujet ni événement du 15/10 ; ne tranche pas le conflit."
+            },
+            {
+              "subject": "Bong Joon-ho / alternateName Agnès Jaoui",
+              "source_url": "https://lezapptv.fr/programme/limage-originelle",
+              "observed_start": "06:02",
+              "note": "Métadonnées internes contradictoires sur la même fiche."
             }
           ],
-          "note": "Trois sujets incompatibles pour le même créneau ; aucune majorité d'agrégateurs n'est tenue pour preuve indépendante. Source officielle/guide indépendant requis."
+          "note": "Trois sujets incompatibles selon les guides. Le suivi officiel CANAL+ reste générique et hors créneau cible ; LeZapp se contredit. Conflit conservé sans vote entre agrégateurs.",
+          "image_observation": {
+            "source_url": "https://img.lezapptv.fr/program_image/4bae71214c4930d38b0f7a9897f75e066825cebc262a7f7a48d8fb501b6a5f6f.jpg",
+            "checked_at": "2026-10-08T17:05:22.976Z",
+            "visually_checked": true,
+            "observation": "Portrait de Bong Joon-ho",
+            "limitation": "N’établit pas l’identité du créneau du 15/10."
+          }
         }
       },
       {
