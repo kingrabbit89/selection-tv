@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
   "stage": "inventory",
-  "updated_at": "2026-10-08T06:49:24.339Z",
+  "updated_at": "2026-10-08T06:51:09.723Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -14,7 +14,8 @@
     "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue.",
     "France 5 : Pompéi et Foucault réconciliés par les grilles officielles ; revérifier au préflight. Quatre écarts La p'tite librairie, versions/durées et fins de nuit restent à traiter. Offres replay, expirations, réception complémentaire et notes encore incomplètes.",
     "T18 14 octobre relevée ; identifier les épisodes regroupés et recouper les horaires. LeZapp associe au titre Face à face une description politique incompatible avec son type série : ne pas réutiliser ce synopsis.",
-    "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce."
+    "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
+    "TF1 Séries Films et CSTAR : 7 jours relevés, recoupements indépendants encore à compléter ; épisodes Douanes sous haute surveillance à identifier avant tout examen approfondi."
   ],
   "completed_batches": [
     {
@@ -103,6 +104,11 @@
       "id": "inventory-paris-premiere-official-week-crosscheck",
       "completed_at": "2026-10-08T06:49:24.339Z",
       "description": "Bulletin officiel hebdomadaire achevé : 13 créneaux tiers corroborés ; 4 entrées déjà issues du même bulletin exclues du décompte indépendant."
+    },
+    {
+      "id": "inventory-discovered-tf1sf-cstar-week",
+      "completed_at": "2026-10-08T06:51:09.723Z",
+      "description": "Deux chaînes repérées dans le rappel hebdomadaire ajoutées sur 7 jours : 44 entrées brutes conservées. Deux grilles CSTAR indisponibles remplacées par des pages LeZapp datées ; zéros de TF1 Séries Films conservés sans faux remplissage."
     }
   ],
   "blockers": [
@@ -6703,6 +6709,300 @@
           "start": "22:55"
         }
       ],
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tf1-series-films/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:50:02.072Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "TF1 Séries Films"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cstar/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:50:20.524Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "CSTAR"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tf1-series-films/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:50:00.897Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "TF1 Séries Films"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://lezapptv.fr/chaine/cstar/2026-10-11"
+      ],
+      "checked_at": "2026-10-08T06:51:09.407Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "CSTAR"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tf1-series-films/lundi-12-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:50:01.941Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "channel": "TF1 Séries Films"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://lezapptv.fr/chaine/cstar/2026-10-12"
+      ],
+      "checked_at": "2026-10-08T06:51:09.407Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "channel": "CSTAR"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tf1-series-films/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:50:02.046Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "TF1 Séries Films"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cstar/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:50:00.897Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "CSTAR"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tf1-series-films/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:50:02.227Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "TF1 Séries Films"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cstar/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:50:20.840Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "CSTAR"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tf1-series-films/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:50:02.313Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "TF1 Séries Films"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cstar/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:50:20.578Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "CSTAR"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tf1-series-films/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:50:01.804Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "channel": "TF1 Séries Films"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "date",
+        "start",
+        "channel",
+        "raw_title",
+        "listed_type"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cstar/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T06:50:20.619Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "channel": "CSTAR"
+      },
+      "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
       "status": "verified"
     }
   ],
