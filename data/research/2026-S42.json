@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "2c661aaf235903f4a98ffc02e115ca7864892bb9",
   "stage": "enrichment",
-  "updated_at": "2026-10-08T21:09:50.000Z",
+  "updated_at": "2026-10-08T21:16:47.000Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -448,6 +448,11 @@
       "id": "sync-main-and-shortlist-la-proie-friday-draft",
       "completed_at": "2026-10-08T21:09:50.000Z",
       "description": "Candidate synchronisée sans force avec main 2c661aaf ; rapport preparation-gaps exécuté. Présélection structurée amorcée depuis les preuves sauvegardées et La Proie nue matérialisée en première carte draft du vendredi. Les limites d’indépendance de chaîne et les 35 exigences restent ouvertes."
+    },
+    {
+      "id": "enrichment-a-ghost-story-friday-draft",
+      "completed_at": "2026-10-08T21:16:47.000Z",
+      "description": "A Ghost Story matérialisé en deuxième carte draft du vendredi depuis les preuves stables sauvegardées et les métadonnées/visuel exacts contrôlés. L’indépendance des flux TCM reste ouverte ; aucune offre replay n’est affirmée."
     }
   ],
   "blockers": [
@@ -19277,6 +19282,110 @@
       },
       "evidence_note": "Note SensCritique 7,1 observée. Affiche française exacte de l’œuvre inspectée visuellement ; santé distante encore soumise au CI.",
       "status": "verified"
+    },
+    {
+      "work_id": "a-ghost-story-2017",
+      "fields": [
+        "title",
+        "aliases",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration"
+      ],
+      "source_urls": [
+        "https://a24films.com/films/a-ghost-story",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=252406.html",
+        "https://www.senscritique.com/film/a_ghost_story/23854223"
+      ],
+      "checked_at": "2026-10-08T12:20:18.077Z",
+      "reused_in": ["2026-S42"],
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "A Ghost Story",
+        "version": "version cinéma 92 min"
+      },
+      "evidence_note": "Film américain de David Lowery, 2017, distinct de Ghost Story et Ghost Stories. La durée cinéma de 92 min ne transforme pas le créneau TCM de 90 min en preuve de version.",
+      "status": "verified"
+    },
+    {
+      "work_id": "a-ghost-story-2017",
+      "fields": [
+        "critical_reception",
+        "reservations",
+        "editorial_copy"
+      ],
+      "source_urls": [
+        "https://www.theringer.com/2017/07/11/pop-culture/a-ghost-story-movie-rooney-mara-review-204b969cf8bf",
+        "https://rogersmovienation.com/2017/07/13/movie-review-eternitys-quiet-lonely-and-a-trifle-dull-in-a-ghost-story/"
+      ],
+      "checked_at": "2026-10-08T12:20:18.077Z",
+      "reused_in": ["2026-S42"],
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "A Ghost Story"
+      },
+      "evidence_note": "Nayman valorise le montage temporel et la solitude tout en signalant un rythme exigeant ; Moore apprécie l’atmosphère mais réserve son jugement sur les longueurs et la distance émotionnelle.",
+      "status": "verified"
+    },
+    {
+      "work_id": "a-ghost-story-2017",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "version.duration_observation"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tcm-cinema/vendredi-16-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-vendredi-prochain/tcm-france"
+      ],
+      "checked_at": "2026-10-08T13:37:58.645Z",
+      "reused_in": ["2026-S42"],
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "start": "20:50",
+        "channel": "TCM Cinéma"
+      },
+      "evidence_note": "Deux grilles datées concordent sur le titre et 20:50, mais l’indépendance des flux n’est pas établie et aucune source officielle TCM n’est sauvegardée. Le créneau de 90 min n’est pas une durée de copie certifiée.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": "a-ghost-story-2017",
+      "fields": [
+        "links.official",
+        "links.imdb",
+        "links.sc",
+        "links.allocine",
+        "links.tmdb",
+        "ratings.senscritique",
+        "image",
+        "image_type",
+        "image_provenance",
+        "image_visual_review"
+      ],
+      "source_urls": [
+        "https://a24films.com/films/a-ghost-story",
+        "https://www.imdb.com/title/tt6265828/",
+        "https://www.senscritique.com/film/a_ghost_story/23854223",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=252406.html",
+        "https://www.themoviedb.org/movie/428449-a-ghost-story",
+        "https://www.imdb.com/title/tt6265828/mediaindex/",
+        "https://m.media-amazon.com/images/M/MV5BN2Q0MmZhMzktYjYxNy00ODE3LWJjMWYtZThiNmU2YmFhMmRlXkEyXkFqcGc%40._V1_.jpg"
+      ],
+      "checked_at": "2026-10-08T21:16:47.000Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "A Ghost Story"
+      },
+      "evidence_note": "Liens directs exacts, note SensCritique 6,9 et affiche exacte inspectée visuellement ; santé distante encore soumise au CI.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -20067,16 +20176,17 @@
       "note": "Carte linéaire complète ; conflit replay conservé. Lundi et semaine restent incomplets, 35 exigences inchangées."
     },
     {
-      "date": "2026-10-08T21:12:09.000Z",
+      "date": "2026-10-08T21:16:47.000Z",
       "started_at": "2026-10-08T20:58:14.000Z",
-      "ended_at": "2026-10-08T21:12:09.000Z",
+      "ended_at": "2026-10-08T21:16:47.000Z",
       "owner": "4d0857ba-92f0-4320-bac9-1478be846e6d",
       "prompt_revision": "production-shortlist-2026-10-08",
       "stage": "enrichment_draft_cards",
-      "elapsed_seconds": 835,
+      "elapsed_seconds": 1113,
       "duration_basis": "automation_runtime_clock_from_run_context_and_final_checkpoint",
       "completed_batches": [
-        "sync-main-and-shortlist-la-proie-friday-draft"
+        "sync-main-and-shortlist-la-proie-friday-draft",
+        "enrichment-a-ghost-story-friday-draft"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -20085,23 +20195,23 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ],
-      "new_leads": 1,
+      "new_leads": 2,
       "shortlist_entries": 22,
-      "previously_researched_incomplete_works_followed_up": 0,
+      "previously_researched_incomplete_works_followed_up": 1,
       "newly_completed_editorial_dossiers": 0,
       "newly_verified_complete_cards": 0,
-      "draft_cards_created": 1,
-      "partial_dossiers": 1,
+      "draft_cards_created": 2,
+      "partial_dossiers": 2,
       "coverage_requirements_resolved": 0,
-      "images_visually_checked": 1,
+      "images_visually_checked": 2,
       "remaining": {
         "stage": "enrichment",
         "count": 35,
         "reference": "remaining"
       },
-      "stop_reason": "coherent_friday_draft_and_shortlist_checkpoint_ready_for_remote_save",
-      "next_useful_batch": "Achever A Ghost Story pour le vendredi depuis ses deux critiques sauvegardées, puis poursuivre les choix et réserves des jours sous-dotés sans reprendre l’inventaire général.",
-      "note": "Candidate synchronisée avec main ; rapport preparation-gaps : 53 écarts informatifs. Première carte vendredi créée et présélection structurée de 22 pistes ajoutée. Les 35 exigences, les limites d’indépendance des grilles et tous les contrôles complets restent ouverts."
+      "stop_reason": "two_coherent_friday_drafts_and_shortlist_ready_for_remote_checkpoint",
+      "next_useful_batch": "Achever un troisième choix du vendredi parmi La falaise mystérieuse et le documentaire Wachowski après contrôle des versions et de la chaîne, puis constituer les réserves complètes du vendredi.",
+      "note": "Candidate synchronisée avec main ; rapport preparation-gaps : 53 écarts informatifs. Deux cartes vendredi créées et présélection structurée de 22 pistes ajoutée. Les 35 exigences, les limites d’indépendance des grilles et tous les contrôles complets restent ouverts."
     }
   ],
   "source_issues": [
@@ -21118,7 +21228,7 @@
         "id": "sl-vendredi-a-ghost-story",
         "title": "A Ghost Story",
         "scope": {"day": "vendredi"},
-        "status": "researching",
+        "status": "card_drafted",
         "signals": [{"kind": "critique", "note": "Deux critiques contradictoires sont sauvegardées : invention du montage temporel contre distance émotionnelle et longueurs.", "source_url": "https://www.theringer.com/2017/07/11/pop-culture/a-ghost-story-movie-rooney-mara-review-204b969cf8bf"}],
         "alternatives": ["sl-vendredi-la-proie-nue", "sl-vendredi-falaise"]
       },
@@ -21149,8 +21259,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "5aa3aa8d674678061723750d0398747b5b30646e",
-    "produced_at": "2026-10-08T21:09:50.000Z",
+    "source_candidate_sha": "8391a1524eeb336a7b23a19a4714fbf86b1fc7ed",
+    "produced_at": "2026-10-08T21:16:47.000Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -21343,6 +21453,30 @@
             "https://old.bfi.org.uk/sightandsound/review/4247",
             "https://www.slantmagazine.com/dvd/the-naked-prey-dvd/",
             "https://www.imdb.com/title/tt0060736/mediaviewer/rm3132453632"
+          ]
+        }
+      },
+      {
+        "work_id": "a-ghost-story-2017",
+        "date": "2026-10-16",
+        "rank_provisional": 2,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-08",
+          "identity_version": "Film américain de David Lowery, 2017, avec Casey Affleck et Rooney Mara, distinct de Ghost Story (1981) et de Ghost Stories. La carte vise la version cinéma de 92 min ; le créneau TCM de 90 min ne certifie pas la durée de la copie.",
+          "canonical_fields": "Identité, réalisateur, année, pays, durée cinéma, liens directs, note SensCritique 6,9 et affiche exacte ont été contrôlés. Le visuel a été inspecté ; sa santé distante reste soumise au CI.",
+          "current_broadcast": "Vendredi 16 octobre à 20:50 sur TCM Cinéma, horaire concordant entre deux grilles datées. L’indépendance des flux n’est pas établie et aucune source officielle TCM n’est sauvegardée ; la carte reste provisoire et n’affirme aucune offre replay.",
+          "editorial_copy": "Synopsis et justification originaux revus depuis A24, The Ringer et Movie Nation. L’invention du montage temporel et l’atmosphère sont distinguées des réserves sur les longueurs et la distance émotionnelle ; aucune note graphique non lisible n’est transcrite.",
+          "evidence_urls": [
+            "https://a24films.com/films/a-ghost-story",
+            "https://tv-programme.com/tcm-cinema/vendredi-16-octobre-2026/",
+            "https://television.telerama.fr/programme-tv-vendredi-prochain/tcm-france",
+            "https://www.theringer.com/2017/07/11/pop-culture/a-ghost-story-movie-rooney-mara-review-204b969cf8bf",
+            "https://rogersmovienation.com/2017/07/13/movie-review-eternitys-quiet-lonely-and-a-trifle-dull-in-a-ghost-story/",
+            "https://www.imdb.com/title/tt6265828/",
+            "https://www.senscritique.com/film/a_ghost_story/23854223",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=252406.html",
+            "https://www.imdb.com/title/tt6265828/mediaindex/"
           ]
         }
       }
