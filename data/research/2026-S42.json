@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T12:02:16.298Z",
+  "updated_at": "2026-10-08T12:06:46.361Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -29,7 +29,8 @@
     "TF1/TFX/TMC : poursuivre les sujets/épisodes encore génériques et le tri motivé des formats de magazine ou documentaire de flux repérés ; neuf créneaux TFX, 38 TMC recoupés et deux magazines supplémentaires ajoutés, sans certification artistique.",
     "TF1 : trois ajouts recoupés directement (Cat's Eyes S2 épisodes 1/2 le 12 à 21:10/22:15 et Les docs du week-end le 11 à 16:10). Identités canoniques, critique, durée/version et offres à traiter avant sélection.",
     "Paris Première : tous les dix ajouts sont recoupés ; sujets des magazines culturels à préciser, téléfilms/spectacles à trier et enrichir, parties La maison sur le lac à identifier sans confusion.",
-    "RMC+ : Oppenheimer (Eve Vanderstegen, 2024) et Camps perdus (Benoît Cressent, 2021) ont des pages/expirations affichées ; terminer critiques, notes, droits/lecture, versions 51/55/65 min pour Camps perdus. Tom Hanks : réception contrastée documentée, épisodes français 17/18 et diffusion du 16 à confirmer."
+    "RMC+ : Oppenheimer (Eve Vanderstegen, 2024) et Camps perdus (Benoît Cressent, 2021) ont des pages/expirations affichées ; terminer critiques, notes, droits/lecture, versions 51/55/65 min pour Camps perdus. Tom Hanks : réception contrastée documentée, épisodes français 17/18 et diffusion du 16 à confirmer.",
+    "Arte préhistoire : Chauvet, Sulawesi et Thorin (cinq diffusions) ont identités, offres affichées et réception attribuée ; vérifier versions linéaires, droits France, notes moyennes, affiches et comparaison éditoriale. Les 52/53/54 min de Thorin ne sont pas interchangeables."
   ],
   "completed_batches": [
     {
@@ -268,6 +269,11 @@
       "id": "inventory-tf1-paris-six-pending-crosschecks",
       "completed_at": "2026-10-08T12:02:16.298Z",
       "description": "Six créneaux ajoutés lors des lots précédents désormais recoupés sur cinq pages datées indépendantes. Aucun nouveau brut ni fiche complète ; sujets des magazines culturels restent à préciser."
+    },
+    {
+      "id": "documentary-arte-prehistory-offers-and-critical-evidence",
+      "completed_at": "2026-10-08T12:06:46.361Z",
+      "description": "Trois œuvres, cinq diffusions : identités stables et offres affichées établies ; critiques indépendantes et jury attribués. Deux prix précis pour Thorin, limites paywalls/versions/géographie conservées ; aucune fiche complète certifiée."
     }
   ],
   "blockers": [
@@ -13352,6 +13358,189 @@
         "channel": "TF1"
       },
       "evidence_note": "Source officielle TF1 Pro déjà consultée et page du guide indépendant lue dans ce lot. Créneau confirmé ; aucune qualité artistique déduite.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "exact_identity_url"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/112849-000-A/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire/",
+        "https://www.senscritique.com/film/grotte_chauvet_dans_les_pas_des_artistes_de_la_prehistoire/104936383"
+      ],
+      "checked_at": "2026-10-08T12:06:46.361Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Grotte Chauvet - Dans les pas des artistes de la Préhistoire"
+      },
+      "evidence_note": "Identité concordante Arte/SensCritique : Alexis de Favitski, France, 2024. Aucun identifiant canonique préexistant trouvé ; durée conservée séparément par offre.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "displayed_duration",
+        "displayed_expiry_date"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/112849-000-A/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire/"
+      ],
+      "checked_at": "2026-10-08T12:06:46.361Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Grotte Chauvet - Dans les pas des artistes de la Préhistoire",
+        "offer": "Arte.tv page FR"
+      },
+      "evidence_note": "Page affiche 89 min et fin 2027-03-17. Pas une preuve de lecture depuis la France ; pas d'heure exacte inventée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_evidence",
+        "awards_if_present"
+      ],
+      "source_urls": [
+        "https://www.programme-television.org/type/documentaires/autres/civilisation/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-343398134",
+        "https://www.senscritique.com/film/grotte_chauvet_dans_les_pas_des_artistes_de_la_prehistoire/critique/316364330",
+        "https://www.telerama.fr/television/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-en-immersion-avec-les-scientifiques_cri-7035768.php"
+      ],
+      "checked_at": "2026-10-08T12:06:46.361Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Grotte Chauvet - Dans les pas des artistes de la Préhistoire"
+      },
+      "evidence_note": "Avis distingués par auteur, type et accès dans coverage. Extraits payants non prolongés ; ni consensus ni notes globales inférés.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "exact_identity_url"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/118245-000-A/sulawesi-l-ile-des-premieres-images/",
+        "https://www.senscritique.com/film/sulawesi_lile_des_premieres_images/133861006"
+      ],
+      "checked_at": "2026-10-08T12:06:46.361Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Sulawesi, l'île des premières images"
+      },
+      "evidence_note": "Identité concordante Arte/SensCritique : Pascal Goblot ; Denis van Waerebeke, France, 2025. Aucun identifiant canonique préexistant trouvé ; durée conservée séparément par offre.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "displayed_duration",
+        "displayed_expiry_date"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/118245-000-A/sulawesi-l-ile-des-premieres-images/"
+      ],
+      "checked_at": "2026-10-08T12:06:46.361Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Sulawesi, l'île des premières images",
+        "offer": "Arte.tv page FR"
+      },
+      "evidence_note": "Page affiche 56 min et fin 2027-01-19. Pas une preuve de lecture depuis la France ; pas d'heure exacte inventée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_evidence",
+        "awards_if_present"
+      ],
+      "source_urls": [
+        "https://www.telerama.fr/television/sulawesi-l-ile-des-premieres-images-sur-arte-tv-une-renversante-lecon-d-art-prehistorique-dans-les-grottes-d-indonesie_cri-7042482.php",
+        "https://www.lejournaldesarts.fr/medias/la-prehistoire-des-images-184458"
+      ],
+      "checked_at": "2026-10-08T12:06:46.361Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Sulawesi, l'île des premières images"
+      },
+      "evidence_note": "Avis distingués par auteur, type et accès dans coverage. Extraits payants non prolongés ; ni consensus ni notes globales inférés.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "exact_identity_url"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/083910-000-A/thorin-le-dernier-neandertalien/",
+        "https://www.senscritique.com/film/thorin_le_dernier_neandertalien/101841222"
+      ],
+      "checked_at": "2026-10-08T12:06:46.361Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Thorin, le dernier Néandertalien"
+      },
+      "evidence_note": "Identité concordante Arte/SensCritique : Pascal Cuissot, France, 2024. Aucun identifiant canonique préexistant trouvé ; durée conservée séparément par offre.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "displayed_duration",
+        "displayed_expiry_date"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/083910-000-A/thorin-le-dernier-neandertalien/"
+      ],
+      "checked_at": "2026-10-08T12:06:46.361Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Thorin, le dernier Néandertalien",
+        "offer": "Arte.tv page FR"
+      },
+      "evidence_note": "Page affiche 54 min et fin 2026-11-14. Pas une preuve de lecture depuis la France ; pas d'heure exacte inventée.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "critical_evidence",
+        "awards_if_present"
+      ],
+      "source_urls": [
+        "https://www.senscritique.com/film/thorin_le_dernier_neandertalien/critique/326486055",
+        "https://www.telerama.fr/television/thorin-le-dernier-neandertalien-une-enquete-archeologique-pointue_cri-7034867.php",
+        "https://www.hominides.com/le-festival-objectif-prehistoire-a-pech-merle-palmares-2024/",
+        "https://pariscience.fr/palmares-2024/"
+      ],
+      "checked_at": "2026-10-08T12:06:46.361Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Thorin, le dernier Néandertalien"
+      },
+      "evidence_note": "Avis distingués par auteur, type et accès dans coverage. Extraits payants non prolongés ; ni consensus ni notes globales inférés.",
       "status": "verified"
     }
   ],
