@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "week": "2026-S42",
-  "base_sha": "6cf168c169423e57c235c053db66bf92ff4cd749",
+  "base_sha": "b619a043c67e5d7790928731c8b0b35563992d05",
   "stage": "enrichment",
-  "updated_at": "2026-10-08T19:48:05.653Z",
+  "updated_at": "2026-10-08T20:05:26.583Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -413,6 +413,11 @@
       "id": "coverage-channels-scanned-representation",
       "completed_at": "2026-10-08T19:48:05.653Z",
       "description": "channels_scanned reporté de l'inventaire vers coverage.days[] après examen des sources et notes de relevé ; les chaînes sans occurrence ont une grille examinée. Aucun flag de scan, recoupement, rappel ni full_week_reaudit_completed modifié."
+    },
+    {
+      "id": "enrichment-exit8-and-saturday-two-card-draft",
+      "completed_at": "2026-10-08T20:05:26.583Z",
+      "description": "Exit 8 vérifié et matérialisé en carte draft ; Thorin réutilisé sans répéter ses six vérifications. La sélection et la grille du samedi comptent deux cartes provisoires. Les 35 exigences de remaining sont conservées."
     }
   ],
   "blockers": [
@@ -18423,6 +18428,124 @@
       },
       "evidence_note": "Fallback exact SC chargé et inspecté ; image ARTE liée générique, donc aucun poster officiel prétendu. CI distant à faire avant intégration publique.",
       "status": "verified"
+    },
+    {
+      "work_id": "exit-8-2025",
+      "fields": [
+        "title",
+        "aliases",
+        "director",
+        "year",
+        "country",
+        "duration",
+        "version"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/exit-8/h/30486943_50001",
+        "https://www.imdb.com/title/tt35222590/",
+        "https://www.senscritique.com/film/exit_8/106570232",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000019746.html",
+        "https://www.festival-cannes.com/fr/f/exit-8/"
+      ],
+      "checked_at": "2026-10-08T20:05:26.583Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "version": "diffusion CANAL+ 91 min"
+      },
+      "evidence_note": "Identité du long métrage de Genki Kawamura établie ; divergence 91/95 min conservée et carte rattachée à la version CANAL+ de 91 min.",
+      "status": "verified"
+    },
+    {
+      "work_id": "exit-8-2025",
+      "fields": [
+        "broadcast.channel",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.version"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/exit-8/h/30486943_50001",
+        "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026",
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+        "https://tv-programme.com/canal-plus-cinema/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T20:05:26.583Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-10 21:00 Canal+ Cinéma"
+      },
+      "evidence_note": "Créneau du samedi corroboré par trois ressources CANAL+ et une grille datée indépendante. La divergence de deux minutes du mardi n’est pas transposée à cette carte.",
+      "status": "verified"
+    },
+    {
+      "work_id": "exit-8-2025",
+      "fields": [
+        "ratings.senscritique",
+        "critical_reception",
+        "critical_reservations"
+      ],
+      "source_urls": [
+        "https://www.senscritique.com/film/exit_8/106570232",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000019746.html",
+        "https://www.rottentomatoes.com/m/exit_8_2025",
+        "https://www.lemonde.fr/culture/article/2025/09/03/exit-8-un-cruel-jeu-des-sept-erreurs-dans-le-metro_6638722_3246.html"
+      ],
+      "checked_at": "2026-10-08T20:05:26.583Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Exit 8"
+      },
+      "evidence_note": "SensCritique 6,2 daté ; critique du Monde, agrégats AlloCiné/Rotten Tomatoes et avis contradictoires distingués. Aucun consensus français ni note IMDb inventé.",
+      "status": "verified"
+    },
+    {
+      "work_id": "exit-8-2025",
+      "fields": [
+        "image",
+        "image_type",
+        "image_provenance",
+        "image_visual_review"
+      ],
+      "source_urls": [
+        "https://www.themoviedb.org/movie/1408208/images/posters",
+        "https://image.tmdb.org/t/p/original/da0fL3H87BDqTYczjUy80T76FQh.jpg"
+      ],
+      "checked_at": "2026-10-08T20:05:26.583Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Exit 8"
+      },
+      "evidence_note": "Affiche exacte inspectée visuellement ; provenance TMDb conservée. Santé distante à vérifier par le CI candidat.",
+      "status": "verified"
+    },
+    {
+      "work_id": "exit-8-2025",
+      "fields": [
+        "links.official",
+        "links.imdb",
+        "links.sc",
+        "links.allocine",
+        "links.tmdb"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/exit-8/h/30486943_50001",
+        "https://www.imdb.com/title/tt35222590/",
+        "https://www.senscritique.com/film/exit_8/106570232",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000019746.html",
+        "https://www.themoviedb.org/movie/1408208/images/posters"
+      ],
+      "checked_at": "2026-10-08T20:05:26.583Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Exit 8"
+      },
+      "evidence_note": "Liens directs exacts ouverts sur les pages de l’œuvre ; aucune URL de résultats de recherche.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -18990,6 +19113,44 @@
       "stop_reason": "technical_representation_fix_completed_handoff_to_scheduled_producer",
       "next_useful_batch": "Présélection par jour et rubrique, puis cartes par lots des dossiers les plus proches de la complétude ; rubriques hors grilles en parallèle.",
       "note": "Intervention technique hors passage planifié : aucune recherche Web, aucune carte, aucune exigence close."
+    },
+    {
+      "date": "2026-10-08T20:05:26.583Z",
+      "started_at": "2026-10-08T19:59:05.266Z",
+      "ended_at": "2026-10-08T20:05:26.583Z",
+      "owner": "a68f4d35-6d59-41c1-a5d4-041717ff033a",
+      "prompt_revision": "production-flow-2026-10-08",
+      "stage": "enrichment_draft_cards",
+      "elapsed_seconds": 381,
+      "duration_basis": "wall_clock_since_lease_acquisition",
+      "completed_batches": [
+        "enrichment-exit8-and-saturday-two-card-draft"
+      ],
+      "new_leads": 0,
+      "previously_researched_incomplete_works_followed_up": 1,
+      "newly_completed_editorial_dossiers": 1,
+      "newly_verified_complete_cards": 1,
+      "draft_cards_created": 1,
+      "reused_draft_cards": 1,
+      "deliverables_advanced": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/manifest.json",
+        "data/coverage/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "coverage_requirements_resolved": 0,
+      "images_visually_checked": 1,
+      "web_consultations_note": "Consultations ciblées Exit 8 consignées dans verification_records ; aucun quota ou crédit d’outil supposé.",
+      "remaining": {
+        "stage": "enrichment",
+        "count": 35,
+        "reference": "remaining"
+      },
+      "stop_reason": "coherent_saturday_two_card_batch_saved_with_time_reserved_for_remote_checkpoint_and_lease_release",
+      "next_useful_batch": "Terminer un troisième choix du samedi ou une carte d’un jour encore vide à partir des diffusions officielles déjà recoupées, sans reprendre les impasses documentées.",
+      "note": "Deux cartes draft ne certifient ni le samedi complet ni la semaine. Les flags de scan, recoupement, rappel et full_week_reaudit_completed restent inchangés."
     }
   ],
   "source_issues": [
@@ -19682,9 +19843,14 @@
     ],
     "promising_candidates": [
       {
+        "title": "Exit 8",
+        "status": "dossier et carte draft complets pour comparaison",
+        "remaining": "Achever le troisième choix du samedi, les réserves, la comparaison hebdomadaire et le préflight."
+      },
+      {
         "title": "Thorin, le dernier Néandertalien",
-        "status": "dossier complet pour comparaison éditoriale ; carte publique non créée",
-        "remaining": "Comparer au reste de la semaine, attribuer le work_id lors de la création de la carte et contrôler le fallback par le CI distant."
+        "status": "dossier et carte draft complets pour comparaison",
+        "remaining": "Achever la comparaison hebdomadaire, les réserves et le préflight ; la carte reste provisoire."
       },
       {
         "title": "Les mots qu'elles eurent un jour",
@@ -19835,13 +20001,40 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "6fd6686f1467e6281108cb7ab83a8de6820edf36",
-    "produced_at": "2026-10-08T18:59:06.950Z",
+    "source_candidate_sha": "4658bba6cf9a200845c289ee8faa9caf1612202e",
+    "produced_at": "2026-10-08T20:05:26.583Z",
     "cards": [
+      {
+        "work_id": "exit-8-2025",
+        "date": "2026-10-10",
+        "rank_provisional": 1,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-08",
+          "identity_version": "Long métrage japonais de Genki Kawamura, 2025. La carte vise la version CANAL+ de 91 min ; les fiches cinéma à 95 min restent une divergence explicite.",
+          "canonical_fields": "Identité, liens, note SensCritique 6,2 et affiche exacte contrôlés ; visuel encore soumis au CI distant.",
+          "current_broadcast": "Samedi 10 octobre, 21:00, Canal+ Cinéma, recoupé par sources officielles et grille datée indépendante ; le créneau conflictuel du mardi est exclu.",
+          "editorial_copy": "Synopsis et justification originaux revus à partir du dispositif et de critiques attribuées, avec réserve explicite sur la répétition.",
+          "evidence_urls": [
+            "https://www.canalplus.com/fr/cinema/exit-8/h/30486943_50001",
+            "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026",
+            "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+            "https://tv-programme.com/canal-plus-cinema/samedi-10-octobre-2026/",
+            "https://www.imdb.com/title/tt35222590/",
+            "https://www.senscritique.com/film/exit_8/106570232",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000019746.html",
+            "https://www.rottentomatoes.com/m/exit_8_2025",
+            "https://www.lemonde.fr/culture/article/2025/09/03/exit-8-un-cruel-jeu-des-sept-erreurs-dans-le-metro_6638722_3246.html",
+            "https://www.festival-cannes.com/fr/f/exit-8/",
+            "https://www.themoviedb.org/movie/1408208/images/posters",
+            "https://image.tmdb.org/t/p/original/da0fL3H87BDqTYczjUy80T76FQh.jpg"
+          ]
+        }
+      },
       {
         "work_id": "thorin-le-dernier-neandertalien-2024",
         "date": "2026-10-10",
-        "rank_provisional": 1,
+        "rank_provisional": 2,
         "selection_finalized": false,
         "review": {
           "checked_at": "2026-10-08",
