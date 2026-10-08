@@ -34,6 +34,14 @@ Pour la reprise, appliquer la section « Progression de la recherche et impasses
 
 Le registre additionnel `research_attempts` conserve les impasses et leurs conditions de reprise. Un dossier non retenu reste documenté, mais ne doit pas monopoliser les passages sans piste nouvelle. Les lacunes de couverture obligatoire et les défauts des recommandations/réserves restent bloquants. La réorganisation de `remaining` doit conserver chaque exigence ouverte ; ni report ni regroupement ne vaut achèvement.
 
+Une sauvegarde de checkpoint n'achève pas automatiquement le passage : appliquer « Enchaîner les lots pendant un passage » d'AUTOMATION.md, continuer immédiatement tant qu'un lot utile peut avancer, puis consigner `stop_reason` et le prochain lot dans `run_metrics` lorsque l'exécution le permet. La reprise horaire récupère une interruption ; elle ne limite pas le passage à une seule fiche.
+
+Un clone peut extraire une vue de travail en lecture seule avec `node scripts/editorial-work-packet.mjs YYYY-Sxx --ref SHA_CANDIDATE`, puis `--title "Titre exact"` pour réunir les données et preuves d'une œuvre. Le SHA doit être celui du checkpoint réellement lu. Ce paquet ciblé est distinct du handoff d'import ; il ne contient aucune attestation de qualité ou autorisation de publication.
+
+Utiliser `--compact` pour les lectures de travail et `--offset N --limit N` pour parcourir les correspondances. Relire les exigences globales avant certification. Pour transformer plusieurs décisions revues en catalogue, liens, cartes, pools et grilles, suivre `docs/EDITORIAL-DRAFTS.md` et `scripts/editorial-draft-cards.mjs`. L'outil rend un handoff partiel, jamais une sélection ou une publication automatique.
+
+La consigne active est conservée dans `docs/EDITORIAL-AGENT-PROMPT.md`. Les anciens champs de reprise ne priment pas sur les contrats courants : réconcilier leur phase et leurs prochaines actions avec les preuves et livrables réels. Réutiliser la lecture d'un document statique seulement si son blob et sa lecture précédente sont attestés ; les disponibilités du cycle restent à vérifier.
+
 Avec un environnement de code :
 
 ```sh
@@ -55,6 +63,10 @@ La dernière commande enregistre les SHA-256 des neuf livrables après revue ; e
 - Après fusion : demande explicite de build Pages, puis vérification publique lors d'un passage suivant. Le watchdog conserve son rôle d'alerte. Une fusion n'est pas présentée comme un déploiement vérifié.
 
 Le publicateur n'exécute jamais le code d'une PR avec ses droits d'écriture. Un conflit, une branche périmée, un check rouge/en attente/ignoré, une approbation nécessaire ou une permission manquante bloquent l'étape et sont visibles dans Actions. Work intervient alors sur la cause précise, sans refaire l'inventaire entier.
+
+Sur une préparation qui ne change que research/inventory/coverage, `preparation-regressions.mjs` peut réutiliser les contrôles lourds du numéro public, uniquement si le dernier run push de l'exacte base main a moins d'une heure et contient réellement les deux jobs et les étapes images, rendu et Jellyfin réussis. Une preuve absente, périmée, illisible ou un dernier run non réussi relance les contrôles complets. Les invariants de préparation sont toujours rejoués ; la barrière `--require-ready` reste rouge tant que le numéro manque. Toute modification du code, catalogue ou pages, et toute candidate ready, reçoit les contrôles complets. Un navigateur vert sur le public ne certifie pas la candidate.
+
+Les événements de validation reçus par le publicateur sont limités à main, auto/** et promote/** ; les corrections techniques continuent d'être validées sans lancer un publicateur sans travail possible. Les schedules et déclenchements manuels demeurent.
 
 ## Authentification GitHub : autonomie complète conditionnelle
 

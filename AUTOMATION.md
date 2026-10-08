@@ -52,6 +52,24 @@ Une piste dont l'identité, la disponibilité ou l'intérêt restent insuffisamm
 
 Dans `run_metrics`, distinguer nouvelles pistes, dossiers incomplets suivis, fiches complètes et exigences de couverture résolues. Deux passages successifs après le relevé primaire sans fiche complète déclenchent une revue de priorité au passage suivant : expliquer la cause, choisir des dossiers proches de l'achèvement ou traiter leur blocage précis, sans recommencer la collecte générale. Aucun chiffre ne constitue une certification éditoriale ni une obligation de remplir avec un titre faible.
 
+### Enchaîner les lots pendant un passage
+
+La cadence horaire est un filet de reprise, pas un quota d'un lot par exécution. Viser moins de 35 minutes de travail actif par passage ; sauvegarder régulièrement, puis continuer immédiatement sur le prochain lot utile tant que le temps restant, les outils et le bail permettent le travail et une sauvegarde finale sûre. Une sauvegarde, un dossier achevé, un changement de phase ou un contrôle CI en cours ne sont pas, à eux seuls, des motifs d'arrêt. Éviter les attentes répétées : pendant un contrôle, poursuivre les recherches indépendantes qui peuvent progresser, en gardant la validation finale liée au SHA exact.
+
+Pour un candidat déjà documenté, enchaîner la création de sa fiche draft (identité canonique, champs sourcés, textes, liens et visuel), sa revue et sa sauvegarde dès que les preuves le permettent ; ne pas repousser mécaniquement cette intégration au passage suivant. Un dossier de recherche complet n'est pas compté comme une carte complète. Continuer ensuite avec un autre candidat ou une rubrique ; les étapes déjà achevées restent réutilisées.
+
+Terminer quand le budget utile touche à sa fin, que les outils ou l'exécution sont interrompus, que le bail est perdu/expiré, que toutes les tâches accessibles attendent une dépendance réelle, ou que le numéro est prêt et remis au publicateur. Ne jamais poursuivre sans bail ni contourner une permission. Si possible avant l'arrêt, sauvegarder le travail et enregistrer dans le dernier `run_metrics` un `stop_reason` précis ainsi que le prochain lot utile ; si une interruption empêche cette écriture, la reprise doit l'indiquer comme inconnue, sans inventer sa cause ou sa durée. Ne pas attendre pour atteindre artificiellement 35 minutes. La durée visée ne garantit ni durée réelle d'exécution ni quota disponible.
+
+### Paquet de travail ciblé
+
+Avant de relire les checkpoints complets, utiliser `node scripts/editorial-work-packet.mjs YYYY-Sxx --ref SHA_CANDIDATE` depuis un clone disposant du commit courant. L'outil lit une seule révision Git immuable, ne modifie aucun fichier et affiche l'état des livrables, les exigences ouvertes, les dossiers effectivement recherchés, les impasses et des correspondances de titre avec le catalogue. La liste des correspondances est alphabétique et paginée (`--limit 1..40 --offset N`) ; elle ne constitue ni classement artistique ni sélection. Des données présentes dans le catalogue ne deviennent pas vérifiées par cette extraction. L'exposition dans les numéros précédents est un avertissement pour la fraîcheur, jamais une sélection automatique.
+
+`--compact` réduit le JSON et retire seulement la liste globale des exigences, en conservant leur nombre et un avertissement : lire le checkpoint complet avant certification. Les preuves ciblées restent présentes. Les preuves de grille par chaîne/date sont séparées des preuves d'identité ; une impasse sur un épisode ou une diffusion ne masque pas toutes les occurrences du titre.
+
+Pour un dossier choisi, utiliser `--title "Titre exact"` : le paquet rassemble les entrées canoniques possibles, liens centraux, diffusions brutes, dossier critique, tentatives et vérifications enregistrées. Les dates de consultation, statuts de conflit/indisponibilité, versions et limites sont conservés. Les homonymes/remakes restent séparés et les absences restent visibles. Examiner les preuves ainsi regroupées, rechercher seulement les informations manquantes ou périssables, puis intégrer les champs réellement vérifiés et rédiger la fiche draft. Ne jamais utiliser une correspondance de titre seule pour réutiliser l'identité, une note ancienne ou une disponibilité.
+
+Le paquet n'atteste jamais `ready`, ne choisit pas les programmes, ne remplit pas de textes et ne scelle pas la revue. Si le shell/Git n'est pas disponible, effectuer la même extraction ciblée avec les outils connectés en conservant le SHA et toutes les limites ; ne pas prétendre avoir exécuté le helper. La petite vue de travail réduit les lectures répétées, pas les critères. Refaire l'extraction après un changement du checkpoint pertinent.
+
 ## Prospection documentaire et exigence critique
 
 À partir de S42, appliquer `documentary_discovery` dans `data/editorial-config.json`. Le producteur effectue une passe dédiée Arte, France 5, France 2/3/4 et france.tv, puis TV5MONDE et les autres sources pertinentes. Examiner grille, replay, disponibilité anticipée, exclusivités numériques et départs prochains : une lecture des seules grilles cinéma ne suffit pas. Couvrir aussi bien les documentaires de création que l’histoire, les archives, les arts, les sciences et les enquêtes. Ne pas assimiler automatiquement une fiction historique ou un magazine récurrent à un documentaire recommandable.
@@ -128,7 +146,7 @@ Avant chaque fusion, le producteur relit main et le SHA de tête de la PR, exige
 
 Le watchdog maintient une alerte unique par semaine, avec checks en attente ou échoués, et signale aussi un échec Pages après promotion. Une nouvelle vérification réussie clôt l’alerte correspondante.
 
-Le protocole Android 3 est requis pour distinguer l’état played inconnu de false. Installer l’APK compilée après cette mise à jour est nécessaire. Les essais du modèle dans Chromium ne certifient pas le fonctionnement sur un appareil Fire TV physique.
+Le protocole Android minimal requis est défini par la configuration et le contrôle du pont, actuellement version 4. Le pont distingue l’état played inconnu de false. Installer une APK compatible est nécessaire. Les essais du modèle dans Chromium ne certifient pas le fonctionnement sur un appareil Fire TV physique.
 
 ## Production hybride et reprise dans Chat
 

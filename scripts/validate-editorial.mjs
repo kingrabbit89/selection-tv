@@ -1,4 +1,5 @@
 import {sectionPageMatches} from './editorial-contracts.mjs';
+import {htmlText} from './html-text.mjs';
 import fs from 'node:fs';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const manifest=read('data/manifest.json');
@@ -16,8 +17,8 @@ const linksByTitle=new Map(Object.entries(links).map(([title,value])=>[norm(titl
 const titles=new Set();
 for(const p of week.pages||[]){
  if(!/-selection$|-grille(?:-2)?$/.test(p.id))continue;
- let m;const r1=/<article class="feature"[\s\S]*?<h3>([^<]+)<\/h3>/g;while((m=r1.exec(p.html)))titles.add(m[1].trim());
- const r2=/<td class="prog">([^<]+)<\/td>/g;while((m=r2.exec(p.html)))titles.add(m[1].trim());
+ let m;const r1=/<article class="feature"[\s\S]*?<h3>([^<]+)<\/h3>/g;while((m=r1.exec(p.html)))titles.add(htmlText(m[1]));
+ const r2=/<td class="prog">([^<]+)<\/td>/g;while((m=r2.exec(p.html)))titles.add(htmlText(m[1]));
 }
 const missing=[...titles].filter(t=>!linkKeys.has(norm(t)));
 console.log('Latest:',latest,'retained daily titles:',titles.size,'without central exact link:',missing.length);
@@ -28,9 +29,9 @@ const ratingCandidates=new Set();
 for(const p of week.pages||[]){
   let m;
   const visual=/<article class="[^"]*\b(?:week-card|feature|list-card|platform|release-card|expire-card|radar-card|torrent-card)\b[^"]*"[^>]*>[\s\S]*?<h3>([\s\S]*?)<\/h3>/g;
-  while((m=visual.exec(p.html||'')))ratingCandidates.add(m[1].replace(/<[^>]+>/g,'').trim());
+  while((m=visual.exec(p.html||'')))ratingCandidates.add(htmlText(m[1]));
   const grid=/<td class="prog">([^<]+)<\/td>/g;
-  while((m=grid.exec(p.html||'')))ratingCandidates.add(m[1].trim());
+  while((m=grid.exec(p.html||'')))ratingCandidates.add(htmlText(m[1]));
 }
 const ratingMissing=[...ratingCandidates].filter(title=>{
   const key=norm(title),w=worksByTitle.get(key);
@@ -82,7 +83,7 @@ if(strict){
    const re=/<article class="([^"]+)"[^>]*>([\s\S]*?)<\/article>/g;let m;
    while((m=re.exec(page.html))){
      if(!visualClass.test(m[1]))continue;
-     const t=(m[2].match(/<h3>([\s\S]*?)<\/h3>/)||[])[1]?.replace(/<[^>]+>/g,'').trim();
+     const t=htmlText((m[2].match(/<h3>([\s\S]*?)<\/h3>/)||[])[1]);
      if(t)visualTitles.add(t);
    }
  }
@@ -138,7 +139,7 @@ if(strict){
    /Retenu après inventaire et filtre éditorial/i,
    /Retenu pour son intérêt cinématographique,\s*sa singularité ou sa valeur patrimoniale/i
  ];
- const clean=s=>String(s||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+ const clean=htmlText;
  const articleCount=html=>(String(html||'').match(/<article\b/gi)||[]).length;
  const h3Titles=html=>[...String(html||'').matchAll(/<h3[^>]*>([\s\S]*?)<\/h3>/gi)]
    .map(m=>clean(m[1])).filter(Boolean);

@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "6cf168c169423e57c235c053db66bf92ff4cd749",
   "stage": "enrichment",
-  "updated_at": "2026-10-08T18:10:48.782Z",
+  "updated_at": "2026-10-08T18:59:06.950Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -403,6 +403,11 @@
       "id": "enrichment-thorin-complete-dossier-and-impasse-reorganization",
       "completed_at": "2026-10-08T18:10:48.782Z",
       "description": "Checkpoint passé en enrichment sans certifier l'inventaire ; cinq impasses examinées extraites avec conditions de reprise. Thorin complété pour comparaison éditoriale : diffusion/offre ARTE, version, notes indisponibles justifiées et fallback visuel."
+    },
+    {
+      "id": "enrichment-thorin-first-draft-card",
+      "completed_at": "2026-10-08T18:59:06.950Z",
+      "description": "Décision provisoire Thorin transformée en catalogue, liens exacts, carte et pool samedi, JSON hebdomadaire et coquille draft. Preuves du 8 octobre réutilisées sans consultation nouvelle. Comparaison, réserves et préflight non achevés."
     }
   ],
   "blockers": [
@@ -18929,6 +18934,29 @@
         "reference": "remaining"
       },
       "note": "Carte publique non créée : le dossier Thorin est complet pour comparaison, mais work_id, textes, sélection finale et préflight restent ouverts."
+    },
+    {
+      "date": "2026-10-08T18:59:06.950Z",
+      "owner": "cf6e357e-350b-4f3c-b6c9-0de480430a6a",
+      "stage": "enrichment_draft_materialization",
+      "completed_batches": [
+        "enrichment-thorin-first-draft-card"
+      ],
+      "new_leads": 0,
+      "draft_cards_created": 1,
+      "newly_verified_complete_cards": 0,
+      "newly_completed_editorial_dossiers": 0,
+      "coverage_requirements_resolved": 0,
+      "web_consultations": 0,
+      "images_visually_checked": 0,
+      "remaining": {
+        "stage": "enrichment",
+        "count": 35,
+        "reference": "remaining"
+      },
+      "stop_reason": "corrective_audit_completed_handoff_to_scheduled_producer",
+      "next_useful_batch": "Cartes des jours déficitaires et nouveaux films déjà officiellement recoupés ; autres rubriques en parallèle.",
+      "note": "Lot de transformation mécanique et rédaction depuis les preuves sauvegardées. Rang provisoire ; aucun temps ni consultation inventé, aucune certification finale."
     }
   ],
   "source_issues": [
@@ -19527,26 +19555,15 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "ece1ffe78ab591adb049e7525e2a808dc9ad927a",
-    "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-    "first_incomplete_stage": "inventory",
+    "checkpoint_parent_sha": "6fd6686f1467e6281108cb7ab83a8de6820edf36",
+    "main_sha": "a53a6a2c36501efddbf70e0895209fc07132bd92",
+    "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Réutiliser les identités séparées Un crime dans la tête1962/2004 et l'attestation CANAL Classic10/10. Les horaires Grand Écran ont changé : voir schedule_history, nouveaux relevés11/15oct et confirmation officielle encore manquante.",
-      "Didy : ne pas reprendre comme offreTV5France (FRabsent deslistes). Edgar-Yves identifié et réception limitée documentée. Réutiliser quatre visuels et preuves de ce lot ; aucun contrôle de lecture authentifiée.",
-      "Réutiliser Werga/Broadway : identités, publications HTML, épisodes et images vérifiés ce passage. Ne pas assimiler notes de programmation/entretiens à des critiques ; restes précis dans les deux dossiers. TV5Pro bloqué par connexion, aucune grille FBS attestée.",
-      "Kotelnitch/Huppert : identités maintenant documentées ; Kotelnitch dispose de critiques et d'un événement primaire sans chaîne, Huppert reste sans réception argumentée. Réutiliser les preuves du dernier lot, poursuivre seulement les manques.",
-      "Réutiliser le lot documentaires Festival : Kouté Vwa, Les mots, Kawase et Trier, notes SC directes, cinq articles et deux événements CANAL+. Ne pas refaire ces consultations sans changement ; résoudre antenne/offres/versions et conflit d'épisode.",
-      "Réutiliser les sept grilles Ciné+ Festival (99créneaux rapprochés) et les six observations CANAL+ ; ne pas réinterpréter les événements hors cycle ni expires. Résoudre l'épisode15/10 et approfondir la passe documentaire de création.",
-      "Réutiliser les trois dossiers Ciné+ de ce passage (Bear, Le cinéma qui respire, Des animaux et des monstres) ; cinq occurrences identifiées. Recherches et réserves dans coverage/verification_records, ne pas répéter les mêmes pages.",
-      "Réutiliser les quatre lots de ce passage : six arbitrages France Télévisions ; 98 créneaux TCM comparés ; Regrouping/Corman/Burning approfondis ; NOVO19 +2 créneaux et annonce directe. Détails et limites conservés dans coverage/verification_records ; ne pas répéter les mêmes pages sans changement.",
-      "France Télévisions : six arbitrages effectués, ne pas rouvrir les mêmes divergences sans changement de source. Dodin 02:55 et quatre créneaux La p'tite librairie officiels ; F3 15/10 12:15 exclu. Livres des capsules encore à confirmer, contrôle préflight si retenus.",
-      "Réutiliser les trois dossiers documentaires Ciné+ de ce passage ; quatre critiques conservées avec réserves. Simenon : approfondir réception/preuves alternatives. Années/versions, droits, notes directes et affiches restent ouverts.",
-      "RMC : réutiliser les 16 grilles SCREEN+ datées et les 127 rapprochements ; résoudre deux conflits et trois alias, identifier les épisodes génériques, établir l'indépendance ou obtenir une source officielle. Quatre ajouts restent à recouper. Ne pas répéter les troisièmes guides RMC : détails/limites dans rmc_conflict_followup.",
-      "Reprendre uniquement les recoupements/identités/conflits encore ouverts dans remaining. TF1 trois ajouts et Paris Première trois J'ai un ticket sont désormais recoupés : ne pas répéter.",
-      "T18 14 : neuf titres précisés ; confirmer source officielle/indépendance. CSTAR 16 : Noël à la carte 22:49/22:45, quatre numéros Douanes sans titres rapprochés ; conserver divergences.",
-      "Continuer cinéma payant, TV5 FBS et arbitrage des écarts Canal/France Télévisions ; Saint-Ex toujours contradictoire.",
-      "Réutiliser les preuves datées Arte (3), France5 (3) et TCM (2). France.tv Cézanne/Samouraïs a fonctionné en HTTP public : expirations affichées enregistrées, droits/lecture/version restent ouverts.",
-      "Finir inventaire certifié puis sélection/enrichissement/réserves/cartes et revue factuelle ; consulter CI du SHA courant, ne pas sceller avant remaining vide."
+      "Compléter les cartes par jour et rubrique, leurs réserves et grilles ; la carte Thorin est sauvegardée mais rang et sélection restent provisoires. Réutiliser les preuves datées, ne pas les reconsulter sans changement.",
+      "Achever en priorité les nouveaux films officiellement recoupés et les dossiers proches de la complétude des jours déficitaires. Vérifier exposition/fraîcheur avant réemploi ; correspondance de titre ne vaut pas identité.",
+      "Poursuivre en parallèle les lacunes de couverture bloquantes : sources indépendantes, conflits de grilles, TV5 France/TCM/RMC et consolidation des sept scans/recoupements/rappels sur preuves réelles.",
+      "Reprendre les impasses seulement lorsque leur condition enregistrée change ; conserver toutes les exigences remaining. Produire aussi les rubriques replay, gratuit, plateformes et rendez-vous, sans attendre que toutes les pistes linéaires soient résolues.",
+      "Enchaîner les lots utiles après sauvegarde, puis consigner durée réelle connue et stop_reason. Revue complète, images/liens/rendu/Jellyfin et seuils obligatoires avant ready/scellement ; laisser le publicateur protégé publier."
     ],
     "publisher": {
       "checked_at": "2026-10-08T14:40:33.431Z",
@@ -19577,7 +19594,8 @@
       "logs_read": true,
       "cause": "Seul échec Require a complete candidate before merging ; préparation incomplète. Public S41 contrôlé, aucune certification S42. Étapes skipped non comptées comme réussite.",
       "reusable_only_for_exact_sha": true
-    }
+    },
+    "ci_note": "Les observations CI conservées ci-dessous ne couvrent que leurs anciens SHA ; aucune réutilisation pour ce nouveau brouillon. La candidate demeure enrichment, revue inachevée et remaining non vide."
   },
   "structure_check": {
     "checked_at": "2026-10-08T13:51:18.611Z",
@@ -19782,5 +19800,35 @@
     "chosen_finalizable_dossier": "Thorin, le dernier Néandertalien",
     "rationale": "La page ARTE courante réunit identité, diffusion exacte, version d'offre et expiration ; la réception et deux distinctions étaient déjà sourcées.",
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
+  },
+  "draft_production": {
+    "source_candidate_sha": "6fd6686f1467e6281108cb7ab83a8de6820edf36",
+    "produced_at": "2026-10-08T18:59:06.950Z",
+    "cards": [
+      {
+        "work_id": "thorin-le-dernier-neandertalien-2024",
+        "date": "2026-10-10",
+        "rank_provisional": 1,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-08",
+          "identity_version": "Version courante ARTE : 54 min. Les observations festival/Télérama à 52 min et Hominides à 53 min restent des versions/arrondis distincts ; la carte éventuelle devra viser explicitement la copie ARTE 54 min.",
+          "canonical_fields": "Identité et durée de la copie ARTE 54 min documentées. Visuel paysage exact de SensCritique inspecté ; aucune affiche officielle revendiquée. Aucune moyenne inventée ; dates des preuves conservées.",
+          "current_broadcast": "La page ARTE française courante affiche explicitement la diffusion du samedi 10 octobre à 23:20 ; le guide secondaire concorde. À recontrôler au préflight.",
+          "editorial_copy": "Textes de travail tirés des preuves conservées, sans lecture de la critique Télérama payante. Proposition provisoire de brouillon : classement et sélection comparative encore à revoir.",
+          "evidence_urls": [
+            "https://www.arte.tv/fr/videos/083910-000-A/thorin-le-dernier-neandertalien/",
+            "https://www.senscritique.com/film/thorin_le_dernier_neandertalien/101841222",
+            "https://www.senscritique.com/film/thorin_le_dernier_neandertalien/critique/326486055",
+            "https://www.telerama.fr/television/thorin-le-dernier-neandertalien-une-enquete-archeologique-pointue_cri-7034867.php",
+            "https://www.hominides.com/le-festival-objectif-prehistoire-a-pech-merle-palmares-2024/",
+            "https://pariscience.fr/palmares-2024/"
+          ]
+        }
+      }
+    ],
+    "publication_ready": false,
+    "comparison_pending": true,
+    "remaining_reference": "remaining"
   }
 }

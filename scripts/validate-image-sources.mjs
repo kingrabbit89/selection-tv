@@ -1,4 +1,5 @@
 import {probeRemoteImage,hasImageSignature} from './image-health.mjs';
+import {htmlText} from './html-text.mjs';
 import fs from 'node:fs';
 
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
@@ -23,7 +24,7 @@ for(const page of week.pages||[]){
   while((m=re.exec(html))){
     if(!visualClass.test(m[1]))continue;
     if(!legacyGridOnly){
-      const title=(m[2].match(/<h3>([\s\S]*?)<\/h3>/)||[])[1]?.replace(/<[^>]+>/g,'').trim();
+      const title=htmlText((m[2].match(/<h3>([\s\S]*?)<\/h3>/)||[])[1]);
       if(title)visualTitles.add(title);
     }
   }
@@ -32,7 +33,7 @@ for(const page of week.pages||[]){
   // the same entries as text rows.
   if(/-grille(?:-2)?$/.test(page.id||'')){
     for(const row of html.matchAll(/<td class="prog">([^<]+)<\/td>/g)){
-      const title=String(row[1]||'').trim();
+      const title=htmlText(row[1]);
       if(title)visualTitles.add(title);
     }
   }
