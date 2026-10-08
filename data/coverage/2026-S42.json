@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "partial",
-  "updated_at": "2026-10-08T06:43:55.575Z",
+  "updated_at": "2026-10-08T06:47:37.268Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -142,9 +142,10 @@
           "https://tv-programme.com/france-2/mardi-13-octobre-2026/",
           "https://tv-programme.com/france-2/mercredi-14-octobre-2026/",
           "https://tv-programme.com/france-2/jeudi-15-octobre-2026/",
-          "https://ftvpro.francetv.fr/contenu-de-presse/78065129"
+          "https://ftvpro.francetv.fr/contenu-de-presse/78065129",
+          "https://www.francetvpro.fr/grille/france-2/10-10-2026/14-10-2026"
         ],
-        "note": "Grilles et communiqués officiels consultés ; annonces france.tv distinguées d'une offre effectivement disponible. Expirations à vérifier."
+        "note": "Grilles officielles ciblées lues en complément du scan tiers ; offres numériques et passe documentaire exhaustive encore à compléter."
       },
       {
         "broadcaster": "France 3",
@@ -155,9 +156,10 @@
           "https://tv-programme.com/france-3/mardi-13-octobre-2026/",
           "https://tv-programme.com/france-3/mercredi-14-octobre-2026/",
           "https://tv-programme.com/france-3/jeudi-15-octobre-2026/",
-          "https://tv-programme.com/france-3/vendredi-16-octobre-2026/"
+          "https://tv-programme.com/france-3/vendredi-16-octobre-2026/",
+          "https://www.francetvpro.fr/grille/france-3/10-10-2026/12-10-2026"
         ],
-        "note": "Grille lue ; passe officielle numérique et critique à compléter."
+        "note": "Grilles officielles ciblées lues en complément du scan tiers ; offres numériques et passe documentaire exhaustive encore à compléter."
       },
       {
         "broadcaster": "France 4",
@@ -168,20 +170,23 @@
           "https://tv-programme.com/france-4/mardi-13-octobre-2026/",
           "https://tv-programme.com/france-4/mercredi-14-octobre-2026/",
           "https://tv-programme.com/france-4/jeudi-15-octobre-2026/",
-          "https://tv-programme.com/france-4/vendredi-16-octobre-2026/"
+          "https://tv-programme.com/france-4/vendredi-16-octobre-2026/",
+          "https://www.francetvpro.fr/grille/france-4/10-10-2026/11-10-2026",
+          "https://www.francetvpro.fr/grille/france-4/10-10-2026/12-10-2026"
         ],
-        "note": "Grille lue ; passe officielle numérique et critique à compléter."
+        "note": "Grilles officielles ciblées lues en complément du scan tiers ; offres numériques et passe documentaire exhaustive encore à compléter."
       },
       {
         "broadcaster": "TV5MONDE",
-        "mode": "linear",
+        "mode": "linear_and_replay",
         "source_urls": [
           "https://tv-programme.com/tv5monde/dimanche-11-octobre-2026/",
           "https://tv-programme.com/tv5monde/lundi-12-octobre-2026/",
           "https://tv-programme.com/tv5monde/mardi-13-octobre-2026/",
-          "https://tv-programme.com/tv5monde/mercredi-14-octobre-2026/"
+          "https://tv-programme.com/tv5monde/mercredi-14-octobre-2026/",
+          "https://www.tv5mondeplus.com/fr/documentaires/histoire/les-fantomes-du-tonkin"
         ],
-        "note": "Grille lue ; passe officielle numérique et critique à compléter."
+        "note": "Offre exacte Les fantômes du Tonkin ouverte, expiration affichée 01/11/2026 ; catalogue numérique et droits France encore à compléter."
       }
     ],
     "candidates": [
@@ -3646,8 +3651,30 @@
         "start": "00:55",
         "decision": "à vérifier",
         "availability_source": "https://tv-programme.com/france-3/mardi-13-octobre-2026/",
-        "critical_evidence": [],
-        "reason": "Inventaire brut ; identité, qualité critique et disponibilité numérique à examiner."
+        "critical_evidence": [
+          {
+            "url": "https://www.ladepeche.fr/2024/12/06/lenvol-un-film-documentaire-de-florent-verdet-sur-le-monde-paysan-a-fait-mouche-12370949.php",
+            "kind": "local_press_report_not_full_review",
+            "source_date": "2024-12-06",
+            "checked_at": "2026-10-08T06:47:37.268Z",
+            "note": "Article local favorable à l'immersion dans Accueil Paysan, mais sa dernière partie reprend le discours de présentation. Indépendance de l'évaluation à ne pas surestimer."
+          }
+        ],
+        "reason": "Sujet et démarche identifiés ; réception critique encore trop limitée pour conclure. Homonymes fiction à exclure.",
+        "official_sources": [
+          "https://www.francetvpro.fr/grille/france-3/10-10-2026/12-10-2026"
+        ],
+        "verified_metadata_observations": {
+          "director": "Florent Verdet"
+        },
+        "remaining": [
+          "Identité canonique et version TV exacte",
+          "Notes IMDb/SensCritique et liens exacts",
+          "Affiche/provenance/fallback",
+          "Évaluation comparative après inventaire et déduplication",
+          "Critique indépendante complémentaire",
+          "Offre numérique exacte et expiration"
+        ]
       },
       {
         "title": "ICI dans votre région",
@@ -4437,7 +4464,32 @@
         "decision": "à vérifier",
         "availability_source": "https://tv-programme.com/france-2/mercredi-14-octobre-2026/",
         "critical_evidence": [],
-        "reason": "Inventaire brut ; identité, qualité critique et disponibilité numérique à examiner."
+        "reason": "Avant-première annoncée dès le 8 octobre ; page d'offre non accessible. Télé 7 publie un résumé sans critique. Durée 70 min annoncée / 72 grille / 75 guide : version à résoudre ; importance du sujet insuffisante à recommander.",
+        "official_sources": [
+          "https://www.francetelevisions.fr/et-vous/notre-tele/les-programmes-a-ne-pas-rater/france-televisions-poursuit-sa-mobilisation-60513",
+          "https://www.francetvpro.fr/grille/france-2/10-10-2026/14-10-2026"
+        ],
+        "verified_metadata_observations": {
+          "director": "Marion Vaqué-Marti",
+          "year": 2026,
+          "producer": "KM Production",
+          "official_announced_duration_minutes": 70
+        },
+        "announced_online": {
+          "from": "2026-10-08",
+          "platform": "france.tv",
+          "source_url": "https://www.francetelevisions.fr/et-vous/notre-tele/les-programmes-a-ne-pas-rater/france-televisions-poursuit-sa-mobilisation-60513",
+          "offer_verified": false,
+          "expiration_verified": false
+        },
+        "remaining": [
+          "Identité canonique et version TV exacte",
+          "Notes IMDb/SensCritique et liens exacts",
+          "Affiche/provenance/fallback",
+          "Évaluation comparative après inventaire et déduplication",
+          "Critique indépendante argumentée ou preuves alternatives suffisantes",
+          "Offre directe et expiration"
+        ]
       },
       {
         "title": "Belgomania, toute la Belgique qu'on aime !",
@@ -5446,8 +5498,47 @@
         "start": "11:50",
         "decision": "à vérifier",
         "availability_source": "https://tv-programme.com/france-5/jeudi-15-octobre-2026/",
-        "critical_evidence": [],
-        "reason": "Inventaire brut ; identité, qualité critique et disponibilité numérique à examiner."
+        "critical_evidence": [
+          {
+            "url": "https://www.lemonde.fr/televisions-radio/article/2024/05/11/les-replays-du-week-end-nuclear-now-les-fantomes-du-tonkin-belmondo-l-italie-en-heritage_6232590_1655027.html",
+            "kind": "independent_review",
+            "source_date": "2024-05-11",
+            "checked_at": "2026-10-08T06:47:37.268Z",
+            "note": "Alain Constant valorise le récit de la mission funéraire de Belmont, documentée par son rapport, qui déplace l'attention de la bataille vers le deuil."
+          },
+          {
+            "url": "https://www.telerama.fr/television/les-fantomes-du-tonkin-de-patrick-jeudy-notre-critique_cri-7032467.php",
+            "kind": "independent_review_partial",
+            "checked_at": "2026-10-08T06:47:37.268Z",
+            "note": "Extrait accessible : talent et engagement reconnus, mais réserve sur une vision romantique de l'histoire et le risque d'exotisme colonial. Suite payante non lue ; pas de jugement global inféré."
+          }
+        ],
+        "reason": "Réception argumentée avec réserve, sans consensus affirmé ; Le Monde et Télérama appartiennent au même groupe. Durées divergentes : ECPAD/TV5 60 min, Télérama 62, grille France 5 66. Identité de montage à vérifier.",
+        "official_sources": [
+          "https://www.ecpad.fr/nos-realisations/les-fantomes-du-tonkin/",
+          "https://www.tv5mondeplus.com/fr/documentaires/histoire/les-fantomes-du-tonkin",
+          "https://www.francetvpro.fr/grille/france-5/10-10-2026/15-10-2026"
+        ],
+        "verified_metadata_observations": {
+          "director": "Patrick Jeudy",
+          "year": 2024,
+          "country": "France",
+          "platform_duration_minutes": 60
+        },
+        "online_offer": {
+          "url": "https://www.tv5mondeplus.com/fr/documentaires/histoire/les-fantomes-du-tonkin",
+          "platform": "TV5MONDE+",
+          "announced_access": "gratuit",
+          "expires_on": "2026-11-01",
+          "checked_at": "2026-10-08T06:47:37.268Z",
+          "scope": "Page publique et échéance affichée ; lecture vidéo et géodisponibilité France non testées."
+        },
+        "remaining": [
+          "Identité canonique et version TV exacte",
+          "Notes IMDb/SensCritique et liens exacts",
+          "Affiche/provenance/fallback",
+          "Évaluation comparative après inventaire et déduplication"
+        ]
       },
       {
         "title": "A la découverte du monde Alaska, aux limites de la nature",
@@ -7699,6 +7790,42 @@
         "availability_source": "https://www.francetvpro.fr/grille/france-5/10-10-2026/15-10-2026",
         "critical_evidence": [],
         "reason": "Complément du scan officiel ; épisode, intérêt propre et réception encore à examiner."
+      },
+      {
+        "title": "La machine à écrire et autres sources de tracas",
+        "channel": "France 2",
+        "date": "2026-10-15",
+        "start": "02:25",
+        "decision": "à vérifier",
+        "critical_evidence": [
+          {
+            "url": "https://www.lemonde.fr/culture/article/2024/04/17/avec-la-machine-a-ecrire-et-autres-sources-de-tracas-nicolas-philibert-clot-sur-une-note-legere-et-bricoleuse-sa-folle-trilogie-cinematographique_6228333_3246.html",
+            "kind": "independent_review",
+            "author": "Jacques Mandelbaum",
+            "source_date": "2024-04-17",
+            "checked_at": "2026-10-08T06:47:37.268Z",
+            "note": "Avis très favorable : les réparations domestiques rendent sensible la relation de soin ; le film trouve dans ces gestes un humour discret et une proximité avec les patients. Une critique, pas un consensus."
+          }
+        ],
+        "official_sources": [
+          "https://www.nicolasphilibert.fr/films/la-machine-a-ecrire-et-autres-sources-de-tracas/",
+          "https://www.francetvpro.fr/grille/france-2/10-10-2026/14-10-2026"
+        ],
+        "verified_metadata_observations": {
+          "director": "Nicolas Philibert",
+          "year": 2024,
+          "country": "France",
+          "cinema_duration_minutes": 72
+        },
+        "reason": "Candidat documentaire cinéma à approfondir. Durée cinéma 72 min établie par le réalisateur ; grille TV 70 min et créneau tiers 65 min divergents. Aucune offre france.tv exacte ni expiration vérifiée.",
+        "remaining": [
+          "Identité canonique et version TV exacte",
+          "Notes IMDb/SensCritique et liens exacts",
+          "Affiche/provenance/fallback",
+          "Évaluation comparative après inventaire et déduplication",
+          "Offre numérique exacte et expiration",
+          "Réception complémentaire"
+        ]
       }
     ],
     "balance_review": {

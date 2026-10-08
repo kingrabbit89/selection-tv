@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
   "stage": "inventory",
-  "updated_at": "2026-10-08T06:43:55.575Z",
+  "updated_at": "2026-10-08T06:47:37.268Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -13,7 +13,8 @@
     "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV.",
     "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue.",
     "France 5 : Pompéi et Foucault réconciliés par les grilles officielles ; revérifier au préflight. Quatre écarts La p'tite librairie, versions/durées et fins de nuit restent à traiter. Offres replay, expirations, réception complémentaire et notes encore incomplètes.",
-    "T18 14 octobre relevée ; identifier les épisodes regroupés et recouper les horaires. LeZapp associe au titre Face à face une description politique incompatible avec son type série : ne pas réutiliser ce synopsis."
+    "T18 14 octobre relevée ; identifier les épisodes regroupés et recouper les horaires. LeZapp associe au titre Face à face une description politique incompatible avec son type série : ne pas réutiliser ce synopsis.",
+    "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce."
   ],
   "completed_batches": [
     {
@@ -92,6 +93,11 @@
       "id": "inventory-france5-official-crosscheck",
       "completed_at": "2026-10-08T06:43:55.575Z",
       "description": "66 créneaux concordants avec les grilles officielles, 6 compléments ; Pompéi/Foucault réconciliés. Quatre écarts d'interstitiels conservés ; aucune certification globale ni sélection."
+    },
+    {
+      "id": "documentary-ftv-tv5-source-review",
+      "completed_at": "2026-10-08T06:47:37.268Z",
+      "description": "17 créneaux officiels supplémentaires recoupés France 2/3/4 ; quatre dossiers documentaires approfondis ; échéance TV5MONDE+ observée ; critiques et limites distinguées, aucune sélection finale."
     }
   ],
   "blockers": [
@@ -6129,6 +6135,386 @@
       },
       "evidence_note": "Horaire retenu pour préparation 23:35, ancien horaire 22:35. La grille officielle concorde avec le tiers ; annonce presse antérieure divergente conservée comme historique. Revérifier au préflight.",
       "status": "verified"
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-2/10-10-2026/14-10-2026"
+      ],
+      "checked_at": "2026-10-08T06:42:24.908Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 2",
+        "grid_date": "2026-10-14"
+      },
+      "status": "verified",
+      "evidence_note": "Grille officielle consultée ; créneaux concordants uniquement. Ne vaut ni durée canonique ni certification de l'ensemble de la nuit.",
+      "observations": [
+        {
+          "date": "2026-10-14",
+          "start": "05:00",
+          "title": "Pays et marchés du monde Sénégal : Saint-Louis"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "13:45",
+          "title": "La p'tite librairie \"Poèmes saturniens\", de Paul Verlaine"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "21:10",
+          "title": "On aboie en silence"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "22:50",
+          "title": "Unité Ados 93"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "00:05",
+          "title": "Averroès et Rosa Parks"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "02:25",
+          "title": "La machine à écrire et autres sources de tracas"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "04:35",
+          "title": "Les travailleurs de l'ombre"
+        }
+      ]
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-3/10-10-2026/12-10-2026"
+      ],
+      "checked_at": "2026-10-08T06:42:25.039Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 3",
+        "grid_date": "2026-10-12"
+      },
+      "status": "verified",
+      "evidence_note": "Grille officielle consultée ; créneaux concordants uniquement. Ne vaut ni durée canonique ni certification de l'ensemble de la nuit.",
+      "observations": [
+        {
+          "date": "2026-10-12",
+          "start": "09:05",
+          "title": "ICI dans votre région"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "10:25",
+          "title": "La p'tite librairie"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "00:55",
+          "title": "L'envol"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "03:50",
+          "title": "La p'tite librairie"
+        }
+      ]
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-4/10-10-2026/11-10-2026"
+      ],
+      "checked_at": "2026-10-08T06:42:25.231Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 4",
+        "grid_date": "2026-10-11"
+      },
+      "status": "verified",
+      "evidence_note": "Grille officielle consultée ; créneaux concordants uniquement. Ne vaut ni durée canonique ni certification de l'ensemble de la nuit.",
+      "observations": [
+        {
+          "date": "2026-10-11",
+          "start": "19:05",
+          "title": "Un soir d'été sous la tour Eiffel avec la Maîtrise de Radio France"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "19:55",
+          "title": "Le Carnaval des animaux"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "21:00",
+          "title": "Les Marchands d'étoiles"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "22:35",
+          "title": "Le repas des fauves"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "00:45",
+          "title": "Le ciel de Nantes"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "03:10",
+          "title": "L'effet miroir"
+        }
+      ]
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-4/10-10-2026/12-10-2026"
+      ],
+      "checked_at": "2026-10-08T06:47:37.268Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 4",
+        "grid_date": "2026-10-12"
+      },
+      "status": "verified",
+      "evidence_note": "Grille officielle consultée ; créneaux concordants uniquement. Ne vaut ni durée canonique ni certification de l'ensemble de la nuit.",
+      "observations": []
+    },
+    {
+      "fields": [
+        "director",
+        "year",
+        "producer"
+      ],
+      "source_urls": [
+        "https://www.francetelevisions.fr/et-vous/notre-tele/les-programmes-a-ne-pas-rater/france-televisions-poursuit-sa-mobilisation-60513"
+      ],
+      "checked_at": "2026-10-08T06:47:37.268Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Unité Ados 93"
+      },
+      "observations": {
+        "director": "Marion Vaqué-Marti",
+        "year": 2026,
+        "producer": "KM Production",
+        "official_announced_duration_minutes": 70
+      },
+      "evidence_note": "Crédits officiels lus ; durée de la version encore contradictoire.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "announced_online_start"
+      ],
+      "source_urls": [
+        "https://www.francetelevisions.fr/et-vous/notre-tele/les-programmes-a-ne-pas-rater/france-televisions-poursuit-sa-mobilisation-60513"
+      ],
+      "checked_at": "2026-10-08T06:47:37.268Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Unité Ados 93"
+      },
+      "observations": {
+        "from": "2026-10-08"
+      },
+      "evidence_note": "Annonce d'avant-première uniquement ; page d'offre inaccessible, aucune disponibilité effective ni expiration certifiée.",
+      "status": "needs_check"
+    },
+    {
+      "fields": [
+        "critical_reception"
+      ],
+      "source_urls": [
+        "https://www.programme-television.org/type/documentaires/societe/unite-ados-93-445294903"
+      ],
+      "checked_at": "2026-10-08T06:47:37.268Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Unité Ados 93"
+      },
+      "observations": {},
+      "evidence_note": "Page lue : résumé et crédits, pas de critique argumentée. Recherche titre+critique/Télérama/Monde effectuée sans avis indépendant suffisamment étayé.",
+      "status": "needs_check"
+    },
+    {
+      "fields": [
+        "director",
+        "year",
+        "country"
+      ],
+      "source_urls": [
+        "https://www.ecpad.fr/nos-realisations/les-fantomes-du-tonkin/",
+        "https://www.tv5mondeplus.com/fr/documentaires/histoire/les-fantomes-du-tonkin"
+      ],
+      "checked_at": "2026-10-08T06:47:37.268Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Les fantômes du Tonkin"
+      },
+      "observations": {
+        "director": "Patrick Jeudy",
+        "year": 2024,
+        "country": "France",
+        "platform_duration_minutes": 60
+      },
+      "evidence_note": "Identité principale concordante ; ne pas confondre durée de l'offre TV5 avec le montage France 5.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "offer_url",
+        "expires_on"
+      ],
+      "source_urls": [
+        "https://www.tv5mondeplus.com/fr/documentaires/histoire/les-fantomes-du-tonkin"
+      ],
+      "checked_at": "2026-10-08T06:47:37.268Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Les fantômes du Tonkin"
+      },
+      "observations": {
+        "expires_on": "2026-11-01",
+        "platform": "TV5MONDE+"
+      },
+      "evidence_note": "Page publique datée consultée, expiration affichée ; géodisponibilité et lecture non testées.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "director",
+        "year",
+        "country",
+        "cinema_duration"
+      ],
+      "source_urls": [
+        "https://www.nicolasphilibert.fr/films/la-machine-a-ecrire-et-autres-sources-de-tracas/"
+      ],
+      "checked_at": "2026-10-08T06:47:37.268Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La machine à écrire et autres sources de tracas"
+      },
+      "observations": {
+        "director": "Nicolas Philibert",
+        "year": 2024,
+        "country": "France",
+        "cinema_duration_minutes": 72
+      },
+      "evidence_note": "Site du réalisateur ; durée 72 min de la version cinéma, durée TV non certifiée.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "critical_evidence"
+      ],
+      "source_urls": [
+        "https://www.lemonde.fr/televisions-radio/article/2024/05/11/les-replays-du-week-end-nuclear-now-les-fantomes-du-tonkin-belmondo-l-italie-en-heritage_6232590_1655027.html",
+        "https://www.telerama.fr/television/les-fantomes-du-tonkin-de-patrick-jeudy-notre-critique_cri-7032467.php"
+      ],
+      "checked_at": "2026-10-08T06:47:37.268Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Les fantômes du Tonkin"
+      },
+      "evidence_note": "Alain Constant valorise le récit de la mission funéraire de Belmont, documentée par son rapport, qui déplace l'attention de la bataille vers le deuil. Extrait accessible : talent et engagement reconnus, mais réserve sur une vision romantique de l'histoire et le risque d'exotisme colonial. Suite payante non lue ; pas de jugement global inféré.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "critical_evidence"
+      ],
+      "source_urls": [
+        "https://www.lemonde.fr/culture/article/2024/04/17/avec-la-machine-a-ecrire-et-autres-sources-de-tracas-nicolas-philibert-clot-sur-une-note-legere-et-bricoleuse-sa-folle-trilogie-cinematographique_6228333_3246.html"
+      ],
+      "checked_at": "2026-10-08T06:47:37.268Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La machine à écrire et autres sources de tracas"
+      },
+      "evidence_note": "Avis très favorable : les réparations domestiques rendent sensible la relation de soin ; le film trouve dans ces gestes un humour discret et une proximité avec les patients. Une critique, pas un consensus.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "critical_evidence"
+      ],
+      "source_urls": [
+        "https://www.ladepeche.fr/2024/12/06/lenvol-un-film-documentaire-de-florent-verdet-sur-le-monde-paysan-a-fait-mouche-12370949.php"
+      ],
+      "checked_at": "2026-10-08T06:47:37.268Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "L'envol"
+      },
+      "evidence_note": "Article local favorable à l'immersion dans Accueil Paysan, mais sa dernière partie reprend le discours de présentation. Indépendance de l'évaluation à ne pas surestimer.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "imdb_rating",
+        "senscritique_rating"
+      ],
+      "source_urls": [],
+      "checked_at": "2026-10-08T06:47:37.268Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "titles": [
+          "Unité Ados 93",
+          "Les fantômes du Tonkin"
+        ]
+      },
+      "search_queries": [
+        "\"Unité Ados 93\" IMDb",
+        "\"Unité Ados 93\" SensCritique",
+        "\"Les fantômes du Tonkin\" IMDb",
+        "\"Les fantômes du Tonkin\" SensCritique"
+      ],
+      "search_methods": [
+        "system2_search_query",
+        "system1_search_query targeted domains"
+      ],
+      "evidence_note": "Aucune fiche exacte ni note exploitable retrouvée dans ces recherches ; résultats largement hors sujet. Ne prouve pas une absence dans les bases. Contrôle complémentaire requis.",
+      "status": "needs_check"
     }
   ],
   "run_metrics": [
@@ -6287,20 +6673,21 @@
       "Matrix Generation",
       "Turbulence"
     ],
-    "result": "Aucune identité canonique correspondante établie pour les documentaires approfondis ; le titre ancien sur la villa de Poppée est une autre œuvre. Aucune métadonnée ancienne réutilisée."
-  },
-  "documentary_research_queue": [
-    {
-      "title": "Unité Ados 93",
-      "official_url": "https://ftvpro.francetv.fr/contenu-de-presse/78446293",
-      "status": "needs_check",
-      "note": "Page officielle précise inaccessible via deux hôtes. Résultats FranceTVPro annoncent france.tv dès le 8 octobre, diffusion 14 octobre 22:50 ; offre exacte et expiration à ouvrir. Critique série-news repérée, indépendance vis-à-vis du communiqué non établie. Pas de consensus.",
-      "search_urls": [
-        "https://www.francetvpro.fr/grille/france-2/09-10-2026/14-10-2026",
-        "https://www.serie-news.com/tnt/france-2/55098-unite-ados-93-sur-france-2-une-plongee-pudique-dans-un-service-de-pedopsychiatrie-07-10-2026/"
-      ]
+    "result": "Aucune identité canonique correspondante établie pour les documentaires approfondis ; le titre ancien sur la villa de Poppée est une autre œuvre. Aucune métadonnée ancienne réutilisée.",
+    "additional_scoped_check": {
+      "checked_at": "2026-10-08T06:47:37.268Z",
+      "titles": [
+        "Unité Ados 93",
+        "Les fantômes du Tonkin",
+        "La machine à écrire et autres sources de tracas",
+        "L'envol",
+        "Averroès & Rosa Parks"
+      ],
+      "matching_canonical_entries_found": 0,
+      "note": "Recherche ciblée dans works.json au SHA main inchangé ; aucune donnée historique réutilisée."
     }
-  ],
+  },
+  "documentary_research_queue": [],
   "status": "in_progress",
   "resume": {
     "candidate_branch": "auto/2026-S42",
