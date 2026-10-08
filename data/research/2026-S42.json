@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "week": "2026-S42",
-  "base_sha": "2c661aaf235903f4a98ffc02e115ca7864892bb9",
+  "base_sha": "3111c849101f085ebc90f781460f57879c13786b",
   "stage": "enrichment",
-  "updated_at": "2026-10-08T21:16:47.000Z",
+  "updated_at": "2026-10-08T22:22:46.029748Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -453,6 +453,18 @@
       "id": "enrichment-a-ghost-story-friday-draft",
       "completed_at": "2026-10-08T21:16:47.000Z",
       "description": "A Ghost Story matérialisé en deuxième carte draft du vendredi depuis les preuves stables sauvegardées et les métadonnées/visuel exacts contrôlés. L’indépendance des flux TCM reste ouverte ; aucune offre replay n’est affirmée."
+    },
+    {
+      "id": "platform-free-arte-prehistory-2026-10-09",
+      "completed_at": "2026-10-08T22:20:06.269696Z",
+      "description": "Deux cartes de rubrique plateformes gratuites documentées depuis les dossiers existants : offres numériques France, versions, expirations, images officielles, critiques attribuées et motifs précis d’absence de notes moyennes. Générateur strict et sommaire provisoire appliqués ; revue hebdomadaire et préflight ouverts.",
+      "items": 2
+    },
+    {
+      "id": "a-ghost-story-primary-tcm-broadcast-2026-10-09",
+      "completed_at": "2026-10-08T22:20:06.269696Z",
+      "description": "Annonce primaire TCM indexée rapprochée de la grille actuelle : date, heure et chaîne corroborées pour A Ghost Story. Accès intégral non obtenu ; durée/version TCM non certifiée.",
+      "items": 1
     }
   ],
   "blockers": [
@@ -19300,7 +19312,9 @@
         "https://www.senscritique.com/film/a_ghost_story/23854223"
       ],
       "checked_at": "2026-10-08T12:20:18.077Z",
-      "reused_in": ["2026-S42"],
+      "reused_in": [
+        "2026-S42"
+      ],
       "stability": "stable",
       "applies_to": {
         "week": "2026-S42",
@@ -19322,7 +19336,9 @@
         "https://rogersmovienation.com/2017/07/13/movie-review-eternitys-quiet-lonely-and-a-trifle-dull-in-a-ghost-story/"
       ],
       "checked_at": "2026-10-08T12:20:18.077Z",
-      "reused_in": ["2026-S42"],
+      "reused_in": [
+        "2026-S42"
+      ],
       "stability": "stable",
       "applies_to": {
         "week": "2026-S42",
@@ -19344,7 +19360,9 @@
         "https://television.telerama.fr/programme-tv-vendredi-prochain/tcm-france"
       ],
       "checked_at": "2026-10-08T13:37:58.645Z",
-      "reused_in": ["2026-S42"],
+      "reused_in": [
+        "2026-S42"
+      ],
       "stability": "dynamic",
       "applies_to": {
         "week": "2026-S42",
@@ -19386,6 +19404,276 @@
       },
       "evidence_note": "Liens directs exacts, note SensCritique 6,9 et affiche exacte inspectée visuellement ; santé distante encore soumise au CI.",
       "status": "verified"
+    },
+    {
+      "work_id": "grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-2024",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Grotte Chauvet - Dans les pas des artistes de la Préhistoire",
+        "section": "plateformes-gratuites"
+      },
+      "checked_at": "2026-10-09",
+      "date_basis": "Date de consultation Europe/Paris ; les anciennes preuves du 8 octobre restent inchangées.",
+      "fields": [
+        "work_id",
+        "title",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "summary",
+        "summary_source_url"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/112849-000-A/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire/",
+        "https://www.senscritique.com/film/grotte_chauvet_dans_les_pas_des_artistes_de_la_prehistoire/104936383"
+      ],
+      "stability": "stable",
+      "status": "verified",
+      "evidence_note": "Identité concordante ARTE/SensCritique sauvegardée le 8 octobre : Alexis de Favitski, France, 2024. Film distinct de La Grotte des rêves perdus de Herzog. Offre numérique ARTE 112849-000-A actuelle : 5333 secondes (88 min 53 s), arrondie 89 min sur la page ; durée CNRS 88 min et créneau TV 90 min ne remplacent pas celle de cette offre. Titre, réalisateur, année, pays et synopsis relus sur la page officielle. Visuel ARTE exact récupéré en HTTP 200 image/jpeg puis inspecté : peintures de Chauvet. Recherche réelle des notes documentée ; aucune moyenne SensCritique ambiguë ni note IMDb seulement indexée transférée au catalogue."
+    },
+    {
+      "work_id": "grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-2024",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Grotte Chauvet - Dans les pas des artistes de la Préhistoire",
+        "section": "plateformes-gratuites"
+      },
+      "checked_at": "2026-10-09",
+      "date_basis": "Date de consultation Europe/Paris ; les anciennes preuves du 8 octobre restent inchangées.",
+      "fields": [
+        "offer_service",
+        "offer_url",
+        "offer_access",
+        "offer_territory",
+        "offer_checked",
+        "available_until",
+        "duration"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/112849-000-A/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire/",
+        "https://api.arte.tv/api/player/v2/config/fr/112849-000-A"
+      ],
+      "stability": "dynamic",
+      "status": "verified",
+      "evidence_note": "Rubrique indépendante de la grille TV. Page FR gratuite et API officielle relues le 9 octobre Europe/Paris ; rights begin 2026-01-19T04:00Z, end 2027-03-18T04:00Z, page jusqu’au17/03/2027. Configuration renvoie userCountryCode FR, restrictedArea false, flux français annoncé et error null. Preuve de configuration/offre, sans test de lecture. Aucune date d’arrivée nouvelle revendiquée."
+    },
+    {
+      "work_id": "grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-2024",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Grotte Chauvet - Dans les pas des artistes de la Préhistoire",
+        "section": "plateformes-gratuites"
+      },
+      "checked_at": "2026-10-09",
+      "date_basis": "Date de consultation Europe/Paris ; les anciennes preuves du 8 octobre restent inchangées.",
+      "fields": [
+        "image",
+        "image_source_url",
+        "image_type",
+        "image_checked"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/112849-000-A/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire/",
+        "https://api-cdn.arte.tv/img/v2/image/X7pHUxDjNoqtojyMkUo3zT/940x530"
+      ],
+      "stability": "dynamic",
+      "status": "verified",
+      "evidence_note": "Visuel horizontal officiel du programme fourni par la configuration ARTE, récupéré et inspecté ; peintures de la grotte, aucune affiche revendiquée."
+    },
+    {
+      "work_id": "grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-2024",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Grotte Chauvet - Dans les pas des artistes de la Préhistoire",
+        "section": "plateformes-gratuites"
+      },
+      "checked_at": "2026-10-09",
+      "date_basis": "Date de consultation Europe/Paris ; les anciennes preuves du 8 octobre restent inchangées.",
+      "fields": [
+        "ratings_unavailable_reason"
+      ],
+      "source_urls": [
+        "https://www.senscritique.com/film/grotte_chauvet_dans_les_pas_des_artistes_de_la_prehistoire/104936383",
+        "https://www.imdb.com/title/tt34936421/"
+      ],
+      "stability": "dynamic",
+      "status": "research_unavailability_documented",
+      "evidence_note": "IMDb exact tt34936421 identifié ; ouverture directe refusée 403 le 9 octobre 2026. Son index annonce 7,6/10 pour 17 votes, sans lecture directe de la note courante : chiffre non repris. La fiche SensCritique exacte est lue via le moteur, mais la moyenne n’est pas identifiée sans ambiguïté parmi les nombres isolés ; accès HTTP direct 403. L’avis personnel 7/10 de JOE-ROBERTS est une critique individuelle, pas une moyenne."
+    },
+    {
+      "work_id": "grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-2024",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Grotte Chauvet - Dans les pas des artistes de la Préhistoire",
+        "section": "plateformes-gratuites"
+      },
+      "checked_at": "2026-10-09",
+      "date_basis": "Date de consultation Europe/Paris ; les anciennes preuves du 8 octobre restent inchangées.",
+      "fields": [
+        "editorial_copy",
+        "summary",
+        "why",
+        "freshness_local_check"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/112849-000-A/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire/",
+        "https://api.arte.tv/api/player/v2/config/fr/112849-000-A",
+        "https://www.senscritique.com/film/grotte_chauvet_dans_les_pas_des_artistes_de_la_prehistoire/104936383",
+        "https://www.imdb.com/title/tt34936421/",
+        "https://www.programme-television.org/type/documentaires/autres/civilisation/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-343398134",
+        "https://images.cnrs.fr/actualites/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire"
+      ],
+      "stability": "editorial",
+      "status": "draft_reviewed",
+      "evidence_note": "Synopsis et justification rédigés pour cette carte, fondés sur les matériaux du film et l’avis Télé7 déjà attribué. Pas de consensus extrapolé de Télérama payant ni de la critique individuelle SensCritique. Contrôle fraîcheur : aucun titre/alias dans S38–S41 ni dans les neuf cartes S42 déjà présentes. Texte de rubrique et cartes rendus par le helper strict ; comparaison finale et préflight ouverts."
+    },
+    {
+      "work_id": "sulawesi-l-ile-des-premieres-images-2025",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Sulawesi, l'île des premières images",
+        "section": "plateformes-gratuites"
+      },
+      "checked_at": "2026-10-09",
+      "date_basis": "Date de consultation Europe/Paris ; les anciennes preuves du 8 octobre restent inchangées.",
+      "fields": [
+        "work_id",
+        "title",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "summary",
+        "summary_source_url"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/118245-000-A/sulawesi-l-ile-des-premieres-images/",
+        "https://www.senscritique.com/film/sulawesi_lile_des_premieres_images/133861006"
+      ],
+      "stability": "stable",
+      "status": "verified",
+      "evidence_note": "Identité ARTE/SensCritique sauvegardée le 8 octobre : Pascal Goblot et Denis van Waerebeke, France, 2025. Version numérique officielle 118245-000-A : 3305 secondes (55 min 05 s), affichée 56 min. Le créneau linéaire de 55 min reste distinct ; aucune autre version supposée. Champs identitaires existants réutilisés après revue ; synopsis rédigé depuis les matériaux officiels. Image officielle exacte récupérée et inspectée : HTTP 200 image/jpeg, 1920×1080, titre et paroi peinte. Motif précis d’absence de moyenne après recherche SensCritique/IMDb ; aucune note Télérama payante extrapolée."
+    },
+    {
+      "work_id": "sulawesi-l-ile-des-premieres-images-2025",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Sulawesi, l'île des premières images",
+        "section": "plateformes-gratuites"
+      },
+      "checked_at": "2026-10-09",
+      "date_basis": "Date de consultation Europe/Paris ; les anciennes preuves du 8 octobre restent inchangées.",
+      "fields": [
+        "offer_service",
+        "offer_url",
+        "offer_access",
+        "offer_territory",
+        "offer_checked",
+        "available_until",
+        "duration"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/118245-000-A/sulawesi-l-ile-des-premieres-images/",
+        "https://api.arte.tv/api/player/v2/config/fr/118245-000-A"
+      ],
+      "stability": "dynamic",
+      "status": "verified",
+      "evidence_note": "Offre gratuite France indépendante de TV. HTML officiel consulté le 2026-10-08T22:08:35.122209Z et API à 22:08:42.805686Z, donc le 9 octobre Europe/Paris. HTML offeringType free ; API userCountryCode FR, restrictedArea false, error null et versions françaises. Début droit 2026-07-21T22:00Z ; fin 2027-01-20T04:00Z, page jusqu’au 19/01/2027. Configuration et offre vérifiées, sans lecture de flux ni compte obligatoire affirmé."
+    },
+    {
+      "work_id": "sulawesi-l-ile-des-premieres-images-2025",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Sulawesi, l'île des premières images",
+        "section": "plateformes-gratuites"
+      },
+      "checked_at": "2026-10-09",
+      "date_basis": "Date de consultation Europe/Paris ; les anciennes preuves du 8 octobre restent inchangées.",
+      "fields": [
+        "image",
+        "image_source_url",
+        "image_type",
+        "image_checked"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/118245-000-A/sulawesi-l-ile-des-premieres-images/",
+        "https://api-cdn.arte.tv/img/v2/image/eqpyNXxt3fwrbGZWxvaS8S/1920x1080?type=TEXT&watermark=true"
+      ],
+      "stability": "dynamic",
+      "status": "verified",
+      "evidence_note": "Visuel officiel horizontal ARTE portant le titre exact et des mains négatives sur une paroi ; récupéré200JPEG et inspecté."
+    },
+    {
+      "work_id": "sulawesi-l-ile-des-premieres-images-2025",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Sulawesi, l'île des premières images",
+        "section": "plateformes-gratuites"
+      },
+      "checked_at": "2026-10-09",
+      "date_basis": "Date de consultation Europe/Paris ; les anciennes preuves du 8 octobre restent inchangées.",
+      "fields": [
+        "ratings_unavailable_reason"
+      ],
+      "source_urls": [
+        "https://www.senscritique.com/film/sulawesi_lile_des_premieres_images/133861006"
+      ],
+      "stability": "dynamic",
+      "status": "research_unavailability_documented",
+      "evidence_note": "SensCritique exact 133861006 trouvé et relu : extraction Web 6/0/0 sans libellé permettant de certifier la moyenne ; HTTP direct 403 le 9 octobre 2026. Recherches ciblées IMDb sur titres français/allemand et deux réalisateurs sans fiche exacte identifiée ; cela ne démontre pas absence de fiche ou votes. Aucun score moyen inféré."
+    },
+    {
+      "work_id": "sulawesi-l-ile-des-premieres-images-2025",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Sulawesi, l'île des premières images",
+        "section": "plateformes-gratuites"
+      },
+      "checked_at": "2026-10-09",
+      "date_basis": "Date de consultation Europe/Paris ; les anciennes preuves du 8 octobre restent inchangées.",
+      "fields": [
+        "editorial_copy",
+        "summary",
+        "why",
+        "freshness_local_check"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/118245-000-A/sulawesi-l-ile-des-premieres-images/",
+        "https://api.arte.tv/api/player/v2/config/fr/118245-000-A",
+        "https://www.senscritique.com/film/sulawesi_lile_des_premieres_images/133861006",
+        "https://www.telerama.fr/television/sulawesi-l-ile-des-premieres-images-sur-arte-tv-une-renversante-lecon-d-art-prehistorique-dans-les-grottes-d-indonesie_cri-7042482.php",
+        "https://www.lejournaldesarts.fr/medias/la-prehistoire-des-images-184458"
+      ],
+      "stability": "editorial",
+      "status": "draft_reviewed",
+      "evidence_note": "Textes propres à cette carte, fondés sur datation et décentrement géographique. Avis partiellement accessibles de Charlotte Fauve/Télérama et Marie Plantin/L’ŒIL attribués avec leurs limites. Aucun titre/alias dans S38–S41 ni les cartes S42 actuelles ; pas de doublon Thorin. Texte de rubrique et cartes rendus par le helper strict ; comparaison finale et préflight ouverts."
+    },
+    {
+      "work_id": "a-ghost-story-2017",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://x.com/TCM_Cinema/status/2105259656490709270/photo/1",
+        "https://www.facebook.com/TCMcinema/photos/-notre-cycle-doctobre-histoires-de-fant%C3%B4mes-tous-les-vendredis-%C3%A0-20h50-sur-tcm-c/1535674608590544/",
+        "https://www.acces.tv/wp-content/uploads/2024/11/Guide-des-chaines-2024-BAT-FINAL1.pdf",
+        "https://tv-programme.com/tcm-cinema/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "start": "20:50",
+        "channel": "TCM Cinéma"
+      },
+      "evidence_note": "Vendredi 16 octobre 2026 à 20:50 sur TCM Cinéma : titre, jour/mois, heure et chaîne corroborés par l’annonce primaire du cycle TCM Histoires de fantômes, lue dans l’index Web du post X exact et du post Facebook exact le 8 octobre 2026, et par la grille datée actuelle. Le compte X @TCM_Cinema est explicitement répertorié dans le Guide des chaînes 2024, fiche TCM Cinéma p. 203. Accès direct X DisabledError/403 et Facebook throttled : la preuve est indexée, non une lecture intégrale du post. Le créneau de 90 min reste distinct de la durée cinéma 92 min ; aucune copie TCM de 92 min ni offre replay précise n’est certifiée.",
+      "status": "verified",
+      "access": "search_index_only_for_primary_posts",
+      "producer_review_note": "Relecture par le producteur des deux résultats du post X exact (titre/date puis heure), du post Facebook exact et de leur rapprochement avec la grille datée ; accès primaire indexé conservé explicitement."
     }
   ],
   "run_metrics": [
@@ -20212,6 +20500,43 @@
       "stop_reason": "two_coherent_friday_drafts_and_shortlist_ready_for_remote_checkpoint",
       "next_useful_batch": "Achever un troisième choix du vendredi parmi La falaise mystérieuse et le documentaire Wachowski après contrôle des versions et de la chaîne, puis constituer les réserves complètes du vendredi.",
       "note": "Candidate synchronisée avec main ; rapport preparation-gaps : 53 écarts informatifs. Deux cartes vendredi créées et présélection structurée de 22 pistes ajoutée. Les 35 exigences, les limites d’indépendance des grilles et tous les contrôles complets restent ouverts."
+    },
+    {
+      "date": "2026-10-08T22:22:46.029748Z",
+      "started_at": null,
+      "ended_at": "2026-10-08T22:22:46.029748Z",
+      "owner": "e335268c-709c-49f8-91ae-33fe1cf6b18f",
+      "execution_kind": "manual_scoped_production_batch",
+      "prompt_revision": "production-shortlist-2026-10-08",
+      "stage": "enrichment",
+      "elapsed_seconds": null,
+      "duration_basis": "Début du passage manuel non horodaté ; durée totale non reconstruite. Les preuves conservent les horodatages de consultations effectivement capturés. Ce bilan porte sur une intervention manuelle ciblée, pas une exécution du planificateur. ended_at est l’horodatage de ce checkpoint final avant sauvegarde distante, hors attente CI.",
+      "completed_batches": [
+        "platform-free-arte-prehistory-2026-10-09",
+        "a-ghost-story-primary-tcm-broadcast-2026-10-09"
+      ],
+      "deliverables_changed": [
+        "data/works.json",
+        "data/links.json",
+        "data/manifest.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "draft_cards_created": 2,
+      "cards_structurally_complete": 2,
+      "cards_factually_documented_scope": "Deux propositions ARTE numériques dans la rubrique gratuite ; ne certifie ni les diffusions linéaires ni le numéro.",
+      "newly_verified_complete_cards": 0,
+      "images_visually_checked": 2,
+      "targeted_broadcast_questions_corroborated": 1,
+      "coverage_requirements_resolved": 0,
+      "remaining": {
+        "stage": "enrichment",
+        "count": 35,
+        "reference": "remaining"
+      },
+      "stop_reason": "manual_scoped_intervention_finished; weekly_production_remains_assigned_to_enabled_scheduler; no_runtime_or_quota_limit_claimed",
+      "next_useful_batch": "Transformer les dossiers proches de la complétude en choix/réserves, puis une rubrique indépendante absente, sans reprendre les nouvelles offres ARTE ou l’annonce TCM déjà sauvegardées.",
+      "note": "Deux cartes rédigées et documentées, une rubrique et un sommaire provisoire ajoutés, une question de source TCM corroborée. Publication non prête ; revue complète, rendu et35exigences restent ouverts."
     }
   ],
   "source_issues": [
@@ -20810,15 +21135,15 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "6fd6686f1467e6281108cb7ab83a8de6820edf36",
-    "main_sha": "a53a6a2c36501efddbf70e0895209fc07132bd92",
+    "checkpoint_parent_sha": "1d46b31b2a355ae128873b8daef35573890b6d52",
+    "main_sha": "3111c849101f085ebc90f781460f57879c13786b",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Compléter les cartes par jour et rubrique, leurs réserves et grilles ; la carte Thorin est sauvegardée mais rang et sélection restent provisoires. Réutiliser les preuves datées, ne pas les reconsulter sans changement.",
-      "Achever en priorité les nouveaux films officiellement recoupés et les dossiers proches de la complétude des jours déficitaires. Vérifier exposition/fraîcheur avant réemploi ; correspondance de titre ne vaut pas identité.",
-      "Poursuivre en parallèle les lacunes de couverture bloquantes : sources indépendantes, conflits de grilles, TV5 France/TCM/RMC et consolidation des sept scans/recoupements/rappels sur preuves réelles.",
-      "Reprendre les impasses seulement lorsque leur condition enregistrée change ; conserver toutes les exigences remaining. Produire aussi les rubriques replay, gratuit, plateformes et rendez-vous, sans attendre que toutes les pistes linéaires soient résolues.",
-      "Enchaîner les lots utiles après sauvegarde, puis consigner durée réelle connue et stop_reason. Revue complète, images/liens/rendu/Jellyfin et seuils obligatoires avant ready/scellement ; laisser le publicateur protégé publier."
+      "Poursuivre la production des choix quotidiens et réserves depuis les dossiers avancés ; ne pas relancer une collecte générale ni attendre que toutes les pistes de couverture soient résolues.",
+      "Plateformes gratuites : Chauvet et Sulawesi sont documentés et rendus avec offres France, visuels et liens ; ne pas refaire ces dossiers. Comparaison du numéro, rendu candidat et contrôle distant des images restent à effectuer au préflight.",
+      "A Ghost Story : annonce primaire TCM indexée sauvegardée pour le vendredi 16 octobre à 20:50 ; ne pas reprendre la même recherche de chaîne. La durée/version de la copie TCM reste ouverte (créneau90min versus cinéma92min), sans déduction ni certification de carte complète.",
+      "Produire aussi les rubriques indépendantes encore absentes (abonnements, sorties, replay, radars) ; réutiliser un dossier pour plusieurs emplacements seulement avec faits d’offre adaptés et sans doublon inutile.",
+      "Consolider les recoupements, rappels et conflits de couverture sur preuves réelles ; préserver les35exigences. Enchaîner après sauvegarde tant que des tâches utiles sont accessibles ; un checkpoint n’est pas un motif d’arrêt du passage automatique."
     ],
     "publisher": {
       "checked_at": "2026-10-08T14:40:33.431Z",
@@ -20850,7 +21175,7 @@
       "cause": "Seul échec Require a complete candidate before merging ; préparation incomplète. Public S41 contrôlé, aucune certification S42. Étapes skipped non comptées comme réussite.",
       "reusable_only_for_exact_sha": true
     },
-    "ci_note": "Les observations CI conservées ci-dessous ne couvrent que leurs anciens SHA ; aucune réutilisation pour ce nouveau brouillon. La candidate demeure enrichment, revue inachevée et remaining non vide."
+    "ci_note": "Les observations conservées concernent leurs anciens SHA. Ce nouveau lot attend ses propres contrôles ; aucune ancienne réussite ne certifie ce checkpoint ni S42. Stage enrichment et remaining non vide."
   },
   "structure_check": {
     "checked_at": "2026-10-08T13:51:18.611Z",
@@ -21066,187 +21391,483 @@
       "decision": "Piste examinée et exclue des recommandations/réserves fondées sur cette offre.",
       "status": "excluded_current_offer",
       "resume_condition": "Nouvelle offre France explicite et courante, avec version et expiration propres."
+    },
+    {
+      "id": "a-ghost-story-tcm-primary-broadcast-index-2026-10-08",
+      "object": {
+        "title": "A Ghost Story",
+        "work_id": "a-ghost-story-2017",
+        "date": "2026-10-16",
+        "start": "20:50",
+        "channel": "TCM Cinéma",
+        "version": "copie linéaire TCM, durée encore non certifiée"
+      },
+      "question": "Trouver une preuve primaire TCM pour le titre, l’horaire et la chaîne sans supposer l’indépendance de deux agrégateurs.",
+      "checked_at": "2026-10-08",
+      "source_urls": [
+        "https://x.com/TCM_Cinema/status/2105259656490709270/photo/1",
+        "https://www.facebook.com/TCMcinema/photos/-notre-cycle-doctobre-histoires-de-fant%C3%B4mes-tous-les-vendredis-%C3%A0-20h50-sur-tcm-c/1535674608590544/",
+        "https://www.acces.tv/wp-content/uploads/2024/11/Guide-des-chaines-2024-BAT-FINAL1.pdf",
+        "https://www.tcmcinema.fr/",
+        "https://www.tcmcinema.fr/programmes"
+      ],
+      "result": "Annonce exacte primaire découverte et lue dans l’index Web ; titre/date jour-mois/heure/chaîne concordants avec la grille datée. Deux ouvertures X ont échoué et la voie primaire alternative Facebook est également bloquée en ouverture directe. Site TCM inaccessible via Web. Aucun contournement ; aucune durée TCM déduite.",
+      "blocking_scope": "Accès intégral à l’annonce non obtenu ; version/durée TCM reste bloquante pour une fiche complète. Ne résout ni l’indépendance de l’ensemble des grilles TCM ni la couverture hebdomadaire.",
+      "status": "primary_broadcast_index_evidence_saved_version_pending",
+      "resume_condition": "Nouvelle fiche/guide officiel TCM spécifiant la durée/version de la copie, ou accès primaire complet/corrigé apportant ce fait ; ne pas répéter les mêmes recherches d’annonce sans changement."
     }
   ],
   "shortlist": {
-    "updated_at": "2026-10-08T21:09:50.000Z",
-    "note": "Présélection révisable amorcée depuis les dossiers, diffusions et réceptions déjà sauvegardés. Elle oriente les prochains lots sans certifier la sélection ni clore les exigences de couverture.",
+    "updated_at": "2026-10-08T22:20:06.269696Z",
+    "note": "Présélection révisable par jour et rubrique ; premières cartes plateformes gratuites intégrées depuis les dossiers acquis. Aucun statut ne certifie la sélection finale du numéro.",
     "entries": [
       {
         "id": "sl-samedi-exit-8",
         "title": "Exit 8",
-        "scope": {"day": "samedi"},
+        "scope": {
+          "day": "samedi"
+        },
         "status": "card_complete",
-        "signals": [{"kind": "critique", "note": "Le Monde relève la force du dispositif d’observation et sa tension urbaine ; la mécanique répétitive reste explicitement discutée.", "source_url": "https://www.lemonde.fr/culture/article/2025/09/03/exit-8-un-cruel-jeu-des-sept-erreurs-dans-le-metro_6638722_3246.html"}],
-        "alternatives": ["sl-samedi-thorin", "sl-samedi-grotte-chauvet"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Le Monde relève la force du dispositif d’observation et sa tension urbaine ; la mécanique répétitive reste explicitement discutée.",
+            "source_url": "https://www.lemonde.fr/culture/article/2025/09/03/exit-8-un-cruel-jeu-des-sept-erreurs-dans-le-metro_6638722_3246.html"
+          }
+        ],
+        "alternatives": [
+          "sl-samedi-thorin",
+          "sl-samedi-grotte-chauvet"
+        ]
       },
       {
         "id": "sl-samedi-thorin",
         "title": "Thorin, le dernier Néandertalien",
-        "scope": {"day": "samedi"},
+        "scope": {
+          "day": "samedi"
+        },
         "status": "card_complete",
-        "signals": [{"kind": "distinction", "note": "Le palmarès Objectif Préhistoire 2024 constitue un signal précis, complété par une réception attribuée.", "source_url": "https://www.hominides.com/le-festival-objectif-prehistoire-a-pech-merle-palmares-2024/"}],
-        "alternatives": ["sl-samedi-exit-8", "sl-samedi-sulawesi"]
+        "signals": [
+          {
+            "kind": "distinction",
+            "note": "Le palmarès Objectif Préhistoire 2024 constitue un signal précis, complété par une réception attribuée.",
+            "source_url": "https://www.hominides.com/le-festival-objectif-prehistoire-a-pech-merle-palmares-2024/"
+          }
+        ],
+        "alternatives": [
+          "sl-samedi-exit-8",
+          "sl-samedi-sulawesi"
+        ]
       },
       {
         "id": "sl-samedi-grotte-chauvet",
         "title": "Grotte Chauvet : Dans les pas des artistes de la Préhistoire",
-        "scope": {"day": "samedi"},
+        "scope": {
+          "day": "samedi"
+        },
         "status": "researching",
-        "signals": [{"kind": "critique", "note": "La critique Télérama exacte et deux lectures distinctes sont sauvegardées ; versions, note, visuel et comparaison restent à finir.", "source_url": "https://www.telerama.fr/television/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-en-immersion-avec-les-scientifiques_cri-7035768.php"}],
-        "alternatives": ["sl-samedi-thorin", "sl-samedi-sulawesi"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "La critique Télérama exacte et deux lectures distinctes sont sauvegardées ; versions, note, visuel et comparaison restent à finir.",
+            "source_url": "https://www.telerama.fr/television/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-en-immersion-avec-les-scientifiques_cri-7035768.php"
+          }
+        ],
+        "alternatives": [
+          "sl-samedi-thorin",
+          "sl-samedi-sulawesi"
+        ]
       },
       {
         "id": "sl-samedi-sulawesi",
         "title": "Sulawesi, l'île des premières images",
-        "scope": {"day": "samedi"},
+        "scope": {
+          "day": "samedi"
+        },
         "status": "researching",
-        "signals": [{"kind": "critique", "note": "Le Journal des Arts apporte une lecture indépendante de la mise en perspective des images préhistoriques ; dossier canonique encore incomplet.", "source_url": "https://www.lejournaldesarts.fr/medias/la-prehistoire-des-images-184458"}],
-        "alternatives": ["sl-samedi-grotte-chauvet", "sl-samedi-burning"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Le Journal des Arts apporte une lecture indépendante de la mise en perspective des images préhistoriques ; dossier canonique encore incomplet.",
+            "source_url": "https://www.lejournaldesarts.fr/medias/la-prehistoire-des-images-184458"
+          }
+        ],
+        "alternatives": [
+          "sl-samedi-grotte-chauvet",
+          "sl-samedi-burning"
+        ]
       },
       {
         "id": "sl-samedi-burning",
         "title": "Burning an Illusion",
-        "scope": {"day": "samedi"},
+        "scope": {
+          "day": "samedi"
+        },
         "status": "researching",
-        "signals": [{"kind": "critique", "note": "La critique Backseat Mafia est sauvegardée avec les réserves d’autres lectures ; version 101/105/107 min et offre restent à arbitrer.", "source_url": "https://www.backseatmafia.com/blu-ray-review-burning-an-illusion/"}],
-        "alternatives": ["sl-samedi-sulawesi", "sl-samedi-exit-8"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "La critique Backseat Mafia est sauvegardée avec les réserves d’autres lectures ; version 101/105/107 min et offre restent à arbitrer.",
+            "source_url": "https://www.backseatmafia.com/blu-ray-review-burning-an-illusion/"
+          }
+        ],
+        "alternatives": [
+          "sl-samedi-sulawesi",
+          "sl-samedi-exit-8"
+        ]
       },
       {
         "id": "sl-dimanche-la-gueule-ouverte",
         "title": "La Gueule ouverte",
-        "scope": {"day": "dimanche"},
+        "scope": {
+          "day": "dimanche"
+        },
         "status": "card_drafted",
-        "signals": [{"kind": "critique", "note": "L’essai Senses of Cinema étaye la rigueur formelle ; l’indépendance du recoupement de chaîne reste ouverte.", "source_url": "https://www.sensesofcinema.com/2006/cteq/la-gueule-ouverte/"}],
-        "alternatives": ["sl-dimanche-kotelnitch", "sl-dimanche-silence-rangs"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "L’essai Senses of Cinema étaye la rigueur formelle ; l’indépendance du recoupement de chaîne reste ouverte.",
+            "source_url": "https://www.sensesofcinema.com/2006/cteq/la-gueule-ouverte/"
+          }
+        ],
+        "alternatives": [
+          "sl-dimanche-kotelnitch",
+          "sl-dimanche-silence-rangs"
+        ]
       },
       {
         "id": "sl-dimanche-kotelnitch",
         "title": "Retour à Kotelnitch",
-        "scope": {"day": "dimanche"},
+        "scope": {
+          "day": "dimanche"
+        },
         "status": "researching",
-        "signals": [{"kind": "critique", "note": "Deux critiques indépendantes sont sauvegardées ; droits, version, note et affiche restent à achever.", "source_url": "https://www.critikat.com/actualite-cine/critique/retour-a-kotelnitch/"}],
-        "alternatives": ["sl-dimanche-la-gueule-ouverte", "sl-dimanche-silence-rangs"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Deux critiques indépendantes sont sauvegardées ; droits, version, note et affiche restent à achever.",
+            "source_url": "https://www.critikat.com/actualite-cine/critique/retour-a-kotelnitch/"
+          }
+        ],
+        "alternatives": [
+          "sl-dimanche-la-gueule-ouverte",
+          "sl-dimanche-silence-rangs"
+        ]
       },
       {
         "id": "sl-dimanche-silence-rangs",
         "title": "Violences sexuelles à l'école : silence dans les rangs",
-        "scope": {"day": "dimanche"},
+        "scope": {
+          "day": "dimanche"
+        },
         "status": "researching",
-        "signals": [{"kind": "distinction", "note": "Prix Enfance Majuscule 2026 vérifié ; portée et limites de réception sont conservées sans consensus inventé.", "source_url": "https://enfance-majuscule.fr/palmares-du-prix-media-enfance-majuscule-2026-nos-8-programmes-laureats-2/"}],
-        "alternatives": ["sl-dimanche-kotelnitch", "sl-dimanche-la-gueule-ouverte"]
+        "signals": [
+          {
+            "kind": "distinction",
+            "note": "Prix Enfance Majuscule 2026 vérifié ; portée et limites de réception sont conservées sans consensus inventé.",
+            "source_url": "https://enfance-majuscule.fr/palmares-du-prix-media-enfance-majuscule-2026-nos-8-programmes-laureats-2/"
+          }
+        ],
+        "alternatives": [
+          "sl-dimanche-kotelnitch",
+          "sl-dimanche-la-gueule-ouverte"
+        ]
       },
       {
         "id": "sl-lundi-koute-vwa",
         "title": "Kouté Vwa",
-        "scope": {"day": "lundi"},
+        "scope": {
+          "day": "lundi"
+        },
         "status": "card_complete",
-        "signals": [{"kind": "critique", "note": "Cineuropa étaye l’hybridation entre fiction, mémoire familiale et musique guyanaise ; le conflit replay n’affecte pas la carte linéaire.", "source_url": "https://cineuropa.org/fr/newsdetail/464988/"}],
-        "alternatives": ["sl-lundi-crime-tete"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Cineuropa étaye l’hybridation entre fiction, mémoire familiale et musique guyanaise ; le conflit replay n’affecte pas la carte linéaire.",
+            "source_url": "https://cineuropa.org/fr/newsdetail/464988/"
+          }
+        ],
+        "alternatives": [
+          "sl-lundi-crime-tete"
+        ]
       },
       {
         "id": "sl-lundi-crime-tete",
         "title": "Un crime dans la tête",
-        "scope": {"day": "lundi"},
+        "scope": {
+          "day": "lundi"
+        },
         "status": "researching",
-        "signals": [{"kind": "patrimoine", "note": "La Cinémathèque identifie précisément le film de Frankenheimer ; les six diffusions et les deux adaptations restent séparées.", "source_url": "https://www.cinematheque.fr/film/32418.html"}],
-        "alternatives": ["sl-lundi-koute-vwa"]
+        "signals": [
+          {
+            "kind": "patrimoine",
+            "note": "La Cinémathèque identifie précisément le film de Frankenheimer ; les six diffusions et les deux adaptations restent séparées.",
+            "source_url": "https://www.cinematheque.fr/film/32418.html"
+          }
+        ],
+        "alternatives": [
+          "sl-lundi-koute-vwa"
+        ]
       },
       {
         "id": "sl-mardi-les-mots",
         "title": "Les mots qu'elles eurent un jour",
-        "scope": {"day": "mardi"},
+        "scope": {
+          "day": "mardi"
+        },
         "status": "card_complete",
-        "signals": [{"kind": "critique", "note": "Avoir Alire fournit une critique attribuée du travail d’archives et de mémoire, avec réserves formelles conservées.", "source_url": "https://www.avoir-alire.com/les-mots-qu-elles-eurent-un-jour-raphael-pillosio-critique"}],
-        "alternatives": ["sl-mardi-regrouping", "sl-mardi-chauvet"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Avoir Alire fournit une critique attribuée du travail d’archives et de mémoire, avec réserves formelles conservées.",
+            "source_url": "https://www.avoir-alire.com/les-mots-qu-elles-eurent-un-jour-raphael-pillosio-critique"
+          }
+        ],
+        "alternatives": [
+          "sl-mardi-regrouping",
+          "sl-mardi-chauvet"
+        ]
       },
       {
         "id": "sl-mardi-regrouping",
         "title": "Regrouping",
-        "scope": {"day": "mardi"},
+        "scope": {
+          "day": "mardi"
+        },
         "status": "researching",
-        "signals": [{"kind": "critique", "note": "La lecture de 4Columns étaye le montage et la difficulté formelle ; version, offre, note et visuel restent à terminer.", "source_url": "https://www.4columns.org/anderson-melissa/regrouping"}],
-        "alternatives": ["sl-mardi-les-mots", "sl-mardi-chauvet"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "La lecture de 4Columns étaye le montage et la difficulté formelle ; version, offre, note et visuel restent à terminer.",
+            "source_url": "https://www.4columns.org/anderson-melissa/regrouping"
+          }
+        ],
+        "alternatives": [
+          "sl-mardi-les-mots",
+          "sl-mardi-chauvet"
+        ]
       },
       {
         "id": "sl-mardi-chauvet",
         "title": "Grotte Chauvet : Dans les pas des artistes de la Préhistoire",
-        "scope": {"day": "mardi"},
+        "scope": {
+          "day": "mardi"
+        },
         "status": "researching",
-        "signals": [{"kind": "critique", "note": "Le dossier critique déjà sauvegardé couvre aussi la rediffusion du mardi ; aucun nouveau contrôle stable n’est nécessaire avant les champs manquants.", "source_url": "https://www.senscritique.com/film/grotte_chauvet_dans_les_pas_des_artistes_de_la_prehistoire/critique/316364330"}],
-        "alternatives": ["sl-mardi-regrouping", "sl-mardi-les-mots"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Le dossier critique déjà sauvegardé couvre aussi la rediffusion du mardi ; aucun nouveau contrôle stable n’est nécessaire avant les champs manquants.",
+            "source_url": "https://www.senscritique.com/film/grotte_chauvet_dans_les_pas_des_artistes_de_la_prehistoire/critique/316364330"
+          }
+        ],
+        "alternatives": [
+          "sl-mardi-regrouping",
+          "sl-mardi-les-mots"
+        ]
       },
       {
         "id": "sl-mercredi-cadet",
         "title": "Cadet d'eau douce",
-        "scope": {"day": "mercredi"},
+        "scope": {
+          "day": "mercredi"
+        },
         "status": "card_drafted",
-        "signals": [{"kind": "critique", "note": "Critikat étaye la précision burlesque et la mise en scène ; l’indépendance du recoupement de chaîne reste ouverte.", "source_url": "https://www.critikat.com/actualite-cine/critique/cadet-deau-douce/"}],
-        "alternatives": ["sl-mercredi-burning"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Critikat étaye la précision burlesque et la mise en scène ; l’indépendance du recoupement de chaîne reste ouverte.",
+            "source_url": "https://www.critikat.com/actualite-cine/critique/cadet-deau-douce/"
+          }
+        ],
+        "alternatives": [
+          "sl-mercredi-burning"
+        ]
       },
       {
         "id": "sl-mercredi-burning",
         "title": "Burning an Illusion",
-        "scope": {"day": "mercredi"},
+        "scope": {
+          "day": "mercredi"
+        },
         "status": "researching",
-        "signals": [{"kind": "critique", "note": "La réception critique déjà sauvegardée couvre la rediffusion du mercredi ; la version et l’offre restent à finaliser.", "source_url": "https://www.telerama.fr/cinema/burning-an-illusion-de-menelik-shabazz-notre-critique_cri-7042929.php"}],
-        "alternatives": ["sl-mercredi-cadet"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "La réception critique déjà sauvegardée couvre la rediffusion du mercredi ; la version et l’offre restent à finaliser.",
+            "source_url": "https://www.telerama.fr/cinema/burning-an-illusion-de-menelik-shabazz-notre-critique_cri-7042929.php"
+          }
+        ],
+        "alternatives": [
+          "sl-mercredi-cadet"
+        ]
       },
       {
         "id": "sl-jeudi-point-limite",
         "title": "Point limite",
-        "scope": {"day": "jeudi"},
+        "scope": {
+          "day": "jeudi"
+        },
         "status": "card_drafted",
-        "signals": [{"kind": "critique", "note": "Criterion analyse la tension morale et politique de Lumet ; le recoupement indépendant de chaîne reste à consolider.", "source_url": "https://www.criterion.com/current/posts/6801-fail-safe-very-little-left-of-the-world"}],
-        "alternatives": ["sl-jeudi-fantomes-tonkin", "sl-jeudi-crime-tete"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Criterion analyse la tension morale et politique de Lumet ; le recoupement indépendant de chaîne reste à consolider.",
+            "source_url": "https://www.criterion.com/current/posts/6801-fail-safe-very-little-left-of-the-world"
+          }
+        ],
+        "alternatives": [
+          "sl-jeudi-fantomes-tonkin",
+          "sl-jeudi-crime-tete"
+        ]
       },
       {
         "id": "sl-jeudi-fantomes-tonkin",
         "title": "Les fantômes du Tonkin",
-        "scope": {"day": "jeudi"},
+        "scope": {
+          "day": "jeudi"
+        },
         "status": "researching",
-        "signals": [{"kind": "critique", "note": "Le Monde valorise le déplacement de la bataille vers le deuil ; la réserve Télérama sur une vision romantique reste conservée.", "source_url": "https://www.lemonde.fr/televisions-radio/article/2024/05/11/les-replays-du-week-end-nuclear-now-les-fantomes-du-tonkin-belmondo-l-italie-en-heritage_6232590_1655027.html"}],
-        "alternatives": ["sl-jeudi-point-limite", "sl-jeudi-crime-tete"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Le Monde valorise le déplacement de la bataille vers le deuil ; la réserve Télérama sur une vision romantique reste conservée.",
+            "source_url": "https://www.lemonde.fr/televisions-radio/article/2024/05/11/les-replays-du-week-end-nuclear-now-les-fantomes-du-tonkin-belmondo-l-italie-en-heritage_6232590_1655027.html"
+          }
+        ],
+        "alternatives": [
+          "sl-jeudi-point-limite",
+          "sl-jeudi-crime-tete"
+        ]
       },
       {
         "id": "sl-jeudi-crime-tete",
         "title": "Un crime dans la tête",
-        "scope": {"day": "jeudi"},
+        "scope": {
+          "day": "jeudi"
+        },
         "status": "researching",
-        "signals": [{"kind": "critique", "note": "Une chronique complète et une note institutionnelle sont sauvegardées ; diffusion Grand Écran et version restent à finaliser.", "source_url": "https://films.oeil-ecran.com/2015/03/02/un-crime-dans-la-tete/"}],
-        "alternatives": ["sl-jeudi-point-limite", "sl-jeudi-fantomes-tonkin"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Une chronique complète et une note institutionnelle sont sauvegardées ; diffusion Grand Écran et version restent à finaliser.",
+            "source_url": "https://films.oeil-ecran.com/2015/03/02/un-crime-dans-la-tete/"
+          }
+        ],
+        "alternatives": [
+          "sl-jeudi-point-limite",
+          "sl-jeudi-fantomes-tonkin"
+        ]
       },
       {
         "id": "sl-vendredi-la-proie-nue",
         "title": "La Proie nue",
-        "scope": {"day": "vendredi"},
+        "scope": {
+          "day": "vendredi"
+        },
         "status": "card_drafted",
-        "signals": [{"kind": "critique", "note": "Michael Atkinson souligne l’épure, le découpage et la force hostile du paysage ; les représentations datées restent une réserve explicite.", "source_url": "https://www.criterion.com/current/posts/623-the-naked-prey-into-the-wild"}],
-        "alternatives": ["sl-vendredi-a-ghost-story", "sl-vendredi-wachowski"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Michael Atkinson souligne l’épure, le découpage et la force hostile du paysage ; les représentations datées restent une réserve explicite.",
+            "source_url": "https://www.criterion.com/current/posts/623-the-naked-prey-into-the-wild"
+          }
+        ],
+        "alternatives": [
+          "sl-vendredi-a-ghost-story",
+          "sl-vendredi-wachowski"
+        ]
       },
       {
         "id": "sl-vendredi-a-ghost-story",
         "title": "A Ghost Story",
-        "scope": {"day": "vendredi"},
+        "scope": {
+          "day": "vendredi"
+        },
         "status": "card_drafted",
-        "signals": [{"kind": "critique", "note": "Deux critiques contradictoires sont sauvegardées : invention du montage temporel contre distance émotionnelle et longueurs.", "source_url": "https://www.theringer.com/2017/07/11/pop-culture/a-ghost-story-movie-rooney-mara-review-204b969cf8bf"}],
-        "alternatives": ["sl-vendredi-la-proie-nue", "sl-vendredi-falaise"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Deux critiques contradictoires sont sauvegardées : invention du montage temporel contre distance émotionnelle et longueurs.",
+            "source_url": "https://www.theringer.com/2017/07/11/pop-culture/a-ghost-story-movie-rooney-mara-review-204b969cf8bf"
+          }
+        ],
+        "alternatives": [
+          "sl-vendredi-la-proie-nue",
+          "sl-vendredi-falaise"
+        ]
       },
       {
         "id": "sl-vendredi-wachowski",
         "title": "De \"Matrix\" à \"Sense8\", la révolution Wachowski",
-        "scope": {"day": "vendredi"},
+        "scope": {
+          "day": "vendredi"
+        },
         "status": "researching",
-        "signals": [{"kind": "critique", "note": "La critique Télérama exacte est sauvegardée avec deux avis individuels ; durée 61/62/70 min et offre restent à trancher.", "source_url": "https://www.telerama.fr/television/de-matrix-a-sense8-la-revolution-wachowski-de-thibaut-seve-notre-critique_cri-7032889.php"}],
-        "alternatives": ["sl-vendredi-la-proie-nue", "sl-vendredi-a-ghost-story"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "La critique Télérama exacte est sauvegardée avec deux avis individuels ; durée 61/62/70 min et offre restent à trancher.",
+            "source_url": "https://www.telerama.fr/television/de-matrix-a-sense8-la-revolution-wachowski-de-thibaut-seve-notre-critique_cri-7032889.php"
+          }
+        ],
+        "alternatives": [
+          "sl-vendredi-la-proie-nue",
+          "sl-vendredi-a-ghost-story"
+        ]
       },
       {
         "id": "sl-vendredi-falaise",
         "title": "La falaise mystérieuse",
-        "scope": {"day": "vendredi"},
+        "scope": {
+          "day": "vendredi"
+        },
         "status": "researching",
-        "signals": [{"kind": "critique", "note": "DVDClassik valorise décor et photographie tout en réservant son jugement sur les dialogues et le ton ; seconde critique plus négative conservée.", "source_url": "https://www.dvdclassik.com/critique/la-falaise-mysterieuse-allen"}],
-        "alternatives": ["sl-vendredi-a-ghost-story", "sl-vendredi-wachowski"]
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "DVDClassik valorise décor et photographie tout en réservant son jugement sur les dialogues et le ton ; seconde critique plus négative conservée.",
+            "source_url": "https://www.dvdclassik.com/critique/la-falaise-mysterieuse-allen"
+          }
+        ],
+        "alternatives": [
+          "sl-vendredi-a-ghost-story",
+          "sl-vendredi-wachowski"
+        ]
+      },
+      {
+        "id": "sl-plateformes-gratuites-chauvet",
+        "title": "Grotte Chauvet - Dans les pas des artistes de la Préhistoire",
+        "scope": {
+          "rubrique": "platform_free"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "La beauté des parois s’accompagne ici d’un vrai cheminement de recherche. Télé 7 Jours souligne la construction en enquête scientifique ; le film suit des méthodes concrètes sans présenter toutes les hypothèses comme des certitudes. Un accès rare au travail sur le site original. Sur ARTE.tv jusqu’au 17 mars 2027.",
+            "source_url": "https://www.programme-television.org/type/documentaires/autres/civilisation/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-343398134"
+          }
+        ],
+        "decision_note": "Carte de rubrique documentée et rendue ; offre numérique France explicitement distincte de la version linéaire. Comparaison du numéro et préflight restent ouverts.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-plateformes-gratuites-sulawesi",
+        "title": "Sulawesi, l'île des premières images",
+        "scope": {
+          "rubrique": "platform_free"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Une enquête qui montre comment une datation change notre regard sur les images. Charlotte Fauve, dans Télérama, souligne la clarté de la vulgarisation ; Marie Plantin, dans L’ŒIL, apprécie le paysage et le déplacement du récit européen. Sur ARTE.tv jusqu’au 19 janvier 2027.",
+            "source_url": "https://www.lejournaldesarts.fr/medias/la-prehistoire-des-images-184458"
+          }
+        ],
+        "decision_note": "Carte de rubrique documentée et rendue ; offre numérique France explicitement distincte de la version linéaire. Comparaison du numéro et préflight restent ouverts.",
+        "alternatives": []
       }
     ]
   },
@@ -21259,8 +21880,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "8391a1524eeb336a7b23a19a4714fbf86b1fc7ed",
-    "produced_at": "2026-10-08T21:16:47.000Z",
+    "source_candidate_sha": "1d46b31b2a355ae128873b8daef35573890b6d52",
+    "produced_at": "2026-10-08T22:20:06.269696Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -21465,7 +22086,7 @@
           "checked_at": "2026-10-08",
           "identity_version": "Film américain de David Lowery, 2017, avec Casey Affleck et Rooney Mara, distinct de Ghost Story (1981) et de Ghost Stories. La carte vise la version cinéma de 92 min ; le créneau TCM de 90 min ne certifie pas la durée de la copie.",
           "canonical_fields": "Identité, réalisateur, année, pays, durée cinéma, liens directs, note SensCritique 6,9 et affiche exacte ont été contrôlés. Le visuel a été inspecté ; sa santé distante reste soumise au CI.",
-          "current_broadcast": "Vendredi 16 octobre à 20:50 sur TCM Cinéma, horaire concordant entre deux grilles datées. L’indépendance des flux n’est pas établie et aucune source officielle TCM n’est sauvegardée ; la carte reste provisoire et n’affirme aucune offre replay.",
+          "current_broadcast": "Vendredi 16 octobre 2026 à 20:50 sur TCM Cinéma : titre, jour/mois, heure et chaîne corroborés par l’annonce primaire du cycle TCM Histoires de fantômes, lue dans l’index Web du post X exact et du post Facebook exact le 8 octobre 2026, et par la grille datée actuelle. Le compte X @TCM_Cinema est explicitement répertorié dans le Guide des chaînes 2024, fiche TCM Cinéma p. 203. Accès direct X DisabledError/403 et Facebook throttled : la preuve est indexée, non une lecture intégrale du post. Le créneau de 90 min reste distinct de la durée cinéma 92 min ; aucune copie TCM de 92 min ni offre replay précise n’est certifiée.",
           "editorial_copy": "Synopsis et justification originaux revus depuis A24, The Ringer et Movie Nation. L’invention du montage temporel et l’atmosphère sont distinguées des réserves sur les longueurs et la distance émotionnelle ; aucune note graphique non lisible n’est transcrite.",
           "evidence_urls": [
             "https://a24films.com/films/a-ghost-story",
@@ -21476,7 +22097,52 @@
             "https://www.imdb.com/title/tt6265828/",
             "https://www.senscritique.com/film/a_ghost_story/23854223",
             "https://www.allocine.fr/film/fichefilm_gen_cfilm=252406.html",
-            "https://www.imdb.com/title/tt6265828/mediaindex/"
+            "https://www.imdb.com/title/tt6265828/mediaindex/",
+            "https://x.com/TCM_Cinema/status/2105259656490709270/photo/1",
+            "https://www.facebook.com/TCMcinema/photos/-notre-cycle-doctobre-histoires-de-fant%C3%B4mes-tous-les-vendredis-%C3%A0-20h50-sur-tcm-c/1535674608590544/",
+            "https://www.acces.tv/wp-content/uploads/2024/11/Guide-des-chaines-2024-BAT-FINAL1.pdf"
+          ],
+          "broadcast_reviewed_at": "2026-10-09"
+        }
+      },
+      {
+        "work_id": "grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-2024",
+        "section": "plateformes-gratuites",
+        "rank_provisional": 1,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "identity_version": "Identité concordante ARTE/SensCritique sauvegardée le 8 octobre : Alexis de Favitski, France, 2024. Film distinct de La Grotte des rêves perdus de Herzog. Offre numérique ARTE 112849-000-A actuelle : 5333 secondes (88 min 53 s), arrondie 89 min sur la page ; durée CNRS 88 min et créneau TV 90 min ne remplacent pas celle de cette offre.",
+          "canonical_fields": "Titre, réalisateur, année, pays et synopsis relus sur la page officielle. Visuel ARTE exact récupéré en HTTP 200 image/jpeg puis inspecté : peintures de Chauvet. Recherche réelle des notes documentée ; aucune moyenne SensCritique ambiguë ni note IMDb seulement indexée transférée au catalogue.",
+          "current_broadcast": "Rubrique indépendante de la grille TV. Page FR gratuite et API officielle relues le 9 octobre Europe/Paris ; rights begin 2026-01-19T04:00Z, end 2027-03-18T04:00Z, page jusqu’au 17/03/2027. Configuration renvoie userCountryCode FR, restrictedArea false, flux français annoncé et error null. Preuve de configuration/offre, sans test de lecture. Aucune date d’arrivée nouvelle revendiquée.",
+          "editorial_copy": "Synopsis et justification rédigés pour cette carte, fondés sur les matériaux du film et l’avis Télé7 déjà attribué. Pas de consensus extrapolé de Télérama payant ni de la critique individuelle SensCritique. Contrôle fraîcheur : aucun titre/alias dans S38–S41 ni dans les neuf cartes S42 déjà présentes.",
+          "evidence_urls": [
+            "https://www.arte.tv/fr/videos/112849-000-A/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire/",
+            "https://api.arte.tv/api/player/v2/config/fr/112849-000-A",
+            "https://www.senscritique.com/film/grotte_chauvet_dans_les_pas_des_artistes_de_la_prehistoire/104936383",
+            "https://www.imdb.com/title/tt34936421/",
+            "https://www.programme-television.org/type/documentaires/autres/civilisation/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-343398134",
+            "https://images.cnrs.fr/actualites/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire"
+          ]
+        }
+      },
+      {
+        "work_id": "sulawesi-l-ile-des-premieres-images-2025",
+        "section": "plateformes-gratuites",
+        "rank_provisional": 2,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "identity_version": "Identité ARTE/SensCritique sauvegardée le 8 octobre : Pascal Goblot et Denis van Waerebeke, France, 2025. Version numérique officielle 118245-000-A : 3305 secondes (55 min 05 s), affichée 56 min. Le créneau linéaire de 55 min reste distinct ; aucune autre version supposée.",
+          "canonical_fields": "Champs identitaires existants réutilisés après revue ; synopsis rédigé depuis les matériaux officiels. Image officielle exacte récupérée et inspectée : HTTP 200 image/jpeg, 1920×1080, titre et paroi peinte. Motif précis d’absence de moyenne après recherche SensCritique/IMDb ; aucune note Télérama payante extrapolée.",
+          "current_broadcast": "Offre gratuite France indépendante de TV. HTML officiel consulté le 2026-10-08T22:08:35.122209Z et API à 22:08:42.805686Z, donc le 9 octobre Europe/Paris. HTML offeringType free ; API userCountryCode FR, restrictedArea false, error null et versions françaises. Début droit 2026-07-21T22:00Z ; fin 2027-01-20T04:00Z, page jusqu’au 19/01/2027. Configuration et offre vérifiées, sans lecture de flux ni compte obligatoire affirmé.",
+          "editorial_copy": "Textes propres à cette carte, fondés sur datation et décentrement géographique. Avis partiellement accessibles de Charlotte Fauve/Télérama et Marie Plantin/L’ŒIL attribués avec leurs limites. Aucun titre/alias dans S38–S41 ni les cartes S42 actuelles ; pas de doublon Thorin.",
+          "evidence_urls": [
+            "https://www.arte.tv/fr/videos/118245-000-A/sulawesi-l-ile-des-premieres-images/",
+            "https://api.arte.tv/api/player/v2/config/fr/118245-000-A",
+            "https://www.senscritique.com/film/sulawesi_lile_des_premieres_images/133861006",
+            "https://www.telerama.fr/television/sulawesi-l-ile-des-premieres-images-sur-arte-tv-une-renversante-lecon-d-art-prehistorique-dans-les-grottes-d-indonesie_cri-7042482.php",
+            "https://www.lejournaldesarts.fr/medias/la-prehistoire-des-images-184458"
           ]
         }
       }

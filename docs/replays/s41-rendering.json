@@ -1,0 +1,312 @@
+{
+  "simulation": true,
+  "notice": "SIMULATION HISTORIQUE LOCALE — aucune nouvelle recherche, aucune sélection nouvelle, aucune validation de S42, aucune publication.",
+  "week": "2026-S41",
+  "source_sha": "2c661aaf235903f4a98ffc02e115ca7864892bb9",
+  "renderer": {
+    "file": "scripts/editorial-draft-cards.mjs",
+    "sha256": "819eb175be67faec264847da67295990e80d09aac4cd24e7ca2b473d29ab6a30"
+  },
+  "new_source_consultations": 0,
+  "publication_ready": false,
+  "certifies_s42": false,
+  "archive": {
+    "pages": [
+      "couverture",
+      "sommaire",
+      "rendezvous-1",
+      "replay-1",
+      "plateformes-gratuites",
+      "plateformes-abonnement",
+      "sorties-physiques",
+      "sorties-streaming",
+      "avant-disparition",
+      "radar-torrent",
+      "radar-1",
+      "samedi-selection",
+      "samedi-grille",
+      "dimanche-selection",
+      "dimanche-grille",
+      "lundi-selection",
+      "lundi-grille",
+      "mardi-selection",
+      "mardi-grille",
+      "mercredi-selection",
+      "mercredi-grille",
+      "jeudi-selection",
+      "jeudi-grille",
+      "vendredi-selection",
+      "vendredi-grille",
+      "methode"
+    ],
+    "page_count": 26,
+    "pools": {
+      "samedi-selection": {
+        "target": 3,
+        "candidates": 10,
+        "selected": 3,
+        "reserves": 7
+      },
+      "dimanche-selection": {
+        "target": 3,
+        "candidates": 10,
+        "selected": 3,
+        "reserves": 7
+      },
+      "lundi-selection": {
+        "target": 3,
+        "candidates": 10,
+        "selected": 3,
+        "reserves": 7
+      },
+      "mardi-selection": {
+        "target": 3,
+        "candidates": 10,
+        "selected": 3,
+        "reserves": 7
+      },
+      "mercredi-selection": {
+        "target": 3,
+        "candidates": 10,
+        "selected": 3,
+        "reserves": 7
+      },
+      "jeudi-selection": {
+        "target": 3,
+        "candidates": 8,
+        "selected": 3,
+        "reserves": 5
+      },
+      "vendredi-selection": {
+        "target": 3,
+        "candidates": 8,
+        "selected": 3,
+        "reserves": 5
+      },
+      "rendezvous-1": {
+        "target": 5,
+        "candidates": 12,
+        "selected": 5,
+        "reserves": 7
+      },
+      "sorties-physiques": {
+        "target": 4,
+        "candidates": 8,
+        "selected": 4,
+        "reserves": 4
+      }
+    },
+    "radar_candidates": {
+      "popular_scan": 5,
+      "popular_deep": 5,
+      "hd1": 5,
+      "hd2": 5
+    },
+    "original_consultation_markers": {
+      "coverage_rebuilt": "2026-09-27",
+      "works_updated": "2026-09-27"
+    },
+    "files": [
+      {
+        "file": "data/manifest.json",
+        "sha256": "1b55365aad3e2fd584aa37be0bd6a13ba661e3219da74d76a8a7d6dd286e64fe"
+      },
+      {
+        "file": "data/works.json",
+        "sha256": "83578ee70500e2b2b121318ba79725388f6c79d8f1eb0925eeeb1f89030ee153"
+      },
+      {
+        "file": "data/links.json",
+        "sha256": "139af89c8c34e713d3154535b952c647a0c6c764ca163f74052bac71346bd0df"
+      },
+      {
+        "file": "data/releases.json",
+        "sha256": "2e929c74ff4eb54c68015cd14010ef7da66a24c5cad40cbcc62c254515b8d148"
+      },
+      {
+        "file": "data/weeks/2026-S41.json",
+        "sha256": "ca7478614a6a6c32b1c687454224578fd5e835798ef19f2d279a7e6ba82d5b87"
+      },
+      {
+        "file": "data/inventory/2026-S41.json",
+        "sha256": "2a75587765fc588a8faa89377ac475a8074d835d3aea8c1d437584a2ab832a51"
+      },
+      {
+        "file": "data/coverage/2026-S41.json",
+        "sha256": "431d03ea37049d616b12cb90d08d67f0284178ba265aadd16f0f343c5cdd505d"
+      },
+      {
+        "file": "data/radar-reserves/2026-S41.json",
+        "sha256": "f161c3a5da88d26c4a6a9090b56f6b3c55c7274dc39a1f7f079ca199d102884b"
+      },
+      {
+        "file": "semaines/2026-S41/index.html",
+        "sha256": "07c73460246cc0db39534c1596940a129b7e6b9c54eb3cf826f233c140a155e7"
+      },
+      {
+        "file": "assets/css/magazine.css",
+        "sha256": "adc69e3cf036708e6ee21e51dde30239d91704b21e28290f824d9bbe515ec6b0"
+      }
+    ]
+  },
+  "strict": {
+    "attempted": 128,
+    "compatible_structure": 10,
+    "rejected": 118,
+    "families": {
+      "daily": {
+        "attempted": 66,
+        "compatible_structure": 9,
+        "rejected": 57
+      },
+      "rendezvous": {
+        "attempted": 12,
+        "compatible_structure": 1,
+        "rejected": 11
+      },
+      "physical_release": {
+        "attempted": 8,
+        "compatible_structure": 0,
+        "rejected": 8
+      },
+      "replay": {
+        "attempted": 3,
+        "compatible_structure": 0,
+        "rejected": 3
+      },
+      "platform_free": {
+        "attempted": 3,
+        "compatible_structure": 0,
+        "rejected": 3
+      },
+      "platform_subscription": {
+        "attempted": 3,
+        "compatible_structure": 0,
+        "rejected": 3
+      },
+      "streaming_release": {
+        "attempted": 3,
+        "compatible_structure": 0,
+        "rejected": 3
+      },
+      "radar_popularity": {
+        "attempted": 10,
+        "compatible_structure": 0,
+        "rejected": 10
+      },
+      "radar_hd": {
+        "attempted": 15,
+        "compatible_structure": 0,
+        "rejected": 15
+      },
+      "radar_popularity_scan": {
+        "attempted": 5,
+        "compatible_structure": 0,
+        "rejected": 5
+      }
+    },
+    "rejection_reasons": {
+      "work.ratings_checked must be YYYY-MM-DD": 25,
+      "work.country is required": 16,
+      "authored synopsis is required": 16,
+      "explicit editorial quality required": 6,
+      "work.image_source_url is required": 8,
+      "work.duration is required": 33,
+      "release.checked_at must be YYYY-MM-DD": 3,
+      "authored editorial justification is required": 10,
+      "signal_source_url is required": 1
+    },
+    "missing_structured_fields": {
+      "work.ratings_checked": 57,
+      "work.country": 16,
+      "work.genre": 16,
+      "work.duration": 49,
+      "work.image": 15,
+      "work.image_source_url": 23,
+      "work.image_checked": 23,
+      "work.director/creator": 16,
+      "work.year": 17,
+      "authored synopsis": 42,
+      "release.checked_at": 8,
+      "authored editorial justification": 12,
+      "offer.service": 12,
+      "offer.url": 12,
+      "offer.checked_at": 12,
+      "offer.available_until": 3,
+      "offer.arrival_date": 3,
+      "signal": 5,
+      "signal_source_url": 15,
+      "added_source_url": 15
+    },
+    "gap_scope": "Required structured builder inputs absent in the frozen JSON/explicit card. Preserved HTML display facts are not newly consulted evidence; a gap does not establish that a historical fact is false.",
+    "complete_pools": [
+      {
+        "page": "samedi-selection",
+        "status": "rejected",
+        "candidates": 10,
+        "error": "work.ratings_checked must be YYYY-MM-DD"
+      },
+      {
+        "page": "dimanche-selection",
+        "status": "rejected",
+        "candidates": 10,
+        "error": "work.ratings_checked must be YYYY-MM-DD"
+      },
+      {
+        "page": "lundi-selection",
+        "status": "rejected",
+        "candidates": 10,
+        "error": "work.ratings_checked must be YYYY-MM-DD"
+      },
+      {
+        "page": "mardi-selection",
+        "status": "rejected",
+        "candidates": 10,
+        "error": "work.image_source_url is required"
+      },
+      {
+        "page": "mercredi-selection",
+        "status": "rejected",
+        "candidates": 10,
+        "error": "work.ratings_checked must be YYYY-MM-DD"
+      },
+      {
+        "page": "jeudi-selection",
+        "status": "rejected",
+        "candidates": 8,
+        "error": "work.ratings_checked must be YYYY-MM-DD"
+      },
+      {
+        "page": "vendredi-selection",
+        "status": "rejected",
+        "candidates": 8,
+        "error": "work.ratings_checked must be YYYY-MM-DD"
+      },
+      {
+        "page": "rendezvous-1",
+        "status": "rejected",
+        "candidates": 12,
+        "error": "work.ratings_checked must be YYYY-MM-DD"
+      },
+      {
+        "page": "sorties-physiques",
+        "status": "rejected",
+        "candidates": 8,
+        "error": "work.duration is required"
+      }
+    ]
+  },
+  "timings": {
+    "strict_builder_ms": 99.58,
+    "meaning": "Local extraction/rendering of frozen evidence only. Historical research, image consultation and editorial decision time are not simulated.",
+    "snapshot_and_replay_ms": 146.23
+  },
+  "tests": {
+    "replay_regressions": 3,
+    "targeted_total": 11,
+    "pass": 11,
+    "architecture": "passed",
+    "editorial": "passed",
+    "browser": "not run locally"
+  }
+}
