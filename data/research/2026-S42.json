@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "5e20a8a98ede0889d4b85348490a032f78f4c0e0",
   "stage": "inventory",
-  "updated_at": "2026-10-08T06:41:07.834Z",
+  "updated_at": "2026-10-08T06:43:55.575Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -12,7 +12,7 @@
     "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
     "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV.",
     "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue.",
-    "Résoudre les horaires France 5 : Pompéi 21:05/21:07 le 15 ; Foucault 22:35/23:35 le 16. Finir les offres replay et expirations, puis critiques complémentaires et notes sans inventer de consensus.",
+    "France 5 : Pompéi et Foucault réconciliés par les grilles officielles ; revérifier au préflight. Quatre écarts La p'tite librairie, versions/durées et fins de nuit restent à traiter. Offres replay, expirations, réception complémentaire et notes encore incomplètes.",
     "T18 14 octobre relevée ; identifier les épisodes regroupés et recouper les horaires. LeZapp associe au titre Face à face une description politique incompatible avec son type série : ne pas réutiliser ce synopsis."
   ],
   "completed_batches": [
@@ -87,6 +87,11 @@
       "id": "inventory-t18-wednesday-recovered",
       "completed_at": "2026-10-08T06:41:07.834Z",
       "description": "Grille T18 du mercredi 14 octobre datée : 21 créneaux examinés, 9 entrées d'enquête/documentaire ajoutées, nuit comprise. Épisodes regroupés encore à identifier ; aucune fiche complète déclarée."
+    },
+    {
+      "id": "inventory-france5-official-crosscheck",
+      "completed_at": "2026-10-08T06:43:55.575Z",
+      "description": "66 créneaux concordants avec les grilles officielles, 6 compléments ; Pompéi/Foucault réconciliés. Quatre écarts d'interstitiels conservés ; aucune certification globale ni sélection."
     }
   ],
   "blockers": [
@@ -5505,6 +5510,624 @@
         "channel": "T18"
       },
       "evidence_note": "Grille de substitution datée effectivement lue. Recoupement indépendant encore requis ; pas une revue critique.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "broadcast_start"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/france-5/dimanche-11-octobre-2026/",
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/10-10-2026"
+      ],
+      "checked_at": "2026-10-08T06:43:55.575Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "France 5",
+        "title": "La p'tite librairie \"Vie des artistes\", de Giorgio Vasari"
+      },
+      "evidence_note": "Horaire tiers 00:11 / officiel 00:10 ; conflit conservé pour préflight.",
+      "status": "conflict"
+    },
+    {
+      "fields": [
+        "broadcast_start"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/france-5/dimanche-11-octobre-2026/",
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/11-10-2026"
+      ],
+      "checked_at": "2026-10-08T06:43:55.575Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "France 5",
+        "title": "La p'tite librairie \"Pèlerin parmi les ombres\", de Boris Pahor"
+      },
+      "evidence_note": "Horaire tiers 09:16 / officiel 09:15 ; conflit conservé pour préflight.",
+      "status": "conflict"
+    },
+    {
+      "fields": [
+        "broadcast_start"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/france-5/mardi-13-octobre-2026/",
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/13-10-2026"
+      ],
+      "checked_at": "2026-10-08T06:43:55.575Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "France 5",
+        "title": "La p'tite librairie \"J'irai jusqu'au rivage du soleil\", de Forough Farrokhzad"
+      },
+      "evidence_note": "Horaire tiers 09:55 / officiel 10:00 ; conflit conservé pour préflight.",
+      "status": "conflict"
+    },
+    {
+      "fields": [
+        "broadcast_start"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/france-5/mercredi-14-octobre-2026/",
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/13-10-2026"
+      ],
+      "checked_at": "2026-10-08T06:43:55.575Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "France 5",
+        "title": "La p'tite librairie \"J'irai jusqu'au rivage du soleil\", de Forough Farrokhzad"
+      },
+      "evidence_note": "Horaire tiers 00:01 / officiel 00:00 ; conflit conservé pour préflight.",
+      "status": "conflict"
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-5/03-10-2026/09-10-2026"
+      ],
+      "checked_at": "2026-10-08T06:41:40.727Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 5",
+        "grid_date": "2026-10-09"
+      },
+      "evidence_note": "Grille officielle comparée au relevé tiers. Seuls les créneaux concordants ci-dessous sont corroborés ; les titres génériques ne certifient pas l'identité d'épisode. La grille s'arrête parfois avant 05 h et ne certifie pas toute la nuit.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-10",
+          "start": "00:45",
+          "title": "La p'tite librairie Le métier de vivre, de Cesare Pavese"
+        }
+      ]
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/10-10-2026"
+      ],
+      "checked_at": "2026-10-08T06:41:41.013Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 5",
+        "grid_date": "2026-10-10"
+      },
+      "evidence_note": "Grille officielle comparée au relevé tiers. Seuls les créneaux concordants ci-dessous sont corroborés ; les titres génériques ne certifient pas l'identité d'épisode. La grille s'arrête parfois avant 05 h et ne certifie pas toute la nuit.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-10",
+          "start": "10:15",
+          "title": "A la découverte du monde Alaska, les glaciers de la dernière frontière"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "12:40",
+          "title": "Le monde de Jamy Réchauffement climatique : nos produits du terroir vont-ils résister ?"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "13:40",
+          "title": "Caméras espions au coeur des océans Piège en haute mer"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "14:45",
+          "title": "Le Sri Lanka, l'île aux trésors"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "15:40",
+          "title": "Escapades aériennes en Italie De Turin à Maranello"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "16:25",
+          "title": "Les routes de l'impossible Mongolie, les irréductibles des steppes"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "21:05",
+          "title": "Echappées belles Luberon, l'éveil des sens"
+        },
+        {
+          "date": "2026-10-10",
+          "start": "22:35",
+          "title": "Echappées belles Colorado, retour aux sources"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "00:40",
+          "title": "Toba, le volcan qui a failli tuer l'humanité"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "02:10",
+          "title": "Les merveilles de l'Océanie L'Est"
+        }
+      ]
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/11-10-2026"
+      ],
+      "checked_at": "2026-10-08T06:41:41.191Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 5",
+        "grid_date": "2026-10-11"
+      },
+      "evidence_note": "Grille officielle comparée au relevé tiers. Seuls les créneaux concordants ci-dessous sont corroborés ; les titres génériques ne certifient pas l'identité d'épisode. La grille s'arrête parfois avant 05 h et ne certifie pas toute la nuit.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-11",
+          "start": "10:15",
+          "title": "Echappées belles Corse, les gardiens du Cap"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "11:55",
+          "title": "Echappées belles La Guadeloupe gourmande"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "13:35",
+          "title": "A la découverte du monde Alaska, aux limites de la nature"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "14:05",
+          "title": "Normal"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "15:50",
+          "title": "Des trains pas comme les autres République dominicaine"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "16:20",
+          "title": "Grignote-moi si tu peux, les dessous de l'apéritif"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "17:20",
+          "title": "La prohibition américaine, une aubaine française"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "21:07",
+          "title": "ICE, la chasse à l'homme"
+        },
+        {
+          "date": "2026-10-11",
+          "start": "23:10",
+          "title": "On les appelle Samouraïs"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "00:05",
+          "title": "À vous de voir Quand le Tchad retrouve la lumière"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "00:30",
+          "title": "En tension En tension en Pologne"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "01:00",
+          "title": "Escapades aériennes en Italie De Florence à Collodi"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "01:40",
+          "title": "Looking for Cézanne"
+        }
+      ]
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/12-10-2026"
+      ],
+      "checked_at": "2026-10-08T06:41:42.071Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 5",
+        "grid_date": "2026-10-12"
+      },
+      "evidence_note": "Grille officielle comparée au relevé tiers. Seuls les créneaux concordants ci-dessous sont corroborés ; les titres génériques ne certifient pas l'identité d'épisode. La grille s'arrête parfois avant 05 h et ne certifie pas toute la nuit.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-12",
+          "start": "09:25",
+          "title": "Des trains pas comme les autres Mexique"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "09:55",
+          "title": "La p'tite librairie \"Motel Blues\", de Bill Bryson"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "10:00",
+          "title": "Nos très chers animaux"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "12:00",
+          "title": "Le chanvre des possibles"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "13:00",
+          "title": "L'oeil et la main Comme des aimants"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "14:35",
+          "title": "Echappées belles"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "16:25",
+          "title": "Des trains pas comme les autres République dominicaine"
+        },
+        {
+          "date": "2026-10-12",
+          "start": "21:05",
+          "title": "Le monde de Jamy Rechauffement climatique : nos routes vont-elles tenir?"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "00:00",
+          "title": "La p'tite librairie \"Motel Blues\", de Bill Bryson"
+        }
+      ]
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/13-10-2026"
+      ],
+      "checked_at": "2026-10-08T06:41:40.866Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 5",
+        "grid_date": "2026-10-13"
+      },
+      "evidence_note": "Grille officielle comparée au relevé tiers. Seuls les créneaux concordants ci-dessous sont corroborés ; les titres génériques ne certifient pas l'identité d'épisode. La grille s'arrête parfois avant 05 h et ne certifie pas toute la nuit.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-13",
+          "start": "09:25",
+          "title": "Des trains pas comme les autres Grèce"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "10:05",
+          "title": "Une vie de manchot"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "11:20",
+          "title": "La guerre des Gaules : César nous a-t-il menti ?"
+        },
+        {
+          "date": "2026-10-13",
+          "start": "14:35",
+          "title": "Echappées belles"
+        }
+      ]
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/14-10-2026"
+      ],
+      "checked_at": "2026-10-08T06:41:40.996Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 5",
+        "grid_date": "2026-10-14"
+      },
+      "evidence_note": "Grille officielle comparée au relevé tiers. Seuls les créneaux concordants ci-dessous sont corroborés ; les titres génériques ne certifient pas l'identité d'épisode. La grille s'arrête parfois avant 05 h et ne certifie pas toute la nuit.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-14",
+          "start": "09:25",
+          "title": "Des trains pas comme les autres Grèce"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "09:55",
+          "title": "La p'tite librairie \"Poèmes saturniens\", de Paul Verlaine"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "10:00",
+          "title": "Alentejo, le Portugal authentique"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "11:00",
+          "title": "Les miracles du delta de l'Okavango"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "11:55",
+          "title": "Le monde de Jamy Manger de la viande, un crime pour la planète ?"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "13:00",
+          "title": "A la découverte du monde Alaska, les glaciers de la dernière frontière"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "14:35",
+          "title": "Echappées belles"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "16:20",
+          "title": "Des trains pas comme les autres Norvège des fjords"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "21:05",
+          "title": "La grande librairie"
+        },
+        {
+          "date": "2026-10-14",
+          "start": "23:45",
+          "title": "La p'tite librairie \"Poèmes saturniens\", de Paul Verlaine"
+        }
+      ]
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/15-10-2026"
+      ],
+      "checked_at": "2026-10-08T06:41:40.032Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 5",
+        "grid_date": "2026-10-15"
+      },
+      "evidence_note": "Grille officielle comparée au relevé tiers. Seuls les créneaux concordants ci-dessous sont corroborés ; les titres génériques ne certifient pas l'identité d'épisode. La grille s'arrête parfois avant 05 h et ne certifie pas toute la nuit.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-15",
+          "start": "09:25",
+          "title": "Des trains pas comme les autres Norvège grand Nord"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "10:00",
+          "title": "La p'tite librairie \"Le Très-Bas\", de Christian Bobin"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "10:05",
+          "title": "Caméras espions au coeur des océans L'union fait la force"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "11:00",
+          "title": "Vivre loin du monde Un refuge dans la jungle colombienne"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "11:50",
+          "title": "Les fantômes du Tonkin"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "14:35",
+          "title": "Echappées belles"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "16:20",
+          "title": "A la découverte du monde Alaska, aux limites de la nature"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "21:07",
+          "title": "Le grand puzzle de Pompéi"
+        },
+        {
+          "date": "2026-10-15",
+          "start": "23:45",
+          "title": "La p'tite librairie \"Le Très-Bas\", de Christian Bobin"
+        }
+      ]
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "programme_title"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-5/03-10-2026/16-10-2026"
+      ],
+      "checked_at": "2026-10-08T06:42:25.520Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 5",
+        "grid_date": "2026-10-16"
+      },
+      "evidence_note": "Grille officielle comparée au relevé tiers. Seuls les créneaux concordants ci-dessous sont corroborés ; les titres génériques ne certifient pas l'identité d'épisode. La grille s'arrête parfois avant 05 h et ne certifie pas toute la nuit.",
+      "status": "verified",
+      "observations": [
+        {
+          "date": "2026-10-16",
+          "start": "09:25",
+          "title": "Des trains pas comme les autres Norvège grand Nord"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "09:55",
+          "title": "La p'tite librairie \"Voyage avec Charley\", de John Steinbeck"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "10:00",
+          "title": "Les 5 vies de la Terre La glace"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "10:55",
+          "title": "Les routes de l'impossible Balkans : la vallée des oubliés"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "11:55",
+          "title": "Sur le front Vêtements : le tour du monde en 4 jours"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "13:00",
+          "title": "Sale temps pour la planète Corse, les possibilités d'une île"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "14:35",
+          "title": "Echappées belles"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "16:20",
+          "title": "A la découverte du monde Alaska, la grande terre à découvrir"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "21:05",
+          "title": "Le salaire de la peur"
+        },
+        {
+          "date": "2026-10-16",
+          "start": "23:35",
+          "title": "Michel Foucault, le philosophe et le poisson rouge"
+        }
+      ]
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/15-10-2026"
+      ],
+      "checked_at": "2026-10-08T06:41:40.032Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 5",
+        "title": "Le grand puzzle de Pompéi"
+      },
+      "evidence_note": "Horaire retenu pour préparation 21:07, ancien horaire 21:05. Le premier horaire est celui de la présentation Science grand format (2 min). Revérifier au préflight.",
+      "status": "verified"
+    },
+    {
+      "fields": [
+        "broadcast_date",
+        "broadcast_start"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-5/03-10-2026/16-10-2026"
+      ],
+      "checked_at": "2026-10-08T06:42:25.520Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 5",
+        "title": "Michel Foucault, le philosophe et le poisson rouge"
+      },
+      "evidence_note": "Horaire retenu pour préparation 23:35, ancien horaire 22:35. La grille officielle concorde avec le tiers ; annonce presse antérieure divergente conservée comme historique. Revérifier au préflight.",
       "status": "verified"
     }
   ],
