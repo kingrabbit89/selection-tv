@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T12:20:18.077Z",
+  "updated_at": "2026-10-08T12:21:55.491Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -14231,6 +14231,57 @@
         "RMC+ : Oppenheimer (Eve Vanderstegen, 2024) et Camps perdus (Benoît Cressent, 2021) ont des pages/expirations affichées ; terminer critiques, notes, droits/lecture, versions 51/55/65 min pour Camps perdus. Tom Hanks : réception contrastée documentée, épisodes français 17/18 et diffusion du 16 à confirmer."
       ],
       "note": "Action 91, RTL9 18, Paris Première 20 existantes + 7 ajouts recoupés, Gulli 14. Dix ajouts bruts Paris, dont trois magazines encore sans seconde source. Rachelle Allison corrigé séparément ; Saint-Ex et France3 non arbitrés. Aucun quota estimé."
+    },
+    {
+      "date": "2026-10-08T12:21:55.491Z",
+      "started_at": "2026-10-08T11:56:05Z",
+      "owner": "bb3619c6-a487-4e7d-a58a-bd9684c66988",
+      "stage": "inventory_crosschecks_and_targeted_research",
+      "elapsed_seconds": 1550,
+      "duration_basis": "wall_clock_measured_until_final_checkpoint_preparation",
+      "completed_batches": [
+        "inventory-tf1-paris-six-pending-crosschecks",
+        "documentary-arte-prehistory-offers-and-critical-evidence",
+        "inventory-t18-oct14-episode-identification",
+        "documentary-france5-three-targeted-dossiers",
+        "inventory-cstar-oct16-second-guide-conflicts",
+        "cinema-tcm-two-targeted-reception-dossiers"
+      ],
+      "reused_complete_cards": 0,
+      "newly_verified_complete_cards": 0,
+      "raw_schedule_entries": 2225,
+      "new_raw_schedule_entries": 0,
+      "pending_schedule_slots_crosschecked": 6,
+      "generic_t18_entries_identified": 9,
+      "cstar_entries_compared_with_limitations": 6,
+      "documentary_works_advanced": 6,
+      "cinema_works_advanced": 2,
+      "offer_expiry_displays_checked": 5,
+      "blockers": [
+        {
+          "id": "required-channel-paramount-ceased",
+          "type": "editorial-contract",
+          "requires_user": false,
+          "status": "resolved",
+          "first_seen_at": "2026-10-08T06:09:52.338Z",
+          "message": "Paramount Channel reste required_core_channels mais la diffusion française est arrêtée au 31/12/2025 (réponse officielle CANAL+). Aucun scan de grille possible. La préparation des autres chaînes peut continuer ; une décision sur le traitement de cette chaîne inactive est nécessaire avant de certifier la matrice complète.",
+          "source_urls": [
+            "https://canal-assistance.canalplus.com/fr/conversations/abonnement-canal-series/suppression-chaine-paramount/69578e44b680bd747e55af6d"
+          ],
+          "alerted": true,
+          "alerted_at": "2026-10-08T06:33:47.082Z",
+          "alert_owner": "a200f4a9-e530-46af-852d-3c0c9604a3f4",
+          "resolved_at": "2026-10-08T07:03:10.807Z",
+          "resolution": "main 041fbcda6ffa7c86f258a929010d2a7f7361066b : retrait sourcé de la chaîne arrêtée dans retired_channels ; aucune grille fictive ni modification de seuil par ce lot."
+        }
+      ],
+      "remaining": {
+        "stage": "inventory",
+        "count": 28,
+        "reference": "remaining",
+        "summary": "Recoupements indépendants, conflits de versions/horaires, offres et critique incomplètes ; sélection, cartes, réserves et revue à produire."
+      },
+      "note": "Six sous-lots sauvegardés. Aucune phase complète, aucune nouvelle carte certifiée, aucun quota estimé. Pas de notification requise."
     }
   ],
   "source_issues": [
@@ -14485,6 +14536,17 @@
       "logs_read": true,
       "cause": "Seul échec : Require a complete candidate before merging ; préparation incomplète attendue. Contrôles public S41 réussis, ne certifient pas S42. Attestation de base non applicable skipped.",
       "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-08T12:21:55.491Z",
+      "head_sha": "9bb099c4a41d4dbb207743d2039fa784359ff641",
+      "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "run_id": 37775759801,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": true,
+      "cause": "Seul échec : Require a complete candidate before merging, préparation S42 incomplète. Préparation/public S41 réussis ; navigateur vérifie S41, pas S42 ; étape base-attestation non applicable skipped, pas assimilée à un succès.",
+      "reusable_only_for_exact_sha": true
     }
   ],
   "catalogue_reuse": {
@@ -14568,34 +14630,41 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "c7a287d1e6884f0c140774b0537c4c0ebfd359ff",
+    "checkpoint_parent_sha": "3473e8235bbe0c2d1ece167095793ba22f3ce59a",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
-      "Reprendre l'inventaire : Action, RTL9, Paris Première et Gulli recoupés dans ce passage ; ne pas recollecter ces grilles sans changement. Trois J'ai un ticket du 14–16 restent à recouper.",
-      "Poursuivre les chaînes cinéma payantes et TV5 FBS, puis résoudre les divergences Canal/France Télévisions. Saint-Ex : incohérence confirmée sur la page officielle, aucune heure/expiration à certifier.",
-      "Rachelle Allison à la Cigale corrigé à 20:30 avec historique conservé ; recontrôler au préflight. TF1 : trois ajouts du passage précédent attendent toujours une page indépendante directe.",
-      "Passe RMC+ partielle sauvegardée : Oppenheimer et Camps perdus disposent de pages précises, mais critique/version/droits à terminer ; Tom Hanks a deux avis contrastés, disponibilité exacte des épisodes 17/18 non obtenue.",
-      "Lire les contrôles du SHA courant ; les résultats observés ne valent que pour leur SHA. Finir inventaire puis sélection/enrichissement/réserves et revue réelle avant scellement."
+      "Reprendre uniquement les recoupements/identités/conflits encore ouverts dans remaining. TF1 trois ajouts et Paris Première trois J'ai un ticket sont désormais recoupés : ne pas répéter.",
+      "T18 14 : neuf titres précisés ; confirmer source officielle/indépendance. CSTAR 16 : Noël à la carte 22:49/22:45, quatre numéros Douanes sans titres rapprochés ; conserver divergences.",
+      "Continuer cinéma payant, TV5 FBS et arbitrage des écarts Canal/France Télévisions ; Saint-Ex toujours contradictoire.",
+      "Réutiliser les preuves datées Arte (3), France5 (3) et TCM (2). France.tv Cézanne/Samouraïs a fonctionné en HTTP public : expirations affichées enregistrées, droits/lecture/version restent ouverts.",
+      "Finir inventaire certifié puis sélection/enrichissement/réserves/cartes et revue factuelle ; consulter CI du SHA courant, ne pas sceller avant remaining vide."
     ],
     "publisher": {
-      "checked_at": "2026-10-08T11:03:02.027Z",
-      "run_id": 37764235514,
+      "checked_at": "2026-10-08T12:21:55.491Z",
+      "run_id": 37775897582,
       "head_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
       "status": "completed",
       "conclusion": "skipped",
-      "note": "Aucun publicateur actif constaté ; skipped ne vaut pas succès."
+      "note": "Run observé sans progression de publication ; skipped ne vaut pas succès. Aucun déclenchement agent."
     },
     "last_ci_observation": {
-      "checked_at": "2026-10-08T11:20:57.158Z",
-      "head_sha": "ebd13b8cbb3292651e5302d07ed51358e54e48a6",
+      "checked_at": "2026-10-08T12:21:55.491Z",
+      "head_sha": "9bb099c4a41d4dbb207743d2039fa784359ff641",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37768833496,
+      "run_id": 37775759801,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Seul échec : Require a complete candidate before merging, préparation encore incomplète. Étapes préparation/public S41 réussies, non-certification S42 ; attestation de base non applicable skipped.",
+      "cause": "Seul échec : Require a complete candidate before merging, préparation S42 incomplète. Préparation/public S41 réussis ; navigateur vérifie S41, pas S42 ; étape base-attestation non applicable skipped, pas assimilée à un succès.",
       "reusable_only_for_exact_sha": true
+    },
+    "latest_candidate_ci": {
+      "head_sha": "3473e8235bbe0c2d1ece167095793ba22f3ce59a",
+      "run_id": 37776229433,
+      "status": "in_progress",
+      "checked_at": "2026-10-08T12:21:55.491Z",
+      "note": "Observation avant le commit de bilan ; le prochain SHA requiert ses propres contrôles."
     }
   },
   "structure_check": {
