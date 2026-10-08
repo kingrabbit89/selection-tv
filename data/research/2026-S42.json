@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T09:23:39.837Z",
+  "updated_at": "2026-10-08T09:28:04.631Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -188,6 +188,11 @@
       "id": "inventory-arte-five-official-grids-recovered",
       "completed_at": "2026-10-08T09:23:39.837Z",
       "description": "88 diffusions recoupées, 10 omissions ajoutées ; conflit aliments transformés résolu sur deux pages Arte actuelles."
+    },
+    {
+      "id": "inventory-m6-group-night-boundaries-and-w9-subjects",
+      "completed_at": "2026-10-08T09:28:04.631Z",
+      "description": "Frontières nocturnes contrôlées ; six émissions W9 ajoutées et six sujets recoupés."
     }
   ],
   "blockers": [
@@ -11361,6 +11366,27 @@
         "title": "Les aliments transformés rendent-ils malades ?"
       },
       "evidence_note": "Grille et fiche relues directement : diffusion 07:50, mention Disponible jusqu'au 08/10/2029. Ancien conflit 07:55 clos avec historique conservé. La mention du catalogue ne constitue pas un test de lecture ni un contrôle de géoblocage.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "programme_title",
+        "episode_subject",
+        "date",
+        "start"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/w9/grille/2026-41.pdf",
+        "https://pro.m6.fr/w9/grille/2026-42.pdf"
+      ],
+      "checked_at": "2026-10-08T09:28:04.631Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "W9"
+      },
+      "evidence_note": "Six sujets de magazines déjà inventoriés confirmés par dossier détaillé ; six départs nocturnes ajoutés aux 10 et 15 octobre. Pas de réception critique inférée.",
       "status": "verified"
     }
   ],

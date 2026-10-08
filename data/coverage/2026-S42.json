@@ -2,12 +2,12 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "partial",
-  "updated_at": "2026-10-08T09:23:39.837Z",
+  "updated_at": "2026-10-08T09:28:04.631Z",
   "days": [
     {
       "date": "2026-10-10",
-      "raw_items": 304,
-      "overnight_items": 75,
+      "raw_items": 307,
+      "overnight_items": 78,
       "primary_scan_complete": false,
       "independent_crosscheck_complete": false,
       "editorial_reminder_complete": false,
@@ -137,8 +137,8 @@
     },
     {
       "date": "2026-10-15",
-      "raw_items": 308,
-      "overnight_items": 65,
+      "raw_items": 311,
+      "overnight_items": 68,
       "primary_scan_complete": false,
       "independent_crosscheck_complete": false,
       "editorial_reminder_complete": false,
@@ -8923,11 +8923,15 @@
               "channel": "RMC Découverte",
               "title": "Faites entrer l'accusé",
               "note": "Rapprochement et identité encore à vérifier."
-            },
+            }
+          ],
+          "resolved": [
             {
               "channel": "M6",
               "title": "Frequenstar",
-              "note": "Annonce 11:20 en conflit avec la grille M6 lue : Turbo 11:00 puis 11:25 ; vérifier une source officielle."
+              "note": "Annonce 11:20 en conflit avec la grille M6 lue : Turbo 11:00 puis 11:25 ; vérifier une source officielle.",
+              "resolved_at": "2026-10-08T09:28:04.631Z",
+              "resolution": "W9 11 octobre 11:20, Hoshi (page 6 officielle), ancienne attribution M6 erronée."
             }
           ]
         },
@@ -8976,14 +8980,18 @@
           "present_in_inventory": 10,
           "unresolved": [
             {
-              "channel": "W9",
-              "title": "Enquêtes criminelles",
-              "note": "Rapprochement et identité encore à vérifier."
-            },
-            {
               "channel": "TFX",
               "title": "Cleaners les experts du ménage",
               "note": "Téléréalité explicitement typée dans la grille, écartée du périmètre films/documentaires."
+            }
+          ],
+          "resolved": [
+            {
+              "channel": "W9",
+              "title": "Enquêtes criminelles",
+              "note": "Rapprochement et identité encore à vérifier.",
+              "resolved_at": "2026-10-08T09:28:04.631Z",
+              "resolution": "Sujets et parties concordent avec dossier officiel S42 pages 20–23 ou 33–34 ; qualité critique reste à examiner."
             }
           ]
         },
@@ -9008,11 +9016,14 @@
           "date": "2026-10-16",
           "announced_entries_compared": 11,
           "present_in_inventory": 10,
-          "unresolved": [
+          "unresolved": [],
+          "resolved": [
             {
               "channel": "W9",
               "title": "Enquête d'action",
-              "note": "Rapprochement et identité encore à vérifier."
+              "note": "Rapprochement et identité encore à vérifier.",
+              "resolved_at": "2026-10-08T09:28:04.631Z",
+              "resolution": "Sujets et parties concordent avec dossier officiel S42 pages 20–23 ou 33–34 ; qualité critique reste à examiner."
             }
           ]
         }
@@ -9484,6 +9495,22 @@
           "grid": "https://www.arte.tv/fr/guide/20261016/",
           "status": "scope_and_editorial_priority_to_review"
         }
+      ]
+    },
+    {
+      "checked_at": "2026-10-08T09:28:04.631Z",
+      "source_urls": [
+        "https://pro.m6.fr/m6/grille/2026-41.pdf",
+        "https://pro.m6.fr/w9/grille/2026-41.pdf",
+        "https://pro.m6.fr/6ter/grille/2026-41.pdf"
+      ],
+      "status": "partial",
+      "scope": "Nuit civile samedi 10, complément des dossiers S42",
+      "findings": [
+        "W9 : trois émissions à 00:00,01:00,01:50 ajoutées avec sujets explicites pages 34–35 ; seconde source encore nécessaire.",
+        "M6 : La chute du président commence vendredi 9 à 23:40, se poursuit après minuit jusqu'au créneau 01:50 Programmes de nuit. Ne pas le recréer comme départ samedi.",
+        "6ter : Hawaii 5-0 à 00:30/01:20 le samedi, puis Programmes de nuit 02:20. Série procédurale, épisodes à identifier si approfondissement.",
+        "W9 : six sujets déjà inventoriés confirmés ; trois prolongements dans la nuit du 14 au 15 ajoutés. Ce contrôle d'identité ne vaut pas appréciation critique."
       ]
     }
   ]
