@@ -16,15 +16,18 @@ export function selectAttestation({runs, jobsFor, artifactsFor, readProof, week,
   assert.match(week || '', /^\d{4}-S\d{2}$/, 'Invalid week');
   assert.match(base || '', /^[a-f0-9]{40}$/, 'Invalid base');
   const relevant = runs.filter(run => run.head_sha === base && run.path === workflowPath &&
-    (!repo || (run.repository?.full_name === repo && run.head_repository?.full_name === repo)))
-    .sort((a, b) => b.id - a.id);
+    (!repo || (run.repository?.full_name === repo && run.head_repository?.full_name === repo)));
+  const attempts = [];
   for (const run of relevant) {
+    // A queued rerun keeps its old run ID. Do not let any unfinished attempt
+    // disappear behind a newer ID whose earlier attempt succeeded.
     if (run.status !== 'completed')
       return {verified: false, reason: `Revalidation run ${run.id} for ${base} is still ${run.status}; wait for its result.`};
     // filter=latest returns the jobs of the newest attempt; refuse stale attempts.
     const jobs = jobsFor(run).filter(job => job.run_id === run.id &&
       (run.run_attempt === undefined || job.run_attempt === undefined || job.run_attempt === run.run_attempt));
-    if (!jobs.some(job => job.name === 'resolve'))
+    const resolvers = jobs.filter(job => job.name === 'resolve');
+    if (resolvers.length !== 1)
       return {verified: false, reason: `Jobs of the latest attempt of run ${run.id} are unavailable; the attestation step cannot be proven.`};
     const validation = jobs.filter(job => job.name === 'validate-promotion');
     if (validation.length > 1) return {verified: false, reason: `Run ${run.id} has ambiguous validate-promotion jobs.`};
@@ -32,6 +35,19 @@ export function selectAttestation({runs, jobsFor, artifactsFor, readProof, week,
     // A successful resolver that found no current draft is not a revalidation;
     // every other outcome (failure, cancellation, timeout) blocks older proofs.
     if (run.conclusion === 'success' && (!job || job.conclusion === 'skipped')) continue;
+    // GitHub job timestamps belong to the selected attempt. Run IDs identify
+    // the original run, and updated_at can change without a new validation.
+    const started = resolvers[0].started_at;
+    const attemptStart = typeof started === 'string' ? Date.parse(started) : NaN;
+    if (!Number.isFinite(attemptStart))
+      return {verified: false, reason: `Latest-attempt start time of run ${run.id} is unavailable; revalidation order cannot be proven.`};
+    attempts.push({run, job, attemptStart});
+  }
+  attempts.sort((a, b) => b.attemptStart - a.attemptStart);
+  if (attempts.length > 1 && attempts[0].attemptStart === attempts[1].attemptStart)
+    return {verified: false, reason: 'Latest revalidation attempts have ambiguous start times; revalidate current main.'};
+  if (attempts.length) {
+    const {run, job} = attempts[0];
     if (run.conclusion !== 'success')
       return {verified: false, reason: `Latest revalidation run ${run.id} (attempt ${run.run_attempt ?? '?'}) for ${base} concluded ${run.conclusion}.`};
     if (!succeeded(job) || !job.steps?.some(step => step.name === attestStep && succeeded(step)))

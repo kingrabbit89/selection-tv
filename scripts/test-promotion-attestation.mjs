@@ -5,7 +5,8 @@ import {selectAttestation, workflowPath, attestStep} from './verify-promotion-at
 const week = '2026-S42', base = 'a'.repeat(40), other = 'b'.repeat(40), repo = 'owner/repo';
 const run = (id, extra = {}) => ({id, head_sha: base, path: workflowPath, status: 'completed', conclusion: 'success', run_attempt: 1,
   repository: {full_name: repo}, head_repository: {full_name: repo}, ...extra});
-const validated = (r, extra = {}) => [{run_id: r.id, run_attempt: r.run_attempt, name: 'resolve', status: 'completed', conclusion: 'success'},
+const validated = (r, extra = {}) => [{run_id: r.id, run_attempt: r.run_attempt, name: 'resolve', status: 'completed', conclusion: 'success',
+  started_at: new Date(Date.UTC(2026, 9, 8, 20, r.id)).toISOString()},
   {run_id: r.id, run_attempt: r.run_attempt, name: 'validate-promotion', status: 'completed', conclusion: 'success',
     steps: [{name: attestStep, status: 'completed', conclusion: 'success'}], ...extra}];
 
@@ -38,6 +39,43 @@ test('older success never hides a newer revalidation still in progress or queued
 test('a re-run that turned red blocks its own earlier attempt and older runs', () => {
   const r = check([run(1), run(2, {run_attempt: 2, conclusion: 'failure'})]);
   assert.equal(r.verified, false); assert.match(r.reason, /attempt 2/);
+});
+
+test('an older run ID rerun later in failure or cancellation supersedes a newer ID success', () => {
+  for (const conclusion of ['failure', 'cancelled']) {
+    const older = run(1, {run_attempt: 2, conclusion});
+    const jobs = validated(older);
+    jobs[0].started_at = '2026-10-08T22:15:00Z';
+    const result = check([older, run(2)], {jobs: {1: jobs}});
+    assert.equal(result.verified, false); assert.match(result.reason, /run 1 \(attempt 2\)/);
+    assert.deepEqual(result.read, []);
+  }
+});
+
+test('an older run ID whose later rerun is pending blocks completed successes', () => {
+  for (const status of ['queued', 'in_progress']) {
+    const result = check([run(1, {run_attempt: 2, status, conclusion: null}), run(2)]);
+    assert.equal(result.verified, false); assert.match(result.reason, new RegExp(status));
+    assert.deepEqual(result.read, []);
+  }
+});
+
+test('latest actual attempt wins even when its run ID is older and updated_at is misleading', () => {
+  const older = run(1, {run_attempt: 2, updated_at: '2026-10-08T19:00:00Z'});
+  const newer = run(2, {conclusion: 'failure', updated_at: '2026-10-09T22:00:00Z'});
+  const jobs = validated(older); jobs[0].started_at = '2026-10-08T22:15:00Z';
+  const result = check([older, newer], {jobs: {1: jobs}});
+  assert.equal(result.verified, true); assert.equal(result.run_id, 1);
+});
+
+test('missing, invalid or ambiguous actual-attempt timestamps fail closed', () => {
+  for (const started_at of [undefined, null, 'invalid']) {
+    const jobs = validated(run(1)); jobs[0].started_at = started_at;
+    const result = check([run(1), run(2)], {jobs: {1: jobs}});
+    assert.equal(result.verified, false); assert.match(result.reason, /order cannot be proven/);
+  }
+  const same = validated(run(1)); same[0].started_at = validated(run(2))[0].started_at;
+  assert.match(check([run(1), run(2)], {jobs: {1: same}}).reason, /ambiguous start times/);
 });
 
 test('jobs from a stale attempt cannot attest the current attempt', () => {
