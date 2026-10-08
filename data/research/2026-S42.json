@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T14:25:33.805Z",
+  "updated_at": "2026-10-08T14:40:33.431Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -22,8 +22,8 @@
     "Public Sénat : Silence dans les rangs documenté (prix et limites de réception), horaires légèrement divergents et replay indisponible ; terminer offre/expiration, notes, affiche et revue comparative.",
     "France 4 : compléter réception/offres documentaires et épisodes génériques ; Rachelle Allison à la Cigale retenu à 20:30 après recoupement officiel/guide courant, à revérifier au préflight. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle.",
     "France 4 documentaires : Wachowski (Thibaut Sève, distinct de Matrix Generation) a des avis attribués mais durée 61/62/70 min à départager ; On ne va pas se défiler réintégré comme documentaire, critique/offre 2026 à compléter.",
-    "TV5MONDE+ : Didy dispose de deux critiques attribuées et d'une identité festival ; durée/version, droits France, expiration, notes et affiche à terminer. Trois nouvelles pistes de l'accueil restent à examiner ; grille linéaire FBS à recouper.",
-    "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes.",
+    "TV5MONDE+ : Didy déjà documenté ; Werga et En route pour Broadway maintenant identifiés avec preuves alternatives et visuels vus. Broadway : quatre épisodes et FR explicite/fin technique2030 contrôlés ; Werga : 51min offre,42/35min autres versions,pays/territoire à départager. Réception indépendante forte, accès et revue comparative restent ouverts ; troisième piste initiale encore à examiner.",
+    "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes. Nouvelle piste TV5Pro mène à une connexion ; guide public reste channel4/NewYork, aucune preuve FBS.",
     "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma.",
     "france.tv 16 octobre : quatre nouvelles pistes documentées (Replica, Influence mortelle, Lâche ton tel, Sommes-nous tous accros aux écrans ?) ; vérifier offres/expirations, versions et réception manquante avant toute sélection.",
     "TF1/TFX/TMC : poursuivre les sujets/épisodes encore génériques et le tri motivé des formats de magazine ou documentaire de flux repérés ; neuf créneaux TFX, 38 TMC recoupés et deux magazines supplémentaires ajoutés, sans certification artistique.",
@@ -365,6 +365,11 @@
       "id": "research-kotelnitch-huppert-and-official-night-event",
       "completed_at": "2026-10-08T14:25:33.805Z",
       "description": "Deux documentaires supplémentaires identifiés ; Kotelnitch : deux critiques indépendantes et texte de programmateur distingués, événement CANAL+ exact du11/10. Huppert : synopsis non assimilés à une réception critique."
+    },
+    {
+      "id": "research-tv5-werga-broadway-offers-and-alternative-evidence",
+      "completed_at": "2026-10-08T14:40:33.431Z",
+      "description": "Deux pistes existantes identifiées ; quatre épisodes Broadway/territoireFR/dates techniques, versionsWerga, réception classée sans consensus inventé, quatre visuels exacts vus. Limites des nouvelles pistes grilleFBS consignées."
     }
   ],
   "blockers": [
@@ -17656,6 +17661,154 @@
       },
       "evidence_note": "CANAL+ primaire concorde avec date/heure du créneau Festival ; chaîne non incluse dans l'événement. expires=fin de diffusion, pas fin de replay.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "identity",
+        "offer_version_duration"
+      ],
+      "source_urls": [
+        "https://www.tv5mondeplus.com/fr/documentaires/culture/werga-son-rythme-vie"
+      ],
+      "checked_at": "2026-10-08T14:40:33.431Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Werga, son, rythme, vie"
+      },
+      "evidence_note": "Version asset107267158_74079A :2024,3071640ms/51min affichés ; réalisation dans descriptionfr. Pays contradictoireTogo/BurkinaFaso-Togo conservé.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "version_comparison"
+      ],
+      "source_urls": [
+        "https://www.imagesfrancophones.org/catalogue/ron-rythme-vie"
+      ],
+      "checked_at": "2026-10-08T14:40:33.431Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Werga, son, rythme, vie"
+      },
+      "evidence_note": "OIF42min/2024/Togo ; version distincte ou donnée de projet, ne pas remplacer la durée de l'offre.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "reception_source_classification"
+      ],
+      "source_urls": [
+        "https://www.enqueteplus.com/content/entretien-jeannine-dissirama-bessoga-realisatrice-%E2%80%9Cles-savoirs-ancestraux-endog%C3%A8nes-sont-en"
+      ],
+      "checked_at": "2026-10-08T14:40:33.431Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Werga, son, rythme, vie"
+      },
+      "evidence_note": "Entretien FatouBa lu, pas critique argumentée indépendante ; contexte et limites conservés.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "awards"
+      ],
+      "source_urls": [
+        "https://alca-nouvelle-aquitaine.fr/en/node/35140"
+      ],
+      "checked_at": "2026-10-08T14:40:33.431Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Werga, son, rythme, vie"
+      },
+      "evidence_note": "Trois distinctions documentées ; prix du projetKumfoga explicitement séparé.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "identity",
+        "format"
+      ],
+      "source_urls": [
+        "https://swissfilms.ch/fr/movie/en-route-pour-broadway/0767afa8fcfd4ccb8ffc4ce103725174"
+      ],
+      "checked_at": "2026-10-08T14:40:33.431Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "En route pour Broadway"
+      },
+      "evidence_note": "DanielWyss, Suisse2025, série4x45min, créateursWyss/Sordet ; exclut homonymes et fausse durée90min.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "reception_source_classification"
+      ],
+      "source_urls": [
+        "https://www.radiolac.ch/culture/en-route-pour-broadway-la-comedie-musicale-version-romande/"
+      ],
+      "checked_at": "2026-10-08T14:40:33.431Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "En route pour Broadway"
+      },
+      "evidence_note": "EntretienproductionKeystoneATS, pas critique artistique ; recherches élargies sans avis détaillé trouvé.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "offer_publication_window",
+        "territory_metadata",
+        "image_provenance"
+      ],
+      "source_urls": [
+        "https://www.tv5mondeplus.com/fr/documentaires/culture/werga-son-rythme-vie"
+      ],
+      "checked_at": "2026-10-08T14:40:33.431Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Werga, son, rythme, vie",
+        "offer": "TV5MONDE+"
+      },
+      "evidence_note": "{\"checked_at\":\"2026-10-08T14:40:33.431Z\",\"source_url\":\"https://www.tv5mondeplus.com/fr/documentaires/culture/werga-son-rythme-vie\",\"method\":\"HTML public, objet asset embarqué du titre exact\",\"from_utc\":\"2026-03-31T22:00:00Z\",\"technical_to_utc\":\"2029-01-16T23:00:00Z\",\"territory\":\"countries=[] dans les publications ; aucune France explicite, ne pas inférer tous territoires\",\"login\":\"Se connecter affiché ; lecture non testée\",\"status\":\"needs_check\"} Images vues, CI encore requis.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "offer_publication_window",
+        "territory_metadata",
+        "image_provenance"
+      ],
+      "source_urls": [
+        "https://www.tv5mondeplus.com/fr/documentaires/culture/en-route-pour-broadway",
+        "https://www.tv5mondeplus.com/fr/documentaires/culture/en-route-pour-broadway-s-1-e1-le-casting",
+        "https://www.tv5mondeplus.com/fr/documentaires/culture/en-route-pour-broadway-s-1-e2-decrocher-un-solo",
+        "https://www.tv5mondeplus.com/fr/documentaires/culture/en-route-pour-broadway-s-1-e3-devenir-un-artiste",
+        "https://www.tv5mondeplus.com/fr/documentaires/culture/en-route-pour-broadway-s-1-e4-la-premiere"
+      ],
+      "checked_at": "2026-10-08T14:40:33.431Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "En route pour Broadway",
+        "offer": "TV5MONDE+"
+      },
+      "evidence_note": "{\"checked_at\":\"2026-10-08T14:40:33.431Z\",\"source_urls\":[\"https://www.tv5mondeplus.com/fr/documentaires/culture/en-route-pour-broadway\",\"https://www.tv5mondeplus.com/fr/documentaires/culture/en-route-pour-broadway-s-1-e1-le-casting\",\"https://www.tv5mondeplus.com/fr/documentaires/culture/en-route-pour-broadway-s-1-e2-decrocher-un-solo\",\"https://www.tv5mondeplus.com/fr/documentaires/culture/en-route-pour-broadway-s-1-e3-devenir-un-artiste\",\"https://www.tv5mondeplus.com/fr/documentaires/culture/en-route-pour-broadway-s-1-e4-la-premiere\"],\"method\":\"HTML public et objet asset embarqué de chaque épisode\",\"from_utc\":\"2026-03-31T22:00:00Z\",\"technical_to_utc\":\"2030-03-31T22:00:00Z\",\"territory\":\"FR explicitement dans publication channel-61_74079A de chacun des4épisodes\",\"login\":\"Se connecter affiché ; lecture non testée\",\"status\":\"offer_metadata_verified_playback_unchecked\"} Images vues, CI encore requis.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -18070,6 +18223,29 @@
       "festival_schedule_entries_compared": 99,
       "festival_programmes_examined": 103,
       "senscritique_ratings_directly_checked": 2
+    },
+    {
+      "date": "2026-10-08T14:40:33.431Z",
+      "started_at": "2026-10-08T14:28:08.580Z",
+      "owner": "363fe031-39e8-429d-a382-4e6b818f960c",
+      "stage": "inventory_documentary_followup",
+      "elapsed_seconds": 745,
+      "duration_basis": "wall_clock_until_checkpoint",
+      "completed_batches": [
+        "research-tv5-werga-broadway-offers-and-alternative-evidence"
+      ],
+      "reused_complete_cards": 0,
+      "newly_verified_complete_cards": 0,
+      "newly_researched_incomplete_works": 2,
+      "episode_offer_pages_checked": 4,
+      "images_visually_checked": 4,
+      "raw_schedule_entries": 2230,
+      "blockers": [],
+      "remaining": {
+        "stage": "inventory",
+        "count": 37,
+        "reference": "remaining"
+      }
     }
   ],
   "source_issues": [
@@ -18283,6 +18459,18 @@
       "checked_at": "2026-10-08T14:25:33.805Z",
       "status": "unavailable",
       "note": "Page ouverte affiche Film non disponible ; ne prouve pas l'indisponibilité du film sur d'autres services."
+    },
+    {
+      "source_url": "https://www.tv5monde.com/pro/Programmes/France-Belgique-Suisse-Monaco/FBSM-SEM38",
+      "checked_at": "2026-10-08T14:40:33.431Z",
+      "status": "authentication_required",
+      "note": "Piste INA lue : page publique renvoie accueil connexion Pro ; pas de grille S42 obtenue, aucun contournement. Autres recherches utiles possibles, ne requiert pas un compte utilisateur à ce stade."
+    },
+    {
+      "source_url": "https://www.tv5monde.com/tv/programmes?selected-timezone=Europe%2FLuxembourg",
+      "checked_at": "2026-10-08T14:40:33.431Z",
+      "status": "partial",
+      "note": "Guide public donne channelId4/New_York, channels[]/selectedChannel vide. Fuseau demandé insuffisant pour identifierFBS ; aucune certification."
     }
   ],
   "editorial_review": {
@@ -18500,6 +18688,17 @@
       "logs_read": true,
       "cause": "Require a complete candidate before merging uniquement, préparation incomplete attendue. Contrôles publics/browser couvrent S41, pas S42 ; étapes skipped non comptées comme réussites.",
       "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-08T14:40:33.431Z",
+      "head_sha": "0b2bde6dc5574e7bc9aadbcb3180a07eb4a309b7",
+      "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
+      "run_id": 37792449199,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": true,
+      "cause": "Seul échec Require a complete candidate before merging (inventory,37 tâches). Browser vérifie numéropublicS41, pas readinessS42. Aucun skipped compté succès.",
+      "reusable_only_for_exact_sha": true
     }
   ],
   "catalogue_reuse": {
@@ -18594,10 +18793,11 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "253a570766bcba925b0c7bef8aaa0757cf10d051",
+    "checkpoint_parent_sha": "0b2bde6dc5574e7bc9aadbcb3180a07eb4a309b7",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
+      "Réutiliser Werga/Broadway : identités, publications HTML, épisodes et images vérifiés ce passage. Ne pas assimiler notes de programmation/entretiens à des critiques ; restes précis dans les deux dossiers. TV5Pro bloqué par connexion, aucune grille FBS attestée.",
       "Kotelnitch/Huppert : identités maintenant documentées ; Kotelnitch dispose de critiques et d'un événement primaire sans chaîne, Huppert reste sans réception argumentée. Réutiliser les preuves du dernier lot, poursuivre seulement les manques.",
       "Réutiliser le lot documentaires Festival : Kouté Vwa, Les mots, Kawase et Trier, notes SC directes, cinq articles et deux événements CANAL+. Ne pas refaire ces consultations sans changement ; résoudre antenne/offres/versions et conflit d'épisode.",
       "Réutiliser les sept grilles Ciné+ Festival (99créneaux rapprochés) et les six observations CANAL+ ; ne pas réinterpréter les événements hors cycle ni expires. Résoudre l'épisode15/10 et approfondir la passe documentaire de création.",
@@ -18613,33 +18813,33 @@
       "Finir inventaire certifié puis sélection/enrichissement/réserves/cartes et revue factuelle ; consulter CI du SHA courant, ne pas sceller avant remaining vide."
     ],
     "publisher": {
-      "checked_at": "2026-10-08T14:03:53.608Z",
-      "id": 37788010464,
+      "checked_at": "2026-10-08T14:40:33.431Z",
+      "id": 37792594478,
       "status": "completed",
       "conclusion": "skipped",
       "head_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "note": "Dernier publicateur consulté terminé skipped, aucune progression active."
+      "note": "Pas de progression active à dupliquer."
     },
     "last_ci_observation": {
-      "checked_at": "2026-10-08T14:25:33.805Z",
-      "head_sha": "253a570766bcba925b0c7bef8aaa0757cf10d051",
+      "checked_at": "2026-10-08T14:40:33.431Z",
+      "head_sha": "0b2bde6dc5574e7bc9aadbcb3180a07eb4a309b7",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37791936108,
+      "run_id": 37792449199,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Require a complete candidate before merging uniquement, préparation incomplete attendue. Contrôles publics/browser couvrent S41, pas S42 ; étapes skipped non comptées comme réussites.",
+      "cause": "Seul échec Require a complete candidate before merging (inventory,37 tâches). Browser vérifie numéropublicS41, pas readinessS42. Aucun skipped compté succès.",
       "reusable_only_for_exact_sha": true
     },
     "latest_candidate_ci": {
-      "checked_at": "2026-10-08T14:25:33.805Z",
-      "head_sha": "253a570766bcba925b0c7bef8aaa0757cf10d051",
+      "checked_at": "2026-10-08T14:40:33.431Z",
+      "head_sha": "0b2bde6dc5574e7bc9aadbcb3180a07eb4a309b7",
       "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
-      "run_id": 37791936108,
+      "run_id": 37792449199,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Require a complete candidate before merging uniquement, préparation incomplete attendue. Contrôles publics/browser couvrent S41, pas S42 ; étapes skipped non comptées comme réussites.",
+      "cause": "Seul échec Require a complete candidate before merging (inventory,37 tâches). Browser vérifie numéropublicS41, pas readinessS42. Aucun skipped compté succès.",
       "reusable_only_for_exact_sha": true
     }
   },
