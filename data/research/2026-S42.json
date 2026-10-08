@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "week": "2026-S42",
-  "base_sha": "b619a043c67e5d7790928731c8b0b35563992d05",
+  "base_sha": "2c661aaf235903f4a98ffc02e115ca7864892bb9",
   "stage": "enrichment",
-  "updated_at": "2026-10-08T20:22:52.344Z",
+  "updated_at": "2026-10-08T21:09:50.000Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -443,6 +443,11 @@
       "id": "enrichment-koute-vwa-monday-draft",
       "completed_at": "2026-10-08T20:22:52.344Z",
       "description": "Kouté Vwa matérialisé en carte draft du lundi. La fiche Ouest-France exacte ferme le manque de recoupement du créneau linéaire ; le conflit replay demeure explicite."
+    },
+    {
+      "id": "sync-main-and-shortlist-la-proie-friday-draft",
+      "completed_at": "2026-10-08T21:09:50.000Z",
+      "description": "Candidate synchronisée sans force avec main 2c661aaf ; rapport preparation-gaps exécuté. Présélection structurée amorcée depuis les preuves sauvegardées et La Proie nue matérialisée en première carte draft du vendredi. Les limites d’indépendance de chaîne et les 35 exigences restent ouvertes."
     }
   ],
   "blockers": [
@@ -19178,6 +19183,100 @@
       },
       "evidence_note": "Liens directs exacts.",
       "status": "verified"
+    },
+    {
+      "work_id": "la-proie-nue-1965",
+      "fields": [
+        "title",
+        "aliases",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "version.duration"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-proie-nue/h/1550542_50002",
+        "https://www.imdb.com/title/tt0060736/",
+        "https://www.senscritique.com/film/la_proie_nue/377228",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=25142.html"
+      ],
+      "checked_at": "2026-10-08T21:09:50.000Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La Proie nue",
+        "version": "copie CANAL+ affichée à 91 min"
+      },
+      "evidence_note": "Film de Cornel Wilde produit en 1965, sorti en France en 1966. La copie CANAL+ à 91 min est distinguée des durées cinéma à 95/96 min.",
+      "status": "verified"
+    },
+    {
+      "work_id": "la-proie-nue-1965",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-proie-nue/h/1550542_50002",
+        "https://tv-programme.com/cine-plus-classic/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T13:11:06.459241+00:00",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "start": "23:22",
+        "channel": "Ciné+ Classic"
+      },
+      "evidence_note": "L’événement officiel CANAL+ et la grille datée concordent sur 23:22. Le BroadcastEvent ne nomme pas la chaîne ; l’indépendance du flux de grille reste à consolider au niveau couverture.",
+      "status": "needs_check"
+    },
+    {
+      "work_id": "la-proie-nue-1965",
+      "fields": [
+        "critical_reception",
+        "reservations",
+        "editorial_copy"
+      ],
+      "source_urls": [
+        "https://www.criterion.com/current/posts/623-the-naked-prey-into-the-wild",
+        "https://old.bfi.org.uk/sightandsound/review/4247",
+        "https://www.slantmagazine.com/dvd/the-naked-prey-dvd/"
+      ],
+      "checked_at": "2026-10-08T21:09:50.000Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La Proie nue"
+      },
+      "evidence_note": "Atkinson valorise l’épure, le découpage et la désidéalisation du récit de safari. Les réserves portent sur la violence graphique, le contexte colonial et des représentations datées ; aucun consensus n’est inventé.",
+      "status": "verified"
+    },
+    {
+      "work_id": "la-proie-nue-1965",
+      "fields": [
+        "ratings.senscritique",
+        "ratings_checked",
+        "image",
+        "image_type",
+        "image_provenance",
+        "image_visual_review"
+      ],
+      "source_urls": [
+        "https://www.senscritique.com/film/la_proie_nue/377228",
+        "https://www.imdb.com/title/tt0060736/mediaviewer/rm3132453632",
+        "https://m.media-amazon.com/images/M/MV5BNmM4NTQyNmEtMGNhYy00YmM0LWIyM2UtYzBiOGQ3NDgzYWMwXkEyXkFqcGc%40._V1_.jpg"
+      ],
+      "checked_at": "2026-10-08T21:09:50.000Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La Proie nue"
+      },
+      "evidence_note": "Note SensCritique 7,1 observée. Affiche française exacte de l’œuvre inspectée visuellement ; santé distante encore soumise au CI.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -19966,6 +20065,43 @@
       "stop_reason": "coherent_monday_complete_draft_batch_ready_for_remote_checkpoint_and_lease_release",
       "next_useful_batch": "Compléter une première carte du vendredi, seul jour encore vide, puis poursuivre choix/réserves et couverture.",
       "note": "Carte linéaire complète ; conflit replay conservé. Lundi et semaine restent incomplets, 35 exigences inchangées."
+    },
+    {
+      "date": "2026-10-08T21:12:09.000Z",
+      "started_at": "2026-10-08T20:58:14.000Z",
+      "ended_at": "2026-10-08T21:12:09.000Z",
+      "owner": "4d0857ba-92f0-4320-bac9-1478be846e6d",
+      "prompt_revision": "production-shortlist-2026-10-08",
+      "stage": "enrichment_draft_cards",
+      "elapsed_seconds": 835,
+      "duration_basis": "automation_runtime_clock_from_run_context_and_final_checkpoint",
+      "completed_batches": [
+        "sync-main-and-shortlist-la-proie-friday-draft"
+      ],
+      "deliverables_changed": [
+        "data/works.json",
+        "data/links.json",
+        "data/manifest.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "new_leads": 1,
+      "shortlist_entries": 22,
+      "previously_researched_incomplete_works_followed_up": 0,
+      "newly_completed_editorial_dossiers": 0,
+      "newly_verified_complete_cards": 0,
+      "draft_cards_created": 1,
+      "partial_dossiers": 1,
+      "coverage_requirements_resolved": 0,
+      "images_visually_checked": 1,
+      "remaining": {
+        "stage": "enrichment",
+        "count": 35,
+        "reference": "remaining"
+      },
+      "stop_reason": "coherent_friday_draft_and_shortlist_checkpoint_ready_for_remote_save",
+      "next_useful_batch": "Achever A Ghost Story pour le vendredi depuis ses deux critiques sauvegardées, puis poursuivre les choix et réserves des jours sous-dotés sans reprendre l’inventaire général.",
+      "note": "Candidate synchronisée avec main ; rapport preparation-gaps : 53 écarts informatifs. Première carte vendredi créée et présélection structurée de 22 pistes ajoutée. Les 35 exigences, les limites d’indépendance des grilles et tous les contrôles complets restent ouverts."
     }
   ],
   "source_issues": [
@@ -20822,6 +20958,188 @@
       "resume_condition": "Nouvelle offre France explicite et courante, avec version et expiration propres."
     }
   ],
+  "shortlist": {
+    "updated_at": "2026-10-08T21:09:50.000Z",
+    "note": "Présélection révisable amorcée depuis les dossiers, diffusions et réceptions déjà sauvegardés. Elle oriente les prochains lots sans certifier la sélection ni clore les exigences de couverture.",
+    "entries": [
+      {
+        "id": "sl-samedi-exit-8",
+        "title": "Exit 8",
+        "scope": {"day": "samedi"},
+        "status": "card_complete",
+        "signals": [{"kind": "critique", "note": "Le Monde relève la force du dispositif d’observation et sa tension urbaine ; la mécanique répétitive reste explicitement discutée.", "source_url": "https://www.lemonde.fr/culture/article/2025/09/03/exit-8-un-cruel-jeu-des-sept-erreurs-dans-le-metro_6638722_3246.html"}],
+        "alternatives": ["sl-samedi-thorin", "sl-samedi-grotte-chauvet"]
+      },
+      {
+        "id": "sl-samedi-thorin",
+        "title": "Thorin, le dernier Néandertalien",
+        "scope": {"day": "samedi"},
+        "status": "card_complete",
+        "signals": [{"kind": "distinction", "note": "Le palmarès Objectif Préhistoire 2024 constitue un signal précis, complété par une réception attribuée.", "source_url": "https://www.hominides.com/le-festival-objectif-prehistoire-a-pech-merle-palmares-2024/"}],
+        "alternatives": ["sl-samedi-exit-8", "sl-samedi-sulawesi"]
+      },
+      {
+        "id": "sl-samedi-grotte-chauvet",
+        "title": "Grotte Chauvet : Dans les pas des artistes de la Préhistoire",
+        "scope": {"day": "samedi"},
+        "status": "researching",
+        "signals": [{"kind": "critique", "note": "La critique Télérama exacte et deux lectures distinctes sont sauvegardées ; versions, note, visuel et comparaison restent à finir.", "source_url": "https://www.telerama.fr/television/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-en-immersion-avec-les-scientifiques_cri-7035768.php"}],
+        "alternatives": ["sl-samedi-thorin", "sl-samedi-sulawesi"]
+      },
+      {
+        "id": "sl-samedi-sulawesi",
+        "title": "Sulawesi, l'île des premières images",
+        "scope": {"day": "samedi"},
+        "status": "researching",
+        "signals": [{"kind": "critique", "note": "Le Journal des Arts apporte une lecture indépendante de la mise en perspective des images préhistoriques ; dossier canonique encore incomplet.", "source_url": "https://www.lejournaldesarts.fr/medias/la-prehistoire-des-images-184458"}],
+        "alternatives": ["sl-samedi-grotte-chauvet", "sl-samedi-burning"]
+      },
+      {
+        "id": "sl-samedi-burning",
+        "title": "Burning an Illusion",
+        "scope": {"day": "samedi"},
+        "status": "researching",
+        "signals": [{"kind": "critique", "note": "La critique Backseat Mafia est sauvegardée avec les réserves d’autres lectures ; version 101/105/107 min et offre restent à arbitrer.", "source_url": "https://www.backseatmafia.com/blu-ray-review-burning-an-illusion/"}],
+        "alternatives": ["sl-samedi-sulawesi", "sl-samedi-exit-8"]
+      },
+      {
+        "id": "sl-dimanche-la-gueule-ouverte",
+        "title": "La Gueule ouverte",
+        "scope": {"day": "dimanche"},
+        "status": "card_drafted",
+        "signals": [{"kind": "critique", "note": "L’essai Senses of Cinema étaye la rigueur formelle ; l’indépendance du recoupement de chaîne reste ouverte.", "source_url": "https://www.sensesofcinema.com/2006/cteq/la-gueule-ouverte/"}],
+        "alternatives": ["sl-dimanche-kotelnitch", "sl-dimanche-silence-rangs"]
+      },
+      {
+        "id": "sl-dimanche-kotelnitch",
+        "title": "Retour à Kotelnitch",
+        "scope": {"day": "dimanche"},
+        "status": "researching",
+        "signals": [{"kind": "critique", "note": "Deux critiques indépendantes sont sauvegardées ; droits, version, note et affiche restent à achever.", "source_url": "https://www.critikat.com/actualite-cine/critique/retour-a-kotelnitch/"}],
+        "alternatives": ["sl-dimanche-la-gueule-ouverte", "sl-dimanche-silence-rangs"]
+      },
+      {
+        "id": "sl-dimanche-silence-rangs",
+        "title": "Violences sexuelles à l'école : silence dans les rangs",
+        "scope": {"day": "dimanche"},
+        "status": "researching",
+        "signals": [{"kind": "distinction", "note": "Prix Enfance Majuscule 2026 vérifié ; portée et limites de réception sont conservées sans consensus inventé.", "source_url": "https://enfance-majuscule.fr/palmares-du-prix-media-enfance-majuscule-2026-nos-8-programmes-laureats-2/"}],
+        "alternatives": ["sl-dimanche-kotelnitch", "sl-dimanche-la-gueule-ouverte"]
+      },
+      {
+        "id": "sl-lundi-koute-vwa",
+        "title": "Kouté Vwa",
+        "scope": {"day": "lundi"},
+        "status": "card_complete",
+        "signals": [{"kind": "critique", "note": "Cineuropa étaye l’hybridation entre fiction, mémoire familiale et musique guyanaise ; le conflit replay n’affecte pas la carte linéaire.", "source_url": "https://cineuropa.org/fr/newsdetail/464988/"}],
+        "alternatives": ["sl-lundi-crime-tete"]
+      },
+      {
+        "id": "sl-lundi-crime-tete",
+        "title": "Un crime dans la tête",
+        "scope": {"day": "lundi"},
+        "status": "researching",
+        "signals": [{"kind": "patrimoine", "note": "La Cinémathèque identifie précisément le film de Frankenheimer ; les six diffusions et les deux adaptations restent séparées.", "source_url": "https://www.cinematheque.fr/film/32418.html"}],
+        "alternatives": ["sl-lundi-koute-vwa"]
+      },
+      {
+        "id": "sl-mardi-les-mots",
+        "title": "Les mots qu'elles eurent un jour",
+        "scope": {"day": "mardi"},
+        "status": "card_complete",
+        "signals": [{"kind": "critique", "note": "Avoir Alire fournit une critique attribuée du travail d’archives et de mémoire, avec réserves formelles conservées.", "source_url": "https://www.avoir-alire.com/les-mots-qu-elles-eurent-un-jour-raphael-pillosio-critique"}],
+        "alternatives": ["sl-mardi-regrouping", "sl-mardi-chauvet"]
+      },
+      {
+        "id": "sl-mardi-regrouping",
+        "title": "Regrouping",
+        "scope": {"day": "mardi"},
+        "status": "researching",
+        "signals": [{"kind": "critique", "note": "La lecture de 4Columns étaye le montage et la difficulté formelle ; version, offre, note et visuel restent à terminer.", "source_url": "https://www.4columns.org/anderson-melissa/regrouping"}],
+        "alternatives": ["sl-mardi-les-mots", "sl-mardi-chauvet"]
+      },
+      {
+        "id": "sl-mardi-chauvet",
+        "title": "Grotte Chauvet : Dans les pas des artistes de la Préhistoire",
+        "scope": {"day": "mardi"},
+        "status": "researching",
+        "signals": [{"kind": "critique", "note": "Le dossier critique déjà sauvegardé couvre aussi la rediffusion du mardi ; aucun nouveau contrôle stable n’est nécessaire avant les champs manquants.", "source_url": "https://www.senscritique.com/film/grotte_chauvet_dans_les_pas_des_artistes_de_la_prehistoire/critique/316364330"}],
+        "alternatives": ["sl-mardi-regrouping", "sl-mardi-les-mots"]
+      },
+      {
+        "id": "sl-mercredi-cadet",
+        "title": "Cadet d'eau douce",
+        "scope": {"day": "mercredi"},
+        "status": "card_drafted",
+        "signals": [{"kind": "critique", "note": "Critikat étaye la précision burlesque et la mise en scène ; l’indépendance du recoupement de chaîne reste ouverte.", "source_url": "https://www.critikat.com/actualite-cine/critique/cadet-deau-douce/"}],
+        "alternatives": ["sl-mercredi-burning"]
+      },
+      {
+        "id": "sl-mercredi-burning",
+        "title": "Burning an Illusion",
+        "scope": {"day": "mercredi"},
+        "status": "researching",
+        "signals": [{"kind": "critique", "note": "La réception critique déjà sauvegardée couvre la rediffusion du mercredi ; la version et l’offre restent à finaliser.", "source_url": "https://www.telerama.fr/cinema/burning-an-illusion-de-menelik-shabazz-notre-critique_cri-7042929.php"}],
+        "alternatives": ["sl-mercredi-cadet"]
+      },
+      {
+        "id": "sl-jeudi-point-limite",
+        "title": "Point limite",
+        "scope": {"day": "jeudi"},
+        "status": "card_drafted",
+        "signals": [{"kind": "critique", "note": "Criterion analyse la tension morale et politique de Lumet ; le recoupement indépendant de chaîne reste à consolider.", "source_url": "https://www.criterion.com/current/posts/6801-fail-safe-very-little-left-of-the-world"}],
+        "alternatives": ["sl-jeudi-fantomes-tonkin", "sl-jeudi-crime-tete"]
+      },
+      {
+        "id": "sl-jeudi-fantomes-tonkin",
+        "title": "Les fantômes du Tonkin",
+        "scope": {"day": "jeudi"},
+        "status": "researching",
+        "signals": [{"kind": "critique", "note": "Le Monde valorise le déplacement de la bataille vers le deuil ; la réserve Télérama sur une vision romantique reste conservée.", "source_url": "https://www.lemonde.fr/televisions-radio/article/2024/05/11/les-replays-du-week-end-nuclear-now-les-fantomes-du-tonkin-belmondo-l-italie-en-heritage_6232590_1655027.html"}],
+        "alternatives": ["sl-jeudi-point-limite", "sl-jeudi-crime-tete"]
+      },
+      {
+        "id": "sl-jeudi-crime-tete",
+        "title": "Un crime dans la tête",
+        "scope": {"day": "jeudi"},
+        "status": "researching",
+        "signals": [{"kind": "critique", "note": "Une chronique complète et une note institutionnelle sont sauvegardées ; diffusion Grand Écran et version restent à finaliser.", "source_url": "https://films.oeil-ecran.com/2015/03/02/un-crime-dans-la-tete/"}],
+        "alternatives": ["sl-jeudi-point-limite", "sl-jeudi-fantomes-tonkin"]
+      },
+      {
+        "id": "sl-vendredi-la-proie-nue",
+        "title": "La Proie nue",
+        "scope": {"day": "vendredi"},
+        "status": "card_drafted",
+        "signals": [{"kind": "critique", "note": "Michael Atkinson souligne l’épure, le découpage et la force hostile du paysage ; les représentations datées restent une réserve explicite.", "source_url": "https://www.criterion.com/current/posts/623-the-naked-prey-into-the-wild"}],
+        "alternatives": ["sl-vendredi-a-ghost-story", "sl-vendredi-wachowski"]
+      },
+      {
+        "id": "sl-vendredi-a-ghost-story",
+        "title": "A Ghost Story",
+        "scope": {"day": "vendredi"},
+        "status": "researching",
+        "signals": [{"kind": "critique", "note": "Deux critiques contradictoires sont sauvegardées : invention du montage temporel contre distance émotionnelle et longueurs.", "source_url": "https://www.theringer.com/2017/07/11/pop-culture/a-ghost-story-movie-rooney-mara-review-204b969cf8bf"}],
+        "alternatives": ["sl-vendredi-la-proie-nue", "sl-vendredi-falaise"]
+      },
+      {
+        "id": "sl-vendredi-wachowski",
+        "title": "De \"Matrix\" à \"Sense8\", la révolution Wachowski",
+        "scope": {"day": "vendredi"},
+        "status": "researching",
+        "signals": [{"kind": "critique", "note": "La critique Télérama exacte est sauvegardée avec deux avis individuels ; durée 61/62/70 min et offre restent à trancher.", "source_url": "https://www.telerama.fr/television/de-matrix-a-sense8-la-revolution-wachowski-de-thibaut-seve-notre-critique_cri-7032889.php"}],
+        "alternatives": ["sl-vendredi-la-proie-nue", "sl-vendredi-a-ghost-story"]
+      },
+      {
+        "id": "sl-vendredi-falaise",
+        "title": "La falaise mystérieuse",
+        "scope": {"day": "vendredi"},
+        "status": "researching",
+        "signals": [{"kind": "critique", "note": "DVDClassik valorise décor et photographie tout en réservant son jugement sur les dialogues et le ton ; seconde critique plus négative conservée.", "source_url": "https://www.dvdclassik.com/critique/la-falaise-mysterieuse-allen"}],
+        "alternatives": ["sl-vendredi-a-ghost-story", "sl-vendredi-wachowski"]
+      }
+    ]
+  },
   "priority_review": {
     "required_after_two_passes_without_complete_card": true,
     "reviewed_at": "2026-10-08T18:10:48.782Z",
@@ -20831,8 +21149,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "93c385027832188ecc769a56ec22370fb655c031",
-    "produced_at": "2026-10-08T20:22:52.344Z",
+    "source_candidate_sha": "5aa3aa8d674678061723750d0398747b5b30646e",
+    "produced_at": "2026-10-08T21:09:50.000Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -21001,6 +21319,30 @@
             "https://www.senscritique.com/film/koute_vwa/95757689",
             "https://www.allocine.fr/film/fichefilm_gen_cfilm=302102.html",
             "https://www.imdb.com/title/tt32890051/"
+          ]
+        }
+      },
+      {
+        "work_id": "la-proie-nue-1965",
+        "date": "2026-10-16",
+        "rank_provisional": 1,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-08",
+          "identity_version": "Film de Cornel Wilde produit en 1965 et sorti en France en 1966. La carte vise la version CANAL+ affichée à 91 min ; les fiches cinéma à 95 ou 96 min restent des durées divergentes et ne sont pas assimilées à cette copie.",
+          "canonical_fields": "Identité, réalisateur, année, pays, liens directs, note SensCritique 7,1 et affiche française exacte ont été contrôlés. Le visuel a été inspecté ; sa santé distante reste soumise au CI.",
+          "current_broadcast": "Diffusion du vendredi 16 octobre à 23:22 recoupée entre l’événement officiel CANAL+ et la grille datée Ciné+ Classic. Le BroadcastEvent ne nomme pas la chaîne ; la carte conserve explicitement cette limite de provenance et n’affirme aucune offre replay.",
+          "editorial_copy": "Synopsis et justification originaux revus depuis les fiches exactes et l’essai critique de Michael Atkinson pour Criterion. L’éloge de l’épure et du découpage n’efface ni la violence graphique ni les réserves sur le contexte colonial et les représentations datées.",
+          "evidence_urls": [
+            "https://www.canalplus.com/cinema/la-proie-nue/h/1550542_50002",
+            "https://tv-programme.com/cine-plus-classic/vendredi-16-octobre-2026/",
+            "https://www.imdb.com/title/tt0060736/",
+            "https://www.senscritique.com/film/la_proie_nue/377228",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=25142.html",
+            "https://www.criterion.com/current/posts/623-the-naked-prey-into-the-wild",
+            "https://old.bfi.org.uk/sightandsound/review/4247",
+            "https://www.slantmagazine.com/dvd/the-naked-prey-dvd/",
+            "https://www.imdb.com/title/tt0060736/mediaviewer/rm3132453632"
           ]
         }
       }
