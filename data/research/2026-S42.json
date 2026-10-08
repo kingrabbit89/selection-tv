@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
   "stage": "inventory",
-  "updated_at": "2026-10-08T11:03:02.027Z",
+  "updated_at": "2026-10-08T11:07:46.564Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -236,6 +236,11 @@
       "id": "inventory-action-official-full-week",
       "completed_at": "2026-10-08T11:03:02.027Z",
       "description": "Grille officielle Action collectée une fois : 97 créneaux examinés, 91 entrées brutes recoupées sur sept dates ; nuits incluses et six séries génériques tracées."
+    },
+    {
+      "id": "inventory-rtl9-official-full-week",
+      "completed_at": "2026-10-08T11:07:46.564Z",
+      "description": "18 films recoupés sur sept dates, 83 créneaux examinés ; alias Joker/Wild Card résolu."
     }
   ],
   "blockers": [
@@ -12160,6 +12165,189 @@
       },
       "evidence_note": "Toutes les lignes brutes Action de la journée concordent exactement avec le HTML officiel courant ; programmes nocturnes inspectés, identité des versions non certifiée par ce seul relevé.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start",
+        "broadcast.date",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.rtl9.com/fr/grille-tv",
+        "https://tv-programme.com/rtl-9/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:07:46.564Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "channel": "RTL9",
+        "slots": 4
+      },
+      "evidence_note": "Films bruts rapprochés de la grille officielle, alias Joker/Wild Card résolu séparément ; nuits consultées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start",
+        "broadcast.date",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.rtl9.com/fr/grille-tv",
+        "https://tv-programme.com/rtl-9/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:07:46.564Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "channel": "RTL9",
+        "slots": 4
+      },
+      "evidence_note": "Films bruts rapprochés de la grille officielle, alias Joker/Wild Card résolu séparément ; nuits consultées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start",
+        "broadcast.date",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.rtl9.com/fr/grille-tv",
+        "https://tv-programme.com/rtl-9/lundi-12-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:07:46.564Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "channel": "RTL9",
+        "slots": 2
+      },
+      "evidence_note": "Films bruts rapprochés de la grille officielle, alias Joker/Wild Card résolu séparément ; nuits consultées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start",
+        "broadcast.date",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.rtl9.com/fr/grille-tv",
+        "https://tv-programme.com/rtl-9/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:07:46.564Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "channel": "RTL9",
+        "slots": 2
+      },
+      "evidence_note": "Films bruts rapprochés de la grille officielle, alias Joker/Wild Card résolu séparément ; nuits consultées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start",
+        "broadcast.date",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.rtl9.com/fr/grille-tv",
+        "https://tv-programme.com/rtl-9/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:07:46.564Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "RTL9",
+        "slots": 2
+      },
+      "evidence_note": "Films bruts rapprochés de la grille officielle, alias Joker/Wild Card résolu séparément ; nuits consultées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start",
+        "broadcast.date",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.rtl9.com/fr/grille-tv",
+        "https://tv-programme.com/rtl-9/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:07:46.564Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "RTL9",
+        "slots": 2
+      },
+      "evidence_note": "Films bruts rapprochés de la grille officielle, alias Joker/Wild Card résolu séparément ; nuits consultées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.start",
+        "broadcast.date",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.rtl9.com/fr/grille-tv",
+        "https://tv-programme.com/rtl-9/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T11:07:46.564Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "channel": "RTL9",
+        "slots": 2
+      },
+      "evidence_note": "Films bruts rapprochés de la grille officielle, alias Joker/Wild Card résolu séparément ; nuits consultées.",
+      "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "title_fr",
+        "original_title",
+        "director",
+        "year"
+      ],
+      "source_urls": [
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=203335.html",
+        "https://www.rtl9.com/fr/grille-tv"
+      ],
+      "checked_at": "2026-10-08T11:07:46.564Z",
+      "stability": "stable",
+      "applies_to": {
+        "title": "Joker / Wild Card",
+        "year": 2015,
+        "director": "Simon West"
+      },
+      "evidence_note": "AlloCiné donne titre français, titre original, réalisateur et année ; le synopsis Nick Wild de RTL9 correspond. Durée/version non transférée.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -12673,7 +12861,7 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "7e7a224cd8730c20c32e9125a05000eb786c1dbd",
+    "checkpoint_parent_sha": "0f7f2f1c56e40cc73435471213e79e2de86a49a3",
     "main_sha": "041fbcda6ffa7c86f258a929010d2a7f7361066b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
