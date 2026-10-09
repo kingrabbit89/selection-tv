@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T22:23:01.733Z",
+  "updated_at": "2026-10-09T22:28:11.746Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -21,8 +21,7 @@
     "TF1/TFX/TMC : poursuivre les sujets/épisodes encore génériques et le tri motivé des formats de magazine ou documentaire de flux repérés ; neuf créneaux TFX, 38 TMC recoupés et deux magazines supplémentaires ajoutés, sans certification artistique.",
     "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer. Programmetvcesoir et Ouest-France soutiennent les titres inventoriés ; suivis ciblés enregistrés, indépendance non établie, conflits non clos.",
     "Ciné+ : 45 fiches CANAL+ consultées, 14 heures concordantes (dont La gueule ouverte sur Festival), 4 écarts et 27 BroadcastEvent hors cible. Chaîne absente des objets officiels : certifier les chaînes/grilles et les autres rediffusions, ne pas réutiliser les événements anciens. Durées de versions et droits replay à distinguer des créneaux.",
-    "TCM : 98 créneaux comparés aux sept grilles Télérama courantes, aucun écart d'heure ; Nashville Blues/The Thing Called Love rapprochés par la fiche liée. Une nuit au cinéma : Flics et voyous identifié (Laurent Bouzereau, 2013, 55 min). Source officielle ou indépendance des flux encore à obtenir ; documentaires et autres films à enrichir.",
-    "Un crime dans la tête : la réserve du 10/10 à 20:50 sur Ciné+ Classic est complète et officiellement attestée. La réserve retenue du 15/10 à 17:37 concorde sur TV-Programme, TV Digital3D et ProgrammeTVCeSoir, mais la provenance d'acquisition indépendante n'est pas établie et aucun événement officiel exact n'a été trouvé ; obtenir une base positive ou remplacer cette carte. Les diffusions Grand Écran du remake 2004 et les autres rediffusions non retenues sont différées ; identités et divergences restent conservées."
+    "TCM : 98 créneaux comparés aux sept grilles Télérama courantes, aucun écart d'heure ; Nashville Blues/The Thing Called Love rapprochés par la fiche liée. Une nuit au cinéma : Flics et voyous identifié (Laurent Bouzereau, 2013, 55 min). Source officielle ou indépendance des flux encore à obtenir ; documentaires et autres films à enrichir."
   ],
   "completed_batches": [
     {
@@ -1378,7 +1377,18 @@
     "france4-rachelle-hakim-unselected-scope-review-2026-10-09",
     "t18-new-independent-route-and-episode-conflict-2026-10-09",
     "t18-conflict-retry-gate-review-2026-10-09",
-    "francetv-four-unselected-dossiers-scope-review-2026-10-09"
+    "francetv-four-unselected-dossiers-scope-review-2026-10-09",
+    {
+      "id": "review-telerama-page-132-correct-three-thursday-reserve-times-2026-10-09",
+      "completed_at": "2026-10-09T22:28:11.746Z",
+      "scope": "jeudi-selection:ranks-8-10",
+      "summary": "La page 132 du magazine fourni a été visuellement relue. Le pool complet du jeudi a été reconstruit mécaniquement en conservant choix, rangs et textes ; seuls les horaires imprimés de La Maison des femmes (13:30), Un crime dans la tête (17:40) et Becoming Hitchcock (19:40) remplacent les écarts Web.",
+      "deliverables": [
+        "data/weeks/2026-S42.json",
+        "data/coverage/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    }
   ],
   "blockers": [
     {
@@ -26840,6 +26850,88 @@
       ],
       "evidence_note": "All four saved dossiers are absent from the rendered week; no offer, version, rating, image or availability was inferred.",
       "status": "reviewed_unselected_deferred"
+    },
+    {
+      "work_id": "la-maison-des-femmes-2025",
+      "fields": [
+        "broadcast.title",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "telerama_grid_transcription"
+      ],
+      "source_urls": [],
+      "source_refs": [
+        "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93"
+      ],
+      "checked_at": "2026-10-09T22:28:11.746Z",
+      "stability": "cycle_specific_authoritative_printed_schedule",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "jeudi",
+        "date": "2026-10-15",
+        "start": "13:30",
+        "channel": "Canal+ Cinéma",
+        "section": "jeudi-selection"
+      },
+      "evidence_note": "Ligne imprimée visuellement relue sur Télérama page 132, bbox [123.81,105.14,191.55,118.64]. L’horaire 13:30 prévaut pour les quatre faits de grille ; l’ancien horaire Web 13:23 reste documenté.",
+      "status": "verified_for_card_under_telerama_schedule_authority"
+    },
+    {
+      "work_id": "un-crime-dans-la-tete-1962",
+      "fields": [
+        "broadcast.title",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "telerama_grid_transcription"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-classic/jeudi-15-octobre-2026/",
+        "https://tv.digital3d.com/detail/cineplus-classic-44?date=2026-10-15&time=17%3A16",
+        "https://www.programmetvcesoir.net/chaine/cine-classic/2026-10-15"
+      ],
+      "source_refs": [
+        "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93"
+      ],
+      "checked_at": "2026-10-09T22:28:11.746Z",
+      "stability": "cycle_specific_authoritative_printed_schedule",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "jeudi",
+        "date": "2026-10-15",
+        "start": "17:40",
+        "channel": "Ciné+ Classic",
+        "section": "jeudi-selection"
+      },
+      "evidence_note": "Ligne imprimée visuellement relue sur Télérama page 132, bbox [400.68,179,474.45,192.5]. L’horaire 17:40 prévaut pour les quatre faits de grille ; l’ancien horaire Web 17:37 reste documenté.",
+      "status": "verified_for_card_under_telerama_schedule_authority"
+    },
+    {
+      "work_id": "becoming-hitchcock-the-legacy-of-blackmail-2024",
+      "fields": [
+        "broadcast.title",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "telerama_grid_transcription"
+      ],
+      "source_urls": [],
+      "source_refs": [
+        "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93"
+      ],
+      "checked_at": "2026-10-09T22:28:11.746Z",
+      "stability": "cycle_specific_authoritative_printed_schedule",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "jeudi",
+        "date": "2026-10-15",
+        "start": "19:40",
+        "channel": "Ciné+ Classic",
+        "section": "jeudi-selection"
+      },
+      "evidence_note": "Ligne imprimée visuellement relue sur Télérama page 132, bbox [400.67,207,475.19,227.51]. L’horaire 19:40 prévaut pour les quatre faits de grille ; l’ancien horaire Web 19:39 reste documenté.",
+      "status": "verified_for_card_under_telerama_schedule_authority"
     }
   ],
   "run_metrics": [
@@ -33872,18 +33964,21 @@
       "duration_basis": "Passage en cours ; début réel capturé à l’entrée, fin inconnue.",
       "completed_batches": [
         "sync-main-web-evidence-contracts-2026-10-09",
-        "initial-preparation-gaps-saved-flow-and-triage-2026-10-09"
+        "initial-preparation-gaps-saved-flow-and-triage-2026-10-09",
+        "review-telerama-page-132-correct-three-thursday-reserve-times-2026-10-09"
       ],
       "deliverables_changed": [
-        "data/research/2026-S42.json"
+        "data/research/2026-S42.json",
+        "data/weeks/2026-S42.json",
+        "data/coverage/2026-S42.json"
       ],
       "complete_cards": 125,
       "cards_integrated_this_run": 0,
       "draft_cards": 0,
       "partial_dossiers": 0,
-      "requirements_resolved": 0,
+      "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Réconcilier les anciennes attentes qui portaient seulement sur la provenance technique avec la règle web_schedule_evidence, en commençant par la réserve rendue Un crime dans la tête ; conserver tout conflit factuel.",
+      "next_useful_batch": "Réconcilier l’attente accessible suivante portant seulement sur la provenance Web, sans fermer les conflits factuels ni la revue hebdomadaire des omissions.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -33918,33 +34013,63 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T22:23:25.233Z",
+          "elapsed_seconds": 242.07,
+          "prompt_revision": "production-web-evidence-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "ea656a4a5685fe48629451e35731c229816e876d",
+          "next_actions": [
+            "Réconcilier les anciennes attentes qui portaient seulement sur la provenance technique avec la règle web_schedule_evidence, en commençant par la réserve rendue Un crime dans la tête ; conserver tout conflit factuel.",
+            "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique."
+          ],
+          "remaining_count": 18,
+          "next_actions_total": 15,
+          "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 24,
+          "waiting_actions_count": 9,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T22:19:23.163Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T23:19:39.374Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T22:22:32.123Z",
-        "elapsed_seconds": 188.96,
+        "observed_at": "2026-10-09T22:23:25.233Z",
+        "elapsed_seconds": 242.07,
         "prompt_revision": "production-web-evidence-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "eadc0522907700183f657a3a3ad13952ccccbeb6",
+        "source_sha": "ea656a4a5685fe48629451e35731c229816e876d",
         "next_actions": [
+          "Réconcilier les anciennes attentes qui portaient seulement sur la provenance technique avec la règle web_schedule_evidence, en commençant par la réserve rendue Un crime dans la tête ; conserver tout conflit factuel.",
           "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
           "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
-          "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
-          "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
+          "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique."
         ],
         "remaining_count": 18,
-        "next_actions_total": 14,
-        "truncated_notice": "9 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
-        "all_actions_total": 23,
+        "next_actions_total": 15,
+        "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "all_actions_total": 24,
         "waiting_actions_count": 9,
-        "research_review_warnings": [
-          "Current run batch needs_review: caller startedAt has no unique exact run match; remaining and resume preserved"
-        ],
+        "research_review_warnings": [],
         "observations": {
           "started_at": "2026-10-09T22:19:23.163Z",
           "lease_owned": "yes",
@@ -33961,12 +34086,30 @@
           "ended_at": "2026-10-09T22:23:01.733Z",
           "overlap": false,
           "note": "Bail acquis, candidate synchronisée normalement avec main, quatre contrats changés relus, cible S42 confirmée, écarts, flow sauvegardé et triage calculés sur eadc052."
+        },
+        {
+          "kind": "pdf_review_drafting_controls",
+          "started_at": "2026-10-09T22:23:25.233Z",
+          "ended_at": "2026-10-09T22:28:11.746Z",
+          "overlap": false,
+          "note": "Paquet ciblé relu, page PDF 132 rendue et inspectée, pool complet jeudi reconstruit par le helper, trois horaires corrigés et preuves/résolution réconciliées."
         }
       ],
-      "requirements_resolved_details": [],
+      "requirements_resolved_details": [
+        "Un crime dans la tête, réserve jeudi rang 10 : attente de provenance Web close par revue de la ligne imprimée faisant autorité ; horaire corrigé à 17:40."
+      ],
       "control_notes": [
-        "preparation-gaps sur eadc052 : seul coverage-full-week reste bloquant structurellement ; les sept jours ont dix cartes matérialisées et l’objectif de quinze reste un avertissement non bloquant."
-      ]
+        "preparation-gaps sur eadc052 : seul coverage-full-week reste bloquant structurellement ; les sept jours ont dix cartes matérialisées et l’objectif de quinze reste un avertissement non bloquant.",
+        "La grille Télérama fournie a été relue sur la page 132 : trois horaires de réserves jeudi ont été corrigés sans modifier les choix, rangs, textes, versions ou champs canoniques. Aucune indépendance EPG ni couverture hebdomadaire n’est attestée.",
+        "Contrôles ciblés après correction : identités canoniques, fraîcheur (97 % public, 87 % réserves), liens exacts et réserves (70/70, 49/49) réussis sur S42. validate-editorial ne signale que la barrière attendue full_week_reaudit_completed=false ; aucun autre échec.",
+        "preparation-gaps actualisé : deux messages bloquants regroupés en une action de couverture hebdomadaire ; sept avertissements de profondeur à 10/15, minima satisfaits."
+      ],
+      "measurements": {
+        "schedule_facts_corrected": {
+          "value": 3,
+          "scope": "trois horaires de réserves déjà existantes du jeudi ; aucune nouvelle œuvre, carte visible ou réserve ajoutée"
+        }
+      }
     }
   ],
   "source_issues": [
@@ -35551,18 +35694,31 @@
       ],
       "result": "La voie officielle exacte consultée publie le 10 octobre, pas le 15. Trois guides concordent pour le 15 à 17:37, mais leur mode d’acquisition reste inconnu ; aucun transfert d’événement ni d’indépendance n’est affirmé.",
       "blocking_scope": "carte réserve jeudi rang 10 uniquement",
-      "blocking": true,
-      "status": "waiting_for_positive_broadcast_provenance_or_replacement",
+      "blocking": false,
+      "status": "resolved_by_authoritative_pdf_transcription_review",
       "resume_when": "Un événement officiel exact, une preuve positive d’acquisition distincte ou une réserve de remplacement entièrement vérifiée couvre ce rang.",
       "retry_gate": {
-        "state": "waiting_for_new_evidence",
+        "state": "reopened",
         "action_texts": [
           "Un crime dans la tête : la réserve du 10/10 à 20:50 sur Ciné+ Classic est complète et officiellement attestée. La réserve retenue du 15/10 à 17:37 concorde sur TV-Programme, TV Digital3D et ProgrammeTVCeSoir, mais la provenance d'acquisition indépendante n'est pas établie et aucun événement officiel exact n'a été trouvé ; obtenir une base positive ou remplacer cette carte. Les diffusions Grand Écran du remake 2004 et les autres rediffusions non retenues sont différées ; identités et divergences restent conservées."
         ],
         "reason": "Une recherche officielle ciblée et deux voies alternatives supplémentaires ont confirmé la concordance sans établir leur provenance ; répéter les mêmes pages ne produit pas l’indépendance manquante.",
         "resume_when": "Un événement officiel exact, une preuve positive d’acquisition distincte ou une réserve de remplacement entièrement vérifiée couvre ce rang.",
         "observed_at": "2026-10-09T21:25:20.767Z",
-        "evidence": "coverage.closure_policy_reviews et trois guides datés exacts ; événement officiel du 10 octobre non transposé."
+        "evidence": "coverage.closure_policy_reviews et trois guides datés exacts ; événement officiel du 10 octobre non transposé.",
+        "reopened_at": "2026-10-09T22:28:11.746Z",
+        "new_evidence": "Main a introduit la règle d’autorité de la grille Télérama fournie. La page 132 du PDF correspondant à l’empreinte Git a été visuellement relue : la ligne exacte porte 17:40 sur Ciné+ Classic le 15 octobre."
+      },
+      "resolution": {
+        "decided_at": "2026-10-09T22:28:11.746Z",
+        "broadcast": "2026-10-15 17:40 Ciné+ Classic",
+        "authority": {
+          "path": "data/editorial-inputs/2026-S42/telerama.json",
+          "source_ref": "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93",
+          "pdf_page": 132,
+          "reviewed_at": "2026-10-09T22:28:11.746Z"
+        },
+        "note": "Le pool jeudi a été corrigé de 17:37 à 17:40 ; aucune indépendance des guides Web n’est revendiquée."
       }
     },
     {
@@ -35968,7 +36124,7 @@
         "scope": {
           "day": "jeudi"
         },
-        "status": "deferred",
+        "status": "card_complete",
         "signals": [
           {
             "kind": "critique",
@@ -35980,7 +36136,7 @@
           "sl-jeudi-point-limite",
           "sl-jeudi-fantomes-tonkin"
         ],
-        "decision_note": "Non retenu pour le jeudi : les créneaux du 15 octobre observés dans les guides n’ont pas reçu de preuve officielle propre. Le dossier distinct du lundi reste ouvert."
+        "decision_note": "Retenu comme réserve complète rang 10 du jeudi. La grille Télérama fournie, page 132, relue sur le PDF source, fixe Ciné+ Classic le 15 octobre à 17:40 ; les guides Web à 17:37 restent conservés comme divergence sans indépendance revendiquée."
       },
       {
         "id": "sl-vendredi-la-proie-nue",
@@ -41784,6 +41940,19 @@
       "evidence": "Saved documentary discovery dossiers and exact mechanical comparison with data/weeks/2026-S42.json on candidate c477369; none of the four titles is rendered.",
       "reason": "Ces quatre pistes conservent leurs annonces, critiques et limites sans disponibilité déduite. Aucune carte, réserve ou ligne rendue n’en dépend, donc leur enrichissement de niveau 3 n’est pas requis. La passe documentaire officielle et les offres/expirations restent ouvertes globalement.",
       "coverage_effect": "closes only the targeted level-3 follow-up for four unselected dossiers; global official documentary discovery remains open"
+    },
+    {
+      "action_text": "Un crime dans la tête : la réserve du 10/10 à 20:50 sur Ciné+ Classic est complète et officiellement attestée. La réserve retenue du 15/10 à 17:37 concorde sur TV-Programme, TV Digital3D et ProgrammeTVCeSoir, mais la provenance d'acquisition indépendante n'est pas établie et aucun événement officiel exact n'a été trouvé ; obtenir une base positive ou remplacer cette carte. Les diffusions Grand Écran du remake 2004 et les autres rediffusions non retenues sont différées ; identités et divergences restent conservées.",
+      "decided_at": "2026-10-09T22:28:11.746Z",
+      "decision": "authoritative_pdf_line_reviewed_web_provenance_only_wait_closed",
+      "applies_to": [
+        "un-crime-dans-la-tete-1962",
+        "2026-10-15 17:40 Ciné+ Classic",
+        "jeudi-selection rank 10"
+      ],
+      "evidence": "Imported Télérama grid source sha256 e96cce75… and visual review of page 132, bbox [400.68,179,474.45,192.5].",
+      "reason": "La politique courante fait de la grille fournie la référence des quatre faits imprimés après revue de transcription. La ligne est lisible et correspond à l’œuvre de Frankenheimer ; l’ancienne attente portait seulement sur la provenance technique des guides Web et devient sans objet.",
+      "coverage_effect": "closes only the selected Thursday reserve schedule proof; weekly omission review and independence flags remain open"
     }
   ]
 }

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "primary_complete_crosscheck_pending",
-  "updated_at": "2026-10-09T21:40:10.870Z",
+  "updated_at": "2026-10-09T22:28:11.746Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -19920,23 +19920,23 @@
       ]
     },
     {
-      "subject": "Un crime dans la tête (1962) — 2026-10-15 17:37 Ciné+ Classic",
+      "subject": "Un crime dans la tête (1962) — 2026-10-15 17:40 Ciné+ Classic",
       "work_id": "un-crime-dans-la-tete-1962",
-      "checked_at": "2026-10-09T21:25:20.767Z",
-      "conclusion": "selected_card_requires_positive_broadcast_provenance_or_replacement",
-      "linkage": "Trois pages courantes concordent sur le titre, le film de Frankenheimer, la chaîne, la date et 17:37. Leur domaine distinct ne démontre toutefois pas une acquisition indépendante ; la page CANAL+ exacte consultée ne publie que l’événement du 10 octobre. La carte reste donc ouverte sans inventer d’indépendance ni transposer l’événement officiel.",
+      "checked_at": "2026-10-09T22:28:11.746Z",
+      "conclusion": "editorial_level3_review_complete_under_telerama_schedule_authority",
+      "linkage": "La ligne imprimée de la page 132 a été visuellement relue : Un crime dans la tête, Ciné+ Classic, jeudi 15 octobre, 17:40. Cette référence fournie et importée prévaut sur les trois guides Web à 17:37 ; leur concordance et leur provenance inconnue restent documentées sans revendication d’indépendance.",
       "field_scope": {
         "verified": [
           "identity",
           "stable_editorial_fields",
-          "three_current_guide_observations"
+          "three_current_guide_observations",
+          "authoritative_pdf_title_channel_date_start_transcription_review"
         ],
-        "missing": [
-          "official_exact_event_or_positive_acquisition_basis_for_2026-10-15_17:37"
-        ],
+        "missing": [],
         "preserved_limits": [
           "no_guide_independence_claim",
-          "no_technical_copy_inference"
+          "no_technical_copy_inference",
+          "web_guides_remain_at_17:37"
         ]
       },
       "source_urls": [
@@ -19944,7 +19944,23 @@
         "https://tv.digital3d.com/detail/cineplus-classic-44?date=2026-10-15&time=17%3A16",
         "https://www.programmetvcesoir.net/chaine/cine-classic/2026-10-15",
         "https://www.canalplus.com/cinema/un-crime-dans-la-tete/h/1453848_50002/resume-casting/"
-      ]
+      ],
+      "pdf_reference": {
+        "path": "data/editorial-inputs/2026-S42/telerama.json",
+        "source_ref": "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93",
+        "pdf_page": 132,
+        "reviewed_at": "2026-10-09T22:28:11.746Z",
+        "bbox": [
+          400.68,
+          179,
+          474.45,
+          192.5
+        ],
+        "printed_title": "Un crime dans la tête",
+        "printed_channel": "Ciné+ Classic",
+        "printed_date": "2026-10-15",
+        "printed_start": "17:40"
+      }
     },
     {
       "subject": "De \"Matrix\" à \"Sense8\", la révolution Wachowski — 2026-10-16 00:00 France 4",
@@ -20310,6 +20326,81 @@
         "https://www.programme-television.org/tv/chaines/t18/mercredi",
         "https://screenplus.fr/programmestv/fr/t18/"
       ]
+    }
+  ],
+  "grid_authority_reviews": [
+    {
+      "id": "run23-telerama-page-132-thursday-retained-reserves",
+      "path": "data/editorial-inputs/2026-S42/telerama.json",
+      "source_ref": "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93",
+      "pdf_page": 132,
+      "reviewed_at": "2026-10-09T22:28:11.746Z",
+      "dates": [
+        "2026-10-15"
+      ],
+      "channels": [
+        "Canal+ Cinéma",
+        "Ciné+ Classic"
+      ],
+      "lines_accepted": [
+        {
+          "work_id": "la-maison-des-femmes-2025",
+          "title": "La Maison des femmes",
+          "date": "2026-10-15",
+          "channel": "Canal+ Cinéma",
+          "channel_printed": "Canal+ Cinéma(s)",
+          "start": "13:30",
+          "bbox": [
+            123.81,
+            105.14,
+            191.55,
+            118.64
+          ],
+          "previous_web_start": "13:23"
+        },
+        {
+          "work_id": "un-crime-dans-la-tete-1962",
+          "title": "Un crime dans la tête",
+          "date": "2026-10-15",
+          "channel": "Ciné+ Classic",
+          "channel_printed": "Ciné+ Classic",
+          "start": "17:40",
+          "bbox": [
+            400.68,
+            179,
+            474.45,
+            192.5
+          ],
+          "previous_web_start": "17:37"
+        },
+        {
+          "work_id": "becoming-hitchcock-the-legacy-of-blackmail-2024",
+          "title": "Becoming Hitchcock : The Legacy of Blackmail",
+          "date": "2026-10-15",
+          "channel": "Ciné+ Classic",
+          "channel_printed": "Ciné+ Classic",
+          "start": "19:40",
+          "bbox": [
+            400.67,
+            207,
+            475.19,
+            227.51
+          ],
+          "previous_web_start": "19:39"
+        }
+      ],
+      "omissions_resolved": [],
+      "decisions": [
+        "Les trois lignes imprimées ont été visuellement relues sur la page source ; titre, chaîne, jour et heure correspondent aux œuvres retenues.",
+        "Les horaires imprimés remplacent uniquement les trois horaires Web divergents dans le pool jeudi ; identités, versions, textes et rangs sont conservés.",
+        "Les écarts Web restent documentés et aucune indépendance de flux EPG n’est affirmée."
+      ],
+      "limits": [
+        "Cette revue porte uniquement sur trois lignes retenues de la page 132 ; elle ne certifie ni la couverture hebdomadaire ni les autres chaînes.",
+        "Les offres, expirations et versions techniques restent régies par leurs preuves séparées."
+      ],
+      "full_week_coverage_certified": false,
+      "independent_crosscheck_certified": false
     }
   ]
 }
