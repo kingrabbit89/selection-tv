@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T21:13:17.327Z",
+  "updated_at": "2026-10-09T21:18:03.312Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1371,7 +1371,8 @@
     "defer-six-unselected-dossiers-and-close-w9-primary-reminder-2026-10-09",
     "cineplus-four-card-complementary-proof-review-2026-10-09",
     "cineplus-selected-card-gap-map-2026-10-09",
-    "love-on-trial-canal-date-complementary-proof-2026-10-09"
+    "love-on-trial-canal-date-complementary-proof-2026-10-09",
+    "cineplus-fresh-official-route-review-and-exact-ci-2026-10-09"
   ],
   "blockers": [
     {
@@ -32493,7 +32494,8 @@
         "defer-six-unselected-dossiers-and-close-w9-primary-reminder-2026-10-09",
         "cineplus-four-card-complementary-proof-review-2026-10-09",
         "cineplus-selected-card-gap-map-2026-10-09",
-        "love-on-trial-canal-date-complementary-proof-2026-10-09"
+        "love-on-trial-canal-date-complementary-proof-2026-10-09",
+        "cineplus-fresh-official-route-review-and-exact-ci-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -32505,7 +32507,7 @@
       "partial_dossiers": 5,
       "requirements_resolved": 9,
       "stop_reason": null,
-      "next_useful_batch": "Étayer ou remplacer les neuf créneaux Ciné+ Festival encore incomplets au niveau 3, en commençant par Les Revenants, La reconquista et Secrets et mensonges, chacun réutilisé dans plusieurs pages.",
+      "next_useful_batch": "Préparer des remplacements entièrement vérifiés pour les neuf créneaux Ciné+ Festival encore ouverts ; ne reprendre les mêmes pages CANAL+ qu’en présence d’un événement daté nouveau.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -32668,20 +32670,52 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T21:15:23.088Z",
+          "elapsed_seconds": 1151.44,
+          "prompt_revision": "production-proof-policy-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "8607de6fcdb3ce607b14a4d006556f6d0624b10f",
+          "next_actions": [
+            "Étayer ou remplacer les neuf créneaux Ciné+ Festival encore incomplets au niveau 3, en commençant par Les Revenants, La reconquista et Secrets et mensonges, chacun réutilisé dans plusieurs pages.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
+            "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
+          ],
+          "remaining_count": 25,
+          "next_actions_total": 23,
+          "truncated_notice": "18 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 30,
+          "waiting_actions_count": 7,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T20:56:11.648Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T21:57:29.571Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T21:12:49.060Z",
-        "elapsed_seconds": 997.412,
+        "observed_at": "2026-10-09T21:15:23.088Z",
+        "elapsed_seconds": 1151.44,
         "prompt_revision": "production-proof-policy-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "c8e1c5fe698eb2fde586fc8bfa3fbebb75c00e7d",
+        "source_sha": "8607de6fcdb3ce607b14a4d006556f6d0624b10f",
         "next_actions": [
-          "Remplacer ou étayer les cartes Ciné+ Festival encore dépourvues d’événement officiel exact, en commençant par les créneaux réutilisés dans plusieurs pages : Les Revenants, La reconquista, Secrets et mensonges et Love on Trial.",
+          "Étayer ou remplacer les neuf créneaux Ciné+ Festival encore incomplets au niveau 3, en commençant par Les Revenants, La reconquista et Secrets et mensonges, chacun réutilisé dans plusieurs pages.",
           "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
           "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
@@ -32744,6 +32778,27 @@
           "ended_at": "2026-10-09T21:13:17.327Z",
           "overlap": false,
           "note": "Nouvelle preuve officielle CANAL+ datée du 12 octobre reliée aux grilles sauvegardées pour Love on Trial ; portée limitée au titre, à la date et à la famille d’offre."
+        },
+        {
+          "kind": "controls",
+          "started_at": "2026-10-09T21:14:23.000Z",
+          "ended_at": "2026-10-09T21:15:23.088Z",
+          "overlap": false,
+          "note": "Lecture des jobs du CI exact 8607de6 : tous les contrôles applicables passent, seul le verrou de candidate complète échoue au stade enrichment."
+        },
+        {
+          "kind": "research",
+          "started_at": "2026-10-09T21:15:23.088Z",
+          "ended_at": "2026-10-09T21:17:42.512Z",
+          "overlap": false,
+          "note": "Recherche officielle ciblée sur quatre œuvres Ciné+ ; événements hors des neuf créneaux retenus, aucune transposition."
+        },
+        {
+          "kind": "save",
+          "started_at": "2026-10-09T21:17:42.512Z",
+          "ended_at": "2026-10-09T21:18:03.312Z",
+          "overlap": false,
+          "note": "Renouvellement du bail avec même propriétaire, parent exact et nouvelle expiration."
         }
       ],
       "requirements_resolved_details": [
@@ -33314,6 +33369,18 @@
       "steps_read": true,
       "cause": "Tous les contrôles applicables ont réussi sur ce SHA, y compris réserves, images, présentation navigateur et pont Jellyfin Web ; seule Require a complete candidate before merging échoue parce que 2026-S42 reste au stade enrichment.",
       "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-09T21:15:23.088Z",
+      "head_sha": "8607de6fcdb3ce607b14a4d006556f6d0624b10f",
+      "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
+      "run_id": 37992206700,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": false,
+      "steps_read": true,
+      "cause": "Tous les contrôles applicables réussissent sur ce SHA, y compris données, identités, liens, fraîcheur, réserves, images, navigateur et pont Jellyfin Web ; seule Require a complete candidate before merging échoue parce que remaining n’est pas vide et la candidate reste en enrichment. Le rapport preparation-gaps conserve deux messages regroupés sur la revue hebdomadaire non attestée.",
+      "reusable_only_for_exact_sha": true
     }
   ],
   "catalogue_reuse": {
@@ -33412,7 +33479,7 @@
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Étayer ou remplacer les neuf créneaux Ciné+ Festival encore incomplets au niveau 3, en commençant par Les Revenants, La reconquista et Secrets et mensonges, chacun réutilisé dans plusieurs pages.",
+      "Préparer des remplacements entièrement vérifiés pour les neuf créneaux Ciné+ Festival encore ouverts ; ne reprendre les mêmes pages CANAL+ qu’en présence d’un événement daté nouveau.",
       "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
       "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
       "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
@@ -34217,21 +34284,25 @@
         "https://www.molotov.tv/fr_fr/p/20379/enquete-d-action",
         "https://programmetv.ouest-france.fr/magazine/societe/enquete-d-action-m103216497/e22-action-reaction-le-quotidien-sous-tension-des-policiers-de-montargis-1-2-c409830527/",
         "https://programmetv.ouest-france.fr/magazine/societe/enquete-d-action-m103216497/e22-action-reaction-le-quotidien-sous-tension-des-policiers-de-montargis-2-2-c409830529/",
-        "https://programmetv.ouest-france.fr/magazine/societe/enquete-d-action-m103216497/e24-home-jacking-la-nouvelle-menace-c409830539/"
+        "https://programmetv.ouest-france.fr/magazine/societe/enquete-d-action-m103216497/e24-home-jacking-la-nouvelle-menace-c409830539/",
+        "https://www.canalplus.com/cinema/les-revenants/h/344123_50002/bandes-annonces/",
+        "https://www.canalplus.com/cinema/secrets-et-mensonges/h/177164_50002",
+        "https://www.canalplus.com/cinema/secrets-et-mensonges/h/177164_50002/resume-casting/",
+        "https://www.canalplus.com/live/tab/direct/decouverte"
       ],
-      "status": "strong_third_party_triangulation_upstream_epg_provenance_undisclosed",
-      "result": "CANAL+ expose l’événement Kouté Vwa du 12 octobre à 04:49–06:12 sans nom de chaîne ; Ouest-France nomme Ciné+ Festival au même horaire et Molotov associe l’œuvre à Ciné+ Festival. Molotov expose aussi les trois créneaux W9 exacts 00:00, 01:00 et 01:50. Ces observations de distribution tierce renforcent fortement les rapprochements, mais Molotov ne publie pas l’origine amont de ses métadonnées EPG : l’indépendance de données et l’attribution officielle chaîne+horaire restent non certifiées.",
-      "blocking_scope": "niveau 2 Ciné+ Festival et W9",
-      "resume_condition": "Une grille CANAL+ portant chaîne et horaire dans le même événement, ou un fournisseur EPG explicitement indépendant, permettrait de fermer littéralement ces exigences.",
+      "status": "partial_selected_card_proofs_five_works_verified_nine_events_open",
+      "result": "La grille primaire W9 est acquise. Pour Ciné+ Festival, quatre œuvres documentaires et Love on Trial sont désormais vérifiées par assemblages complémentaires bornés. Les recherches officielles fraîches retrouvent Les Revenants sur Ciné+ Festival le 9 octobre à 20:50 et Secrets et mensonges sur d’autres diffusions, mais aucun de ces événements ne correspond aux neuf créneaux retenus encore ouverts ; ils ne sont donc pas transposés.",
+      "blocking_scope": "niveau 2 Ciné+ Festival et niveau 3 des neuf créneaux listés dans coverage.closure_policy_reviews ; W9 est résolu dans sa portée de rappel",
+      "resume_condition": "Un événement officiel exact, une base positive d’acquisition distincte ou une carte de remplacement entièrement vérifiée couvre l’un des neuf créneaux Ciné+ Festival encore ouverts.",
       "retry_gate": {
         "state": "waiting_for_new_evidence",
         "action_texts": [
           "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante."
         ],
-        "reason": "La nuit W9 est désormais rapprochée de la grille primaire M6/W9. Pour Ciné+ Festival, CANAL+, Ouest-France et Molotov sont déjà rapprochés ; répéter ces pages ne fournit pas encore l’attribution complète du flux.",
-        "resume_when": "Un événement officiel nomme Ciné+ Festival avec l’horaire, ou une pièce complémentaire établit exactement l’attribution de chaîne des événements déjà sauvegardés.",
-        "observed_at": "2026-10-09T21:02:05.686Z",
-        "evidence": "research_attempts[26] ; grille officielle https://pro.m6.fr/w9/grille/2026-42.pdf ; pages CANAL+, Ouest-France et Molotov sauvegardées."
+        "reason": "Les pages CANAL+, grilles datées et routes direct/live accessibles ont été exploitées. Elles vérifient cinq œuvres retenues, mais les événements officiels supplémentaires trouvés portent sur d’autres dates ; répéter ces mêmes routes ne lie pas les neuf créneaux restants.",
+        "resume_when": "Un événement officiel exact, une base positive d’acquisition distincte ou une carte de remplacement entièrement vérifiée couvre l’un des neuf créneaux Ciné+ Festival encore ouverts.",
+        "observed_at": "2026-10-09T21:18:03.312Z",
+        "evidence": "coverage.closure_policy_reviews : cinq œuvres vérifiées par pièces complémentaires et neuf créneaux selected_card_requires_additional_broadcast_evidence ; CI 37992206700 sur le SHA exact."
       }
     },
     {
