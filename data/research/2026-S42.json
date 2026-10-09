@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T13:43:41.793Z",
+  "updated_at": "2026-10-09T13:53:50.528Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1004,6 +1004,15 @@
       "completed_at": "2026-10-09T13:43:41.793Z",
       "scope": "dimanche:La Gueule ouverte",
       "summary": "Trois guides concordent avec l’événement CANAL+ sur 01:04 et Ciné+ Festival, mais l’indépendance de leurs flux n’est pas établie ; le blocage exact et sa condition de reprise sont sauvegardés sans certifier la carte.",
+      "deliverables": [
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "refresh-silence-rangs-broadcast-crosscheck-2026-10-09",
+      "completed_at": "2026-10-09T13:48:10.000Z",
+      "scope": "dimanche:Violences sexuelles à l’école : silence dans les rangs",
+      "summary": "Relecture fraîche des sources officielles et d'un guide : 21:00/21:02 et 09:34/09:35 restent distincts ; le conflit et sa condition de reprise sont conservés sans déclarer la carte complète.",
       "deliverables": [
         "data/research/2026-S42.json"
       ]
@@ -26288,16 +26297,17 @@
       "execution_kind": "scheduled_efficiency_production",
       "prompt_revision": "production-efficiency-2026-10-09",
       "stage": "enrichment",
-      "run_state": "running",
+      "run_state": "stopped",
       "started_at": "2026-10-09T13:03:36.207Z",
-      "ended_at": null,
-      "duration_basis": "Passage en cours ; started_at observé à l’entrée, ended_at sera fixé au bilan terminal.",
+      "ended_at": "2026-10-09T13:53:50.528Z",
+      "duration_basis": "wall_clock_measured_from_2026-10-09T13:03:36.207Z_to_2026-10-09T13:53:50.528Z",
       "completed_batches": [
         "complete-falaise-replace-ghost-friday-card-2026-10-09",
         "complete-radar-hd-ten-cards-2026-10-09",
         "complete-popularity-radar-public-scan-reserves-2026-10-09",
         "complete-radar-hd-cross-page-reserves-2026-10-09",
-        "advance-la-gueule-ouverte-channel-crosscheck-2026-10-09"
+        "advance-la-gueule-ouverte-channel-crosscheck-2026-10-09",
+        "refresh-silence-rangs-broadcast-crosscheck-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -26316,7 +26326,8 @@
         "radar-torrent-sillonnage : cinq cartes complètes",
         "popular_deep : cinq réserves complètes issues de dossiers déjà vérifiés",
         "hd1 et hd2 : huit candidats complets chacun, dont trois remplaçants croisés",
-        "dimanche : La Gueule ouverte, recoupement concordant mais indépendance des flux non établie"
+        "dimanche : La Gueule ouverte, recoupement concordant mais indépendance des flux non établie",
+        "dimanche : Silence dans les rangs relu sur sources actuelles ; conflit minute par minute et replay indisponible conservés"
       ],
       "complete_cards": 74,
       "draft_cards": 0,
@@ -26332,8 +26343,8 @@
         "radar popularité : cinq réserves profondes complètes structurées",
         "radar HD : réserve minimale de huit candidats complets atteinte pour hd1 et hd2"
       ],
-      "stop_reason": null,
-      "next_useful_batch": "Terminer un candidat quotidien dont diffusion, version, réception et visuel peuvent être tous certifiés ; ne reprendre La Gueule ouverte qu’avec une source primaire Ciné+ ou un flux explicitement indépendant.",
+      "stop_reason": "Durée utile de 50 minutes atteinte ; réserve finale consacrée au checkpoint, aux empreintes et à la libération du bail.",
+      "next_useful_batch": "Compléter une réserve quotidienne à partir d’un dossier proche d’une carte, puis poursuivre les recoupements indépendants de couverture ; reprendre La Gueule ouverte uniquement avec une source primaire Ciné+ ou un flux explicitement indépendant.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -26479,18 +26490,76 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T13:45:07.799Z",
+          "elapsed_seconds": 2491.592,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "bd179ccabd07b4869ea025e4d6cfcc291360dba5",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers les plus avancés.",
+            "Produire les deux radars et leur fichier de réserves à partir de signaux récents vérifiés.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T13:03:36.207Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T14:23:44.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        },
+        {
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-09T13:53:50.528Z",
+          "elapsed_seconds": 3014.321,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "bd179ccabd07b4869ea025e4d6cfcc291360dba5",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers les plus avancés.",
+            "Produire les deux radars et leur fichier de réserves à partir de signaux récents vérifiés.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T13:03:36.207Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T14:23:44.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T13:42:21.464Z",
-        "elapsed_seconds": 2325.257,
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-09T13:53:50.528Z",
+        "elapsed_seconds": 3014.321,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "0855a84825e8f8a8977129206337c20a87781a02",
+        "source_sha": "bd179ccabd07b4869ea025e4d6cfcc291360dba5",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers les plus avancés.",
           "Produire les deux radars et leur fichier de réserves à partir de signaux récents vérifiés.",
@@ -27148,28 +27217,28 @@
       "note": "Pas de progression active à dupliquer."
     },
     "last_ci_observation": {
-      "checked_at": "2026-10-09T08:02:02.000Z",
-      "head_sha": "be84c7360a93df9dfc60fcd887a5c9493c6359da",
-      "base_sha": "3111c849101f085ebc90f781460f57879c13786b",
-      "run_id": 37898501299,
+      "checked_at": "2026-10-09T13:46:56.000Z",
+      "head_sha": "bd179ccabd07b4869ea025e4d6cfcc291360dba5",
+      "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
+      "run_id": 37939030525,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Tous les contrôles applicables ont réussi sauf Require a complete candidate before merging, attendu avec stage enrichment et remaining non vide.",
+      "cause": "Tous les contrôles applicables ont réussi, y compris images distantes et présentation navigateur ; seule Require a complete candidate before merging échoue volontairement parce que 2026-S42 reste en préparation.",
       "reusable_only_for_exact_sha": true
     },
     "latest_candidate_ci": {
-      "checked_at": "2026-10-09T08:02:02.000Z",
-      "head_sha": "be84c7360a93df9dfc60fcd887a5c9493c6359da",
-      "base_sha": "3111c849101f085ebc90f781460f57879c13786b",
-      "run_id": 37898501299,
+      "checked_at": "2026-10-09T13:46:56.000Z",
+      "head_sha": "bd179ccabd07b4869ea025e4d6cfcc291360dba5",
+      "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
+      "run_id": 37939030525,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Tous les contrôles applicables ont réussi sauf Require a complete candidate before merging, attendu avec stage enrichment et remaining non vide.",
+      "cause": "Tous les contrôles applicables ont réussi, y compris images distantes et présentation navigateur ; seule Require a complete candidate before merging échoue volontairement parce que 2026-S42 reste en préparation.",
       "reusable_only_for_exact_sha": true
     },
-    "ci_note": "Le SHA parent be84c736 a passé tous les contrôles applicables sauf la barrière volontaire d’incomplétude. Ce nouveau lot attend ses propres contrôles ; aucune réussite antérieure ne le certifie."
+    "ci_note": "Le SHA bd179cca a passé tous les contrôles applicables sauf la barrière volontaire d’incomplétude ; ce résultat ne certifie aucune tête ultérieure."
   },
   "structure_check": {
     "checked_at": "2026-10-08T13:51:18.611Z",
@@ -27578,6 +27647,30 @@
       "blocking": true,
       "status": "crosscheck_concordant_independence_not_established",
       "resume_when": "Une grille primaire Ciné+ ou un fournisseur explicitement indépendant nomme Ciné+ Festival à 01:04, sans confondre durée de créneau et durée du film."
+    },
+    {
+      "id": "refresh-silence-rangs-broadcast-crosscheck-2026-10-09",
+      "object": {
+        "title": "Violences sexuelles à l'école : silence dans les rangs",
+        "work_id": "violences-sexuelles-a-l-ecole-silence-dans-les-rangs-2025",
+        "broadcasts": [
+          "2026-10-10 21:00/21:02",
+          "2026-10-11 09:34/09:35"
+        ]
+      },
+      "question": "Une relecture fraîche des pages officielles et guides permet-elle de départager les minutes de début ? ",
+      "attempted_at": "2026-10-09T13:48:10.000Z",
+      "source_urls": [
+        "https://pro.publicsenat.fr/actualites/silence-dans-les-rangs-suivi-d-un-debat-avec-rebecca-fitoussi-dans-un-monde-en-doc-samedi-10-octobre-a-21h-4b18a-02e48.html",
+        "https://pro.publicsenat.fr/actualites/public-senat-les-temps-forts-du-samedi-10-au-vendredi-17-octobre-2026-semaine-42-a4afa-02e48.html",
+        "https://www.publicsenat.fr/programme?date=11-10-2026",
+        "https://programmetv.ouest-france.fr/documentaire/societe/violences-sexuelles-a-l-ecole-silence-dans-les-rangs-c399164064/"
+      ],
+      "result": "Public Sénat maintient 21:00 pour la soirée du samedi et 09:35 pour la rediffusion du dimanche ; le guide Ouest-France maintient 21:02. Cette relecture ne démontre pas si l'écart décrit le lancement d'antenne ou le début du film, et ne clôt donc pas le conflit minute par minute. Le replay reste annoncé indisponible.",
+      "blocking_scope": "carte et réserve du dimanche pour cette œuvre uniquement",
+      "blocking": true,
+      "status": "fresh_crosscheck_conflict_preserved",
+      "resume_when": "Le préflight d'antenne ou une grille technique primaire distingue explicitement lancement de soirée et début du film, et l'offre publique est disponible avec une expiration vérifiable."
     }
   ],
   "shortlist": {
