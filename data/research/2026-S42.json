@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T21:29:06.734Z",
+  "updated_at": "2026-10-09T21:30:15.137Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -15,7 +15,7 @@
     "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
     "TF1 Séries Films : neuf diffusions recoupées et nuits consultées ; blocs nocturnes génériques non détaillés, réception et cartes à terminer. CSTAR 16 octobre : Un mariage à Noël concorde à 21:10 ; Noël à la carte 22:49/22:45 et identité des quatre Douanes à départager ; indépendance et nuits restent à certifier.",
     "Rappel TNT principal réconcilié : les dix éléments génériques sont rapprochés ou exclus, dont Envoyé spécial et Au cœur de l’enquête sans sujet identifié. Les autres passes partielles (cinéma payant, TV5MONDE FBS, RMC, Ciné+) et le conflit de version Marine restent ouverts dans leurs dossiers propres.",
-    "France 2/3 : Dodin Bouffant retenu à 02:55 le 12 selon la grille officielle relue ; entrée tierce La p'tite librairie du 15 à 12:15 exclue du relevé actif (Ici 12/13). Recontrôler au préflight les programmes retenus ; collections génériques/épisodes encore à compléter.",
+    "France 2/3 : la carte retenue La Passion de Dodin Bouffant du 12/10 à 02:55 satisfait le niveau 3 ; la grille officielle courante prévaut pour la préparation, avec l'ancien 03:05 du guide tiers conservé pour le préflight. L'entrée La p'tite librairie du 15 à 12:15 est exclue du relevé actif (Ici 12/13). Seules les collections génériques et épisodes du rappel documentaire France 2/3 restent à identifier.",
     "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
     "France 4 : compléter réception/offres documentaires et épisodes génériques ; Rachelle Allison à la Cigale retenu à 20:30 après recoupement officiel/guide courant, à revérifier au préflight. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle.",
     "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes. Nouvelle piste TV5Pro mène à une connexion ; guide public reste channel4/NewYork, aucune preuve FBS.",
@@ -1372,7 +1372,8 @@
     "un-crime-selected-event-scope-review-2026-10-09",
     "france4-wachowski-level3-and-unselected-defer-2026-10-09",
     "arte-prehistory-three-work-level3-review-2026-10-09",
-    "silence-dans-les-rangs-field-scoped-level3-review-2026-10-09"
+    "silence-dans-les-rangs-field-scoped-level3-review-2026-10-09",
+    "dodin-level3-and-france23-scope-narrowing-2026-10-09"
   ],
   "blockers": [
     {
@@ -26658,6 +26659,36 @@
       },
       "evidence_note": "Revue de niveau 3 : les minutes divergentes restent rattachées à leur source et le replay indisponible n’est pas présenté comme une offre.",
       "status": "editorial_level3_review_complete_under_closure_policy"
+    },
+    {
+      "work_id": "la-passion-de-dodin-bouffant-2023",
+      "fields": [
+        "identity",
+        "broadcast",
+        "ratings",
+        "criticism",
+        "image",
+        "links"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-2/10-10-2026/11-10-2026",
+        "https://tv-programme.com/france-2/lundi-12-octobre-2026/",
+        "https://www.gaumont.com/fr/film/la-passion-de-dodin-bouffant",
+        "https://www.bfi.org.uk/sight-and-sound/reviews/taste-things-tran-anh-hungs-elegant-gastro-film-feast-senses",
+        "https://www.rogerebert.com/reviews/the-taste-of-things-film-review-2023"
+      ],
+      "checked_at": "2026-10-09T21:30:15.137Z",
+      "stability": "mixed_stable_and_cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "start": "02:55",
+        "channel": "France 2",
+        "section": "lundi-selection",
+        "rank": 9
+      },
+      "evidence_note": "Carte de niveau 3 complète ; la décision de préparation 02:55 est rattachée à la grille officielle courante et l’ancien 03:05 reste visible pour le préflight.",
+      "status": "editorial_level3_review_complete_under_closure_policy"
     }
   ],
   "run_metrics": [
@@ -32756,7 +32787,8 @@
         "un-crime-selected-event-scope-review-2026-10-09",
         "france4-wachowski-level3-and-unselected-defer-2026-10-09",
         "arte-prehistory-three-work-level3-review-2026-10-09",
-        "silence-dans-les-rangs-field-scoped-level3-review-2026-10-09"
+        "silence-dans-les-rangs-field-scoped-level3-review-2026-10-09",
+        "dodin-level3-and-france23-scope-narrowing-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -32768,7 +32800,7 @@
       "partial_dossiers": 5,
       "requirements_resolved": 14,
       "stop_reason": null,
-      "next_useful_batch": "Revoir le suivi France 2/3 de La Passion de Dodin Bouffant : confirmer que la carte retenue du 12 octobre à 02:55 satisfait le niveau 3, puis isoler les seules collections génériques encore ouvertes dans le rappel documentaire.",
+      "next_useful_batch": "Traiter les collections et épisodes génériques France 2/3 depuis le relevé sauvegardé : identifier ou exclure précisément les pistes proches d’une carte, sans relancer une collecte générale.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -33123,29 +33155,61 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T21:29:31.316Z",
+          "elapsed_seconds": 1999.668,
+          "prompt_revision": "production-proof-policy-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "12a1b6a4c809ca4a78fd292ad72cd32bd6185c00",
+          "next_actions": [
+            "Revoir le suivi France 2/3 de La Passion de Dodin Bouffant : confirmer que la carte retenue du 12 octobre à 02:55 satisfait le niveau 3, puis isoler les seules collections génériques encore ouvertes dans le rappel documentaire.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
+            "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
+          ],
+          "remaining_count": 20,
+          "next_actions_total": 17,
+          "truncated_notice": "12 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 25,
+          "waiting_actions_count": 8,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T20:56:11.648Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T22:17:47.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T21:28:21.420Z",
-        "elapsed_seconds": 1929.772,
+        "observed_at": "2026-10-09T21:29:31.316Z",
+        "elapsed_seconds": 1999.668,
         "prompt_revision": "production-proof-policy-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "10b3759869ec0f47a4feee3f4a3b0ae01f243645",
+        "source_sha": "12a1b6a4c809ca4a78fd292ad72cd32bd6185c00",
         "next_actions": [
-          "Revoir Silence dans les rangs, carte retenue déjà rendue : vérifier si les divergences horaires et l’indisponibilité replay affectent réellement ses occurrences, puis borner ou clore le seul défaut restant.",
+          "Revoir le suivi France 2/3 de La Passion de Dodin Bouffant : confirmer que la carte retenue du 12 octobre à 02:55 satisfait le niveau 3, puis isoler les seules collections génériques encore ouvertes dans le rappel documentaire.",
           "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
           "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
           "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
         ],
-        "remaining_count": 21,
-        "next_actions_total": 18,
-        "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
-        "all_actions_total": 26,
+        "remaining_count": 20,
+        "next_actions_total": 17,
+        "truncated_notice": "12 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "all_actions_total": 25,
         "waiting_actions_count": 8,
         "research_review_warnings": [],
         "observations": {
@@ -33255,6 +33319,13 @@
           "ended_at": "2026-10-09T21:29:06.734Z",
           "overlap": false,
           "note": "Revue de portée des deux cartes Silence dans les rangs : événement officiel, minutes de grille, réception située, visuel et absence de replay séparés."
+        },
+        {
+          "kind": "review",
+          "started_at": "2026-10-09T21:29:31.316Z",
+          "ended_at": "2026-10-09T21:30:15.137Z",
+          "overlap": false,
+          "note": "Revue de niveau 3 de Dodin Bouffant et réduction du suivi France 2/3 aux seules collections/épisodes génériques du rappel."
         }
       ],
       "requirements_resolved_details": [
@@ -33939,7 +34010,7 @@
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Revoir le suivi France 2/3 de La Passion de Dodin Bouffant : confirmer que la carte retenue du 12 octobre à 02:55 satisfait le niveau 3, puis isoler les seules collections génériques encore ouvertes dans le rappel documentaire.",
+      "Traiter les collections et épisodes génériques France 2/3 depuis le relevé sauvegardé : identifier ou exclure précisément les pistes proches d’une carte, sans relancer une collecte générale.",
       "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
       "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
       "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
@@ -40974,6 +41045,18 @@
       "evidence": "Targeted editorial-work-packet on 10b3759 and saved official/dated-guide records.",
       "reason": "Les deux cartes linéaires satisfont le niveau 3. Le lancement officiel et le début de film restent explicitement distingués ; le replay indisponible n’est ni un lien publié ni une expiration à inventer. Le contrôle préflight général reste applicable.",
       "coverage_effect": "none_on_global_preflight_or_publication_controls"
+    },
+    {
+      "action_text": "France 2/3 : Dodin Bouffant retenu à 02:55 le 12 selon la grille officielle relue ; entrée tierce La p'tite librairie du 15 à 12:15 exclue du relevé actif (Ici 12/13). Recontrôler au préflight les programmes retenus ; collections génériques/épisodes encore à compléter.",
+      "decided_at": "2026-10-09T21:30:15.137Z",
+      "decision": "selected_card_closed_requirement_narrowed_to_generic_recall",
+      "applies_to": [
+        "la-passion-de-dodin-bouffant-2023",
+        "France 2/3 generic documentary collections"
+      ],
+      "evidence": "Targeted editorial-work-packet on 12a1b6a and saved official FranceTV/Gaumont/critical evidence.",
+      "reason": "La carte Dodin satisfait le niveau 3 et la fausse entrée Ici 12/13 est exclue. Le suivi reste ouvert uniquement pour les collections et épisodes génériques du rappel documentaire ; cette lacune de couverture n’est pas close par la carte.",
+      "coverage_effect": "generic France 2/3 documentary recall remains open"
     }
   ]
 }
