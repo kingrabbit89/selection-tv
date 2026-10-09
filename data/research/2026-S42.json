@@ -2,11 +2,9 @@
   "schema_version": 1,
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
-  "stage": "enrichment",
-  "updated_at": "2026-10-09T23:03:42.585Z",
-  "remaining": [
-    "Effectuer la revue factuelle et éditoriale finale de tous les livrables matérialisés, inspecter les pages, exécuter les contrôles complets sur le SHA/base final et corriger tout défaut avant de sceller la revue ; remaining ne pourra être vidé qu’après cette revue."
-  ],
+  "stage": "ready",
+  "updated_at": "2026-10-09T23:06:50.000Z",
+  "remaining": [],
   "completed_batches": [
     {
       "id": "inventory-2026-10-10-primary",
@@ -1381,7 +1379,8 @@
     "reconcile-paid-cinema-monthly-source-scope-2026-10-09",
     "map-cineplus-six-channel-pdf-omissions-2026-10-09",
     "reconcile-cineplus-aliases-and-close-level2-2026-10-09",
-    "reconcile-seven-day-editorial-reminders-and-shortlist-2026-10-09"
+    "reconcile-seven-day-editorial-reminders-and-shortlist-2026-10-09",
+    "final-factual-editorial-review-and-exact-sha-browser-ci-2026-10-09"
   ],
   "blockers": [
     {
@@ -27593,6 +27592,28 @@
       },
       "evidence_note": "Les 22 passes sauvegardées ont été rapprochées des pistes et livrables ; les pistes non retenues sont rejetées/reportées et aucune lacune de pool ne subsiste. Ne certifie pas les contrôles complets ni la revue finale des pages.",
       "status": "verified_for_requirement"
+    },
+    {
+      "id": "run23-final-deliverable-review-and-exact-sha-ci",
+      "work_id": null,
+      "fields": [
+        "all_materialized_deliverables",
+        "rendered_pages",
+        "remote_browser_presentation",
+        "jellyfin_web_bridge"
+      ],
+      "source_urls": [
+        "https://github.com/kingrabbit89/selection-tv/actions/runs/38002567097"
+      ],
+      "checked_at": "2026-10-09T23:06:50.000Z",
+      "stability": "exact_sha",
+      "applies_to": {
+        "week": "2026-S42",
+        "candidate_sha": "ed913e6d590028ca63c93273b468d638a07a14d1",
+        "base_sha": "a1d9bb3cdca37c8b8451052b8c5839a8f89e6fa9"
+      },
+      "evidence_note": "Revue finale des 32 pages et des livrables matérialisés ; contrôles locaux complets verts. Le job distant browser-presentation est vert, y compris Jellyfin Web. L’unique échec data-and-policy est la garde de complétude exécutée avant cette levée de remaining.",
+      "status": "verified_for_final_review"
     }
   ],
   "run_metrics": [
@@ -34618,7 +34639,7 @@
       "owner": "a8866989-9e88-47f8-bed7-81596fd35b0f",
       "execution_kind": "scheduled_editorial_web_evidence_production",
       "prompt_revision": "production-web-evidence-2026-10-09",
-      "stage": "enrichment",
+      "stage": "ready",
       "run_state": "running",
       "started_at": "2026-10-09T22:19:23.163Z",
       "ended_at": null,
@@ -34635,7 +34656,8 @@
         "reconcile-paid-cinema-monthly-source-scope-2026-10-09",
         "map-cineplus-six-channel-pdf-omissions-2026-10-09",
         "reconcile-cineplus-aliases-and-close-level2-2026-10-09",
-        "reconcile-seven-day-editorial-reminders-and-shortlist-2026-10-09"
+        "reconcile-seven-day-editorial-reminders-and-shortlist-2026-10-09",
+        "final-factual-editorial-review-and-exact-sha-browser-ci-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -34646,9 +34668,9 @@
       "cards_integrated_this_run": 0,
       "draft_cards": 0,
       "partial_dossiers": 0,
-      "requirements_resolved": 6,
+      "requirements_resolved": 7,
       "stop_reason": null,
-      "next_useful_batch": "Observer le CI exact du checkpoint de rappel ; si les deux checks sont verts, inspecter la candidate finale, vider la dernière exigence et sceller la revue.",
+      "next_useful_batch": "Sceller la revue, sauvegarder la candidate ready et observer le nouveau CI exact.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -34924,29 +34946,88 @@
             "lease_until": "2026-10-09T23:38:16.947Z",
             "external_stop": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T23:04:37.511Z",
+          "elapsed_seconds": 2714.348,
+          "prompt_revision": "production-web-evidence-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "ed913e6d590028ca63c93273b468d638a07a14d1",
+          "next_actions": [
+            "Observer le CI exact du checkpoint de rappel ; si les deux checks sont verts, inspecter la candidate finale, vider la dernière exigence et sceller la revue.",
+            "Effectuer la revue factuelle et éditoriale finale de tous les livrables matérialisés, inspecter les pages, exécuter les contrôles complets sur le SHA/base final et corriger tout défaut avant de sceller la revue ; remaining ne pourra être vidé qu’après cette revue."
+          ],
+          "remaining_count": 1,
+          "waiting_actions": [],
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T22:19:23.163Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T23:59:57.842Z",
+            "external_stop": null
+          }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T23:06:09.032Z",
+          "elapsed_seconds": 2805.869,
+          "prompt_revision": "production-web-evidence-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "ed913e6d590028ca63c93273b468d638a07a14d1",
+          "next_actions": [
+            "Observer le CI exact du checkpoint de rappel ; si les deux checks sont verts, inspecter la candidate finale, vider la dernière exigence et sceller la revue.",
+            "Effectuer la revue factuelle et éditoriale finale de tous les livrables matérialisés, inspecter les pages, exécuter les contrôles complets sur le SHA/base final et corriger tout défaut avant de sceller la revue ; remaining ne pourra être vidé qu’après cette revue."
+          ],
+          "remaining_count": 1,
+          "next_actions_total": 2,
+          "truncated_notice": null,
+          "all_actions_total": 2,
+          "waiting_actions": [],
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T22:19:23.163Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T23:59:57.842Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T22:55:53.902Z",
-        "elapsed_seconds": 2190.739,
+        "observed_at": "2026-10-09T23:06:09.032Z",
+        "elapsed_seconds": 2805.869,
         "prompt_revision": "production-web-evidence-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "c9eef849d3479ae8436e89a05047c843a92b42f4",
+        "source_sha": "ed913e6d590028ca63c93273b468d638a07a14d1",
         "next_actions": [
-          "Relancer les contrôles de préparation sur l’attestation hebdomadaire, puis traiter le premier défaut précis de niveau 3 ou de livrable encore ouvert."
+          "Observer le CI exact du checkpoint de rappel ; si les deux checks sont verts, inspecter la candidate finale, vider la dernière exigence et sceller la revue.",
+          "Effectuer la revue factuelle et éditoriale finale de tous les livrables matérialisés, inspecter les pages, exécuter les contrôles complets sur le SHA/base final et corriger tout défaut avant de sceller la revue ; remaining ne pourra être vidé qu’après cette revue."
         ],
-        "remaining_count": 16,
-        "waiting_actions_count": 1,
+        "remaining_count": 1,
+        "next_actions_total": 2,
+        "truncated_notice": null,
+        "all_actions_total": 2,
+        "waiting_actions": [],
         "research_review_warnings": [],
         "observations": {
           "started_at": "2026-10-09T22:19:23.163Z",
           "lease_owned": "yes",
-          "lease_until": "2026-10-09T23:38:16.947Z",
-          "external_stop": null
+          "lease_until": "2026-10-09T23:59:57.842Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
         }
       },
       "intervals": [
@@ -35033,6 +35114,13 @@
           "ended_at": "2026-10-09T23:03:42.585Z",
           "overlap": false,
           "note": "Validateurs complets locaux, santé de 90 visuels et inspection textuelle des pages dimanche/mercredi/jeudi ; Jellyfin différé au CI distant faute de Chromium local."
+        },
+        {
+          "kind": "final_review_and_remote_ci",
+          "started_at": "2026-10-09T23:03:42.585Z",
+          "ended_at": "2026-10-09T23:06:50.000Z",
+          "overlap": false,
+          "note": "Résultats CI exacts relus ; browser-presentation et Jellyfin Web verts, 32 pages déjà inspectées, dernière exigence levée avant scellement."
         }
       ],
       "requirements_resolved_details": [
@@ -35043,7 +35131,8 @@
         "Ciné+ Festival : les neuf événements de cartes retenues sont clos (six par PDF relu, trois par deux guides datés d’éditeurs distincts) ; aucune indépendance amont affirmée.",
         "Cinéma payant : attente d’exhaustivité de la source mensuelle close ; champs titre par titre et divergences conservés.",
         "Niveau 2 : les douze écarts Ciné+ ont été triés (dix variantes certaines, deux découvertes adultes écartées de la sélection) ; la revue applicable des omissions des sept jours est achevée sans affirmation d’indépendance globale.",
-        "Rappels éditoriaux des sept jours : 22 passes relues, statuts historiques réconciliés, pistes non retenues reportées/exclues et quatre réserves tardives ajoutées à la shortlist ; seule la revue finale reste ouverte."
+        "Rappels éditoriaux des sept jours : 22 passes relues, statuts historiques réconciliés, pistes non retenues reportées/exclues et quatre réserves tardives ajoutées à la shortlist ; seule la revue finale reste ouverte.",
+        "Revue finale : 32 pages inspectées, contrôles locaux complets verts et job distant browser-presentation vert sur ed913e6, y compris Jellyfin Web ; remaining peut être vidé avant scellement."
       ],
       "control_notes": [
         "preparation-gaps sur eadc052 : seul coverage-full-week reste bloquant structurellement ; les sept jours ont dix cartes matérialisées et l’objectif de quinze reste un avertissement non bloquant.",
@@ -35064,7 +35153,8 @@
         "full_week_reaudit_completed est attesté uniquement pour la revue applicable des omissions ; independent_crosscheck_complete reste faux et tous les contrôles de niveau 3 demeurent requis.",
         "Correction avant checkpoint suivant : zéro omission Ciné+ ne suffit pas à attester toute la revue hebdomadaire ; full_week_reaudit_completed reste faux tant que les sept rappels éditoriaux ne sont pas revus sur leurs preuves.",
         "La revue hebdomadaire est attestée après rapprochement des rappels, mais la revue finale des livrables et les contrôles complets restent ouverts ; aucune indépendance amont globale n’est affirmée.",
-        "Contrôles complets locaux après réconciliation : candidate, identités canoniques, liens exacts, fraîcheur (97 % public, 87 % réserves), réserves (70/70, 49/49) et 90 visuels réussis. Jellyfin Web n’a pas pu démarrer localement faute de binaire Chromium ; le contrôle distant browser-presentation sur ce SHA reste obligatoire et n’est pas présumé vert."
+        "Contrôles complets locaux après réconciliation : candidate, identités canoniques, liens exacts, fraîcheur (97 % public, 87 % réserves), réserves (70/70, 49/49) et 90 visuels réussis. Jellyfin Web n’a pas pu démarrer localement faute de binaire Chromium ; le contrôle distant browser-presentation sur ce SHA reste obligatoire et n’est pas présumé vert.",
+        "CI exact ed913e6 : browser-presentation réussi, y compris Jellyfin Web ; data-and-policy ne rate que la garde Require a complete candidate before merging, attendue avant le scellement."
       ],
       "measurements": {
         "schedule_facts_corrected": {
@@ -35767,9 +35857,7 @@
     "checkpoint_parent_sha": "704d1fdc4c056c7d1a8e140bd13e038b5cfbffe0",
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
-    "next_actions": [
-      "Effectuer la revue factuelle et éditoriale finale de tous les livrables matérialisés, inspecter les pages, exécuter les contrôles complets sur le SHA/base final et corriger tout défaut avant de sceller la revue ; remaining ne pourra être vidé qu’après cette revue."
-    ],
+    "next_actions": [],
     "publisher": {
       "checked_at": "2026-10-08T14:40:33.431Z",
       "id": 37792594478,
@@ -43852,6 +43940,53 @@
           "rejected": 4
         }
       }
+    },
+    {
+      "id": "run23-final-factual-editorial-review",
+      "decided_at": "2026-10-09T23:06:50.000Z",
+      "decision": "final_review_complete_ready_to_seal",
+      "previous_scope": [
+        "Effectuer la revue factuelle et éditoriale finale de tous les livrables matérialisés, inspecter les pages, exécuter les contrôles complets sur le SHA/base final et corriger tout défaut avant de sceller la revue ; remaining ne pourra être vidé qu’après cette revue."
+      ],
+      "current_scope": [],
+      "evidence": {
+        "candidate_sha": "ed913e6d590028ca63c93273b468d638a07a14d1",
+        "base_sha": "a1d9bb3cdca37c8b8451052b8c5839a8f89e6fa9",
+        "local_controls": [
+          "publication_candidate",
+          "canonical_identities",
+          "links",
+          "freshness",
+          "reserves",
+          "image_sources",
+          "editorial",
+          "preparation_gaps"
+        ],
+        "page_inspection": {
+          "pages": 32,
+          "unique_ids": true,
+          "placeholders": 0
+        },
+        "remote_ci": {
+          "run_id": 38002567097,
+          "browser_presentation": "success",
+          "jellyfin_web_step": "success",
+          "data_and_policy": "failure_only_at_require_complete_candidate_before_merging_before_seal"
+        }
+      }
     }
-  ]
+  ],
+  "editorial_review_completed": true,
+  "reviewed_at": "2026-10-09T23:06:47.969Z",
+  "reviewed_files": {
+    "data/works.json": "ba6e8ac5a2cd588e009425fba8919e34bbb3854d7d92cc74410cdac724b941eb",
+    "data/links.json": "f278dcd1af7f09a3c64b2186ad9df023398e062f6ed7d95d121df4aa125a6050",
+    "data/releases.json": "2e929c74ff4eb54c68015cd14010ef7da66a24c5cad40cbcc62c254515b8d148",
+    "data/manifest.json": "71620e6a68aedad00f623f7fcf8c5bf9d8746420f0e8d486f359ebfdba943892",
+    "data/inventory/2026-S42.json": "8635db484bf90e10cc3312a6bec5698438dcd84ef4504567412b9ca67f287291",
+    "data/coverage/2026-S42.json": "05381ca8dd96738f0fb5ea38fb1b8a3603d3081556f0eab1bc577c24abc34bfa",
+    "data/weeks/2026-S42.json": "b71f6b70454e065f2de2470d822e9f4e10f89dc67c632fc476a3db354d73741c",
+    "data/radar-reserves/2026-S42.json": "546f86edac974e3e9cf4a9baf450874423d93c768f08bbe15f47ce37abc83e37",
+    "semaines/2026-S42/index.html": "57665b6fe97dea38dc5afaee85bc7339e200673ba16a6185c19a6ea80eb74a2e"
+  }
 }
