@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T15:52:44.238Z",
+  "updated_at": "2026-10-09T15:55:24.754Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -24855,6 +24855,48 @@
       "applies_to": "2026-S42 radar HD candidate",
       "evidence_note": "Fiche Criterion exacte et collection des sorties de septembre relues ; ce lot ne certifie ni réception indépendante ni carte complète.",
       "status": "verified"
+    },
+    {
+      "work_id": "days-and-nights-in-the-forest-1970",
+      "fields": [
+        "independent_critical_reception"
+      ],
+      "urls": [
+        "https://www.newyorker.com/culture/the-front-row/days-and-nights-in-the-forest-emerges-from-the-shadows"
+      ],
+      "checked_at": "2026-10-09T15:54:16.138Z",
+      "stability": "stable_editorial",
+      "applies_to": "2026-S42 radar HD candidate",
+      "evidence_note": "Analyse le film comme un mélodrame passionné et un panorama social des divisions de classe, en soulignant la distance critique de Ray et la complexité morale des relations.",
+      "status": "verified"
+    },
+    {
+      "work_id": "the-secret-agent-2025",
+      "fields": [
+        "independent_critical_reception"
+      ],
+      "urls": [
+        "https://www.independent.co.uk/arts-entertainment/films/reviews/the-secret-agent-review-wagner-moura-oscars-b2916829.html"
+      ],
+      "checked_at": "2026-10-09T15:54:16.138Z",
+      "stability": "stable_editorial",
+      "applies_to": "2026-S42 radar HD candidate",
+      "evidence_note": "Salue l’interprétation de Wagner Moura et l’énergie du thriller politique tout en signalant qu’à 160 minutes le film frôle parfois l’auto-indulgence.",
+      "status": "verified"
+    },
+    {
+      "work_id": "nouvelle-vague-2025",
+      "fields": [
+        "independent_critical_reception"
+      ],
+      "urls": [
+        "https://www.filmcomment.com/cannes-2025-out-of-breath-ari-aster-eddington-richard-linklater-nouvelle-vague-review/"
+      ],
+      "checked_at": "2026-10-09T15:54:16.138Z",
+      "stability": "stable_editorial",
+      "applies_to": "2026-S42 radar HD candidate",
+      "evidence_note": "Lecture nettement réservée : prouesse technique et textures évocatrices, mais hommage jugé assoupi, trop idolâtre et trop proche d’un catalogue d’anecdotes cinéphiles.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -28425,10 +28467,10 @@
       "execution_kind": "scheduled_integrity_production",
       "prompt_revision": "production-integrity-2026-10-09",
       "stage": "enrichment",
-      "run_state": "running",
+      "run_state": "stopped",
       "started_at": "2026-10-09T15:05:17.088Z",
-      "ended_at": null,
-      "duration_basis": "Passage en cours ; started_at observé à l’entrée, ended_at non encore connu.",
+      "ended_at": "2026-10-09T15:55:24.754Z",
+      "duration_basis": "started_at observé à l’entrée et ended_at observé par le contrôleur de continuation avec --finish.",
       "completed_batches": [
         "sync-main-9aae312-2026-10-09",
         "integrate-competition-officielle-senscritique-2026-10-09",
@@ -28490,8 +28532,8 @@
         "samedi : réserve cachée rang 8 matérialisée pour Violences sexuelles à l’école, sans compter une nouvelle œuvre distincte",
         "radar HD : trois doublons de réserves interpages remplacés par The Lost Patrol, Dear Heart et Boys Town ; 13 œuvres distinctes et trois réserves globales utilisables"
       ],
-      "stop_reason": null,
-      "next_useful_batch": "Compléter réception indépendante, visuels exacts, liens forts, notes et textes pour Days and Nights in the Forest, The Secret Agent et Nouvelle Vague, puis remplacer les trois doublons restants de hd2.",
+      "stop_reason": "budget_reserve_reached",
+      "next_useful_batch": "Compléter visuels exacts, liens forts, notes et textes pour Days and Nights in the Forest, The Secret Agent et Nouvelle Vague, puis remplacer les trois doublons restants de hd2 ; traiter ensuite les cinq doublons du radar popularité.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -28753,18 +28795,76 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T15:53:32.112Z",
+          "elapsed_seconds": 2895.024,
+          "prompt_revision": "production-integrity-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "d48da1351d1ed3e5c33bd58f98b14b51b066e3a4",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T15:05:17.088Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T16:25:40.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        },
+        {
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-09T15:55:24.754Z",
+          "elapsed_seconds": 3007.666,
+          "prompt_revision": "production-integrity-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "d48da1351d1ed3e5c33bd58f98b14b51b066e3a4",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T15:05:17.088Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T16:25:40.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T15:51:46.642Z",
-        "elapsed_seconds": 2789.554,
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-09T15:55:24.754Z",
+        "elapsed_seconds": 3007.666,
         "prompt_revision": "production-integrity-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "565cbd7060a89aa68758a67c17a4ebe98fbbb8c3",
+        "source_sha": "d48da1351d1ed3e5c33bd58f98b14b51b066e3a4",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
@@ -28837,6 +28937,11 @@
           "started_at": "2026-10-09T15:51:46.642Z",
           "ended_at": "2026-10-09T15:52:44.238Z",
           "note": "Extraction ciblée puis lecture des trois fiches Criterion et de la collection officielle datée ; dossiers volontairement partiels."
+        },
+        "controles_finaux": {
+          "started_at": "2026-10-09T15:54:16.157Z",
+          "ended_at": "2026-10-09T15:55:24.754Z",
+          "note": "Contrôle structurel des trois dossiers partiels et nouvelle carte informative des écarts : 24 blocages, dont trois doublons HD et cinq doublons popularité."
         }
       },
       "control_notes": [
@@ -28856,7 +28961,9 @@
         "Radars HD : trois alternatives distinctes des dix primaires sont avancées avec événement Warner Archive et réception indépendante ; elles restent partial_dossiers tant que visuels et textes S42 ne sont pas revus.",
         "Visuels HD : Dear Heart et Boys Town ouverts directement ; affiche IMDb exacte de The Lost Patrol inspectée via le résultat image, mais ouverture CDN directe échouée, donc CI distante explicitement requise.",
         "Handoff radar-1 contrôlé : cinq primaires conservés, The Lost Patrol, Dear Heart et Boys Town ajoutés aux rangs 6 à 8. Les doublons HD passent de six à trois ; le radar passe de 10 à 13 œuvres distinctes et de 0 à 3 réserves globales utilisables.",
-        "Prochaine vague HD : trois fiches Criterion exactes et la collection de septembre relues ; aucune carte ni réception indépendante n’est déclarée complète à ce stade."
+        "Prochaine vague HD : trois fiches Criterion exactes et la collection de septembre relues ; aucune carte ni réception indépendante n’est déclarée complète à ce stade.",
+        "Réception HD lot 2 : une lecture indépendante argumentée sauvegardée pour chacun des trois candidats ; les dossiers restent partiels faute de visuels, liens, notes et textes complets.",
+        "Carte finale informative sur cette tête locale : 24 écarts bloquants et un avertissement ; le lot HD a clos trois doublons mais remaining, couverture et profondeurs quotidiennes restent ouverts."
       ]
     }
   ],
@@ -32480,9 +32587,14 @@
             "kind": "sortie_physique_officielle",
             "note": "Nouvelle restauration numérique 4K ; édition UHD/Blu-ray Criterion sortie le 29 septembre 2026.",
             "source_url": "https://www.criterion.com/films/34234-days-and-nights-in-the-forest"
+          },
+          {
+            "kind": "reception_independante",
+            "note": "Analyse le film comme un mélodrame passionné et un panorama social des divisions de classe, en soulignant la distance critique de Ray et la complexité morale des relations.",
+            "source_url": "https://www.newyorker.com/culture/the-front-row/days-and-nights-in-the-forest-emerges-from-the-shadows"
           }
         ],
-        "decision_note": "Alternative HD distincte potentielle ; identité, signal éditeur et date sont établis, mais réception indépendante, liens, visuel et textes restent à produire avant toute carte.",
+        "decision_note": "Alternative HD distincte avancée : signal officiel et une réception indépendante établis ; visuel exact, liens forts, notes et textes restent requis avant toute carte.",
         "alternatives": []
       },
       {
@@ -32498,9 +32610,14 @@
             "kind": "sortie_physique_officielle",
             "note": "Nouveau master numérique 4K approuvé par le réalisateur ; édition UHD/Blu-ray Criterion sortie le 22 septembre 2026.",
             "source_url": "https://www.criterion.com/films/35607-the-secret-agent"
+          },
+          {
+            "kind": "reception_independante",
+            "note": "Salue l’interprétation de Wagner Moura et l’énergie du thriller politique tout en signalant qu’à 160 minutes le film frôle parfois l’auto-indulgence.",
+            "source_url": "https://www.independent.co.uk/arts-entertainment/films/reviews/the-secret-agent-review-wagner-moura-oscars-b2916829.html"
           }
         ],
-        "decision_note": "Alternative HD distincte potentielle ; identité, signal éditeur et date sont établis, mais réception indépendante, liens, visuel et textes restent à produire avant toute carte.",
+        "decision_note": "Alternative HD distincte avancée : signal officiel et une réception indépendante établis ; visuel exact, liens forts, notes et textes restent requis avant toute carte.",
         "alternatives": []
       },
       {
@@ -32516,9 +32633,14 @@
             "kind": "sortie_physique_officielle",
             "note": "Nouveau master numérique 4K supervisé et approuvé par Richard Linklater et David Chambille ; édition UHD/Blu-ray Criterion sortie le 22 septembre 2026.",
             "source_url": "https://www.criterion.com/films/35769-nouvelle-vague"
+          },
+          {
+            "kind": "reception_independante",
+            "note": "Lecture nettement réservée : prouesse technique et textures évocatrices, mais hommage jugé assoupi, trop idolâtre et trop proche d’un catalogue d’anecdotes cinéphiles.",
+            "source_url": "https://www.filmcomment.com/cannes-2025-out-of-breath-ari-aster-eddington-richard-linklater-nouvelle-vague-review/"
           }
         ],
-        "decision_note": "Alternative HD distincte potentielle ; identité, signal éditeur et date sont établis, mais réception indépendante, liens, visuel et textes restent à produire avant toute carte.",
+        "decision_note": "Alternative HD distincte avancée : signal officiel et une réception indépendante établis ; visuel exact, liens forts, notes et textes restent requis avant toute carte.",
         "alternatives": []
       }
     ]
@@ -35425,11 +35547,17 @@
         ],
         "note": "Nouvelle restauration numérique 4K ; édition UHD/Blu-ray Criterion sortie le 29 septembre 2026."
       },
-      "critical_evidence": [],
+      "critical_evidence": [
+        {
+          "source": "The New Yorker — Richard Brody",
+          "source_url": "https://www.newyorker.com/culture/the-front-row/days-and-nights-in-the-forest-emerges-from-the-shadows",
+          "assessment": "Analyse le film comme un mélodrame passionné et un panorama social des divisions de classe, en soulignant la distance critique de Ray et la complexité morale des relations."
+        }
+      ],
       "dossier_completeness": "partial",
-      "reason": "Signal officiel et identité établis ; réception indépendante argumentée, visuel exact, liens forts, notes et textes restent requis.",
+      "reason": "Signal officiel, identité et une réception indépendante argumentée établis ; visuel exact, liens forts, notes et textes restent requis.",
       "status": "researching",
-      "updated_at": "2026-10-09T15:52:44.238Z"
+      "updated_at": "2026-10-09T15:54:16.138Z"
     },
     {
       "title": "The Secret Agent",
@@ -35456,11 +35584,17 @@
         ],
         "note": "Nouveau master numérique 4K approuvé par le réalisateur ; édition UHD/Blu-ray Criterion sortie le 22 septembre 2026."
       },
-      "critical_evidence": [],
+      "critical_evidence": [
+        {
+          "source": "The Independent",
+          "source_url": "https://www.independent.co.uk/arts-entertainment/films/reviews/the-secret-agent-review-wagner-moura-oscars-b2916829.html",
+          "assessment": "Salue l’interprétation de Wagner Moura et l’énergie du thriller politique tout en signalant qu’à 160 minutes le film frôle parfois l’auto-indulgence."
+        }
+      ],
       "dossier_completeness": "partial",
-      "reason": "Signal officiel et identité établis ; réception indépendante argumentée, visuel exact, liens forts, notes et textes restent requis.",
+      "reason": "Signal officiel, identité et une réception indépendante argumentée établis ; visuel exact, liens forts, notes et textes restent requis.",
       "status": "researching",
-      "updated_at": "2026-10-09T15:52:44.238Z"
+      "updated_at": "2026-10-09T15:54:16.138Z"
     },
     {
       "title": "Nouvelle Vague",
@@ -35487,11 +35621,17 @@
         ],
         "note": "Nouveau master numérique 4K supervisé et approuvé par Richard Linklater et David Chambille ; édition UHD/Blu-ray Criterion sortie le 22 septembre 2026."
       },
-      "critical_evidence": [],
+      "critical_evidence": [
+        {
+          "source": "Film Comment — Beatrice Loayza",
+          "source_url": "https://www.filmcomment.com/cannes-2025-out-of-breath-ari-aster-eddington-richard-linklater-nouvelle-vague-review/",
+          "assessment": "Lecture nettement réservée : prouesse technique et textures évocatrices, mais hommage jugé assoupi, trop idolâtre et trop proche d’un catalogue d’anecdotes cinéphiles."
+        }
+      ],
       "dossier_completeness": "partial",
-      "reason": "Signal officiel et identité établis ; réception indépendante argumentée, visuel exact, liens forts, notes et textes restent requis.",
+      "reason": "Signal officiel, identité et une réception indépendante argumentée établis ; visuel exact, liens forts, notes et textes restent requis.",
       "status": "researching",
-      "updated_at": "2026-10-09T15:52:44.238Z"
+      "updated_at": "2026-10-09T15:54:16.138Z"
     }
   ]
 }
