@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "3111c849101f085ebc90f781460f57879c13786b",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T06:17:18.928Z",
+  "updated_at": "2026-10-09T07:10:24.056Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -477,6 +477,12 @@
       "completed_at": "2026-10-09T06:17:18.928Z",
       "description": "Identité, durée d'œuvre, créneau France 4, réception professionnelle, liens directs, motif d'absence de moyenne et visuel officiel du documentaire Wachowski ont été contrôlés puis rendus en troisième choix développé du vendredi.",
       "items": 1
+    },
+    {
+      "id": "complete-sunday-two-developed-drafts-2026-10-09",
+      "completed_at": "2026-10-09T07:10:24.056Z",
+      "description": "Retour à Kotelnitch et Violences sexuelles à l’école : silence dans les rangs ont été rendus comme deuxième et troisième choix développés draft du dimanche depuis la présélection. Les limites de provenance de chaîne, la divergence 09:34/09:35 et l’absence de note du second titre restent explicites.",
+      "items": 2
     }
   ],
   "blockers": [
@@ -19810,6 +19816,51 @@
       "reused_in": [
         "samedi-selection"
       ]
+    },
+    {
+      "work_id": "retour-a-kotelnitch-2003",
+      "fields": [
+        "ratings.imdb",
+        "image",
+        "image.provenance"
+      ],
+      "source_urls": [
+        "https://www.imdb.com/title/tt0348732/",
+        "https://www.senscritique.com/film/retour_a_kotelnitch/448153/images",
+        "https://media.senscritique.com/media/000023899086/0/retour_a_kotelnitch.jpg"
+      ],
+      "checked_at": "2026-10-09T07:10:24.056Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Retour à Kotelnitch",
+        "version": "documentaire 2003"
+      },
+      "evidence_note": "IMDb affichait 7,1/10 sur 61 votes. L’affiche exacte liée à la fiche SensCritique a été ouverte et inspectée ; la santé distante reste soumise au CI.",
+      "status": "verified"
+    },
+    {
+      "work_id": "violences-sexuelles-a-l-ecole-silence-dans-les-rangs-2025",
+      "fields": [
+        "image",
+        "image.provenance",
+        "ratings.imdb",
+        "ratings.senscritique"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/contenu-de-presse/74754337",
+        "https://www.francetvpro.fr/sites/default/files/styles/crop_format_bandeau/public/telechargements/images/Photo%201%20silencedanslesrangs%C2%A9CAT%26Cie.jpg.webp?h=920929c4&itok=PNv24Lmc",
+        "https://www.senscritique.com/film/violences_sexuelles_a_l_ecole_silence_dans_les_rangs/139752032"
+      ],
+      "checked_at": "2026-10-09T07:10:24.056Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Violences sexuelles à l’école : silence dans les rangs",
+        "version": "documentaire 52 minutes"
+      },
+      "evidence_note": "Photogramme officiel CAT&Cie ouvert depuis FranceTvPro. Recherche exacte titre/réalisatrice : aucun identifiant IMDb établi et aucune note visible sur la fiche SensCritique exacte ; ce constat ne prouve pas une absence définitive.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -20716,6 +20767,46 @@
       "stop_reason": "two_daily_third_choices_completed_validated_and_checkpoint_ready_for_remote_save_before_active_work_limit",
       "next_useful_batch": "Construire les réserves complètes du samedi et du vendredi depuis les pistes déjà vérifiées, puis achever deux choix d’un jour encore à 1/3 sans nouvelle collecte générale.",
       "note": "Chauvet réutilisé depuis les preuves déjà sauvegardées pour le troisième choix du samedi ; Wachowski achevé avec identité, version, diffusion, réception, liens, visuel et absence de moyenne documentée. Rapport informatif passé de44à42écarts ; les35exigences restent ouvertes."
+    },
+    {
+      "date": "2026-10-09T07:10:24.056Z",
+      "started_at": "2026-10-09T07:02:51.000Z",
+      "ended_at": "2026-10-09T07:10:24.056Z",
+      "owner": "12ef07b7-8160-41dc-9302-61cbac0aad09",
+      "execution_kind": "scheduled_scoped_production_batch",
+      "prompt_revision": "production-shortlist-2026-10-08",
+      "stage": "enrichment",
+      "elapsed_seconds": 453,
+      "duration_basis": "started_at provient du début connu de cette reprise ; ended_at est l’horodatage du checkpoint local avant sauvegarde distante et hors attente CI.",
+      "completed_batches": [
+        "complete-sunday-two-developed-drafts-2026-10-09"
+      ],
+      "deliverables_changed": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/coverage/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "complete_cards": 0,
+      "draft_cards": 2,
+      "partial_dossiers": 0,
+      "deliverables_advanced": [
+        "dimanche-selection",
+        "dimanche-grille",
+        "catalogue canonique",
+        "liens directs"
+      ],
+      "requirements_resolved": [
+        "dimanche : trois choix développés matérialisés"
+      ],
+      "remaining": {
+        "stage": "enrichment",
+        "count": 35,
+        "reference": "remaining"
+      },
+      "stop_reason": "coherent_sunday_batch_rendered_checked_and_ready_for_remote_save_before_active_work_limit",
+      "next_useful_batch": "Construire les réserves complètes des jours à trois choix, puis achever deux choix développés d’un jour encore à 1/3 depuis la shortlist."
     }
   ],
   "source_issues": [
@@ -21314,15 +21405,14 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "d81c30ef241204ebbde4eba86b7fdf7fa304d83a",
+    "checkpoint_parent_sha": "7288f7d79d40faec7a004ba3b03f91bdc236aa9d",
     "main_sha": "3111c849101f085ebc90f781460f57879c13786b",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Samedi et vendredi disposent désormais chacun de trois choix développés draft. Produire leurs réserves complètes depuis la shortlist et les dossiers avancés, puis poursuivre les choix des cinq jours encore à 1/3 ; ne pas relancer une collecte générale.",
-      "Plateformes gratuites : Chauvet et Sulawesi sont documentés et rendus avec offres France, visuels et liens ; ne pas refaire ces dossiers. Comparaison du numéro, rendu candidat et contrôle distant des images restent à effectuer au préflight.",
-      "A Ghost Story : annonce primaire TCM indexée sauvegardée pour le vendredi 16 octobre à 20:50 ; ne pas reprendre la même recherche de chaîne. La carte draft conserve la durée/version de la copie TCM comme limite (créneau90min versus cinéma92min).",
-      "Produire aussi les rubriques indépendantes encore absentes (abonnements, sorties, replay, radars) ; réutiliser un dossier pour plusieurs emplacements seulement avec faits d’offre adaptés et sans doublon inutile.",
-      "Consolider les recoupements, rappels et conflits de couverture sur preuves réelles ; préserver les35exigences. Enchaîner après sauvegarde tant que des tâches utiles sont accessibles ; un checkpoint n’est pas un motif d’arrêt du passage automatique."
+      "Dimanche dispose désormais de trois choix développés draft. Construire les réserves complètes du samedi, dimanche et vendredi depuis les pistes vérifiées, sans relancer une collecte générale.",
+      "Achever deux choix développés pour lundi, mardi, mercredi et jeudi à partir de la shortlist et des dossiers proches d’une carte ; préserver les limites de diffusion/version déjà consignées.",
+      "Produire les rubriques indépendantes encore absentes (abonnements, sorties, replay, radars) ; réutiliser les dossiers seulement avec des faits d’offre propres à la rubrique.",
+      "Consolider les recoupements, rappels et conflits de couverture sur preuves réelles ; préserver les 35 exigences restantes jusqu’à leur résolution effective."
     ],
     "publisher": {
       "checked_at": "2026-10-08T14:40:33.431Z",
@@ -21333,25 +21423,25 @@
       "note": "Pas de progression active à dupliquer."
     },
     "last_ci_observation": {
-      "checked_at": "2026-10-09T06:02:08.000Z",
-      "head_sha": "d81c30ef241204ebbde4eba86b7fdf7fa304d83a",
+      "checked_at": "2026-10-09T07:02:51.000Z",
+      "head_sha": "7288f7d79d40faec7a004ba3b03f91bdc236aa9d",
       "base_sha": "3111c849101f085ebc90f781460f57879c13786b",
-      "run_id": 37853436121,
+      "run_id": 37893306537,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Seul échec Require a complete candidate before merging ; préparation incomplète. Public S41 contrôlé, aucune certification S42. Étapes skipped non comptées comme réussite.",
+      "cause": "Tous les contrôles applicables ont réussi sauf Require a complete candidate before merging, attendu avec stage enrichment et remaining non vide.",
       "reusable_only_for_exact_sha": true
     },
     "latest_candidate_ci": {
-      "checked_at": "2026-10-09T06:02:08.000Z",
-      "head_sha": "d81c30ef241204ebbde4eba86b7fdf7fa304d83a",
+      "checked_at": "2026-10-09T07:02:51.000Z",
+      "head_sha": "7288f7d79d40faec7a004ba3b03f91bdc236aa9d",
       "base_sha": "3111c849101f085ebc90f781460f57879c13786b",
-      "run_id": 37853436121,
+      "run_id": 37893306537,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Seul échec Require a complete candidate before merging ; préparation incomplète. Public S41 contrôlé, aucune certification S42. Étapes skipped non comptées comme réussite.",
+      "cause": "Tous les contrôles applicables ont réussi sauf Require a complete candidate before merging, attendu avec stage enrichment et remaining non vide.",
       "reusable_only_for_exact_sha": true
     },
     "ci_note": "Les observations conservées concernent leurs anciens SHA. Ce nouveau lot attend ses propres contrôles ; aucune ancienne réussite ne certifie ce checkpoint ni S42. Stage enrichment et remaining non vide."
@@ -21721,18 +21811,20 @@
         "scope": {
           "day": "dimanche"
         },
-        "status": "researching",
+        "status": "card_drafted",
         "signals": [
           {
             "kind": "critique",
-            "note": "Deux critiques indépendantes sont sauvegardées ; droits, version, note et affiche restent à achever.",
+            "note": "Deux critiques indépendantes, l’identité, l’affiche et la note IMDb sont sauvegardées ; la carte conserve la limite de provenance de chaîne.",
             "source_url": "https://www.critikat.com/actualite-cine/critique/retour-a-kotelnitch/"
           }
         ],
         "alternatives": [
           "sl-dimanche-la-gueule-ouverte",
           "sl-dimanche-silence-rangs"
-        ]
+        ],
+        "work_id": "retour-a-kotelnitch-2003",
+        "decision_note": "Carte draft développée et catalogue canonique créés ; attribution de chaîne issue des grilles et comparaison hebdomadaire restent ouvertes."
       },
       {
         "id": "sl-dimanche-silence-rangs",
@@ -21740,7 +21832,7 @@
         "scope": {
           "day": "dimanche"
         },
-        "status": "researching",
+        "status": "card_drafted",
         "signals": [
           {
             "kind": "distinction",
@@ -21751,7 +21843,9 @@
         "alternatives": [
           "sl-dimanche-kotelnitch",
           "sl-dimanche-la-gueule-ouverte"
-        ]
+        ],
+        "work_id": "violences-sexuelles-a-l-ecole-silence-dans-les-rangs-2025",
+        "decision_note": "Carte draft développée depuis le prix situé et les sources officielles ; le décalage officiel/grille de 09:35/09:34 et l’absence de critique formelle restent tracés."
       },
       {
         "id": "sl-lundi-koute-vwa",
@@ -22061,8 +22155,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "d81c30ef241204ebbde4eba86b7fdf7fa304d83a",
-    "produced_at": "2026-10-09T06:17:18.928Z",
+    "source_candidate_sha": "7288f7d79d40faec7a004ba3b03f91bdc236aa9d",
+    "produced_at": "2026-10-09T07:10:24.056Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -22368,10 +22462,61 @@
             "https://www.nouvelobs.com/teleobs/20240531.OBS89119/de-matrix-a-sense8-la-revolution-wachowski-de-l-autre-cote-du-miroir.html"
           ]
         }
+      },
+      {
+        "work_id": "retour-a-kotelnitch-2003",
+        "date": "2026-10-11",
+        "rank_provisional": 2,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "identity_version": "Documentaire français d’Emmanuel Carrère, 2003, distinct du reportage Le Soldat perdu ; version linéaire annoncée à 106 minutes.",
+          "canonical_fields": "Identité et réception stable réutilisées depuis les preuves du 8 octobre ; affiche exacte et note IMDb 7,1/10 contrôlées le 9 octobre.",
+          "current_broadcast": "Événement CANAL+ du 11 octobre à 02:45–04:32 concordant avec la grille Ciné+ Festival ; le nom de chaîne reste issu de la grille sauvegardée.",
+          "editorial_copy": "Synopsis et justification originaux relus depuis les deux critiques indépendantes, avec réserves explicites.",
+          "evidence_urls": [
+            "https://www.canalplus.com/cinema/retour-a-kotelnitch/h/437731_50002",
+            "https://www.imdb.com/title/tt0348732/",
+            "https://www.critikat.com/actualite-cine/critique/retour-a-kotelnitch/",
+            "https://www.chronicart.com/cinema/retour-a-kotelnitch/"
+          ]
+        }
+      },
+      {
+        "work_id": "violences-sexuelles-a-l-ecole-silence-dans-les-rangs-2025",
+        "date": "2026-10-11",
+        "rank_provisional": 3,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "identity_version": "Documentaire de Sophie Romillat produit en 2025, 52 minutes, distinct des reportages voisins sur les violences scolaires.",
+          "canonical_fields": "Réalisation, année, pays et durée confirmés ; photogramme officiel inspecté et motif précis d’absence de note conservé.",
+          "current_broadcast": "La carte suit l’annonce officielle Public Sénat du 11 octobre à 09:35 ; la grille tierce à 09:34 demeure une divergence explicite.",
+          "editorial_copy": "Le prix Enfance Majuscule et les reportages de contexte restent attribués sans consensus critique ni jugement formel inventé.",
+          "evidence_urls": [
+            "https://pro.publicsenat.fr/actualites/silence-dans-les-rangs-suivi-d-un-debat-avec-rebecca-fitoussi-dans-un-monde-en-doc-samedi-10-octobre-a-21h-4b18a-02e48.html",
+            "https://www.francetvpro.fr/contenu-de-presse/74754337",
+            "https://enfance-majuscule.fr/palmares-du-prix-media-enfance-majuscule-2026-nos-8-programmes-laureats-2/",
+            "https://www.senscritique.com/film/violences_sexuelles_a_l_ecole_silence_dans_les_rangs/139752032"
+          ]
+        }
       }
     ],
     "publication_ready": false,
     "comparison_pending": true,
     "remaining_reference": "remaining"
+  },
+  "contract_reads": {
+    "main_sha": "3111c849101f085ebc90f781460f57879c13786b",
+    "checked_at": "2026-10-09T07:02:51.000Z",
+    "documents": {
+      "AUTOMATION.md": "38bca43261f64cf6a731f7d7e0cd1aa070d65f0b",
+      "docs/HYBRID-WORKFLOW.md": "95cad0792febab1bc7edf076300bd38ced9c84ba",
+      "ARCHITECTURE.md": "7c6e72b0729e4f915bc5a90f084c40e1cc363e8a",
+      "data/automation-config.json": "e55d9a247fc0299ce6effc6c3e97eea9018f0dc3",
+      "data/editorial-config.json": "e491aa84dac6b34ca4ec4b8b4cb1e88737a0b385",
+      "data/personalization-config.json": "ad5716e95db25894de7ca58c874154783b1766a8"
+    },
+    "note": "Les six contrats ont été lus sur le SHA main indiqué avant le choix du lot."
   }
 }
