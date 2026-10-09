@@ -1368,6 +1368,11 @@
       "id": "reconcile-tuesday-version-requirement-after-replacements",
       "completed_at": "2026-10-09T20:40:58.657Z",
       "description": "Le blocage niveau 3 des deux anciennes copies mardi est fermé par retrait des cartes et deux alternatives entièrement vérifiées ; aucune version ambiguë n’est certifiée."
+    },
+    {
+      "id": "ci-revert-forbidden-torrent-trends",
+      "completed_at": "2026-10-09T20:47:00.000Z",
+      "description": "Les logs CI exacts de a77d606 montrent validation-context rouge car data/torrent-trends.json est hors périmètre éditorial. Le fichier est restauré bit pour bit depuis main ; le visuel canonique corrigé reste dans works.json."
     }
   ],
   "blockers": [
@@ -31715,15 +31720,15 @@
         "repair-two-inherited-image-sources-2026-10-09",
         "repair-hondo-inherited-image-source-2026-10-09",
         "enrichment-la-fille-tuesday-version-safe-replacement",
-        "reconcile-tuesday-version-requirement-after-replacements"
+        "reconcile-tuesday-version-requirement-after-replacements",
+        "ci-revert-forbidden-torrent-trends"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
         "data/coverage/2026-S42.json",
         "data/works.json",
         "data/links.json",
-        "data/weeks/2026-S42.json",
-        "data/torrent-trends.json"
+        "data/weeks/2026-S42.json"
       ],
       "complete_cards": 125,
       "cards_integrated_this_run": 2,
@@ -31759,7 +31764,7 @@
       },
       "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Reprendre une exigence de niveau 2 disposant d’une source nouvelle ; ne pas répéter les routes TV5/RMC/Ciné+ déjà consignées sans changement observé.",
+      "next_useful_batch": "Sauvegarder la correction de périmètre et laisser la CI du nouveau SHA distinguer la barrière éditoriale attendue des défauts réels.",
       "verification_records": [
         {
           "fields": [
@@ -32074,18 +32079,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T20:42:23.401Z",
+          "elapsed_seconds": 2514.502,
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "a77d606a14b2e12c651c379d12a3506c44c11bba",
+          "next_actions": [
+            "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
+            "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
+            "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
+            "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire."
+          ],
+          "remaining_count": 34,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T20:00:28.899Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T21:40:52.031Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T20:40:58.657Z",
-        "elapsed_seconds": 2429.758,
+        "observed_at": "2026-10-09T20:42:23.401Z",
+        "elapsed_seconds": 2514.502,
         "prompt_revision": "production-closure-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "1a8eee509b5ce942bf4b689091d5c1b4fec987ca",
+        "source_sha": "a77d606a14b2e12c651c379d12a3506c44c11bba",
         "next_actions": [
           "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
           "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
@@ -32165,6 +32199,11 @@
           "started_at": "2026-10-09T20:40:58.657Z",
           "ended_at": "2026-10-09T20:42:34.000Z",
           "note": "Rapport preparation-gaps recalculé sur 1a8eee ; l’ancienne tentative bloquante des copies mardi est réconciliée avec les deux remplacements vérifiés. Aucun flag de couverture n’est modifié."
+        },
+        "ci_log_review_and_fix": {
+          "started_at": "2026-10-09T20:42:23.401Z",
+          "ended_at": "2026-10-09T20:47:00.000Z",
+          "note": "Résultats et logs GitHub lus sur a77d606/base 955eaea : les deux jobs échouent avant validation sur le seul fichier hors périmètre data/torrent-trends.json. Ce fichier est restauré depuis main ; aucun seuil, workflow ou contrat n’est modifié."
         }
       },
       "control_notes": [
@@ -32183,7 +32222,9 @@
         "La Fille aux mains d’or : la playlist ARTE relie le créneau du 13 octobre à 02:25 à une version de 5 857 s ; la version producteur de 107 min reste distincte.",
         "Contrôles ciblés après remplacement : identités et liens exacts verts ; fraîcheur S42 97 % public / 87 % réserves ; réserves 70/70 et 49/49 ; images 90/90.",
         "validate-editorial sur la candidate échoue uniquement sur full_week_reaudit_completed=false ; cette barrière de couverture reste ouverte et n’est pas abaissée.",
-        "Les pages visibles sont inchangées après restauration exacte ; le remplacement affecte seulement la réserve rang 9 du pool mardi."
+        "Les pages visibles sont inchangées après restauration exacte ; le remplacement affecte seulement la réserve rang 9 du pool mardi.",
+        "CI a77d606/base 955eaea : browser-presentation et data-and-policy échouent au précontrôle pour data/torrent-trends.json, chemin interdit à la candidate ; aucun résultat aval n’est certifié.",
+        "Correction ciblée : data/torrent-trends.json restauré depuis main ; la réparation de l’image Coyote reste portée par data/works.json, chemin éditorial autorisé."
       ],
       "blockers": [
         {
@@ -32206,6 +32247,14 @@
           "requires_user": false,
           "resolved_at": "2026-10-09T20:26:08.733Z",
           "note": "Timeout Cinematerial remplacé par une affiche exacte accessible."
+        },
+        {
+          "id": "ci-forbidden-editorial-path-torrent-trends",
+          "status": "resolved",
+          "requires_user": false,
+          "first_seen_at": "2026-10-09T20:42:18.326Z",
+          "resolved_at": "2026-10-09T20:47:00.000Z",
+          "note": "validation-context refusait data/torrent-trends.json dans une candidate éditoriale ; fichier restauré exactement depuis main."
         }
       ]
     }
