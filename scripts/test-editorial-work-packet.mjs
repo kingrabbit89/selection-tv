@@ -33,6 +33,12 @@ const batchFixture = () => {
   ];
   input.coverage.cinema_official_broadcast_observations=[{work_id:'original',comparison:'conflict',note:'Channel absent'}];
   input.research.research_attempts=[{id:'ghost-offer',object:{title:'A Ghost Story',offer:'France'},status:'paused_offer',blocking_scope:'Only this offer',resume_condition:'New exact offer'}];
+  input.research.research_dossiers=[{title:'A Ghost Story',work_id:'ghost',decision:'version_open',identity_research:{checked_at:'2026-08-09',status:'conflict'}}];
+  input.issue={week:'2026-S42',publication_status:'draft',pages:[{id:'samedi-selection',className:'page',html:'<h3>A Ghost Story</h3>'}],
+    personalization:{pools:{'samedi-selection':{page_id:'samedi-selection',target:3,desired_reserve:7,card_type:'feature',candidates:[
+      {title:'A Ghost Story',work_id:'ghost',rank:4,summary:'Saved copy',why:'Saved explanation',time:'23:00',channel:'Ciné+ Classic'},
+      {title:'Unrelated card',work_id:'unrelated',rank:5,summary:'Do not extract'}
+    ]}}}};
   input.historicalIssues=[{entry:{week:'2026-S41'},issue:{pages:[{id:'samedi-selection',html:'<h3>Un crime dans la tête</h3><h3>A Ghost Story</h3>'}]}}];
   return input;
 };
@@ -119,6 +125,62 @@ test('schedule and unstructured evidence remain separate from exact work verific
   assert.deepEqual(p.work.unstructured_applicability_records,[text]);
   assert.equal(p.publication_ready,false);
 });
+test('separately saved research dossiers keep their exact provenance and unresolved facts', () => {
+  const input=fixture(), coverageDossier={title:'A Ghost Story',decision:'discovery_lead'};
+  const saved={title:'A Ghost Story',work_id:'ghost',decision:'version_open',status:'paused_conflict',
+    identity_research:{checked_at:'2026-08-09',status:'conflict'},critical_evidence:[{access:'partial',source_url:'https://partial.test/'}]};
+  input.coverage.documentary_discovery.candidates=[coverageDossier];
+  input.research.research_dossiers=[{title:'Other dossier',decision:'complete'},saved];
+  const snapshot=structuredClone(input), packet=buildWorkPacket(input,{title:'A Ghost Story'});
+  assert.deepEqual(packet.work.research_dossiers,[coverageDossier],'coverage output retains its existing semantics');
+  assert.deepEqual(packet.work.saved_research_dossiers,[{dossier:saved,provenance:{source_sha:input.sha,path:'data/research/2026-S42.json',json_pointer:'/research_dossiers/1'}}]);
+  assert.equal(packet.work.identity_status,'no_catalogue_match','a dossier is not a canonical identity proof');
+  assert.equal(packet.work.found,true);
+  assert.equal(packet.work.no_automatic_reuse,true);
+  assert.equal(packet.publication_ready,false);
+  assert.deepEqual(input,snapshot);
+  const overview=buildWorkPacket(input);
+  assert.deepEqual(overview.saved_research_dossier_index[1],{title:saved.title,work_id:'ghost',status:'paused_conflict',decision:'version_open',
+    dossier_completeness_status:undefined,provenance:{source_sha:input.sha,path:'data/research/2026-S42.json',json_pointer:'/research_dossiers/1'}});
+  assert.equal(overview.saved_research_dossier_index[0].status,undefined,'do not infer completion from a decision string');
+  assert(!JSON.stringify(overview.saved_research_dossier_index).includes('critical_evidence'),'overview stays an index');
+});
+test('saved current card occurrences preserve copy and scope without exposing unrelated cards or page HTML', () => {
+  const input=batchFixture(), card=input.issue.personalization.pools['samedi-selection'].candidates[0];
+  card.meta='2017 · exact saved version';card.image='https://image.test/exact.jpg';card.links={official:'https://ghost.test/'};
+  card.ratings={imdb:'6,8/10'};card.review={checked_at:'2026-08-09',evidence_urls:['https://old.test/']};
+  const another={...card,rank:1,time:'20:00',summary:'Different saved copy'};
+  input.issue.personalization.pools['mardi/~selection']={page_id:'absent-page',target:3,candidates:[another]};
+  const snapshot=structuredClone(input), work=buildWorkPacket(input,{title:'Une histoire de fantôme'}).work;
+  assert.equal(work.saved_card_occurrences.length,2);
+  assert.deepEqual(work.saved_card_occurrences.map(row=>row.candidate),[card,another]);
+  assert.deepEqual(work.saved_card_occurrences[0].provenance,{source_sha:input.sha,path:'data/weeks/2026-S42.json',json_pointer:'/personalization/pools/samedi-selection/candidates/0'});
+  assert.deepEqual(work.saved_card_occurrences[0].page,{id:'samedi-selection',className:'page',provenance:{source_sha:input.sha,path:'data/weeks/2026-S42.json',json_pointer:'/pages/0'}});
+  assert.equal(work.saved_card_occurrences[1].provenance.json_pointer,'/personalization/pools/mardi~1~0selection/candidates/0');
+  assert.equal(work.saved_card_occurrences[1].page,null,'no invented page or broadcast date');
+  assert(!JSON.stringify(work.saved_card_occurrences).includes('<h3>'),'whole pages would include unrelated content');
+  assert.deepEqual(work.saved_card_occurrences[0].candidate.review,card.review,'original proof date is retained');
+  assert.equal(work.identity_status,'catalogue_lead_needs_confirmation');
+  assert.equal(work.no_automatic_reuse,true);
+  assert.deepEqual(input,snapshot);
+  const overview=buildWorkPacket(input);
+  assert.equal(overview.saved_card_index.length,3,'index retains distinct materialized positions');
+  assert(!JSON.stringify(overview.saved_card_index).includes('Saved explanation'));
+});
+test('same-title saved cards with different versions remain ambiguous and partial content is not certified', () => {
+  const input=fixture();
+  const original={title:'Un crime dans la tête',work_id:'original',rank:1,meta:'1962',summary:'Incomplete card'};
+  const remake={title:'Un crime dans la tête',work_id:'remake',rank:2,meta:'2004',why:'Another saved version'};
+  input.issue={week:'2026-S42',pages:[],personalization:{pools:{'samedi-selection':{candidates:[original,remake,{title:'Unrelated',work_id:'other'}]}}}};
+  const packet=buildWorkPacket(input,{title:'Un crime dans la tête'});
+  assert.deepEqual(packet.work.saved_card_occurrences.map(row=>row.candidate),[original,remake]);
+  assert.equal(packet.work.identity_status,'ambiguous_catalogue_matches');
+  assert.equal(packet.work.saved_card_occurrences[0].candidate.why,undefined);
+  assert.equal(packet.work.saved_card_occurrences[1].candidate.summary,undefined);
+  assert.equal(packet.publication_ready,false);
+  assert.equal(packet.work.no_automatic_reuse,true);
+  assert.deepEqual(packet.remaining,['Certifier les grilles']);
+});
 test('pagination makes every catalogue lead reachable and compact packets only omit global remaining', () => {
   const input=fixture();
   input.works.works=Array.from({length:15},(_,i)=>({id:'w'+i,title:'Title '+String(i).padStart(2,'0')}));
@@ -170,6 +232,9 @@ test('batch shares context while preserving each title’s exact evidence, ambig
   assert.equal(batch.works[0].research_attempts[0].blocking_scope,'Only this offer');
   assert.equal(batch.works[0].supporting_schedule_records[0].status,'needs_check');
   assert.equal(batch.works[0].unstructured_applicability_records[0].status,'conflict');
+  assert.equal(batch.works[0].saved_research_dossiers[0].dossier.identity_research.checked_at,'2026-08-09');
+  assert.equal(batch.works[0].saved_card_occurrences[0].candidate.summary,'Saved copy');
+  assert.equal(batch.works[1].saved_card_occurrences.length,0,'another target receives no unrelated saved card');
   assert.equal(batch.work,undefined);
   assert.equal(batch.catalogue_leads,undefined);
   assert.equal(batch.researched_dossier_index,undefined);
@@ -209,7 +274,7 @@ test('batch Git extraction reads one resolved snapshot even if the requested ref
   try {
     git(['init','-q']);git(['config','user.name','fixture']);git(['config','user.email','fixture@example.test']);
     const input=batchFixture();
-    for(const [name,content]of Object.entries({'research/2026-S42':input.research,'inventory/2026-S42':input.inventory,'coverage/2026-S42':input.coverage,'manifest':input.manifest,'works':input.works,'links':input.links}))write(name,content);
+    for(const [name,content]of Object.entries({'research/2026-S42':input.research,'inventory/2026-S42':input.inventory,'coverage/2026-S42':input.coverage,'weeks/2026-S42':input.issue,'manifest':input.manifest,'works':input.works,'links':input.links}))write(name,content);
     git(['add','.']);git(['commit','-qm','old evidence']);const sha=git(['rev-parse','HEAD']).trim();
     git(['branch','moving',sha]);
     input.research.verification_records=[];write('research/2026-S42',input.research);
@@ -235,6 +300,8 @@ test('batch Git extraction reads one resolved snapshot even if the requested ref
     assert.deepEqual(packet.works.map(work=>work.canonical_candidates.length),[2,1]);
     assert.equal(packet.works[0].verification_records[0].checked_at,'2026-08-01');
     assert.equal(packet.works[1].verification_records[0].checked_at,'2026-08-03');
+    assert.equal(packet.works[1].saved_card_occurrences[0].provenance.source_sha,sha);
+    assert.equal(packet.works[1].saved_research_dossiers[0].provenance.source_sha,sha);
     assert.equal(git(['status','--porcelain']),before);
     const cli=path.resolve('scripts/editorial-work-packet.mjs');
     const one=execFileSync(process.execPath,[cli,'2026-S42','--ref',sha,'--title','Un crime dans la tête','--compact'],{cwd:dir,encoding:'utf8'});

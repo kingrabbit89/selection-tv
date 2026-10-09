@@ -12,6 +12,8 @@ export const normalizedTitle = value => String(value || '').normalize('NFD')
   .replace(/[^a-z0-9]+/g, ' ').trim();
 const array = value => Array.isArray(value) ? value : [];
 const hasValue = value => value !== undefined && value !== null && value !== '';
+const pointerToken = value => String(value).replace(/~/g, '~0').replace(/\//g, '~1');
+const provenance = (sha, path, json_pointer) => ({source_sha: sha, path, json_pointer});
 // Keep the validator's normalization exactly, even though identity matching
 // handles French ligatures more broadly.
 const freshnessTitle = value => String(value || '').toLowerCase().normalize('NFD')
@@ -105,6 +107,23 @@ export function buildWorkPacket({week, sha, research, inventory, coverage, works
   const catalogue = array(works?.works);
   const exposure = historicalExposure(historicalIssues, catalogue);
   const dossiers = [...array(coverage?.documentary_discovery?.candidates), ...array(coverage?.cinema_discovery?.candidates)];
+  // These separately saved dossiers are not discovery-grid rows. Preserve
+  // their raw conflicts, incomplete fields and original proof dates.
+  const savedDossiers = array(research?.research_dossiers).map((dossier, index) => ({
+    dossier, provenance: provenance(sha, `data/research/${week}.json`, `/research_dossiers/${index}`)
+  }));
+  const savedCards = Object.entries(issue?.personalization?.pools || {}).flatMap(([id, pool]) =>
+    array(pool?.candidates).map((candidate, index) => {
+      const pageIndex = array(issue?.pages).findIndex(page => page.id === pool.page_id);
+      const page = pageIndex < 0 ? null : issue.pages[pageIndex];
+      return {
+        candidate,
+        provenance: provenance(sha, `data/weeks/${week}.json`, `/personalization/pools/${pointerToken(id)}/candidates/${index}`),
+        pool: {id, page_id: pool.page_id, card_type: pool.card_type, target: pool.target, desired_reserve: pool.desired_reserve},
+        page: page ? {id: page.id, className: page.className,
+          provenance: provenance(sha, `data/weeks/${week}.json`, `/pages/${pageIndex}`)} : null
+      };
+    }));
   const observations = array(inventory?.days).flatMap(day => array(day.items).map(item => ({...item, date: day.date})));
   const attempts = array(research?.research_attempts);
   const matches = titleIndex(catalogue);
@@ -158,6 +177,9 @@ export function buildWorkPacket({week, sha, research, inventory, coverage, works
         .map(([name, value]) => ({title: name, links: value})),
       schedule_observations: selectedObservations,
       research_dossiers: dossiers.filter(item => titled(item.title) || ids.has(item.work_id)),
+      saved_research_dossiers: savedDossiers.filter(({dossier}) => titled(dossier.title) || ids.has(dossier.work_id)),
+      saved_card_occurrences: savedCards.filter(({candidate}) => titled(candidate.title) || ids.has(candidate.work_id)),
+      saved_reuse_note: 'Saved dossiers and card objects are copied from this SHA without new checks. Review identity/version and exact day/offer applicability; preserve stable copy and original proof dates. Pool ranks and page pointers do not certify quality, completeness or current availability.',
       official_broadcast_observations: array(coverage?.cinema_official_broadcast_observations)
         .filter(item => titled(item.title) || ids.has(item.work_id)),
       verification_records: records,
@@ -182,6 +204,14 @@ export function buildWorkPacket({week, sha, research, inventory, coverage, works
   } else {
     packet.priority_review = research?.priority_review || null;
     packet.saved_promising_candidates = array(research?.remaining_groups?.promising_candidates);
+    packet.saved_research_dossier_index = savedDossiers.map(({dossier, provenance}) => ({
+      title: dossier.title, work_id: dossier.work_id, status: dossier.status, decision: dossier.decision,
+      dossier_completeness_status: dossier.dossier_completeness?.status, provenance
+    }));
+    packet.saved_card_index = savedCards.map(({candidate, provenance, pool}) => ({
+      title: candidate.title, work_id: candidate.work_id, rank: candidate.rank,
+      pool_id: pool.id, page_id: pool.page_id, provenance
+    }));
     // Revisable shortlist: orients research; counts are not certifications.
     packet.shortlist = shortlistSummary(research || {});
     packet.shortlist_open = array(research?.shortlist?.entries)

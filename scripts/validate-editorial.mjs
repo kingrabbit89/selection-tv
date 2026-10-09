@@ -75,6 +75,62 @@ if(strict){
      if(pool.target!==pconfig.radar_1080p.page_capacity){console.error('✗ Bad HD radar target for '+key);process.exitCode=1}
      if(n<Math.ceil(pconfig.radar_1080p.minimum_total_candidates/2)&&!pool.shortage_reason){console.error('✗ HD radar reserve too shallow for '+key);process.exitCode=1}
    }
+   if(latest>=(config.quality_gates?.strict_inventory_from_week||'2026-S42')){
+     const failRadar=message=>{console.error('✗ '+message);process.exitCode=1};
+     // Count works, not pool positions. Resolve HTML titles through the same
+     // catalogue as candidate rows, so a different spelling cannot add depth.
+     const radarKey=c=>worksByTitle.get(norm(c.title))?.id||c.work_id||'title:'+norm(c.title);
+     const keys=candidates=>new Set((candidates||[]).map(radarKey));
+     const renderedKeys=matches=>new Set((week.pages||[]).filter(matches).flatMap(page=>
+       [...String(page.html||'').matchAll(/<article\b[^>]*>[\s\S]*?<h3[^>]*>([\s\S]*?)<\/h3>/gi)]
+         .map(m=>radarKey({title:htmlText(m[1])}))
+     ));
+     const hdPools=['hd1','hd2'].map(key=>rr[key]).filter(Boolean);
+     const hdPrimary=renderedKeys(page=>sectionPageMatches(page.id,'radar-1'));
+     const hdPrimaryByPool=new Map();
+     for(const [i,key] of ['hd1','hd2'].entries()){
+       const pool=rr[key];if(!pool)continue;
+       const ownPrimary=renderedKeys(page=>page.id==='radar-'+(i+1));
+       for(const c of pool.candidates||[]){
+         // Match the runtime's claimed set when a rank exists; HTML remains
+         // authoritative for the visible primaries when ranks are absent.
+         if(Number(c.rank)<=Number(pool.target))ownPrimary.add(radarKey(c));
+       }
+       for(const identity of ownPrimary)hdPrimary.add(identity);
+       hdPrimaryByPool.set(key,ownPrimary);
+     }
+     const hdAll=keys(hdPools.flatMap(pool=>pool.candidates||[]));
+     const hdReserve=new Set();
+     for(const [key,pool] of ['hd1','hd2'].map(key=>[key,rr[key]])){
+       if(!pool)continue;
+       if(keys(pool.candidates).size<Math.ceil(pconfig.radar_1080p.minimum_total_candidates/2)&&!pool.shortage_reason){
+         failRadar('HD radar distinct candidates too shallow for '+key);
+       }
+       for(const c of pool.candidates||[]){
+         if(hdPrimaryByPool.get(key).has(radarKey(c)))continue;
+         if(hdPrimary.has(radarKey(c)))failRadar('HD radar reserve duplicates a primary on another page: '+key+' / '+c.title);
+         else hdReserve.add(radarKey(c));
+       }
+     }
+     // A documented shortage still permits a genuinely smaller reservoir;
+     // it does not turn a primary or a duplicate into a usable reserve.
+     const hdShortage=hdPools.some(pool=>pool.shortage_reason);
+     const hdMinimum=Number(pconfig.radar_1080p.minimum_total_candidates);
+     if(hdAll.size<hdMinimum&&!hdShortage)failRadar('HD radar distinct global candidates: '+hdAll.size+'; expected '+hdMinimum);
+     const reserveMinimum=Math.max(0,hdMinimum-Number(pconfig.radar_1080p.target_visible));
+     if(hdReserve.size<reserveMinimum&&!hdShortage)failRadar('HD radar distinct usable reserves: '+hdReserve.size+'; expected '+reserveMinimum);
+
+     const popularPrimary=renderedKeys(page=>sectionPageMatches(page.id,'radar-torrent')&&page.id!=='radar-torrent-sillonnage');
+     const scanKeys=keys(scan?.candidates),deepKeys=keys(deep?.candidates);
+     if(scan&&scanKeys.size<pconfig.radar_popularity.scan_visible)failRadar('Popularity radar distinct scan too shallow');
+     if(deep){
+       if(deepKeys.size<(deep.candidates||[]).length)failRadar('Popularity radar reserve contains duplicate works');
+       if(deepKeys.size<pconfig.radar_popularity.minimum_reserve_candidates&&!deep.shortage_reason)failRadar('Popularity radar distinct reserve too shallow');
+       for(const c of deep.candidates||[]){
+         if(scanKeys.has(radarKey(c))||popularPrimary.has(radarKey(c)))failRadar('Popularity radar reserve duplicates scan or public primary: '+c.title);
+       }
+     }
+   }
  }
  // Visual image coverage: no silent poster gaps from S41 onward.
  const visualTitles=new Set();

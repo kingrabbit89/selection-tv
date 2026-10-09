@@ -4,18 +4,20 @@ import {pathToFileURL} from 'node:url';
 
 // A wall-clock work target, not an execution limit or a hidden quota estimate.
 // Starting another batch stops at 50 minutes to retain 5 minutes for saving.
-// The previous revision retains its historical 35-minute target during audit.
+// Historical revisions retain their own 55- or 35-minute target during audit.
 export const SOFT_BUDGET_SECONDS = 55 * 60;
 export const SAVE_RESERVE_SECONDS = 5 * 60;
-export const CONTINUATION_REVISION = 'production-efficiency-2026-10-09';
+export const CONTINUATION_REVISION = 'production-integrity-2026-10-09';
+export const PREVIOUS_CONTINUATION_REVISION = 'production-efficiency-2026-10-09';
 export const LEGACY_CONTINUATION_REVISION = 'production-continuation-2026-10-09';
 const legacyBudget = Object.freeze({budget_seconds:35 * 60, reserve_seconds:SAVE_RESERVE_SECONDS});
 export const BUDGET_PROFILES = Object.freeze({
   [CONTINUATION_REVISION]:Object.freeze({budget_seconds:SOFT_BUDGET_SECONDS, reserve_seconds:SAVE_RESERVE_SECONDS}),
+  [PREVIOUS_CONTINUATION_REVISION]:Object.freeze({budget_seconds:SOFT_BUDGET_SECONDS, reserve_seconds:SAVE_RESERVE_SECONDS}),
   [LEGACY_CONTINUATION_REVISION]:legacyBudget
 });
 const budgetProfile = revision => Object.hasOwn(BUDGET_PROFILES, revision) ? BUDGET_PROFILES[revision] : null;
-const requiresDecision = revision => [CONTINUATION_REVISION, LEGACY_CONTINUATION_REVISION].includes(revision);
+const requiresDecision = revision => Object.hasOwn(BUDGET_PROFILES, revision);
 const text = value => typeof value === 'string' && value.trim().length > 0;
 const array = value => Array.isArray(value) ? value : [];
 const unique = values => [...new Set(values.filter(text))];
@@ -144,7 +146,7 @@ export function auditRecordedRun(run = {}, progress = {}) {
     return ['last continuation_decision has an invalid action; actual stop cause remains unknown'];
   }
   if (!iso(decision.observed_at)) warnings.push('last continuation_decision lacks a real observed_at; do not reconstruct it');
-  if (decision.prompt_revision === undefined && run.prompt_revision === CONTINUATION_REVISION) {
+  if (decision.prompt_revision === undefined && [CONTINUATION_REVISION, PREVIOUS_CONTINUATION_REVISION].includes(run.prompt_revision)) {
     warnings.push('last continuation_decision lacks prompt_revision required by the efficiency policy');
   } else if (decision.prompt_revision !== undefined && decision.prompt_revision !== run.prompt_revision) {
     warnings.push('last continuation_decision prompt_revision disagrees with the recorded run; do not replace its historical policy');
