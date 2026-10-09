@@ -25403,6 +25403,36 @@
       },
       "evidence_note": "FranceTvPro confirme identité, interprètes, master annoncé 90 min, diffusion et distinctions ; la grille officielle réserve 100 min. Le visuel exact a été ouvert. Les recherches de notes IMDb/SensCritique exactes sont restées sans résultat exploitable ; l’appréciation Télérama est attribuée.",
       "status": "verified_for_card"
+    },
+    {
+      "work_id": "unite-ados-93-2025",
+      "fields": [
+        "identity",
+        "version",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "duration",
+        "image",
+        "ratings_unavailability",
+        "editorial_reception"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/contenu-de-presse/78446293",
+        "https://www.francetvpro.fr/grille/france-2/09-10-2026/14-10-2026",
+        "https://www.film-documentaire.fr/4DACTION/w_fiche_film/82308",
+        "https://www.francetvpro.fr/contenu-de-presse/78379572"
+      ],
+      "checked_at": "2026-10-09T17:27:37.375Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "mercredi",
+        "rank": 9,
+        "broadcast": "2026-10-14 22:50 France 2"
+      },
+      "evidence_note": "FranceTvPro confirme identité, année 2025, master 70 min, diffusion et visuel exact crédité KM ; la grille réserve 72 min et Film-documentaire recoupe identité et durée. Les recherches exactes de notes sont restées sans résultat exploitable ; l’appréciation Télérama nuancée est attribuée.",
+      "status": "verified_for_card"
     }
   ],
   "run_metrics": [
@@ -29912,7 +29942,8 @@
         "append-reviewed-tuesday-la-maison-des-femmes-reserve-2026-10-09",
         "append-reviewed-wednesday-inde-enfance-reserve-2026-10-09",
         "append-reviewed-thursday-grand-puzzle-pompei-reserve-2026-10-09",
-        "append-reviewed-wednesday-on-aboie-en-silence-reserve-2026-10-09"
+        "append-reviewed-wednesday-on-aboie-en-silence-reserve-2026-10-09",
+        "append-reviewed-wednesday-unite-ados-93-reserve-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -29920,30 +29951,30 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ],
-      "complete_cards": 112,
-      "cards_integrated_this_run": 5,
+      "complete_cards": 113,
+      "cards_integrated_this_run": 6,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "measurements": {
         "complete_cards": {
-          "value": 112,
-          "scope": "stock après checkpoint : 107 positions héritées et cinq réserves complètes ajoutées pendant ce passage"
+          "value": 113,
+          "scope": "stock après checkpoint : 107 positions héritées et six réserves complètes ajoutées pendant ce passage"
         },
         "new_works": {
-          "value": 5,
-          "scope": "Vermines, La Maison des femmes, Disciples, Le grand puzzle de Pompéi et On aboie en silence ajoutés au catalogue canonique pendant ce passage"
+          "value": 6,
+          "scope": "six œuvres nouvelles ajoutées au catalogue canonique pendant ce passage, dont Unité Ados 93 au présent checkpoint"
         },
         "visible_cards": {
           "value": 0,
           "scope": "la position ajoutée est une réserve cachée, sans changement des trois choix visibles"
         },
         "additional_reserve_placements": {
-          "value": 5,
-          "scope": "une réserve ajoutée au dimanche, une au mardi, deux au mercredi et une au jeudi"
+          "value": 6,
+          "scope": "une réserve ajoutée au dimanche, une au mardi, trois au mercredi et une au jeudi"
         },
         "additional_distinct_reserve_work_ids": {
-          "value": 5,
-          "scope": "cinq nouveaux work_id distincts absents de la tête de départ du passage"
+          "value": 6,
+          "scope": "six nouveaux work_id distincts absents de la tête de départ du passage"
         },
         "stable_reuses": {
           "value": 0,
@@ -29954,7 +29985,7 @@
         "dimanche-selection : minimum de dix cartes complètes atteint avec Vermines, diffusion France 2, identité, version, visuel, réception et avertissement -12 contrôlés sans déclarer de pénurie"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter encore trois réserves mardi, deux mercredi et trois jeudi, puis remplacer les cinq doublons popular_deep.",
+      "next_useful_batch": "Compléter encore trois réserves mardi, une mercredi et trois jeudi, puis remplacer les cinq doublons popular_deep.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -30095,20 +30126,49 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T17:25:33.094Z",
+          "elapsed_seconds": 1775.597,
+          "prompt_revision": "production-telerama-editorial-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "8ffa26c273b75098d53cf9c1b093305b7794bdc9",
+          "next_actions": [
+            "Compléter encore trois réserves mardi, deux mercredi et trois jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
+            "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T16:55:57.497Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T18:16:43.836Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T17:22:28.923Z",
-        "elapsed_seconds": 1591.426,
+        "observed_at": "2026-10-09T17:25:33.094Z",
+        "elapsed_seconds": 1775.597,
         "prompt_revision": "production-telerama-editorial-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "f6cd8931a231b448698b88e56db558d2e00a9527",
+        "source_sha": "8ffa26c273b75098d53cf9c1b093305b7794bdc9",
         "next_actions": [
-          "Compléter encore trois réserves mardi, trois mercredi et trois jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
+          "Compléter encore trois réserves mardi, deux mercredi et trois jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
           "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
           "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
@@ -30156,6 +30216,11 @@
           "started_at": "2026-10-09T17:22:28.923Z",
           "ended_at": "2026-10-09T17:24:04.401Z",
           "note": "On aboie en silence achevé depuis FranceTvPro, sa grille officielle et le signal Télérama ; master annoncé 90 min, créneau 100 min et autres valeurs guide 97/100 conservés séparément."
+        },
+        "wednesday_reserve_batch_3": {
+          "started_at": "2026-10-09T17:25:33.094Z",
+          "ended_at": "2026-10-09T17:27:37.375Z",
+          "note": "Unité Ados 93 achevé depuis FranceTvPro, sa grille officielle, Film-documentaire et le signal Télérama ; master 70 min, créneau 72 min et guide 75 min conservés séparément."
         }
       },
       "control_notes": [
@@ -30165,7 +30230,8 @@
         "La Maison des femmes conserve séparément la production 2025, la sortie France 2026 et la divergence de métadonnée Canal+ 105/110 min ; la carte retient la durée canonique Unifrance de 110 min sans assimiler la proximité du créneau à une version.",
         "Inde, une enfance sous influence utilise le photogramme exact renvoyé par l’API Arte et conserve distincts le flux Arte de 3 302 secondes et la version cinéma de 81 minutes.",
         "Le grand puzzle de Pompéi conserve séparément le master 90 min, la diffusion France 5 de 87 min et la valeur guide de 88 min ; l’inscription au Prix Roberval n’est pas transformée en récompense.",
-        "On aboie en silence conserve séparément le master annoncé de 90 min, le créneau France 2 de 100 min et les valeurs guide 97/100 ; les distinctions documentées par France Télévisions ne sont pas converties en note externe."
+        "On aboie en silence conserve séparément le master annoncé de 90 min, le créneau France 2 de 100 min et les valeurs guide 97/100 ; les distinctions documentées par France Télévisions ne sont pas converties en note externe.",
+        "Unité Ados 93 est daté 2025 par France Télévisions et Film-documentaire ; le master 70 min, le créneau France 2 de 72 min et la valeur guide de 75 min restent distincts."
       ]
     }
   ],
@@ -30823,11 +30889,11 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "f6cd8931a231b448698b88e56db558d2e00a9527",
+    "checkpoint_parent_sha": "8ffa26c273b75098d53cf9c1b093305b7794bdc9",
     "main_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Compléter encore trois réserves mardi, deux mercredi et trois jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
+      "Compléter encore trois réserves mardi, une mercredi et trois jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
       "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
       "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes."
     ],
@@ -31357,7 +31423,7 @@
     }
   ],
   "shortlist": {
-    "updated_at": "2026-10-09T17:24:04.401Z",
+    "updated_at": "2026-10-09T17:27:37.375Z",
     "note": "Présélection révisable par jour et rubrique ; premières cartes plateformes gratuites intégrées depuis les dossiers acquis. Aucun statut ne certifie la sélection finale du numéro.",
     "entries": [
       {
@@ -34103,6 +34169,24 @@
           }
         ],
         "decision_note": "Réserve complète rang 8 ; master annoncé 90 min distingué du créneau France 2 de 100 min et des autres valeurs guide.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-mercredi-unite-ados-93-reserve",
+        "title": "Unité Ados 93",
+        "work_id": "unite-ados-93-2025",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique_et_diffusion",
+            "note": "Télérama relève avec empathie le lien entre adolescents et soignants tout en notant une caméra parfois perceptible ; France 2 confirme le créneau.",
+            "source_url": "https://www.francetvpro.fr/contenu-de-presse/78446293"
+          }
+        ],
+        "decision_note": "Réserve complète rang 9 ; master 70 min distingué du créneau 72 min et de la valeur guide 75 min.",
         "alternatives": []
       }
     ]
