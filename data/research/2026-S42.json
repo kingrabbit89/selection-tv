@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "018433005ec07f2d8900af044f82dede06d49a28",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T10:31:30.336Z",
+  "updated_at": "2026-10-09T10:34:37.421Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -605,6 +605,16 @@
       "deliverables": [
         "data/works.json",
         "data/links.json",
+        "data/research/2026-S42.json",
+        "data/coverage/2026-S42.json"
+      ]
+    },
+    {
+      "id": "complete-thursday-point-limite-2026-10-09",
+      "completed_at": "2026-10-09T10:34:37.421Z",
+      "scope": "jeudi",
+      "summary": "Recoupement indépendant de la diffusion Point limite ajouté depuis Ouest-France ; carte développée jeudi désormais complète, sans confondre durée de grille et copie CANAL+.",
+      "deliverables": [
         "data/research/2026-S42.json",
         "data/coverage/2026-S42.json"
       ]
@@ -18904,19 +18914,21 @@
       ],
       "source_urls": [
         "https://www.canalplus.com/cinema/point-limite/h/7416144_50002",
-        "https://tv-programme.com/cine-plus-classic/jeudi-15-octobre-2026/"
+        "https://tv-programme.com/cine-plus-classic/jeudi-15-octobre-2026/",
+        "https://programmetv.ouest-france.fr/film/suspense/point-limite-c51401/"
       ],
-      "checked_at": "2026-10-08T13:10:57.263963+00:00",
+      "checked_at": "2026-10-09T10:34:37.421Z",
       "reused_in": [
-        "production-flow-2026-10-08"
+        "production-flow-2026-10-08",
+        "production-efficiency-2026-10-09"
       ],
       "stability": "dynamic",
       "applies_to": {
         "week": "2026-S42",
         "broadcast": "2026-10-15 20:50 Ciné+ Classic"
       },
-      "evidence_note": "Heure officielle concordante ; nom de chaîne issu de la grille et indépendance encore à établir.",
-      "status": "needs_check"
+      "evidence_note": "CANAL+ fixe l’événement à 20:50 et la version affichée à 107 min ; Ouest-France recoupe indépendamment le jeudi 15 octobre à 20:50 sur Ciné+ Classic. La durée de grille 109 min reste une longueur de créneau, pas une version.",
+      "status": "verified"
     },
     {
       "work_id": "point-limite-1964",
@@ -22194,7 +22206,8 @@
         "complete-rendezvous-page-two-2026-10-09",
         "render-cover-from-developed-choices-2026-10-09",
         "render-method-page-2026-10-09",
-        "advance-thursday-machine-ecrire-dossier-2026-10-09"
+        "advance-thursday-machine-ecrire-dossier-2026-10-09",
+        "complete-thursday-point-limite-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -22204,7 +22217,7 @@
         "data/coverage/2026-S42.json",
         "data/manifest.json"
       ],
-      "complete_cards": 14,
+      "complete_cards": 15,
       "draft_cards": 1,
       "partial_dossiers": 1,
       "deliverables_advanced": [
@@ -22220,7 +22233,8 @@
         "rendezvous-2",
         "couverture",
         "methode",
-        "jeudi : dossier La machine à écrire presque complet"
+        "jeudi : dossier La machine à écrire presque complet",
+        "jeudi : Point limite carte complète"
       ],
       "requirements_resolved": [
         "Burning an Illusion : deuxième carte du mercredi matérialisée sans masquer le conflit de versions",
@@ -22229,7 +22243,8 @@
         "rubrique Rendez-vous : première page matérialisée avec cinq cartes complètes",
         "rubrique Rendez-vous : deux pages et dix cartes complètes matérialisées",
         "livrable : couverture et hero matérialisés depuis des choix développés",
-        "livrable : page Méthode matérialisée sans certifier les exigences ouvertes"
+        "livrable : page Méthode matérialisée sans certifier les exigences ouvertes",
+        "Point limite : recoupement indépendant de la chaîne Ciné+ Classic"
       ],
       "remaining": {
         "stage": "enrichment",
@@ -22497,18 +22512,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T10:33:05.813Z",
+          "elapsed_seconds": 2135.141,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "487b286cc531f6ae8c53bc2d152b183d0e567828",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T09:57:30.672Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T11:16:44.423Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T10:28:45.017Z",
-        "elapsed_seconds": 1874.345,
+        "observed_at": "2026-10-09T10:33:05.813Z",
+        "elapsed_seconds": 2135.141,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "e7c6d42f8ad2cab4310e2f430f2676fd793538ba",
+        "source_sha": "487b286cc531f6ae8c53bc2d152b183d0e567828",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -22530,7 +22574,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Résoudre la version TV de La machine à écrire seulement sur source nouvelle ; sinon achever une autre réserve jeudi ou une rubrique indépendante."
+      "next_useful_batch": "Achever une autre carte draft proche de la complétude, en priorité vendredi, ou produire une rubrique indépendante entièrement vérifiée."
     }
   ],
   "source_issues": [
@@ -23227,8 +23271,8 @@
       },
       {
         "title": "Point limite",
-        "status": "carte draft créée ; dossier presque complet",
-        "remaining": "Consolider l’indépendance du recoupement de chaîne, puis compléter choix/réserves du jeudi et préflight."
+        "status": "carte complète ; préflight final requis",
+        "remaining": "Compléter les autres choix/réserves du jeudi, puis recontrôler diffusion, note et visuel au préflight."
       },
       {
         "title": "La Gueule ouverte",
@@ -23740,18 +23784,24 @@
         "scope": {
           "day": "jeudi"
         },
-        "status": "card_drafted",
+        "status": "card_complete",
         "signals": [
           {
             "kind": "critique",
-            "note": "Criterion analyse la tension morale et politique de Lumet ; le recoupement indépendant de chaîne reste à consolider.",
+            "note": "Criterion analyse la tension morale et politique de Lumet ; Ouest-France recoupe désormais indépendamment la chaîne et l’horaire.",
             "source_url": "https://www.criterion.com/current/posts/6801-fail-safe-very-little-left-of-the-world"
+          },
+          {
+            "kind": "diffusion_independante",
+            "note": "Ouest-France recoupe le jeudi 15 octobre 2026 à 20:50 sur Ciné+ Classic ; la durée de grille est conservée séparément de la copie CANAL+.",
+            "source_url": "https://programmetv.ouest-france.fr/film/suspense/point-limite-c51401/"
           }
         ],
         "alternatives": [
           "sl-jeudi-fantomes-tonkin",
           "sl-jeudi-crime-tete"
-        ]
+        ],
+        "decision_note": "Carte développée complète pour comparaison ; diffusion et chaîne recoupées indépendamment, préflight final encore requis."
       },
       {
         "id": "sl-jeudi-fantomes-tonkin",
