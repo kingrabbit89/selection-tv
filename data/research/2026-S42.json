@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T21:38:03.473Z",
+  "updated_at": "2026-10-09T21:40:10.870Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -11,7 +11,7 @@
     "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV.",
     "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue.",
     "France 5 : Pompéi satisfait le niveau 3 et Foucault reste une observation non retenue. Les quatre créneaux officiels génériques La p'tite librairie (11/10 00:10 et 09:15, 13/10 10:00, 14/10 00:00) sont conservés sans identité d'épisode et n'apparaissent dans aucune carte ; leur revue d'omission est close. Restent les fins de nuit non couvertes par les grilles officielles et la passe documentaire/offres France 5.",
-    "T18 14 octobre : neuf épisodes/sujets nommés et horaires concordants entre deux guides ; indépendance des flux/source officielle encore à établir. Face à face identifié comme fiction policière ; descriptif politique LeZapp exclu.",
+    "T18 14 octobre : neuf épisodes/sujets et horaires concordent largement entre LeZapp, TV-Programme et ProgrammeTVCeSoir, sans base positive d'acquisition indépendante. Fait nouveau : Télé 7 Jours attribue au créneau 00:20 Sur la scène du crime l'épisode « Jogging fatal - affaire Nelly Crémel », tandis que LeZapp et ProgrammeTVCeSoir donnent « Meurtre en sous-sol - affaire Manteau » ; résoudre ce conflit exact ou exclure ce créneau. Face à face reste identifié comme fiction policière, hors rappel documentaire.",
     "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
     "TF1 Séries Films : neuf diffusions recoupées et nuits consultées ; blocs nocturnes génériques non détaillés, réception et cartes à terminer. CSTAR 16 octobre : Un mariage à Noël concorde à 21:10 ; Noël à la carte 22:49/22:45 et identité des quatre Douanes à départager ; indépendance et nuits restent à certifier.",
     "Rappel TNT principal réconcilié : les dix éléments génériques sont rapprochés ou exclus, dont Envoyé spécial et Au cœur de l’enquête sans sujet identifié. Les autres passes partielles (cinéma payant, TV5MONDE FBS, RMC, Ciné+) et le conflit de version Marine restent ouverts dans leurs dossiers propres.",
@@ -1376,7 +1376,8 @@
     "france23-generic-observation-omission-review-2026-10-09",
     "france5-pompei-level3-and-foucault-scope-review-2026-10-09",
     "france5-four-generic-interstitial-omission-review-2026-10-09",
-    "france4-rachelle-hakim-unselected-scope-review-2026-10-09"
+    "france4-rachelle-hakim-unselected-scope-review-2026-10-09",
+    "t18-new-independent-route-and-episode-conflict-2026-10-09"
   ],
   "blockers": [
     {
@@ -26795,6 +26796,29 @@
       },
       "evidence_note": "Deux observations non rendues ; Rachelle horaire recoupé, Hakim identité de montage non promue. Aucun niveau 3 déclaré.",
       "status": "reviewed_for_omission_no_selected_card_dependency"
+    },
+    {
+      "fields": [
+        "level2_schedule_crosscheck",
+        "episode_conflict"
+      ],
+      "source_urls": [
+        "https://lezapptv.fr/chaine/t18/2026-10-14",
+        "https://tv-programme.com/t18/mercredi-14-octobre-2026/",
+        "https://www.programmetvcesoir.net/chaine/t18/2026-10-14",
+        "https://www.programme-television.org/tv/chaines/t18/mercredi",
+        "https://screenplus.fr/programmestv/fr/t18/"
+      ],
+      "checked_at": "2026-10-09T21:40:10.870Z",
+      "stability": "cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "channel": "T18",
+        "start": "00:20"
+      },
+      "evidence_note": "Trois guides soutiennent Manteau ; Télé 7 Jours donne Nelly Crémel. Les domaines multiples ne prouvent ni indépendance ni majorité probante ; conflit conservé.",
+      "status": "conflict"
     }
   ],
   "run_metrics": [
@@ -32898,7 +32922,8 @@
         "france23-generic-observation-omission-review-2026-10-09",
         "france5-pompei-level3-and-foucault-scope-review-2026-10-09",
         "france5-four-generic-interstitial-omission-review-2026-10-09",
-        "france4-rachelle-hakim-unselected-scope-review-2026-10-09"
+        "france4-rachelle-hakim-unselected-scope-review-2026-10-09",
+        "t18-new-independent-route-and-episode-conflict-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -32910,7 +32935,7 @@
       "partial_dossiers": 5,
       "requirements_resolved": 15,
       "stop_reason": null,
-      "next_useful_batch": "Traiter les défauts de niveau 3 des cartes déjà rendues en priorité ; conserver séparément les rappels France 4 et France 5 encore ouverts.",
+      "next_useful_batch": "Résoudre ou exclure précisément le créneau T18 du 14/10 à 00:20 (Manteau contre Nelly Crémel) avec une source officielle exacte ou une base positive d’acquisition distincte ; ne pas revoter entre guides inconnus.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -33425,20 +33450,52 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T21:38:42.225Z",
+          "elapsed_seconds": 2550.577,
+          "prompt_revision": "production-proof-policy-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "79288c618a6f1b93d08840d0298c9bc9dfbf569a",
+          "next_actions": [
+            "Traiter les défauts de niveau 3 des cartes déjà rendues en priorité ; conserver séparément les rappels France 4 et France 5 encore ouverts.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
+            "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
+          ],
+          "remaining_count": 19,
+          "next_actions_total": 16,
+          "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 24,
+          "waiting_actions_count": 8,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T20:56:11.648Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T22:17:47.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T21:37:12.369Z",
-        "elapsed_seconds": 2460.721,
+        "observed_at": "2026-10-09T21:38:42.225Z",
+        "elapsed_seconds": 2550.577,
         "prompt_revision": "production-proof-policy-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "05bd88c422a220043e5e57f121a41130babfcc5c",
+        "source_sha": "79288c618a6f1b93d08840d0298c9bc9dfbf569a",
         "next_actions": [
-          "Traiter une carte France 5/France 4 déjà rendue dont le défaut de niveau 3 est précis, ou documenter la dépendance exacte qui empêche sa clôture ; ne pas relancer les créneaux génériques clos.",
+          "Traiter les défauts de niveau 3 des cartes déjà rendues en priorité ; conserver séparément les rappels France 4 et France 5 encore ouverts.",
           "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
           "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
@@ -33592,6 +33649,13 @@
           "ended_at": "2026-10-09T21:38:03.473Z",
           "overlap": false,
           "note": "Revue de portée des observations France 4 Rachelle Allison et Hakim Jemili, toutes deux absentes des livrables."
+        },
+        {
+          "kind": "research",
+          "started_at": "2026-10-09T21:38:42.225Z",
+          "ended_at": "2026-10-09T21:40:10.870Z",
+          "overlap": false,
+          "note": "Recherche ciblée T18 : deux routes supplémentaires, conflit d’épisode 00:20 découvert et conservé."
         }
       ],
       "requirements_resolved_details": [
@@ -34276,7 +34340,7 @@
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Traiter les défauts de niveau 3 des cartes déjà rendues en priorité ; conserver séparément les rappels France 4 et France 5 encore ouverts.",
+      "Résoudre ou exclure précisément le créneau T18 du 14/10 à 00:20 (Manteau contre Nelly Crémel) avec une source officielle exacte ou une base positive d’acquisition distincte ; ne pas revoter entre guides inconnus.",
       "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
       "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
       "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
@@ -35201,6 +35265,28 @@
         "observed_at": "2026-10-09T21:25:20.767Z",
         "evidence": "coverage.closure_policy_reviews et trois guides datés exacts ; événement officiel du 10 octobre non transposé."
       }
+    },
+    {
+      "id": "run22-t18-14-october-independent-route-and-episode-conflict-2026-10-09",
+      "object": {
+        "channel": "T18",
+        "date": "2026-10-14",
+        "slot": "00:20 Sur la scène du crime"
+      },
+      "question": "Une nouvelle grille officielle ou une acquisition indépendante confirme-t-elle les neuf sujets et l'épisode exact de 00:20 ?",
+      "attempted_at": "2026-10-09T21:40:10.870Z",
+      "source_urls": [
+        "https://lezapptv.fr/chaine/t18/2026-10-14",
+        "https://tv-programme.com/t18/mercredi-14-octobre-2026/",
+        "https://www.programmetvcesoir.net/chaine/t18/2026-10-14",
+        "https://www.programme-television.org/tv/chaines/t18/mercredi",
+        "https://screenplus.fr/programmestv/fr/t18/"
+      ],
+      "result": "ProgrammeTVCeSoir recoupe LeZapp sur Meurtre en sous-sol - affaire Manteau à 00:20 et sur les autres sujets. Télé 7 Jours recoupe les autres horaires mais donne Jogging fatal - affaire Nelly Crémel à 00:20. SCREEN+ expose la date sans publier de provenance d'acquisition. Aucune source officielle T18 exacte n'a été trouvée ; l'indépendance reste inconnue et le conflit d'épisode est nouveau.",
+      "blocking_scope": "niveau 2 T18 du 14 octobre ; aucune carte rendue dépend actuellement du créneau 00:20",
+      "blocking": true,
+      "status": "new_episode_conflict_requires_exact_resolution_or_exclusion",
+      "resume_when": "Une source officielle exacte ou une preuve positive d'acquisition distincte tranche le créneau 00:20, ou une décision d'exclusion motivée établit qu'il n'affecte ni omission ni proposition."
     }
   ],
   "shortlist": {
