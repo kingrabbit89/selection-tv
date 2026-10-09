@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T14:11:28.710Z",
+  "updated_at": "2026-10-09T14:15:42.393Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1022,6 +1022,16 @@
       "completed_at": "2026-10-09T14:10:26.848Z",
       "scope": "mardi-selection:reserves",
       "summary": "Deux réserves complètes sont ajoutées au mardi depuis des dossiers déjà achevés : Grotte Chauvet à 09:55 sur Arte et Restore Point à 11:25 sur Canal+ Box Office. Les trois choix développés et leur grille sont conservés intégralement.",
+      "deliverables": [
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "complete-three-cross-day-rerun-reserves-2026-10-09",
+      "completed_at": "2026-10-09T14:15:30.113Z",
+      "scope": "mercredi-selection,jeudi-selection,vendredi-selection:reserves",
+      "summary": "Trois réserves complètes réutilisent des dossiers déjà rendus après contrôle des rediffusions : Secrets et mensonges mercredi, Picnic jeudi et Les Revenants vendredi. Les neuf choix développés et leurs grilles restent inchangés.",
       "deliverables": [
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
@@ -23613,6 +23623,86 @@
       },
       "evidence_note": "Rediffusion du mardi rapprochée du tableau mensuel officiel CANAL+ et de grilles datées. Version CANAL+ 109 min, identité, réception, note, affiche et liens repris du dossier complet sans antidater les preuves stables.",
       "status": "verified_reuse"
+    },
+    {
+      "work_id": "secrets-et-mensonges-1996",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "daily_reserve_card"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-festival/mercredi-14-octobre-2026/",
+        "https://programmetv.ouest-france.fr/film/comedie-dramatique/secrets-et-mensonges-c59136/",
+        "https://www.programme.tv/programme/secrets-et-mensonges-206353/",
+        "https://www.canalplus.com/cinema/secrets-et-mensonges/h/177164_40099/resume-casting/"
+      ],
+      "checked_at": "2026-10-09T14:15:30.113Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "start": "08:29",
+        "channel": "Ciné+ Festival",
+        "section": "mercredi-selection",
+        "rank": 4
+      },
+      "evidence_note": "Ouest-France et TV-Programme concordent sur mercredi 14 octobre à 08:29 sur Ciné+ Festival ; Programme.tv conserve le libellé historique Ciné+ Club. Dossier stable, texte, réception, note, visuel et liens réutilisés avec leurs dates d’origine ; réserve uniquement.",
+      "status": "verified_reuse"
+    },
+    {
+      "work_id": "picnic-1955",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "daily_reserve_card"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-classic/jeudi-15-octobre-2026/",
+        "https://www.programme.tv/programme/picnic-207602/",
+        "https://tv.digital3d.com/detail/cineplus-classic-44?date=2026-10-15&time=10%3A14",
+        "https://www.canalplus.com/cinema/picnic/h/174854_50002/resume-casting/"
+      ],
+      "checked_at": "2026-10-09T14:15:30.113Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "start": "10:14",
+        "channel": "Ciné+ Classic",
+        "section": "jeudi-selection",
+        "rank": 5
+      },
+      "evidence_note": "TV-Programme, Programme.tv et TV Digital3D concordent sur jeudi 15 octobre à 10:14 sur Ciné+ Classic. Dossier stable, texte, réception, note, visuel et liens réutilisés avec leurs dates d’origine ; réserve uniquement.",
+      "status": "verified_reuse"
+    },
+    {
+      "work_id": "les-revenants-2004",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "daily_reserve_card"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-festival/vendredi-16-octobre-2026/",
+        "https://programmetv.ouest-france.fr/film/fantastique/les-revenants-c3337188/",
+        "https://www.canalplus.com/cinema/les-revenants/h/344123_40099/resume-casting/"
+      ],
+      "checked_at": "2026-10-09T14:15:30.113Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "start": "08:30",
+        "channel": "Ciné+ Festival",
+        "section": "vendredi-selection",
+        "rank": 4
+      },
+      "evidence_note": "Ouest-France et TV-Programme concordent sur vendredi 16 octobre à 08:30 sur Ciné+ Festival. Dossier stable, texte, réception, note, visuel et liens réutilisés avec leurs dates d’origine ; réserve uniquement.",
+      "status": "verified_reuse"
     }
   ],
   "run_metrics": [
@@ -26655,7 +26745,8 @@
       "ended_at": null,
       "duration_basis": "Passage en cours ; started_at observé à l’entrée, ended_at non encore connu.",
       "completed_batches": [
-        "complete-tuesday-two-rerun-reserves-2026-10-09"
+        "complete-tuesday-two-rerun-reserves-2026-10-09",
+        "complete-three-cross-day-rerun-reserves-2026-10-09"
       ],
       "deliverables_changed": [
         "data/weeks/2026-S42.json",
@@ -26663,17 +26754,21 @@
       ],
       "deliverables_advanced": [
         "mardi : Grotte Chauvet complète en réserve rang 4",
-        "mardi : Restore Point complet en réserve rang 5"
+        "mardi : Restore Point complet en réserve rang 5",
+        "mercredi : Secrets et mensonges complet en réserve rang 4",
+        "jeudi : Picnic complet en réserve rang 5",
+        "vendredi : Les Revenants complet en réserve rang 4"
       ],
-      "complete_cards": 76,
-      "cards_integrated_this_run": 2,
+      "complete_cards": 79,
+      "cards_integrated_this_run": 5,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "requirements_resolved": [
-        "mardi : réserve quotidienne portée de trois à cinq cartes complètes"
+        "mardi : réserve quotidienne portée de trois à cinq cartes complètes",
+        "mercredi, jeudi et vendredi : un dossier complet supplémentaire intégré à chaque pool quotidien"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Vérifier puis intégrer d’autres rediffusions de dossiers complets dans les jours déficitaires, en priorité avec preuve officielle de la date et de l’horaire.",
+      "next_useful_batch": "Compléter samedi, dimanche ou mercredi avec un dossier complet dont la rediffusion propre au jour peut être recoupée sans ambiguïté.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -26703,22 +26798,51 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T14:13:15.609Z",
+          "elapsed_seconds": 657.754,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "a80329693975e787030c6a2dfbddfa20037f62df",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers déjà avancés et de rediffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T14:02:17.855Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T15:03:07.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T14:04:44.081Z",
-        "elapsed_seconds": 146.226,
+        "observed_at": "2026-10-09T14:13:15.609Z",
+        "elapsed_seconds": 657.754,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "ba1ce44ed66be4d2aa0a2d6314655089652ee369",
+        "source_sha": "a80329693975e787030c6a2dfbddfa20037f62df",
         "next_actions": [
-          "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers les plus avancés.",
-          "Produire les deux radars et leur fichier de réserves à partir de signaux récents vérifiés.",
+          "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers déjà avancés et de rediffusions exactement recoupées.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+          "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
           "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
         ],
@@ -26741,12 +26865,15 @@
         },
         "redaction_rendu": {
           "started_at": "2026-10-09T14:07:54.264Z",
-          "ended_at": "2026-10-09T14:10:26.848Z"
+          "ended_at": "2026-10-09T14:15:30.113Z"
         },
-        "recherche": null,
+        "recherche": {
+          "started_at": "2026-10-09T14:13:15.609Z",
+          "ended_at": "2026-10-09T14:15:42.000Z"
+        },
         "controles": {
-          "started_at": "2026-10-09T14:10:26.848Z",
-          "ended_at": "2026-10-09T14:11:28.710Z"
+          "started_at": "2026-10-09T14:15:29.000Z",
+          "ended_at": "2026-10-09T14:15:42.393Z"
         },
         "sauvegarde": null,
         "attente": null
@@ -27381,7 +27508,7 @@
     "main_sha": "eadfd023669970da304879f587cba4125908a655",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers déjà avancés et de rediffusions exactement recoupées.",
+      "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
       "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
       "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte."
     ],
@@ -29899,6 +30026,60 @@
           }
         ],
         "decision_note": "Réserve complète rang 5 ; la carte déjà rédigée et ses réserves critiques sont conservées sans nouvelle consultation fictive.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-mercredi-secrets-mensonges-reserve",
+        "title": "Secrets et mensonges",
+        "work_id": "secrets-et-mensonges-1996",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "rediffusion_recoupee_dossier_complet",
+            "note": "Ouest-France et TV-Programme concordent sur mercredi 14 octobre à 08:29 sur Ciné+ Festival ; Programme.tv conserve le libellé historique Ciné+ Club.",
+            "source_url": "https://programmetv.ouest-france.fr/film/comedie-dramatique/secrets-et-mensonges-c59136/"
+          }
+        ],
+        "decision_note": "Réserve complète rang 4 ; identité Mike Leigh 1996 et version CANAL+ 136 min reprises du dossier du lundi.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-jeudi-picnic-reserve",
+        "title": "Picnic",
+        "work_id": "picnic-1955",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "rediffusion_recoupee_dossier_complet",
+            "note": "TV-Programme, Programme.tv et TV Digital3D concordent sur jeudi 15 octobre à 10:14 sur Ciné+ Classic.",
+            "source_url": "https://www.programme.tv/programme/picnic-207602/"
+          }
+        ],
+        "decision_note": "Réserve complète rang 5 ; version CANAL+ 108 min et divergences de durée reprises du dossier du lundi.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-vendredi-les-revenants-reserve",
+        "title": "Les Revenants",
+        "work_id": "les-revenants-2004",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "rediffusion_recoupee_dossier_complet",
+            "note": "Ouest-France et TV-Programme concordent sur vendredi 16 octobre à 08:30 sur Ciné+ Festival.",
+            "source_url": "https://programmetv.ouest-france.fr/film/fantastique/les-revenants-c3337188/"
+          }
+        ],
+        "decision_note": "Réserve complète rang 4 ; film de Robin Campillo 2004 distinct de la série homonyme, version CANAL+ 102 min.",
         "alternatives": []
       }
     ]
