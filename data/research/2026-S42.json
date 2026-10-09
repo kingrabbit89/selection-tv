@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T14:15:42.393Z",
+  "updated_at": "2026-10-09T14:20:34.308Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1032,6 +1032,16 @@
       "completed_at": "2026-10-09T14:15:30.113Z",
       "scope": "mercredi-selection,jeudi-selection,vendredi-selection:reserves",
       "summary": "Trois réserves complètes réutilisent des dossiers déjà rendus après contrôle des rediffusions : Secrets et mensonges mercredi, Picnic jeudi et Les Revenants vendredi. Les neuf choix développés et leurs grilles restent inchangés.",
+      "deliverables": [
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "complete-sunday-la-reconquista-reserve-2026-10-09",
+      "completed_at": "2026-10-09T14:20:34.308Z",
+      "scope": "dimanche-selection:reserve;samedi-selection:broadcast-check",
+      "summary": "La reconquista est ajoutée comme réserve complète du dimanche après recoupement de la rediffusion. Le créneau samedi de Burning an Illusion est recoupé mais reste hors réserve tant que la version de la copie TCM n’est pas suffisamment établie.",
       "deliverables": [
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
@@ -23703,6 +23713,58 @@
       },
       "evidence_note": "Ouest-France et TV-Programme concordent sur vendredi 16 octobre à 08:30 sur Ciné+ Festival. Dossier stable, texte, réception, note, visuel et liens réutilisés avec leurs dates d’origine ; réserve uniquement.",
       "status": "verified_reuse"
+    },
+    {
+      "work_id": "la-reconquista-2016",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "daily_reserve_card"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-festival/dimanche-11-octobre-2026/",
+        "https://programmetv.ouest-france.fr/film/drame/la-reconquista-c122167899/",
+        "https://www.canalplus.com/cinema/la-reconquista/h/17600088_40099/resume-casting/",
+        "https://cineuropa.org/fr/newsdetail/317955/fr/freviews/"
+      ],
+      "checked_at": "2026-10-09T14:20:34.308Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "start": "10:20",
+        "channel": "Ciné+ Festival",
+        "section": "dimanche-selection",
+        "rank": 4
+      },
+      "evidence_note": "Ouest-France et la grille datée concordent sur la rediffusion du dimanche. Dossier stable, version CANAL+ 108 min, textes, réception, note, visuel et liens réutilisés avec leurs dates d’origine ; réserve uniquement.",
+      "status": "verified_reuse"
+    },
+    {
+      "work_id": "burning-an-illusion-1981",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tcm-cinema/samedi-10-octobre-2026/",
+        "https://programmetv.ouest-france.fr/film/drame/burning-an-illusion-c194251129/",
+        "https://tv.moustique.be/chaine/185/tcm-cinema.html?date=2026-10-10&period=noon",
+        "https://www.telepocket.be/chaine/185/tcm-cinema.html?date=2026-10-10&period=noon"
+      ],
+      "checked_at": "2026-10-09T14:20:34.308Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "start": "19:05",
+        "channel": "TCM Cinéma",
+        "section": "samedi-selection"
+      },
+      "evidence_note": "Quatre pages concordent sur le créneau. La preuve clôt la date, l’heure et la chaîne, mais pas la version exacte parmi les durées 101/102/105/107 minutes ; aucune carte complète supplémentaire n’est revendiquée.",
+      "status": "broadcast_verified_version_open"
     }
   ],
   "run_metrics": [
@@ -26746,7 +26808,8 @@
       "duration_basis": "Passage en cours ; started_at observé à l’entrée, ended_at non encore connu.",
       "completed_batches": [
         "complete-tuesday-two-rerun-reserves-2026-10-09",
-        "complete-three-cross-day-rerun-reserves-2026-10-09"
+        "complete-three-cross-day-rerun-reserves-2026-10-09",
+        "complete-sunday-la-reconquista-reserve-2026-10-09"
       ],
       "deliverables_changed": [
         "data/weeks/2026-S42.json",
@@ -26757,18 +26820,20 @@
         "mardi : Restore Point complet en réserve rang 5",
         "mercredi : Secrets et mensonges complet en réserve rang 4",
         "jeudi : Picnic complet en réserve rang 5",
-        "vendredi : Les Revenants complet en réserve rang 4"
+        "vendredi : Les Revenants complet en réserve rang 4",
+        "dimanche : La reconquista complète en réserve rang 4"
       ],
-      "complete_cards": 79,
-      "cards_integrated_this_run": 5,
+      "complete_cards": 80,
+      "cards_integrated_this_run": 6,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "requirements_resolved": [
         "mardi : réserve quotidienne portée de trois à cinq cartes complètes",
-        "mercredi, jeudi et vendredi : un dossier complet supplémentaire intégré à chaque pool quotidien"
+        "mercredi, jeudi et vendredi : un dossier complet supplémentaire intégré à chaque pool quotidien",
+        "dimanche : un dossier complet supplémentaire intégré au pool quotidien"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter samedi, dimanche ou mercredi avec un dossier complet dont la rediffusion propre au jour peut être recoupée sans ambiguïté.",
+      "next_useful_batch": "Terminer un dossier proche d’une carte complète pour samedi ou enrichir un autre jour déficitaire sans réutiliser un titre dont la version reste ouverte.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -26827,20 +26892,49 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T14:17:39.734Z",
+          "elapsed_seconds": 921.879,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "b932e8be6d6bd2cee2c91a1a4a04d8bc06048b4d",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T14:02:17.855Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T15:03:07.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T14:13:15.609Z",
-        "elapsed_seconds": 657.754,
+        "observed_at": "2026-10-09T14:17:39.734Z",
+        "elapsed_seconds": 921.879,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "a80329693975e787030c6a2dfbddfa20037f62df",
+        "source_sha": "b932e8be6d6bd2cee2c91a1a4a04d8bc06048b4d",
         "next_actions": [
-          "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers déjà avancés et de rediffusions exactement recoupées.",
+          "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
           "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
           "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
@@ -26865,16 +26959,13 @@
         },
         "redaction_rendu": {
           "started_at": "2026-10-09T14:07:54.264Z",
-          "ended_at": "2026-10-09T14:15:30.113Z"
+          "ended_at": "2026-10-09T14:20:34.308Z"
         },
         "recherche": {
-          "started_at": "2026-10-09T14:13:15.609Z",
-          "ended_at": "2026-10-09T14:15:42.000Z"
+          "started_at": "2026-10-09T14:17:39.734Z",
+          "ended_at": "2026-10-09T14:20:34.308Z"
         },
-        "controles": {
-          "started_at": "2026-10-09T14:15:29.000Z",
-          "ended_at": "2026-10-09T14:15:42.393Z"
-        },
+        "controles": null,
         "sauvegarde": null,
         "attente": null
       },
@@ -28072,12 +28163,18 @@
             "kind": "critique",
             "note": "La critique Backseat Mafia est sauvegardée avec les réserves d’autres lectures ; version 101/105/107 min et offre restent à arbitrer.",
             "source_url": "https://www.backseatmafia.com/blu-ray-review-burning-an-illusion/"
+          },
+          {
+            "kind": "diffusion_recoupee_version_a_clore",
+            "note": "Ouest-France, Moustique, TéléPocket et la grille sauvegardée concordent sur samedi 10 octobre à 19:05 sur TCM Cinéma ; la copie exacte parmi les durées divergentes reste à établir avant une réserve complète.",
+            "source_url": "https://programmetv.ouest-france.fr/film/drame/burning-an-illusion-c194251129/"
           }
         ],
         "alternatives": [
           "sl-samedi-sulawesi",
           "sl-samedi-exit-8"
-        ]
+        ],
+        "decision_note": "Diffusion du samedi recoupée ; piste non intégrée aux recommandations ou réserves dans ce lot, car la version TCM exacte reste insuffisamment établie."
       },
       {
         "id": "sl-dimanche-la-gueule-ouverte",
@@ -30080,6 +30177,24 @@
           }
         ],
         "decision_note": "Réserve complète rang 4 ; film de Robin Campillo 2004 distinct de la série homonyme, version CANAL+ 102 min.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-dimanche-la-reconquista-reserve",
+        "title": "La reconquista",
+        "work_id": "la-reconquista-2016",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "rediffusion_recoupee_dossier_complet",
+            "note": "Ouest-France et la grille TV-Programme concordent sur dimanche 11 octobre à 10:20 sur Ciné+ Festival.",
+            "source_url": "https://programmetv.ouest-france.fr/film/drame/la-reconquista-c122167899/"
+          }
+        ],
+        "decision_note": "Réserve complète rang 4 ; version CANAL+ 108 min distinguée de la sortie française 118 min, textes et réception repris du dossier complet du lundi.",
         "alternatives": []
       }
     ]
