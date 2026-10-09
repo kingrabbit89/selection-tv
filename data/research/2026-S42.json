@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T22:42:00.676Z",
+  "updated_at": "2026-10-09T22:44:19.653Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -19,7 +19,7 @@
     "TV5MONDE FBS : revue applicable des omissions achevée sur les sept colonnes du PDF fourni et 50 créneaux sauvegardés, sans affirmation d’indépendance amont. Identifier seulement les sujets propres d’Au bout de l’enquête (10/10 09:30 et 17:10 ; 11/10 14:38), de Temps présent (13/10 17:05 ; 14/10 09:50) et les épisodes génériques avant tout examen éditorial ; poursuivre séparément offres et expirations TV5MONDE+.",
     "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma.",
     "TF1/TFX/TMC : poursuivre les sujets/épisodes encore génériques et le tri motivé des formats de magazine ou documentaire de flux repérés ; neuf créneaux TFX, 38 TMC recoupés et deux magazines supplémentaires ajoutés, sans certification artistique.",
-    "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer. Programmetvcesoir et Ouest-France soutiennent les titres inventoriés ; suivis ciblés enregistrés, indépendance non établie, conflits non clos.",
+    "RMC Story/Découverte : l’absence de fournisseur EPG public n’est plus bloquante sous web_schedule_evidence. Sur 127 créneaux, 87 concordent exactement et 35 concordent sur série/date/heure mais gardent leurs épisodes Au cœur des douanes à identifier. Restent deux conflits de titre (10/10 06:05 ; 15/10 22:30), trois alias à confirmer et quatre ajouts du rappel à évaluer ; aucune indépendance amont n’est affirmée.",
     "Ciné+ Festival : la grille Télérama fournie et relue arbitre six des neuf cartes précédemment ouvertes. Restent La reconquista le 11/10 à 10:20 et Secrets et mensonges le 12/10 à 06:12 puis le 14/10 à 08:29, absents des pages papier relues ; obtenir pour chacun une preuve conforme à web_schedule_evidence ou remplacer la proposition. Les autres rediffusions non retenues restent différées ; durées de versions et droits replay demeurent séparés des créneaux.",
     "TCM : revue applicable des omissions achevée sur 98 créneaux (78 lignes du PDF fourni visuellement relues, 20 créneaux concordants entre TV-Programme et Télérama.fr) ; aucune omission relevée et aucune indépendance amont affirmée. Poursuivre seulement l’enrichissement éditorial des documentaires et films prometteurs non encore retenus, sans rouvrir la provenance technique des grilles."
   ],
@@ -1391,7 +1391,8 @@
     },
     "review-telerama-five-pages-close-six-cineplus-festival-events-2026-10-09",
     "review-tcm-seven-days-pdf-and-web-schedule-evidence-2026-10-09",
-    "review-tv5monde-fbs-seven-pdf-columns-2026-10-09"
+    "review-tv5monde-fbs-seven-pdf-columns-2026-10-09",
+    "reconcile-rmc-web-schedule-evidence-preserve-conflicts-2026-10-09"
   ],
   "blockers": [
     {
@@ -27186,6 +27187,69 @@
       },
       "evidence_note": "Sept colonnes papier visuellement relues, 14 lignes extraites individuellement et 50 comparaisons sauvegardées par date. Aucune omission constatée ; indépendance amont non affirmée. Les sujets/épisodes génériques restent ouverts.",
       "status": "level2_applicable_review_complete_without_independence_claim"
+    },
+    {
+      "id": "run23-rmc-web-schedule-review",
+      "work_id": null,
+      "fields": [
+        "coverage.level2.schedule_comparison",
+        "broadcast.title_family",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/rmc-story/samedi-10-octobre-2026/",
+        "https://tv-programme.com/rmc-decouverte/samedi-10-octobre-2026/",
+        "https://tv-programme.com/rmc-story/dimanche-11-octobre-2026/",
+        "https://tv-programme.com/rmc-decouverte/dimanche-11-octobre-2026/",
+        "https://tv-programme.com/rmc-story/lundi-12-octobre-2026/",
+        "https://tv-programme.com/rmc-decouverte/lundi-12-octobre-2026/",
+        "https://tv-programme.com/rmc-story/mardi-13-octobre-2026/",
+        "https://tv-programme.com/rmc-decouverte/mardi-13-octobre-2026/",
+        "https://tv-programme.com/rmc-story/mercredi-14-octobre-2026/",
+        "https://tv-programme.com/rmc-decouverte/mercredi-14-octobre-2026/",
+        "https://tv-programme.com/rmc-story/jeudi-15-octobre-2026/",
+        "https://tv-programme.com/rmc-decouverte/jeudi-15-octobre-2026/",
+        "https://tv-programme.com/rmc-story/vendredi-16-octobre-2026/",
+        "https://tv-programme.com/rmc-decouverte/vendredi-16-octobre-2026/",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-10",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-09",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-10",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-11",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-11",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-12",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-12",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-13",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-13",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-14",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-14",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-15",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-15",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-16",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-16"
+      ],
+      "checked_at": "2026-10-09T22:44:19.653Z",
+      "stability": "cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "channels": [
+          "RMC Story",
+          "RMC Découverte"
+        ],
+        "dates": [
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16"
+        ],
+        "slots": 127
+      },
+      "evidence_note": "87 créneaux concordent exactement ; 35 créneaux concordent sur série/date/heure mais gardent l’épisode ouvert. Deux conflits et trois alias sont préservés. Aucune indépendance amont n’est affirmée.",
+      "status": "partial_factual_gaps_preserved"
     }
   ],
   "run_metrics": [
@@ -34222,7 +34286,8 @@
         "review-telerama-page-132-correct-three-thursday-reserve-times-2026-10-09",
         "review-telerama-five-pages-close-six-cineplus-festival-events-2026-10-09",
         "review-tcm-seven-days-pdf-and-web-schedule-evidence-2026-10-09",
-        "review-tv5monde-fbs-seven-pdf-columns-2026-10-09"
+        "review-tv5monde-fbs-seven-pdf-columns-2026-10-09",
+        "reconcile-rmc-web-schedule-evidence-preserve-conflicts-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -34233,9 +34298,9 @@
       "cards_integrated_this_run": 0,
       "draft_cards": 0,
       "partial_dossiers": 0,
-      "requirements_resolved": 3,
+      "requirements_resolved": 4,
       "stop_reason": null,
-      "next_useful_batch": "Traiter un manque documentaire factuel accessible ou une autre ancienne attente de provenance, en conservant les conflits et identités génériques.",
+      "next_useful_batch": "Traiter une prochaine lacune factuelle ou documentaire accessible ; ne pas rouvrir les provenances techniques déjà réconciliées.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -34373,23 +34438,46 @@
             "lease_until": "2026-10-09T23:38:16.947Z",
             "external_stop": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T22:43:14.103Z",
+          "elapsed_seconds": 1430.94,
+          "prompt_revision": "production-web-evidence-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "19d0ff64cb7d5e972e735d3a678d1123f46fbca0",
+          "next_actions": [
+            "Traiter un manque documentaire factuel accessible ou une autre ancienne attente de provenance, en conservant les conflits et identités génériques."
+          ],
+          "remaining_count": 17,
+          "waiting_actions_count": 6,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T22:19:23.163Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T23:38:16.947Z",
+            "external_stop": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T22:40:41.496Z",
-        "elapsed_seconds": 1278.333,
+        "observed_at": "2026-10-09T22:43:14.103Z",
+        "elapsed_seconds": 1430.94,
         "prompt_revision": "production-web-evidence-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "da3313877eed0900980ae3fa637fe5ea6b64d9a1",
+        "source_sha": "19d0ff64cb7d5e972e735d3a678d1123f46fbca0",
         "next_actions": [
-          "Poursuivre une action accessible de couverture documentaire ou un défaut précis de niveau 3, sans rouvrir les attentes Ciné+ et TCM correctement bornées."
+          "Traiter un manque documentaire factuel accessible ou une autre ancienne attente de provenance, en conservant les conflits et identités génériques."
         ],
         "remaining_count": 17,
-        "waiting_actions_count": 8,
+        "waiting_actions_count": 6,
         "research_review_warnings": [],
         "observations": {
           "started_at": "2026-10-09T22:19:23.163Z",
@@ -34433,12 +34521,20 @@
           "ended_at": "2026-10-09T22:42:00.676Z",
           "overlap": false,
           "note": "Sept colonnes TV5 Monde du PDF déjà rendu ont été relues ; ancienne exigence de fournisseur EPG retirée, sujets et épisodes génériques conservés."
+        },
+        {
+          "kind": "coverage_reconciliation",
+          "started_at": "2026-10-09T22:43:14.103Z",
+          "ended_at": "2026-10-09T22:44:19.653Z",
+          "overlap": false,
+          "note": "127 comparaisons RMC réconciliées selon web_schedule_evidence ; provenance technique retirée, deux conflits, trois alias et 35 épisodes génériques conservés."
         }
       ],
       "requirements_resolved_details": [
         "Un crime dans la tête, réserve jeudi rang 10 : attente de provenance Web close par revue de la ligne imprimée faisant autorité ; horaire corrigé à 17:40.",
         "TCM Cinéma : ancienne exigence de provenance technique close pour le rappel d’omissions selon la politique à jour ; 98 créneaux relus, zéro omission, enrichissement éditorial conservé.",
-        "TV5MONDE FBS : exigence de provenance amont close pour le niveau 2 sous autorité du PDF fourni ; sujets/épisodes/offres résiduels conservés."
+        "TV5MONDE FBS : exigence de provenance amont close pour le niveau 2 sous autorité du PDF fourni ; sujets/épisodes/offres résiduels conservés.",
+        "RMC Story/Découverte : ancienne exigence de fournisseur EPG retirée selon web_schedule_evidence ; conflits, alias et épisodes génériques restent ouverts."
       ],
       "control_notes": [
         "preparation-gaps sur eadc052 : seul coverage-full-week reste bloquant structurellement ; les sept jours ont dix cartes matérialisées et l’objectif de quinze reste un avertissement non bloquant.",
@@ -34450,7 +34546,9 @@
         "La revue TCM est bornée au niveau 2 applicable : 98 créneaux, zéro omission ; full_week_reaudit_completed et independent_crosscheck_complete restent faux à cause des autres groupes ouverts.",
         "Après réconciliation TCM, validate-editorial ne conserve que full_week_reaudit_completed=false. preparation-gaps reste à une action bloquante de couverture hebdomadaire et sept avertissements 10/15 ; aucune attestation globale n’a été ajoutée.",
         "TV5MONDE FBS : revue de grille bornée au niveau 2 applicable ; aucun flag hebdomadaire global ni indépendance de flux n’est attesté.",
-        "Après la réconciliation TV5MONDE FBS, validate-editorial ne conserve que full_week_reaudit_completed=false ; preparation-gaps reste à une action bloquante de couverture hebdomadaire et sept avertissements 10/15."
+        "Après la réconciliation TV5MONDE FBS, validate-editorial ne conserve que full_week_reaudit_completed=false ; preparation-gaps reste à une action bloquante de couverture hebdomadaire et sept avertissements 10/15.",
+        "RMC reste partiel pour des défauts factuels précis ; aucun flag hebdomadaire ou indépendance de flux n’est attesté.",
+        "Après la réconciliation RMC, validate-editorial ne conserve que full_week_reaudit_completed=false ; preparation-gaps reste à une action bloquante de couverture hebdomadaire et sept avertissements 10/15. Les cinq groupes de défauts RMC restent visibles dans le suivi."
       ],
       "measurements": {
         "schedule_facts_corrected": {
@@ -35138,11 +35236,11 @@
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
+      "RMC Story/Découverte : l’absence de fournisseur EPG public n’est plus bloquante sous web_schedule_evidence. Sur 127 créneaux, 87 concordent exactement et 35 concordent sur série/date/heure mais gardent leurs épisodes Au cœur des douanes à identifier. Restent deux conflits de titre (10/10 06:05 ; 15/10 22:30), trois alias à confirmer et quatre ajouts du rappel à évaluer ; aucune indépendance amont n’est affirmée.",
       "TV5MONDE FBS : revue applicable des omissions achevée sur les sept colonnes du PDF fourni et 50 créneaux sauvegardés, sans affirmation d’indépendance amont. Identifier seulement les sujets propres d’Au bout de l’enquête (10/10 09:30 et 17:10 ; 11/10 14:38), de Temps présent (13/10 17:05 ; 14/10 09:50) et les épisodes génériques avant tout examen éditorial ; poursuivre séparément offres et expirations TV5MONDE+.",
       "TCM : revue applicable des omissions achevée sur 98 créneaux (78 lignes du PDF fourni visuellement relues, 20 créneaux concordants entre TV-Programme et Télérama.fr) ; aucune omission relevée et aucune indépendance amont affirmée. Poursuivre seulement l’enrichissement éditorial des documentaires et films prometteurs non encore retenus, sans rouvrir la provenance technique des grilles.",
       "Ciné+ Festival : la grille Télérama fournie et relue arbitre six des neuf cartes précédemment ouvertes. Restent La reconquista le 11/10 à 10:20 et Secrets et mensonges le 12/10 à 06:12 puis le 14/10 à 08:29, absents des pages papier relues ; obtenir pour chacun une preuve conforme à web_schedule_evidence ou remplacer la proposition. Les autres rediffusions non retenues restent différées ; durées de versions et droits replay demeurent séparés des créneaux.",
       "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
-      "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
       "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet."
     ],
     "publisher": {
@@ -35936,22 +36034,25 @@
         "https://tv-programme.com/rmc-decouverte/samedi-10-octobre-2026/",
         "https://tv-programme.com/cgu"
       ],
-      "result": "RMC+ n’expose pas de grille future ou d’archive datée S42. TV-Programme publie des grilles datées et TABOM SAS est identifié comme éditeur, mais ses CGU ne nomment pas le fournisseur EPG ; l’indépendance vis-à-vis des autres guides reste donc indémontrée. Les écarts 05:45/06:05 et 07:00/07:25 du samedi sont conservés.",
-      "blocking_scope": "niveau 2 RMC Story et RMC Découverte pour les sept jours",
+      "result": "La politique web_schedule_evidence retire l’enquête de fournisseur EPG. Les concordances sont conservées dans leur portée ; deux conflits, trois alias et 35 identités d’épisode restent factuellement ouverts.",
+      "blocking_scope": "deux conflits de titre, trois alias et identités d’épisodes Au cœur des douanes uniquement",
       "blocking": true,
-      "status": "dated_grid_found_provider_not_disclosed",
-      "resume_when": "Une archive RMC+ datée après diffusion ou une grille dont le fournisseur EPG est explicitement indépendant devient accessible.",
-      "retry_gate": {
-        "state": "waiting_for_new_evidence",
-        "action_texts": [
-          "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
-          "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer. Programmetvcesoir et Ouest-France soutiennent les titres inventoriés ; suivis ciblés enregistrés, indépendance non établie, conflits non clos."
-        ],
-        "reason": "RMC+ ne fournit pas l’archive S42 et les deux grilles secondaires consultées n’établissent pas une acquisition distincte ; aucune nouvelle consultation identique ne peut lever ce point.",
-        "resume_when": "Une archive officielle RMC S42 ou une preuve positive d’acquisition originale distincte couvre RMC Story et RMC Découverte sur les sept dates.",
-        "observed_at": "2026-10-09T21:02:05.686Z",
-        "evidence": "research_attempts[19], [23] et [25] ; 127 créneaux comparés, conflits et limites conservés dans coverage."
-      }
+      "status": "provenance_requirement_resolved_factual_conflicts_open",
+      "resume_when": "Une correction officielle précise, un recoupement concordant sur l’identité exacte ou une exclusion motivée résout chaque conflit/alias/épisode avant sélection.",
+      "retry_gate_history": [
+        {
+          "state": "waiting_for_new_evidence",
+          "action_texts": [
+            "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
+            "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer. Programmetvcesoir et Ouest-France soutiennent les titres inventoriés ; suivis ciblés enregistrés, indépendance non établie, conflits non clos."
+          ],
+          "reason": "RMC+ ne fournit pas l’archive S42 et les deux grilles secondaires consultées n’établissent pas une acquisition distincte ; aucune nouvelle consultation identique ne peut lever ce point.",
+          "resume_when": "Une archive officielle RMC S42 ou une preuve positive d’acquisition originale distincte couvre RMC Story et RMC Découverte sur les sept dates.",
+          "observed_at": "2026-10-09T21:02:05.686Z",
+          "evidence": "research_attempts[19], [23] et [25] ; 127 créneaux comparés, conflits et limites conservés dans coverage."
+        }
+      ],
+      "updated_at": "2026-10-09T22:44:19.653Z"
     },
     {
       "id": "run21-cineplus-festival-w9-crosscheck-2026-10-09",
@@ -42459,6 +42560,67 @@
         "source_ref": "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93",
         "compared_slots": 50,
         "extracted_lines": 14
+      }
+    },
+    {
+      "id": "run23-rmc-provenance-requirement-narrowed",
+      "decided_at": "2026-10-09T22:44:19.653Z",
+      "decision": "technical_provenance_requirement_closed_factual_gaps_preserved",
+      "previous_scope": "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer. Programmetvcesoir et Ouest-France soutiennent les titres inventoriés ; suivis ciblés enregistrés, indépendance non établie, conflits non clos.",
+      "current_scope": "RMC Story/Découverte : l’absence de fournisseur EPG public n’est plus bloquante sous web_schedule_evidence. Sur 127 créneaux, 87 concordent exactement et 35 concordent sur série/date/heure mais gardent leurs épisodes Au cœur des douanes à identifier. Restent deux conflits de titre (10/10 06:05 ; 15/10 22:30), trois alias à confirmer et quatre ajouts du rappel à évaluer ; aucune indépendance amont n’est affirmée.",
+      "evidence": {
+        "total": 127,
+        "stats": {
+          "title_and_time_agree": 87,
+          "series_slot_agrees_episode_needs_check": 35,
+          "alias_needs_check": 3,
+          "conflict": 2
+        },
+        "conflicts": [
+          {
+            "date": "2026-10-10",
+            "start": "06:05",
+            "channel": "RMC Découverte",
+            "title": "100 jours avec les gendarmes de Béziers Débarquement immédiat",
+            "second_title": "FLIC STORY",
+            "second_episode": "Saison 2, épisode 71 : GENDARMES DE BRETAGNE - EPISODE 3"
+          },
+          {
+            "date": "2026-10-15",
+            "start": "22:30",
+            "channel": "RMC Story",
+            "title": "Guerre des voisins : ma vie est un enfer Meilleures ennemies",
+            "second_title": "GUERRE DES VOISINS : MA VIE EST UN ENFER",
+            "second_episode": "Saison 1, épisode 6 : MENACES ET RÈGLEMENTS DE COMPTE"
+          }
+        ],
+        "aliases": [
+          {
+            "date": "2026-10-12",
+            "start": "01:00",
+            "channel": "RMC Story",
+            "title": "100 jours avec la police de la route Pierre-Bénite : Course poursuite, trafic de stup, violence : le quotidien de la banlieue lyonnaise",
+            "second_title": "FLIC STORY",
+            "second_episode": "Saison 2, épisode 100 : COURSE POURSUITE, TRAFIC DE STUP, VIOLENCE : LE QUOTIDIEN DE LA BANLIEUE LYONNAISE"
+          },
+          {
+            "date": "2026-10-15",
+            "start": "21:10",
+            "channel": "RMC Découverte",
+            "title": "Apocalypse : le jour où la guerre nucléaire va éclater",
+            "second_title": "APOCALYPSE : LE JOUR OÙ LA GUERRE NUCLÉAIRE VA DÉBUTER",
+            "second_episode": "APOCALYPSE : LE JOUR OÙ LA GUERRE NUCLÉAIRE VA DÉBUTER"
+          },
+          {
+            "date": "2026-10-15",
+            "start": "23:20",
+            "channel": "RMC Découverte",
+            "title": "Chaos à Tchernobyl : scénario de la pire catastrophe nucléaire",
+            "second_title": "TCHERNOBYL, DÉJÀ 40 ANS : SCÉNARIO DE LA PIRE CATASTROPHE NUCLÉAIRE",
+            "second_episode": "TCHERNOBYL, DÉJÀ 40 ANS : SCÉNARIO DE LA PIRE CATASTROPHE NUCLÉAIRE"
+          }
+        ],
+        "episode_slots": 35
       }
     }
   ]
