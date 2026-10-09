@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {htmlText} from './html-text.mjs';
 
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
@@ -128,11 +129,10 @@ const sectionPolicy=pconfig.section_reserve_pools||{};
 const sectionStrict=latest>=(sectionPolicy.enabled_from_week||'9999-S99');
 if(sectionStrict){
   const pages=week.pages||[];
-  const clean=s=>String(s||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
   const cardTitles=(html,cardType)=>{
     const cls=cardType==='release-card'?'release-card':'week-card';
     const re=new RegExp('<article class="[^"]*\\b'+cls+'\\b[^"]*"[^>]*>[\\s\\S]*?<h3>([\\s\\S]*?)<\\/h3>','g');
-    return [...String(html||'').matchAll(re)].map(m=>clean(m[1])).filter(Boolean);
+    return [...String(html||'').matchAll(re)].map(m=>htmlText(m[1])).filter(Boolean);
   };
   for(const [sectionName,rule] of Object.entries(sectionPolicy.sections||{})){
     const prefix=String(rule.page_id_prefix||'');
