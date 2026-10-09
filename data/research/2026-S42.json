@@ -25245,6 +25245,39 @@
       },
       "evidence_note": "Deux guides datés concordent à 02:51 ; la fiche CANAL+ confirme l’identité et la version de 83 min, distincte du créneau de 1 h 24. Indépendance des flux non certifiée.",
       "status": "needs_check"
+    },
+    {
+      "work_id": "vermines-2023",
+      "fields": [
+        "identity",
+        "version",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "duration",
+        "image",
+        "classification",
+        "editorial_reception"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-2/10-10-2026/11-10-2026",
+        "https://tandemfilms.fr/film/vermines",
+        "https://www.cnc.fr/professionnels/visas-et-classification/158285",
+        "https://www.unifrance.org/film/56381/vermines",
+        "https://www.telerama.fr/cinema/vermines-un-film-d-horreur-francais-pas-bebete-du-tout_cri-7030371.php",
+        "https://www.allocine.fr/film/fichefilm-311895/critiques/presse/",
+        "https://www.imdb.com/title/tt26744289/"
+      ],
+      "checked_at": "2026-10-09T17:03:00.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "dimanche",
+        "rank": 10,
+        "broadcast": "2026-10-11 23:20 France 2"
+      },
+      "evidence_note": "FranceTvPro confirme le créneau de 102 min ; Tandem, CNC, Unifrance et IMDb séparent l’identité et le master 105/106 min. Le photogramme Tandem a été ouvert. Télérama et la revue de presse AlloCiné étayent une réception argumentée avec limites ; aucune note n’est convertie.",
+      "status": "verified_for_card"
     }
   ],
   "run_metrics": [
@@ -29736,6 +29769,140 @@
         "La carte informative actualisée sur 59b417dc signale 15 écarts bloquants et trois avertissements ; dimanche manque une carte, mardi, mercredi et jeudi quatre chacun, cinq doublons popular_deep et les audits de couverture restent ouverts.",
         "Prochaine piste fraîche examinée pour le dernier rang du dimanche : Toba dispose d’un créneau France 5 officiel à 00:40, mais identité complète, réception, disponibilité et visuel exact restent insuffisants ; aucune carte n’a été inventée."
       ]
+    },
+    {
+      "date": "2026-10-09T16:55:57.497Z",
+      "owner": "b026231c-e011-4fb6-baea-62aa56f0bbf1",
+      "execution_kind": "scheduled_telerama_editorial_production",
+      "prompt_revision": "production-telerama-editorial-2026-10-09",
+      "stage": "enrichment",
+      "run_state": "running",
+      "started_at": "2026-10-09T16:55:57.497Z",
+      "ended_at": null,
+      "duration_basis": "started_at observé à l’entrée ; passage encore en cours au checkpoint.",
+      "completed_batches": [
+        "sync-main-cd97e36-telerama-inputs-2026-10-09",
+        "run-dataflow-with-saved-telerama-2026-10-09",
+        "append-reviewed-sunday-vermines-reserve-2026-10-09"
+      ],
+      "deliverables_changed": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "complete_cards": 108,
+      "cards_integrated_this_run": 1,
+      "draft_cards": 0,
+      "partial_dossiers": 0,
+      "measurements": {
+        "complete_cards": {
+          "value": 108,
+          "scope": "stock après checkpoint : 107 positions héritées et une réserve dominicale complète ajoutée pendant ce passage"
+        },
+        "new_works": {
+          "value": 1,
+          "scope": "Vermines (2023) ajouté au catalogue canonique pendant ce passage"
+        },
+        "visible_cards": {
+          "value": 0,
+          "scope": "la position ajoutée est une réserve cachée, sans changement des trois choix visibles"
+        },
+        "additional_reserve_placements": {
+          "value": 1,
+          "scope": "une réserve quotidienne distincte ajoutée au dimanche"
+        },
+        "additional_distinct_reserve_work_ids": {
+          "value": 1,
+          "scope": "vermines-2023, absent de la tête de départ du passage"
+        },
+        "stable_reuses": {
+          "value": 0,
+          "scope": "aucune carte héritée n’a été comptée comme création ; les données Télérama sauvegardées ont servi de signal de tri seulement"
+        }
+      },
+      "requirements_resolved": [
+        "dimanche-selection : minimum de dix cartes complètes atteint avec Vermines, diffusion France 2, identité, version, visuel, réception et avertissement -12 contrôlés sans déclarer de pénurie"
+      ],
+      "stop_reason": null,
+      "next_useful_batch": "Compléter mardi, mercredi et jeudi, chacun à quatre cartes du minimum, puis remplacer les cinq doublons popular_deep.",
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T17:00:28.093Z",
+          "elapsed_seconds": 270.596,
+          "prompt_revision": "production-telerama-editorial-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "27d985348e3e0c67459cd8c4a4e54afdfb92108a",
+          "next_actions": [
+            "Compléter dimanche, encore à une carte du minimum, avec une œuvre distincte dont l’identité, la version et le créneau sont vérifiés.",
+            "Compléter ensuite mardi, mercredi et jeudi, chacun à quatre cartes du minimum.",
+            "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 39,
+          "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T16:55:57.497Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T17:56:59.951Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-09T17:00:28.093Z",
+        "elapsed_seconds": 270.596,
+        "prompt_revision": "production-telerama-editorial-2026-10-09",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S42",
+        "source_sha": "27d985348e3e0c67459cd8c4a4e54afdfb92108a",
+        "next_actions": [
+          "Compléter dimanche, encore à une carte du minimum, avec une œuvre distincte dont l’identité, la version et le créneau sont vérifiés.",
+          "Compléter ensuite mardi, mercredi et jeudi, chacun à quatre cartes du minimum.",
+          "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
+          "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
+          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits."
+        ],
+        "remaining_count": 35,
+        "next_actions_total": 39,
+        "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "observations": {
+          "started_at": "2026-10-09T16:55:57.497Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-09T17:56:59.951Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
+        }
+      },
+      "intervals": {
+        "resume_and_sync": {
+          "started_at": "2026-10-09T16:55:57.497Z",
+          "ended_at": "2026-10-09T17:00:28.093Z",
+          "note": "Bail, contrats, synchronisation normale de main et lancement du flow avec les entrées Télérama sauvegardées."
+        },
+        "sunday_reserve_batch": {
+          "started_at": "2026-10-09T17:00:28.093Z",
+          "ended_at": "2026-10-09T17:05:17.894Z",
+          "note": "Toba écarté après contrôle de fraîcheur à 79 %, puis Vermines complété et validé à 83 % de fraîcheur des réserves."
+        }
+      },
+      "control_notes": [
+        "Le supplément Télérama sauvegardé expose 1 333 observations et 41 critiques relues, dont 30 rapprochées exactement ; il reste un signal éditorial et ne certifie pas les diffusions.",
+        "Toba n’a pas été sauvegardé en carte : son ajout aurait abaissé la fraîcheur des réserves à 79 %, sous le seuil contractuel de 80 %.",
+        "Vermines porte la durée de copie 105/106 min séparément du créneau France 2 de 102 min ; aucune contradiction n’a été résolue par simple proximité."
+      ]
     }
   ],
   "source_issues": [
@@ -30392,12 +30559,11 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "59b417dc1edac7b78316f52f1572303cc668a46b",
+    "checkpoint_parent_sha": "27d985348e3e0c67459cd8c4a4e54afdfb92108a",
     "main_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Compléter dimanche, encore à une carte du minimum, avec une œuvre distincte dont l’identité, la version et le créneau sont vérifiés.",
-      "Compléter ensuite mardi, mercredi et jeudi, chacun à quatre cartes du minimum.",
+      "Compléter mardi, mercredi et jeudi, chacun à quatre cartes du minimum, depuis les dossiers avancés et les signaux Télérama rapprochés.",
       "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
       "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes."
     ],
@@ -30919,15 +31085,15 @@
         "https://www.telerama.fr/television/toba-le-volcan-qui-a-failli-tuer-l-humanite-un-doc-taille-pour-les-passionnes-de-geologie_cri-7045952.php",
         "https://www.canalplus.com/decouverte/toba-le-volcan-qui-a-failli-tuer-l-humanite/h/32203989_50074/resume-casting/"
       ],
-      "result": "Le créneau France 5 officiel, l’identité Franck Cuveillier/Éric Ellena, la version longue 90 min, des visuels FranceTvPro et une critique attribuée Télérama sont repérés. La coexistence 2025/2026 et 90/89/88 min, l’affiche exacte à sélectionner et la portée de l’offre CANAL+ jusqu’au 03/02 restent à arbitrer avant carte.",
+      "result": "Le créneau France 5 officiel, l’identité Franck Cuveillier/Éric Ellena, la version longue 90 min, des visuels FranceTvPro et une critique attribuée Télérama sont repérés. La coexistence 2025/2026 et 90/89/88 min, l’affiche exacte à sélectionner et la portée de l’offre CANAL+ jusqu’au 03/02 restent à arbitrer avant carte. Contrôle du 09/10 à 17:04 UTC : une carte complète aurait ramené la fraîcheur des réserves à 79 % (seuil 80 %) ; aucune carte Toba n’a été sauvegardée et Vermines a fermé le déficit dominical sans exception.",
       "blocking_scope": "dixième réserve du dimanche pour cette piste",
-      "blocking": true,
-      "status": "partial_dossier_promising",
-      "resume_when": "Arbitrer année et version de diffusion, ouvrir et inspecter un visuel exact, vérifier l’offre/expiration et rédiger puis contrôler la carte complète."
+      "blocking": false,
+      "status": "deferred_freshness_threshold",
+      "resume_when": "Réexaminer seulement quand la fenêtre de fraîcheur autorise cette réexposition ou pour un autre emplacement justifié ; ne pas l’utiliser pour remplir un quota."
     }
   ],
   "shortlist": {
-    "updated_at": "2026-10-09T12:33:37.099Z",
+    "updated_at": "2026-10-09T17:05:17.894Z",
     "note": "Présélection révisable par jour et rubrique ; premières cartes plateformes gratuites intégrées depuis les dossiers acquis. Aucun statut ne certifie la sélection finale du numéro.",
     "entries": [
       {
@@ -31040,7 +31206,7 @@
         "scope": {
           "day": "dimanche"
         },
-        "status": "card_drafted",
+        "status": "card_complete",
         "signals": [
           {
             "kind": "critique",
@@ -31081,7 +31247,7 @@
         "scope": {
           "day": "dimanche"
         },
-        "status": "card_drafted",
+        "status": "card_complete",
         "signals": [
           {
             "kind": "distinction",
@@ -33581,6 +33747,27 @@
         ],
         "decision_note": "Carte complète du dimanche réutilisée au rang 10 du vendredi ; le créneau de 1 h 24 reste distinct du master de 83 min.",
         "alternatives": []
+      },
+      {
+        "id": "sl-dimanche-vermines-reserve",
+        "title": "Vermines",
+        "work_id": "vermines-2023",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique_et_diffusion",
+            "note": "Télérama salue l’efficacité horrifique et la représentation de la solidarité dans la cité ; la grille officielle France 2 confirme dimanche 11 octobre à 23:20.",
+            "source_url": "https://www.telerama.fr/cinema/vermines-un-film-d-horreur-francais-pas-bebete-du-tout_cri-7030371.php"
+          }
+        ],
+        "decision_note": "Réserve complète rang 10 ; version de diffusion 102 min distinguée du master 105/106 min et avertissement -12 conservé.",
+        "alternatives": [
+          "sl-dimanche-shutter-island-reserve",
+          "sl-dimanche-matrix-generation-reserve"
+        ]
       }
     ]
   },
