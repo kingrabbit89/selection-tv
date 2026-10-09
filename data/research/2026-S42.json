@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T16:15:01.870Z",
+  "updated_at": "2026-10-09T16:22:23.715Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1248,6 +1248,16 @@
         "data/links.json",
         "data/manifest.json",
         "data/radar-reserves/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "append-three-cross-day-reserves-2026-10-09",
+      "completed_at": "2026-10-09T16:22:23.715Z",
+      "scope": "daily-reserves:cross-day-reuse",
+      "summary": "Exit 8 est ajouté au mardi ; Restore Point et L’Intérêt d’Adam au vendredi. Les trois cartes reprennent leurs champs stables déjà revus et attachent séparément les horaires officiels CANAL+, en conservant les écarts des guides datés.",
+      "deliverables": [
+        "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
     }
@@ -25023,6 +25033,88 @@
       },
       "evidence_note": "Durée Criterion 106 min distincte du créneau Canal+ 1 h 43 ; sortie nord-américaine, sans disponibilité française inférée.",
       "status": "verified"
+    },
+    {
+      "work_id": "exit-8-2025",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "broadcast.version",
+        "editorial_reuse"
+      ],
+      "urls": [
+        "https://www.canalplus.com/fr/cinema/exit-8/h/30486943_50001",
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+        "https://tv-programme.com/canal-plus-cinema/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T09:20:27.701Z",
+      "reused_in": [
+        "2026-S42:mardi-selection:rank6"
+      ],
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-13 00:50 Canal+ Cinéma",
+        "guide_observation": "00:52"
+      },
+      "evidence_note": "Le PDF officiel CANAL+ fixe 00:50 ; le guide daté affiche 00:52. La carte retient l’heure officielle, conserve l’écart et réutilise sans les rafraîchir les preuves stables de la version CANAL+ 91 min.",
+      "status": "verified"
+    },
+    {
+      "work_id": "restore-point",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "editorial_reuse"
+      ],
+      "urls": [
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+        "https://tv-programme.com/canal-plus-cinema/vendredi-16-octobre-2026/",
+        "https://www.kviff.com/en/programme/film/63/40704-restore-point"
+      ],
+      "checked_at": "2026-10-08T09:20:27.701Z",
+      "reused_in": [
+        "2026-S42:vendredi-selection:rank7"
+      ],
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-16 08:20 Canal+ Cinéma",
+        "guide_observation": "08:16"
+      },
+      "evidence_note": "Le PDF officiel CANAL+ fixe 08:20 ; le guide daté affiche 08:16. La carte retient l’heure officielle et conserve l’écart sans confondre durée d’œuvre et créneau.",
+      "status": "verified"
+    },
+    {
+      "work_id": "l-interet-d-adam-2025",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "duration.version",
+        "editorial_reuse"
+      ],
+      "urls": [
+        "https://www.memento.eu/linteret-dadam/",
+        "https://www.canalplus.com/fr/cinema/l-interet-d-adam/h/30267479_50001",
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+        "https://tv-programme.com/canal-plus-cinema/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-08T09:20:27.701Z",
+      "reused_in": [
+        "2026-S42:vendredi-selection:rank8"
+      ],
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-16 13:40 Canal+ Cinéma",
+        "guide_observation": "13:33",
+        "version": "Memento 78 min / CANAL+ 74 min"
+      },
+      "evidence_note": "Le PDF officiel CANAL+ fixe 13:40 ; le guide daté affiche 13:33. La carte retient l’heure officielle et maintient séparément le master Memento 78 min et l’affichage CANAL+ 74 min.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -29105,23 +29197,25 @@
       "completed_batches": [
         "sync-main-1272ed3-2026-10-09",
         "run-dataflow-saved-inventory-2026-10-09",
-        "integrate-three-distinct-hd2-reserves-2026-10-09"
+        "integrate-three-distinct-hd2-reserves-2026-10-09",
+        "append-three-cross-day-reserves-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
         "data/links.json",
         "data/manifest.json",
         "data/radar-reserves/2026-S42.json",
-        "data/research/2026-S42.json"
+        "data/research/2026-S42.json",
+        "data/weeks/2026-S42.json"
       ],
-      "complete_cards": 98,
-      "cards_integrated_this_run": 3,
+      "complete_cards": 101,
+      "cards_integrated_this_run": 6,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "measurements": {
         "complete_cards": {
-          "value": 98,
-          "scope": "stock après checkpoint : 95 héritées et trois nouvelles réserves HD intégrées pendant ce passage"
+          "value": 101,
+          "scope": "stock après checkpoint : 95 positions héritées, trois nouvelles réserves HD et trois placements quotidiens réutilisés pendant ce passage"
         },
         "new_works": {
           "value": 3,
@@ -29129,26 +29223,34 @@
         },
         "visible_cards": {
           "value": 0,
-          "scope": "les trois positions ajoutées sont des réserves cachées de rang 6 à 8"
+          "scope": "les six positions ajoutées pendant ce passage sont des réserves cachées ; aucune carte visible n’a été créée"
         },
         "additional_reserve_placements": {
-          "value": 3,
-          "scope": "trois positions de réserve hd2 intégrées pendant ce passage"
+          "value": 6,
+          "scope": "trois réserves HD nouvelles et trois réserves quotidiennes réutilisées ajoutées pendant ce passage"
         },
         "additional_distinct_reserve_work_ids": {
           "value": 3,
           "scope": "trois work_id distincts nouveaux dans l’union des réserves HD, hors des dix choix visibles"
         },
         "stable_reuses": {
+          "value": 6,
+          "scope": "trois dossiers HD ont réutilisé des acquis stables avant complétion ; trois cartes quotidiennes complètes ont été réutilisées avec vérification séparée de leurs rediffusions"
+        },
+        "additional_daily_reserve_placements": {
           "value": 3,
-          "scope": "identités, éditions et première réception sauvegardées ont été réutilisées avec contrôle ciblé des champs manquants et périssables"
+          "scope": "un rang ajouté au mardi et deux rangs au vendredi"
+        },
+        "additional_daily_distinct_work_ids": {
+          "value": 0,
+          "scope": "les trois placements quotidiens réutilisent des work_id déjà matérialisés ailleurs dans le même numéro ; aucun nouveau work_id ne leur est attribué"
         }
       },
       "requirements_resolved": [
         "radar HD : les trois doublons restants de hd2 sont remplacés par Days and Nights in the Forest, The Secret Agent et Nouvelle Vague ; seize œuvres distinctes et six réserves globales utilisables"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter un lot de réserves quotidiennes pour les jours sous dix cartes, en priorité mardi et dimanche, puis remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix et du sillonnage.",
+      "next_useful_batch": "Compléter les jours encore sous dix cartes — vendredi manque deux positions, samedi deux, dimanche trois, mardi quatre, mercredi quatre et jeudi quatre — puis remplacer les cinq doublons de popular_deep.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -29178,21 +29280,50 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T16:17:58.459Z",
+          "elapsed_seconds": 1011.045,
+          "prompt_revision": "production-dataflow-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "b7a5aee24b0accf412f8145c9519d89830ba8d21",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours sous dix cartes, en priorité mardi, dimanche, mercredi, jeudi et vendredi, depuis les dossiers aux faits de diffusion déjà recoupés.",
+            "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des cinq choix principaux et des cartes popular_scan.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T16:01:07.414Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T17:02:55.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T16:07:55.596Z",
-        "elapsed_seconds": 408.182,
+        "observed_at": "2026-10-09T16:17:58.459Z",
+        "elapsed_seconds": 1011.045,
         "prompt_revision": "production-dataflow-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "ee9e41374b70664d48918db73f3237db8b23f733",
+        "source_sha": "b7a5aee24b0accf412f8145c9519d89830ba8d21",
         "next_actions": [
-          "Exécuter la chaîne de données sur la tête synchronisée et traiter en priorité un lot de réserves quotidiennes pour les jours sous dix cartes.",
-          "Compléter ensuite les trois alternatives HD distinctes déjà avancées, sans régénérer leurs acquis sauvegardés.",
+          "Compléter les réserves quotidiennes des jours sous dix cartes, en priorité mardi, dimanche, mercredi, jeudi et vendredi, depuis les dossiers aux faits de diffusion déjà recoupés.",
+          "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des cinq choix principaux et des cartes popular_scan.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
           "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
@@ -29236,6 +29367,11 @@
           "started_at": "2026-10-09T16:11:28.000Z",
           "ended_at": "2026-10-09T16:13:21.000Z",
           "note": "Plan multi-œuvres, rendu contrôlé et import mécanique des quatre fichiers éditoriaux."
+        },
+        "daily_reuse_batch": {
+          "started_at": "2026-10-09T16:17:58.459Z",
+          "ended_at": "2026-10-09T16:22:23.715Z",
+          "note": "Extraction ciblée, revue des trois rediffusions, plan append_days, contrôle du handoff et import mécanique ; aucun temps parallèle ajouté."
         }
       },
       "control_notes": [
@@ -29247,7 +29383,12 @@
         "Days and Nights in the Forest : durée Criterion 116 min conservée sans fusion avec les observations 115/117/120 min.",
         "The Secret Agent : nouveau master 4K approuvé et Dolby Vision ; aucune restauration ou disponibilité française inventée.",
         "Nouvelle Vague : édition 106 min séparée du créneau TV de 1 h 43 ; réception indépendante favorable et réservée conservée.",
-        "Les trois couvertures Criterion exactes ont été ouvertes et inspectées ; CI images distante reste obligatoire."
+        "Les trois couvertures Criterion exactes ont été ouvertes et inspectées ; CI images distante reste obligatoire.",
+        "Carte informative actualisée au SHA b7a5aee : 19 écarts bloquants et un avertissement ; les cinq écarts HD sont clos, les profondeurs quotidiennes et cinq doublons popular_deep restent ouverts.",
+        "append_days contrôlé : mardi passe de cinq à six cartes et vendredi de six à huit, sans régénérer les primaires, pages ou preuves existantes.",
+        "Les horaires officiels CANAL+ 00:50, 08:20 et 13:40 sont retenus ; les écarts de 2, 4 et 7 minutes avec les guides restent explicites et doivent être revérifiés au préflight.",
+        "Contrôles du lot : les 51 positions quotidiennes sont complètes selon validate-reserves et les identités canoniques sont cohérentes ; seuls les six minima quotidiens encore non atteints restent bloquants.",
+        "Fraîcheur S42 après réutilisations : 97 % de nouveauté publique et 91 % dans les réserves sur quatre numéros ; aucune exception de fraîcheur ajoutée."
       ]
     }
   ],
@@ -29905,13 +30046,13 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "ee9e41374b70664d48918db73f3237db8b23f733",
+    "checkpoint_parent_sha": "b7a5aee24b0accf412f8145c9519d89830ba8d21",
     "main_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Compléter les réserves quotidiennes des jours sous dix cartes, en priorité mardi, dimanche, mercredi, jeudi et vendredi, depuis les dossiers aux faits de diffusion déjà recoupés.",
-      "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des cinq choix principaux et des cartes popular_scan.",
-      "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes."
+      "Compléter les jours encore sous dix cartes, en priorité vendredi, samedi et dimanche, depuis des dossiers complets ou des réutilisations dont le nouveau créneau est vérifié.",
+      "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
+      "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes."
     ],
     "publisher": {
       "checked_at": "2026-10-08T14:40:33.431Z",
@@ -32925,6 +33066,60 @@
           }
         ],
         "decision_note": "Alternative HD distincte intégrée comme réserve cachée de hd2 ; Édition Criterion du 22 septembre, master 4K supervisé, visuel exact, liens, notes, réception contradictoire, fraîcheur et textes revus ; contrôle distant final encore requis.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-mardi-exit-8-reuse",
+        "title": "Exit 8",
+        "work_id": "exit-8-2025",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "rediffusion_officielle",
+            "note": "Le PDF CANAL+ place la rediffusion du 13 octobre à 00:50 sur Canal+ Cinéma ; le guide à 00:52 reste consigné comme écart.",
+            "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
+          }
+        ],
+        "decision_note": "Carte stable du samedi réutilisée au rang 6 du mardi ; seuls les faits propres à la rediffusion ont été revus.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-vendredi-restore-point-reuse",
+        "title": "Restore Point",
+        "work_id": "restore-point",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "rediffusion_officielle",
+            "note": "Le PDF CANAL+ place la rediffusion du 16 octobre à 08:20 sur Canal+ Cinéma ; le guide à 08:16 reste consigné comme écart.",
+            "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
+          }
+        ],
+        "decision_note": "Carte complète déjà matérialisée pour le cycle, réutilisée au rang 7 du vendredi avec diffusion propre revue.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-vendredi-l-interet-d-adam-reuse",
+        "title": "L’Intérêt d’Adam",
+        "work_id": "l-interet-d-adam-2025",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "rediffusion_officielle",
+            "note": "Le PDF CANAL+ place la rediffusion du 16 octobre à 13:40 sur Canal+ Cinéma ; le guide à 13:33 reste consigné comme écart.",
+            "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
+          }
+        ],
+        "decision_note": "Réserve complète du jeudi réutilisée au rang 8 du vendredi ; divergence 78/74 min conservée.",
         "alternatives": []
       }
     ]
