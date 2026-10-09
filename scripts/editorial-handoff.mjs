@@ -6,6 +6,7 @@ import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
 
 export const digest = text => text === null ? null : createHash('sha256').update(text).digest('hex');
+export const MAX_CHECKPOINT_OUTPUT_BYTES = 32 * 1024 * 1024;
 export function allowedPaths(week) {
   assert.match(week, /^\d{4}-S\d{2}$/);
   return new Set(['data/works.json','data/links.json','data/releases.json','data/manifest.json',
@@ -55,7 +56,13 @@ export function planImport(bundle,read){
   if(weekFile){const week=JSON.parse(weekFile.content);assert.equal(week.week,bundle.week);assert.equal(week.publication_status,'draft');}
   return changes;
 }
-function gitRead(ref,p){try{return execFileSync('git',['show',`${ref}:${p}`],{encoding:'utf8',stdio:['ignore','pipe','pipe']});}catch{return null;}}
+function gitRead(ref,p){
+  const options={encoding:'utf8',maxBuffer:MAX_CHECKPOINT_OUTPUT_BYTES,stdio:['ignore','pipe','pipe']};
+  // Only an absent path is optional. Invalid refs, corrupt objects and a
+  // bounded-buffer failure must not become a false base_sha256:null.
+  if(!execFileSync('git',['ls-tree','-z',ref,'--',p],options).length)return null;
+  return execFileSync('git',['show',`${ref}:${p}`],options);
+}
 function main(){
   const [command,...args]=process.argv.slice(2);
   if(command==='export'){

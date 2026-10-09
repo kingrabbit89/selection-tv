@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import {auditRecordedRun} from './editorial-continuation.mjs';
 
 // Optional working structures of data/research/YYYY-Sxx.json. They organise
 // production; they never certify a requirement, a card or a publication.
@@ -57,13 +58,15 @@ export function checkProgressStructures(progress) {
   checkShortlist(progress);
 }
 
-// Informative only: which recorded fields of the last pass are missing.
+// Informative only: missing fields and unsupported recorded stop decisions.
+// This never certifies editorial work or changes the publication gate.
 export function lastRunGaps(progress) {
   const run = array(progress.run_metrics).at(-1);
   if (!run) return ['no run_metrics entry recorded'];
-  return runMetricFields.filter(field => run[field] === undefined || run[field] === '' ||
+  const missing = runMetricFields.filter(field => run[field] === undefined || run[field] === '' ||
     (field === 'deliverables_changed' && !Array.isArray(run[field])))
     .map(field => 'last run_metrics entry lacks ' + field + (field === 'started_at' || field === 'ended_at' ? ' (record null with a reason if unknown; never reconstruct it)' : ''));
+  return [...missing, ...auditRecordedRun(run, progress)];
 }
 
 export function shortlistSummary(progress) {
