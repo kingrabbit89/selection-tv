@@ -3,11 +3,11 @@
   "week": "2026-S42",
   "base_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T19:34:05.000Z",
+  "updated_at": "2026-10-09T19:34:22.228Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
-    "Réconcilier les horaires et doublons ambigus : Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min). Suivi du 08/10 : la fiche officielle Dahlia ne montre qu'un événement hors cycle ; deux autres guides répètent le doublon Saint-Ex sans l'arbitrer.",
+    "Réconcilier les horaires et conflits résiduels : Canal+ Grand Écran Le dahlia noir 22:58/22:59 reste sans événement officiel S42 ; pour Saint-Ex, le guide Ouest-France distingue un élément court à 03:50 (9 min) du long métrage à 03:59, mais l’écart 03:50/03:53 et 9/6 min du court reste à arbitrer. Ne pas assimiler le court à la copie du film.",
     "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
     "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV.",
     "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue.",
@@ -15,8 +15,7 @@
     "T18 14 octobre : neuf épisodes/sujets nommés et horaires concordants entre deux guides ; indépendance des flux/source officielle encore à établir. Face à face identifié comme fiction policière ; descriptif politique LeZapp exclu.",
     "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
     "TF1 Séries Films : neuf diffusions recoupées et nuits consultées ; blocs nocturnes génériques non détaillés, réception et cartes à terminer. CSTAR 16 octobre : Un mariage à Noël concorde à 21:10 ; Noël à la carte 22:49/22:45 et identité des quatre Douanes à départager ; indépendance et nuits restent à certifier.",
-    "Rappel TNT principal réconcilié : dix éléments rapprochés ou exclus ; achever les autres passes partielles, notamment cinéma payant, TV5MONDE FBS, RMC et Ciné+.",
-    "Rappel TNT : Fréquenstar résolu sur W9 dimanche 11:20 (Hoshi) ; sujets Envoyé spécial et Au cœur de l'enquête à obtenir. Intraçables : mini-série et épisodes 3/4 confirmés par TF1 ; réception, versions et enrichissement à faire ; Meurtres à Cayenne confirmé téléfilm policier par le diffuseur.",
+    "Rappel TNT principal réconcilié : les dix éléments génériques sont rapprochés ou exclus, dont Envoyé spécial et Au cœur de l’enquête sans sujet identifié. Les autres passes partielles (cinéma payant, TV5MONDE FBS, RMC, Ciné+) et le conflit de version Marine restent ouverts dans leurs dossiers propres.",
     "France 2/3 : Dodin Bouffant retenu à 02:55 le 12 selon la grille officielle relue ; entrée tierce La p'tite librairie du 15 à 12:15 exclue du relevé actif (Ici 12/13). Recontrôler au préflight les programmes retenus ; collections génériques/épisodes encore à compléter.",
     "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
     "Public Sénat : Silence dans les rangs documenté (prix et limites de réception), horaires légèrement divergents et replay indisponible ; terminer offre/expiration, notes, affiche et revue comparative.",
@@ -25884,6 +25883,27 @@
       },
       "evidence_note": "Trois créneaux CSTAR datés ajoutés ; Envoyé spécial et la soirée Marine présents dans les sources officielles. Les sujets génériques ne deviennent pas des œuvres recommandées et les versions non arbitrées restent hors sélection.",
       "status": "verified_for_requirement"
+    },
+    {
+      "fields": [
+        "identity",
+        "broadcast.slot_separation",
+        "duration_conflict"
+      ],
+      "source_urls": [
+        "https://programmetv.ouest-france.fr/film/biographie/saint-ex-c341235962/",
+        "https://www.canalplus.com/cinema/saint-ex/h/27265954_50002",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=310732.html"
+      ],
+      "checked_at": "2026-10-09T19:34:22.228Z",
+      "stability": "cycle",
+      "applies_to": {
+        "week": "2026-S42",
+        "scope": "raw_inventory_conflict",
+        "title": "Saint-Ex"
+      },
+      "evidence_note": "Deux entrées successives sont distinguées : contenu court puis long métrage. L’horaire et la durée du court restent contradictoires et ne certifient aucune copie.",
+      "status": "partially_verified_conflict_narrowed"
     }
   ],
   "run_metrics": [
@@ -30740,7 +30760,8 @@
         "review-and-close-primary-inventory-level-2026-10-09",
         "map-level2-independent-crosscheck-gaps-2026-10-09",
         "reconcile-seven-primary-reminder-items-2026-10-09",
-        "close-primary-tnt-reminder-pass-2026-10-09"
+        "close-primary-tnt-reminder-pass-2026-10-09",
+        "narrow-saint-ex-short-feature-conflict-2026-10-09"
       ],
       "deliverables_changed": [
         "data/radar-reserves/2026-S42.json",
@@ -30790,7 +30811,7 @@
         "rappel TNT principal : dix éléments génériques rapprochés ou exclus ; trois créneaux CSTAR ajoutés sans sélectionner les magazines sans sujet"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Achever les autres passes de rappel partielles et reprendre les quatre groupes d’indépendance seulement sur source nouvelle.",
+      "next_useful_batch": "Achever les autres passes de rappel partielles et reprendre les groupes d’indépendance seulement sur source nouvelle ; arbitrer les conflits bruts restants sans confondre créneau et version.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -30931,24 +30952,53 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T19:33:00.424Z",
+          "elapsed_seconds": 2111.3,
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "db6430ceac0eb4fc1bfae678a31f7320e8a38a9f",
+          "next_actions": [
+            "Achever les autres passes de rappel partielles, en commençant par cinéma payant, TV5MONDE FBS, RMC et Ciné+.",
+            "Niveau 2 : reprendre seulement sur source nouvelle les quatre groupes de flux non indépendants consignés.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Réconcilier les horaires et doublons ambigus : Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min). Suivi du 08/10 : la fiche officielle Dahlia ne montre qu'un événement hors cycle ; deux autres guides répètent le doublon Saint-Ex sans l'arbitrer."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 37,
+          "truncated_notice": "32 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T18:57:49.124Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T20:18:19.665Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T19:26:17.826Z",
-        "elapsed_seconds": 1708.702,
+        "observed_at": "2026-10-09T19:33:00.424Z",
+        "elapsed_seconds": 2111.3,
         "prompt_revision": "production-closure-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "2e28b98854c67594fb1577d2c724932f7bb6602c",
+        "source_sha": "db6430ceac0eb4fc1bfae678a31f7320e8a38a9f",
         "next_actions": [
-          "Achever les secondes lectures indépendantes par jour et chaîne ; les comparaisons marquées not_established restent bloquantes.",
-          "Achever la passe de rappel éditorial et résoudre ou exclure motivément les omissions/conflits avant full_week_reaudit_completed.",
+          "Achever les autres passes de rappel partielles, en commençant par cinéma payant, TV5MONDE FBS, RMC et Ciné+.",
+          "Niveau 2 : reprendre seulement sur source nouvelle les quatre groupes de flux non indépendants consignés.",
           "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
-          "Réconcilier les horaires et doublons ambigus : Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min). Suivi du 08/10 : la fiche officielle Dahlia ne montre qu’un événement hors cycle ; deux autres guides répètent le doublon Saint-Ex sans l’arbitrer."
+          "Réconcilier les horaires et doublons ambigus : Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min). Suivi du 08/10 : la fiche officielle Dahlia ne montre qu'un événement hors cycle ; deux autres guides répètent le doublon Saint-Ex sans l'arbitrer."
         ],
         "remaining_count": 35,
         "next_actions_total": 37,
@@ -30997,6 +31047,11 @@
           "started_at": "2026-10-09T19:27:54.655Z",
           "ended_at": "2026-10-09T19:30:04.161Z",
           "note": "Comparaison ciblée du rappel initial avec les entrées et épisodes ajoutés par les lots ultérieurs ; sept écarts clos, trois conservés."
+        },
+        "saint_ex_conflict_review": {
+          "started_at": "2026-10-09T19:33:00.424Z",
+          "ended_at": "2026-10-09T19:34:22.228Z",
+          "note": "Flow recalculé au SHA sauvegardé puis consultation ciblée d’un guide daté, de la fiche CANAL+ et de l’identité du film ; séparation court/long métrage établie, granularité du court laissée ouverte."
         }
       },
       "control_notes": [
@@ -32268,6 +32323,29 @@
       "blocking": true,
       "status": "official_presence_without_target_event",
       "resume_when": "Une grille technique CANAL+ datée S42 ou un BroadcastEvent exact nomme la chaîne et l’heure cible."
+    },
+    {
+      "id": "run20-saint-ex-short-full-slot-separation-2026-10-09",
+      "object": {
+        "title": "Saint-Ex",
+        "channel_group": "Ciné+ OCS",
+        "target_slots": [
+          "03:50/03:53 court",
+          "03:59 long métrage"
+        ]
+      },
+      "question": "Les entrées rapprochées à six ou neuf minutes et celle de 91 minutes décrivent-elles une seule copie contradictoire du film ?",
+      "attempted_at": "2026-10-09T19:34:22.228Z",
+      "source_urls": [
+        "https://programmetv.ouest-france.fr/film/biographie/saint-ex-c341235962/",
+        "https://www.canalplus.com/cinema/saint-ex/h/27265954_50002",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=310732.html"
+      ],
+      "result": "Le guide Ouest-France expose deux départs distincts : 03:50 avec durée 9 min, puis 03:59 ; la fiche cinéma identifie sans ambiguïté le film de Pablo Agüero. Cela écarte l’assimilation du court au long métrage, mais n’arbitre pas l’écart 03:50/03:53 ni 9/6 min du premier élément.",
+      "blocking_scope": "conflit brut Ciné+ OCS sur le court associé ; le long métrage de 03:59 reste distinct",
+      "blocking": true,
+      "status": "short_and_feature_separated_short_slot_still_conflicted",
+      "resume_when": "Une grille technique Ciné+ OCS datée ou un événement officiel distingue le type exact du court et son horaire/durée."
     }
   ],
   "shortlist": {
