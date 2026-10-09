@@ -59,7 +59,7 @@ jobs:
       - run: node scripts/validate-canonical-identities.mjs
       - run: node scripts/sync-asset-versions.mjs --check
       - run: node scripts/validate-architecture.mjs
-      - run: node --test scripts/test-editorial-progress.mjs scripts/test-editorial-continuation.mjs scripts/test-editorial-large-checkpoint.mjs scripts/test-editorial-task-board.mjs scripts/test-editorial-radar-reconcile.mjs scripts/test-editorial-research-triage.mjs
+      - run: node --test scripts/test-editorial-progress.mjs scripts/test-editorial-continuation.mjs scripts/test-editorial-large-checkpoint.mjs scripts/test-editorial-task-board.mjs scripts/test-editorial-radar-reconcile.mjs scripts/test-editorial-research-triage.mjs scripts/test-android-tv-ratings.mjs
       - run: node --test scripts/test-editorial-source-collector.mjs scripts/test-editorial-source-import.mjs scripts/test-editorial-production-plan.mjs scripts/test-editorial-production-flow.mjs scripts/test-editorial-telerama-import.mjs scripts/test-editorial-telerama-authority.mjs scripts/test-editorial-telerama-signals.mjs
       - run: node scripts/validate-publication-candidate.mjs
       - run: node scripts/validate-editorial.mjs

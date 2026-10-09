@@ -171,19 +171,39 @@
     });
     return out.join(' ');
   };
+  // Keep each publisher's recorded scale and review count. Only legacy bare
+  // IMDb/SensCritique numbers need their known /10 suffix.
+  const ratingLabels=ratings=>{
+    const publishers={
+      imdb:'IMDb',senscritique:'SensCritique',sc:'SensCritique',
+      rotten_tomatoes:'Rotten Tomatoes',rottentomatoes:'Rotten Tomatoes',
+      allocine_presse:'AlloCiné presse',allocine_press:'AlloCiné presse',
+      allocine_spectateurs:'AlloCiné spectateurs',metacritic:'Metacritic',
+      metascore:'Metascore',audience:'Audience',cinemascore:'CinemaScore',
+      filmrezensionen:'Filmrezensionen'
+    };
+    const out=[];
+    for(const [key,value] of Object.entries(ratings||{})){
+      if(typeof value!=='string'&&typeof value!=='number')continue;
+      const score=clean(value===0?'0':value);
+      if(!score)continue;
+      const publisher=publishers[key]||key;
+      const scale=['imdb','senscritique','sc'].includes(key)&&/^\d+(?:[.,]\d+)?$/.test(score)?'/10':'';
+      const label=publisher+' '+score+scale;
+      if(!out.includes(label))out.push(label);
+    }
+    return out;
+  };
   const ratingsOf=(el,title)=>{
     const out=[];
     const add=value=>{const t=clean(value).replace(/relevé.*$/i,'').trim();if(t&&!out.includes(t))out.push(t)};
     el.querySelectorAll('.rating-pill').forEach(x=>add(x.textContent));
 
     const runtime=window.SelectionTVRatings?.[title]||null;
-    if(runtime?.imdb)add('IMDb '+runtime.imdb+'/10');
-    if(runtime?.sc)add('SensCritique '+runtime.sc+'/10');
+    ratingLabels(runtime).forEach(add);
 
     const w=works.get(norm(title));
-    if(w?.ratings?.imdb)add('IMDb '+w.ratings.imdb+'/10');
-    if(w?.ratings?.senscritique)add('SensCritique '+w.ratings.senscritique+'/10');
-    if(w?.ratings?.sc)add('SensCritique '+w.ratings.sc+'/10');
+    ratingLabels(w?.ratings).forEach(add);
     return out;
   };
 
@@ -865,9 +885,7 @@
       const year=String(w.year||'');
       const base=cacheKeyFor(title,year,ids);
       const key=base+'|pool:'+poolId+':'+String(c.rank||0);
-      const ratings=[];
-      if(w.ratings?.imdb)ratings.push('IMDb '+w.ratings.imdb+'/10');
-      if(w.ratings?.senscritique||w.ratings?.sc)ratings.push('SensCritique '+(w.ratings.senscritique||w.ratings.sc)+'/10');
+      const ratings=ratingLabels(w.ratings);
       const meta=[w.director||w.creator,w.year,w.country,w.duration,w.genre].filter(Boolean);
       const model={
         key,title,titleKey:norm(title),year,imdbId:ids.imdbId,tmdbId:ids.tmdbId,
