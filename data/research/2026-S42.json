@@ -534,6 +534,12 @@
       "completed_at": "2026-10-09T10:04:02.793Z",
       "description": "Burning an Illusion a reçu une identité canonique, des liens directs, une affiche non réduite, une note datée et une deuxième carte du mercredi ; le conflit de versions et la copie TCM non identifiée restent explicites.",
       "items": 1
+    },
+    {
+      "id": "complete-wednesday-misericorde-third-choice-2026-10-09",
+      "completed_at": "2026-10-09T10:08:10.627Z",
+      "description": "Miséricorde a reçu une identité canonique, une version Arte 99 min distincte du cinéma 103 min, une diffusion officielle recoupée, une réception contrastée, des notes datées, des liens et une affiche ; le mercredi expose désormais trois choix développés.",
+      "items": 1
     }
   ],
   "blockers": [
@@ -20412,6 +20418,103 @@
       },
       "evidence_note": "Liens canoniques directs enregistrés. Affiche exacte ouverte via l’asset Flixster non réduit. Carte du mercredi rédigée et relue ; durée canonique BFI 105 min, sans prétendre identifier la copie TCM parmi les versions divergentes.",
       "status": "verified"
+    },
+    {
+      "work_id": "misericorde-2024",
+      "fields": [
+        "director",
+        "year",
+        "country",
+        "cast",
+        "version.duration"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/128673-000-A/misericorde/",
+        "https://scalafilms.fr/films/misericorde/",
+        "https://www.imdb.com/title/tt32085997/",
+        "https://www.arte.tv/fr/guide/20261014/"
+      ],
+      "checked_at": "2026-10-09T10:08:10.627Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Miséricorde",
+        "version": "Arte 99 min"
+      },
+      "evidence_note": "Film 2024 identifié ; version Arte 99 min distinguée de la version cinéma 103 min.",
+      "status": "verified"
+    },
+    {
+      "work_id": "misericorde-2024",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "availability.start"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/128673-000-A/misericorde/",
+        "https://www.arte.tv/fr/guide/20261014/",
+        "https://www.programme-tv.com/chaine/mercredi/14/programme-television-arte.html",
+        "https://www.programme-television.org/tv/chaines/Arte/mercredi"
+      ],
+      "checked_at": "2026-10-09T10:08:10.627Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-14 21:00 Arte"
+      },
+      "evidence_note": "Page film et guide officiels Arte concordent avec deux guides ; disponibilité annoncée à partir du 14 octobre, expiration non exposée.",
+      "status": "verified"
+    },
+    {
+      "work_id": "misericorde-2024",
+      "fields": [
+        "critical_reception",
+        "critical_reservations",
+        "ratings.allocine_presse",
+        "ratings.imdb"
+      ],
+      "source_urls": [
+        "https://cineuropa.org/fr/newsdetail/462613",
+        "https://www.lemonde.fr/culture/article/2024/10/16/misericorde-pour-alain-guiraudie-les-voies-du-desir-sont-impenetrables_6353519_3246.html",
+        "https://www.critikat.com/actualite-cine/critique/misericorde-2/",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=305776.html",
+        "https://www.imdb.com/title/tt32085997/"
+      ],
+      "checked_at": "2026-10-09T10:08:10.627Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Miséricorde"
+      },
+      "evidence_note": "Réception argumentée et réserve Critikat conservées ; AlloCiné presse 3,9/5 (34), IMDb 6,7/10 (5,2 k).",
+      "status": "verified"
+    },
+    {
+      "work_id": "misericorde-2024",
+      "fields": [
+        "image",
+        "image_type",
+        "image_provenance",
+        "image_visual_review",
+        "links",
+        "editorial_copy"
+      ],
+      "source_urls": [
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=305776.html",
+        "https://fr.web.img6.acsta.net/c_310_420/img/d3/b6/d3b65b4f3273289903da13947bc72cfe.jpg",
+        "https://www.arte.tv/fr/videos/128673-000-A/misericorde/",
+        "https://scalafilms.fr/films/misericorde/"
+      ],
+      "checked_at": "2026-10-09T10:08:10.627Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Miséricorde"
+      },
+      "evidence_note": "Affiche exacte inspectée, liens directs enregistrés, synopsis et justification relus contre les sources.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -21694,25 +21797,29 @@
       "duration_basis": "Passage en cours ; started_at observé à l’entrée, ended_at sera fixé au bilan terminal.",
       "completed_batches": [
         "synchronize-main-e42a29ef",
-        "draft-wednesday-burning-an-illusion-2026-10-09"
+        "draft-wednesday-burning-an-illusion-2026-10-09",
+        "complete-wednesday-misericorde-third-choice-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
         "data/links.json",
         "data/weeks/2026-S42.json",
-        "data/research/2026-S42.json"
+        "data/research/2026-S42.json",
+        "data/coverage/2026-S42.json"
       ],
-      "complete_cards": 0,
+      "complete_cards": 1,
       "draft_cards": 1,
       "partial_dossiers": 0,
       "deliverables_advanced": [
         "mercredi-selection",
         "mercredi-grille",
         "catalogue canonique",
-        "liens directs"
+        "liens directs",
+        "mercredi : troisième choix développé"
       ],
       "requirements_resolved": [
-        "Burning an Illusion : deuxième carte du mercredi matérialisée sans masquer le conflit de versions"
+        "Burning an Illusion : deuxième carte du mercredi matérialisée sans masquer le conflit de versions",
+        "mercredi : exactement trois choix développés matérialisés"
       ],
       "remaining": {
         "stage": "enrichment",
@@ -21748,20 +21855,49 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T10:07:09.611Z",
+          "elapsed_seconds": 578.939,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "6e9f5afa704b1de8f2887325ff87defcf92666eb",
+          "next_actions": [
+            "Achever un troisième choix développé du mercredi depuis la présélection, avec diffusion propre au cycle, version, réception, liens et visuel entièrement revus.",
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi.",
+            "Produire les rubriques indépendantes encore absentes et poursuivre les recoupements/rappels sans fermer les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T09:57:30.672Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T10:58:23.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T09:59:56.390Z",
-        "elapsed_seconds": 145.718,
+        "observed_at": "2026-10-09T10:07:09.611Z",
+        "elapsed_seconds": 578.939,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "e33620eb0431149a89530cf8c883376c4e19fec2",
+        "source_sha": "6e9f5afa704b1de8f2887325ff87defcf92666eb",
         "next_actions": [
-          "Achever Burning an Illusion : liens canoniques, décision de version sans assimiler la copie TCM, visuel haute définition si disponible et rédaction de la deuxième carte du mercredi ; puis sélectionner une troisième piste mercredi.",
+          "Achever un troisième choix développé du mercredi depuis la présélection, avec diffusion propre au cycle, version, réception, liens et visuel entièrement revus.",
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi.",
           "Produire les rubriques indépendantes encore absentes et poursuivre les recoupements/rappels sans fermer les exigences ouvertes.",
           "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
@@ -21781,7 +21917,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Achever un troisième choix développé du mercredi depuis une piste officiellement recoupée, puis poursuivre les réserves ou une rubrique indépendante."
+      "next_useful_batch": "Construire des réserves complètes pour un jour déjà doté de trois choix, en priorisant les dossiers existants proches de la complétude."
     }
   ],
   "source_issues": [
@@ -22384,9 +22520,9 @@
     "main_sha": "eadfd023669970da304879f587cba4125908a655",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Achever un troisième choix développé du mercredi depuis la présélection, avec diffusion propre au cycle, version, réception, liens et visuel entièrement revus.",
-      "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi.",
-      "Produire les rubriques indépendantes encore absentes et poursuivre les recoupements/rappels sans fermer les exigences ouvertes."
+      "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+      "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+      "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes."
     ],
     "publisher": {
       "checked_at": "2026-10-08T14:40:33.431Z",
@@ -23223,6 +23359,31 @@
           "sl-lundi-maries-an-ii",
           "sl-lundi-crime-tete"
         ]
+      },
+      {
+        "id": "sl-mercredi-misericorde",
+        "title": "Miséricorde",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "diffusion",
+            "note": "Arte annonce le film le 14 octobre à 21:00 et une version de 99 minutes.",
+            "source_url": "https://www.arte.tv/fr/guide/20261014/"
+          },
+          {
+            "kind": "critique",
+            "note": "Cineuropa documente la mécanique de film noir comique ; Critikat fournit une réserve précise sur la forme avant l’effet souterrain.",
+            "source_url": "https://cineuropa.org/fr/newsdetail/462613"
+          }
+        ],
+        "alternatives": [
+          "sl-mercredi-burning",
+          "sl-mercredi-cadet"
+        ],
+        "decision_note": "Carte complète au checkpoint : identité, version Arte, diffusion, réception contrastée, notes, liens et affiche vérifiés."
       }
     ]
   },
@@ -23732,5 +23893,112 @@
       "data/personalization-config.json": "ad5716e95db25894de7ca58c874154783b1766a8"
     },
     "note": "AUTOMATION.md a été relu car son blob a changé ; les cinq autres contrats gardent les blobs de la lecture attestée précédente. docs/EDITORIAL-DRAFTS.md a aussi été relu pour le helper de cartes courant."
-  }
+  },
+  "research_dossiers": [
+    {
+      "title": "Miséricorde",
+      "work_id": "misericorde-2024",
+      "catalogue_match": "misericorde-2024",
+      "identity_research": {
+        "director": "Alain Guiraudie",
+        "year": 2024,
+        "country": "France / Espagne / Portugal",
+        "cast": [
+          "Félix Kysyl",
+          "Catherine Frot",
+          "Jean-Baptiste Durand",
+          "Jacques Develay",
+          "David Ayala"
+        ],
+        "source_urls": [
+          "https://www.arte.tv/fr/videos/128673-000-A/misericorde/",
+          "https://scalafilms.fr/films/misericorde/",
+          "https://www.imdb.com/title/tt32085997/"
+        ],
+        "checked_at": "2026-10-09T10:08:10.627Z",
+        "duration_observations": [
+          {
+            "duration": "99 min",
+            "version": "version Arte annoncée le 14 octobre 2026",
+            "source_url": "https://www.arte.tv/fr/guide/20261014/"
+          },
+          {
+            "duration": "103 min",
+            "version": "version cinéma producteur",
+            "source_url": "https://scalafilms.fr/films/misericorde/"
+          }
+        ],
+        "note": "Identité certaine ; la carte affiche la version Arte 99 min propre au cycle et conserve distinctement la durée cinéma 103 min."
+      },
+      "critical_evidence": [
+        {
+          "source": "Cineuropa",
+          "author": "Fabien Lemercier",
+          "published_at": "2024-05-21",
+          "source_url": "https://cineuropa.org/fr/newsdetail/462613",
+          "assessment": "Décrit une étude savoureuse de la nature humaine, entre film noir et comédie, portée par la mécanique narrative et les zones grises du village.",
+          "kind": "professional_review",
+          "access": "full",
+          "checked_at": "2026-10-09T10:08:10.627Z"
+        },
+        {
+          "source": "Le Monde",
+          "source_url": "https://www.lemonde.fr/culture/article/2024/10/16/misericorde-pour-alain-guiraudie-les-voies-du-desir-sont-impenetrables_6353519_3246.html",
+          "assessment": "Valorise la profondeur du désir, le labyrinthe moral et l’écriture nourrie par Rabalaïre ; lecture partielle publique, sans note chiffrée.",
+          "kind": "professional_review",
+          "access": "partial",
+          "checked_at": "2026-10-09T10:08:10.627Z"
+        },
+        {
+          "source": "Critikat",
+          "source_url": "https://www.critikat.com/actualite-cine/critique/misericorde-2/",
+          "assessment": "Réserve précise : mise en scène d’abord jugée plate et film en mode mineur, avant que le personnage du curé et le travail souterrain ne produisent leur effet.",
+          "kind": "professional_review",
+          "access": "full",
+          "checked_at": "2026-10-09T10:08:10.627Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic",
+        "checked_at": "2026-10-09T10:08:10.627Z",
+        "source_urls": [
+          "https://www.allocine.fr/film/fichefilm_gen_cfilm=305776.html",
+          "https://www.imdb.com/title/tt32085997/"
+        ],
+        "note": "AlloCiné affiche 3,9/5 pour 34 critiques presse ; IMDb 6,7/10 pour 5,2 k votes."
+      },
+      "availability_research": {
+        "status": "verified_from_date_expiry_unavailable",
+        "checked_at": "2026-10-09T10:08:10.627Z",
+        "source_urls": [
+          "https://www.arte.tv/fr/videos/128673-000-A/misericorde/"
+        ],
+        "note": "Arte annonce la disponibilité à partir du 14 octobre 2026 et la diffusion à 21:00 ; aucune date de fin exploitable sur la page lue, donc aucune expiration n’est inventée."
+      },
+      "broadcast_research": {
+        "date": "2026-10-14",
+        "start": "21:00",
+        "channel": "Arte",
+        "source_urls": [
+          "https://www.arte.tv/fr/videos/128673-000-A/misericorde/",
+          "https://www.arte.tv/fr/guide/20261014/",
+          "https://www.programme-tv.com/chaine/mercredi/14/programme-television-arte.html",
+          "https://www.programme-television.org/tv/chaines/Arte/mercredi"
+        ],
+        "checked_at": "2026-10-09T10:08:10.627Z",
+        "status": "verified_for_candidate",
+        "note": "Page film et guide officiels Arte concordent avec deux guides courants sur le mercredi 14 octobre à 21:00."
+      },
+      "image_research": {
+        "checked_at": "2026-10-09T10:08:10.627Z",
+        "source_page": "https://www.allocine.fr/film/fichefilm_gen_cfilm=305776.html",
+        "image_url": "https://fr.web.img6.acsta.net/c_310_420/img/d3/b6/d3b65b4f3273289903da13947bc72cfe.jpg",
+        "status": "poster_visually_verified_ci_pending",
+        "visually_checked": true,
+        "note": "Affiche française exacte inspectée ; contrôle distant CI encore requis."
+      },
+      "decision": "carte complète",
+      "reason": "Troisième choix du mercredi matérialisé avec version Arte propre au cycle, diffusion officielle recoupée, réception indépendante avec réserve, notes datées, liens directs et affiche exacte."
+    }
+  ]
 }
