@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T16:36:06.589Z",
+  "updated_at": "2026-10-09T19:13:11.359Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1289,6 +1289,16 @@
       "summary": "Les cinq doublons du sillonnage sont remplacés par Project Hail Mary, Obsession, Disclosure Day, Star Wars : The Mandalorian and Grogu et Toy Story 5. Les cinq œuvres sont distinctes des choix visibles et du scan ; leurs cartes stables proviennent des dossiers sauvegardés et leurs signaux récents sont relus dans l’archive publique.",
       "deliverables": [
         "data/radar-reserves/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "append-three-reviewed-thursday-reserves-2026-10-09",
+      "completed_at": "2026-10-09T19:13:11.359Z",
+      "scope": "daily-reserves:jeudi",
+      "summary": "Becoming Hitchcock, La Maison des femmes et Un crime dans la tête complètent les rangs 8 à 10 du jeudi. Les cartes stables sont reprises de dossiers complets ; leurs créneaux du 15 octobre sont contrôlés séparément et les divergences 19:39/19:40, 13:23/13:30 et 17:37/17:40 restent explicites.",
+      "deliverables": [
+        "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
     }
@@ -25589,6 +25599,94 @@
       },
       "evidence_note": "Top 10 public · #4 le 24 août et le 31 août. La position récente est relue dans l’archive publique ; identité, visuel, liens, notes et textes stables sont repris du dossier S41 sauvegardé, sans convertir le signal de circulation en preuve de qualité.",
       "status": "verified_for_card"
+    },
+    {
+      "work_id": "becoming-hitchcock-the-legacy-of-blackmail-2024",
+      "fields": [
+        "identity",
+        "version",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "image",
+        "ratings",
+        "editorial_reception"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/becoming-hitchcock-the-legacy-of-blackmail/h/27531750_50002",
+        "https://tv-programme.com/cine-plus-classic/jeudi-15-octobre-2026/",
+        "https://www.eyeforfilm.co.uk/review/becoming-hitchcock-the-legacy-of-blackmail-2024-film-review-by-amber-wilkinson",
+        "https://filmuforia.com/becoming-hitchcock-the-legacy-of-blackmail-2024/"
+      ],
+      "checked_at": "2026-10-09T19:13:11.359Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "jeudi",
+        "rank": 8,
+        "broadcast": "2026-10-15 19:39 Ciné+ Classic"
+      },
+      "evidence_note": "Carte stable complète reprise du lundi. Le guide daté porte 19:39 et le magazine sauvegardé 19:40 ; la version CANAL+ 68 min reste séparée des fiches 70/72 min.",
+      "status": "verified_for_card"
+    },
+    {
+      "work_id": "la-maison-des-femmes-2025",
+      "fields": [
+        "identity",
+        "version",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "image",
+        "ratings",
+        "editorial_reception"
+      ],
+      "source_urls": [
+        "https://en.unifrance.org/movie/60209/a-place-for-her",
+        "https://www.canalplus.com/fr/cinema/la-maison-des-femmes/h/31495467_50001",
+        "https://tv-programme.com/canal-plus-cinema/jeudi-15-octobre-2026/",
+        "https://www.allocine.fr/film/fichefilm-1000012019/critiques/presse/",
+        "https://cineuropa.org/en/newsdetail/488732/"
+      ],
+      "checked_at": "2026-10-09T19:13:11.359Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "jeudi",
+        "rank": 9,
+        "broadcast": "2026-10-15 13:23 Canal+ Cinéma"
+      },
+      "evidence_note": "Carte stable complète reprise du mardi. Le guide daté porte 13:23 et le magazine sauvegardé 13:30 ; le master Unifrance 110 min n’est pas confondu avec la métadonnée CANAL+ 105 min.",
+      "status": "verified_for_card"
+    },
+    {
+      "work_id": "un-crime-dans-la-tete-1962",
+      "fields": [
+        "identity",
+        "version",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "image",
+        "ratings",
+        "editorial_reception"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/un-crime-dans-la-tete/h/1453848_50002/resume-casting/",
+        "https://tv-programme.com/cine-plus-classic/jeudi-15-octobre-2026/",
+        "https://www.cinematheque.fr/film/32418.html",
+        "https://www.rogerebert.com/reviews/great-movie-the-manchurian-candidate-1962"
+      ],
+      "checked_at": "2026-10-09T19:13:11.359Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "jeudi",
+        "rank": 10,
+        "broadcast": "2026-10-15 17:37 Ciné+ Classic"
+      },
+      "evidence_note": "Film de Frankenheimer 1962 distingué du remake 2004. Le guide daté porte 17:37 et le magazine sauvegardé 17:40 ; la copie CANAL+ 121 min reste séparée du DCP 126 min.",
+      "status": "verified_for_card"
     }
   ],
   "run_metrics": [
@@ -30439,20 +30537,22 @@
       "duration_basis": "started_at observé à l’entrée ; passage encore en cours au checkpoint.",
       "completed_batches": [
         "sync-main-955eaea-closure-tooling-2026-10-09",
-        "replace-five-duplicate-popular-deep-reserves-2026-10-09"
+        "replace-five-duplicate-popular-deep-reserves-2026-10-09",
+        "append-three-reviewed-thursday-reserves-2026-10-09"
       ],
       "deliverables_changed": [
         "data/radar-reserves/2026-S42.json",
-        "data/research/2026-S42.json"
+        "data/research/2026-S42.json",
+        "data/weeks/2026-S42.json"
       ],
-      "complete_cards": 119,
-      "cards_integrated_this_run": 5,
+      "complete_cards": 122,
+      "cards_integrated_this_run": 8,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "measurements": {
         "complete_cards": {
-          "value": 119,
-          "scope": "stock après checkpoint : 114 cartes héritées et cinq réserves de radar réutilisées depuis des dossiers complets sauvegardés"
+          "value": 122,
+          "scope": "stock après checkpoint : 114 cartes héritées, cinq réserves de radar réutilisées et trois réserves jeudi réutilisées depuis des dossiers complets"
         },
         "new_works": {
           "value": 0,
@@ -30463,23 +30563,24 @@
           "scope": "les cinq choix visibles et les cinq cartes de sillonnage restent inchangés"
         },
         "additional_reserve_placements": {
-          "value": 5,
-          "scope": "cinq positions popular_deep remplacées par cinq réserves distinctes et admissibles"
+          "value": 8,
+          "scope": "cinq positions popular_deep remplacées et trois réserves ajoutées au jeudi"
         },
         "additional_distinct_reserve_work_ids": {
-          "value": 5,
-          "scope": "cinq work_id distincts des choix visibles et de popular_scan"
+          "value": 8,
+          "scope": "huit work_id distincts parmi les positions ajoutées ou remplacées pendant ce passage"
         },
         "stable_reuses": {
-          "value": 5,
-          "scope": "cinq cartes stables reprises intégralement depuis S41 ; seuls leurs rangs et signaux propres au cycle S42 sont revus"
+          "value": 8,
+          "scope": "cinq cartes radar reprises de S41 et trois cartes quotidiennes reprises de dossiers complets S42 ; les faits propres aux nouvelles positions sont revus séparément"
         }
       },
       "requirements_resolved": [
-        "popular_deep : cinq réserves complètes distinctes des choix principaux et de popular_scan, avec signaux dans la fenêtre de 60 jours"
+        "popular_deep : cinq réserves complètes distinctes des choix principaux et de popular_scan, avec signaux dans la fenêtre de 60 jours",
+        "jeudi-selection : minimum de dix cartes complètes atteint avec trois réutilisations vérifiées, sans déclarer de pénurie"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter trois réserves mardi puis trois jeudi depuis les dossiers avancés, en conservant les conflits de version et de créneau encore ouverts.",
+      "next_useful_batch": "Compléter trois réserves mardi depuis les dossiers avancés, puis reprendre la revue de couverture des sept jours.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -30508,23 +30609,53 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T19:08:50.197Z",
+          "elapsed_seconds": 661.073,
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "fd56e6b0ac73705f2ad15eab59f11115a6a7e2e8",
+          "next_actions": [
+            "Compléter trois réserves mardi et trois jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
+            "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T18:57:49.124Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T19:57:49.124Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T19:00:55.939Z",
-        "elapsed_seconds": 186.815,
+        "observed_at": "2026-10-09T19:08:50.197Z",
+        "elapsed_seconds": 661.073,
         "prompt_revision": "production-closure-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "ac9e511ecb63dacaf118f2dc10cc715c63b5e2ae",
+        "source_sha": "fd56e6b0ac73705f2ad15eab59f11115a6a7e2e8",
         "next_actions": [
-          "Compléter trois réserves mardi depuis les dossiers avancés dont identité, version et diffusion sont vérifiées.",
-          "Compléter trois réserves jeudi depuis les dossiers avancés dont identité, version et diffusion sont vérifiées.",
+          "Compléter trois réserves mardi et trois jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
           "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
-          "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes."
+          "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
+          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+          "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
         ],
         "remaining_count": 35,
         "next_actions_total": 38,
@@ -30548,11 +30679,17 @@
           "started_at": "2026-10-09T19:00:55.939Z",
           "ended_at": "2026-10-09T19:06:00.000Z",
           "note": "Aperçu mécanique des doublons, contrôle des déficits, reprise de cinq dossiers sauvegardés et relecture des signaux récents dans l’archive publique."
+        },
+        "thursday_reserve_batch": {
+          "started_at": "2026-10-09T19:08:50.197Z",
+          "ended_at": "2026-10-09T19:13:11.359Z",
+          "note": "Flow recalculé au SHA sauvegardé ; trois dossiers complets sans exposition récente repris, créneaux du jeudi et divergences des guides contrôlés, handoff mécanique vérifié."
         }
       },
       "control_notes": [
         "Le plan mécanique de réconciliation supprimait les doublons mais exposait un déficit de cinq ; il n’a pas été appliqué seul.",
-        "Les cinq remplaçants sont distincts des choix visibles et du sillonnage. Le signal de circulation n’est pas traité comme preuve de qualité."
+        "Les cinq remplaçants sont distincts des choix visibles et du sillonnage. Le signal de circulation n’est pas traité comme preuve de qualité.",
+        "Jeudi atteint dix cartes : Becoming Hitchcock conserve 68/70/72 min distincts, La Maison des femmes 105/110 min distincts et Un crime dans la tête sépare Frankenheimer 1962 du remake Demme 2004."
       ]
     }
   ],
