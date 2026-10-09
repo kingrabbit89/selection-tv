@@ -12,6 +12,7 @@ import {dailyReserveCandidates, sectionPageMatches} from './editorial-contracts.
 import {validateTeleramaReport,teleramaExtractionContent} from './editorial-telerama-import.mjs';
 import {joinTeleramaEditorial,prepareInitialTeleramaSuggestions} from './editorial-telerama-signals.mjs';
 import {teleramaAuthorityPolicy,reviewTeleramaGrid,authoritativeTitleConflictAction} from './editorial-telerama-authority.mjs';
+import {webBroadcastPolicy,savedWebSourceDetails,planWebBroadcastReview} from './editorial-web-broadcast-policy.mjs';
 
 const days = ['samedi','dimanche','lundi','mardi','mercredi','jeudi','vendredi'];
 const array = value => Array.isArray(value) ? value : [];
@@ -216,6 +217,7 @@ export function buildProductionPlan(context, options={}) {
   const history = exposureIndex(saved.issues,catalogue,Number(freshness.history_lookback_issues || 4));
   const scopeDeficits = deficitsFor(context,range,options), observations = [], warnings = [];
   const authorityPolicy=teleramaAuthorityPolicy(context.editorial_config);
+  const webPolicy=webBroadcastPolicy(context.editorial_config,week);
   const add = (item,source) => {
     if (!item || !String(item.title || '').trim()) {warnings.push({reason:'observation_title_missing',provenance:source}); return;}
     const observation = {...item,start:item.start || item.time,provenance:source};
@@ -286,6 +288,7 @@ export function buildProductionPlan(context, options={}) {
       channel_printed:observation.channel_printed || observation.channel,genre_hint:observation.genre_hint || null,
       requires_title_review:observation.requires_title_review ?? true,
       broadcast_freshness_verified:false});
+    if(webPolicy && observation.source_type!=='telerama_pdf')Object.assign(slot.origins.at(-1),savedWebSourceDetails(observation));
     if (observation.version) slot.versions.push(observation.version);
     if (observation.work_id) slot.ids.push(observation.work_id);
     slot.identity_hints.push(identityFor(observation,index));
@@ -321,6 +324,13 @@ export function buildProductionPlan(context, options={}) {
   const attempts = array(context.research?.research_attempts), shortlist = array(context.research?.shortlist?.entries), queue = [];
   for (const group of groups.values()) {
     const gridReview=reviewTeleramaGrid(group.slots,authorityPolicy);
+    if(webPolicy && gridReview)for(const observation of gridReview.observation_requirements)
+      if(!observation.covered_by_printed_pdf)observation.required_actions=['review_current_web_broadcast_evidence'];
+    const uncoveredSlots=gridReview?group.slots.filter(slot=>!gridReview.observation_requirements.some(row=>
+      row.covered_by_printed_pdf && row.title===slot.observation.title && row.date===slot.observation.date &&
+      row.start===slot.observation.start && row.channel===slot.observation.channel)):group.slots;
+    const webReview=planWebBroadcastReview(uncoveredSlots,webPolicy,gridReview?
+      {requirement_condition:'if_this_uncovered_observation_is_used_or_scoped_omission_review'}:{});
     const ids = new Set(group.candidates.map(item=>item.work.id).filter(Boolean));
     const names = new Set([group.title,...group.candidates.flatMap(item=>[item.work.title,...array(item.work.aliases)])].map(normalizedTitle).filter(Boolean));
     const ambiguous = group.candidates.length>1;
@@ -411,7 +421,8 @@ export function buildProductionPlan(context, options={}) {
     const triageOnly=classification==='new_identity' && !scopedShortlist.some(entry=>!['rejected','deferred'].includes(entry.status));
     // Uncovered alternatives retain their own verification requirement below;
     // they must not hold up use of the printed PDF slot after its review.
-    const dynamic = ['review_identity_match_and_exact_version',gridReview?'review_telerama_grid_transcription_and_record_source':'review_current_broadcast_sources_and_independence','image_health_preflight',
+    const dynamic = ['review_identity_match_and_exact_version',gridReview?'review_telerama_grid_transcription_and_record_source':
+      webPolicy?'review_current_web_broadcast_evidence':'review_current_broadcast_sources_and_independence','image_health_preflight',
       'review_current_ratings_or_saved_specific_unavailability','editorial_selection_and_card_review'];
     if(gridReview?.discrepancies.some(item=>item.kind==='web_time_differs_for_same_title_day_channel'))dynamic.push('compare_printed_grid_times');
     for (const field of stableFields) if (facts.some(fact=>fact.field===field) && !facts.some(fact=>fact.field===field &&
@@ -443,6 +454,7 @@ export function buildProductionPlan(context, options={}) {
       shortlist:scopedShortlist,blocked_observations:blocked,
       facts_are_not_fresh_checks:true,automatic_selection:false});
     if(gridReview)queue.at(-1).schedule_authority=gridReview;
+    if(webReview)queue.at(-1).web_broadcast_review=webReview;
   }
   const byScope = new Map(scopeDeficits.map(item=>[item.scope,item]));
   queue.sort((a,b)=>{
@@ -482,6 +494,9 @@ export function buildProductionPlan(context, options={}) {
       source_preference:'provided_telerama_pdf',sources:paperSources.map(source=>({sha256:source.sha256,provenance:source.provenance})),
       groups_with_printed_references:queue.filter(row=>row.schedule_authority).length,
       coverage_certified:false,automatic_certification:false}}:{}),
+    ...(webPolicy?{web_schedule_evidence:{...webPolicy,review_action:'review_current_web_broadcast_evidence',
+      evidence_scope:'selected_cards_reserves_grid_and_actual_omission_review',
+      automatic_certification:false,coverage_certified:false,source_independence_inferred:false}}:{}),
     ...editorial,
     queue_order:(editorial.initial_editorial_suggestions_summary?.queue_prioritized?
       'Initial Télérama seeds first: Bravo, Très bien, Bien; exact actionable matches only, saved decisions and ambiguous/paused/materialized groups preserved. ':'')+

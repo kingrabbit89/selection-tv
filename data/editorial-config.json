@@ -48,11 +48,11 @@
     "Tenir une présélection révisable par jour et par rubrique, fondée sur des signaux éditoriaux vérifiables et sourcés ; approfondir d'abord ses pistes et conserver les alternatives, sans ajouter de titre faible pour remplir un quota.",
     "Appliquer ensuite seulement le filtre éditorial.",
     "Conserver 3 choix développés par jour mais ne jamais plafonner la grille filtrée ; paginer si nécessaire.",
-    "Effectuer une passe de rappel indépendante avec au moins un second guide TV et un guide éditorial tel que Télérama pour détecter les omissions, sans copier son jugement. Cette seconde lecture couvre les jours et chaînes du périmètre pour les omissions ; elle ne certifie pas individuellement chaque horaire brut. Deux agrégateurs partageant un même flux ne comptent pas comme deux sources indépendantes. Lorsqu’un PDF Télérama est fourni, sa grille relue fait autorité sur son périmètre : la seconde lecture des omissions peut s’appuyer sur elle sans prouver son fournisseur EPG ni déclarer une indépendance inconnue.",
+    "Effectuer une seconde lecture réelle des grilles complètes, jours, chaînes et nuits pour détecter les omissions, ainsi qu’un rappel éditorial depuis les critiques et découvertes disponibles. Comparer un autre guide quand il est accessible ; sinon relire la grille complète contre l’inventaire et consigner la limite. Télérama est facultatif. Consigner séparément l’indépendance connue ou inconnue des sources ; sa provenance EPG inconnue ne bloque pas seule la clôture de cette revue.",
     "Pour chaque titre retenu, rechercher au moins un lien direct exact ; pour un film, viser deux liens exacts quand disponibles.",
-    "Vérifier les horaires de chaque programme retenu, réserve et ligne de grille commentée avec une source officielle ou deux grilles réellement indépendantes. Pour une ligne lisible du PDF Télérama fourni pour la cible, le titre imprimé, la chaîne, le jour et l’heure font autorité après revue de transcription, sans seconde preuve indépendante de ces quatre faits ; conserver les écarts et les corrections officielles ultérieures datées.",
+    "Vérifier titre, chaîne, date et heure de chaque programme retenu, réserve et ligne commentée avec une preuve officielle exacte, éventuellement composée de pièces reliées au même événement, ou un recoupement réellement lu de deux guides actuels d’éditeurs distincts concordants sur ces faits. Un flux commun démontré compte une seule référence ; une provenance inconnue reste indiquée comme inconnue sans bloquer seule le recoupement éditorial. Pour le PDF Télérama fourni et relu, ses quatre faits imprimés font autorité. Les corrections officielles exactes et datées prévalent ; une contradiction réelle reste à résoudre ou à remplacer.",
     "Ne pas générer de page d’index alphabétique dans le numéro : le catalogue permanent et la recherche globale sont les points d’entrée canoniques pour retrouver une œuvre.",
-    "Évaluer et consigner l’indépendance des sources sur des preuves positives de provenance ou d’acquisition, avec portée et limites, selon docs/EDITORIAL-CLOSURE-POLICY.md ; le nom public d’un fournisseur EPG n’est pas une condition universelle. Un autre domaine, éditeur ou distributeur et une concordance seuls ne prouvent pas l’indépendance ; une provenance inconnue reste inconnue.",
+    "Évaluer et consigner l’indépendance des sources sur des preuves positives de provenance ou d’acquisition, avec portée et limites, selon docs/EDITORIAL-CLOSURE-POLICY.md ; le nom public d’un fournisseur EPG n’est pas une condition universelle. Un autre domaine, éditeur ou distributeur et une concordance seuls ne prouvent pas l’indépendance ; une provenance inconnue reste inconnue. La concordance Web admise par web_schedule_evidence n’est pas une certification d’indépendance et n’exige pas de découvrir un fournisseur technique pour terminer le numéro.",
     "Revoir l’impact des divergences du relevé brut : une note sourcée sans effet sur une proposition, une omission ou la couverture ne bloque pas seule le numéro. Les vraies lacunes de chaîne/date/nuit et les défauts des propositions restent bloquants.",
     "Suspendre une recherche en impasse avec un retry_gate revu et lié aux actions exactes ; la reprendre seulement sur une preuve nouvelle datée répondant à la condition. Prioriser les lots accessibles sans retirer les exigences non satisfaites."
   ],
@@ -186,7 +186,11 @@
     "provided_telerama_editorial": "primary_seed",
     "from_week": "2026-S43",
     "native_rating_min": 2,
-    "priority_order": ["Bravo", "Très bien", "Bien"],
+    "priority_order": [
+      "Bravo",
+      "Très bien",
+      "Bien"
+    ],
     "other_sources": "complete_and_balance",
     "final_selection": "editorial_review"
   },
@@ -201,5 +205,21 @@
     "scope": "printed_entries_for_target_week",
     "later_official_corrections": "review_and_record",
     "uncovered_scope": "existing_web_checks"
+  },
+  "web_schedule_evidence": {
+    "mode": "official_or_reviewed_concordance",
+    "from_week": "2026-S42",
+    "fields": [
+      "title",
+      "channel",
+      "date",
+      "start"
+    ],
+    "minimum_distinct_guides": 2,
+    "known_shared_feed": "single_reference",
+    "unknown_feed_provenance": "record_without_blocking_concordance",
+    "official_corrections": "take_precedence",
+    "coverage_review": "dated_grid_comparison",
+    "source_independence": "record_separately"
   }
 }

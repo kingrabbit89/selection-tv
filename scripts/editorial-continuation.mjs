@@ -8,7 +8,8 @@ import {planResearchActions} from './editorial-research-triage.mjs';
 // Historical revisions retain their own 55- or 35-minute target during audit.
 export const SOFT_BUDGET_SECONDS = 55 * 60;
 export const SAVE_RESERVE_SECONDS = 5 * 60;
-export const CONTINUATION_REVISION = 'production-telerama-first-suggestions-2026-10-09';
+export const CONTINUATION_REVISION = 'production-web-evidence-2026-10-09';
+export const TELERAMA_FIRST_SUGGESTIONS_CONTINUATION_REVISION = 'production-telerama-first-suggestions-2026-10-09';
 export const TELERAMA_AUTHORITY_CONTINUATION_REVISION = 'production-telerama-authority-2026-10-09';
 export const PROOF_CONTINUATION_REVISION = 'production-proof-policy-2026-10-09';
 export const CLOSURE_CONTINUATION_REVISION = 'production-closure-2026-10-09';
@@ -21,6 +22,7 @@ export const LEGACY_CONTINUATION_REVISION = 'production-continuation-2026-10-09'
 const legacyBudget = Object.freeze({budget_seconds:35 * 60, reserve_seconds:SAVE_RESERVE_SECONDS});
 export const BUDGET_PROFILES = Object.freeze({
   [CONTINUATION_REVISION]:Object.freeze({budget_seconds:SOFT_BUDGET_SECONDS, reserve_seconds:SAVE_RESERVE_SECONDS}),
+  [TELERAMA_FIRST_SUGGESTIONS_CONTINUATION_REVISION]:Object.freeze({budget_seconds:SOFT_BUDGET_SECONDS, reserve_seconds:SAVE_RESERVE_SECONDS}),
   [TELERAMA_AUTHORITY_CONTINUATION_REVISION]:Object.freeze({budget_seconds:SOFT_BUDGET_SECONDS, reserve_seconds:SAVE_RESERVE_SECONDS}),
   [PROOF_CONTINUATION_REVISION]:Object.freeze({budget_seconds:SOFT_BUDGET_SECONDS, reserve_seconds:SAVE_RESERVE_SECONDS}),
   [CLOSURE_CONTINUATION_REVISION]:Object.freeze({budget_seconds:SOFT_BUDGET_SECONDS, reserve_seconds:SAVE_RESERVE_SECONDS}),
@@ -92,7 +94,7 @@ export function decideContinuation({progress = {}, started_at = null, now = null
   // Historical decisions retain their original action ordering and cannot be
   // changed by retry records subsequently added to their research checkpoint.
   let researchPlan = null, researchPlanError = null;
-  if ([CONTINUATION_REVISION,TELERAMA_AUTHORITY_CONTINUATION_REVISION,PROOF_CONTINUATION_REVISION].includes(prompt_revision)) {
+  if ([CONTINUATION_REVISION,TELERAMA_FIRST_SUGGESTIONS_CONTINUATION_REVISION,TELERAMA_AUTHORITY_CONTINUATION_REVISION,PROOF_CONTINUATION_REVISION].includes(prompt_revision)) {
     try {researchPlan = planResearchActions(progress, {now, startedAt:started_at});}
     catch (error) {researchPlanError = error.message;}
   }
@@ -106,7 +108,7 @@ export function decideContinuation({progress = {}, started_at = null, now = null
     week: progress.week || null, source_sha, next_actions: next_actions.slice(0, 5),
     remaining_count: array(progress.remaining).length, next_actions_total: next_actions.length,
     truncated_notice: next_actions.length > 5 ? `${next_actions.length - 5} further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.` : null,
-    ...([CONTINUATION_REVISION,TELERAMA_AUTHORITY_CONTINUATION_REVISION,PROOF_CONTINUATION_REVISION].includes(prompt_revision) ? {all_actions_total:allActions.length,
+    ...([CONTINUATION_REVISION,TELERAMA_FIRST_SUGGESTIONS_CONTINUATION_REVISION,TELERAMA_AUTHORITY_CONTINUATION_REVISION,PROOF_CONTINUATION_REVISION].includes(prompt_revision) ? {all_actions_total:allActions.length,
       waiting_actions:researchPlan?.waiting_actions ?? [],
       research_review_warnings:researchPlan?.review_warnings ?? [researchPlanError]} : {}),
     observations
@@ -173,7 +175,7 @@ export function auditRecordedRun(run = {}, progress = {}) {
     return ['last continuation_decision has an invalid action; actual stop cause remains unknown'];
   }
   if (!iso(decision.observed_at)) warnings.push('last continuation_decision lacks a real observed_at; do not reconstruct it');
-  if (decision.prompt_revision === undefined && [CONTINUATION_REVISION, TELERAMA_AUTHORITY_CONTINUATION_REVISION, PROOF_CONTINUATION_REVISION, CLOSURE_CONTINUATION_REVISION, PREVIOUS_CONTINUATION_REVISION].includes(run.prompt_revision)) {
+  if (decision.prompt_revision === undefined && [CONTINUATION_REVISION, TELERAMA_FIRST_SUGGESTIONS_CONTINUATION_REVISION, TELERAMA_AUTHORITY_CONTINUATION_REVISION, PROOF_CONTINUATION_REVISION, CLOSURE_CONTINUATION_REVISION, PREVIOUS_CONTINUATION_REVISION].includes(run.prompt_revision)) {
     warnings.push('last continuation_decision lacks prompt_revision required by the efficiency policy');
   } else if (decision.prompt_revision !== undefined && decision.prompt_revision !== run.prompt_revision) {
     warnings.push('last continuation_decision prompt_revision disagrees with the recorded run; do not replace its historical policy');

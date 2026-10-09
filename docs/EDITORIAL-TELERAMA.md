@@ -119,7 +119,8 @@ node scripts/editorial-production-flow.mjs YYYY-Sxx --ref SHA_CANDIDATE \
 
 Cette option ignore le supplément dans le lot et conserve tous les fichiers et
 preuves sauvegardés. Sans PDF, entrée préparée ou supplément de recherche, le
-plan de travail est identique au parcours précédent. La cadence, le budget,
+plan de travail applique le parcours Web complet de `AUTOMATION.md`, sans
+attendre de magazine ni de preuve d’amont EPG. La cadence, le budget,
 les seuils et la publication protégée gardent leurs règles actuelles.
 
 ## Méthode simple depuis un nouveau chat
@@ -221,8 +222,8 @@ du contenu publié.
 Après enregistrement d’une shortlist, poursuivre les dossiers choisis et les
 lacunes du numéro ; ne pas repartir de zéro ni rouvrir les rejets, reports ou
 impasses sur le seul fait qu’un avis est bien noté. S42 conserve sa présélection
-en cours. Sans entrée éditoriale valide ou avec `--without-telerama`, le plan
-existant est inchangé.
+en cours. Sans entrée éditoriale valide ou avec `--without-telerama`, la présélection Web continue ; la règle
+`web_schedule_evidence` reste applicable.
 
 L’amorce issue d’une entrée Git fournit `shortlist_signal`, prêt à reprendre
 dans `shortlist.entries[].signals` après revue, avec
