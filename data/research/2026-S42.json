@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T21:30:15.137Z",
+  "updated_at": "2026-10-09T21:32:57.201Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -15,7 +15,6 @@
     "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
     "TF1 Séries Films : neuf diffusions recoupées et nuits consultées ; blocs nocturnes génériques non détaillés, réception et cartes à terminer. CSTAR 16 octobre : Un mariage à Noël concorde à 21:10 ; Noël à la carte 22:49/22:45 et identité des quatre Douanes à départager ; indépendance et nuits restent à certifier.",
     "Rappel TNT principal réconcilié : les dix éléments génériques sont rapprochés ou exclus, dont Envoyé spécial et Au cœur de l’enquête sans sujet identifié. Les autres passes partielles (cinéma payant, TV5MONDE FBS, RMC, Ciné+) et le conflit de version Marine restent ouverts dans leurs dossiers propres.",
-    "France 2/3 : la carte retenue La Passion de Dodin Bouffant du 12/10 à 02:55 satisfait le niveau 3 ; la grille officielle courante prévaut pour la préparation, avec l'ancien 03:05 du guide tiers conservé pour le préflight. L'entrée La p'tite librairie du 15 à 12:15 est exclue du relevé actif (Ici 12/13). Seules les collections génériques et épisodes du rappel documentaire France 2/3 restent à identifier.",
     "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
     "France 4 : compléter réception/offres documentaires et épisodes génériques ; Rachelle Allison à la Cigale retenu à 20:30 après recoupement officiel/guide courant, à revérifier au préflight. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle.",
     "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes. Nouvelle piste TV5Pro mène à une connexion ; guide public reste channel4/NewYork, aucune preuve FBS.",
@@ -1373,7 +1372,8 @@
     "france4-wachowski-level3-and-unselected-defer-2026-10-09",
     "arte-prehistory-three-work-level3-review-2026-10-09",
     "silence-dans-les-rangs-field-scoped-level3-review-2026-10-09",
-    "dodin-level3-and-france23-scope-narrowing-2026-10-09"
+    "dodin-level3-and-france23-scope-narrowing-2026-10-09",
+    "france23-generic-observation-omission-review-2026-10-09"
   ],
   "blockers": [
     {
@@ -26689,6 +26689,31 @@
       },
       "evidence_note": "Carte de niveau 3 complète ; la décision de préparation 02:55 est rattachée à la grille officielle courante et l’ancien 03:05 reste visible pour le préflight.",
       "status": "editorial_level3_review_complete_under_closure_policy"
+    },
+    {
+      "fields": [
+        "level2_omission_review",
+        "inventory_presence",
+        "selection_dependency"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-2/10-10-2026/10-10-2026",
+        "https://www.francetvpro.fr/grille/france-3/10-10-2026/10-10-2026",
+        "https://tv-programme.com/france-2/samedi-10-octobre-2026/",
+        "https://tv-programme.com/france-3/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-09T21:32:57.201Z",
+      "stability": "cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "channels": [
+          "France 2",
+          "France 3"
+        ],
+        "observation_count": 37
+      },
+      "evidence_note": "Les observations génériques/détaillées restent dans l’inventaire, aucune n’est rendue. Le niveau 2 vérifie l’absence d’omission dans la sélection sans transformer chaque créneau brut non retenu en enquête de niveau 3.",
+      "status": "reviewed_for_omission_no_selected_card_dependency"
     }
   ],
   "run_metrics": [
@@ -32788,7 +32813,8 @@
         "france4-wachowski-level3-and-unselected-defer-2026-10-09",
         "arte-prehistory-three-work-level3-review-2026-10-09",
         "silence-dans-les-rangs-field-scoped-level3-review-2026-10-09",
-        "dodin-level3-and-france23-scope-narrowing-2026-10-09"
+        "dodin-level3-and-france23-scope-narrowing-2026-10-09",
+        "france23-generic-observation-omission-review-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -32798,9 +32824,9 @@
       "cards_integrated_this_run": 0,
       "draft_cards": 0,
       "partial_dossiers": 5,
-      "requirements_resolved": 14,
+      "requirements_resolved": 15,
       "stop_reason": null,
-      "next_useful_batch": "Traiter les collections et épisodes génériques France 2/3 depuis le relevé sauvegardé : identifier ou exclure précisément les pistes proches d’une carte, sans relancer une collecte générale.",
+      "next_useful_batch": "Revoir les cartes France 5 déjà proches de la clôture (Pompéi et Foucault) et isoler leurs seuls défauts de niveau 3, sans rouvrir les observations brutes non retenues.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -33187,20 +33213,52 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T21:30:39.684Z",
+          "elapsed_seconds": 2068.036,
+          "prompt_revision": "production-proof-policy-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "13a1930c31323797a86064a27e1fbdd89c19d59e",
+          "next_actions": [
+            "Traiter les collections et épisodes génériques France 2/3 depuis le relevé sauvegardé : identifier ou exclure précisément les pistes proches d’une carte, sans relancer une collecte générale.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
+            "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
+          ],
+          "remaining_count": 20,
+          "next_actions_total": 17,
+          "truncated_notice": "12 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 25,
+          "waiting_actions_count": 8,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T20:56:11.648Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T22:17:47.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T21:29:31.316Z",
-        "elapsed_seconds": 1999.668,
+        "observed_at": "2026-10-09T21:30:39.684Z",
+        "elapsed_seconds": 2068.036,
         "prompt_revision": "production-proof-policy-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "12a1b6a4c809ca4a78fd292ad72cd32bd6185c00",
+        "source_sha": "13a1930c31323797a86064a27e1fbdd89c19d59e",
         "next_actions": [
-          "Revoir le suivi France 2/3 de La Passion de Dodin Bouffant : confirmer que la carte retenue du 12 octobre à 02:55 satisfait le niveau 3, puis isoler les seules collections génériques encore ouvertes dans le rappel documentaire.",
+          "Traiter les collections et épisodes génériques France 2/3 depuis le relevé sauvegardé : identifier ou exclure précisément les pistes proches d’une carte, sans relancer une collecte générale.",
           "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
           "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
@@ -33326,6 +33384,13 @@
           "ended_at": "2026-10-09T21:30:15.137Z",
           "overlap": false,
           "note": "Revue de niveau 3 de Dodin Bouffant et réduction du suivi France 2/3 aux seules collections/épisodes génériques du rappel."
+        },
+        {
+          "kind": "review",
+          "started_at": "2026-10-09T21:30:39.684Z",
+          "ended_at": "2026-10-09T21:32:57.201Z",
+          "overlap": false,
+          "note": "Comparaison mécanique de 37 observations France 2/3 avec les pages rendues et revue éditoriale de leur portée de niveau 2."
         }
       ],
       "requirements_resolved_details": [
@@ -34010,7 +34075,7 @@
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Traiter les collections et épisodes génériques France 2/3 depuis le relevé sauvegardé : identifier ou exclure précisément les pistes proches d’une carte, sans relancer une collecte générale.",
+      "Revoir les cartes France 5 déjà proches de la clôture (Pompéi et Foucault) et isoler leurs seuls défauts de niveau 3, sans rouvrir les observations brutes non retenues.",
       "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
       "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
       "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
@@ -41057,6 +41122,19 @@
       "evidence": "Targeted editorial-work-packet on 12a1b6a and saved official FranceTV/Gaumont/critical evidence.",
       "reason": "La carte Dodin satisfait le niveau 3 et la fausse entrée Ici 12/13 est exclue. Le suivi reste ouvert uniquement pour les collections et épisodes génériques du rappel documentaire ; cette lacune de couverture n’est pas close par la carte.",
       "coverage_effect": "generic France 2/3 documentary recall remains open"
+    },
+    {
+      "action_text": "France 2/3 : la carte retenue La Passion de Dodin Bouffant du 12/10 à 02:55 satisfait le niveau 3 ; la grille officielle courante prévaut pour la préparation, avec l'ancien 03:05 du guide tiers conservé pour le préflight. L'entrée La p'tite librairie du 15 à 12:15 est exclue du relevé actif (Ici 12/13). Seules les collections génériques et épisodes du rappel documentaire France 2/3 restent à identifier.",
+      "decided_at": "2026-10-09T21:32:57.201Z",
+      "decision": "generic_observations_reviewed_for_omission_requirement_closed",
+      "applies_to": [
+        "France 2",
+        "France 3",
+        "37 saved generic or episode observations"
+      ],
+      "evidence": "Saved inventory and rendered week compared on candidate 13a1930; zero of the 37 scoped observations appears in the rendered issue.",
+      "reason": "Le niveau 2 impose de rechercher les omissions, pas de certifier chaque créneau brut non retenu. Les intitulés détaillés restent consultables dans l’inventaire et les intitulés génériques ne sont pas assimilés à des épisodes précis. Aucun élément de ce lot n’est retenu, en réserve ou rendu ; le niveau 3 n’est donc pas applicable à ces 37 observations.",
+      "coverage_effect": "closes only the targeted France 2/3 generic-item follow-up; global documentary discovery and independent recall requirements remain open"
     }
   ]
 }
