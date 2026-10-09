@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T12:46:20.599Z",
+  "updated_at": "2026-10-09T12:49:57.460Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -936,6 +936,15 @@
       "completed_at": "2026-10-09T12:46:20.599Z",
       "scope": "vendredi:La falaise mystérieuse",
       "summary": "L’identité canonique, le master Criterion 99 min et le visuel exact sont ajoutés ; la copie TCM, la note/absence de note et le contrôle du visuel restent ouverts.",
+      "deliverables": [
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "advance-falaise-ratings-2026-10-09",
+      "completed_at": "2026-10-09T12:49:57.460Z",
+      "scope": "vendredi:La falaise mystérieuse",
+      "summary": "La notation Rotten Tomatoes est vérifiée sur la page directe de l’œuvre ; la relation de copie TCM et la santé du visuel restent ouvertes, donc aucune carte n’est déclarée complète.",
       "deliverables": [
         "data/research/2026-S42.json"
       ]
@@ -22755,6 +22764,26 @@
       },
       "evidence_note": "Criterion confirme Lewis Allen, États-Unis, 1944, 99 min, noir et blanc, 1.37:1, anglais. Visuel direct relié à la page exacte ; santé distante non encore certifiée.",
       "status": "verified_metadata_image_health_pending"
+    },
+    {
+      "work_id": "the-uninvited-1944",
+      "fields": [
+        "ratings.rotten_tomatoes.critics_score",
+        "ratings.rotten_tomatoes.critics_count",
+        "ratings.rotten_tomatoes.audience_score",
+        "ratings.rotten_tomatoes.audience_count"
+      ],
+      "source_urls": [
+        "https://www.rottentomatoes.com/m/1038526-uninvited"
+      ],
+      "checked_at": "2026-10-09T12:49:57.460Z",
+      "stability": "volatile",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La falaise mystérieuse"
+      },
+      "evidence_note": "La page directe Rotten Tomatoes de The Uninvited (1944) affiche 95 % au Tomatometer sur 22 critiques et 80 % au Popcornmeter sur plus de 2 500 notes. Cette vérification résout le champ de notation sans certifier la copie TCM ni la santé du visuel.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -25071,7 +25100,8 @@
         "resolve-hiver-version-attempt-2026-10-09",
         "complete-kotelnitch-card-2026-10-09",
         "resolve-a-ghost-story-version-attempt-2026-10-09",
-        "advance-falaise-criterion-dossier-2026-10-09"
+        "advance-falaise-criterion-dossier-2026-10-09",
+        "advance-falaise-ratings-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -25094,7 +25124,8 @@
         "Hiver à Sokcho : versions 100/104/106 min séparées et conflit 11:47/11:48 documenté",
         "dimanche : Retour à Kotelnitch passé de carte draft à carte complète",
         "A Ghost Story : conflit de copie TCM 90/92 min documenté après voie officielle et alternative",
-        "La falaise mystérieuse : identité canonique, master Criterion 99 min et visuel exact ajoutés"
+        "La falaise mystérieuse : identité canonique, master Criterion 99 min et visuel exact ajoutés",
+        "La falaise mystérieuse : notation Rotten Tomatoes vérifiée sur la page directe"
       ],
       "requirements_resolved": [
         "sorties-physiques : profondeur de réserve minimale atteinte",
@@ -25372,18 +25403,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T12:47:09.505Z",
+          "elapsed_seconds": 2570.345,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "024c1680732a5df2e2f4b9673036dfaf9e720871",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T12:04:19.160Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T13:24:36.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T12:44:30.685Z",
-        "elapsed_seconds": 2411.525,
+        "observed_at": "2026-10-09T12:47:09.505Z",
+        "elapsed_seconds": 2570.345,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "1de81146b3fe0b78e97ecf1a9d70096e406e1206",
+        "source_sha": "024c1680732a5df2e2f4b9673036dfaf9e720871",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -25405,7 +25465,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Terminer La falaise mystérieuse seulement si la copie TCM, la note/absence de note et le visuel peuvent être certifiés ; sinon passer à une piste non bloquée.",
+      "next_useful_batch": "Terminer La falaise mystérieuse seulement si la copie TCM et la santé du visuel peuvent être certifiées ; sinon passer à une piste non bloquée.",
       "new_leads": 0
     }
   ],
@@ -26918,7 +26978,7 @@
           "sl-vendredi-wachowski"
         ],
         "work_id": "the-uninvited-1944",
-        "decision_note": "Criterion confirme le master 99 min et fournit un visuel exact. Carte encore bloquée par la relation non certifiée du créneau TCM 100 min au master, le contrôle d’image et la note/absence de note."
+        "decision_note": "Criterion confirme le master 99 min et Rotten Tomatoes expose 95 % sur 22 critiques. Carte encore bloquée par la relation non certifiée du créneau TCM 100 min au master et par le contrôle de santé du visuel."
       },
       {
         "id": "sl-plateformes-gratuites-chauvet",
