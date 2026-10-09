@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "018433005ec07f2d8900af044f82dede06d49a28",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T08:55:11.000Z",
+  "updated_at": "2026-10-09T08:59:15.924Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -513,6 +513,16 @@
       "id": "advance-wednesday-burning-schedule-rating-2026-10-09",
       "completed_at": "2026-10-09T08:55:11.000Z",
       "description": "Burning an Illusion : créneau TCM du mercredi recoupé par trois pages et note IMDb datée ; piste maintenue researching avec manques explicites."
+    },
+    {
+      "id": "advance-wednesday-burning-version-availability-2026-10-09",
+      "completed_at": "2026-10-09T08:56:39.000Z",
+      "description": "Burning an Illusion : versions BFI/Player/RT distinguées, réception RT lue et limite des droits France consignée ; copie TCM reste non identifiée."
+    },
+    {
+      "id": "advance-wednesday-burning-poster-2026-10-09",
+      "completed_at": "2026-10-09T08:57:22.000Z",
+      "description": "Affiche exacte Burning an Illusion inspectée via Rotten Tomatoes/Flixster ; faible résolution et CI distant restent à contrôler."
     }
   ],
   "blockers": [
@@ -20318,6 +20328,49 @@
       },
       "evidence_note": "Trois pages publiques concordent sur le créneau TCM du mercredi. IMDb 6,9/10 pour 256 notes ; aucune moyenne SensCritique exploitable dans la page lue.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "version.duration_observations",
+        "availability.france",
+        "critical_reception"
+      ],
+      "source_urls": [
+        "https://www.bfi.org.uk/film/9f414225-7cf9-5883-8980-76d5078ffcf1/burning-an-illusion",
+        "https://player.bfi.org.uk/subscription/film/watch-burning-an-illusion-1982-online",
+        "https://www.rottentomatoes.com/m/burning_an_illusion"
+      ],
+      "checked_at": "2026-10-09T08:56:39.000Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Burning an Illusion",
+        "versions": "BFI 105 min / BFI Player 102 min / RT 101 min"
+      },
+      "evidence_note": "Conflit de durées conservé ; copie TCM non identifiée. BFI Player ne prouve pas les droits France. Page RT lue avec quatre critiques et réserve FT.",
+      "status": "conflict"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "image",
+        "image_type",
+        "image_provenance",
+        "image_visual_review"
+      ],
+      "source_urls": [
+        "https://www.rottentomatoes.com/m/burning_an_illusion",
+        "https://resizing.flixster.com/ZRgdCechZiXYCiX2S2H0LYVWdo0%3D/68x102/v2/https%3A//resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak%3D/v3/t/assets/p174382_p_v11_aa.jpg"
+      ],
+      "checked_at": "2026-10-09T08:57:22.000Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Burning an Illusion"
+      },
+      "evidence_note": "Affiche exacte 1981 inspectée visuellement ; URL Flixster 68x102, santé distante et qualité finale à contrôler.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -21312,20 +21365,22 @@
     {
       "date": "2026-10-09T08:48:34.038Z",
       "started_at": "2026-10-09T08:28:29.664Z",
-      "ended_at": null,
+      "ended_at": "2026-10-09T08:59:15.924Z",
       "owner": "7f9c1d7e-16ae-47a1-840a-afac3ba16831",
       "execution_kind": "scheduled_continuation_production",
       "prompt_revision": "production-continuation-2026-10-09",
       "stage": "enrichment",
-      "elapsed_seconds": 1204,
-      "duration_basis": "started_at capturé à l’entrée ; checkpoint intermédiaire après synchronisation de main et trois cartes développées complètes.",
+      "elapsed_seconds": 1846.26,
+      "duration_basis": "started_at capturé à l’entrée ; ended_at observé après la décision --finish et avant la sauvegarde terminale. Le contrôleur a réservé la fin du budget à la sauvegarde et à la libération.",
       "completed_batches": [
         "synchronize-main-eadfd023",
         "complete-thursday-the-host-third-choice-2026-10-09",
         "complete-monday-les-maries-de-l-an-ii-second-choice-2026-10-09",
         "complete-monday-restore-point-third-choice-2026-10-09",
         "complete-wednesday-cadet-broadcast-crosscheck-2026-10-09",
-        "advance-wednesday-burning-schedule-rating-2026-10-09"
+        "advance-wednesday-burning-schedule-rating-2026-10-09",
+        "advance-wednesday-burning-version-availability-2026-10-09",
+        "advance-wednesday-burning-poster-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -21496,17 +21551,73 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T08:56:18.574Z",
+          "elapsed_seconds": 1668.91,
+          "budget_seconds": 2100,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "fa4368d0ebfa4232d8671b6f9d5a5210f017d0a5",
+          "next_actions": [
+            "Achever deux choix développés du mercredi depuis la shortlist et les dossiers proches d’une carte.",
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi.",
+            "Produire les rubriques indépendantes encore absentes et consolider les recoupements/rappels ; préserver toutes les exigences ouvertes jusqu’à résolution effective.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T08:28:29.664Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T09:50:06.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        },
+        {
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-09T08:58:57.790Z",
+          "elapsed_seconds": 1828.126,
+          "budget_seconds": 2100,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "fa4368d0ebfa4232d8671b6f9d5a5210f017d0a5",
+          "next_actions": [
+            "Achever deux choix développés du mercredi depuis la shortlist et les dossiers proches d’une carte.",
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi.",
+            "Produire les rubriques indépendantes encore absentes et consolider les recoupements/rappels ; préserver toutes les exigences ouvertes jusqu’à résolution effective.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T08:28:29.664Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T09:50:06.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T08:54:42.123Z",
-        "elapsed_seconds": 1572.459,
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-09T08:58:57.790Z",
+        "elapsed_seconds": 1828.126,
         "budget_seconds": 2100,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "11a923df1033bf444354a660ac1f16569a28f1fd",
+        "source_sha": "fa4368d0ebfa4232d8671b6f9d5a5210f017d0a5",
         "next_actions": [
           "Achever deux choix développés du mercredi depuis la shortlist et les dossiers proches d’une carte.",
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi.",
@@ -21526,9 +21637,9 @@
           "ready_handoff": null
         }
       },
-      "run_state": "running",
-      "stop_reason": null,
-      "next_useful_batch": "Achever Burning an Illusion : version, liens directs, affiche et rédaction de la deuxième carte du mercredi."
+      "run_state": "stopped",
+      "stop_reason": "budget_reserve_reached",
+      "next_useful_batch": "Achever Burning an Illusion : liens canoniques, décision de version sans assimiler la copie TCM, visuel haute définition si disponible et rédaction de la deuxième carte du mercredi ; puis sélectionner une troisième piste mercredi."
     }
   ],
   "source_issues": [
@@ -22131,9 +22242,9 @@
     "main_sha": "eadfd023669970da304879f587cba4125908a655",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Achever deux choix développés du mercredi depuis la shortlist et les dossiers proches d’une carte.",
+      "Achever Burning an Illusion : liens canoniques, décision de version sans assimiler la copie TCM, visuel haute définition si disponible et rédaction de la deuxième carte du mercredi ; puis sélectionner une troisième piste mercredi.",
       "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi.",
-      "Produire les rubriques indépendantes encore absentes et consolider les recoupements/rappels ; préserver toutes les exigences ouvertes jusqu’à résolution effective."
+      "Produire les rubriques indépendantes encore absentes et poursuivre les recoupements/rappels sans fermer les exigences ouvertes."
     ],
     "publisher": {
       "checked_at": "2026-10-08T14:40:33.431Z",
@@ -22709,7 +22820,7 @@
         "alternatives": [
           "sl-mercredi-cadet"
         ],
-        "decision_note": "Diffusion et note IMDb vérifiées ; version exacte, liens, affiche et carte restent à terminer."
+        "decision_note": "Diffusion, note IMDb et affiche exacte vérifiées. Versions BFI 105 min, Player 102 min et RT 101 min distinguées ; copie TCM et droits France non établis. Liens canoniques et carte restent à terminer."
       },
       {
         "id": "sl-jeudi-point-limite",
