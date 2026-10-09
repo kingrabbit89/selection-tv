@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T21:26:33.429Z",
+  "updated_at": "2026-10-09T21:27:49.447Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -22,7 +22,6 @@
     "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes. Nouvelle piste TV5Pro mène à une connexion ; guide public reste channel4/NewYork, aucune preuve FBS.",
     "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma.",
     "TF1/TFX/TMC : poursuivre les sujets/épisodes encore génériques et le tri motivé des formats de magazine ou documentaire de flux repérés ; neuf créneaux TFX, 38 TMC recoupés et deux magazines supplémentaires ajoutés, sans certification artistique.",
-    "Arte préhistoire : Chauvet et Thorin sont matérialisés en choix draft du samedi, Chauvet et Sulawesi en cartes gratuites ; identités, versions, offres, visuels, réception et motifs d'absence de moyenne sont documentés. Recontrôler diffusions/offres/images au préflight et poursuivre le rappel documentaire ; les 52/53/54 min de Thorin ne sont pas interchangeables.",
     "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer. Programmetvcesoir et Ouest-France soutiennent les titres inventoriés ; suivis ciblés enregistrés, indépendance non établie, conflits non clos.",
     "Ciné+ : 45 fiches CANAL+ consultées, 14 heures concordantes (dont La gueule ouverte sur Festival), 4 écarts et 27 BroadcastEvent hors cible. Chaîne absente des objets officiels : certifier les chaînes/grilles et les autres rediffusions, ne pas réutiliser les événements anciens. Durées de versions et droits replay à distinguer des créneaux.",
     "TCM : 98 créneaux comparés aux sept grilles Télérama courantes, aucun écart d'heure ; Nashville Blues/The Thing Called Love rapprochés par la fiche liée. Une nuit au cinéma : Flics et voyous identifié (Laurent Bouzereau, 2013, 55 min). Source officielle ou indépendance des flux encore à obtenir ; documentaires et autres films à enrichir.",
@@ -1372,7 +1371,8 @@
     "cineplus-fresh-official-route-review-and-exact-ci-2026-10-09",
     "tcm-three-selected-card-closure-policy-review-2026-10-09",
     "un-crime-selected-event-scope-review-2026-10-09",
-    "france4-wachowski-level3-and-unselected-defer-2026-10-09"
+    "france4-wachowski-level3-and-unselected-defer-2026-10-09",
+    "arte-prehistory-three-work-level3-review-2026-10-09"
   ],
   "blockers": [
     {
@@ -26546,6 +26546,87 @@
       },
       "evidence_note": "Revue de niveau 3 de la carte déjà rendue ; les durées œuvre/créneau/ancienne notice restent séparées et aucune offre replay n’est ajoutée.",
       "status": "editorial_level3_review_complete_under_closure_policy"
+    },
+    {
+      "work_id": "grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-2024",
+      "fields": [
+        "identity",
+        "broadcasts",
+        "offer",
+        "criticism",
+        "image",
+        "links",
+        "ratings_unavailable_reason"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/112849-000-A/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire/",
+        "https://api.arte.tv/api/player/v2/config/fr/112849-000-A",
+        "https://www.arte.tv/fr/guide/20261010/",
+        "https://www.arte.tv/fr/guide/20261013/",
+        "https://www.programme-television.org/type/documentaires/autres/civilisation/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-343398134"
+      ],
+      "checked_at": "2026-10-09T21:27:49.447Z",
+      "stability": "mixed_stable_and_cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "subject": "Grotte Chauvet — cartes Arte S42 et offre ARTE.tv"
+      },
+      "evidence_note": "Guides officiel ARTE et daté recoupent les diffusions du samedi et du mardi ; l’API et la page officielles bornent l’offre France jusqu’au 17 mars 2027. L’œuvre numérique 88 min 53 s affichée 89 min, la durée CNRS 88 min et le créneau TV 90 min restent distincts. Réception attribuée, visuel officiel et absence de moyenne exploitable sont documentés.",
+      "status": "editorial_level3_review_complete_under_closure_policy"
+    },
+    {
+      "work_id": "thorin-le-dernier-neandertalien-2024",
+      "fields": [
+        "identity",
+        "broadcasts",
+        "offer",
+        "criticism",
+        "image",
+        "links",
+        "ratings_unavailable_reason"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/083910-000-A/thorin-le-dernier-neandertalien/",
+        "https://www.arte.tv/fr/guide/20261010/",
+        "https://tv-programme.com/arte/samedi-10-octobre-2026/",
+        "https://www.hominides.com/le-festival-objectif-prehistoire-a-pech-merle-palmares-2024/",
+        "https://pariscience.fr/palmares-2024/"
+      ],
+      "checked_at": "2026-10-09T21:27:49.447Z",
+      "stability": "mixed_stable_and_cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "subject": "Thorin, le dernier Néandertalien — 2026-10-10 23:20 Arte et offre ARTE.tv"
+      },
+      "evidence_note": "La page ARTE et le guide daté établissent l’identité et la diffusion du samedi ; l’offre courante affiche 54 min et une fin au 14 novembre 2026. Les observations festival/Télérama 52 min et Hominides 53 min restent des versions ou arrondis distincts. Réception, deux distinctions précises, absence de moyenne exploitable et fallback visuel exact sont documentés sans consensus inventé.",
+      "status": "editorial_level3_review_complete_under_closure_policy"
+    },
+    {
+      "work_id": "sulawesi-l-ile-des-premieres-images-2025",
+      "fields": [
+        "identity",
+        "broadcasts",
+        "offer",
+        "criticism",
+        "image",
+        "links",
+        "ratings_unavailable_reason"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/118245-000-A/sulawesi-l-ile-des-premieres-images/",
+        "https://api.arte.tv/api/player/v2/config/fr/118245-000-A",
+        "https://www.arte.tv/fr/guide/20261010/",
+        "https://www.arte.tv/fr/guide/20261013/",
+        "https://www.lejournaldesarts.fr/medias/la-prehistoire-des-images-184458"
+      ],
+      "checked_at": "2026-10-09T21:27:49.447Z",
+      "stability": "mixed_stable_and_cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "subject": "Sulawesi, l'île des premières images — cartes Arte S42 et offre ARTE.tv"
+      },
+      "evidence_note": "Les guides officiel ARTE et daté recoupent les diffusions du samedi et du mardi ; page et API officielles bornent l’offre France jusqu’au 19 janvier 2027. La version numérique 55 min 05 s affichée 56 min reste distincte du créneau linéaire. Deux lectures attribuées, visuel officiel et motif d’absence de moyenne sont sauvegardés.",
+      "status": "editorial_level3_review_complete_under_closure_policy"
     }
   ],
   "run_metrics": [
@@ -32642,7 +32723,8 @@
         "cineplus-fresh-official-route-review-and-exact-ci-2026-10-09",
         "tcm-three-selected-card-closure-policy-review-2026-10-09",
         "un-crime-selected-event-scope-review-2026-10-09",
-        "france4-wachowski-level3-and-unselected-defer-2026-10-09"
+        "france4-wachowski-level3-and-unselected-defer-2026-10-09",
+        "arte-prehistory-three-work-level3-review-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -32652,9 +32734,9 @@
       "cards_integrated_this_run": 0,
       "draft_cards": 0,
       "partial_dossiers": 5,
-      "requirements_resolved": 12,
+      "requirements_resolved": 13,
       "stop_reason": null,
-      "next_useful_batch": "Revoir le suivi Arte préhistoire : confirmer que Chauvet, Thorin et Sulawesi déjà rendus satisfont leurs seules exigences de niveau 3, sans fermer le rappel documentaire ni confondre les durées 52/53/54 min de Thorin.",
+      "next_useful_batch": "Revoir Silence dans les rangs, carte retenue déjà rendue : vérifier si les divergences horaires et l’indisponibilité replay affectent réellement ses occurrences, puis borner ou clore le seul défaut restant.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -32945,29 +33027,61 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T21:26:57.535Z",
+          "elapsed_seconds": 1845.887,
+          "prompt_revision": "production-proof-policy-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "a1d888f7346db2edb8707a60763da99e7b4cd6f6",
+          "next_actions": [
+            "Revoir le suivi Arte préhistoire : confirmer que Chauvet, Thorin et Sulawesi déjà rendus satisfont leurs seules exigences de niveau 3, sans fermer le rappel documentaire ni confondre les durées 52/53/54 min de Thorin.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
+            "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
+          ],
+          "remaining_count": 22,
+          "next_actions_total": 19,
+          "truncated_notice": "14 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 27,
+          "waiting_actions_count": 8,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T20:56:11.648Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T22:17:47.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T21:25:50.000Z",
-        "elapsed_seconds": 1778.352,
+        "observed_at": "2026-10-09T21:26:57.535Z",
+        "elapsed_seconds": 1845.887,
         "prompt_revision": "production-proof-policy-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "f228308f1f2a59eec17ecf6a42c3536d53bf3a7f",
+        "source_sha": "a1d888f7346db2edb8707a60763da99e7b4cd6f6",
         "next_actions": [
-          "Clore le suivi France 4 documentaire si la carte Wachowski retenue satisfait bien le niveau 3 et si On ne va pas se défiler est absent des pools courants ; conserver séparément les lacunes de rappel France 4.",
+          "Revoir le suivi Arte préhistoire : confirmer que Chauvet, Thorin et Sulawesi déjà rendus satisfont leurs seules exigences de niveau 3, sans fermer le rappel documentaire ni confondre les durées 52/53/54 min de Thorin.",
           "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
           "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
           "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
         ],
-        "remaining_count": 23,
-        "next_actions_total": 20,
-        "truncated_notice": "15 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
-        "all_actions_total": 28,
+        "remaining_count": 22,
+        "next_actions_total": 19,
+        "truncated_notice": "14 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "all_actions_total": 27,
         "waiting_actions_count": 8,
         "research_review_warnings": [],
         "observations": {
@@ -33063,6 +33177,13 @@
           "ended_at": "2026-10-09T21:26:33.429Z",
           "overlap": false,
           "note": "Extraction ciblée France 4 : carte Wachowski complète sous la politique de portée, piste On ne va pas se défiler absente des pools et différée."
+        },
+        {
+          "kind": "review",
+          "started_at": "2026-10-09T21:26:57.535Z",
+          "ended_at": "2026-10-09T21:27:49.447Z",
+          "overlap": false,
+          "note": "Extraction ciblée et revue de niveau 3 de trois œuvres Arte préhistoire déjà rendues ; portées de diffusion, offre et durée séparées."
         }
       ],
       "requirements_resolved_details": [
@@ -33071,7 +33192,8 @@
         "Le rappel W9 est réconcilié pour sa portée de couverture sur la grille primaire M6/W9 ; l’action combinée reste ouverte pour Ciné+ Festival.",
         "Deux suivis de dossiers Ciné+ sont clos : quatre cartes retenues relient événements CANAL+ et attribution de chaîne par titre/date/heure ; les pistes non retenues sont différées. Le niveau 2 Ciné+ reste ouvert.",
         "Deux suivis TCM obsolètes sont clos : La falaise mystérieuse, Regrouping et Burning an Illusion satisfont le niveau 3 dans la portée de leurs preuves, sans inventer de master technique ni de replay ; quatre pistes non retenues restent différées. Les exigences de niveau 2 TCM restent ouvertes.",
-        "Le suivi France 4 documentaire ciblé est clos : la carte Wachowski satisfait le niveau 3 avec durées bornées ; On ne va pas se défiler est différé hors sélection. Le rappel France 4 et Hakim Jemili restent ouverts séparément."
+        "Le suivi France 4 documentaire ciblé est clos : la carte Wachowski satisfait le niveau 3 avec durées bornées ; On ne va pas se défiler est différé hors sélection. Le rappel France 4 et Hakim Jemili restent ouverts séparément.",
+        "Le suivi Arte préhistoire ciblé est clos : Chauvet, Thorin et Sulawesi satisfont le niveau 3, avec durées et limites d’offre séparées. Le rappel documentaire global et les contrôles préflight restent ouverts."
       ]
     }
   ],
@@ -33745,7 +33867,7 @@
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Revoir le suivi Arte préhistoire : confirmer que Chauvet, Thorin et Sulawesi déjà rendus satisfont leurs seules exigences de niveau 3, sans fermer le rappel documentaire ni confondre les durées 52/53/54 min de Thorin.",
+      "Revoir Silence dans les rangs, carte retenue déjà rendue : vérifier si les divergences horaires et l’indisponibilité replay affectent réellement ses occurrences, puis borner ou clore le seul défaut restant.",
       "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
       "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
       "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
@@ -40754,6 +40876,19 @@
       "evidence": "Targeted editorial-work-packet on f228308 plus exact current-pool scan in data/weeks/2026-S42.json.",
       "reason": "La carte Wachowski retenue satisfait le niveau 3 et garde les trois indications de durée dans leur portée. On ne va pas se défiler ne figure dans aucun pool, son ancienne expiration 2025 est périmée et aucune qualité actuelle n’est déduite : la piste est différée. Le rappel France 4 et Hakim Jemili restent ouverts dans une exigence distincte.",
       "coverage_effect": "none_on_open_france4_reminder_requirement"
+    },
+    {
+      "action_text": "Arte préhistoire : Chauvet et Thorin sont matérialisés en choix draft du samedi, Chauvet et Sulawesi en cartes gratuites ; identités, versions, offres, visuels, réception et motifs d'absence de moyenne sont documentés. Recontrôler diffusions/offres/images au préflight et poursuivre le rappel documentaire ; les 52/53/54 min de Thorin ne sont pas interchangeables.",
+      "decided_at": "2026-10-09T21:27:49.447Z",
+      "decision": "three_selected_works_verified_requirement_closed",
+      "applies_to": [
+        "grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-2024",
+        "thorin-le-dernier-neandertalien-2024",
+        "sulawesi-l-ile-des-premieres-images-2025"
+      ],
+      "evidence": "Targeted editorial-work-packet on a1d888f; existing official ARTE guides, programme pages, APIs, critical sources and rendered card pointers.",
+      "reason": "Les trois œuvres déjà rendues satisfont le niveau 3 dans la portée de leurs diffusions et offres. Les durées divergentes restent séparées. Les contrôles de fraîcheur au préflight sont un contrôle final général, et la passe documentaire/rappel Arte demeure dans les exigences globales : ils ne justifient pas de conserver ce suivi ciblé.",
+      "coverage_effect": "none_on_global_documentary_recall_or_preflight_requirements"
     }
   ]
 }
