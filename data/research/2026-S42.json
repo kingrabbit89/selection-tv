@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T12:49:57.460Z",
+  "updated_at": "2026-10-09T12:54:28.621Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -25082,13 +25082,13 @@
     {
       "date": "2026-10-09T12:09:38.337Z",
       "started_at": "2026-10-09T12:04:19.160Z",
-      "ended_at": null,
+      "ended_at": "2026-10-09T12:54:28.621Z",
       "owner": "4fc18faa-2d51-4bc6-aef3-a45e28032f2e",
       "execution_kind": "scheduled_efficiency_production",
       "prompt_revision": "production-efficiency-2026-10-09",
       "stage": "enrichment",
-      "elapsed_seconds": null,
-      "duration_basis": "Passage en cours ; durée terminale non encore observée.",
+      "elapsed_seconds": 3009.461,
+      "duration_basis": "Différence entre started_at et ended_at observés pendant cette exécution.",
       "completed_batches": [
         "complete-phenomena-physical-reserve-card-2026-10-09",
         "fix-kursk-shortlist-alternative-identifiers-2026-10-09",
@@ -25432,18 +25432,76 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T12:51:08.738Z",
+          "elapsed_seconds": 2809.578,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "28387d5ef13d85aa62d59b81a0d7800f11ea2185",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T12:04:19.160Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T13:24:36.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        },
+        {
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-09T12:54:28.621Z",
+          "elapsed_seconds": 3009.461,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "28387d5ef13d85aa62d59b81a0d7800f11ea2185",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T12:04:19.160Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T13:24:36.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T12:47:09.505Z",
-        "elapsed_seconds": 2570.345,
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-09T12:54:28.621Z",
+        "elapsed_seconds": 3009.461,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "024c1680732a5df2e2f4b9673036dfaf9e720871",
+        "source_sha": "28387d5ef13d85aa62d59b81a0d7800f11ea2185",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -25463,9 +25521,9 @@
           "ready_handoff": null
         }
       },
-      "run_state": "running",
-      "stop_reason": null,
-      "next_useful_batch": "Terminer La falaise mystérieuse seulement si la copie TCM et la santé du visuel peuvent être certifiées ; sinon passer à une piste non bloquée.",
+      "run_state": "stopped",
+      "stop_reason": "budget_reserve_reached",
+      "next_useful_batch": "Remplacer ou résoudre A Ghost Story, encore rendu dans vendredi-selection malgré le conflit de copie 90/92 min, puis compléter les réserves quotidiennes et les deux radars manquants.",
       "new_leads": 0
     }
   ],
