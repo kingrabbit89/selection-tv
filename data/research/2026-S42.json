@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T16:22:23.715Z",
+  "updated_at": "2026-10-09T16:31:31.893Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1257,6 +1257,17 @@
       "scope": "daily-reserves:cross-day-reuse",
       "summary": "Exit 8 est ajouté au mardi ; Restore Point et L’Intérêt d’Adam au vendredi. Les trois cartes reprennent leurs champs stables déjà revus et attachent séparément les horaires officiels CANAL+, en conservant les écarts des guides datés.",
       "deliverables": [
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "append-two-reviewed-saturday-reserves-2026-10-09",
+      "completed_at": "2026-10-09T16:31:31.893Z",
+      "scope": "daily-reserves:samedi",
+      "summary": "Le Silence des agneaux et Father Mother Sister Brother sont ajoutés aux rangs 9 et 10 du samedi. Les versions et critiques sont revues ; les écarts d’horaire restent explicitement conservés pour le préflight.",
+      "deliverables": [
+        "data/works.json",
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
@@ -25115,6 +25126,68 @@
       },
       "evidence_note": "Le PDF officiel CANAL+ fixe 13:40 ; le guide daté affiche 13:33. La carte retient l’heure officielle et maintient séparément le master Memento 78 min et l’affichage CANAL+ 74 min.",
       "status": "verified"
+    },
+    {
+      "work_id": "the-silence-of-the-lambs-1991",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "identity.version",
+        "editorial.summary",
+        "editorial.why",
+        "image.health"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/le-silence-des-agneaux/h/458281_40099/resume-casting/",
+        "https://tv-programme.com/canal-plus-grand-ecran/samedi-10-octobre-2026/",
+        "https://www.programmetvcesoir.net/chaine/canal-grand-ecran/2026-10-10",
+        "https://www.criterion.com/films/528-the-silence-of-the-lambs",
+        "https://www.rogerebert.com/reviews/great-movie-the-silence-of-the-lambs-1991"
+      ],
+      "checked_at": "2026-10-09T16:28:00.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "samedi",
+        "rank": 9,
+        "version": "CANAL+ 1 h 58"
+      },
+      "evidence_note": "Deux guides datés concordent à 21:04 sur Canal+ Grand Écran ; la fiche CANAL+ confirme le film et 1 h 58. Critique indépendante et affiche Criterion relues.",
+      "status": "verified"
+    },
+    {
+      "work_id": "father-mother-sister-brother-2025",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "identity.version",
+        "duration",
+        "ratings",
+        "editorial.summary",
+        "editorial.why",
+        "image.health"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/father-mother-sister-brother-film-comedie-dramatique/h/31282431_50001",
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+        "https://tv-programme.com/canal-plus-cinema/samedi-10-octobre-2026/",
+        "https://programmetv.ouest-france.fr/film/comedie-dramatique/father-mother-sister-brother-c388481164/",
+        "https://www.bfi.org.uk/sight-and-sound/reviews/father-mother-sister-brother-jim-jarmuschs-low-key-family-anthology-speaks-from-heart",
+        "https://www.imdb.com/title/tt31189315/",
+        "https://www.senscritique.com/film/father_mother_sister_brother/73438277"
+      ],
+      "checked_at": "2026-10-09T16:30:00.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "samedi",
+        "rank": 10,
+        "version": "CANAL+ 1 h 46"
+      },
+      "evidence_note": "PDF CANAL+ 07:20 retenu ; deux guides affichent 07:15 et l’écart reste ouvert. Identité, durée de version, notes, réception indépendante et affiche exacte revues.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -29198,7 +29271,8 @@
         "sync-main-1272ed3-2026-10-09",
         "run-dataflow-saved-inventory-2026-10-09",
         "integrate-three-distinct-hd2-reserves-2026-10-09",
-        "append-three-cross-day-reserves-2026-10-09"
+        "append-three-cross-day-reserves-2026-10-09",
+        "append-two-reviewed-saturday-reserves-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -29208,14 +29282,14 @@
         "data/research/2026-S42.json",
         "data/weeks/2026-S42.json"
       ],
-      "complete_cards": 101,
-      "cards_integrated_this_run": 6,
+      "complete_cards": 103,
+      "cards_integrated_this_run": 8,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "measurements": {
         "complete_cards": {
-          "value": 101,
-          "scope": "stock après checkpoint : 95 positions héritées, trois nouvelles réserves HD et trois placements quotidiens réutilisés pendant ce passage"
+          "value": 103,
+          "scope": "stock après checkpoint : 95 positions héritées, trois nouvelles réserves HD et cinq placements quotidiens ajoutés pendant ce passage"
         },
         "new_works": {
           "value": 3,
@@ -29226,31 +29300,32 @@
           "scope": "les six positions ajoutées pendant ce passage sont des réserves cachées ; aucune carte visible n’a été créée"
         },
         "additional_reserve_placements": {
-          "value": 6,
-          "scope": "trois réserves HD nouvelles et trois réserves quotidiennes réutilisées ajoutées pendant ce passage"
+          "value": 8,
+          "scope": "trois réserves HD nouvelles et cinq réserves quotidiennes ajoutées pendant ce passage"
         },
         "additional_distinct_reserve_work_ids": {
           "value": 3,
           "scope": "trois work_id distincts nouveaux dans l’union des réserves HD, hors des dix choix visibles"
         },
         "stable_reuses": {
-          "value": 6,
-          "scope": "trois dossiers HD ont réutilisé des acquis stables avant complétion ; trois cartes quotidiennes complètes ont été réutilisées avec vérification séparée de leurs rediffusions"
+          "value": 8,
+          "scope": "trois dossiers HD ont réutilisé des acquis stables avant complétion ; cinq positions quotidiennes reprennent des œuvres déjà matérialisées dans le catalogue ou le numéro avec vérification séparée de leur diffusion"
         },
         "additional_daily_reserve_placements": {
-          "value": 3,
-          "scope": "un rang ajouté au mardi et deux rangs au vendredi"
+          "value": 5,
+          "scope": "un rang ajouté au mardi, deux au vendredi et deux au samedi"
         },
         "additional_daily_distinct_work_ids": {
           "value": 0,
-          "scope": "les trois placements quotidiens réutilisent des work_id déjà matérialisés ailleurs dans le même numéro ; aucun nouveau work_id ne leur est attribué"
+          "scope": "les cinq placements quotidiens utilisent des work_id déjà matérialisés dans le catalogue courant ou une autre rubrique du même numéro ; aucun nouvel ID ne leur est attribué"
         }
       },
       "requirements_resolved": [
-        "radar HD : les trois doublons restants de hd2 sont remplacés par Days and Nights in the Forest, The Secret Agent et Nouvelle Vague ; seize œuvres distinctes et six réserves globales utilisables"
+        "radar HD : les trois doublons restants de hd2 sont remplacés par Days and Nights in the Forest, The Secret Agent et Nouvelle Vague ; seize œuvres distinctes et six réserves globales utilisables",
+        "samedi-selection : minimum de dix cartes complètes atteint avec deux réserves supplémentaires distinctes, sans pénurie déclarée"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter les jours encore sous dix cartes — vendredi manque deux positions, samedi deux, dimanche trois, mardi quatre, mercredi quatre et jeudi quatre — puis remplacer les cinq doublons de popular_deep.",
+      "next_useful_batch": "Compléter les jours encore sous dix cartes — vendredi manque deux positions, dimanche trois, mardi quatre, mercredi quatre et jeudi quatre — puis remplacer les cinq doublons de popular_deep.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -29309,22 +29384,51 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T16:25:34.585Z",
+          "elapsed_seconds": 1467.171,
+          "prompt_revision": "production-dataflow-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "7e619d7b874931d5192ad05ffa9b3f633f7e6751",
+          "next_actions": [
+            "Compléter les jours encore sous dix cartes, en priorité vendredi, samedi et dimanche, depuis des dossiers complets ou des réutilisations dont le nouveau créneau est vérifié.",
+            "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T16:01:07.414Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T17:23:00.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T16:17:58.459Z",
-        "elapsed_seconds": 1011.045,
+        "observed_at": "2026-10-09T16:25:34.585Z",
+        "elapsed_seconds": 1467.171,
         "prompt_revision": "production-dataflow-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "b7a5aee24b0accf412f8145c9519d89830ba8d21",
+        "source_sha": "7e619d7b874931d5192ad05ffa9b3f633f7e6751",
         "next_actions": [
-          "Compléter les réserves quotidiennes des jours sous dix cartes, en priorité mardi, dimanche, mercredi, jeudi et vendredi, depuis les dossiers aux faits de diffusion déjà recoupés.",
-          "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des cinq choix principaux et des cartes popular_scan.",
-          "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+          "Compléter les jours encore sous dix cartes, en priorité vendredi, samedi et dimanche, depuis des dossiers complets ou des réutilisations dont le nouveau créneau est vérifié.",
+          "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
+          "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
           "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
         ],
@@ -29334,7 +29438,7 @@
         "observations": {
           "started_at": "2026-10-09T16:01:07.414Z",
           "lease_owned": "yes",
-          "lease_until": "2026-10-09T17:02:55.000Z",
+          "lease_until": "2026-10-09T17:23:00.000Z",
           "external_stop": null,
           "accessible_task_checks": [],
           "ready_handoff": null
@@ -29372,6 +29476,11 @@
           "started_at": "2026-10-09T16:17:58.459Z",
           "ended_at": "2026-10-09T16:22:23.715Z",
           "note": "Extraction ciblée, revue des trois rediffusions, plan append_days, contrôle du handoff et import mécanique ; aucun temps parallèle ajouté."
+        },
+        "saturday_reserve_batch": {
+          "started_at": "2026-10-09T16:25:34.585Z",
+          "ended_at": "2026-10-09T16:31:31.893Z",
+          "note": "Extraction ciblée, vérification de version et de diffusion, lecture de critiques indépendantes, contrôle de deux visuels, plan append_days et import mécanique ; aucun temps parallèle ajouté."
         }
       },
       "control_notes": [
@@ -29388,7 +29497,12 @@
         "append_days contrôlé : mardi passe de cinq à six cartes et vendredi de six à huit, sans régénérer les primaires, pages ou preuves existantes.",
         "Les horaires officiels CANAL+ 00:50, 08:20 et 13:40 sont retenus ; les écarts de 2, 4 et 7 minutes avec les guides restent explicites et doivent être revérifiés au préflight.",
         "Contrôles du lot : les 51 positions quotidiennes sont complètes selon validate-reserves et les identités canoniques sont cohérentes ; seuls les six minima quotidiens encore non atteints restent bloquants.",
-        "Fraîcheur S42 après réutilisations : 97 % de nouveauté publique et 91 % dans les réserves sur quatre numéros ; aucune exception de fraîcheur ajoutée."
+        "Fraîcheur S42 après réutilisations : 97 % de nouveauté publique et 91 % dans les réserves sur quatre numéros ; aucune exception de fraîcheur ajoutée.",
+        "append_days contrôlé : samedi passe de huit à dix cartes sans régénérer ses trois primaires, ses pages ni ses preuves existantes.",
+        "Le Silence des agneaux : identité et version CANAL+ 1 h 58 rapprochées de la durée Criterion 118 min ; deux guides datés concordent à 21:04.",
+        "Father Mother Sister Brother : version CANAL+ 1 h 46 conservée séparément du créneau ; l’heure officielle 07:20 est retenue et l’écart de cinq minutes avec deux guides à 07:15 reste ouvert pour le préflight.",
+        "Les deux affiches exactes ont été ouvertes et inspectées ; la CI images distante finale reste obligatoire.",
+        "Contrôles ciblés du lot : 53 positions quotidiennes sur 53 sont complètes, la fraîcheur reste conforme à 97 % public et 88 % réserves ; cinq autres jours restent sous le minimum."
       ]
     }
   ],
@@ -30046,11 +30160,11 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "b7a5aee24b0accf412f8145c9519d89830ba8d21",
+    "checkpoint_parent_sha": "7e619d7b874931d5192ad05ffa9b3f633f7e6751",
     "main_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Compléter les jours encore sous dix cartes, en priorité vendredi, samedi et dimanche, depuis des dossiers complets ou des réutilisations dont le nouveau créneau est vérifié.",
+      "Compléter les jours encore sous dix cartes, en priorité vendredi et dimanche, depuis des dossiers complets ou des réutilisations dont le nouveau créneau est vérifié.",
       "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
       "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes."
     ],
@@ -33120,6 +33234,42 @@
           }
         ],
         "decision_note": "Réserve complète du jeudi réutilisée au rang 8 du vendredi ; divergence 78/74 min conservée.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-samedi-the-silence-of-the-lambs-1991",
+        "title": "The Silence of the Lambs",
+        "work_id": "the-silence-of-the-lambs-1991",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique_independante",
+            "note": "Roger Ebert relit le film comme un grand thriller durable et insiste sur la place de Clarice dans les rapports de domination qui l’entourent.",
+            "source_url": "https://www.rogerebert.com/reviews/great-movie-the-silence-of-the-lambs-1991"
+          }
+        ],
+        "decision_note": "Réserve samedi rang 9 ; acquis stables du radar réutilisés, version et diffusion du samedi revues séparément.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-samedi-father-mother-sister-brother-2025",
+        "title": "Father Mother Sister Brother",
+        "work_id": "father-mother-sister-brother-2025",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique_independante",
+            "note": "Sight and Sound décrit une anthologie familiale basse intensité, mêlant humour, gêne et cœur doux-amer.",
+            "source_url": "https://www.bfi.org.uk/sight-and-sound/reviews/father-mother-sister-brother-jim-jarmuschs-low-key-family-anthology-speaks-from-heart"
+          }
+        ],
+        "decision_note": "Réserve samedi rang 10 ; sélection après tri éditorial, avec l’écart horaire officiel/guides maintenu pour le préflight.",
         "alternatives": []
       }
     ]
