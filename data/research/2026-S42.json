@@ -585,6 +585,17 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
+    },
+    {
+      "id": "render-method-page-2026-10-09",
+      "completed_at": "2026-10-09T10:28:12.867Z",
+      "scope": "methode",
+      "summary": "Page Méthode matérialisée avec niveaux de preuve, règles de réutilisation et statut draft explicites.",
+      "deliverables": [
+        "data/manifest.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
     }
   ],
   "blockers": [
@@ -22080,7 +22091,8 @@
         "complete-monday-reserve-becoming-hitchcock-2026-10-09",
         "complete-rendezvous-page-one-2026-10-09",
         "complete-rendezvous-page-two-2026-10-09",
-        "render-cover-from-developed-choices-2026-10-09"
+        "render-cover-from-developed-choices-2026-10-09",
+        "render-method-page-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -22104,7 +22116,8 @@
         "lundi : réserve rang 4",
         "rendezvous-1",
         "rendezvous-2",
-        "couverture"
+        "couverture",
+        "methode"
       ],
       "requirements_resolved": [
         "Burning an Illusion : deuxième carte du mercredi matérialisée sans masquer le conflit de versions",
@@ -22112,7 +22125,8 @@
         "rubrique replay : première page matérialisée avec deux cartes complètes",
         "rubrique Rendez-vous : première page matérialisée avec cinq cartes complètes",
         "rubrique Rendez-vous : deux pages et dix cartes complètes matérialisées",
-        "livrable : couverture et hero matérialisés depuis des choix développés"
+        "livrable : couverture et hero matérialisés depuis des choix développés",
+        "livrable : page Méthode matérialisée sans certifier les exigences ouvertes"
       ],
       "remaining": {
         "stage": "enrichment",
@@ -22322,18 +22336,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T10:27:14.324Z",
+          "elapsed_seconds": 1783.652,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "f6a83a958e287a75225615a4f0baef5b8b972bcd",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T09:57:30.672Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T11:16:44.423Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T10:25:56.813Z",
-        "elapsed_seconds": 1706.141,
+        "observed_at": "2026-10-09T10:27:14.324Z",
+        "elapsed_seconds": 1783.652,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "1bd3d2d52b3ba2e47288abfa11766cd72766671c",
+        "source_sha": "f6a83a958e287a75225615a4f0baef5b8b972bcd",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -22355,7 +22398,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Compléter une rubrique indépendante encore absente ou une réserve journalière depuis un dossier proche de la carte complète."
+      "next_useful_batch": "Achever une réserve journalière depuis un dossier déjà avancé, en priorité jeudi, ou produire une rubrique d’offre entièrement vérifiée."
     }
   ],
   "source_issues": [
