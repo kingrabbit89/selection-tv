@@ -27,8 +27,9 @@ export function officialSourcePlan(week) {
     sources.push({id:`arte-${date}`,adapter:'arte-guide-html',channel:'Arte',date,
       url:`https://www.arte.tv/fr/guide/${date.replaceAll('-','')}/`});
   }
-  for(const number of [2,3,4,5]) sources.push({id:`france-${number}-${from}`,adapter:'francetvpro-grid-xml',
-    channel:`France ${number}`,date:from,url:`https://www.francetvpro.fr/grille-xml/france-${number}/${from.split('-').reverse().join('-')}`});
+  for(const number of [2,3,4,5]) for(const date of [addDays(from,-7),from])
+    sources.push({id:`france-${number}-${date}`,adapter:'francetvpro-grid-xml',
+      channel:`France ${number}`,date,url:`https://www.francetvpro.fr/grille-xml/france-${number}/${date.split('-').reverse().join('-')}`});
   return {schema_version:1,week,sources,note:'Five official channels only; raw observations, no coverage certification.'};
 }
 
@@ -52,7 +53,8 @@ export async function prepareProductionFlow({week, ref, outDir, sourcePlan = nul
     assert(Array.isArray(sourcePlan.sources) && sourcePlan.sources.length, 'explicit source plan required');
     if (sourcePlan.week !== undefined) assert.equal(sourcePlan.week, week, 'source plan belongs to another week');
     for (const source of sourcePlan.sources) {
-      assert(typeof source.date === 'string' && source.date >= addDays(from,-1) && source.date <= to,
+      const precedingXml=source.adapter==='francetvpro-grid-xml' && source.date===addDays(from,-7);
+      assert(typeof source.date === 'string' && (precedingXml || source.date >= addDays(from,-1) && source.date <= to),
         'source page date must cover this week or its first overnight');
     }
     report = await collect(sourcePlan, {cacheDir, snapshotDir:path.join(outDir,'sources'), refresh});

@@ -39,7 +39,8 @@ node scripts/editorial-production-flow.mjs YYYY-Sxx --ref SHA_CANDIDATE \
 
 Le plan est `{ "schema_version": 1, "sources": [...] }`. Chaque source porte
 `id` unique, `adapter`, `url`, `channel` et `date` explicites. Les dates de page
-couvrent le samedi jusqu'au vendredi, ou la veille pour la première nuit.
+couvrent le samedi jusqu'au vendredi, ou la veille pour la première nuit ; le
+XML hebdomadaire accepte aussi le samedi précédent pour cette première nuit.
 Les formats supportés ont été vérifiés sur de vraies réponses :
 
 | Adaptateur | URL / portée |
@@ -49,7 +50,8 @@ Les formats supportés ont été vérifiés sur de vraies réponses :
 | `francetvpro-grid-xml` | `https://www.francetvpro.fr/grille-xml/france-N/DD-MM-YYYY`, France 2/3/4/5 ; XML officiel response/item hebdomadaire, fin de nuit D+7 avant 06h |
 
 `--collect-official` remplace le plan par huit guides ARTE (veille incluse) et
-quatre XML hebdomadaires France 2/3/4/5. Cette amorce couvre **cinq chaînes
+huit XML France 2/3/4/5 (semaine actuelle et précédente pour la première nuit).
+Cette amorce couvre **cinq chaînes
 seulement** : couverture large et rappel indépendant restent à faire. Les
 fournisseurs non supportés et pages bloquées restent des lacunes, jamais des
 guides vides certifiés. Aucun contournement de challenge n'est prévu.

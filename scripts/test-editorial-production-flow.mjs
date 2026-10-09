@@ -42,7 +42,7 @@ test('collected observations join the same SHA batch while failed sources and or
   const expectedContext=structuredClone(context);
   try {
     const result=await prepareProductionFlow({week:context.week,ref:context.sha,outDir:out,
-      sourcePlan:{week:context.week,sources:[{id:'official',date:'2026-10-10'}]}},{readContext:()=>context,collect:async()=>report});
+      sourcePlan:officialSourcePlan(context.week)},{readContext:()=>context,collect:async()=>report});
     assert(result.plan.queue.some(row=>row.title==='New film'));
     assert.equal(result.summary.source_mode,'collected_explicit_sources');
     assert.equal(result.summary.collected_observations,1);
@@ -63,14 +63,18 @@ test('cross-week sources are rejected before fetching and invalid CLI never turn
     await assert.rejects(prepareProductionFlow({week:context.week,ref:context.sha,outDir:out,
       sourcePlan:{week:context.week,sources:[{date:'2026-10-17'}]}},{readContext:()=>context,collect:()=>{fetched=true;}}),/page date/);
     assert.equal(fetched,false);assert.equal(fs.existsSync(out),false);
+    await assert.rejects(prepareProductionFlow({week:context.week,ref:context.sha,outDir:out,
+      sourcePlan:{sources:[{adapter:'arte-guide-html',date:'2026-10-03'}]}},{readContext:()=>context,collect:()=>{fetched=true;}}),/page date/);
+    assert.equal(fetched,false);
     assert.equal(issueStart('2026-S42'),'2026-10-10');
     assert.throws(()=>issueStart('2026-S00'),/invalid issue week/);
     assert.throws(()=>parseCli(['2026-S42','--ref','abc']),/--ref and --out-dir/);
     assert.throws(()=>parseCli(['2026-S42','--unknown','x']),/unknown flag/);
     const official=officialSourcePlan(context.week);
-    assert.equal(official.sources.length,12);
+    assert.equal(official.sources.length,16);
     assert.equal(official.sources[0].date,'2026-10-09','first early night needs the preceding guide');
     assert.equal(official.sources.at(-1).url,'https://www.francetvpro.fr/grille-xml/france-5/10-10-2026');
+    assert.equal(official.sources[8].date,'2026-10-03','first FranceTVPro early night needs the preceding weekly XML');
     await assert.rejects(prepareProductionFlow({week:context.week,ref:context.sha,outDir:out,refresh:true},{readContext:()=>context}),/explicit collection/);
   } finally {fs.rmSync(parent,{recursive:true,force:true});}
 });
