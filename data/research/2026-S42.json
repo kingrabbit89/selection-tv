@@ -31566,6 +31566,211 @@
         "Sur d8ecdf7d, tous les contrôles data applicables sont verts ; la seule erreur data est la barrière volontaire d’incomplétude. Le navigateur reste en cours à 19:43:08Z et ne certifie pas une tête ultérieure.",
         "Contrôle navigateur du SHA 86d4beb4 observé avant la sauvegarde finale : statut completed, conclusion success."
       ]
+    },
+    {
+      "date": "2026-10-09T20:00:28.899Z",
+      "owner": "f7c9121a-80c3-424c-bf44-c5ed158a6ac8",
+      "execution_kind": "scheduled_editorial_closure_production",
+      "prompt_revision": "production-closure-2026-10-09",
+      "stage": "enrichment",
+      "run_state": "running",
+      "started_at": "2026-10-09T20:00:28.899Z",
+      "ended_at": null,
+      "duration_basis": "started_at observé à l’entrée ; passage encore en cours au checkpoint.",
+      "completed_batches": [
+        "review-new-tv5-fbs-and-rmc-level2-sources-2026-10-09",
+        "review-cineplus-w9-level2-sources-2026-10-09",
+        "review-orange-cineplus-reminder-source-2026-10-09"
+      ],
+      "deliverables_changed": [
+        "data/coverage/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "complete_cards": 125,
+      "cards_integrated_this_run": 0,
+      "draft_cards": 0,
+      "partial_dossiers": 0,
+      "measurements": {
+        "complete_cards": {
+          "value": 125,
+          "scope": "stock hérité inchangé au checkpoint ; aucune carte ajoutée dans ce passage"
+        },
+        "new_works": {
+          "value": 0,
+          "scope": "aucune œuvre canonique ajoutée dans ce passage"
+        },
+        "visible_cards": {
+          "value": 0,
+          "scope": "aucune carte visible modifiée dans ce passage"
+        },
+        "additional_reserve_placements": {
+          "value": 0,
+          "scope": "aucune réserve intégrée dans ce passage"
+        },
+        "stable_reuses": {
+          "value": 0,
+          "scope": "aucune réutilisation intégrée dans ce passage"
+        }
+      },
+      "requirements_resolved": [],
+      "stop_reason": null,
+      "next_useful_batch": "Remplacer La Vieille Dame indigne par Aelita, reine de Mars après vérification du visuel, des liens directs et de la réception critique, sans toucher aux autres cartes mardi.",
+      "verification_records": [
+        {
+          "fields": [
+            "level2_crosscheck",
+            "channel_feed"
+          ],
+          "urls": [
+            "https://www.tvinfo.de/tv-programm/tv5-monde-fbs/10.10.2026",
+            "https://www.tvinfo.de/tv-programm/tv5-monde-fbs/13.10.2026",
+            "https://www.tvinfo.de/tv-programm/tv5-monde-fbs/15.10.2026",
+            "https://www.tvinfo.de/impressum",
+            "https://programme-tv.nouvelobs.com/diffusion/15348550.php",
+            "https://programmetv.ouest-france.fr/magazine/sportif/le-match-dans-le-match-m282455979/e01-le-match-dans-le-match-c443452444/"
+          ],
+          "checked_at": "2026-10-09T20:05:42.127Z",
+          "stability": "cycle_specific",
+          "applies_to": "2026-S42 TV5MONDE FBS seven-day reminder",
+          "evidence_note": "TVinfo nomme explicitement TV5 MONDE (FBS) et couvre les sept dates ; TéléObs et Ouest-France apportent des concordances ponctuelles. Ces services restent toutefois des agrégateurs sans provenance EPG publiée. L’identité organisationnelle de TVinfo ne prouve pas l’indépendance du flux de données. La route professionnelle officielle FBS reste authentifiée et le guide Europe est un autre flux.",
+          "status": "blocked_independence_not_established"
+        },
+        {
+          "fields": [
+            "level2_crosscheck",
+            "provider_independence"
+          ],
+          "urls": [
+            "https://www.rmcplus.fr/chaine/rmc-story",
+            "https://www.rmcplus.fr/chaine/rmc-decouverte",
+            "https://tv-programme.com/rmc-story/samedi-10-octobre-2026/",
+            "https://tv-programme.com/rmc-decouverte/samedi-10-octobre-2026/",
+            "https://tv-programme.com/cgu"
+          ],
+          "checked_at": "2026-10-09T20:05:42.127Z",
+          "stability": "cycle_specific",
+          "applies_to": "2026-S42 RMC Story and RMC Découverte reminder",
+          "evidence_note": "RMC+ n’expose pas de grille future ou d’archive datée S42. TV-Programme publie des grilles datées et TABOM SAS est identifié comme éditeur, mais ses CGU ne nomment pas le fournisseur EPG ; l’indépendance vis-à-vis des autres guides reste donc indémontrée. Les écarts 05:45/06:05 et 07:00/07:25 du samedi sont conservés.",
+          "status": "blocked_provider_not_disclosed"
+        },
+        {
+          "fields": [
+            "level2_crosscheck",
+            "channel_attribution",
+            "broadcast_schedule"
+          ],
+          "urls": [
+            "https://www.canalplus.com/cinema/koute-vwa/h/29856185_50002",
+            "https://programmetv.ouest-france.fr/film/drame/koute-vwa-c335923476/",
+            "https://www.molotov.tv/fr_fr/p/6572127/koute-vwa",
+            "https://www.molotov.tv/fr_fr/p/20379/enquete-d-action"
+          ],
+          "checked_at": "2026-10-09T20:10:18.000Z",
+          "stability": "cycle_specific",
+          "applies_to": "2026-S42 Ciné+ Festival Kouté Vwa and W9 Saturday night reminder",
+          "evidence_note": "Triangulation CANAL+ événement exact, Ouest-France chaîne+horaire et Molotov association de chaîne ; Molotov recoupe aussi les trois départs W9. La provenance amont EPG de Molotov n’est pas publiée, donc aucune certification littérale d’indépendance ni d’attribution officielle chaîne+horaire.",
+          "status": "strong_crosscheck_upstream_independence_not_established"
+        },
+        {
+          "fields": [
+            "level2_crosscheck",
+            "paid_cinema_schedule",
+            "time_conflicts"
+          ],
+          "urls": [
+            "https://tv.orange.fr/fiche-info/en-direct/videos/1758700882",
+            "https://tv.orange.fr/fiche-info/en-direct/videos/1758700880",
+            "https://tv.orange.fr/fiche-info/en-direct/videos/1755589532",
+            "https://tv.orange.fr/fiche-info/en-direct/videos/1757606948",
+            "https://tv.orange.fr/fiche-info/en-direct/videos/1755173230",
+            "https://tv.moustique.be/chaine/287/cine-classic.html?date=2026-10-10&period=morning"
+          ],
+          "checked_at": "2026-10-09T20:10:18.000Z",
+          "stability": "cycle_specific",
+          "applies_to": "2026-S42 Ciné+ Classic and Ciné+ Frisson reminder",
+          "evidence_note": "Orange recoupe plusieurs créneaux comme opérateur distinct et expose aussi des écarts de une à trois minutes. Moustique ne publie pas son fournisseur EPG. La consultation est ponctuelle et ne vaut pas grille hebdomadaire exhaustive.",
+          "status": "partial_nonexhaustive_with_conflicts"
+        }
+      ],
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T20:01:59.119Z",
+          "elapsed_seconds": 90.22,
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "8ed0058de8ece4522c3a7e65adf63f32021da130",
+          "next_actions": [
+            "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
+            "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
+            "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
+            "Mardi : certifier les copies exactes de La Prisonnière du désert et La Vieille Dame indigne, ou les remplacer par des alternatives entièrement vérifiées.",
+            "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet."
+          ],
+          "remaining_count": 34,
+          "next_actions_total": 39,
+          "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T20:00:28.899Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T21:00:47.435Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-09T20:01:59.119Z",
+        "elapsed_seconds": 90.22,
+        "prompt_revision": "production-closure-2026-10-09",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S42",
+        "source_sha": "8ed0058de8ece4522c3a7e65adf63f32021da130",
+        "next_actions": [
+          "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
+          "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
+          "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
+          "Mardi : certifier les copies exactes de La Prisonnière du désert et La Vieille Dame indigne, ou les remplacer par des alternatives entièrement vérifiées.",
+          "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet."
+        ],
+        "remaining_count": 34,
+        "next_actions_total": 39,
+        "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "observations": {
+          "started_at": "2026-10-09T20:00:28.899Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-09T21:00:47.435Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
+        }
+      },
+      "intervals": {
+        "resume_and_extraction": {
+          "started_at": "2026-10-09T20:00:28.899Z",
+          "ended_at": "2026-10-09T20:01:59.119Z",
+          "note": "Bail acquis, cible et blobs de contrats réconciliés, rapport preparation-gaps et production-flow calculés sur le SHA exact."
+        },
+        "level2_source_review": {
+          "started_at": "2026-10-09T20:01:59.119Z",
+          "ended_at": "2026-10-09T20:10:18.000Z",
+          "note": "Recherches TV5MONDE FBS, RMC, Ciné+ Festival, W9 et cinéma payant conduites en parallèle puis revues ; nouvelles concordances conservées sans surcertifier l’indépendance ni l’exhaustivité."
+        }
+      },
+      "control_notes": [
+        "TVinfo nomme exactement le flux FBS mais ne publie pas la provenance de ses données EPG ; le niveau 2 reste ouvert.",
+        "TV-Programme identifie son éditeur mais pas son fournisseur EPG ; les écarts RMC du samedi restent ouverts.",
+        "Les flags independent_crosscheck_complete, editorial_reminder_complete et full_week_reaudit_completed restent false.",
+        "Molotov est un distributeur tiers et fournit des recoupements forts, mais l’origine amont de ses métadonnées EPG n’est pas publiée : les flags de niveau 2 restent inchangés.",
+        "Orange apporte des fiches opérateur distinctes et des contradictions utiles ; elles ne constituent pas une grille Ciné+ exhaustive des sept jours."
+      ]
     }
   ],
   "source_issues": [
@@ -32909,6 +33114,108 @@
       "blocking": true,
       "status": "no_new_independent_or_same_feed_source",
       "resume_when": "Une archive du flux FBS, un fournisseur RMC explicitement indépendant, ou un événement CANAL+ nommant Ciné+ Festival devient accessible."
+    },
+    {
+      "id": "run21-tv5monde-fbs-independent-source-2026-10-09",
+      "object": {
+        "channel": "TV5MONDE FBS",
+        "dates": [
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16"
+        ]
+      },
+      "question": "Une archive datée nommant exactement le flux FBS permet-elle d’établir une seconde lecture indépendante ?",
+      "attempted_at": "2026-10-09T20:05:42.127Z",
+      "source_urls": [
+        "https://www.tvinfo.de/tv-programm/tv5-monde-fbs/10.10.2026",
+        "https://www.tvinfo.de/tv-programm/tv5-monde-fbs/13.10.2026",
+        "https://www.tvinfo.de/tv-programm/tv5-monde-fbs/15.10.2026",
+        "https://www.tvinfo.de/impressum",
+        "https://programme-tv.nouvelobs.com/diffusion/15348550.php",
+        "https://programmetv.ouest-france.fr/magazine/sportif/le-match-dans-le-match-m282455979/e01-le-match-dans-le-match-c443452444/"
+      ],
+      "result": "TVinfo nomme explicitement TV5 MONDE (FBS) et couvre les sept dates ; TéléObs et Ouest-France apportent des concordances ponctuelles. Ces services restent toutefois des agrégateurs sans provenance EPG publiée. L’identité organisationnelle de TVinfo ne prouve pas l’indépendance du flux de données. La route professionnelle officielle FBS reste authentifiée et le guide Europe est un autre flux.",
+      "blocking_scope": "niveau 2 TV5MONDE FBS pour les sept jours",
+      "blocking": true,
+      "status": "same_feed_named_but_epg_independence_not_established",
+      "resume_when": "Une archive officielle publique du flux FBS ou une source révélant explicitement un fournisseur EPG indépendant devient accessible."
+    },
+    {
+      "id": "run21-rmc-independent-provider-2026-10-09",
+      "object": {
+        "channels": [
+          "RMC Story",
+          "RMC Découverte"
+        ],
+        "dates": [
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16"
+        ]
+      },
+      "question": "Une nouvelle grille datée identifie-t-elle son fournisseur ou une archive RMC+ couvre-t-elle S42 ?",
+      "attempted_at": "2026-10-09T20:05:42.127Z",
+      "source_urls": [
+        "https://www.rmcplus.fr/chaine/rmc-story",
+        "https://www.rmcplus.fr/chaine/rmc-decouverte",
+        "https://tv-programme.com/rmc-story/samedi-10-octobre-2026/",
+        "https://tv-programme.com/rmc-decouverte/samedi-10-octobre-2026/",
+        "https://tv-programme.com/cgu"
+      ],
+      "result": "RMC+ n’expose pas de grille future ou d’archive datée S42. TV-Programme publie des grilles datées et TABOM SAS est identifié comme éditeur, mais ses CGU ne nomment pas le fournisseur EPG ; l’indépendance vis-à-vis des autres guides reste donc indémontrée. Les écarts 05:45/06:05 et 07:00/07:25 du samedi sont conservés.",
+      "blocking_scope": "niveau 2 RMC Story et RMC Découverte pour les sept jours",
+      "blocking": true,
+      "status": "dated_grid_found_provider_not_disclosed",
+      "resume_when": "Une archive RMC+ datée après diffusion ou une grille dont le fournisseur EPG est explicitement indépendant devient accessible."
+    },
+    {
+      "id": "run21-cineplus-festival-w9-crosscheck-2026-10-09",
+      "checked_at": "2026-10-09T20:10:18.000Z",
+      "object": "Kouté Vwa sur Ciné+ Festival et nuit W9 du samedi 10 octobre",
+      "question": "Une route officielle ou un distributeur tiers établit-il la chaîne de Kouté Vwa et une seconde lecture des trois créneaux W9 ?",
+      "urls": [
+        "https://www.canalplus.com/cinema/koute-vwa/h/29856185_50002",
+        "https://programmetv.ouest-france.fr/film/drame/koute-vwa-c335923476/",
+        "https://www.molotov.tv/fr_fr/p/6572127/koute-vwa",
+        "https://www.molotov.tv/fr_fr/p/20379/enquete-d-action",
+        "https://programmetv.ouest-france.fr/magazine/societe/enquete-d-action-m103216497/e22-action-reaction-le-quotidien-sous-tension-des-policiers-de-montargis-1-2-c409830527/",
+        "https://programmetv.ouest-france.fr/magazine/societe/enquete-d-action-m103216497/e22-action-reaction-le-quotidien-sous-tension-des-policiers-de-montargis-2-2-c409830529/",
+        "https://programmetv.ouest-france.fr/magazine/societe/enquete-d-action-m103216497/e24-home-jacking-la-nouvelle-menace-c409830539/"
+      ],
+      "status": "strong_third_party_triangulation_upstream_epg_provenance_undisclosed",
+      "result": "CANAL+ expose l’événement Kouté Vwa du 12 octobre à 04:49–06:12 sans nom de chaîne ; Ouest-France nomme Ciné+ Festival au même horaire et Molotov associe l’œuvre à Ciné+ Festival. Molotov expose aussi les trois créneaux W9 exacts 00:00, 01:00 et 01:50. Ces observations de distribution tierce renforcent fortement les rapprochements, mais Molotov ne publie pas l’origine amont de ses métadonnées EPG : l’indépendance de données et l’attribution officielle chaîne+horaire restent non certifiées.",
+      "blocking_scope": "niveau 2 Ciné+ Festival et W9",
+      "resume_condition": "Une grille CANAL+ portant chaîne et horaire dans le même événement, ou un fournisseur EPG explicitement indépendant, permettrait de fermer littéralement ces exigences."
+    },
+    {
+      "id": "run21-cineplus-orange-monthly-reminder-2026-10-09",
+      "checked_at": "2026-10-09T20:10:18.000Z",
+      "object": "rappel cinéma payant Ciné+ Classic et Ciné+ Frisson",
+      "question": "Une source opérateur distincte complète-t-elle le contrôle mensuel non exhaustif sans être assimilée à une grille complète ?",
+      "urls": [
+        "https://tv.orange.fr/fiche-info/en-direct/videos/1758700882",
+        "https://tv.orange.fr/fiche-info/en-direct/videos/1758700880",
+        "https://tv.orange.fr/fiche-info/en-direct/videos/1755589532",
+        "https://tv.orange.fr/fiche-info/en-direct/videos/1755588468",
+        "https://tv.orange.fr/fiche-info/en-direct/videos/1757606948",
+        "https://tv.orange.fr/fiche-info/en-direct/videos/1752939916",
+        "https://tv.orange.fr/fiche-info/en-direct/videos/1755173230",
+        "https://tv.orange.fr/fiche-info/en-direct/videos/1755180422",
+        "https://tv.moustique.be/chaine/287/cine-classic.html?date=2026-10-10&period=morning"
+      ],
+      "status": "operator_fiches_and_secondary_grid_added_nonexhaustive",
+      "result": "Les fiches Orange, source opérateur distincte, recoupent plusieurs créneaux exacts de Ciné+ Classic et Frisson et conservent les écarts 13:30/13:32, 15:35/15:36, 08:47–08:50, 10:47–10:50 et 11:32/11:34. Moustique fournit une grille secondaire, sans provenance EPG publiée. Ces fiches ne forment ni une archive exhaustive des sept jours ni une preuve de fournisseur indépendant ; le rappel cinéma payant reste ouvert.",
+      "blocking_scope": "rappel cinéma payant hebdomadaire",
+      "resume_condition": "Une extraction systématique des sept jours et de toutes les chaînes Ciné+ depuis une source opérateur ou officielle, avec contradictions réconciliées, est encore requise."
     }
   ],
   "shortlist": {
@@ -36645,10 +36952,10 @@
     "remaining_reference": "remaining"
   },
   "contract_reads": {
-    "main_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
-    "checked_at": "2026-10-09T16:05:29.888Z",
+    "main_sha": "955eaea2880806c91c7d8350775980b182b86da9",
+    "checked_at": "2026-10-09T20:05:42.127Z",
     "documents": {
-      "AUTOMATION.md": "c43b30caa1e263e4c1b0cdeee5aa52d4eb574f87",
+      "AUTOMATION.md": "41a5636212dfb28ad6f3b8d03ea235abebabd8f0",
       "docs/HYBRID-WORKFLOW.md": "95cad0792febab1bc7edf076300bd38ced9c84ba",
       "ARCHITECTURE.md": "7c6e72b0729e4f915bc5a90f084c40e1cc363e8a",
       "data/automation-config.json": "e55d9a247fc0299ce6effc6c3e97eea9018f0dc3",
@@ -36657,7 +36964,7 @@
       "docs/EDITORIAL-DATAFLOW.md": "74b284b95a2e280553804c5e175f610f6fec93fd",
       "docs/EDITORIAL-DRAFTS.md": "761eab2ebba2748559dbc53dfe8b83cab17faa9f"
     },
-    "note": "Lecture attestée antérieurement pour cinq contrats obligatoires dont le blob est inchangé ; AUTOMATION.md relu intégralement après changement. Les nouveaux contrats de chaîne de données et de brouillons ont aussi été lus sur main."
+    "note": "Les cinq contrats obligatoires inchangés sont repris depuis la lecture attestée ; AUTOMATION.md a changé et a été relu intégralement sur main."
   },
   "research_dossiers": [
     {
