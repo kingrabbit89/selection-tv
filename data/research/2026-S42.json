@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T13:28:09.084Z",
+  "updated_at": "2026-10-09T13:36:23.015Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -966,6 +966,20 @@
       "completed_at": "2026-10-09T13:28:09.084Z",
       "scope": "radar-1,radar-2",
       "summary": "Deux pages Radar 1080p de cinq cartes complètes sont produites à partir de signaux Criterion et Arrow datés, avec identités, formats, notes, visuels exacts et textes revus ; le fichier de réserves HD et le sommaire sont générés.",
+      "deliverables": [
+        "data/works.json",
+        "data/links.json",
+        "data/manifest.json",
+        "data/weeks/2026-S42.json",
+        "data/radar-reserves/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "complete-popularity-radar-public-scan-reserves-2026-10-09",
+      "completed_at": "2026-10-09T13:36:23.015Z",
+      "scope": "radar-torrent,radar-torrent-sillonnage",
+      "summary": "Le signal TorrentFreak de la semaine finissant le 5 octobre est intégré en cinq cartes publiques, cinq cartes de sillonnage et cinq réserves profondes complètes ; les conflits de durée Toy Story 5 et The Love Hypothesis restent hors cartes.",
       "deliverables": [
         "data/works.json",
         "data/links.json",
@@ -23154,6 +23168,334 @@
       },
       "evidence_note": "Arrow annonce une édition 4K UHD Dolby Vision datée du 19 octobre. Signal d’édition connu le 9 octobre 2026 : Précommande 4K Arrow · 19 octobre · Dolby Vision. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite. Synopsis et justification originaux rédigés après lecture de la description et des caractéristiques techniques de l’éditeur ; la restauration n’est pas utilisée seule comme preuve de qualité.",
       "status": "verified"
+    },
+    {
+      "work_id": "coyote-vs-acme-2026",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings",
+        "popularity.signal",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://torrentfreak.com/top-10-most-torrented-pirated-movies/",
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/",
+        "https://www.coyotevsacme.com/home/",
+        "https://www.imdb.com/title/tt1756855/",
+        "https://www.senscritique.com/film/coyote_vs_acme/109861104",
+        "https://www.rottentomatoes.com/m/coyote_vs_acme"
+      ],
+      "checked_at": "2026-10-09T13:23:16.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubriques": [
+          "radar-torrent"
+        ],
+        "title": "Coyote vs. Acme"
+      },
+      "evidence_note": "Top 10 public · #1 le 5 octobre (contre #3 le 28 septembre) Identité, liens directs, visuel et justification revus ; le rang TorrentFreak reste un signal de circulation et non une preuve de qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": "the-end-of-oak-street-2026",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings",
+        "popularity.signal",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://torrentfreak.com/top-10-most-torrented-pirated-movies/",
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/",
+        "https://www.endofoakstreet.net/",
+        "https://www.imdb.com/title/tt27165187/",
+        "https://www.senscritique.com/film/la_fin_d_oak_street/55510107",
+        "https://www.rottentomatoes.com/m/the_end_of_oak_street"
+      ],
+      "checked_at": "2026-10-09T13:23:16.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubriques": [
+          "radar-torrent"
+        ],
+        "title": "The End of Oak Street"
+      },
+      "evidence_note": "Top 10 public · #2 le 5 octobre après deux semaines #1 Identité, liens directs, visuel et justification revus ; le rang TorrentFreak reste un signal de circulation et non une preuve de qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": "runner-2026",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings",
+        "popularity.signal",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://torrentfreak.com/top-10-most-torrented-pirated-movies/",
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/",
+        "https://www.angel.com/movies/runner",
+        "https://www.imdb.com/title/tt31349844/",
+        "https://www.rottentomatoes.com/m/runner_2026"
+      ],
+      "checked_at": "2026-10-09T13:23:16.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubriques": [
+          "radar-torrent"
+        ],
+        "title": "Runner"
+      },
+      "evidence_note": "Top 10 public · #3 le 5 octobre, nouvel entrant Identité, liens directs, visuel et justification revus ; le rang TorrentFreak reste un signal de circulation et non une preuve de qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": "spider-man-brand-new-day-2026",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings",
+        "popularity.signal",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://torrentfreak.com/top-10-most-torrented-pirated-movies/",
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/",
+        "https://www.sonypictures.com/movies/spidermanbrandnewday",
+        "https://www.imdb.com/title/tt22084616/",
+        "https://www.senscritique.com/film/SpiderMan_Brand_New_Day/45582941",
+        "https://www.rottentomatoes.com/m/spider_man_brand_new_day"
+      ],
+      "checked_at": "2026-10-09T13:23:16.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubriques": [
+          "radar-torrent"
+        ],
+        "title": "Spider-Man: Brand New Day"
+      },
+      "evidence_note": "Top 10 public · #4 le 5 octobre (#2 le 28 septembre ; présent depuis le 3 août) Identité, liens directs, visuel et justification revus ; le rang TorrentFreak reste un signal de circulation et non une preuve de qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": "the-odyssey-2026",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings",
+        "popularity.signal",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://torrentfreak.com/top-10-most-torrented-pirated-movies/",
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/",
+        "https://www.imdb.com/title/tt33764258/",
+        "https://www.senscritique.com/film/l_odyssee/81361437",
+        "https://www.rottentomatoes.com/m/the_odyssey_2026"
+      ],
+      "checked_at": "2026-10-09T13:23:16.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubriques": [
+          "radar-torrent"
+        ],
+        "title": "The Odyssey"
+      },
+      "evidence_note": "Top 10 public · #5 le 5 octobre (#4 le 28 septembre ; classé depuis le 27 juillet) Identité, liens directs, visuel et justification revus ; le rang TorrentFreak reste un signal de circulation et non une preuve de qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": "the-invite-2026",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings",
+        "popularity.signal",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://torrentfreak.com/top-10-most-torrented-pirated-movies/",
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/",
+        "https://a24films.com/films/the-invite",
+        "https://www.imdb.com/title/tt14173636/",
+        "https://www.rottentomatoes.com/m/the_invite",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=317219.html"
+      ],
+      "checked_at": "2026-10-09T13:23:16.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubriques": [
+          "radar-torrent",
+          "radar-torrent-sillonnage"
+        ],
+        "title": "The Invite"
+      },
+      "evidence_note": "Top 10 public · #8 le 24 août, #7 le 31 août, #9 le 7 septembre, #7 le 14 septembre Identité, liens directs, visuel et justification revus ; le rang TorrentFreak reste un signal de circulation et non une preuve de qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": "mayday-2026",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings",
+        "popularity.signal",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://torrentfreak.com/top-10-most-torrented-pirated-movies/",
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/",
+        "https://www.apple.com/tv-pr/originals/mayday/",
+        "https://www.imdb.com/title/tt28014327/",
+        "https://www.senscritique.com/film/mayday/56278989",
+        "https://www.rottentomatoes.com/m/mayday_2026"
+      ],
+      "checked_at": "2026-10-09T13:23:16.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubriques": [
+          "radar-torrent",
+          "radar-torrent-sillonnage"
+        ],
+        "title": "Mayday"
+      },
+      "evidence_note": "Top 10 public · #9 le 5 octobre ; #1 le 7 septembre, #6 le 14 et le 28 septembre Identité, liens directs, visuel et justification revus ; le rang TorrentFreak reste un signal de circulation et non une preuve de qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": "backrooms-2026",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings",
+        "popularity.signal",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://torrentfreak.com/top-10-most-torrented-pirated-movies/",
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/",
+        "https://a24films.com/films/backrooms",
+        "https://www.imdb.com/title/tt26657236/",
+        "https://www.senscritique.com/film/the_backrooms/54875220"
+      ],
+      "checked_at": "2026-10-09T13:23:16.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubriques": [
+          "radar-torrent",
+          "radar-torrent-sillonnage"
+        ],
+        "title": "Backrooms"
+      },
+      "evidence_note": "Top 10 public · #8 le 17 août Identité, liens directs, visuel et justification revus ; le rang TorrentFreak reste un signal de circulation et non une preuve de qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": "evil-dead-burn-2026",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings",
+        "popularity.signal",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://torrentfreak.com/top-10-most-torrented-pirated-movies/",
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/",
+        "https://www.imdb.com/title/tt31170389/",
+        "https://www.senscritique.com/film/Evil_Dead_Burn/76348335"
+      ],
+      "checked_at": "2026-10-09T13:23:16.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubriques": [
+          "radar-torrent",
+          "radar-torrent-sillonnage"
+        ],
+        "title": "Evil Dead Burn"
+      },
+      "evidence_note": "Top 10 public · #6 le 17 août, #10 le 31 août Identité, liens directs, visuel et justification revus ; le rang TorrentFreak reste un signal de circulation et non une preuve de qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": "masters-of-the-universe-2026",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings",
+        "popularity.signal",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://torrentfreak.com/top-10-most-torrented-pirated-movies/",
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/",
+        "https://www.imdb.com/title/tt0427340/",
+        "https://www.senscritique.com/film/les_maitres_de_l_univers/425155"
+      ],
+      "checked_at": "2026-10-09T13:23:16.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubriques": [
+          "radar-torrent",
+          "radar-torrent-sillonnage"
+        ],
+        "title": "Masters of the Universe"
+      },
+      "evidence_note": "Top 10 public · #9 le 17 août Identité, liens directs, visuel et justification revus ; le rang TorrentFreak reste un signal de circulation et non une preuve de qualité.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -25908,7 +26250,8 @@
       "duration_basis": "Passage en cours ; started_at observé à l’entrée, ended_at sera fixé au bilan terminal.",
       "completed_batches": [
         "complete-falaise-replace-ghost-friday-card-2026-10-09",
-        "complete-radar-hd-ten-cards-2026-10-09"
+        "complete-radar-hd-ten-cards-2026-10-09",
+        "complete-popularity-radar-public-scan-reserves-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -25922,9 +26265,12 @@
         "vendredi : La falaise mystérieuse complète remplace A Ghost Story non résolu",
         "radar-1 : cinq cartes HD complètes",
         "radar-2 : cinq cartes HD complètes",
-        "sommaire et fichier de réserves radar HD générés"
+        "sommaire et fichier de réserves radar HD générés",
+        "radar-torrent : cinq cartes publiques complètes",
+        "radar-torrent-sillonnage : cinq cartes complètes",
+        "popular_deep : cinq réserves complètes issues de dossiers déjà vérifiés"
       ],
-      "complete_cards": 64,
+      "complete_cards": 74,
       "draft_cards": 0,
       "partial_dossiers": 2,
       "requirements_resolved": [
@@ -25932,10 +26278,13 @@
         "La falaise mystérieuse : version TCM 99 min et santé du visuel vérifiées",
         "radar-1 : cinq cartes complètes avec signal éditeur daté et identité vérifiée",
         "radar-2 : cinq cartes complètes avec signal éditeur daté et identité vérifiée",
-        "radar HD : réserves structurées hd1/hd2 et entrée de sommaire présentes"
+        "radar HD : réserves structurées hd1/hd2 et entrée de sommaire présentes",
+        "radar popularité courant : cinq cartes publiques et entrée de sommaire présentes",
+        "radar popularité sillonnage : cinq cartes complètes présentes",
+        "radar popularité : cinq réserves profondes complètes structurées"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Produire le radar popularité courant et ses réserves à partir du signal TorrentFreak du 5 octobre déjà vérifié, puis reprendre les réserves quotidiennes déficitaires.",
+      "next_useful_batch": "Compléter les réserves quotidiennes déficitaires, en privilégiant les dossiers card_complete réutilisables ; les réserves HD hd1/hd2 restent elles aussi à approfondir.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -25994,18 +26343,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T13:31:30.550Z",
+          "elapsed_seconds": 1674.343,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "b029ccd90a55667f1e98259d39fa57ec98908a83",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers les plus avancés.",
+            "Produire les deux radars et leur fichier de réserves à partir de signaux récents vérifiés.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T13:03:36.207Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T14:23:44.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T13:17:22.080Z",
-        "elapsed_seconds": 825.873,
+        "observed_at": "2026-10-09T13:31:30.550Z",
+        "elapsed_seconds": 1674.343,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "5f0e490a5a1e89309ede6813e22360ba1ba27fee",
+        "source_sha": "b029ccd90a55667f1e98259d39fa57ec98908a83",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers les plus avancés.",
           "Produire les deux radars et leur fichier de réserves à partir de signaux récents vérifiés.",
@@ -26019,7 +26397,7 @@
         "observations": {
           "started_at": "2026-10-09T13:03:36.207Z",
           "lease_owned": "yes",
-          "lease_until": "2026-10-09T14:04:16.000Z",
+          "lease_until": "2026-10-09T14:23:44.000Z",
           "external_stop": null,
           "accessible_task_checks": [],
           "ready_handoff": null
@@ -28884,6 +29262,206 @@
         "alternatives": [
           "sl-radar-2-the-last-boy-scout-1991",
           "sl-radar-2-creepshow-2-1987"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-popularity-coyote-vs-acme-2026",
+        "title": "Coyote vs. Acme",
+        "work_id": "coyote-vs-acme-2026",
+        "scope": {
+          "rubrique": "radar-torrent"
+        },
+        "signals": [
+          {
+            "kind": "popularite_courante",
+            "note": "Top 10 public · #1 le 5 octobre (contre #3 le 28 septembre)",
+            "source_url": "https://torrentfreak.com/top-10-most-torrented-pirated-movies/"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-popularity-the-end-of-oak-street-2026",
+          "sl-radar-popularity-runner-2026"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-popularity-the-end-of-oak-street-2026",
+        "title": "The End of Oak Street",
+        "work_id": "the-end-of-oak-street-2026",
+        "scope": {
+          "rubrique": "radar-torrent"
+        },
+        "signals": [
+          {
+            "kind": "popularite_courante",
+            "note": "Top 10 public · #2 le 5 octobre après deux semaines #1",
+            "source_url": "https://torrentfreak.com/top-10-most-torrented-pirated-movies/"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-popularity-coyote-vs-acme-2026",
+          "sl-radar-popularity-runner-2026"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-popularity-runner-2026",
+        "title": "Runner",
+        "work_id": "runner-2026",
+        "scope": {
+          "rubrique": "radar-torrent"
+        },
+        "signals": [
+          {
+            "kind": "popularite_courante",
+            "note": "Top 10 public · #3 le 5 octobre, nouvel entrant",
+            "source_url": "https://torrentfreak.com/top-10-most-torrented-pirated-movies/"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-popularity-coyote-vs-acme-2026",
+          "sl-radar-popularity-the-end-of-oak-street-2026"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-popularity-spider-man-brand-new-day-2026",
+        "title": "Spider-Man: Brand New Day",
+        "work_id": "spider-man-brand-new-day-2026",
+        "scope": {
+          "rubrique": "radar-torrent"
+        },
+        "signals": [
+          {
+            "kind": "popularite_courante",
+            "note": "Top 10 public · #4 le 5 octobre (#2 le 28 septembre ; présent depuis le 3 août)",
+            "source_url": "https://torrentfreak.com/top-10-most-torrented-pirated-movies/"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-popularity-coyote-vs-acme-2026",
+          "sl-radar-popularity-the-end-of-oak-street-2026"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-popularity-the-odyssey-2026",
+        "title": "The Odyssey",
+        "work_id": "the-odyssey-2026",
+        "scope": {
+          "rubrique": "radar-torrent"
+        },
+        "signals": [
+          {
+            "kind": "popularite_courante",
+            "note": "Top 10 public · #5 le 5 octobre (#4 le 28 septembre ; classé depuis le 27 juillet)",
+            "source_url": "https://torrentfreak.com/top-10-most-torrented-pirated-movies/"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-popularity-coyote-vs-acme-2026",
+          "sl-radar-popularity-the-end-of-oak-street-2026"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-popularity-the-invite-2026",
+        "title": "The Invite",
+        "work_id": "the-invite-2026",
+        "scope": {
+          "rubrique": "radar-torrent"
+        },
+        "signals": [
+          {
+            "kind": "popularite_courante",
+            "note": "Top 10 public · #8 le 24 août, #7 le 31 août, #9 le 7 septembre, #7 le 14 septembre",
+            "source_url": "https://torrentfreak.com/top-10-most-torrented-pirated-movies/"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-popularity-coyote-vs-acme-2026",
+          "sl-radar-popularity-the-end-of-oak-street-2026"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-popularity-mayday-2026",
+        "title": "Mayday",
+        "work_id": "mayday-2026",
+        "scope": {
+          "rubrique": "radar-torrent"
+        },
+        "signals": [
+          {
+            "kind": "popularite_courante",
+            "note": "Top 10 public · #9 le 5 octobre ; #1 le 7 septembre, #6 le 14 et le 28 septembre",
+            "source_url": "https://torrentfreak.com/top-10-most-torrented-pirated-movies/"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-popularity-coyote-vs-acme-2026",
+          "sl-radar-popularity-the-end-of-oak-street-2026"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-popularity-backrooms-2026",
+        "title": "Backrooms",
+        "work_id": "backrooms-2026",
+        "scope": {
+          "rubrique": "radar-torrent"
+        },
+        "signals": [
+          {
+            "kind": "popularite_courante",
+            "note": "Top 10 public · #8 le 17 août",
+            "source_url": "https://torrentfreak.com/top-10-most-torrented-pirated-movies/"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-popularity-coyote-vs-acme-2026",
+          "sl-radar-popularity-the-end-of-oak-street-2026"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-popularity-evil-dead-burn-2026",
+        "title": "Evil Dead Burn",
+        "work_id": "evil-dead-burn-2026",
+        "scope": {
+          "rubrique": "radar-torrent"
+        },
+        "signals": [
+          {
+            "kind": "popularite_courante",
+            "note": "Top 10 public · #6 le 17 août, #10 le 31 août",
+            "source_url": "https://torrentfreak.com/top-10-most-torrented-pirated-movies/"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-popularity-coyote-vs-acme-2026",
+          "sl-radar-popularity-the-end-of-oak-street-2026"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-popularity-masters-of-the-universe-2026",
+        "title": "Masters of the Universe",
+        "work_id": "masters-of-the-universe-2026",
+        "scope": {
+          "rubrique": "radar-torrent"
+        },
+        "signals": [
+          {
+            "kind": "popularite_courante",
+            "note": "Top 10 public · #9 le 17 août",
+            "source_url": "https://torrentfreak.com/top-10-most-torrented-pirated-movies/"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-popularity-coyote-vs-acme-2026",
+          "sl-radar-popularity-the-end-of-oak-street-2026"
         ],
         "status": "card_complete"
       }
