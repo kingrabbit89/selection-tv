@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "018433005ec07f2d8900af044f82dede06d49a28",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T10:42:19.725Z",
+  "updated_at": "2026-10-09T10:44:28.569Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -654,6 +654,16 @@
       "summary": "Trois nouveaux recoupements confirment le créneau TCM de 90 min pour A Ghost Story ; conflit avec la durée cinéma 92 min conservé, carte non promue.",
       "deliverables": [
         "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "verify-friday-la-falaise-broadcast-2026-10-09",
+      "completed_at": "2026-10-09T10:44:28.569Z",
+      "scope": "vendredi",
+      "summary": "Diffusion La falaise mystérieuse recoupée par Ouest-France, Linternaute et Diverto ; dossier laissé partiel faute de work_id, visuel, liens et version finale.",
+      "deliverables": [
+        "data/research/2026-S42.json",
+        "data/coverage/2026-S42.json"
       ]
     }
   ],
@@ -20980,6 +20990,29 @@
       },
       "evidence_note": "Ouest-France, Télé-Loisirs et TV Digital3D recoupent indépendamment Regrouping à 03:40 sur TCM Cinéma, créneau 75 min.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "broadcast.slot_duration"
+      ],
+      "source_urls": [
+        "https://programmetv.ouest-france.fr/film/fantastique/la-falaise-mysterieuse-c23875/",
+        "https://www.linternaute.com/television/programme-tcm-vendredi-16-octobre-2026/",
+        "https://www.diverto.tv/films/la-falaise-mysterieuse"
+      ],
+      "checked_at": "2026-10-09T10:44:28.569Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La falaise mystérieuse",
+        "broadcast": "2026-10-16 22:20 TCM Cinéma"
+      },
+      "evidence_note": "Trois éditeurs distincts recoupent le créneau 22:20–00:00 ; la durée de créneau 100 min reste distincte de la version vidéo 99 min.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -22275,7 +22308,8 @@
         "complete-friday-la-proie-nue-2026-10-09",
         "document-sunday-la-gueule-ouverte-conflict-2026-10-09",
         "complete-tuesday-regrouping-2026-10-09",
-        "refresh-a-ghost-story-version-attempt-2026-10-09"
+        "refresh-a-ghost-story-version-attempt-2026-10-09",
+        "verify-friday-la-falaise-broadcast-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -22287,7 +22321,7 @@
       ],
       "complete_cards": 17,
       "draft_cards": 1,
-      "partial_dossiers": 1,
+      "partial_dossiers": 2,
       "deliverables_advanced": [
         "mercredi-selection",
         "mercredi-grille",
@@ -22306,7 +22340,8 @@
         "vendredi : La Proie nue carte complète",
         "dimanche : conflit La Gueule ouverte documenté",
         "mardi : Regrouping carte complète",
-        "vendredi : A Ghost Story conflit de version actualisé"
+        "vendredi : A Ghost Story conflit de version actualisé",
+        "vendredi : diffusion La falaise mystérieuse vérifiée"
       ],
       "requirements_resolved": [
         "Burning an Illusion : deuxième carte du mercredi matérialisée sans masquer le conflit de versions",
@@ -22731,18 +22766,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T10:43:58.655Z",
+          "elapsed_seconds": 2787.983,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "9a7882bb33d3af21100bf4d2d68d75cd6602874f",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T09:57:30.672Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T11:16:44.423Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T10:41:44.171Z",
-        "elapsed_seconds": 2653.499,
+        "observed_at": "2026-10-09T10:43:58.655Z",
+        "elapsed_seconds": 2787.983,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "64f9a03e2183b4e8b2f6d5ad2b32d185ffbefed6",
+        "source_sha": "9a7882bb33d3af21100bf4d2d68d75cd6602874f",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -22764,7 +22828,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Ne reprendre A Ghost Story que sur métadonnée de copie TCM ; produire une rubrique indépendante ou une autre carte finalisable."
+      "next_useful_batch": "Achever l’identité canonique, le visuel, les liens, la note ou son absence motivée et la version de La falaise mystérieuse avant toute carte."
     }
   ],
   "source_issues": [

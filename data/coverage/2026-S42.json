@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "partial",
-  "updated_at": "2026-10-09T10:40:52.276Z",
+  "updated_at": "2026-10-09T10:44:28.569Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -16041,8 +16041,22 @@
           "status": "unavailable",
           "note": "Titre présent dans l'index courant TCM/Orange. Fiche précise renvoie HTTP 451 via outil Web ; pas de contournement. Expiration, droits, abonnement et lecture non certifiés. Index replay non utilisé comme preuve d'horaire."
         },
-        "decision": "à vérifier",
-        "reason": "Recherche préparatoire sur deux œuvres déjà inventoriées ; réception contrastée consignée. Aucune sélection avant certification de l'inventaire ; horaires indépendants, droits, versions, notes, affiche et carte à terminer."
+        "decision": "dossier partiel — diffusion vérifiée, carte non prête",
+        "reason": "Diffusion TCM recoupée par trois éditeurs ; identité, réception et offre Orange partielle restent sauvegardées. Work_id, note/absence de note, visuel exact, liens et version doivent encore être achevés avant toute carte.",
+        "broadcast_research": {
+          "date": "2026-10-16",
+          "start": "22:20",
+          "channel": "TCM Cinéma",
+          "slot_duration_minutes": 100,
+          "checked_at": "2026-10-09T10:44:28.569Z",
+          "status": "verified_independent_crosschecks",
+          "source_urls": [
+            "https://programmetv.ouest-france.fr/film/fantastique/la-falaise-mysterieuse-c23875/",
+            "https://www.linternaute.com/television/programme-tcm-vendredi-16-octobre-2026/",
+            "https://www.diverto.tv/films/la-falaise-mysterieuse"
+          ],
+          "note": "Ouest-France, Linternaute et Diverto recoupent le vendredi 16 octobre à 22:20 sur TCM Cinéma. Le créneau de 100 min ne certifie pas la version face à la durée vidéo 99 min."
+        }
       },
       {
         "title": "Burning an Illusion",
