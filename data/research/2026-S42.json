@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T21:05:30.309Z",
+  "updated_at": "2026-10-09T21:07:36.602Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -27,10 +27,8 @@
     "TCM : A Ghost Story et La falaise mystérieuse disposent d'identités ciblées et de critiques contrastées ; index Orange les mentionne mais fiches 451. Horaires indépendants, durée/version TCM, droits/expiration/abonnement, notes et affiches à terminer.",
     "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer. Programmetvcesoir et Ouest-France soutiennent les titres inventoriés ; suivis ciblés enregistrés, indépendance non établie, conflits non clos.",
     "Ciné+ : 45 fiches CANAL+ consultées, 14 heures concordantes (dont La gueule ouverte sur Festival), 4 écarts et 27 BroadcastEvent hors cible. Chaîne absente des objets officiels : certifier les chaînes/grilles et les autres rediffusions, ne pas réutiliser les événements anciens. Durées de versions et droits replay à distinguer des créneaux.",
-    "Ciné+ documentaires : Shirley MacLaine et Becoming Hitchcock disposent de critiques indépendantes. Simenon : matériaux/intervenants, contexte littéraire et parcours de Linda Tahir vérifiés avec limites, mais aucune critique du film ni distinction trouvée. Résoudre années/durées, chaîne/horaire S42, accès France/expirations, notes et affiches ; ne pas convertir le contexte du sujet en qualité du film.",
     "TCM : 98 créneaux comparés aux sept grilles Télérama courantes, aucun écart d'heure ; Nashville Blues/The Thing Called Love rapprochés par la fiche liée. Une nuit au cinéma : Flics et voyous identifié (Laurent Bouzereau, 2013, 55 min). Source officielle ou indépendance des flux encore à obtenir ; documentaires et autres films à enrichir.",
     "TCM : Regrouping, Roger Corman et Burning an Illusion approfondis, critiques attribuées avec réserves. Résoudre versions (Regrouping75/80min, Burning101/105/107min), année Corman2019/2020/2021, offres France/expirations, notes et affiches. Thrillers identifié via fiche liée ; Une nuit au cinéma : Flics et voyous identifié mais copie TCM, offre, réception, notes et affiche restent incomplètes. Aucune carte complète ni consensus déduit.",
-    "Ciné+ Festival documentaires : réutiliser Kouté Vwa/Les mots et portraits Kawase/Trier documentés. Chaîne des événements CANAL+, versions, droits/expirations exactes (Kouté 09/10 versus 15/12 affichés), affiches et notes des portraits à finir ; conflit Trier/Coppola non résolu. Kotelnitch approfondi (deux critiques indépendantes, événement exact sans chaîne) et Huppert identifié sans réception argumentée trouvée ; leurs droits, versions, notes et affiches restent ouverts.",
     "Un crime dans la tête : deux films (Frankenheimer1962/Demme2004) distingués sur six diffusions ; 10/10 20:50 Classic officiellement attesté. Terminer autres diffusions, versions, réception complémentaire, droits/expiration, notes et affiches. Grand Écran : horaires guides actualisés les 11 et15/10, indépendance/confirmation officielle encore requise."
   ],
   "completed_batches": [
@@ -1370,7 +1368,8 @@
     "sync-main-proof-policy-2026-10-09",
     "initial-preparation-gaps-and-saved-inventory-flow-2026-10-09",
     "proof-policy-impact-and-retry-gate-review-2026-10-09",
-    "defer-six-unselected-dossiers-and-close-w9-primary-reminder-2026-10-09"
+    "defer-six-unselected-dossiers-and-close-w9-primary-reminder-2026-10-09",
+    "cineplus-four-card-complementary-proof-review-2026-10-09"
   ],
   "blockers": [
     {
@@ -26279,6 +26278,102 @@
       },
       "evidence_note": "La fiche ARTE établit l’identité et le créneau ; la playlist officielle associe ce créneau à 5 857 s. Le producteur recoupe l’œuvre tout en conservant sa version de 107 min comme distincte. Film-Rezensionen fonde l’évaluation argumentée ; le photogramme officiel 940 × 530 a été téléchargé et inspecté.",
       "status": "verified_for_card"
+    },
+    {
+      "work_id": "la-gueule-ouverte-1974",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "version"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-gueule-ouverte/h/438611_50002",
+        "https://television.telerama.fr/programme-tv-dimanche/cine-club/",
+        "https://tv-programme.com/cine-plus-festival/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-09T21:07:36.602Z",
+      "stability": "cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "start": "01:04",
+        "channel": "Ciné+ Festival"
+      },
+      "evidence_note": "L’événement officiel CANAL+ nomme exactement l’œuvre et fixe 2026-10-11 01:04–02:45 ainsi que CANAL+ 83 min. Les grilles datées sauvegardées nomment Ciné+ Festival au même titre, à la même date et à la même heure. Cette clé titre+date+heure relie les pièces ; aucune indépendance amont des guides n’est déduite.",
+      "status": "verified_by_complementary_evidence"
+    },
+    {
+      "work_id": "retour-a-kotelnitch-2003",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "version"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/retour-a-kotelnitch/h/437731_50002",
+        "https://television.telerama.fr/programme-tv-dimanche/cine-club/",
+        "https://tv-programme.com/cine-plus-festival/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-09T21:07:36.602Z",
+      "stability": "cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "start": "02:45",
+        "channel": "Ciné+ Festival"
+      },
+      "evidence_note": "L’événement officiel CANAL+ nomme exactement l’œuvre et fixe 2026-10-11 02:45–04:32 ainsi que CANAL+ 106 min. Les grilles datées sauvegardées nomment Ciné+ Festival au même titre, à la même date et à la même heure. Cette clé titre+date+heure relie les pièces ; aucune indépendance amont des guides n’est déduite.",
+      "status": "verified_by_complementary_evidence"
+    },
+    {
+      "work_id": "koute-vwa-2024",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "version"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/koute-vwa/h/29856185_50002",
+        "https://television.telerama.fr/programme-tv-lundi/cine-club/",
+        "https://programmetv.ouest-france.fr/film/drame/koute-vwa-c335923476/"
+      ],
+      "checked_at": "2026-10-09T21:07:36.602Z",
+      "stability": "cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "start": "04:49",
+        "channel": "Ciné+ Festival"
+      },
+      "evidence_note": "L’événement officiel CANAL+ nomme exactement l’œuvre et fixe 2026-10-12 04:49–06:12 ainsi que CANAL+ 76 min. Les grilles datées sauvegardées nomment Ciné+ Festival au même titre, à la même date et à la même heure. Cette clé titre+date+heure relie les pièces ; aucune indépendance amont des guides n’est déduite.",
+      "status": "verified_by_complementary_evidence"
+    },
+    {
+      "work_id": "les-mots-qu-elles-eurent-un-jour-2024",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "version"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/les-mots-qu-elles-eurent-un-jour/h/29411889_50002",
+        "https://television.telerama.fr/programme-tv-mardi/cine-club/",
+        "https://tv-programme.com/cine-plus-festival/mardi-13-octobre-2026/"
+      ],
+      "checked_at": "2026-10-09T21:07:36.602Z",
+      "stability": "cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "start": "19:22",
+        "channel": "Ciné+ Festival"
+      },
+      "evidence_note": "L’événement officiel CANAL+ nomme exactement l’œuvre et fixe 2026-10-13 19:22–20:50 ainsi que CANAL+ 84 min. Les grilles datées sauvegardées nomment Ciné+ Festival au même titre, à la même date et à la même heure. Cette clé titre+date+heure relie les pièces ; aucune indépendance amont des guides n’est déduite.",
+      "status": "verified_by_complementary_evidence"
     }
   ],
   "run_metrics": [
@@ -32368,7 +32463,8 @@
         "sync-main-proof-policy-2026-10-09",
         "initial-preparation-gaps-and-saved-inventory-flow-2026-10-09",
         "proof-policy-impact-and-retry-gate-review-2026-10-09",
-        "defer-six-unselected-dossiers-and-close-w9-primary-reminder-2026-10-09"
+        "defer-six-unselected-dossiers-and-close-w9-primary-reminder-2026-10-09",
+        "cineplus-four-card-complementary-proof-review-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -32378,9 +32474,9 @@
       "cards_integrated_this_run": 0,
       "draft_cards": 0,
       "partial_dossiers": 0,
-      "requirements_resolved": 7,
+      "requirements_resolved": 9,
       "stop_reason": null,
-      "next_useful_batch": "Revoir les événements Ciné+ Festival des cartes retenues comme assemblages de pièces complémentaires, puis isoler les seules attributions de chaîne encore réellement manquantes.",
+      "next_useful_batch": "Revoir les autres cartes Ciné+ Festival : distinguer celles qui ont un événement CANAL+ exact de celles qui exigent une attribution supplémentaire, sans confondre niveau 2 et niveau 3.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -32447,29 +32543,61 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T21:06:52.498Z",
+          "elapsed_seconds": 640.85,
+          "prompt_revision": "production-proof-policy-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "52d50919467cb0d0844baa690f465fd858d7fa7f",
+          "next_actions": [
+            "Revoir les événements Ciné+ Festival des cartes retenues comme assemblages de pièces complémentaires, puis isoler les seules attributions de chaîne encore réellement manquantes.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
+            "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
+          ],
+          "remaining_count": 27,
+          "next_actions_total": 25,
+          "truncated_notice": "20 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 32,
+          "waiting_actions_count": 7,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T20:56:11.648Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T21:57:29.571Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T21:03:28.474Z",
-        "elapsed_seconds": 436.826,
+        "observed_at": "2026-10-09T21:06:52.498Z",
+        "elapsed_seconds": 640.85,
         "prompt_revision": "production-proof-policy-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "6e4fc6ecd37000f19041c5d73f3112fffd134804",
+        "source_sha": "52d50919467cb0d0844baa690f465fd858d7fa7f",
         "next_actions": [
-          "Réexaminer la couverture TCM et Ciné+ avec la portée des acquisitions sauvegardées ; fermer seulement les fausses exigences de durée de copie, puis traiter une action de couverture encore accessible.",
+          "Revoir les événements Ciné+ Festival des cartes retenues comme assemblages de pièces complémentaires, puis isoler les seules attributions de chaîne encore réellement manquantes.",
           "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
           "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
           "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
         ],
-        "remaining_count": 33,
-        "next_actions_total": 31,
-        "truncated_notice": "26 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
-        "all_actions_total": 38,
+        "remaining_count": 27,
+        "next_actions_total": 25,
+        "truncated_notice": "20 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "all_actions_total": 32,
         "waiting_actions_count": 7,
         "research_review_warnings": [],
         "observations": {
@@ -32502,12 +32630,20 @@
           "ended_at": "2026-10-09T21:05:30.309Z",
           "overlap": false,
           "note": "Revue des pistes non sélectionnées, des faux besoins de master technique et de la preuve primaire W9."
+        },
+        {
+          "kind": "review",
+          "started_at": "2026-10-09T21:06:52.498Z",
+          "ended_at": "2026-10-09T21:07:36.602Z",
+          "overlap": false,
+          "note": "Assemblage champ par champ de quatre événements CANAL+ et décisions sur deux suivis Ciné+."
         }
       ],
       "requirements_resolved_details": [
         "Le Dahlia noir 22:58/22:59 et le court associé à Saint-Ex ont reçu une revue d’impact : divergences brutes conservées, sans effet démontré sur carte, réserve, ligne commentée, omission ou couverture ; l’exigence de résolution bloquante a été retirée.",
         "Six exigences d’enrichissement de pistes non retenues sont closes par décisions motivées, sans retirer leurs observations ni les lacunes de couverture distinctes.",
-        "Le rappel W9 est réconcilié pour sa portée de couverture sur la grille primaire M6/W9 ; l’action combinée reste ouverte pour Ciné+ Festival."
+        "Le rappel W9 est réconcilié pour sa portée de couverture sur la grille primaire M6/W9 ; l’action combinée reste ouverte pour Ciné+ Festival.",
+        "Deux suivis de dossiers Ciné+ sont clos : quatre cartes retenues relient événements CANAL+ et attribution de chaîne par titre/date/heure ; les pistes non retenues sont différées. Le niveau 2 Ciné+ reste ouvert."
       ]
     }
   ],
@@ -33629,9 +33765,11 @@
       ],
       "result": "L’événement CANAL+ confirme exactement 01:04 et la version affichée de 83 min sans nommer la chaîne. TV-Programme, ProgrammeTVCeSoir et Sudinfo nomment Ciné+ Festival et concordent à 01:04, mais leurs fournisseurs de grille ne sont pas documentés ; ils ne sont donc pas promus en seconde lecture réellement indépendante. Le créneau de 1 h 41 reste distinct du master 83 min.",
       "blocking_scope": "carte et réserve du dimanche pour cette œuvre uniquement",
-      "blocking": true,
-      "status": "crosscheck_concordant_independence_not_established",
-      "resume_when": "Une grille primaire Ciné+ ou un fournisseur explicitement indépendant nomme Ciné+ Festival à 01:04, sans confondre durée de créneau et durée du film."
+      "blocking": false,
+      "status": "resolved_by_complementary_evidence",
+      "resume_when": "Une grille primaire Ciné+ ou un fournisseur explicitement indépendant nomme Ciné+ Festival à 01:04, sans confondre durée de créneau et durée du film.",
+      "resolved_at": "2026-10-09T21:07:36.602Z",
+      "resolution": "L’événement CANAL+ exact et les grilles datées sont reliés par l’œuvre, la date et l’heure ; la chaîne provient des grilles et la version de CANAL+, sans exiger un objet unique ni prétendre établir l’indépendance amont."
     },
     {
       "id": "refresh-silence-rangs-broadcast-crosscheck-2026-10-09",
@@ -33672,9 +33810,11 @@
       ],
       "result": "La page Ouest-France trouvée renvoie à une diffusion périmée du 19 août et la page CANAL+ confirme seulement l’identité stable, sans grille datée nommant la chaîne. Aucun nouvel événement exact exploitable n’a été obtenu.",
       "blocking_scope": "carte et réserve du dimanche pour cette œuvre uniquement",
-      "blocking": true,
-      "status": "two_routes_no_new_exact_event",
-      "resume_when": "Une grille primaire ou une source indépendante fraîche nomme la chaîne, l’horaire et la version du 11 octobre."
+      "blocking": false,
+      "status": "resolved_by_complementary_evidence",
+      "resume_when": "Une grille primaire ou une source indépendante fraîche nomme la chaîne, l’horaire et la version du 11 octobre.",
+      "resolved_at": "2026-10-09T21:07:36.602Z",
+      "resolution": "L’événement CANAL+ exact et les grilles datées sont reliés par l’œuvre, la date et l’heure ; la chaîne provient des grilles et la version de CANAL+, sans exiger un objet unique ni prétendre établir l’indépendance amont."
     },
     {
       "id": "run18-sunday-manchurian-version-separation-2026-10-09",
@@ -40072,6 +40212,22 @@
       "evidence": "data/weeks/2026-S42.json exact card/pool scan plus saved research dossiers and preparation-gaps showing all daily minima materialized",
       "reason": "Pistes non retenues : versions, offres ou réception restent insuffisantes et aucune carte n’en dépend. Les diffusions observées restent dans l’inventaire ; leur exclusion éditoriale ne certifie pas les créneaux litigieux.",
       "coverage_effect": "none_declared; inventory observations and separate level-2 requirements remain preserved"
+    },
+    {
+      "action_text": "Ciné+ documentaires : Shirley MacLaine et Becoming Hitchcock disposent de critiques indépendantes. Simenon : matériaux/intervenants, contexte littéraire et parcours de Linda Tahir vérifiés avec limites, mais aucune critique du film ni distinction trouvée. Résoudre années/durées, chaîne/horaire S42, accès France/expirations, notes et affiches ; ne pas convertir le contexte du sujet en qualité du film.",
+      "decided_at": "2026-10-09T21:07:36.602Z",
+      "decision": "selected_cards_verified_unselected_leads_deferred",
+      "evidence": "Complementary-evidence reviews for retained Ciné+ cards plus exact absence of Shirley MacLaine, Simenon, Kawase, Trier and Huppert leads from current card pools.",
+      "reason": "Les propositions retenues citées dans ce suivi disposent de cartes complètes et de preuves de diffusion reliées champ par champ ; les autres pistes restent hors sélection faute de dossier suffisant. Le niveau 2 hebdomadaire Ciné+ demeure une exigence distincte.",
+      "coverage_effect": "none_on_open_level2_cineplus_requirement"
+    },
+    {
+      "action_text": "Ciné+ Festival documentaires : réutiliser Kouté Vwa/Les mots et portraits Kawase/Trier documentés. Chaîne des événements CANAL+, versions, droits/expirations exactes (Kouté 09/10 versus 15/12 affichés), affiches et notes des portraits à finir ; conflit Trier/Coppola non résolu. Kotelnitch approfondi (deux critiques indépendantes, événement exact sans chaîne) et Huppert identifié sans réception argumentée trouvée ; leurs droits, versions, notes et affiches restent ouverts.",
+      "decided_at": "2026-10-09T21:07:36.602Z",
+      "decision": "selected_cards_verified_unselected_leads_deferred",
+      "evidence": "Complementary-evidence reviews for retained Ciné+ cards plus exact absence of Shirley MacLaine, Simenon, Kawase, Trier and Huppert leads from current card pools.",
+      "reason": "Les propositions retenues citées dans ce suivi disposent de cartes complètes et de preuves de diffusion reliées champ par champ ; les autres pistes restent hors sélection faute de dossier suffisant. Le niveau 2 hebdomadaire Ciné+ demeure une exigence distincte.",
+      "coverage_effect": "none_on_open_level2_cineplus_requirement"
     }
   ]
 }
