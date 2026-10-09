@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T22:28:11.746Z",
+  "updated_at": "2026-10-09T22:34:01.887Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -20,7 +20,7 @@
     "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma.",
     "TF1/TFX/TMC : poursuivre les sujets/épisodes encore génériques et le tri motivé des formats de magazine ou documentaire de flux repérés ; neuf créneaux TFX, 38 TMC recoupés et deux magazines supplémentaires ajoutés, sans certification artistique.",
     "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer. Programmetvcesoir et Ouest-France soutiennent les titres inventoriés ; suivis ciblés enregistrés, indépendance non établie, conflits non clos.",
-    "Ciné+ : 45 fiches CANAL+ consultées, 14 heures concordantes (dont La gueule ouverte sur Festival), 4 écarts et 27 BroadcastEvent hors cible. Chaîne absente des objets officiels : certifier les chaînes/grilles et les autres rediffusions, ne pas réutiliser les événements anciens. Durées de versions et droits replay à distinguer des créneaux.",
+    "Ciné+ Festival : la grille Télérama fournie et relue arbitre six des neuf cartes précédemment ouvertes. Restent La reconquista le 11/10 à 10:20 et Secrets et mensonges le 12/10 à 06:12 puis le 14/10 à 08:29, absents des pages papier relues ; obtenir pour chacun une preuve conforme à web_schedule_evidence ou remplacer la proposition. Les autres rediffusions non retenues restent différées ; durées de versions et droits replay demeurent séparés des créneaux.",
     "TCM : 98 créneaux comparés aux sept grilles Télérama courantes, aucun écart d'heure ; Nashville Blues/The Thing Called Love rapprochés par la fiche liée. Une nuit au cinéma : Flics et voyous identifié (Laurent Bouzereau, 2013, 55 min). Source officielle ou indépendance des flux encore à obtenir ; documentaires et autres films à enrichir."
   ],
   "completed_batches": [
@@ -1388,7 +1388,8 @@
         "data/coverage/2026-S42.json",
         "data/research/2026-S42.json"
       ]
-    }
+    },
+    "review-telerama-five-pages-close-six-cineplus-festival-events-2026-10-09"
   ],
   "blockers": [
     {
@@ -26932,6 +26933,168 @@
       },
       "evidence_note": "Ligne imprimée visuellement relue sur Télérama page 132, bbox [400.67,207,475.19,227.51]. L’horaire 19:40 prévaut pour les quatre faits de grille ; l’ancien horaire Web 19:39 reste documenté.",
       "status": "verified_for_card_under_telerama_schedule_authority"
+    },
+    {
+      "work_id": "les-revenants-2004",
+      "fields": [
+        "broadcast.title",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "telerama_grid_transcription"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-festival/samedi-10-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-samedi/cine-club"
+      ],
+      "source_refs": [
+        "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93"
+      ],
+      "checked_at": "2026-10-09T22:34:01.887Z",
+      "stability": "cycle_specific_authoritative_printed_schedule",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "start": "14:50",
+        "channel": "Ciné+ Festival"
+      },
+      "evidence_note": "Ligne imprimée visuellement relue page 102, bbox [492.92,155.16,552.94,168.66]. L’horaire imprimé 14:50 remplace l’ancien horaire Web 14:52.",
+      "status": "verified_for_card_under_telerama_schedule_authority"
+    },
+    {
+      "work_id": "mademoiselle-2016",
+      "fields": [
+        "broadcast.title",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "telerama_grid_transcription"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-festival/dimanche-11-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-dimanche/cine-club"
+      ],
+      "source_refs": [
+        "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93"
+      ],
+      "checked_at": "2026-10-09T22:34:01.887Z",
+      "stability": "cycle_specific_authoritative_printed_schedule",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "start": "22:20",
+        "channel": "Ciné+ Festival"
+      },
+      "evidence_note": "Ligne imprimée visuellement relue page 108, bbox [492.94,316.46,540.66,322.96]. L’horaire imprimé 22:20 remplace l’ancien horaire Web 22:21.",
+      "status": "verified_for_card_under_telerama_schedule_authority"
+    },
+    {
+      "work_id": "la-reconquista-2016",
+      "fields": [
+        "broadcast.title",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "telerama_grid_transcription"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-lundi/cine-club"
+      ],
+      "source_refs": [
+        "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93"
+      ],
+      "checked_at": "2026-10-09T22:34:01.887Z",
+      "stability": "cycle_specific_authoritative_printed_schedule",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "start": "16:50",
+        "channel": "Ciné+ Festival"
+      },
+      "evidence_note": "Ligne imprimée visuellement relue page 114, bbox [492.95,190.16,543.3,203.66]. L’horaire imprimé 16:50 remplace l’ancien horaire Web 16:53.",
+      "status": "verified_for_card_under_telerama_schedule_authority"
+    },
+    {
+      "work_id": "les-revenants-2004",
+      "fields": [
+        "broadcast.title",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "telerama_grid_transcription"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-lundi/cine-club"
+      ],
+      "source_refs": [
+        "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93"
+      ],
+      "checked_at": "2026-10-09T22:34:01.887Z",
+      "stability": "cycle_specific_authoritative_printed_schedule",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-12",
+        "start": "22:50",
+        "channel": "Ciné+ Festival"
+      },
+      "evidence_note": "Ligne imprimée visuellement relue page 114, bbox [492.94,348.75,552.96,362.25]. L’horaire imprimé confirme la carte.",
+      "status": "verified_for_card_under_telerama_schedule_authority"
+    },
+    {
+      "work_id": "lady-vengeance-2005",
+      "fields": [
+        "broadcast.title",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "telerama_grid_transcription"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-festival/jeudi-15-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-jeudi-prochain/cine-club"
+      ],
+      "source_refs": [
+        "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93"
+      ],
+      "checked_at": "2026-10-09T22:34:01.887Z",
+      "stability": "cycle_specific_authoritative_printed_schedule",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "start": "20:50",
+        "channel": "Ciné+ Festival"
+      },
+      "evidence_note": "Ligne imprimée visuellement relue page 132, bbox [485.43,249.41,554.01,257.91]. L’horaire imprimé confirme la carte.",
+      "status": "verified_for_card_under_telerama_schedule_authority"
+    },
+    {
+      "work_id": "les-revenants-2004",
+      "fields": [
+        "broadcast.title",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "telerama_grid_transcription"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-festival/vendredi-16-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-vendredi-prochain/cine-club"
+      ],
+      "source_refs": [
+        "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93"
+      ],
+      "checked_at": "2026-10-09T22:34:01.887Z",
+      "stability": "cycle_specific_authoritative_printed_schedule",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "start": "08:30",
+        "channel": "Ciné+ Festival"
+      },
+      "evidence_note": "Ligne imprimée visuellement relue page 138, bbox [492.93,83.91,550.57,97.41]. L’horaire imprimé confirme la carte.",
+      "status": "verified_for_card_under_telerama_schedule_authority"
     }
   ],
   "run_metrics": [
@@ -33965,7 +34128,8 @@
       "completed_batches": [
         "sync-main-web-evidence-contracts-2026-10-09",
         "initial-preparation-gaps-saved-flow-and-triage-2026-10-09",
-        "review-telerama-page-132-correct-three-thursday-reserve-times-2026-10-09"
+        "review-telerama-page-132-correct-three-thursday-reserve-times-2026-10-09",
+        "review-telerama-five-pages-close-six-cineplus-festival-events-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -33978,7 +34142,7 @@
       "partial_dossiers": 0,
       "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Réconcilier l’attente accessible suivante portant seulement sur la provenance Web, sans fermer les conflits factuels ni la revue hebdomadaire des omissions.",
+      "next_useful_batch": "Traiter une autre action accessible de couverture ou de niveau 3 ; les trois événements Ciné+ Festival résiduels attendent une preuve nouvelle conforme à web_schedule_evidence ou un remplacement.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -34045,38 +34209,56 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T22:30:14.856Z",
+          "elapsed_seconds": 651.693,
+          "prompt_revision": "production-web-evidence-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "c19b13e4dfce8bf3b7a241047f10cf71fe768d8e",
+          "next_actions": [
+            "Réconcilier l’attente accessible suivante portant seulement sur la provenance Web, sans fermer les conflits factuels ni la revue hebdomadaire des omissions."
+          ],
+          "remaining_count": 17,
+          "waiting_actions_count": 7,
+          "research_review_warnings": [
+            "research_attempts[30].retry_gate needs_review: unmapped or invalid exact action_texts"
+          ],
+          "observations": {
+            "started_at": "2026-10-09T22:19:23.163Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T23:19:39.374Z",
+            "external_stop": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T22:23:25.233Z",
-        "elapsed_seconds": 242.07,
+        "observed_at": "2026-10-09T22:30:14.856Z",
+        "elapsed_seconds": 651.693,
         "prompt_revision": "production-web-evidence-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "ea656a4a5685fe48629451e35731c229816e876d",
+        "source_sha": "c19b13e4dfce8bf3b7a241047f10cf71fe768d8e",
         "next_actions": [
-          "Réconcilier les anciennes attentes qui portaient seulement sur la provenance technique avec la règle web_schedule_evidence, en commençant par la réserve rendue Un crime dans la tête ; conserver tout conflit factuel.",
-          "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
-          "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
-          "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
-          "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique."
+          "Réconcilier l’attente accessible suivante portant seulement sur la provenance Web, sans fermer les conflits factuels ni la revue hebdomadaire des omissions."
         ],
-        "remaining_count": 18,
-        "next_actions_total": 15,
-        "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
-        "all_actions_total": 24,
-        "waiting_actions_count": 9,
-        "research_review_warnings": [],
+        "remaining_count": 17,
+        "waiting_actions_count": 7,
+        "research_review_warnings": [
+          "research_attempts[30].retry_gate needs_review: unmapped or invalid exact action_texts"
+        ],
         "observations": {
           "started_at": "2026-10-09T22:19:23.163Z",
           "lease_owned": "yes",
           "lease_until": "2026-10-09T23:19:39.374Z",
-          "external_stop": null,
-          "accessible_task_checks": [],
-          "ready_handoff": null
+          "external_stop": null
         }
       },
       "intervals": [
@@ -34093,6 +34275,13 @@
           "ended_at": "2026-10-09T22:28:11.746Z",
           "overlap": false,
           "note": "Paquet ciblé relu, page PDF 132 rendue et inspectée, pool complet jeudi reconstruit par le helper, trois horaires corrigés et preuves/résolution réconciliées."
+        },
+        {
+          "kind": "pdf_review_drafting_controls",
+          "started_at": "2026-10-09T22:30:14.856Z",
+          "ended_at": "2026-10-09T22:34:01.887Z",
+          "overlap": false,
+          "note": "Pages Télérama 102, 108, 114, 132 et 138 rendues et relues ; six cartes Ciné+ Festival arbitrées, trois horaires corrigés et trois événements résiduels conservés."
         }
       ],
       "requirements_resolved_details": [
@@ -34102,12 +34291,18 @@
         "preparation-gaps sur eadc052 : seul coverage-full-week reste bloquant structurellement ; les sept jours ont dix cartes matérialisées et l’objectif de quinze reste un avertissement non bloquant.",
         "La grille Télérama fournie a été relue sur la page 132 : trois horaires de réserves jeudi ont été corrigés sans modifier les choix, rangs, textes, versions ou champs canoniques. Aucune indépendance EPG ni couverture hebdomadaire n’est attestée.",
         "Contrôles ciblés après correction : identités canoniques, fraîcheur (97 % public, 87 % réserves), liens exacts et réserves (70/70, 49/49) réussis sur S42. validate-editorial ne signale que la barrière attendue full_week_reaudit_completed=false ; aucun autre échec.",
-        "preparation-gaps actualisé : deux messages bloquants regroupés en une action de couverture hebdomadaire ; sept avertissements de profondeur à 10/15, minima satisfaits."
+        "preparation-gaps actualisé : deux messages bloquants regroupés en une action de couverture hebdomadaire ; sept avertissements de profondeur à 10/15, minima satisfaits.",
+        "Six événements Ciné+ Festival retenus sont établis par les lignes papier relues ; trois événements absents du PDF restent explicitement ouverts. Aucun niveau 2, flux indépendant ou champ hors grille n’est certifié.",
+        "Contrôles après le lot Ciné+ Festival : identités canoniques, fraîcheur (97 % public, 87 % réserves), liens exacts et réserves (70/70, 49/49) réussis. validate-editorial ne conserve que la barrière attendue full_week_reaudit_completed=false ; preparation-gaps regroupe ses deux messages en une action bloquante et conserve sept avertissements 10/15."
       ],
       "measurements": {
         "schedule_facts_corrected": {
-          "value": 3,
-          "scope": "trois horaires de réserves déjà existantes du jeudi ; aucune nouvelle œuvre, carte visible ou réserve ajoutée"
+          "value": 6,
+          "scope": "six horaires de réserves déjà existantes corrigés depuis le début du passage (trois jeudi, trois dans ce lot) ; aucune nouvelle œuvre, carte visible ou réserve ajoutée"
+        },
+        "selected_broadcast_events_closed_by_pdf_this_run": {
+          "value": 7,
+          "scope": "un événement jeudi du premier checkpoint et six événements Ciné+ Festival de ce checkpoint ; fermetures de niveau 3 pour les quatre faits de grille uniquement"
         }
       }
     }
@@ -34782,10 +34977,10 @@
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
+      "Ciné+ Festival : la grille Télérama fournie et relue arbitre six des neuf cartes précédemment ouvertes. Restent La reconquista le 11/10 à 10:20 et Secrets et mensonges le 12/10 à 06:12 puis le 14/10 à 08:29, absents des pages papier relues ; obtenir pour chacun une preuve conforme à web_schedule_evidence ou remplacer la proposition. Les autres rediffusions non retenues restent différées ; durées de versions et droits replay demeurent séparés des créneaux.",
       "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
       "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
       "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
-      "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
       "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet."
     ],
     "publisher": {
@@ -35579,7 +35774,7 @@
     },
     {
       "id": "run21-cineplus-festival-w9-crosscheck-2026-10-09",
-      "checked_at": "2026-10-09T20:10:18.000Z",
+      "checked_at": "2026-10-09T22:34:01.887Z",
       "object": "Kouté Vwa sur Ciné+ Festival et nuit W9 du samedi 10 octobre",
       "question": "Une route officielle ou un distributeur tiers établit-il la chaîne de Kouté Vwa et une seconde lecture des trois créneaux W9 ?",
       "urls": [
@@ -35595,20 +35790,32 @@
         "https://www.canalplus.com/cinema/secrets-et-mensonges/h/177164_50002/resume-casting/",
         "https://www.canalplus.com/live/tab/direct/decouverte"
       ],
-      "status": "partial_selected_card_proofs_five_works_verified_nine_events_open",
-      "result": "La grille primaire W9 est acquise. Pour Ciné+ Festival, quatre œuvres documentaires et Love on Trial sont désormais vérifiées par assemblages complémentaires bornés. Les recherches officielles fraîches retrouvent Les Revenants sur Ciné+ Festival le 9 octobre à 20:50 et Secrets et mensonges sur d’autres diffusions, mais aucun de ces événements ne correspond aux neuf créneaux retenus encore ouverts ; ils ne sont donc pas transposés.",
-      "blocking_scope": "niveau 2 Ciné+ Festival et niveau 3 des neuf créneaux listés dans coverage.closure_policy_reviews ; W9 est résolu dans sa portée de rappel",
-      "resume_condition": "Un événement officiel exact, une base positive d’acquisition distincte ou une carte de remplacement entièrement vérifiée couvre l’un des neuf créneaux Ciné+ Festival encore ouverts.",
+      "status": "partial_pdf_authority_six_events_resolved_three_events_open",
+      "result": "La nouvelle règle d’autorité de la grille Télérama fournie a été appliquée après revue visuelle des pages 102, 108, 114, 132 et 138. Six cartes Ciné+ Festival sont désormais établies sur leurs quatre faits de grille ; trois événements absents du papier restent ouverts. La portée W9 antérieure demeure résolue par la grille primaire sauvegardée.",
+      "blocking_scope": "niveau 3 de La reconquista le 11 octobre et Secrets et mensonges les 12 et 14 octobre uniquement ; le niveau 2 hebdomadaire reste séparé",
+      "resume_condition": "Une preuve officielle exacte, deux guides actuels d’éditeurs distincts concordants selon web_schedule_evidence, ou une carte de remplacement entièrement vérifiée couvre chacun des trois événements encore ouverts.",
       "retry_gate": {
         "state": "waiting_for_new_evidence",
         "action_texts": [
-          "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante."
+          "Ciné+ Festival : la grille Télérama fournie et relue arbitre six des neuf cartes précédemment ouvertes. Restent La reconquista le 11/10 à 10:20 et Secrets et mensonges le 12/10 à 06:12 puis le 14/10 à 08:29, absents des pages papier relues ; obtenir pour chacun une preuve conforme à web_schedule_evidence ou remplacer la proposition. Les autres rediffusions non retenues restent différées ; durées de versions et droits replay demeurent séparés des créneaux."
         ],
-        "reason": "Les pages CANAL+, grilles datées et routes direct/live accessibles ont été exploitées. Elles vérifient cinq œuvres retenues, mais les événements officiels supplémentaires trouvés portent sur d’autres dates ; répéter ces mêmes routes ne lie pas les neuf créneaux restants.",
-        "resume_when": "Un événement officiel exact, une base positive d’acquisition distincte ou une carte de remplacement entièrement vérifiée couvre l’un des neuf créneaux Ciné+ Festival encore ouverts.",
-        "observed_at": "2026-10-09T21:18:03.312Z",
-        "evidence": "coverage.closure_policy_reviews : cinq œuvres vérifiées par pièces complémentaires et neuf créneaux selected_card_requires_additional_broadcast_evidence ; CI 37992206700 sur le SHA exact."
-      }
+        "reason": "Les cinq pages Télérama pertinentes ont été relues. Elles couvrent six cartes, mais ne contiennent pas les trois événements résiduels ; répéter cette revue ne peut pas les établir.",
+        "resume_when": "Une preuve officielle exacte, deux guides actuels d’éditeurs distincts concordants selon web_schedule_evidence, ou une carte de remplacement entièrement vérifiée couvre chacun des trois événements encore ouverts.",
+        "observed_at": "2026-10-09T22:34:01.887Z",
+        "evidence": "data/editorial-inputs/2026-S42/telerama.json (sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93), pages 102, 108, 114, 132 et 138 relues ; coverage.closure_policy_reviews conserve les trois événements résiduels."
+      },
+      "retry_gate_history": [
+        {
+          "state": "waiting_for_new_evidence",
+          "action_texts": [
+            "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante."
+          ],
+          "reason": "Les pages CANAL+, grilles datées et routes direct/live accessibles ont été exploitées. Elles vérifient cinq œuvres retenues, mais les événements officiels supplémentaires trouvés portent sur d’autres dates ; répéter ces mêmes routes ne lie pas les neuf créneaux restants.",
+          "resume_when": "Un événement officiel exact, une base positive d’acquisition distincte ou une carte de remplacement entièrement vérifiée couvre l’un des neuf créneaux Ciné+ Festival encore ouverts.",
+          "observed_at": "2026-10-09T21:18:03.312Z",
+          "evidence": "coverage.closure_policy_reviews : cinq œuvres vérifiées par pièces complémentaires et neuf créneaux selected_card_requires_additional_broadcast_evidence ; CI 37992206700 sur le SHA exact."
+        }
+      ]
     },
     {
       "id": "run21-cineplus-orange-monthly-reminder-2026-10-09",
@@ -35697,18 +35904,6 @@
       "blocking": false,
       "status": "resolved_by_authoritative_pdf_transcription_review",
       "resume_when": "Un événement officiel exact, une preuve positive d’acquisition distincte ou une réserve de remplacement entièrement vérifiée couvre ce rang.",
-      "retry_gate": {
-        "state": "reopened",
-        "action_texts": [
-          "Un crime dans la tête : la réserve du 10/10 à 20:50 sur Ciné+ Classic est complète et officiellement attestée. La réserve retenue du 15/10 à 17:37 concorde sur TV-Programme, TV Digital3D et ProgrammeTVCeSoir, mais la provenance d'acquisition indépendante n'est pas établie et aucun événement officiel exact n'a été trouvé ; obtenir une base positive ou remplacer cette carte. Les diffusions Grand Écran du remake 2004 et les autres rediffusions non retenues sont différées ; identités et divergences restent conservées."
-        ],
-        "reason": "Une recherche officielle ciblée et deux voies alternatives supplémentaires ont confirmé la concordance sans établir leur provenance ; répéter les mêmes pages ne produit pas l’indépendance manquante.",
-        "resume_when": "Un événement officiel exact, une preuve positive d’acquisition distincte ou une réserve de remplacement entièrement vérifiée couvre ce rang.",
-        "observed_at": "2026-10-09T21:25:20.767Z",
-        "evidence": "coverage.closure_policy_reviews et trois guides datés exacts ; événement officiel du 10 octobre non transposé.",
-        "reopened_at": "2026-10-09T22:28:11.746Z",
-        "new_evidence": "Main a introduit la règle d’autorité de la grille Télérama fournie. La page 132 du PDF correspondant à l’empreinte Git a été visuellement relue : la ligne exacte porte 17:40 sur Ciné+ Classic le 15 octobre."
-      },
       "resolution": {
         "decided_at": "2026-10-09T22:28:11.746Z",
         "broadcast": "2026-10-15 17:40 Ciné+ Classic",
@@ -35719,7 +35914,21 @@
           "reviewed_at": "2026-10-09T22:28:11.746Z"
         },
         "note": "Le pool jeudi a été corrigé de 17:37 à 17:40 ; aucune indépendance des guides Web n’est revendiquée."
-      }
+      },
+      "retry_gate_history": [
+        {
+          "state": "reopened",
+          "action_texts": [
+            "Un crime dans la tête : la réserve du 10/10 à 20:50 sur Ciné+ Classic est complète et officiellement attestée. La réserve retenue du 15/10 à 17:37 concorde sur TV-Programme, TV Digital3D et ProgrammeTVCeSoir, mais la provenance d'acquisition indépendante n'est pas établie et aucun événement officiel exact n'a été trouvé ; obtenir une base positive ou remplacer cette carte. Les diffusions Grand Écran du remake 2004 et les autres rediffusions non retenues sont différées ; identités et divergences restent conservées."
+          ],
+          "reason": "Une recherche officielle ciblée et deux voies alternatives supplémentaires ont confirmé la concordance sans établir leur provenance ; répéter les mêmes pages ne produit pas l’indépendance manquante.",
+          "resume_when": "Un événement officiel exact, une preuve positive d’acquisition distincte ou une réserve de remplacement entièrement vérifiée couvre ce rang.",
+          "observed_at": "2026-10-09T21:25:20.767Z",
+          "evidence": "coverage.closure_policy_reviews et trois guides datés exacts ; événement officiel du 10 octobre non transposé.",
+          "reopened_at": "2026-10-09T22:28:11.746Z",
+          "new_evidence": "Main a introduit la règle d’autorité de la grille Télérama fournie. La page 132 du PDF correspondant à l’empreinte Git a été visuellement relue : la ligne exacte porte 17:40 sur Ciné+ Classic le 15 octobre."
+        }
+      ]
     },
     {
       "id": "run22-t18-14-october-independent-route-and-episode-conflict-2026-10-09",
@@ -41953,6 +42162,37 @@
       "evidence": "Imported Télérama grid source sha256 e96cce75… and visual review of page 132, bbox [400.68,179,474.45,192.5].",
       "reason": "La politique courante fait de la grille fournie la référence des quatre faits imprimés après revue de transcription. La ligne est lisible et correspond à l’œuvre de Frankenheimer ; l’ancienne attente portait seulement sur la provenance technique des guides Web et devient sans objet.",
       "coverage_effect": "closes only the selected Thursday reserve schedule proof; weekly omission review and independence flags remain open"
+    },
+    {
+      "id": "run23-cineplus-festival-pdf-authority-narrowing",
+      "decided_at": "2026-10-09T22:34:01.887Z",
+      "decision": "requirement_narrowed_not_closed",
+      "previous_scope": "Ciné+ : 45 fiches CANAL+ consultées, 14 heures concordantes (dont La gueule ouverte sur Festival), 4 écarts et 27 BroadcastEvent hors cible. Chaîne absente des objets officiels : certifier les chaînes/grilles et les autres rediffusions, ne pas réutiliser les événements anciens. Durées de versions et droits replay à distinguer des créneaux.",
+      "current_scope": "Ciné+ Festival : la grille Télérama fournie et relue arbitre six des neuf cartes précédemment ouvertes. Restent La reconquista le 11/10 à 10:20 et Secrets et mensonges le 12/10 à 06:12 puis le 14/10 à 08:29, absents des pages papier relues ; obtenir pour chacun une preuve conforme à web_schedule_evidence ou remplacer la proposition. Les autres rediffusions non retenues restent différées ; durées de versions et droits replay demeurent séparés des créneaux.",
+      "resolved_occurrences": [
+        "Les Revenants — 2026-10-10 14:50 Ciné+ Festival",
+        "Mademoiselle — 2026-10-11 22:20 Ciné+ Festival",
+        "La reconquista — 2026-10-12 16:50 Ciné+ Festival",
+        "Les Revenants — 2026-10-12 22:50 Ciné+ Festival",
+        "Lady Vengeance — 2026-10-15 20:50 Ciné+ Festival",
+        "Les Revenants — 2026-10-16 08:30 Ciné+ Festival"
+      ],
+      "residual_occurrences": [
+        "La reconquista — 2026-10-11 10:20 Ciné+ Festival",
+        "Secrets et mensonges — 2026-10-12 06:12 Ciné+ Festival",
+        "Secrets et mensonges — 2026-10-14 08:29 Ciné+ Festival"
+      ],
+      "evidence": {
+        "path": "data/editorial-inputs/2026-S42/telerama.json",
+        "source_ref": "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93",
+        "pdf_pages": [
+          102,
+          108,
+          114,
+          132,
+          138
+        ]
+      }
     }
   ]
 }
