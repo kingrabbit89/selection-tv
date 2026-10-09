@@ -540,6 +540,12 @@
       "completed_at": "2026-10-09T10:08:10.627Z",
       "description": "Miséricorde a reçu une identité canonique, une version Arte 99 min distincte du cinéma 103 min, une diffusion officielle recoupée, une réception contrastée, des notes datées, des liens et une affiche ; le mercredi expose désormais trois choix développés.",
       "items": 1
+    },
+    {
+      "id": "complete-replay-arte-prehistory-2026-10-09",
+      "completed_at": "2026-10-09T10:12:15.005Z",
+      "description": "Rubrique replay ARTE.tv matérialisée avec deux cartes complètes déjà vérifiées : Grotte Chauvet et Sulawesi ; identités, offres France, expirations, visuels et réception réutilisés avec leurs dates d’origine.",
+      "items": 2
     }
   ],
   "blockers": [
@@ -19505,7 +19511,10 @@
       ],
       "stability": "stable",
       "status": "verified",
-      "evidence_note": "Identité concordante ARTE/SensCritique sauvegardée le 8 octobre : Alexis de Favitski, France, 2024. Film distinct de La Grotte des rêves perdus de Herzog. Offre numérique ARTE 112849-000-A actuelle : 5333 secondes (88 min 53 s), arrondie 89 min sur la page ; durée CNRS 88 min et créneau TV 90 min ne remplacent pas celle de cette offre. Titre, réalisateur, année, pays et synopsis relus sur la page officielle. Visuel ARTE exact récupéré en HTTP 200 image/jpeg puis inspecté : peintures de Chauvet. Recherche réelle des notes documentée ; aucune moyenne SensCritique ambiguë ni note IMDb seulement indexée transférée au catalogue."
+      "evidence_note": "Identité concordante ARTE/SensCritique sauvegardée le 8 octobre : Alexis de Favitski, France, 2024. Film distinct de La Grotte des rêves perdus de Herzog. Offre numérique ARTE 112849-000-A actuelle : 5333 secondes (88 min 53 s), arrondie 89 min sur la page ; durée CNRS 88 min et créneau TV 90 min ne remplacent pas celle de cette offre. Titre, réalisateur, année, pays et synopsis relus sur la page officielle. Visuel ARTE exact récupéré en HTTP 200 image/jpeg puis inspecté : peintures de Chauvet. Recherche réelle des notes documentée ; aucune moyenne SensCritique ambiguë ni note IMDb seulement indexée transférée au catalogue.",
+      "reused_in": [
+        "replay-1"
+      ]
     },
     {
       "work_id": "grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-2024",
@@ -19531,7 +19540,10 @@
       ],
       "stability": "dynamic",
       "status": "verified",
-      "evidence_note": "Rubrique indépendante de la grille TV. Page FR gratuite et API officielle relues le 9 octobre Europe/Paris ; rights begin 2026-01-19T04:00Z, end 2027-03-18T04:00Z, page jusqu’au17/03/2027. Configuration renvoie userCountryCode FR, restrictedArea false, flux français annoncé et error null. Preuve de configuration/offre, sans test de lecture. Aucune date d’arrivée nouvelle revendiquée."
+      "evidence_note": "Rubrique indépendante de la grille TV. Page FR gratuite et API officielle relues le 9 octobre Europe/Paris ; rights begin 2026-01-19T04:00Z, end 2027-03-18T04:00Z, page jusqu’au17/03/2027. Configuration renvoie userCountryCode FR, restrictedArea false, flux français annoncé et error null. Preuve de configuration/offre, sans test de lecture. Aucune date d’arrivée nouvelle revendiquée.",
+      "reused_in": [
+        "replay-1"
+      ]
     },
     {
       "work_id": "grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-2024",
@@ -19554,7 +19566,10 @@
       ],
       "stability": "dynamic",
       "status": "verified",
-      "evidence_note": "Visuel horizontal officiel du programme fourni par la configuration ARTE, récupéré et inspecté ; peintures de la grotte, aucune affiche revendiquée."
+      "evidence_note": "Visuel horizontal officiel du programme fourni par la configuration ARTE, récupéré et inspecté ; peintures de la grotte, aucune affiche revendiquée.",
+      "reused_in": [
+        "replay-1"
+      ]
     },
     {
       "work_id": "grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-2024",
@@ -19574,7 +19589,10 @@
       ],
       "stability": "dynamic",
       "status": "research_unavailability_documented",
-      "evidence_note": "IMDb exact tt34936421 identifié ; ouverture directe refusée 403 le 9 octobre 2026. Son index annonce 7,6/10 pour 17 votes, sans lecture directe de la note courante : chiffre non repris. La fiche SensCritique exacte est lue via le moteur, mais la moyenne n’est pas identifiée sans ambiguïté parmi les nombres isolés ; accès HTTP direct 403. L’avis personnel 7/10 de JOE-ROBERTS est une critique individuelle, pas une moyenne."
+      "evidence_note": "IMDb exact tt34936421 identifié ; ouverture directe refusée 403 le 9 octobre 2026. Son index annonce 7,6/10 pour 17 votes, sans lecture directe de la note courante : chiffre non repris. La fiche SensCritique exacte est lue via le moteur, mais la moyenne n’est pas identifiée sans ambiguïté parmi les nombres isolés ; accès HTTP direct 403. L’avis personnel 7/10 de JOE-ROBERTS est une critique individuelle, pas une moyenne.",
+      "reused_in": [
+        "replay-1"
+      ]
     },
     {
       "work_id": "grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-2024",
@@ -19601,7 +19619,10 @@
       ],
       "stability": "editorial",
       "status": "draft_reviewed",
-      "evidence_note": "Synopsis et justification rédigés pour cette carte, fondés sur les matériaux du film et l’avis Télé7 déjà attribué. Pas de consensus extrapolé de Télérama payant ni de la critique individuelle SensCritique. Contrôle fraîcheur : aucun titre/alias dans S38–S41 ni dans les neuf cartes S42 déjà présentes. Texte de rubrique et cartes rendus par le helper strict ; comparaison finale et préflight ouverts."
+      "evidence_note": "Synopsis et justification rédigés pour cette carte, fondés sur les matériaux du film et l’avis Télé7 déjà attribué. Pas de consensus extrapolé de Télérama payant ni de la critique individuelle SensCritique. Contrôle fraîcheur : aucun titre/alias dans S38–S41 ni dans les neuf cartes S42 déjà présentes. Texte de rubrique et cartes rendus par le helper strict ; comparaison finale et préflight ouverts.",
+      "reused_in": [
+        "replay-1"
+      ]
     },
     {
       "work_id": "sulawesi-l-ile-des-premieres-images-2025",
@@ -19628,7 +19649,10 @@
       ],
       "stability": "stable",
       "status": "verified",
-      "evidence_note": "Identité ARTE/SensCritique sauvegardée le 8 octobre : Pascal Goblot et Denis van Waerebeke, France, 2025. Version numérique officielle 118245-000-A : 3305 secondes (55 min 05 s), affichée 56 min. Le créneau linéaire de 55 min reste distinct ; aucune autre version supposée. Champs identitaires existants réutilisés après revue ; synopsis rédigé depuis les matériaux officiels. Image officielle exacte récupérée et inspectée : HTTP 200 image/jpeg, 1920×1080, titre et paroi peinte. Motif précis d’absence de moyenne après recherche SensCritique/IMDb ; aucune note Télérama payante extrapolée."
+      "evidence_note": "Identité ARTE/SensCritique sauvegardée le 8 octobre : Pascal Goblot et Denis van Waerebeke, France, 2025. Version numérique officielle 118245-000-A : 3305 secondes (55 min 05 s), affichée 56 min. Le créneau linéaire de 55 min reste distinct ; aucune autre version supposée. Champs identitaires existants réutilisés après revue ; synopsis rédigé depuis les matériaux officiels. Image officielle exacte récupérée et inspectée : HTTP 200 image/jpeg, 1920×1080, titre et paroi peinte. Motif précis d’absence de moyenne après recherche SensCritique/IMDb ; aucune note Télérama payante extrapolée.",
+      "reused_in": [
+        "replay-1"
+      ]
     },
     {
       "work_id": "sulawesi-l-ile-des-premieres-images-2025",
@@ -19654,7 +19678,10 @@
       ],
       "stability": "dynamic",
       "status": "verified",
-      "evidence_note": "Offre gratuite France indépendante de TV. HTML officiel consulté le 2026-10-08T22:08:35.122209Z et API à 22:08:42.805686Z, donc le 9 octobre Europe/Paris. HTML offeringType free ; API userCountryCode FR, restrictedArea false, error null et versions françaises. Début droit 2026-07-21T22:00Z ; fin 2027-01-20T04:00Z, page jusqu’au 19/01/2027. Configuration et offre vérifiées, sans lecture de flux ni compte obligatoire affirmé."
+      "evidence_note": "Offre gratuite France indépendante de TV. HTML officiel consulté le 2026-10-08T22:08:35.122209Z et API à 22:08:42.805686Z, donc le 9 octobre Europe/Paris. HTML offeringType free ; API userCountryCode FR, restrictedArea false, error null et versions françaises. Début droit 2026-07-21T22:00Z ; fin 2027-01-20T04:00Z, page jusqu’au 19/01/2027. Configuration et offre vérifiées, sans lecture de flux ni compte obligatoire affirmé.",
+      "reused_in": [
+        "replay-1"
+      ]
     },
     {
       "work_id": "sulawesi-l-ile-des-premieres-images-2025",
@@ -19677,7 +19704,10 @@
       ],
       "stability": "dynamic",
       "status": "verified",
-      "evidence_note": "Visuel officiel horizontal ARTE portant le titre exact et des mains négatives sur une paroi ; récupéré200JPEG et inspecté."
+      "evidence_note": "Visuel officiel horizontal ARTE portant le titre exact et des mains négatives sur une paroi ; récupéré200JPEG et inspecté.",
+      "reused_in": [
+        "replay-1"
+      ]
     },
     {
       "work_id": "sulawesi-l-ile-des-premieres-images-2025",
@@ -19696,7 +19726,10 @@
       ],
       "stability": "dynamic",
       "status": "research_unavailability_documented",
-      "evidence_note": "SensCritique exact 133861006 trouvé et relu : extraction Web 6/0/0 sans libellé permettant de certifier la moyenne ; HTTP direct 403 le 9 octobre 2026. Recherches ciblées IMDb sur titres français/allemand et deux réalisateurs sans fiche exacte identifiée ; cela ne démontre pas absence de fiche ou votes. Aucun score moyen inféré."
+      "evidence_note": "SensCritique exact 133861006 trouvé et relu : extraction Web 6/0/0 sans libellé permettant de certifier la moyenne ; HTTP direct 403 le 9 octobre 2026. Recherches ciblées IMDb sur titres français/allemand et deux réalisateurs sans fiche exacte identifiée ; cela ne démontre pas absence de fiche ou votes. Aucun score moyen inféré.",
+      "reused_in": [
+        "replay-1"
+      ]
     },
     {
       "work_id": "sulawesi-l-ile-des-premieres-images-2025",
@@ -19722,7 +19755,10 @@
       ],
       "stability": "editorial",
       "status": "draft_reviewed",
-      "evidence_note": "Textes propres à cette carte, fondés sur datation et décentrement géographique. Avis partiellement accessibles de Charlotte Fauve/Télérama et Marie Plantin/L’ŒIL attribués avec leurs limites. Aucun titre/alias dans S38–S41 ni les cartes S42 actuelles ; pas de doublon Thorin. Texte de rubrique et cartes rendus par le helper strict ; comparaison finale et préflight ouverts."
+      "evidence_note": "Textes propres à cette carte, fondés sur datation et décentrement géographique. Avis partiellement accessibles de Charlotte Fauve/Télérama et Marie Plantin/L’ŒIL attribués avec leurs limites. Aucun titre/alias dans S38–S41 ni les cartes S42 actuelles ; pas de doublon Thorin. Texte de rubrique et cartes rendus par le helper strict ; comparaison finale et préflight ouverts.",
+      "reused_in": [
+        "replay-1"
+      ]
     },
     {
       "work_id": "a-ghost-story-2017",
@@ -19871,7 +19907,8 @@
       "evidence_note": "La diffusion du samedi 10 octobre à 20:55 est recoupée entre le guide officiel ARTE et TV-Programme. Le dossier stable et l'offre numérique déjà vérifiés ont été réutilisés sans nouvelle consultation fictive ; la carte quotidienne distingue l'œuvre de 89 min du créneau de 90 min.",
       "status": "verified",
       "reused_in": [
-        "samedi-selection"
+        "samedi-selection",
+        "replay-1"
       ]
     },
     {
@@ -19970,7 +20007,8 @@
       "evidence_note": "La diffusion du mardi est recoupée dans les preuves sauvegardées entre le guide officiel ARTE et TV-Programme. Le dossier stable a été réutilisé sans prétendre à une consultation nouvelle.",
       "status": "verified",
       "reused_in": [
-        "mardi-selection"
+        "mardi-selection",
+        "replay-1"
       ]
     },
     {
@@ -21798,16 +21836,18 @@
       "completed_batches": [
         "synchronize-main-e42a29ef",
         "draft-wednesday-burning-an-illusion-2026-10-09",
-        "complete-wednesday-misericorde-third-choice-2026-10-09"
+        "complete-wednesday-misericorde-third-choice-2026-10-09",
+        "complete-replay-arte-prehistory-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
         "data/links.json",
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json",
-        "data/coverage/2026-S42.json"
+        "data/coverage/2026-S42.json",
+        "data/manifest.json"
       ],
-      "complete_cards": 1,
+      "complete_cards": 3,
       "draft_cards": 1,
       "partial_dossiers": 0,
       "deliverables_advanced": [
@@ -21815,11 +21855,14 @@
         "mercredi-grille",
         "catalogue canonique",
         "liens directs",
-        "mercredi : troisième choix développé"
+        "mercredi : troisième choix développé",
+        "replay-1",
+        "sommaire"
       ],
       "requirements_resolved": [
         "Burning an Illusion : deuxième carte du mercredi matérialisée sans masquer le conflit de versions",
-        "mercredi : exactement trois choix développés matérialisés"
+        "mercredi : exactement trois choix développés matérialisés",
+        "rubrique replay : première page matérialisée avec deux cartes complètes"
       ],
       "remaining": {
         "stage": "enrichment",
@@ -21884,22 +21927,51 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T10:09:48.234Z",
+          "elapsed_seconds": 737.562,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "6aeeb8c83e45cca9350ccd1af76527de8fd06fbe",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T09:57:30.672Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T10:58:23.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T10:07:09.611Z",
-        "elapsed_seconds": 578.939,
+        "observed_at": "2026-10-09T10:09:48.234Z",
+        "elapsed_seconds": 737.562,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "6e9f5afa704b1de8f2887325ff87defcf92666eb",
+        "source_sha": "6aeeb8c83e45cca9350ccd1af76527de8fd06fbe",
         "next_actions": [
-          "Achever un troisième choix développé du mercredi depuis la présélection, avec diffusion propre au cycle, version, réception, liens et visuel entièrement revus.",
-          "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi.",
-          "Produire les rubriques indépendantes encore absentes et poursuivre les recoupements/rappels sans fermer les exigences ouvertes.",
+          "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+          "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+          "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
           "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
         ],
@@ -21917,7 +21989,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Construire des réserves complètes pour un jour déjà doté de trois choix, en priorisant les dossiers existants proches de la complétude."
+      "next_useful_batch": "Construire des réserves complètes pour lundi et jeudi depuis les dossiers existants les plus proches de la complétude."
     }
   ],
   "source_issues": [
@@ -23384,6 +23456,40 @@
           "sl-mercredi-cadet"
         ],
         "decision_note": "Carte complète au checkpoint : identité, version Arte, diffusion, réception contrastée, notes, liens et affiche vérifiés."
+      },
+      {
+        "id": "sl-replay-grotte-chauvet",
+        "title": "Grotte Chauvet : Dans les pas des artistes de la Préhistoire",
+        "work_id": "grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-2024",
+        "scope": {
+          "rubrique": "replay"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "offre_et_reception",
+            "note": "Offre gratuite France, expiration, identité et lecture critique attribuée sont déjà vérifiées ; carte replay rendue sans présenter la configuration comme un test de lecture.",
+            "source_url": "https://www.arte.tv/fr/videos/112849-000-A/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire/"
+          }
+        ],
+        "decision_note": "Carte replay complète issue du dossier sauvegardé ; contrôles finaux d’images et de présentation restent requis pour la candidate."
+      },
+      {
+        "id": "sl-replay-sulawesi",
+        "title": "Sulawesi, l'île des premières images",
+        "work_id": "sulawesi-l-ile-des-premieres-images-2025",
+        "scope": {
+          "rubrique": "replay"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "offre_et_reception",
+            "note": "Offre gratuite France, expiration, identité et deux lectures attribuées sont déjà vérifiées ; carte replay rendue sans consensus ni test de lecture inventés.",
+            "source_url": "https://www.arte.tv/fr/videos/118245-000-A/sulawesi-l-ile-des-premieres-images/"
+          }
+        ],
+        "decision_note": "Carte replay complète issue du dossier sauvegardé ; contrôles finaux d’images et de présentation restent requis pour la candidate."
       }
     ]
   },
