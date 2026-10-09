@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "week": "2026-S42",
-  "base_sha": "3111c849101f085ebc90f781460f57879c13786b",
+  "base_sha": "eadfd023669970da304879f587cba4125908a655",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T07:16:33.667Z",
+  "updated_at": "2026-10-09T08:35:36.949Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -494,6 +494,12 @@
       "id": "complete-thursday-tonkin-developed-card-2026-10-09",
       "completed_at": "2026-10-09T08:08:53.174Z",
       "description": "Les fantômes du Tonkin a reçu une identité canonique, une version 60 min distincte du créneau, une diffusion France 5 officiellement recoupée, un visuel France Télévisions, un motif d’absence de moyenne et une deuxième carte développée du jeudi. Le troisième choix reste ouvert.",
+      "items": 1
+    },
+    {
+      "id": "complete-thursday-the-host-third-choice-2026-10-09",
+      "completed_at": "2026-10-09T08:35:36.949Z",
+      "description": "The Host a reçu une identité canonique, une diffusion France 4 officielle recoupée, deux lectures critiques, une note datée, des liens exacts et une affiche du distributeur ; le jeudi expose désormais trois choix développés.",
       "items": 1
     }
   ],
@@ -20020,6 +20026,95 @@
       },
       "evidence_note": "Photogramme officiel exact ouvert et inspecté. Recherches ciblées par titre/réalisateur sans fiche IMDb ou SensCritique exacte ; note Télérama payante non transposée, aucune absence générale de votes inférée.",
       "status": "verified"
+    },
+    {
+      "work_id": "the-host-2006",
+      "fields": [
+        "title",
+        "aliases",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration"
+      ],
+      "source_urls": [
+        "https://www.thejokersfilms.com/films/the-host/",
+        "https://www.telerama.fr/cinema/films/the-host,266352.php",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=111431.html"
+      ],
+      "checked_at": "2026-10-09T08:35:36.949Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "version": "film 2006"
+      },
+      "evidence_note": "Identité distincte du film 2013 ; durée française 120 min, observation 119 min conservée comme arrondi.",
+      "status": "verified"
+    },
+    {
+      "work_id": "the-host-2006",
+      "fields": [
+        "broadcast_date",
+        "start",
+        "channel",
+        "slot_duration"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-4/10-10-2026/15-10-2026",
+        "https://tv-programme.com/france-4/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-09T08:35:36.949Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "channel": "France 4"
+      },
+      "evidence_note": "Grille officielle explicite et grille datée concordante : 21:00, créneau 2 h.",
+      "status": "verified"
+    },
+    {
+      "work_id": "the-host-2006",
+      "fields": [
+        "critical_reception",
+        "imdb_rating"
+      ],
+      "source_urls": [
+        "https://www.lemonde.fr/cinema/article/2006/11/21/the-host-sous-le-masque-du-monstre-un-grand-film-mutant_836888_3476.html",
+        "https://www.telerama.fr/cinema/films/the-host,266352.php",
+        "https://www.imdb.com/title/tt0468492/ratings/"
+      ],
+      "checked_at": "2026-10-09T08:35:36.949Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "version": "film 2006"
+      },
+      "evidence_note": "Deux critiques professionnelles attribuées ; IMDb 7,1/10 daté, note Télérama masquée non transcrite.",
+      "status": "verified"
+    },
+    {
+      "work_id": "the-host-2006",
+      "fields": [
+        "image",
+        "image_source_url",
+        "editorial_copy",
+        "daily_card"
+      ],
+      "source_urls": [
+        "https://www.thejokersfilms.com/films/the-host/",
+        "https://www.thejokersfilms.com/app/uploads/2025/12/TheHost_100x130_Poster2_Final-V2b-788x1024.jpg"
+      ],
+      "checked_at": "2026-10-09T08:35:36.949Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "rank": 3
+      },
+      "evidence_note": "Affiche exacte inspectée ; textes originaux relus et carte rendue. Santé distante encore soumise au CI.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -21010,6 +21105,106 @@
       },
       "stop_reason": "one_complete_card_rendered_and_checkpointed; no_second_candidate_with_fully_verified_cycle_broadcast_finalizable_inside_this_active_window",
       "next_useful_batch": "Finaliser le troisième choix du jeudi avec diffusion propre au cycle entièrement recoupée, puis poursuivre lundi ou mercredi."
+    },
+    {
+      "date": "2026-10-09T08:35:36.949Z",
+      "started_at": "2026-10-09T08:28:29.664Z",
+      "ended_at": null,
+      "owner": "7f9c1d7e-16ae-47a1-840a-afac3ba16831",
+      "execution_kind": "scheduled_continuation_production",
+      "prompt_revision": "production-continuation-2026-10-09",
+      "stage": "enrichment",
+      "elapsed_seconds": 427,
+      "duration_basis": "started_at capturé à l’entrée ; checkpoint intermédiaire après synchronisation de main, recherche ciblée et rendu de la troisième carte du jeudi.",
+      "completed_batches": [
+        "synchronize-main-eadfd023",
+        "complete-thursday-the-host-third-choice-2026-10-09"
+      ],
+      "deliverables_changed": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/coverage/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "complete_cards": 1,
+      "draft_cards": 0,
+      "partial_dossiers": 0,
+      "deliverables_advanced": [
+        "jeudi-selection",
+        "jeudi-grille",
+        "catalogue canonique",
+        "liens directs"
+      ],
+      "requirements_resolved": [
+        "jeudi : troisième choix développé complet matérialisé"
+      ],
+      "remaining": {
+        "stage": "enrichment",
+        "count": 35,
+        "reference": "remaining"
+      },
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T08:31:58.987Z",
+          "elapsed_seconds": 209.323,
+          "budget_seconds": 2100,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "4452a4ee91c5ecac230cfd383d66c3c0c7901420",
+          "next_actions": [
+            "Achever un troisième choix développé du jeudi depuis une piste dont la diffusion actuelle peut être entièrement recoupée ; ne pas retenir Un crime dans la tête sans preuve propre au créneau visé.",
+            "Achever deux choix développés pour lundi et mercredi à partir de la shortlist et de dossiers proches d’une carte ; préserver les limites de diffusion/version déjà consignées.",
+            "Construire les réserves complètes des jours à trois choix puis du jeudi, sans nouvelle collecte générale.",
+            "Produire les rubriques indépendantes encore absentes et consolider les recoupements/rappels ; préserver les 35 exigences jusqu’à résolution effective.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 39,
+          "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T08:28:29.664Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T09:29:26.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-09T08:31:58.987Z",
+        "elapsed_seconds": 209.323,
+        "budget_seconds": 2100,
+        "reserve_seconds": 300,
+        "week": "2026-S42",
+        "source_sha": "4452a4ee91c5ecac230cfd383d66c3c0c7901420",
+        "next_actions": [
+          "Achever un troisième choix développé du jeudi depuis une piste dont la diffusion actuelle peut être entièrement recoupée ; ne pas retenir Un crime dans la tête sans preuve propre au créneau visé.",
+          "Achever deux choix développés pour lundi et mercredi à partir de la shortlist et de dossiers proches d’une carte ; préserver les limites de diffusion/version déjà consignées.",
+          "Construire les réserves complètes des jours à trois choix puis du jeudi, sans nouvelle collecte générale.",
+          "Produire les rubriques indépendantes encore absentes et consolider les recoupements/rappels ; préserver les 35 exigences jusqu’à résolution effective.",
+          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits."
+        ],
+        "remaining_count": 35,
+        "next_actions_total": 39,
+        "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "observations": {
+          "started_at": "2026-10-09T08:28:29.664Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-09T09:29:26.000Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
+        }
+      },
+      "run_state": "running",
+      "stop_reason": null,
+      "next_useful_batch": "Achever une carte lundi ou mercredi depuis un dossier déjà proche de l’achèvement."
     }
   ],
   "source_issues": [
@@ -21608,11 +21803,10 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "be84c7360a93df9dfc60fcd887a5c9493c6359da",
-    "main_sha": "3111c849101f085ebc90f781460f57879c13786b",
+    "checkpoint_parent_sha": "4452a4ee91c5ecac230cfd383d66c3c0c7901420",
+    "main_sha": "eadfd023669970da304879f587cba4125908a655",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Achever un troisième choix développé du jeudi depuis une piste dont la diffusion actuelle peut être entièrement recoupée ; ne pas retenir Un crime dans la tête sans preuve propre au créneau visé.",
       "Achever deux choix développés pour lundi et mercredi à partir de la shortlist et de dossiers proches d’une carte ; préserver les limites de diffusion/version déjà consignées.",
       "Construire les réserves complètes des jours à trois choix puis du jeudi, sans nouvelle collecte générale.",
       "Produire les rubriques indépendantes encore absentes et consolider les recoupements/rappels ; préserver les 35 exigences jusqu’à résolution effective."
@@ -22227,7 +22421,7 @@
         "scope": {
           "day": "jeudi"
         },
-        "status": "researching",
+        "status": "deferred",
         "signals": [
           {
             "kind": "critique",
@@ -22238,7 +22432,8 @@
         "alternatives": [
           "sl-jeudi-point-limite",
           "sl-jeudi-fantomes-tonkin"
-        ]
+        ],
+        "decision_note": "Non retenu pour le jeudi : les créneaux du 15 octobre observés dans les guides n’ont pas reçu de preuve officielle propre. Le dossier distinct du lundi reste ouvert."
       },
       {
         "id": "sl-vendredi-la-proie-nue",
@@ -22371,6 +22566,32 @@
           "sl-mardi-regrouping",
           "sl-mardi-les-mots"
         ]
+      },
+      {
+        "id": "sl-jeudi-the-host",
+        "title": "The Host",
+        "work_id": "the-host-2006",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Le Monde analyse le mélange carnavalesque des genres et la subversion des archétypes hollywoodiens.",
+            "source_url": "https://www.lemonde.fr/cinema/article/2006/11/21/the-host-sous-le-masque-du-monstre-un-grand-film-mutant_836888_3476.html"
+          },
+          {
+            "kind": "diffusion_officielle",
+            "note": "FranceTvPro atteste France 4, jeudi 15 octobre à 21:00, identité et durée de créneau.",
+            "source_url": "https://www.francetvpro.fr/grille/france-4/10-10-2026/15-10-2026"
+          }
+        ],
+        "alternatives": [
+          "sl-jeudi-point-limite",
+          "sl-jeudi-fantomes-tonkin"
+        ],
+        "decision_note": "Troisième carte développée du jeudi rendue avec diffusion officielle et grille datée concordante, identité, visuel, note et réception vérifiés."
       }
     ]
   },
@@ -22383,8 +22604,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "be84c7360a93df9dfc60fcd887a5c9493c6359da",
-    "produced_at": "2026-10-09T08:08:53.174Z",
+    "source_candidate_sha": "4452a4ee91c5ecac230cfd383d66c3c0c7901420",
+    "produced_at": "2026-10-09T08:35:36.949Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -22792,6 +23013,28 @@
             "https://www.francetelevisions.fr/et-vous/notre-tele/a-ne-pas-manquer/les-fantomes-de-tonkin-28902"
           ]
         }
+      },
+      {
+        "work_id": "the-host-2006",
+        "date": "2026-10-15",
+        "rank_provisional": 3,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "identity_version": "Long métrage sud-coréen de Bong Joon-ho, production 2006, distinct du film homonyme de 2013 ; FranceTvPro, The Jokers, Télérama, AlloCiné et IMDb concordent.",
+          "canonical_fields": "Titre, aliases, réalisateur, année, pays, genre, durée de 120 minutes, liens directs, affiche du distributeur et note IMDb 7,1 contrôlés.",
+          "current_broadcast": "Jeudi 15 octobre à 21:00 sur France 4, durée de créneau 2 heures et identité explicitement attestées par la grille officielle FranceTvPro ; la grille datée TV-Programme concorde.",
+          "editorial_copy": "Synopsis et justification originaux rédigés depuis la prémisse du distributeur et deux critiques professionnelles distinctes ; aucune moyenne critique ni consensus n’est inventé.",
+          "evidence_urls": [
+            "https://www.francetvpro.fr/grille/france-4/10-10-2026/15-10-2026",
+            "https://tv-programme.com/france-4/jeudi-15-octobre-2026/",
+            "https://www.thejokersfilms.com/films/the-host/",
+            "https://www.telerama.fr/cinema/films/the-host,266352.php",
+            "https://www.lemonde.fr/cinema/article/2006/11/21/the-host-sous-le-masque-du-monstre-un-grand-film-mutant_836888_3476.html",
+            "https://www.imdb.com/title/tt0468492/ratings/",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=111431.html"
+          ]
+        }
       }
     ],
     "publication_ready": false,
@@ -22799,16 +23042,16 @@
     "remaining_reference": "remaining"
   },
   "contract_reads": {
-    "main_sha": "3111c849101f085ebc90f781460f57879c13786b",
-    "checked_at": "2026-10-09T07:02:51.000Z",
+    "main_sha": "eadfd023669970da304879f587cba4125908a655",
+    "checked_at": "2026-10-09T08:30:00.000Z",
     "documents": {
-      "AUTOMATION.md": "38bca43261f64cf6a731f7d7e0cd1aa070d65f0b",
+      "AUTOMATION.md": "bac66f407543c77ddd237f47916b33001657cece",
       "docs/HYBRID-WORKFLOW.md": "95cad0792febab1bc7edf076300bd38ced9c84ba",
       "ARCHITECTURE.md": "7c6e72b0729e4f915bc5a90f084c40e1cc363e8a",
       "data/automation-config.json": "e55d9a247fc0299ce6effc6c3e97eea9018f0dc3",
       "data/editorial-config.json": "e491aa84dac6b34ca4ec4b8b4cb1e88737a0b385",
       "data/personalization-config.json": "ad5716e95db25894de7ca58c874154783b1766a8"
     },
-    "note": "Les six contrats ont été lus sur le SHA main indiqué avant le choix du lot."
+    "note": "AUTOMATION.md a été relu car son blob a changé ; les cinq autres blobs correspondent à la lecture attestée précédente."
   }
 }
