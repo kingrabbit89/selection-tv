@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T11:42:08.377Z",
+  "updated_at": "2026-10-09T11:46:53.972Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -770,6 +770,72 @@
         "data/works.json",
         "data/links.json",
         "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "defer-maestros-missing-direct-netflix-page-2026-10-09",
+      "completed_at": "2026-10-09T11:43:53.911Z",
+      "scope": "sorties-streaming",
+      "summary": "Maestro(s) examiné pour la troisième carte : arrivée, identité et réception étayées, mais absence de page Netflix directe certaine après recherche ciblée. Piste différée sans affaiblir le contrat de lien exact.",
+      "deliverables": [
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "shortlist-two-physical-release-reserve-leads-2026-10-09",
+      "completed_at": "2026-10-09T11:44:30.207Z",
+      "scope": "sorties-physiques",
+      "summary": "Deux pistes de réserves physiques supplémentaires ciblées : Phenomena et L’Au-delà, éditions du 14 octobre. Elles restent à rechercher et ne sont pas comptées comme cartes complètes.",
+      "deliverables": [
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "advance-phenomena-physical-release-dossier-2026-10-09",
+      "completed_at": "2026-10-09T11:44:58.731Z",
+      "scope": "sorties-physiques",
+      "summary": "Dossier Phenomena avancé : édition, EAN, date, version intégrale 116 min et note IMDb établis. Carte non rendue car les critiques retrouvées portent surtout sur des montages raccourcis et le visuel exact reste à extraire.",
+      "deliverables": [
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "complete-l-au-dela-physical-release-dossier-2026-10-09",
+      "completed_at": "2026-10-09T11:45:51.875Z",
+      "scope": "sorties-physiques",
+      "summary": "Dossier L’Au-delà achevé : édition, EAN, date, version, identité, visuel, notes et réception contradictoire réunis. Carte non encore rédigée ; le contrôle CI du visuel et la réserve sur la violence restent requis.",
+      "deliverables": [
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "complete-l-au-dela-physical-reserve-card-2026-10-09",
+      "completed_at": "2026-10-09T11:46:33.801Z",
+      "scope": "sorties-physiques",
+      "summary": "L’Au-delà intégré comme réserve physique complète, avec différence 86/87 min, réception contradictoire et avertissement de violence conservés. La rubrique compte désormais deux choix visibles et une réserve complète.",
+      "deliverables": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "complete-phenomena-physical-release-dossier-2026-10-09",
+      "completed_at": "2026-10-09T11:46:53.972Z",
+      "scope": "sorties-physiques",
+      "summary": "Dossier Phenomena complété après identification de deux revues indépendantes du montage intégral 116 min. La critique historique de Creepers reste séparée ; carte à rédiger au prochain lot.",
+      "deliverables": [
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "fix-shortlist-alternative-identifiers-2026-10-09",
+      "completed_at": "2026-10-09T11:48:24.505Z",
+      "scope": "shortlist",
+      "summary": "Les alternatives textuelles des pistes streaming ont été remplacées par les identifiants exacts de la présélection. validation-context ne signale plus d’alternative inconnue ; la candidate reste volontairement incomplète.",
+      "deliverables": [
         "data/research/2026-S42.json"
       ]
     }
@@ -21805,6 +21871,67 @@
       },
       "evidence_note": "Le line-up officiel Netflix France annonce l’arrivée le 16 octobre 2026. La page directe ID 81034575 est exacte mais indique avant cette date que le titre n’est pas encore disponible dans le pays ; ouverture France à revalider le 16 octobre.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "physical_release.date",
+        "physical_release.ean",
+        "physical_release.format",
+        "physical_release.editor",
+        "duration",
+        "image",
+        "imdb_id",
+        "ratings.imdb"
+      ],
+      "source_urls": [
+        "https://www.fnac.com/a23469757/Phenomena-Edition-Collector-Blu-ray-4K-Ultra-HD-Jennifer-Connelly-Blu-ray-4K",
+        "https://static.fnac-static.com/multimedia/Images/FR/NR/ca/ad/3b/20688330/1540-1/tsp20260804171126/Phenomena-Edition-Collector-Blu-ray-4K-Ultra-HD.jpg",
+        "https://www.imdb.com/title/tt0087909/ratings/"
+      ],
+      "checked_at": "2026-10-09T11:45:21.841Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "section": "sorties-physiques",
+        "candidate": "Phenomena",
+        "version": "integral cut 116 min"
+      },
+      "evidence_note": "Édition, EAN, date, format, durée, image exacte et note IMDb établis ; work_id et réception de version restent non certifiés.",
+      "status": "partial"
+    },
+    {
+      "work_id": "l-au-dela-1981",
+      "fields": [
+        "title",
+        "aliases",
+        "director",
+        "year",
+        "country",
+        "duration",
+        "physical_release.date",
+        "physical_release.ean",
+        "physical_release.format",
+        "physical_release.editor",
+        "image",
+        "ratings",
+        "critical_reception"
+      ],
+      "source_urls": [
+        "https://www.fnac.com/a23469747/L-Au-Dela-Blu-ray-4K-Ultra-HD-Catriona-MacColl-Blu-ray-4K",
+        "https://www.imdb.com/title/tt0082307/",
+        "https://www.rogerebert.com/reviews/the-beyond-1998",
+        "https://www.theguardian.com/film/2021/aug/09/the-antonioni-of-splatter-welcome-to-the-gruesomely-elegant-world-of-lucio-fulci"
+      ],
+      "checked_at": "2026-10-09T11:45:51.875Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "section": "sorties-physiques",
+        "version": "French 4K UHD + Blu-ray 86 min"
+      },
+      "evidence_note": "Dossier complet ; divergence 86/87 min conservée et visuel à contrôler en CI.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -23684,15 +23811,15 @@
       "next_useful_batch": "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés."
     },
     {
-      "date": "2026-10-09T11:42:08.377Z",
+      "date": "2026-10-09T11:50:41.530Z",
       "started_at": "2026-10-09T11:00:32.109Z",
-      "ended_at": null,
+      "ended_at": "2026-10-09T11:50:41.530Z",
       "owner": "242b436f-e4f5-4018-b208-fca5b20fa9ec",
       "execution_kind": "scheduled_efficiency_production",
       "prompt_revision": "production-efficiency-2026-10-09",
       "stage": "enrichment",
-      "elapsed_seconds": null,
-      "duration_basis": "Passage en cours ; durée terminale non encore observée.",
+      "elapsed_seconds": 3009.421,
+      "duration_basis": "Différence entre started_at et ended_at observés pendant cette exécution.",
       "completed_batches": [
         "advance-monday-reserve-pool-seven-cards-2026-10-09",
         "sync-main-validator-fix-2026-10-09",
@@ -23702,7 +23829,14 @@
         "draft-platform-subscription-page-one-2026-10-09",
         "draft-physical-releases-section-2026-10-09",
         "draft-streaming-release-haffmann-2026-10-09",
-        "advance-streaming-releases-two-cards-2026-10-09"
+        "advance-streaming-releases-two-cards-2026-10-09",
+        "defer-maestros-missing-direct-netflix-page-2026-10-09",
+        "shortlist-two-physical-release-reserve-leads-2026-10-09",
+        "advance-phenomena-physical-release-dossier-2026-10-09",
+        "complete-l-au-dela-physical-release-dossier-2026-10-09",
+        "complete-l-au-dela-physical-reserve-card-2026-10-09",
+        "complete-phenomena-physical-release-dossier-2026-10-09",
+        "fix-shortlist-alternative-identifiers-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -23711,9 +23845,9 @@
         "data/research/2026-S42.json",
         "data/manifest.json"
       ],
-      "complete_cards": 32,
+      "complete_cards": 33,
       "draft_cards": 1,
-      "partial_dossiers": 4,
+      "partial_dossiers": 5,
       "deliverables_advanced": [
         "lundi : pool avancé à sept cartes complètes sur dix requises",
         "catalogue canonique",
@@ -23725,10 +23859,13 @@
         "plateformes-abonnement : première page de trois cartes complètes",
         "sorties-physiques : deux cartes complètes et page rendue",
         "sorties-streaming : première carte complète et page rendue",
-        "sorties-streaming : deux cartes complètes"
+        "sorties-streaming : deux cartes complètes",
+        "sorties-physiques : deux choix et une réserve complète",
+        "présélection streaming : références alternatives valides"
       ],
       "requirements_resolved": [
-        "lundi : seuil minimal de dix cartes complètes atteint"
+        "lundi : seuil minimal de dix cartes complètes atteint",
+        "CI validation-context : alternatives de présélection référencées par identifiant exact"
       ],
       "remaining": {
         "stage": "enrichment",
@@ -23967,18 +24104,105 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T11:43:10.422Z",
+          "elapsed_seconds": 2558.313,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "4b172308b8bd1f11bdde2ccd8e0721fcd9882756",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T11:00:32.109Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T12:21:30.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T11:48:48.140Z",
+          "elapsed_seconds": 2896.031,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "4b172308b8bd1f11bdde2ccd8e0721fcd9882756",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T11:00:32.109Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T12:21:30.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        },
+        {
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-09T11:50:41.530Z",
+          "elapsed_seconds": 3009.421,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "4b172308b8bd1f11bdde2ccd8e0721fcd9882756",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T11:00:32.109Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T12:21:30.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T11:38:20.383Z",
-        "elapsed_seconds": 2268.274,
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-09T11:50:41.530Z",
+        "elapsed_seconds": 3009.421,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "e944fa07f7e0a682809ab9f7e85ae709e5a9994a",
+        "source_sha": "4b172308b8bd1f11bdde2ccd8e0721fcd9882756",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -23998,9 +24222,10 @@
           "ready_handoff": null
         }
       },
-      "run_state": "running",
-      "stop_reason": null,
-      "next_useful_batch": "Trouver une troisième sortie streaming avec page directe exacte, ou approfondir les réserves sorties physiques et les jours déficitaires."
+      "run_state": "stopped",
+      "stop_reason": "budget_reserve_reached",
+      "next_useful_batch": "Rédiger et revoir Phenomena comme seconde réserve physique complète, puis résoudre la troisième sortie streaming et les jours déficitaires.",
+      "new_leads": 2
     }
   ],
   "source_issues": [
@@ -24970,10 +25195,44 @@
       "blocking_scope": "thursday_card_candidate_only",
       "status": "needs_check",
       "resume_when": "Reprendre sur grille officielle CANAL+ actualisée ou événement de diffusion nominatif et daté."
+    },
+    {
+      "id": "maestros-netflix-direct-page-2026-10-09",
+      "subject": "Maestro(s) (2022), arrivée Netflix France du 10 octobre 2026",
+      "question": "Une page Netflix directe et certaine permet-elle de compléter la troisième carte sorties streaming ?",
+      "attempted_at": "2026-10-09T11:43:53.911Z",
+      "source_urls": [
+        "https://about.netflix.com/fr/news/line-up-mensuel",
+        "https://apollo-films.fr/maestros/",
+        "https://www.telerama.fr/cinema/films/maestro-s-1-227850450.php",
+        "https://www.premiere.fr/film/Maestros",
+        "https://www.allocine.fr/film/fichefilm-291285/critiques/presse/"
+      ],
+      "result": "Le line-up officiel Netflix France établit l’arrivée et Apollo établit l’identité, l’affiche et la durée. Une recherche ciblée sur le domaine Netflix n’a retourné aucune page titre directe ; la carte n’est pas publiée pour éviter de remplacer ce lien manquant par une page générale.",
+      "blocking_scope": "sorties_streaming_third_card",
+      "status": "deferred",
+      "resume_when": "Reprendre si une page Netflix directe stable apparaît ou si Netflix publie un identifiant titre exact avant la revue finale."
+    },
+    {
+      "id": "phenomena-integral-cut-critical-reception-2026-10-09",
+      "subject": "Phenomena (1985), édition collector 4K UHD + Blu-ray 116 min du 14 octobre 2026",
+      "question": "La réception indépendante retrouvée porte-t-elle bien sur la version intégrale de 116 minutes annoncée par l’édition ?",
+      "attempted_at": "2026-10-09T11:44:58.731Z",
+      "source_urls": [
+        "https://www.fnac.com/a23469757/Phenomena-Edition-Collector-Blu-ray-4K-Ultra-HD-Jennifer-Connelly-Blu-ray-4K",
+        "https://www.imdb.com/title/tt0087909/ratings/",
+        "https://www.theguardian.com/film/article/2024/may/02/go-ape-killer-simians-in-cinema-ranked",
+        "https://www.comingsoon.net/movies/features/884125-phenomena-blu-ray-review",
+        "https://cinemasentries.com/phenomena-1985-blu-ray-review-argento-at-his-most-bewildering/"
+      ],
+      "result": "L’édition, l’EAN, la durée intégrale, le visuel et la note IMDb sont établis. ComingSoon et Cinema Sentries identifient explicitement le montage intégral 116 min et fournissent une réception indépendante de cette version ; le conflit avec les critiques historiques de Creepers reste documenté.",
+      "blocking_scope": "resolved_for_physical_reserve_dossier",
+      "status": "resolved",
+      "resume_when": "Nouvelle recherche seulement si la fiche française change de contenu ou si le contrôle CI du visuel échoue."
     }
   ],
   "shortlist": {
-    "updated_at": "2026-10-09T11:42:08.377Z",
+    "updated_at": "2026-10-09T11:46:33.801Z",
     "note": "Présélection révisable par jour et rubrique ; premières cartes plateformes gratuites intégrées depuis les dossiers acquis. Aucun statut ne certifie la sélection finale du numéro.",
     "entries": [
       {
@@ -26143,8 +26402,8 @@
         ],
         "decision_note": "Carte complète de rubrique avec réserve explicite sur la page Netflix non encore ouverte en France avant le 14 octobre.",
         "alternatives": [
-          "Kursk / The Command à achever",
-          "Maestro(s) différé faute de page Netflix directe certaine"
+          "sl-sorties-streaming-kursk-2018",
+          "sl-sorties-streaming-maestros-2022"
         ]
       },
       {
@@ -26166,6 +26425,83 @@
         "alternatives": [
           "Troisième arrivée à identifier avec page directe exacte"
         ]
+      },
+      {
+        "id": "sl-sorties-streaming-maestros-2022",
+        "title": "Maestro(s)",
+        "work_id": null,
+        "scope": {
+          "rubrique": "sorties-streaming"
+        },
+        "status": "deferred",
+        "signals": [
+          {
+            "kind": "arrivee_netflix_france",
+            "note": "Le line-up officiel annonce l’arrivée le 10 octobre 2026 ; identité, affiche et durée sont établies par Apollo Films.",
+            "source_url": "https://about.netflix.com/fr/news/line-up-mensuel"
+          },
+          {
+            "kind": "reception_independante",
+            "note": "Interprétation et univers musical appréciés, scénario jugé programmatique ou mince par plusieurs critiques.",
+            "source_url": "https://www.allocine.fr/film/fichefilm-291285/critiques/presse/"
+          }
+        ],
+        "decision_note": "Différé : aucune page Netflix directe certaine retrouvée malgré une recherche ciblée ; ne pas publier avec la seule page générale du line-up.",
+        "alternatives": [
+          "sl-sorties-streaming-kursk-2018",
+          "sl-sorties-streaming-adieu-monsieur-haffmann-2022"
+        ]
+      },
+      {
+        "id": "sl-sorties-physiques-phenomena-1985",
+        "title": "Phenomena",
+        "work_id": null,
+        "scope": {
+          "rubrique": "sorties-physiques"
+        },
+        "status": "dossier_complete",
+        "signals": [
+          {
+            "kind": "edition_physique_datee",
+            "note": "Édition collector 4K UHD + Blu-ray Les Films du Camélia, EAN 3770024050295, 116 min, annoncée le 14 octobre 2026 avec bonus détaillés.",
+            "source_url": "https://www.fnac.com/a23469757/Phenomena-Edition-Collector-Blu-ray-4K-Ultra-HD-Jennifer-Connelly-Blu-ray-4K"
+          },
+          {
+            "kind": "identite_et_note",
+            "note": "IMDb tt0087909, note 6,7/10 ; l’édition annonce la version intégrale de 116 minutes.",
+            "source_url": "https://www.imdb.com/title/tt0087909/ratings/"
+          }
+        ],
+        "decision_note": "Dossier complet : montage intégral 116 min, édition, visuel, note et réception indépendante de cette version vérifiés ; carte à rédiger.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-sorties-physiques-l-au-dela-1981",
+        "title": "L’Au-delà",
+        "work_id": "l-au-dela-1981",
+        "scope": {
+          "rubrique": "sorties-physiques"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "edition_physique_datee",
+            "note": "Édition 4K UHD + Blu-ray Le Chat qui fume annoncée le 14 octobre 2026.",
+            "source_url": "https://www.fnac.com/a23469747/L-Au-Dela-Blu-ray-4K-Ultra-HD-Catriona-MacColl-Blu-ray-4K"
+          },
+          {
+            "kind": "reception_independante",
+            "note": "Roger Ebert critique l’incohérence et les dialogues ; The Guardian replace le film dans la trilogie des portes de l’enfer et souligne son imaginaire horrifique.",
+            "source_url": "https://www.rogerebert.com/reviews/the-beyond-1998"
+          },
+          {
+            "kind": "identite_notes_et_version",
+            "note": "IMDb tt0082307, 6,5/10 sur 28 k notes et Metascore 38 ; édition française 86 min à comparer au runtime IMDb 87 min.",
+            "source_url": "https://www.imdb.com/title/tt0082307/"
+          }
+        ],
+        "decision_note": "Carte complète de réserve physique : édition, version, identité, visuel, notes, réception contradictoire et avertissement de violence revus.",
+        "alternatives": []
       }
     ]
   },
@@ -26178,8 +26514,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "df6536b6ff31a3ae6c78bac6a2e2ee3777f8fd74",
-    "produced_at": "2026-10-09T11:42:08.377Z",
+    "source_candidate_sha": "4b172308b8bd1f11bdde2ccd8e0721fcd9882756",
+    "produced_at": "2026-10-09T11:46:33.801Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -27025,6 +27361,26 @@
           "canonical_fields": "Identité, alias, réalisateur, année, pays, genre, durée France Télévisions de 118 minutes, visuel Netflix, liens et notes IMDb/Metacritic datées contrôlés.",
           "current_broadcast": "Le line-up officiel Netflix France annonce l’arrivée le 16 octobre 2026. La page directe ID 81034575 est exacte mais indique avant cette date que le titre n’est pas encore disponible dans le pays ; ouverture France à revalider le 16 octobre.",
           "editorial_copy": "Synopsis original rédigé depuis France Télévisions et Film France ; justification revue depuis The Guardian et Variety, avec la réception divisée conservée."
+        }
+      },
+      {
+        "work_id": "l-au-dela-1981",
+        "section": "sorties-physiques",
+        "rank_provisional": 3,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "evidence_urls": [
+            "https://www.fnac.com/a23469747/L-Au-Dela-Blu-ray-4K-Ultra-HD-Catriona-MacColl-Blu-ray-4K",
+            "https://www.imdb.com/title/tt0082307/",
+            "https://www.imdb.com/title/tt0082307/criticreviews/",
+            "https://www.rogerebert.com/reviews/the-beyond-1998",
+            "https://www.theguardian.com/film/2021/aug/09/the-antonioni-of-splatter-welcome-to-the-gruesomely-elegant-world-of-lucio-fulci"
+          ],
+          "identity_version": "Film de Lucio Fulci sorti en 1981, IMDb tt0082307. L’édition française retenue est le 4K UHD + Blu-ray Le Chat qui fume, EAN 3760147493888, annoncé le 14 octobre 2026.",
+          "canonical_fields": "Titre français, titre original et alias, réalisateur, année, pays, genre, édition, EAN, liens, image exacte et notes datées contrôlés. La fiche française indique 86 minutes, IMDb 87 ; cette différence reste explicite.",
+          "current_broadcast": "La fiche Fnac atteste l’édition Le Chat qui fume, le format, les langues, le sous-titrage français, les bonus et la date du 14 octobre 2026. La provenance du master n’est pas extrapolée.",
+          "editorial_copy": "Synopsis original resserré depuis la fiche d’édition ; justification revue depuis The Guardian et Roger Ebert avec la réserve de violence graphique explicitement ajoutée."
         }
       }
     ],
@@ -28083,6 +28439,120 @@
         "image_url": "https://occ-0-7977-769.1.nflxso.net/dnm/api/v6/MgXQGyNr1xbI8tJSYiMWv5kXg5g/AAAABX4IMNfzB2-zQLZwK_IRgBUm2FXVxl6rCXWhxN91ejBbOgK_XVrl8VhTZhX44AjAMrnk9jz4IaOZEXru55R7jDqvxoSp5X_LPqo3__iiKb5NDQTjrB0EW9wxpw.jpg?r=f71"
       },
       "reason": "Carte complète ; alias et état d’ouverture de l’offre conservés."
+    },
+    {
+      "title": "Phenomena",
+      "work_id": null,
+      "decision": "dossier complet sorties-physiques, carte à rédiger",
+      "identity_research": {
+        "director": "Dario Argento",
+        "year": 1985,
+        "duration": "116 min",
+        "version": "montage intégral annoncé par l’édition",
+        "imdb_id": "tt0087909",
+        "source_urls": [
+          "https://www.fnac.com/a23469757/Phenomena-Edition-Collector-Blu-ray-4K-Ultra-HD-Jennifer-Connelly-Blu-ray-4K",
+          "https://www.imdb.com/title/tt0087909/"
+        ],
+        "checked_at": "2026-10-09T11:44:58.731Z"
+      },
+      "availability_research": {
+        "status": "verified_physical_release_candidate",
+        "checked_at": "2026-10-09T11:44:58.731Z",
+        "source_urls": [
+          "https://www.fnac.com/a23469757/Phenomena-Edition-Collector-Blu-ray-4K-Ultra-HD-Jennifer-Connelly-Blu-ray-4K"
+        ],
+        "note": "Édition collector Les Films du Camélia, EAN 3770024050295, 4K UHD + Blu-ray, date du 14 octobre 2026 et bonus détaillés."
+      },
+      "critical_evidence": [
+        {
+          "source": "ComingSoon",
+          "source_url": "https://www.comingsoon.net/movies/features/884125-phenomena-blu-ray-review",
+          "assessment": "Critique de l’édition à trois montages, identifiant explicitement le montage intégral 116 min et valorisant l’excès formel du film."
+        },
+        {
+          "source": "Cinema Sentries",
+          "source_url": "https://cinemasentries.com/phenomena-1985-blu-ray-review-argento-at-his-most-bewildering/",
+          "assessment": "Revue du montage intégral 116 min, soulignant son caractère déroutant et ses segments italiens spécifiques."
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic",
+        "checked_at": "2026-10-09T11:44:58.731Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0087909/ratings/"
+        ],
+        "note": "IMDb 6,7/10 ; volume non retenu faute de valeur stable exposée dans le résultat."
+      },
+      "image_research": {
+        "status": "exact_edition_cover_verified_ci_pending",
+        "checked_at": "2026-10-09T11:45:21.841Z",
+        "source_page": "https://www.fnac.com/a23469757/Phenomena-Edition-Collector-Blu-ray-4K-Ultra-HD-Jennifer-Connelly-Blu-ray-4K",
+        "image_url": "https://static.fnac-static.com/multimedia/Images/FR/NR/ca/ad/3b/20688330/1540-1/tsp20260804171126/Phenomena-Edition-Collector-Blu-ray-4K-Ultra-HD.jpg",
+        "note": "Jaquette exacte de l’édition collector, ouverte depuis la fiche produit EAN 3770024050295."
+      },
+      "reason": "Dossier complet : édition, version intégrale, visuel, note et réception indépendante de la bonne version sont réunis ; carte à rédiger et contrôler."
+    },
+    {
+      "title": "L’Au-delà",
+      "work_id": "l-au-dela-1981",
+      "decision": "carte complète de réserve sorties-physiques",
+      "identity_research": {
+        "director": "Lucio Fulci",
+        "year": 1981,
+        "country": "Italie",
+        "duration_observations": [
+          {
+            "duration": "86 min",
+            "version": "édition française 4K UHD + Blu-ray Le Chat qui fume",
+            "source_url": "https://www.fnac.com/a23469747/L-Au-Dela-Blu-ray-4K-Ultra-HD-Catriona-MacColl-Blu-ray-4K"
+          },
+          {
+            "duration": "87 min",
+            "version": "fiche cinéma IMDb",
+            "source_url": "https://www.imdb.com/title/tt0082307/"
+          }
+        ],
+        "imdb_id": "tt0082307",
+        "checked_at": "2026-10-09T11:45:51.875Z"
+      },
+      "availability_research": {
+        "status": "verified_physical_release_candidate",
+        "checked_at": "2026-10-09T11:45:51.875Z",
+        "source_urls": [
+          "https://www.fnac.com/a23469747/L-Au-Dela-Blu-ray-4K-Ultra-HD-Catriona-MacColl-Blu-ray-4K"
+        ],
+        "note": "Édition Le Chat qui fume 4K UHD + Blu-ray, EAN 3760147493888, date du 14 octobre 2026, langues et bonus détaillés."
+      },
+      "critical_evidence": [
+        {
+          "source": "Roger Ebert",
+          "source_url": "https://www.rogerebert.com/reviews/the-beyond-1998",
+          "assessment": "Critique sévère des dialogues et de l’incohérence narrative."
+        },
+        {
+          "source": "The Guardian",
+          "source_url": "https://www.theguardian.com/film/2021/aug/09/the-antonioni-of-splatter-welcome-to-the-gruesomely-elegant-world-of-lucio-fulci",
+          "assessment": "Replace le film dans la trilogie des portes de l’enfer et souligne sa logique lovecraftienne, son gore et sa musique."
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic",
+        "checked_at": "2026-10-09T11:45:51.875Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0082307/ratings/",
+          "https://www.imdb.com/title/tt0082307/criticreviews/"
+        ],
+        "note": "IMDb 6,5/10 sur 28 k notes ; Metascore 38 sur 13 critiques."
+      },
+      "image_research": {
+        "status": "exact_edition_cover_verified_ci_pending",
+        "checked_at": "2026-10-09T11:45:51.875Z",
+        "source_page": "https://www.fnac.com/a23469747/L-Au-Dela-Blu-ray-4K-Ultra-HD-Catriona-MacColl-Blu-ray-4K",
+        "image_url": "https://static.fnac-static.com/multimedia/Images/FR/NR/c0/ad/3b/20688320/1540-1/tsp20260804171126/Au-dela-Blu-ray-4K-Ultra-HD.jpg",
+        "note": "URL exacte exposée par le lien image de la fiche produit ; récupération du binaire en erreur transitoire, à contrôler en CI."
+      },
+      "reason": "Carte rendue et revue ; le contrôle réseau CI du visuel demeure obligatoire."
     }
   ]
 }
