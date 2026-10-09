@@ -1168,6 +1168,17 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
+    },
+    {
+      "id": "reuse-verified-documentary-saturday-reserve-2026-10-09",
+      "completed_at": "2026-10-09T15:39:18.995Z",
+      "scope": "daily-reserves:samedi",
+      "summary": "La carte déjà vérifiée de Violences sexuelles à l’école : silence dans les rangs est réutilisée comme réserve cachée samedi rang 8. La soirée officielle à 21:00 et le début de programme à 21:02 restent distincts ; cette réutilisation ne crée ni nouvelle œuvre ni seconde carte publique.",
+      "deliverables": [
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
     }
   ],
   "blockers": [
@@ -24603,6 +24614,33 @@
       },
       "evidence_note": "Version ciblée et diffusion recoupées ; métadonnées, réception contradictoire, notes, visuel et textes relus.",
       "status": "verified"
+    },
+    {
+      "work_id": "violences-sexuelles-a-l-ecole-silence-dans-les-rangs-2025",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "duration.version",
+        "editorial_reuse"
+      ],
+      "source_urls": [
+        "https://pro.publicsenat.fr/actualites/silence-dans-les-rangs-suivi-d-un-debat-avec-rebecca-fitoussi-dans-un-monde-en-doc-samedi-10-octobre-a-21h-4b18a-02e48.html",
+        "https://www.publicsenat.fr/emission/documentaire/violences-sexuelles-a-lecole-silence-dans-les-rangs-e0",
+        "https://tv-programme.com/la-chaine-parlementaire/samedi-10-octobre-2026/",
+        "https://enfance-majuscule.fr/palmares-du-prix-media-enfance-majuscule-2026-nos-8-programmes-laureats-2/"
+      ],
+      "checked_at": "2026-10-09T15:39:18.995Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "start": "21:02",
+        "channel": "La Chaîne parlementaire",
+        "version": "52 min ; lancement de soirée officiel 21:00 distinct"
+      },
+      "evidence_note": "Diffusion samedi vérifiée séparément ; métadonnées, visuel, absence motivée de note et textes stables réutilisés depuis la carte dimanche.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -28182,7 +28220,8 @@
         "integrate-competition-officielle-senscritique-2026-10-09",
         "complete-daily-reserves-matrix-orient-adam-2026-10-09",
         "complete-sunday-shutter-island-reserve-2026-10-09",
-        "complete-reserves-night-hunter-wages-children-2026-10-09"
+        "complete-reserves-night-hunter-wages-children-2026-10-09",
+        "reuse-verified-documentary-saturday-reserve-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -28191,30 +28230,34 @@
         "data/research/2026-S42.json",
         "data/manifest.json"
       ],
-      "complete_cards": 91,
-      "cards_integrated_this_run": 7,
+      "complete_cards": 92,
+      "cards_integrated_this_run": 8,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "measurements": {
         "complete_cards": {
-          "value": 91,
-          "scope": "stock final au checkpoint ; 84 héritées au début du passage et 7 nouvelles réserves complètes"
+          "value": 92,
+          "scope": "stock final de positions de cartes au checkpoint ; 84 héritées et 8 positions de réserve ajoutées pendant ce passage"
         },
         "new_works": {
           "value": 4,
-          "scope": "Matrix Generation, Shutter Island, Le Salaire de la peur et Les Enfants de la Résistance ajoutés depuis la tête de départ ; trois œuvres existaient déjà au catalogue central"
+          "scope": "Matrix Generation, Shutter Island, Le Salaire de la peur et Les Enfants de la Résistance ajoutés depuis la tête de départ"
         },
         "visible_cards": {
           "value": 0,
-          "scope": "les sept cartes ajoutées sont des réserves de rang 5 à 7, hors des trois choix visibles de chaque jour"
+          "scope": "les huit positions ajoutées sont des réserves cachées de rang 5 à 8"
         },
-        "additional_distinct_reserves": {
+        "additional_reserve_placements": {
+          "value": 8,
+          "scope": "huit nouvelles positions de réserve intégrées dans les pools quotidiens"
+        },
+        "additional_distinct_reserve_work_ids": {
           "value": 7,
-          "scope": "sept work_id distincts ajoutés hors des choix visibles de leur jour"
+          "scope": "sept work_id distincts nouveaux comme réserves ; Violences sexuelles… était déjà une œuvre visible dimanche et sa réutilisation samedi ne crée pas une huitième alternative distincte à l’échelle du numéro"
         },
         "stable_reuses": {
-          "value": 2,
-          "scope": "L’Intérêt d’Adam et La Nuit du chasseur réutilisent des métadonnées stables ; leurs diffusions du cycle sont vérifiées séparément"
+          "value": 3,
+          "scope": "L’Intérêt d’Adam, La Nuit du chasseur et Violences sexuelles… réutilisent des champs stables ; chaque diffusion du cycle est vérifiée séparément"
         }
       },
       "requirements_resolved": [
@@ -28224,10 +28267,11 @@
         "jeudi : réserve complète rang 6 matérialisée pour L’Intérêt d’Adam",
         "dimanche : réserve complète rang 7 matérialisée pour Shutter Island",
         "samedi : réserve complète rang 7 matérialisée pour La Nuit du chasseur",
-        "vendredi : réserves complètes rangs 5 et 6 matérialisées pour Le Salaire de la peur et Les Enfants de la Résistance"
+        "vendredi : réserves complètes rangs 5 et 6 matérialisées pour Le Salaire de la peur et Les Enfants de la Résistance",
+        "samedi : réserve cachée rang 8 matérialisée pour Violences sexuelles à l’école, sans compter une nouvelle œuvre distincte"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter les réserves des jours encore sous dix cartes : vendredi (6), samedi/dimanche (7), mardi (5), mercredi/jeudi (6), puis corriger les réserves effectives des radars HD et popularité.",
+      "next_useful_batch": "Compléter les réserves des jours encore sous dix cartes : vendredi (6), samedi (8), dimanche (7), mardi (5), mercredi/jeudi (6), puis corriger les réserves effectives des radars HD et popularité.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -28344,18 +28388,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T15:37:13.066Z",
+          "elapsed_seconds": 1915.978,
+          "prompt_revision": "production-integrity-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "669c7275256cd5221fac372ee9f718ae252364ef",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T15:05:17.088Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T16:25:40.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T15:33:28.697Z",
-        "elapsed_seconds": 1691.609,
+        "observed_at": "2026-10-09T15:37:13.066Z",
+        "elapsed_seconds": 1915.978,
         "prompt_revision": "production-integrity-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "ab2c1640cbb55d3b955cb30ada3b8c41222be0da",
+        "source_sha": "669c7275256cd5221fac372ee9f718ae252364ef",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
@@ -28403,6 +28476,11 @@
           "ended_at": "2026-10-09T15:35:44.282Z",
           "overlap": true,
           "note": "Extraction ciblée, recherches déléguées en lecture seule, revue, rédaction et rendu se chevauchent ; aucune somme séquentielle n’est calculée."
+        },
+        "reuse_batch_documentary": {
+          "started_at": "2026-10-09T15:37:30.000Z",
+          "ended_at": "2026-10-09T15:39:18.995Z",
+          "note": "Extraction ciblée, revue de la réutilisation et rendu mécanique ; aucune nouvelle recherche générale."
         }
       },
       "control_notes": [
@@ -28416,7 +28494,9 @@
         "Handoff dimanche contrôlé avec conservation intégrale des six cartes existantes et ajout d’une réserve de rang 7.",
         "Lot samedi/vendredi contrôlé : pools existants conservés intégralement, trois réserves ajoutées, validateurs canoniques, éditoriaux, liens et préparation relus.",
         "La Nuit du chasseur : URL Criterion exacte 27525 vérifiée avant sauvegarde ; copie CANAL+ 88 min conservée.",
-        "Le Salaire de la peur et Les Enfants de la Résistance : copies du cycle distinguées des durées catalogue et réception critique contextualisée."
+        "Le Salaire de la peur et Les Enfants de la Résistance : copies du cycle distinguées des durées catalogue et réception critique contextualisée.",
+        "Violences sexuelles… : carte stable réutilisée samedi ; soirée officielle 21:00 et début du documentaire 21:02 conservés comme observations distinctes.",
+        "La réutilisation ajoute une position de réserve mais aucun nouveau work_id distinct à l’échelle du numéro."
       ]
     }
   ],
@@ -31938,6 +32018,24 @@
           }
         ],
         "decision_note": "Réserve complète rang 6 ; copie CANAL+ séparée des durées cinéma 100/101 min.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-samedi-violences-sexuelles-reserve",
+        "title": "Violences sexuelles à l’école : silence dans les rangs",
+        "work_id": "violences-sexuelles-a-l-ecole-silence-dans-les-rangs-2025",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "diffusion_officielle_et_preuve_alternative",
+            "note": "Public Sénat annonce la soirée le 10 octobre à 21:00 et la grille datée place le film à 21:02 ; le prix Enfance Majuscule est une réception située, pas un consensus esthétique.",
+            "source_url": "https://pro.publicsenat.fr/actualites/silence-dans-les-rangs-suivi-d-un-debat-avec-rebecca-fitoussi-dans-un-monde-en-doc-samedi-10-octobre-a-21h-4b18a-02e48.html"
+          }
+        ],
+        "decision_note": "Réserve cachée rang 8 réutilisant la carte dimanche ; aucun nouveau work_id distinct à l’échelle du numéro.",
         "alternatives": []
       }
     ]
