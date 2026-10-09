@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T23:09:36.913Z",
+  "updated_at": "2026-10-09T23:11:05.200Z",
   "remaining": [
     "Corriger l’hydratation des notes de la grille Android TV pour Shutter Island, puis relancer validate-layout sur la tête candidate exacte.",
     "Remplacer ou compléter la source d’image de La Maison des femmes : l’URL Unifrance sauvegardée renvoie 403 sans Referer dans le contrôle distant.",
@@ -1384,7 +1384,8 @@
     "map-cineplus-six-channel-pdf-omissions-2026-10-09",
     "reconcile-cineplus-aliases-and-close-level2-2026-10-09",
     "reconcile-seven-day-editorial-reminders-and-shortlist-2026-10-09",
-    "final-factual-editorial-review-and-exact-sha-browser-ci-2026-10-09"
+    "final-factual-editorial-review-and-exact-sha-browser-ci-2026-10-09",
+    "seal-ready-and-observe-exact-ci-2026-10-09"
   ],
   "blockers": [
     {
@@ -34663,10 +34664,10 @@
       "execution_kind": "scheduled_editorial_web_evidence_production",
       "prompt_revision": "production-web-evidence-2026-10-09",
       "stage": "enrichment",
-      "run_state": "running",
+      "run_state": "stopped",
       "started_at": "2026-10-09T22:19:23.163Z",
-      "ended_at": null,
-      "duration_basis": "Passage en cours ; début réel capturé à l’entrée, fin inconnue.",
+      "ended_at": "2026-10-09T23:11:05.200Z",
+      "duration_basis": "Heures réelles UTC observées à l’entrée et au bilan terminal.",
       "completed_batches": [
         "sync-main-web-evidence-contracts-2026-10-09",
         "initial-preparation-gaps-saved-flow-and-triage-2026-10-09",
@@ -34680,7 +34681,8 @@
         "map-cineplus-six-channel-pdf-omissions-2026-10-09",
         "reconcile-cineplus-aliases-and-close-level2-2026-10-09",
         "reconcile-seven-day-editorial-reminders-and-shortlist-2026-10-09",
-        "final-factual-editorial-review-and-exact-sha-browser-ci-2026-10-09"
+        "final-factual-editorial-review-and-exact-sha-browser-ci-2026-10-09",
+        "seal-ready-and-observe-exact-ci-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -34692,8 +34694,8 @@
       "draft_cards": 0,
       "partial_dossiers": 0,
       "requirements_resolved": 7,
-      "stop_reason": null,
-      "next_useful_batch": "Corriger l’hydratation des notes de la grille Android TV pour Shutter Island, puis relancer validate-layout sur la tête candidate exacte. Remplacer ou compléter la source d’image de La Maison des femmes : l’URL Unifrance sauvegardée renvoie 403 sans Referer dans le contrôle distant. Remplacer ou compléter la source d’image de Project Hail Mary : l’URL Filmitena sauvegardée renvoie 403 sans Referer dans le contrôle distant.",
+      "stop_reason": "budget_reserve_reached",
+      "next_useful_batch": "Corriger les notes Android TV de Shutter Island et remplacer les deux sources d’images 403, puis relancer les contrôles et sceller de nouveau.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -35078,25 +35080,59 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-09T23:10:40.890Z",
+          "elapsed_seconds": 3077.727,
+          "prompt_revision": "production-web-evidence-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "93e6b87481f4c0a9864ed2a2c3377ec3b46d1737",
+          "next_actions": [
+            "Corriger l’hydratation des notes de la grille Android TV pour Shutter Island, puis relancer validate-layout sur la tête candidate exacte. Remplacer ou compléter la source d’image de La Maison des femmes : l’URL Unifrance sauvegardée renvoie 403 sans Referer dans le contrôle distant. Remplacer ou compléter la source d’image de Project Hail Mary : l’URL Filmitena sauvegardée renvoie 403 sans Referer dans le contrôle distant.",
+            "Corriger l’hydratation des notes de la grille Android TV pour Shutter Island, puis relancer validate-layout sur la tête candidate exacte.",
+            "Remplacer ou compléter la source d’image de La Maison des femmes : l’URL Unifrance sauvegardée renvoie 403 sans Referer dans le contrôle distant.",
+            "Remplacer ou compléter la source d’image de Project Hail Mary : l’URL Filmitena sauvegardée renvoie 403 sans Referer dans le contrôle distant."
+          ],
+          "remaining_count": 3,
+          "next_actions_total": 4,
+          "truncated_notice": null,
+          "all_actions_total": 4,
+          "waiting_actions": [],
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T22:19:23.163Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T23:59:57.842Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
-        "action": "unknown",
-        "reason_code": "no_open_task_or_handoff_evidence",
-        "observed_at": "2026-10-09T23:09:02.980Z",
-        "elapsed_seconds": 2979.817,
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-09T23:10:40.890Z",
+        "elapsed_seconds": 3077.727,
         "prompt_revision": "production-web-evidence-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "cd6012f538c0038330a946c583ee83f6ce88a00b",
+        "source_sha": "93e6b87481f4c0a9864ed2a2c3377ec3b46d1737",
         "next_actions": [
-          "Sceller la revue, sauvegarder la candidate ready et observer le nouveau CI exact."
+          "Corriger l’hydratation des notes de la grille Android TV pour Shutter Island, puis relancer validate-layout sur la tête candidate exacte. Remplacer ou compléter la source d’image de La Maison des femmes : l’URL Unifrance sauvegardée renvoie 403 sans Referer dans le contrôle distant. Remplacer ou compléter la source d’image de Project Hail Mary : l’URL Filmitena sauvegardée renvoie 403 sans Referer dans le contrôle distant.",
+          "Corriger l’hydratation des notes de la grille Android TV pour Shutter Island, puis relancer validate-layout sur la tête candidate exacte.",
+          "Remplacer ou compléter la source d’image de La Maison des femmes : l’URL Unifrance sauvegardée renvoie 403 sans Referer dans le contrôle distant.",
+          "Remplacer ou compléter la source d’image de Project Hail Mary : l’URL Filmitena sauvegardée renvoie 403 sans Referer dans le contrôle distant."
         ],
-        "remaining_count": 0,
-        "next_actions_total": 1,
+        "remaining_count": 3,
+        "next_actions_total": 4,
         "truncated_notice": null,
-        "all_actions_total": 1,
+        "all_actions_total": 4,
         "waiting_actions": [],
         "research_review_warnings": [],
         "observations": {
@@ -35199,6 +35235,13 @@
           "ended_at": "2026-10-09T23:06:50.000Z",
           "overlap": false,
           "note": "Résultats CI exacts relus ; browser-presentation et Jellyfin Web verts, 32 pages déjà inspectées, dernière exigence levée avant scellement."
+        },
+        {
+          "kind": "seal_save_ci_and_reopen",
+          "started_at": "2026-10-09T23:06:50.000Z",
+          "ended_at": "2026-10-09T23:11:05.200Z",
+          "overlap": false,
+          "note": "Revue scellée puis rouverte après trois échecs du CI exact ; défauts sauvegardés avant l’arrêt terminal."
         }
       ],
       "requirements_resolved_details": [
@@ -35233,7 +35276,8 @@
         "La revue hebdomadaire est attestée après rapprochement des rappels, mais la revue finale des livrables et les contrôles complets restent ouverts ; aucune indépendance amont globale n’est affirmée.",
         "Contrôles complets locaux après réconciliation : candidate, identités canoniques, liens exacts, fraîcheur (97 % public, 87 % réserves), réserves (70/70, 49/49) et 90 visuels réussis. Jellyfin Web n’a pas pu démarrer localement faute de binaire Chromium ; le contrôle distant browser-presentation sur ce SHA reste obligatoire et n’est pas présumé vert.",
         "CI exact ed913e6 : browser-presentation réussi, y compris Jellyfin Web ; data-and-policy ne rate que la garde Require a complete candidate before merging, attendue avant le scellement.",
-        "CI exact cd6012f (run 38002889624) : rendu en échec pour les notes Android TV de Shutter Island ; images distantes en échec 403 sans Referer pour La Maison des femmes et Project Hail Mary. Revue rouverte."
+        "CI exact cd6012f (run 38002889624) : rendu en échec pour les notes Android TV de Shutter Island ; images distantes en échec 403 sans Referer pour La Maison des femmes et Project Hail Mary. Revue rouverte.",
+        "La tête ready cd6012f a été rouverte après les échecs exacts du run 38002889624 ; le passage s’arrête dans la réserve de finalisation avec trois défauts explicites sauvegardés."
       ],
       "measurements": {
         "schedule_facts_corrected": {
