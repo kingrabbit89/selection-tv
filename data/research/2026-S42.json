@@ -1301,6 +1301,18 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
+    },
+    {
+      "id": "append-three-new-reviewed-tuesday-reserves-2026-10-09",
+      "completed_at": "2026-10-09T19:22:59.968Z",
+      "scope": "daily-reserves:mardi",
+      "summary": "Les Enfants volés du Chili, La Prisonnière du désert et La Vieille Dame indigne complètent les rangs 8 à 10 du mardi. Trois œuvres nouvelles sont ajoutées avec identité, image, liens, réception et diffusions contrôlés ; les écarts durée d’œuvre/fenêtre EPG des deux classiques restent visibles et ne sont pas transformés en versions certifiées.",
+      "deliverables": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
     }
   ],
   "blockers": [
@@ -25687,6 +25699,97 @@
       },
       "evidence_note": "Film de Frankenheimer 1962 distingué du remake 2004. Le guide daté porte 17:37 et le magazine sauvegardé 17:40 ; la copie CANAL+ 121 min reste séparée du DCP 126 min.",
       "status": "verified_for_card"
+    },
+    {
+      "work_id": "les-enfants-voles-du-chili-2026",
+      "fields": [
+        "identity",
+        "version",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "image",
+        "ratings_unavailable_reason",
+        "editorial_reception"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/122217-000-A/les-enfants-voles-du-chili/",
+        "https://www.film-documentaire.fr/4DACTION/w_fiche_film/82307",
+        "https://www.eldaproductions.com/film/les-disparus/",
+        "https://tv-programme.com/les-enfants-voles-du-chili-sur-la-trace-des-adoptions-illegales-documentaire"
+      ],
+      "checked_at": "2026-10-09T19:22:59.968Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "mardi",
+        "rank": 8,
+        "broadcast": "2026-10-13 23:30 Arte"
+      },
+      "evidence_note": "Identité 2026 et durée 75 min recoupées ; diffusion officielle Arte à 23:30. Le signal critique 2T reste attribué au supplément Télérama préparé, et l’absence de notes publiques est documentée.",
+      "status": "verified_for_card"
+    },
+    {
+      "work_id": "la-prisonniere-du-desert-1956",
+      "fields": [
+        "identity",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "canonical_duration",
+        "epg_window",
+        "image",
+        "ratings",
+        "editorial_reception"
+      ],
+      "source_urls": [
+        "https://catalog.afi.com/Catalog/moviedetails/53577",
+        "https://www.canalplus.com/cinema/la-prisonniere-du-desert/h/1102077_40099",
+        "https://www.programme-tv.com/television/1254054907/la-prisonniere-du-desert.html",
+        "https://www.molotov.tv/fr_fr/p/34874/la-prisonniere-du-desert",
+        "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time"
+      ],
+      "checked_at": "2026-10-09T19:22:59.968Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "mardi",
+        "rank": 9,
+        "broadcast": "2026-10-13 20:50 Ciné+ Classic"
+      },
+      "evidence_note": "Identité John Ford 1956 certaine, durée canonique 119 min. Trois guides concordent sur 20:50 ; la fenêtre EPG 115 min est conservée séparément et ne certifie pas une coupe.",
+      "status": "verified_for_card"
+    },
+    {
+      "work_id": "la-vieille-dame-indigne-1965",
+      "fields": [
+        "identity",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "canonical_duration",
+        "epg_window",
+        "image",
+        "ratings",
+        "editorial_reception"
+      ],
+      "source_urls": [
+        "https://shellacfilms.com/film/la-vieille-dame-indigne/",
+        "https://www.cinematheque.fr/film/46253.html",
+        "https://www.programme-tv.com/television/1250997741/la-vieille-dame-indigne.html",
+        "https://screenplus.fr/programmestv/programmes/la-vieille-dame-indigne-54e9dc7bdafa737e/",
+        "https://festival-larochelle.org/film/vieille-dame-indigne-la/"
+      ],
+      "checked_at": "2026-10-09T19:22:59.968Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "mardi",
+        "rank": 10,
+        "broadcast": "2026-10-13 10:50 TCM Cinéma"
+      },
+      "evidence_note": "Identité René Allio 1965 certaine, durée canonique 94 min. Trois guides concordent sur 10:50 ; la fenêtre EPG 90 min est conservée séparément et ne certifie pas une coupe TCM.",
+      "status": "verified_for_card"
     }
   ],
   "run_metrics": [
@@ -30538,49 +30641,53 @@
       "completed_batches": [
         "sync-main-955eaea-closure-tooling-2026-10-09",
         "replace-five-duplicate-popular-deep-reserves-2026-10-09",
-        "append-three-reviewed-thursday-reserves-2026-10-09"
+        "append-three-reviewed-thursday-reserves-2026-10-09",
+        "append-three-new-reviewed-tuesday-reserves-2026-10-09"
       ],
       "deliverables_changed": [
         "data/radar-reserves/2026-S42.json",
         "data/research/2026-S42.json",
-        "data/weeks/2026-S42.json"
+        "data/weeks/2026-S42.json",
+        "data/works.json",
+        "data/links.json"
       ],
-      "complete_cards": 122,
-      "cards_integrated_this_run": 8,
+      "complete_cards": 125,
+      "cards_integrated_this_run": 11,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "measurements": {
         "complete_cards": {
-          "value": 122,
-          "scope": "stock après checkpoint : 114 cartes héritées, cinq réserves de radar réutilisées et trois réserves jeudi réutilisées depuis des dossiers complets"
+          "value": 125,
+          "scope": "stock après checkpoint : 114 cartes héritées, cinq réserves radar remplacées, trois réserves jeudi réutilisées et trois nouvelles réserves mardi"
         },
         "new_works": {
-          "value": 0,
-          "scope": "aucune nouvelle œuvre ajoutée au catalogue canonique pendant ce passage"
+          "value": 3,
+          "scope": "trois nouvelles œuvres ajoutées au catalogue canonique pendant ce passage : Les Enfants volés du Chili, La Prisonnière du désert et La Vieille Dame indigne"
         },
         "visible_cards": {
           "value": 0,
           "scope": "les cinq choix visibles et les cinq cartes de sillonnage restent inchangés"
         },
         "additional_reserve_placements": {
-          "value": 8,
-          "scope": "cinq positions popular_deep remplacées et trois réserves ajoutées au jeudi"
+          "value": 11,
+          "scope": "cinq positions popular_deep remplacées, trois réserves jeudi ajoutées et trois réserves mardi ajoutées"
         },
         "additional_distinct_reserve_work_ids": {
-          "value": 8,
-          "scope": "huit work_id distincts parmi les positions ajoutées ou remplacées pendant ce passage"
+          "value": 11,
+          "scope": "onze work_id distincts parmi les positions ajoutées ou remplacées pendant ce passage"
         },
         "stable_reuses": {
           "value": 8,
-          "scope": "cinq cartes radar reprises de S41 et trois cartes quotidiennes reprises de dossiers complets S42 ; les faits propres aux nouvelles positions sont revus séparément"
+          "scope": "cinq cartes radar reprises de S41 et trois cartes jeudi reprises de dossiers complets S42"
         }
       },
       "requirements_resolved": [
         "popular_deep : cinq réserves complètes distinctes des choix principaux et de popular_scan, avec signaux dans la fenêtre de 60 jours",
-        "jeudi-selection : minimum de dix cartes complètes atteint avec trois réutilisations vérifiées, sans déclarer de pénurie"
+        "jeudi-selection : minimum de dix cartes complètes atteint avec trois réutilisations vérifiées, sans déclarer de pénurie",
+        "mardi-selection : minimum de dix cartes complètes atteint avec trois œuvres nouvelles vérifiées, sans déclarer de pénurie"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter trois réserves mardi depuis les dossiers avancés, puis reprendre la revue de couverture des sept jours.",
+      "next_useful_batch": "Achever et attester la revue de couverture des sept jours en réconciliant les exigences déclarées avec les preuves actuelles.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -30638,28 +30745,49 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T19:15:28.995Z",
+          "elapsed_seconds": 1059.871,
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "b9fd570f996f24ec12fa5c6741bb03053fdc637c",
+          "next_actions": [
+            "Compléter trois réserves mardi depuis les dossiers avancés et les diffusions vérifiées.",
+            "Achever et attester la revue de couverture des sept jours sans retirer les exigences encore ouvertes."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 36,
+          "observations": {
+            "started_at": "2026-10-09T18:57:49.124Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T19:57:49.124Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T19:08:50.197Z",
-        "elapsed_seconds": 661.073,
+        "observed_at": "2026-10-09T19:15:28.995Z",
+        "elapsed_seconds": 1059.871,
         "prompt_revision": "production-closure-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "fd56e6b0ac73705f2ad15eab59f11115a6a7e2e8",
+        "source_sha": "b9fd570f996f24ec12fa5c6741bb03053fdc637c",
         "next_actions": [
-          "Compléter trois réserves mardi et trois jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
-          "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
-          "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
-          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
-          "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          "Compléter trois réserves mardi depuis les dossiers avancés et les diffusions vérifiées.",
+          "Achever et attester la revue de couverture des sept jours sans retirer les exigences encore ouvertes."
         ],
         "remaining_count": 35,
-        "next_actions_total": 38,
-        "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "next_actions_total": 36,
         "observations": {
           "started_at": "2026-10-09T18:57:49.124Z",
           "lease_owned": "yes",
@@ -30684,12 +30812,18 @@
           "started_at": "2026-10-09T19:08:50.197Z",
           "ended_at": "2026-10-09T19:13:11.359Z",
           "note": "Flow recalculé au SHA sauvegardé ; trois dossiers complets sans exposition récente repris, créneaux du jeudi et divergences des guides contrôlés, handoff mécanique vérifié."
+        },
+        "tuesday_reserve_batch": {
+          "started_at": "2026-10-09T19:15:28.995Z",
+          "ended_at": "2026-10-09T19:22:59.968Z",
+          "note": "Trois dossiers sans exposition récente enrichis en parallèle ; identités, diffusions, images, notes ou motifs d’absence et réception relus, puis handoff unique contrôlé."
         }
       },
       "control_notes": [
         "Le plan mécanique de réconciliation supprimait les doublons mais exposait un déficit de cinq ; il n’a pas été appliqué seul.",
         "Les cinq remplaçants sont distincts des choix visibles et du sillonnage. Le signal de circulation n’est pas traité comme preuve de qualité.",
-        "Jeudi atteint dix cartes : Becoming Hitchcock conserve 68/70/72 min distincts, La Maison des femmes 105/110 min distincts et Un crime dans la tête sépare Frankenheimer 1962 du remake Demme 2004."
+        "Jeudi atteint dix cartes : Becoming Hitchcock conserve 68/70/72 min distincts, La Maison des femmes 105/110 min distincts et Un crime dans la tête sépare Frankenheimer 1962 du remake Demme 2004.",
+        "Mardi atteint dix cartes. Les fenêtres EPG 115/90 min de La Prisonnière du désert et La Vieille Dame indigne restent distinctes des durées canoniques 119/94 min ; aucune coupe n’est inventée."
       ]
     }
   ],
@@ -31351,9 +31485,8 @@
     "main_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Compléter trois réserves mardi et trois jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
-      "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
-      "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes."
+      "Achever et attester la revue de couverture des sept jours en réconciliant les 35 exigences déclarées avec les preuves du SHA courant.",
+      "Conserver les écarts de durée d’œuvre/fenêtre EPG des deux classiques mardi tant qu’aucune source de copie TCM/Ciné+ ne les arbitre."
     ],
     "publisher": {
       "checked_at": "2026-10-08T14:40:33.431Z",
@@ -34664,6 +34797,68 @@
         ],
         "decision_note": "Réserve complète rang 10 ; master 93 min distingué de la valeur Canal+/créneau 90 min et divergence 20:50/20:55 conservée.",
         "alternatives": []
+      },
+      {
+        "id": "sl-mardi-les-enfants-voles-du-chili-2026",
+        "title": "Les enfants volés du Chili : Sur la trace des adoptions illégales",
+        "work_id": "les-enfants-voles-du-chili-2026",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Le supplément Télérama préparé attribue 2T et relève la portée de la quête d’identité, avec une réserve sur le montage.",
+            "source_url": "https://television.telerama.fr/tele/documentaire/les-enfants-voles-du-chili-sur-la-trace-des-adoptions-illegales-1-439739967.php"
+          }
+        ],
+        "alternatives": [
+          "sl-mardi-la-prisonniere-du-desert-1956",
+          "sl-mardi-la-vieille-dame-indigne-1965"
+        ]
+      },
+      {
+        "id": "sl-mardi-la-prisonniere-du-desert-1956",
+        "title": "La Prisonnière du désert",
+        "work_id": "la-prisonniere-du-desert-1956",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "patrimoine",
+            "note": "AFI classe le film premier western de son Top 10 ; le classement Sight and Sound 2022 le place au quinzième rang.",
+            "source_url": "https://www.afi.com/afis-10-top-10/"
+          }
+        ],
+        "alternatives": [
+          "sl-mardi-les-enfants-voles-du-chili-2026",
+          "sl-mardi-la-vieille-dame-indigne-1965"
+        ],
+        "decision_note": "La fenêtre EPG de 115 min reste distincte de la durée canonique 119 min ; aucune coupe n’est déduite."
+      },
+      {
+        "id": "sl-mardi-la-vieille-dame-indigne-1965",
+        "title": "La Vieille Dame indigne",
+        "work_id": "la-vieille-dame-indigne-1965",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "distinction",
+            "note": "Prix Méliès 1965 et réception historique favorable pour la justesse du portrait d’émancipation.",
+            "source_url": "https://www.unifrance.org/film/1888/la-vieille-dame-indigne"
+          }
+        ],
+        "alternatives": [
+          "sl-mardi-les-enfants-voles-du-chili-2026",
+          "sl-mardi-la-prisonniere-du-desert-1956"
+        ],
+        "decision_note": "La fenêtre EPG de 90 min reste distincte de la durée canonique 94 min ; aucune coupe TCM n’est certifiée."
       }
     ]
   },
