@@ -1281,6 +1281,16 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
+    },
+    {
+      "id": "replace-five-duplicate-popular-deep-reserves-2026-10-09",
+      "completed_at": "2026-10-09T19:06:00.000Z",
+      "scope": "radar-popularity:distinct-deep-reserves",
+      "summary": "Les cinq doublons du sillonnage sont remplacés par Project Hail Mary, Obsession, Disclosure Day, Star Wars : The Mandalorian and Grogu et Toy Story 5. Les cinq œuvres sont distinctes des choix visibles et du scan ; leurs cartes stables proviennent des dossiers sauvegardés et leurs signaux récents sont relus dans l’archive publique.",
+      "deliverables": [
+        "data/radar-reserves/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
     }
   ],
   "blockers": [
@@ -25464,6 +25474,121 @@
       },
       "evidence_note": "Jour2Fête confirme identité, année 2025, master 93 min et affiche ; Canal+ porte 90 min et la grille datée 20:50 tandis que Télérama imprime 20:55. IMDb 5,8 et SensCritique 5,6 contrôlés ; appréciation Télérama attribuée.",
       "status": "verified_for_card"
+    },
+    {
+      "work_id": "project-hail-mary-2026",
+      "fields": [
+        "popularity.signal",
+        "editorial.summary",
+        "editorial.why",
+        "image",
+        "ratings",
+        "links"
+      ],
+      "source_urls": [
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/"
+      ],
+      "checked_at": "2026-10-09T19:06:00.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubrique": "popular_deep",
+        "rank": 6
+      },
+      "evidence_note": "Top 10 public · #7 le 17 août. La position récente est relue dans l’archive publique ; identité, visuel, liens, notes et textes stables sont repris du dossier S41 sauvegardé, sans convertir le signal de circulation en preuve de qualité.",
+      "status": "verified_for_card"
+    },
+    {
+      "work_id": "obsession-2025",
+      "fields": [
+        "popularity.signal",
+        "editorial.summary",
+        "editorial.why",
+        "image",
+        "ratings",
+        "links"
+      ],
+      "source_urls": [
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/"
+      ],
+      "checked_at": "2026-10-09T19:06:00.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubrique": "popular_deep",
+        "rank": 7
+      },
+      "evidence_note": "Top 10 public · #5 le 17 août, #6 le 24 août, #5 le 31 août. La position récente est relue dans l’archive publique ; identité, visuel, liens, notes et textes stables sont repris du dossier S41 sauvegardé, sans convertir le signal de circulation en preuve de qualité.",
+      "status": "verified_for_card"
+    },
+    {
+      "work_id": "disclosure-day-2026",
+      "fields": [
+        "popularity.signal",
+        "editorial.summary",
+        "editorial.why",
+        "image",
+        "ratings",
+        "links"
+      ],
+      "source_urls": [
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/"
+      ],
+      "checked_at": "2026-10-09T19:06:00.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubrique": "popular_deep",
+        "rank": 8
+      },
+      "evidence_note": "Top 10 public · #2 le 17 août, #5 le 24 août, #9 le 31 août. La position récente est relue dans l’archive publique ; identité, visuel, liens, notes et textes stables sont repris du dossier S41 sauvegardé, sans convertir le signal de circulation en preuve de qualité.",
+      "status": "verified_for_card"
+    },
+    {
+      "work_id": "star-wars-the-mandalorian-and-grogu",
+      "fields": [
+        "popularity.signal",
+        "editorial.summary",
+        "editorial.why",
+        "image",
+        "ratings",
+        "links"
+      ],
+      "source_urls": [
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/"
+      ],
+      "checked_at": "2026-10-09T19:06:00.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubrique": "popular_deep",
+        "rank": 9
+      },
+      "evidence_note": "Top 10 public · #5 le 10 août. La position récente est relue dans l’archive publique ; identité, visuel, liens, notes et textes stables sont repris du dossier S41 sauvegardé, sans convertir le signal de circulation en preuve de qualité.",
+      "status": "verified_for_card"
+    },
+    {
+      "work_id": "toy-story-5-2026",
+      "fields": [
+        "popularity.signal",
+        "editorial.summary",
+        "editorial.why",
+        "image",
+        "ratings",
+        "links"
+      ],
+      "source_urls": [
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/"
+      ],
+      "checked_at": "2026-10-09T19:06:00.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubrique": "popular_deep",
+        "rank": 10
+      },
+      "evidence_note": "Top 10 public · #4 le 24 août et le 31 août. La position récente est relue dans l’archive publique ; identité, visuel, liens, notes et textes stables sont repris du dossier S41 sauvegardé, sans convertir le signal de circulation en preuve de qualité.",
+      "status": "verified_for_card"
     }
   ],
   "run_metrics": [
@@ -30300,6 +30425,134 @@
         "On aboie en silence conserve séparément le master annoncé de 90 min, le créneau France 2 de 100 min et les valeurs guide 97/100 ; les distinctions documentées par France Télévisions ne sont pas converties en note externe.",
         "Unité Ados 93 est daté 2025 par France Télévisions et Film-documentaire ; le master 70 min, le créneau France 2 de 72 min et la valeur guide de 75 min restent distincts.",
         "La Femme de conserve le master distributeur 93 min séparé de la fiche Canal+ et du créneau à 90 min ; la carte suit la grille numérique 20:50 et garde le magazine papier 20:55 comme divergence."
+      ]
+    },
+    {
+      "date": "2026-10-09T18:57:49.124Z",
+      "owner": "7160fe48-621a-4c39-a1ae-65932dee8f40",
+      "execution_kind": "scheduled_editorial_closure_production",
+      "prompt_revision": "production-closure-2026-10-09",
+      "stage": "enrichment",
+      "run_state": "running",
+      "started_at": "2026-10-09T18:57:49.124Z",
+      "ended_at": null,
+      "duration_basis": "started_at observé à l’entrée ; passage encore en cours au checkpoint.",
+      "completed_batches": [
+        "sync-main-955eaea-closure-tooling-2026-10-09",
+        "replace-five-duplicate-popular-deep-reserves-2026-10-09"
+      ],
+      "deliverables_changed": [
+        "data/radar-reserves/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "complete_cards": 119,
+      "cards_integrated_this_run": 5,
+      "draft_cards": 0,
+      "partial_dossiers": 0,
+      "measurements": {
+        "complete_cards": {
+          "value": 119,
+          "scope": "stock après checkpoint : 114 cartes héritées et cinq réserves de radar réutilisées depuis des dossiers complets sauvegardés"
+        },
+        "new_works": {
+          "value": 0,
+          "scope": "aucune nouvelle œuvre ajoutée au catalogue canonique pendant ce passage"
+        },
+        "visible_cards": {
+          "value": 0,
+          "scope": "les cinq choix visibles et les cinq cartes de sillonnage restent inchangés"
+        },
+        "additional_reserve_placements": {
+          "value": 5,
+          "scope": "cinq positions popular_deep remplacées par cinq réserves distinctes et admissibles"
+        },
+        "additional_distinct_reserve_work_ids": {
+          "value": 5,
+          "scope": "cinq work_id distincts des choix visibles et de popular_scan"
+        },
+        "stable_reuses": {
+          "value": 5,
+          "scope": "cinq cartes stables reprises intégralement depuis S41 ; seuls leurs rangs et signaux propres au cycle S42 sont revus"
+        }
+      },
+      "requirements_resolved": [
+        "popular_deep : cinq réserves complètes distinctes des choix principaux et de popular_scan, avec signaux dans la fenêtre de 60 jours"
+      ],
+      "stop_reason": null,
+      "next_useful_batch": "Compléter trois réserves mardi puis trois jeudi depuis les dossiers avancés, en conservant les conflits de version et de créneau encore ouverts.",
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T19:00:55.939Z",
+          "elapsed_seconds": 186.815,
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "ac9e511ecb63dacaf118f2dc10cc715c63b5e2ae",
+          "next_actions": [
+            "Compléter trois réserves mardi depuis les dossiers avancés dont identité, version et diffusion sont vérifiées.",
+            "Compléter trois réserves jeudi depuis les dossiers avancés dont identité, version et diffusion sont vérifiées.",
+            "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T18:57:49.124Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T19:57:49.124Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-09T19:00:55.939Z",
+        "elapsed_seconds": 186.815,
+        "prompt_revision": "production-closure-2026-10-09",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S42",
+        "source_sha": "ac9e511ecb63dacaf118f2dc10cc715c63b5e2ae",
+        "next_actions": [
+          "Compléter trois réserves mardi depuis les dossiers avancés dont identité, version et diffusion sont vérifiées.",
+          "Compléter trois réserves jeudi depuis les dossiers avancés dont identité, version et diffusion sont vérifiées.",
+          "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
+          "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes."
+        ],
+        "remaining_count": 35,
+        "next_actions_total": 38,
+        "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "observations": {
+          "started_at": "2026-10-09T18:57:49.124Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-09T19:57:49.124Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
+        }
+      },
+      "intervals": {
+        "resume_and_sync": {
+          "started_at": "2026-10-09T18:57:49.124Z",
+          "ended_at": "2026-10-09T19:00:55.939Z",
+          "note": "Bail, contrats, cible, synchronisation normale de main et carte de clôture sur le SHA fusionné."
+        },
+        "radar_reconciliation": {
+          "started_at": "2026-10-09T19:00:55.939Z",
+          "ended_at": "2026-10-09T19:06:00.000Z",
+          "note": "Aperçu mécanique des doublons, contrôle des déficits, reprise de cinq dossiers sauvegardés et relecture des signaux récents dans l’archive publique."
+        }
+      },
+      "control_notes": [
+        "Le plan mécanique de réconciliation supprimait les doublons mais exposait un déficit de cinq ; il n’a pas été appliqué seul.",
+        "Les cinq remplaçants sont distincts des choix visibles et du sillonnage. Le signal de circulation n’est pas traité comme preuve de qualité."
       ]
     }
   ],
