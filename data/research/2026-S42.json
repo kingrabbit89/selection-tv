@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T14:30:28.541Z",
+  "updated_at": "2026-10-09T14:33:11.697Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1065,6 +1065,18 @@
       "scope": "samedi-selection:reserve",
       "summary": "Les Revenants est ajouté comme réserve complète rang 5 du samedi. Ouest-France et TV-Programme concordent sur 14:52 et Ciné+ Festival ; la fiche Programme-TV à 14:50 sous l’ancien libellé Ciné+ Club est conservée comme divergence, tandis que la version CANAL+ de 102 minutes et le dossier stable sont réutilisés.",
       "deliverables": [
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "complete-saturday-un-crime-dans-la-tete-reserve-2026-10-09",
+      "completed_at": "2026-10-09T14:33:11.697Z",
+      "scope": "samedi-selection:reserve",
+      "summary": "Le film de John Frankenheimer Un crime dans la tête (1962) est séparé du remake, enrichi jusqu’à une carte complète puis ajouté comme réserve rang 6 du samedi. CANAL+ établit l’événement 20:50/Ciné+ Classic et la copie 121 min ; Cinémathèque, Roger Ebert, IMDb et le visuel exact complètent le dossier.",
+      "deliverables": [
+        "data/works.json",
+        "data/links.json",
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
@@ -23917,6 +23929,94 @@
       },
       "evidence_note": "Ouest-France et TV-Programme concordent sur 14:52/Ciné+ Festival et Ouest-France affiche 1 h 42, cohérent avec la version CANAL+ 102 min. Programme-TV indique 14:50, Ciné+ Club et 105 min ; divergence conservée sans modifier la carte.",
       "status": "verified_reuse_with_minor_grid_conflict"
+    },
+    {
+      "work_id": "un-crime-dans-la-tete-1962",
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "country",
+        "duration.version"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/un-crime-dans-la-tete/h/1453848_50002/resume-casting/",
+        "https://www.cinematheque.fr/film/32418.html"
+      ],
+      "checked_at": "2026-10-09T14:33:11.697Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "version": "CANAL+ 121 min"
+      },
+      "evidence_note": "Frankenheimer 1962 certain, séparé du remake ; version CANAL+ 121 min distinguée du DCP 126 min.",
+      "status": "verified"
+    },
+    {
+      "work_id": "un-crime-dans-la-tete-1962",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "daily_reserve_card"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/un-crime-dans-la-tete/h/1453848_50002/resume-casting/",
+        "https://tv-programme.com/cine-plus-classic/samedi-10-octobre-2026/"
+      ],
+      "checked_at": "2026-10-09T14:33:11.697Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "start": "20:50",
+        "channel": "Ciné+ Classic",
+        "section": "samedi-selection",
+        "rank": 6
+      },
+      "evidence_note": "Annonce CANAL+ explicite et grille datée concordante ; créneau non assimilé à la durée ni à une expiration.",
+      "status": "verified_current_cycle"
+    },
+    {
+      "work_id": "un-crime-dans-la-tete-1962",
+      "fields": [
+        "critical_reception",
+        "editorial_copy"
+      ],
+      "source_urls": [
+        "https://www.rogerebert.com/reviews/great-movie-the-manchurian-candidate-1962",
+        "https://www.cinematheque.fr/film/32418.html",
+        "https://films.oeil-ecran.com/2015/03/02/un-crime-dans-la-tete/"
+      ],
+      "checked_at": "2026-10-09T14:33:11.697Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "section": "samedi-selection"
+      },
+      "evidence_note": "Deux lectures institutionnelles/professionnelles et une chronique indépendante avec réserve précise étayent la carte.",
+      "status": "verified"
+    },
+    {
+      "work_id": "un-crime-dans-la-tete-1962",
+      "fields": [
+        "ratings.imdb",
+        "ratings.metascore",
+        "image",
+        "image.provenance"
+      ],
+      "source_urls": [
+        "https://www.imdb.com/title/tt0056218/ratings/",
+        "https://www.imdb.com/title/tt0056218/criticreviews/",
+        "https://www.imdb.com/title/tt0056218/mediaviewer/rm3914685952"
+      ],
+      "checked_at": "2026-10-09T14:33:11.697Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42"
+      },
+      "evidence_note": "Notes datées et affiche exacte du film de 1962 inspectée.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -26963,7 +27063,8 @@
         "complete-three-cross-day-rerun-reserves-2026-10-09",
         "complete-sunday-la-reconquista-reserve-2026-10-09",
         "complete-sunday-hotel-du-nord-reserve-2026-10-09",
-        "complete-saturday-les-revenants-reserve-2026-10-09"
+        "complete-saturday-les-revenants-reserve-2026-10-09",
+        "complete-saturday-un-crime-dans-la-tete-reserve-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -26979,10 +27080,11 @@
         "vendredi : Les Revenants complet en réserve rang 4",
         "dimanche : La reconquista complète en réserve rang 4",
         "dimanche : Hôtel du Nord complet en réserve rang 5",
-        "samedi : Les Revenants complet en réserve rang 5"
+        "samedi : Les Revenants complet en réserve rang 5",
+        "samedi : Un crime dans la tête (1962) complet en réserve rang 6"
       ],
-      "complete_cards": 82,
-      "cards_integrated_this_run": 8,
+      "complete_cards": 83,
+      "cards_integrated_this_run": 9,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "requirements_resolved": [
@@ -26990,10 +27092,11 @@
         "mercredi, jeudi et vendredi : un dossier complet supplémentaire intégré à chaque pool quotidien",
         "dimanche : un dossier complet supplémentaire intégré au pool quotidien",
         "dimanche : réserve quotidienne portée de quatre à cinq cartes complètes",
-        "samedi : réserve quotidienne portée de quatre à cinq cartes complètes"
+        "samedi : réserve quotidienne portée de quatre à cinq cartes complètes",
+        "samedi : réserve quotidienne portée de cinq à six cartes complètes"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Terminer un dossier proche d’une carte complète pour mercredi ou vendredi, ou poursuivre un recoupement indépendant accessible sans reprendre une voie épuisée.",
+      "next_useful_batch": "Terminer un dossier proche d’une carte complète pour mercredi ou vendredi, ou poursuivre les recoupements de couverture sans reprendre les conflits épuisés.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -27139,18 +27242,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T14:31:13.001Z",
+          "elapsed_seconds": 1735.146,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "47fb6f993fbec3c0af3dba3fe771e1204150260d",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T14:02:17.855Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T15:22:30.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T14:28:16.690Z",
-        "elapsed_seconds": 1558.835,
+        "observed_at": "2026-10-09T14:31:13.001Z",
+        "elapsed_seconds": 1735.146,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "6447ffc17f49ea61262f42e75f24c013b7e0acac",
+        "source_sha": "47fb6f993fbec3c0af3dba3fe771e1204150260d",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
@@ -27176,16 +27308,16 @@
           "ended_at": "2026-10-09T14:07:54.264Z"
         },
         "redaction_rendu": {
-          "started_at": "2026-10-09T14:31:00.000Z",
-          "ended_at": "2026-10-09T14:30:28.541Z"
+          "started_at": "2026-10-09T14:31:45.000Z",
+          "ended_at": "2026-10-09T14:33:11.697Z"
         },
         "recherche": {
-          "started_at": "2026-10-09T14:28:16.690Z",
-          "ended_at": "2026-10-09T14:30:28.541Z"
+          "started_at": "2026-10-09T14:31:13.001Z",
+          "ended_at": "2026-10-09T14:33:11.697Z"
         },
         "controles": {
-          "started_at": "2026-10-09T14:33:00.000Z",
-          "ended_at": "2026-10-09T14:30:28.541Z"
+          "started_at": "2026-10-09T14:32:00.000Z",
+          "ended_at": "2026-10-09T14:33:11.697Z"
         },
         "sauvegarde": null,
         "attente": null
@@ -27195,7 +27327,8 @@
         "Le rapport preparation-gaps confirme cinq cartes complètes le mardi ; seuil de dix encore ouvert.",
         "Le contrôle navigateur local n’a pas pu démarrer faute de binaire Chromium installé ; aucune réussite de présentation n’est revendiquée pour cette tête et la CI distante reste requise.",
         "Hôtel du Nord : identité/version, diffusion France 3, liens, réception, notes, visuel et carte vérifiés ; validateurs canoniques, éditoriaux et liens réussis sur l’état local.",
-        "Les Revenants samedi : dossier stable réutilisé, diffusion recoupée avec divergence mineure conservée ; validateurs canoniques, éditoriaux et liens réussis sur l’état local."
+        "Les Revenants samedi : dossier stable réutilisé, diffusion recoupée avec divergence mineure conservée ; validateurs canoniques, éditoriaux et liens réussis sur l’état local.",
+        "Un crime dans la tête (1962) : identité/remake, version, diffusion, réception, notes, visuel, liens et textes contrôlés ; validateurs canoniques, éditoriaux et liens réussis sur l’état local."
       ]
     }
   ],
@@ -30485,6 +30618,24 @@
         ],
         "decision_note": "Réserve complète rang 5 ; film de Robin Campillo 2004 distinct de la série, copie CANAL+ 102 min.",
         "alternatives": []
+      },
+      {
+        "id": "sl-samedi-un-crime-dans-la-tete-1962-reserve",
+        "title": "Un crime dans la tête",
+        "work_id": "un-crime-dans-la-tete-1962",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "diffusion_officielle_et_reception_argumentee",
+            "note": "CANAL+ annonce explicitement le film de Frankenheimer le 10 octobre à 20:50 sur Ciné+ Classic ; Roger Ebert et la Cinémathèque étayent son intérêt politique et formel.",
+            "source_url": "https://www.canalplus.com/cinema/un-crime-dans-la-tete/h/1453848_50002/resume-casting/"
+          }
+        ],
+        "decision_note": "Réserve complète rang 6 ; version CANAL+ 121 min distincte du DCP/IMDb 126 min et remake 2004 exclu.",
+        "alternatives": []
       }
     ]
   },
@@ -32663,6 +32814,79 @@
       },
       "dossier_completeness": "complete",
       "reason": "Identité, version, diffusion, réception, notes, visuel, liens et textes de carte sont complets et revus."
+    },
+    {
+      "title": "Un crime dans la tête",
+      "work_id": "un-crime-dans-la-tete-1962",
+      "decision": "carte complète de réserve samedi-selection",
+      "identity_research": {
+        "director": "John Frankenheimer",
+        "year": 1962,
+        "country": "États-Unis",
+        "duration_observations": [
+          {
+            "duration": "121 min",
+            "version": "copie CANAL+",
+            "source_url": "https://www.canalplus.com/cinema/un-crime-dans-la-tete/h/1453848_50002/resume-casting/"
+          },
+          {
+            "duration": "126 min",
+            "version": "DCP Cinémathèque / fiche IMDb",
+            "source_url": "https://www.cinematheque.fr/film/32418.html"
+          }
+        ],
+        "imdb_id": "tt0056218",
+        "source_urls": [
+          "https://www.canalplus.com/cinema/un-crime-dans-la-tete/h/1453848_50002/resume-casting/",
+          "https://www.cinematheque.fr/film/32418.html"
+        ],
+        "checked_at": "2026-10-09T14:33:11.697Z",
+        "note": "Le remake de Jonathan Demme (2004) reste une œuvre distincte."
+      },
+      "availability_research": {
+        "status": "verified_linear_broadcast",
+        "checked_at": "2026-10-09T14:33:11.697Z",
+        "source_urls": [
+          "https://www.canalplus.com/cinema/un-crime-dans-la-tete/h/1453848_50002/resume-casting/",
+          "https://tv-programme.com/cine-plus-classic/samedi-10-octobre-2026/"
+        ],
+        "note": "CANAL+ annonce explicitement 20:50 sur Ciné+ Classic et un BroadcastEvent 20:50–22:53 ; la fin de créneau n’est pas une expiration replay."
+      },
+      "critical_evidence": [
+        {
+          "source": "Roger Ebert",
+          "source_url": "https://www.rogerebert.com/reviews/great-movie-the-manchurian-candidate-1962",
+          "assessment": "Souligne l’actualité durable et le mordant de la satire politique."
+        },
+        {
+          "source": "Cinémathèque française",
+          "source_url": "https://www.cinematheque.fr/film/32418.html",
+          "assessment": "Met en avant les cadrages expressionnistes et la puissance du thriller paranoïaque."
+        },
+        {
+          "source": "L’Œil sur l’écran",
+          "source_url": "https://films.oeil-ecran.com/2015/03/02/un-crime-dans-la-tete/",
+          "assessment": "Apprécie montage et climat de cauchemar, avec une réserve précise sur Sinatra et un éloge de Lansbury et Harvey."
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic",
+        "checked_at": "2026-10-09T14:33:11.697Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0056218/ratings/",
+          "https://www.imdb.com/title/tt0056218/criticreviews/"
+        ],
+        "note": "IMDb 7,9/10 sur 85 k notes ; Metascore 94/100 sur 20 critiques au contrôle."
+      },
+      "image_research": {
+        "status": "exact_poster_verified",
+        "checked_at": "2026-10-09T14:33:11.697Z",
+        "source_page": "https://www.imdb.com/title/tt0056218/mediaviewer/rm3914685952",
+        "image_url": "https://m.media-amazon.com/images/M/MV5BMzQyOTBiZTktMTJkZS00MDFhLTlmMjEtNjU0ZDZhM2M2YjM4XkEyXkFqcGc%40._V1_.jpg",
+        "note": "Affiche exacte 1962 inspectée depuis la galerie IMDb."
+      },
+      "dossier_completeness": "complete",
+      "reason": "Identité/version, diffusion, réception, notes, visuel, liens et textes sont complets et revus."
     }
   ]
 }
