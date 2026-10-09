@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T22:44:19.653Z",
+  "updated_at": "2026-10-09T22:46:36.075Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -20,7 +20,6 @@
     "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma.",
     "TF1/TFX/TMC : poursuivre les sujets/épisodes encore génériques et le tri motivé des formats de magazine ou documentaire de flux repérés ; neuf créneaux TFX, 38 TMC recoupés et deux magazines supplémentaires ajoutés, sans certification artistique.",
     "RMC Story/Découverte : l’absence de fournisseur EPG public n’est plus bloquante sous web_schedule_evidence. Sur 127 créneaux, 87 concordent exactement et 35 concordent sur série/date/heure mais gardent leurs épisodes Au cœur des douanes à identifier. Restent deux conflits de titre (10/10 06:05 ; 15/10 22:30), trois alias à confirmer et quatre ajouts du rappel à évaluer ; aucune indépendance amont n’est affirmée.",
-    "Ciné+ Festival : la grille Télérama fournie et relue arbitre six des neuf cartes précédemment ouvertes. Restent La reconquista le 11/10 à 10:20 et Secrets et mensonges le 12/10 à 06:12 puis le 14/10 à 08:29, absents des pages papier relues ; obtenir pour chacun une preuve conforme à web_schedule_evidence ou remplacer la proposition. Les autres rediffusions non retenues restent différées ; durées de versions et droits replay demeurent séparés des créneaux.",
     "TCM : revue applicable des omissions achevée sur 98 créneaux (78 lignes du PDF fourni visuellement relues, 20 créneaux concordants entre TV-Programme et Télérama.fr) ; aucune omission relevée et aucune indépendance amont affirmée. Poursuivre seulement l’enrichissement éditorial des documentaires et films prometteurs non encore retenus, sans rouvrir la provenance technique des grilles."
   ],
   "completed_batches": [
@@ -1392,7 +1391,8 @@
     "review-telerama-five-pages-close-six-cineplus-festival-events-2026-10-09",
     "review-tcm-seven-days-pdf-and-web-schedule-evidence-2026-10-09",
     "review-tv5monde-fbs-seven-pdf-columns-2026-10-09",
-    "reconcile-rmc-web-schedule-evidence-preserve-conflicts-2026-10-09"
+    "reconcile-rmc-web-schedule-evidence-preserve-conflicts-2026-10-09",
+    "close-three-selected-cineplus-events-and-scope-rmc-gaps-2026-10-09"
   ],
   "blockers": [
     {
@@ -27250,6 +27250,36 @@
       },
       "evidence_note": "87 créneaux concordent exactement ; 35 créneaux concordent sur série/date/heure mais gardent l’épisode ouvert. Deux conflits et trois alias sont préservés. Aucune indépendance amont n’est affirmée.",
       "status": "partial_factual_gaps_preserved"
+    },
+    {
+      "id": "run23-three-selected-cineplus-web-schedule-evidence",
+      "work_id": null,
+      "fields": [
+        "broadcast.title",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-festival/dimanche-11-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-dimanche/cine-club",
+        "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-lundi/cine-club",
+        "https://tv-programme.com/cine-plus-festival/mercredi-14-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-mercredi/cine-club"
+      ],
+      "checked_at": "2026-10-09T22:46:36.075Z",
+      "stability": "cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "subjects": [
+          "La reconquista — 2026-10-11 10:20 Ciné+ Festival",
+          "Secrets et mensonges — 2026-10-12 06:12 Ciné+ Festival",
+          "Secrets et mensonges — 2026-10-14 08:29 Ciné+ Festival"
+        ]
+      },
+      "evidence_note": "Deux guides datés d’éditeurs distincts concordent sur les quatre faits de grille des trois cartes. Aucune indépendance amont n’est affirmée.",
+      "status": "verified_for_selected_cards_under_web_schedule_evidence"
     }
   ],
   "run_metrics": [
@@ -34287,7 +34317,8 @@
         "review-telerama-five-pages-close-six-cineplus-festival-events-2026-10-09",
         "review-tcm-seven-days-pdf-and-web-schedule-evidence-2026-10-09",
         "review-tv5monde-fbs-seven-pdf-columns-2026-10-09",
-        "reconcile-rmc-web-schedule-evidence-preserve-conflicts-2026-10-09"
+        "reconcile-rmc-web-schedule-evidence-preserve-conflicts-2026-10-09",
+        "close-three-selected-cineplus-events-and-scope-rmc-gaps-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -34298,9 +34329,9 @@
       "cards_integrated_this_run": 0,
       "draft_cards": 0,
       "partial_dossiers": 0,
-      "requirements_resolved": 4,
+      "requirements_resolved": 5,
       "stop_reason": null,
-      "next_useful_batch": "Traiter une prochaine lacune factuelle ou documentaire accessible ; ne pas rouvrir les provenances techniques déjà réconciliées.",
+      "next_useful_batch": "Poursuivre la revue hebdomadaire sur le prochain défaut factuel accessible ou la passe documentaire, sans rouvrir les événements Ciné+ clos.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -34461,23 +34492,46 @@
             "lease_until": "2026-10-09T23:38:16.947Z",
             "external_stop": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T22:45:32.860Z",
+          "elapsed_seconds": 1569.697,
+          "prompt_revision": "production-web-evidence-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "0638f5a3d835baa03a899e4152882becd04bfb13",
+          "next_actions": [
+            "Traiter une prochaine lacune factuelle ou documentaire accessible ; ne pas rouvrir les provenances techniques déjà réconciliées."
+          ],
+          "remaining_count": 17,
+          "waiting_actions_count": 4,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T22:19:23.163Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T23:38:16.947Z",
+            "external_stop": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T22:43:14.103Z",
-        "elapsed_seconds": 1430.94,
+        "observed_at": "2026-10-09T22:45:32.860Z",
+        "elapsed_seconds": 1569.697,
         "prompt_revision": "production-web-evidence-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "19d0ff64cb7d5e972e735d3a678d1123f46fbca0",
+        "source_sha": "0638f5a3d835baa03a899e4152882becd04bfb13",
         "next_actions": [
-          "Traiter un manque documentaire factuel accessible ou une autre ancienne attente de provenance, en conservant les conflits et identités génériques."
+          "Traiter une prochaine lacune factuelle ou documentaire accessible ; ne pas rouvrir les provenances techniques déjà réconciliées."
         ],
         "remaining_count": 17,
-        "waiting_actions_count": 6,
+        "waiting_actions_count": 4,
         "research_review_warnings": [],
         "observations": {
           "started_at": "2026-10-09T22:19:23.163Z",
@@ -34528,13 +34582,21 @@
           "ended_at": "2026-10-09T22:44:19.653Z",
           "overlap": false,
           "note": "127 comparaisons RMC réconciliées selon web_schedule_evidence ; provenance technique retirée, deux conflits, trois alias et 35 épisodes génériques conservés."
+        },
+        {
+          "kind": "coverage_reconciliation",
+          "started_at": "2026-10-09T22:45:32.860Z",
+          "ended_at": "2026-10-09T22:46:36.075Z",
+          "overlap": false,
+          "note": "Trois cartes Ciné+ hors PDF closes par web_schedule_evidence ; deux conflits RMC confirmés hors tout livrable retenu et conservés comme observations non bloquantes."
         }
       ],
       "requirements_resolved_details": [
         "Un crime dans la tête, réserve jeudi rang 10 : attente de provenance Web close par revue de la ligne imprimée faisant autorité ; horaire corrigé à 17:40.",
         "TCM Cinéma : ancienne exigence de provenance technique close pour le rappel d’omissions selon la politique à jour ; 98 créneaux relus, zéro omission, enrichissement éditorial conservé.",
         "TV5MONDE FBS : exigence de provenance amont close pour le niveau 2 sous autorité du PDF fourni ; sujets/épisodes/offres résiduels conservés.",
-        "RMC Story/Découverte : ancienne exigence de fournisseur EPG retirée selon web_schedule_evidence ; conflits, alias et épisodes génériques restent ouverts."
+        "RMC Story/Découverte : ancienne exigence de fournisseur EPG retirée selon web_schedule_evidence ; conflits, alias et épisodes génériques restent ouverts.",
+        "Ciné+ Festival : les neuf événements de cartes retenues sont clos (six par PDF relu, trois par deux guides datés d’éditeurs distincts) ; aucune indépendance amont affirmée."
       ],
       "control_notes": [
         "preparation-gaps sur eadc052 : seul coverage-full-week reste bloquant structurellement ; les sept jours ont dix cartes matérialisées et l’objectif de quinze reste un avertissement non bloquant.",
@@ -34548,7 +34610,8 @@
         "TV5MONDE FBS : revue de grille bornée au niveau 2 applicable ; aucun flag hebdomadaire global ni indépendance de flux n’est attesté.",
         "Après la réconciliation TV5MONDE FBS, validate-editorial ne conserve que full_week_reaudit_completed=false ; preparation-gaps reste à une action bloquante de couverture hebdomadaire et sept avertissements 10/15.",
         "RMC reste partiel pour des défauts factuels précis ; aucun flag hebdomadaire ou indépendance de flux n’est attesté.",
-        "Après la réconciliation RMC, validate-editorial ne conserve que full_week_reaudit_completed=false ; preparation-gaps reste à une action bloquante de couverture hebdomadaire et sept avertissements 10/15. Les cinq groupes de défauts RMC restent visibles dans le suivi."
+        "Après la réconciliation RMC, validate-editorial ne conserve que full_week_reaudit_completed=false ; preparation-gaps reste à une action bloquante de couverture hebdomadaire et sept avertissements 10/15. Les cinq groupes de défauts RMC restent visibles dans le suivi.",
+        "Les neuf événements Ciné+ Festival auparavant ouverts sont clos uniquement pour leurs quatre faits de grille. Le groupe Ciné+ demeure distinct dans la revue globale tant que les autres segments cinéma ne sont pas attestés."
       ],
       "measurements": {
         "schedule_facts_corrected": {
@@ -35239,7 +35302,6 @@
       "RMC Story/Découverte : l’absence de fournisseur EPG public n’est plus bloquante sous web_schedule_evidence. Sur 127 créneaux, 87 concordent exactement et 35 concordent sur série/date/heure mais gardent leurs épisodes Au cœur des douanes à identifier. Restent deux conflits de titre (10/10 06:05 ; 15/10 22:30), trois alias à confirmer et quatre ajouts du rappel à évaluer ; aucune indépendance amont n’est affirmée.",
       "TV5MONDE FBS : revue applicable des omissions achevée sur les sept colonnes du PDF fourni et 50 créneaux sauvegardés, sans affirmation d’indépendance amont. Identifier seulement les sujets propres d’Au bout de l’enquête (10/10 09:30 et 17:10 ; 11/10 14:38), de Temps présent (13/10 17:05 ; 14/10 09:50) et les épisodes génériques avant tout examen éditorial ; poursuivre séparément offres et expirations TV5MONDE+.",
       "TCM : revue applicable des omissions achevée sur 98 créneaux (78 lignes du PDF fourni visuellement relues, 20 créneaux concordants entre TV-Programme et Télérama.fr) ; aucune omission relevée et aucune indépendance amont affirmée. Poursuivre seulement l’enrichissement éditorial des documentaires et films prometteurs non encore retenus, sans rouvrir la provenance technique des grilles.",
-      "Ciné+ Festival : la grille Télérama fournie et relue arbitre six des neuf cartes précédemment ouvertes. Restent La reconquista le 11/10 à 10:20 et Secrets et mensonges le 12/10 à 06:12 puis le 14/10 à 08:29, absents des pages papier relues ; obtenir pour chacun une preuve conforme à web_schedule_evidence ou remplacer la proposition. Les autres rediffusions non retenues restent différées ; durées de versions et droits replay demeurent séparés des créneaux.",
       "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
       "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet."
     ],
@@ -36072,20 +36134,10 @@
         "https://www.canalplus.com/cinema/secrets-et-mensonges/h/177164_50002/resume-casting/",
         "https://www.canalplus.com/live/tab/direct/decouverte"
       ],
-      "status": "partial_pdf_authority_six_events_resolved_three_events_open",
-      "result": "La nouvelle règle d’autorité de la grille Télérama fournie a été appliquée après revue visuelle des pages 102, 108, 114, 132 et 138. Six cartes Ciné+ Festival sont désormais établies sur leurs quatre faits de grille ; trois événements absents du papier restent ouverts. La portée W9 antérieure demeure résolue par la grille primaire sauvegardée.",
-      "blocking_scope": "niveau 3 de La reconquista le 11 octobre et Secrets et mensonges les 12 et 14 octobre uniquement ; le niveau 2 hebdomadaire reste séparé",
+      "status": "all_nine_selected_card_schedule_events_resolved",
+      "result": "Six événements sont établis sous autorité du PDF relu et les trois événements hors PDF par deux guides datés d’éditeurs distincts concordants selon web_schedule_evidence. Les autres rediffusions non retenues restent différées.",
+      "blocking_scope": "none for the nine selected Ciné+ Festival schedule events",
       "resume_condition": "Une preuve officielle exacte, deux guides actuels d’éditeurs distincts concordants selon web_schedule_evidence, ou une carte de remplacement entièrement vérifiée couvre chacun des trois événements encore ouverts.",
-      "retry_gate": {
-        "state": "waiting_for_new_evidence",
-        "action_texts": [
-          "Ciné+ Festival : la grille Télérama fournie et relue arbitre six des neuf cartes précédemment ouvertes. Restent La reconquista le 11/10 à 10:20 et Secrets et mensonges le 12/10 à 06:12 puis le 14/10 à 08:29, absents des pages papier relues ; obtenir pour chacun une preuve conforme à web_schedule_evidence ou remplacer la proposition. Les autres rediffusions non retenues restent différées ; durées de versions et droits replay demeurent séparés des créneaux."
-        ],
-        "reason": "Les cinq pages Télérama pertinentes ont été relues. Elles couvrent six cartes, mais ne contiennent pas les trois événements résiduels ; répéter cette revue ne peut pas les établir.",
-        "resume_when": "Une preuve officielle exacte, deux guides actuels d’éditeurs distincts concordants selon web_schedule_evidence, ou une carte de remplacement entièrement vérifiée couvre chacun des trois événements encore ouverts.",
-        "observed_at": "2026-10-09T22:34:01.887Z",
-        "evidence": "data/editorial-inputs/2026-S42/telerama.json (sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93), pages 102, 108, 114, 132 et 138 relues ; coverage.closure_policy_reviews conserve les trois événements résiduels."
-      },
       "retry_gate_history": [
         {
           "state": "waiting_for_new_evidence",
@@ -36096,8 +36148,29 @@
           "resume_when": "Un événement officiel exact, une base positive d’acquisition distincte ou une carte de remplacement entièrement vérifiée couvre l’un des neuf créneaux Ciné+ Festival encore ouverts.",
           "observed_at": "2026-10-09T21:18:03.312Z",
           "evidence": "coverage.closure_policy_reviews : cinq œuvres vérifiées par pièces complémentaires et neuf créneaux selected_card_requires_additional_broadcast_evidence ; CI 37992206700 sur le SHA exact."
+        },
+        {
+          "state": "waiting_for_new_evidence",
+          "action_texts": [
+            "Ciné+ Festival : la grille Télérama fournie et relue arbitre six des neuf cartes précédemment ouvertes. Restent La reconquista le 11/10 à 10:20 et Secrets et mensonges le 12/10 à 06:12 puis le 14/10 à 08:29, absents des pages papier relues ; obtenir pour chacun une preuve conforme à web_schedule_evidence ou remplacer la proposition. Les autres rediffusions non retenues restent différées ; durées de versions et droits replay demeurent séparés des créneaux."
+          ],
+          "reason": "Les cinq pages Télérama pertinentes ont été relues. Elles couvrent six cartes, mais ne contiennent pas les trois événements résiduels ; répéter cette revue ne peut pas les établir.",
+          "resume_when": "Une preuve officielle exacte, deux guides actuels d’éditeurs distincts concordants selon web_schedule_evidence, ou une carte de remplacement entièrement vérifiée couvre chacun des trois événements encore ouverts.",
+          "observed_at": "2026-10-09T22:34:01.887Z",
+          "evidence": "data/editorial-inputs/2026-S42/telerama.json (sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93), pages 102, 108, 114, 132 et 138 relues ; coverage.closure_policy_reviews conserve les trois événements résiduels."
         }
-      ]
+      ],
+      "resolved_at": "2026-10-09T22:46:36.075Z",
+      "resolution": {
+        "pdf_authority_events": 6,
+        "web_schedule_evidence_events": 3,
+        "independence_established": false,
+        "subjects": [
+          "La reconquista — 2026-10-11 10:20 Ciné+ Festival",
+          "Secrets et mensonges — 2026-10-12 06:12 Ciné+ Festival",
+          "Secrets et mensonges — 2026-10-14 08:29 Ciné+ Festival"
+        ]
+      }
     },
     {
       "id": "run21-cineplus-orange-monthly-reminder-2026-10-09",
@@ -42621,6 +42694,30 @@
           }
         ],
         "episode_slots": 35
+      }
+    },
+    {
+      "id": "run23-three-cineplus-selected-events-closed",
+      "decided_at": "2026-10-09T22:46:36.075Z",
+      "decision": "requirement_closed",
+      "scope": "Ciné+ Festival : la grille Télérama fournie et relue arbitre six des neuf cartes précédemment ouvertes. Restent La reconquista le 11/10 à 10:20 et Secrets et mensonges le 12/10 à 06:12 puis le 14/10 à 08:29, absents des pages papier relues ; obtenir pour chacun une preuve conforme à web_schedule_evidence ou remplacer la proposition. Les autres rediffusions non retenues restent différées ; durées de versions et droits replay demeurent séparés des créneaux.",
+      "evidence": {
+        "pdf_authority_events": 6,
+        "web_schedule_evidence_events": 3,
+        "independence_established": false
+      }
+    },
+    {
+      "id": "run23-rmc-unselected-conflicts-scope-review",
+      "decided_at": "2026-10-09T22:46:36.075Z",
+      "decision": "level2_review_complete_unselected_fact_gaps_preserved",
+      "scope": "RMC Story/RMC Découverte",
+      "evidence": {
+        "slots": 127,
+        "selected_occurrences": 0,
+        "conflicts": 2,
+        "aliases": 3,
+        "generic_episode_slots": 35
       }
     }
   ]
