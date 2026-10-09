@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "018433005ec07f2d8900af044f82dede06d49a28",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T08:59:15.924Z",
+  "updated_at": "2026-10-09T10:31:30.336Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -595,6 +595,18 @@
         "data/manifest.json",
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "advance-thursday-machine-ecrire-dossier-2026-10-09",
+      "completed_at": "2026-10-09T10:31:30.336Z",
+      "scope": "jeudi",
+      "summary": "Identité, réception, notes, visuel, liens et créneau de La machine à écrire complétés ; version TV laissée en conflit explicite, aucune carte publiée.",
+      "deliverables": [
+        "data/works.json",
+        "data/links.json",
+        "data/research/2026-S42.json",
+        "data/coverage/2026-S42.json"
       ]
     }
   ],
@@ -20803,6 +20815,95 @@
       },
       "evidence_note": "Deux critiques indépendantes déjà lues sont attribuées avec leurs réserves ; textes originaux revus, sans consensus extrapolé.",
       "status": "draft_reviewed"
+    },
+    {
+      "work_id": "la-machine-a-ecrire-et-autres-sources-de-tracas-2024",
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "duration.cinema"
+      ],
+      "source_urls": [
+        "https://www.nicolasphilibert.fr/films/la-machine-a-ecrire-et-autres-sources-de-tracas/",
+        "https://www.imdb.com/title/tt31831104/",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=315423.html"
+      ],
+      "checked_at": "2026-10-09T10:31:30.336Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "version": "version cinéma 72 min"
+      },
+      "evidence_note": "Identité certaine du troisième volet du triptyque de Nicolas Philibert ; durée cinéma 72 min, sans assimilation à la version TV.",
+      "status": "verified"
+    },
+    {
+      "work_id": "la-machine-a-ecrire-et-autres-sources-de-tracas-2024",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-2/10-10-2026/14-10-2026",
+        "https://www.programme-tv.com/television/1254230058/la-machine-a-ecrire-et-autres-sources-de-tracas.html"
+      ],
+      "checked_at": "2026-10-09T10:31:30.336Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-15 02:25 France 2"
+      },
+      "evidence_note": "Date, heure et chaîne recoupées ; ne certifie pas la durée/version diffusée.",
+      "status": "verified"
+    },
+    {
+      "work_id": "la-machine-a-ecrire-et-autres-sources-de-tracas-2024",
+      "fields": [
+        "broadcast.version",
+        "broadcast.slot_duration"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-2/10-10-2026/14-10-2026",
+        "https://www.programme-tv.com/television/1254230058/la-machine-a-ecrire-et-autres-sources-de-tracas.html",
+        "https://www.nicolasphilibert.fr/films/la-machine-a-ecrire-et-autres-sources-de-tracas/"
+      ],
+      "checked_at": "2026-10-09T10:31:30.336Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-15 02:25 France 2"
+      },
+      "evidence_note": "Créneau officiel sauvegardé 70 min, guide exact 65 min, version cinéma 72 min : conflit non résolu, aucune carte complète.",
+      "status": "conflict"
+    },
+    {
+      "work_id": "la-machine-a-ecrire-et-autres-sources-de-tracas-2024",
+      "fields": [
+        "critical_reception",
+        "critical_reservations",
+        "ratings",
+        "image",
+        "links"
+      ],
+      "source_urls": [
+        "https://www.lemonde.fr/culture/article/2024/04/17/avec-la-machine-a-ecrire-et-autres-sources-de-tracas-nicolas-philibert-clot-sur-une-note-legere-et-bricoleuse-sa-folle-trilogie-cinematographique_6228333_3246.html",
+        "https://www.telerama.fr/cinema/la-machine-a-ecrire-et-autres-sources-de-tracas-suite-et-fin-du-sensible-triptyque-de-nicolas-philibert_cri-7032180.php",
+        "https://www.avoir-alire.com/la-machine-a-ecrire-et-autres-sources-de-tracas-nicolas-philibert-critique",
+        "https://www.imdb.com/title/tt31831104/",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=315423.html",
+        "https://tsproductions.fr/film/la-machine-a-ecrire-et-autres-sources-de-tracas"
+      ],
+      "checked_at": "2026-10-09T10:31:30.336Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "La machine à écrire et autres sources de tracas"
+      },
+      "evidence_note": "Trois lectures attribuées, deux notes datées, affiche exacte inspectée et liens directs enregistrés ; aucune unanimité déduite.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -22092,7 +22193,8 @@
         "complete-rendezvous-page-one-2026-10-09",
         "complete-rendezvous-page-two-2026-10-09",
         "render-cover-from-developed-choices-2026-10-09",
-        "render-method-page-2026-10-09"
+        "render-method-page-2026-10-09",
+        "advance-thursday-machine-ecrire-dossier-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -22104,7 +22206,7 @@
       ],
       "complete_cards": 14,
       "draft_cards": 1,
-      "partial_dossiers": 0,
+      "partial_dossiers": 1,
       "deliverables_advanced": [
         "mercredi-selection",
         "mercredi-grille",
@@ -22117,7 +22219,8 @@
         "rendezvous-1",
         "rendezvous-2",
         "couverture",
-        "methode"
+        "methode",
+        "jeudi : dossier La machine à écrire presque complet"
       ],
       "requirements_resolved": [
         "Burning an Illusion : deuxième carte du mercredi matérialisée sans masquer le conflit de versions",
@@ -22365,18 +22468,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T10:28:45.017Z",
+          "elapsed_seconds": 1874.345,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "e7c6d42f8ad2cab4310e2f430f2676fd793538ba",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T09:57:30.672Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T11:16:44.423Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T10:27:14.324Z",
-        "elapsed_seconds": 1783.652,
+        "observed_at": "2026-10-09T10:28:45.017Z",
+        "elapsed_seconds": 1874.345,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "f6a83a958e287a75225615a4f0baef5b8b972bcd",
+        "source_sha": "e7c6d42f8ad2cab4310e2f430f2676fd793538ba",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -22398,7 +22530,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Achever une réserve journalière depuis un dossier déjà avancé, en priorité jeudi, ou produire une rubrique d’offre entièrement vérifiée."
+      "next_useful_batch": "Résoudre la version TV de La machine à écrire seulement sur source nouvelle ; sinon achever une autre réserve jeudi ou une rubrique indépendante."
     }
   ],
   "source_issues": [
@@ -23275,6 +23407,27 @@
       "blocking_scope": "Accès intégral à l’annonce non obtenu ; version/durée TCM reste bloquante pour une fiche complète. Ne résout ni l’indépendance de l’ensemble des grilles TCM ni la couverture hebdomadaire.",
       "status": "primary_broadcast_index_evidence_saved_version_pending",
       "resume_condition": "Nouvelle fiche/guide officiel TCM spécifiant la durée/version de la copie, ou accès primaire complet/corrigé apportant ce fait ; ne pas répéter les mêmes recherches d’annonce sans changement."
+    },
+    {
+      "id": "machine-ecrire-version-tv-2026-10-09",
+      "object": {
+        "title": "La machine à écrire et autres sources de tracas",
+        "work_id": "la-machine-a-ecrire-et-autres-sources-de-tracas-2024",
+        "broadcast": "2026-10-15 02:25 France 2"
+      },
+      "question": "Quelle version et quelle durée exacte France 2 diffusera-t-elle ?",
+      "attempted_at": "2026-10-09T10:31:30.336Z",
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-2/10-10-2026/14-10-2026",
+        "https://www.programme-tv.com/television/1254230058/la-machine-a-ecrire-et-autres-sources-de-tracas.html",
+        "https://www.nicolasphilibert.fr/films/la-machine-a-ecrire-et-autres-sources-de-tracas/",
+        "https://www.france.tv/"
+      ],
+      "result": "Le créneau est confirmé mais les durées 70 min (grille FranceTVPro), 65 min (guide exact) et 72 min (version cinéma) ne permettent pas d’identifier la version TV. france.tv est bloqué par robots et aucune offre exacte n’a été obtenue.",
+      "blocking_scope": "reserve jeudi et toute carte de diffusion de cette œuvre",
+      "blocking": true,
+      "status": "needs_new_source",
+      "resume_when": "Une page programme France Télévisions exacte, une offre france.tv exploitable ou des métadonnées de flux indiquent la durée/version diffusée."
     }
   ],
   "shortlist": {
@@ -24109,6 +24262,26 @@
         ],
         "decision_note": "Carte complète de rubrique ; identité, diffusion et réception restent rattachées aux preuves sauvegardées.",
         "alternatives": []
+      },
+      {
+        "id": "sl-jeudi-machine-ecrire",
+        "title": "La machine à écrire et autres sources de tracas",
+        "work_id": "la-machine-a-ecrire-et-autres-sources-de-tracas-2024",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "researching",
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Le Monde, Télérama et Avoir-Alire décrivent un dernier volet tendre, bricoleur et attentif à la solitude des patients.",
+            "source_url": "https://www.avoir-alire.com/la-machine-a-ecrire-et-autres-sources-de-tracas-nicolas-philibert-critique"
+          }
+        ],
+        "decision_note": "Dossier presque complet ; ne pas ajouter à la sélection ni aux réserves avant résolution de la version TV 65/70/72 min.",
+        "alternatives": [
+          "sl-jeudi-crime-tete"
+        ]
       }
     ]
   },

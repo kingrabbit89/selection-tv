@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "partial",
-  "updated_at": "2026-10-09T10:18:50.361Z",
+  "updated_at": "2026-10-09T10:31:30.336Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -12921,7 +12921,7 @@
         "channel": "France 2",
         "date": "2026-10-15",
         "start": "02:25",
-        "decision": "à vérifier",
+        "decision": "dossier presque complet — carte retenue bloquée par la version TV",
         "critical_evidence": [
           {
             "url": "https://www.lemonde.fr/culture/article/2024/04/17/avec-la-machine-a-ecrire-et-autres-sources-de-tracas-nicolas-philibert-clot-sur-une-note-legere-et-bricoleuse-sa-folle-trilogie-cinematographique_6228333_3246.html",
@@ -12930,6 +12930,21 @@
             "source_date": "2024-04-17",
             "checked_at": "2026-10-08T06:47:37.268Z",
             "note": "Avis très favorable : les réparations domestiques rendent sensible la relation de soin ; le film trouve dans ces gestes un humour discret et une proximité avec les patients. Une critique, pas un consensus."
+          },
+          {
+            "url": "https://www.telerama.fr/cinema/la-machine-a-ecrire-et-autres-sources-de-tracas-suite-et-fin-du-sensible-triptyque-de-nicolas-philibert_cri-7032180.php",
+            "kind": "independent_review",
+            "author": "Cécile Marchand Ménard",
+            "source_date": "2024-04-16",
+            "checked_at": "2026-10-09T10:31:30.336Z",
+            "note": "Lecture du début de la critique et de la fiche complète : valorise la sensibilité du triptyque et les objets réparés comme médiateurs du soin ; texte intégral réservé aux abonnés."
+          },
+          {
+            "url": "https://www.avoir-alire.com/la-machine-a-ecrire-et-autres-sources-de-tracas-nicolas-philibert-critique",
+            "kind": "independent_review",
+            "source_date": "2024-04-16",
+            "checked_at": "2026-10-09T10:31:30.336Z",
+            "note": "Critique intégralement lue : loue la tendresse et la dé-psychiatrisation du regard, tout en décrivant la solitude et le repli que le film ne masque pas."
           }
         ],
         "official_sources": [
@@ -12942,15 +12957,42 @@
           "country": "France",
           "cinema_duration_minutes": 72
         },
-        "reason": "Candidat documentaire cinéma à approfondir. Durée cinéma 72 min établie par le réalisateur ; grille TV 70 min et créneau tiers 65 min divergents. Aucune offre france.tv exacte ni expiration vérifiée.",
+        "reason": "Identité, version cinéma, notes datées, affiche exacte, liens directs et réception indépendante sont vérifiés. Le créneau France 2 du 15 octobre à 02:25 est recoupé, mais ses durées 65/70 min divergent de la version cinéma 72 min ; aucune version TV n’est inventée.",
         "remaining": [
-          "Identité canonique et version TV exacte",
-          "Notes IMDb/SensCritique et liens exacts",
-          "Affiche/provenance/fallback",
-          "Évaluation comparative après inventaire et déduplication",
-          "Offre numérique exacte et expiration",
-          "Réception complémentaire"
-        ]
+          "Version TV exacte ou preuve que la diffusion reprend la version cinéma 72 min",
+          "Offre france.tv exacte et expiration, si une offre publique apparaît",
+          "Comparaison finale avant ajout comme réserve jeudi"
+        ],
+        "work_id": "la-machine-a-ecrire-et-autres-sources-de-tracas-2024",
+        "ratings_research": {
+          "status": "verified_dynamic",
+          "checked_at": "2026-10-09T10:31:30.336Z",
+          "source_urls": [
+            "https://www.imdb.com/title/tt31831104/",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=315423.html"
+          ],
+          "note": "IMDb 6,8/10 (70 votes) et AlloCiné presse 4,0/5 (20 critiques) consultés le 9 octobre 2026."
+        },
+        "image_research": {
+          "status": "poster_visually_verified_ci_pending",
+          "checked_at": "2026-10-09T10:31:30.336Z",
+          "source_page": "https://tsproductions.fr/film/la-machine-a-ecrire-et-autres-sources-de-tracas",
+          "image_url": "https://tsproductions.fr/sites/default/files/affiches_films/120x160-la-machine-a-ecrire-scaled.jpeg",
+          "visually_checked": true,
+          "note": "Affiche verticale exacte portant le titre et le crédit de Nicolas Philibert ; contrôle distant CI encore requis."
+        },
+        "broadcast_research": {
+          "date": "2026-10-15",
+          "start": "02:25",
+          "channel": "France 2",
+          "status": "verified_slot_version_conflict",
+          "checked_at": "2026-10-09T10:31:30.336Z",
+          "source_urls": [
+            "https://www.francetvpro.fr/grille/france-2/10-10-2026/14-10-2026",
+            "https://www.programme-tv.com/television/1254230058/la-machine-a-ecrire-et-autres-sources-de-tracas.html"
+          ],
+          "note": "Date, heure et chaîne concordent. FranceTVPro sauvegardé donne un créneau de 70 min ; Programme-TV indique 65 min ; la version cinéma fait 72 min. La version diffusée reste indéterminée."
+        }
       },
       {
         "title": "Douanes sous haute surveillance",
