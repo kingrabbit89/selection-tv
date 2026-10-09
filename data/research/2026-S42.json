@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T15:11:00.904Z",
+  "updated_at": "2026-10-09T15:49:47.979Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1196,6 +1196,18 @@
       "summary": "Les visuels hérités de The Lost Patrol, Dear Heart et Boys Town ont été réattribués et inspectés. Les trois dossiers restent partiels jusqu’à la revue finale des textes et à leur intégration comme alternatives HD distinctes ; la santé distante complète relève encore de la CI.",
       "deliverables": [
         "data/works.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "integrate-three-distinct-hd-reserves-2026-10-09",
+      "completed_at": "2026-10-09T15:49:47.979Z",
+      "scope": "radar-hd:hd1-reserves",
+      "summary": "The Lost Patrol, Dear Heart et Boys Town remplacent trois fausses réserves dupliquant les primaires de l’autre page. Les trois cartes ont été relues et rendues par le handoff contrôlé ; le radar compte désormais 13 œuvres distinctes et trois réserves globales utilisables, trois alternatives distinctes restant à produire.",
+      "deliverables": [
+        "data/works.json",
+        "data/weeks/2026-S42.json",
+        "data/radar-reserves/2026-S42.json",
         "data/research/2026-S42.json"
       ]
     }
@@ -24726,6 +24738,54 @@
       },
       "evidence_note": "Affiche exacte Boys Town (1938), ouverte et inspectée depuis la fiche MovieMeter.",
       "status": "verified"
+    },
+    {
+      "work_id": "the-lost-patrol-1934",
+      "fields": [
+        "radar_hd_position",
+        "release_signal",
+        "editorial_copy"
+      ],
+      "urls": [
+        "https://www.facebook.com/warnerarchive/posts/coming-to-blu-ray-from-the-warner-archive-collection-on-september-22nd-new-2026-/1536947838470891/"
+      ],
+      "checked_at": "2026-10-09T15:49:47.979Z",
+      "stability": "cycle",
+      "applies_to": "2026-S42 radar-1 reserve",
+      "evidence_note": "Annonce éditeur datée, identité, visuel, synopsis et justification relus avant rendu mécanique du handoff.",
+      "status": "verified"
+    },
+    {
+      "work_id": "dear-heart-1964",
+      "fields": [
+        "radar_hd_position",
+        "release_signal",
+        "editorial_copy"
+      ],
+      "urls": [
+        "https://www.facebook.com/warnerarchive/posts/coming-to-blu-ray-from-the-warner-archive-collection-on-september-22ndnew-2026-1/1536978421801166/"
+      ],
+      "checked_at": "2026-10-09T15:49:47.979Z",
+      "stability": "cycle",
+      "applies_to": "2026-S42 radar-1 reserve",
+      "evidence_note": "Annonce éditeur datée, identité, visuel, synopsis et justification relus avant rendu mécanique du handoff.",
+      "status": "verified"
+    },
+    {
+      "work_id": "boys-town-1938",
+      "fields": [
+        "radar_hd_position",
+        "release_signal",
+        "editorial_copy"
+      ],
+      "urls": [
+        "https://www.facebook.com/warnerarchive/photos/coming-to-blu-ray-from-the-warner-archive-collection-on-september-22nd-new-2026-/1537035968462078/"
+      ],
+      "checked_at": "2026-10-09T15:49:47.979Z",
+      "stability": "cycle",
+      "applies_to": "2026-S42 radar-1 reserve",
+      "evidence_note": "Annonce éditeur datée, identité, visuel, synopsis et justification relus avant rendu mécanique du handoff.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -28308,23 +28368,25 @@
         "complete-reserves-night-hunter-wages-children-2026-10-09",
         "reuse-verified-documentary-saturday-reserve-2026-10-09",
         "advance-distinct-hd-reserve-dossiers-2026-10-09",
-        "revalidate-three-hd-reserve-images-2026-10-09"
+        "revalidate-three-hd-reserve-images-2026-10-09",
+        "integrate-three-distinct-hd-reserves-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
         "data/links.json",
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json",
-        "data/manifest.json"
+        "data/manifest.json",
+        "data/radar-reserves/2026-S42.json"
       ],
-      "complete_cards": 92,
-      "cards_integrated_this_run": 8,
+      "complete_cards": 95,
+      "cards_integrated_this_run": 11,
       "draft_cards": 0,
-      "partial_dossiers": 3,
+      "partial_dossiers": 0,
       "measurements": {
         "complete_cards": {
-          "value": 92,
-          "scope": "stock final de positions de cartes au checkpoint ; 84 héritées et 8 positions de réserve ajoutées pendant ce passage"
+          "value": 95,
+          "scope": "stock de positions de cartes au checkpoint : 84 héritées, huit réserves quotidiennes et trois réserves HD ajoutées pendant ce passage"
         },
         "new_works": {
           "value": 4,
@@ -28335,16 +28397,16 @@
           "scope": "les huit positions ajoutées sont des réserves cachées de rang 5 à 8"
         },
         "additional_reserve_placements": {
-          "value": 8,
-          "scope": "huit nouvelles positions de réserve intégrées dans les pools quotidiens"
+          "value": 11,
+          "scope": "huit positions quotidiennes et trois positions de réserve HD intégrées pendant ce passage"
         },
         "additional_distinct_reserve_work_ids": {
-          "value": 7,
-          "scope": "sept work_id distincts nouveaux comme réserves ; Violences sexuelles… était déjà une œuvre visible dimanche et sa réutilisation samedi ne crée pas une huitième alternative distincte à l’échelle du numéro"
+          "value": 10,
+          "scope": "sept work_id distincts nouveaux dans les réserves quotidiennes et trois alternatives HD distinctes ; Violences sexuelles… reste une réutilisation interjour"
         },
         "stable_reuses": {
-          "value": 3,
-          "scope": "L’Intérêt d’Adam, La Nuit du chasseur et Violences sexuelles… réutilisent des champs stables ; chaque diffusion du cycle est vérifiée séparément"
+          "value": 6,
+          "scope": "trois cartes quotidiennes et trois dossiers HD réemploient des champs stables sauvegardés ; les faits propres au cycle ont été revus"
         }
       },
       "requirements_resolved": [
@@ -28355,10 +28417,11 @@
         "dimanche : réserve complète rang 7 matérialisée pour Shutter Island",
         "samedi : réserve complète rang 7 matérialisée pour La Nuit du chasseur",
         "vendredi : réserves complètes rangs 5 et 6 matérialisées pour Le Salaire de la peur et Les Enfants de la Résistance",
-        "samedi : réserve cachée rang 8 matérialisée pour Violences sexuelles à l’école, sans compter une nouvelle œuvre distincte"
+        "samedi : réserve cachée rang 8 matérialisée pour Violences sexuelles à l’école, sans compter une nouvelle œuvre distincte",
+        "radar HD : trois doublons de réserves interpages remplacés par The Lost Patrol, Dear Heart et Boys Town ; 13 œuvres distinctes et trois réserves globales utilisables"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Relire et adapter les textes hérités de The Lost Patrol, Dear Heart et Boys Town, puis les intégrer comme trois alternatives HD distinctes ; leur santé d’image distante sera confirmée par la CI. Trois autres alternatives HD restent nécessaires.",
+      "next_useful_batch": "Produire trois autres alternatives HD distinctes hors des dix primaires, puis corriger les trois doublons restants de hd2 ; ensuite traiter les cinq doublons du radar popularité.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -28562,18 +28625,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T15:45:40.950Z",
+          "elapsed_seconds": 2423.862,
+          "prompt_revision": "production-integrity-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "394a581cb54c94745996ae37ad48685d9526a5cd",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T15:05:17.088Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T16:25:40.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T15:43:23.290Z",
-        "elapsed_seconds": 2286.202,
+        "observed_at": "2026-10-09T15:45:40.950Z",
+        "elapsed_seconds": 2423.862,
         "prompt_revision": "production-integrity-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "e6dd37e8d1b7c75ebd0f806c9d5c19d339ea1c9d",
+        "source_sha": "394a581cb54c94745996ae37ad48685d9526a5cd",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
@@ -28636,6 +28728,11 @@
           "started_at": "2026-10-09T15:43:30.000Z",
           "ended_at": "2026-10-09T15:44:24.316Z",
           "note": "Ouverture et inspection ciblées des trois visuels hérités ; le CDN IMDb direct reste à confirmer par CI."
+        },
+        "redaction_rendu_hd_reserves": {
+          "started_at": "2026-10-09T15:47:00.874Z",
+          "ended_at": "2026-10-09T15:49:47.979Z",
+          "note": "Revue des objets sauvegardés, plan de huit cartes avec conservation des cinq primaires, rendu et contrôle du handoff ; aucune somme séquentielle avec les contrôles."
         }
       },
       "control_notes": [
@@ -28653,7 +28750,8 @@
         "Violences sexuelles… : carte stable réutilisée samedi ; soirée officielle 21:00 et début du documentaire 21:02 conservés comme observations distinctes.",
         "La réutilisation ajoute une position de réserve mais aucun nouveau work_id distinct à l’échelle du numéro.",
         "Radars HD : trois alternatives distinctes des dix primaires sont avancées avec événement Warner Archive et réception indépendante ; elles restent partial_dossiers tant que visuels et textes S42 ne sont pas revus.",
-        "Visuels HD : Dear Heart et Boys Town ouverts directement ; affiche IMDb exacte de The Lost Patrol inspectée via le résultat image, mais ouverture CDN directe échouée, donc CI distante explicitement requise."
+        "Visuels HD : Dear Heart et Boys Town ouverts directement ; affiche IMDb exacte de The Lost Patrol inspectée via le résultat image, mais ouverture CDN directe échouée, donc CI distante explicitement requise.",
+        "Handoff radar-1 contrôlé : cinq primaires conservés, The Lost Patrol, Dear Heart et Boys Town ajoutés aux rangs 6 à 8. Les doublons HD passent de six à trois ; le radar passe de 10 à 13 œuvres distinctes et de 0 à 3 réserves globales utilisables."
       ]
     }
   ],
@@ -32202,7 +32300,7 @@
         "scope": {
           "rubrique": "radar-hd"
         },
-        "status": "researching",
+        "status": "card_complete",
         "signals": [
           {
             "kind": "sortie_physique_officielle",
@@ -32215,7 +32313,7 @@
             "source_url": "https://www.tcm.com/articles/81888/the-lost-patrol"
           }
         ],
-        "decision_note": "Événement éditeur et réception contradictoire identifiés ; image datée du 24 septembre, texte hérité et carte S42 restent à revoir.",
+        "decision_note": "Alternative HD distincte intégrée comme réserve cachée de radar-1 ; ne ferme pas les trois réserves globales encore manquantes.",
         "alternatives": []
       },
       {
@@ -32225,7 +32323,7 @@
         "scope": {
           "rubrique": "radar-hd"
         },
-        "status": "researching",
+        "status": "card_complete",
         "signals": [
           {
             "kind": "sortie_physique_officielle",
@@ -32238,7 +32336,7 @@
             "source_url": "https://www.popmatters.com/179627-dear-heart-2495682292.html"
           }
         ],
-        "decision_note": "Événement éditeur et réception indépendante identifiés ; image datée du 24 septembre, texte hérité et carte S42 restent à revoir.",
+        "decision_note": "Alternative HD distincte intégrée comme réserve cachée de radar-1 ; ne ferme pas les trois réserves globales encore manquantes.",
         "alternatives": []
       },
       {
@@ -32248,7 +32346,7 @@
         "scope": {
           "rubrique": "radar-hd"
         },
-        "status": "researching",
+        "status": "card_complete",
         "signals": [
           {
             "kind": "sortie_physique_officielle",
@@ -32261,7 +32359,7 @@
             "source_url": "https://variety.com/1937/film/reviews/boys-town-2-1200411687/"
           }
         ],
-        "decision_note": "Événement éditeur et réception contradictoire identifiés ; image datée du 24 septembre, texte hérité et carte S42 restent à revoir.",
+        "decision_note": "Alternative HD distincte intégrée comme réserve cachée de radar-1 ; ne ferme pas les trois réserves globales encore manquantes.",
         "alternatives": []
       }
     ]
@@ -35038,7 +35136,10 @@
         "source_page": "https://www.imdb.com/title/tt0025423/mediaviewer/rm1715351041",
         "image_url": "https://m.media-amazon.com/images/M/MV5BZDc5YjEwNjQtMTExYi00OGJhLWFkMzAtNTc1MDUxMTcyYzE1XkEyXkFqcGc%40._V1_.jpg",
         "note": "Affiche exacte du film de John Ford identifiée et inspectée via le résultat image IMDb ; l’ouverture directe du CDN a échoué dans l’outil Web, donc le contrôle distant CI reste requis."
-      }
+      },
+      "status": "card_complete",
+      "updated_at": "2026-10-09T15:49:47.979Z",
+      "decision_note": "Carte HD complète intégrée comme réserve cachée de radar-1 ; contrôles distants finaux encore requis sur la tête candidate."
     },
     {
       "title": "Dear Heart",
@@ -35085,7 +35186,10 @@
         "source_page": "https://medium.com/the-awl/best-forgotten-dear-heart-1964-2005bcf8749d",
         "image_url": "https://miro.medium.com/1%2AP22iBQxsTCQhpRplU2UMuw.jpeg",
         "note": "Visuel exact rattaché par l’article The Awl à Dear Heart (1964), ouvert et inspecté."
-      }
+      },
+      "status": "card_complete",
+      "updated_at": "2026-10-09T15:49:47.979Z",
+      "decision_note": "Carte HD complète intégrée comme réserve cachée de radar-1 ; contrôles distants finaux encore requis sur la tête candidate."
     },
     {
       "title": "Boys Town",
@@ -35132,7 +35236,10 @@
         "source_page": "https://www.moviemeter.nl/film/6788/info/0",
         "image_url": "https://www.moviemeter.nl/images/cover/6000/6788.jpg?cb=1617530087",
         "note": "Affiche exacte Boys Town (1938), ouverte et inspectée depuis la fiche MovieMeter."
-      }
+      },
+      "status": "card_complete",
+      "updated_at": "2026-10-09T15:49:47.979Z",
+      "decision_note": "Carte HD complète intégrée comme réserve cachée de radar-1 ; contrôles distants finaux encore requis sur la tête candidate."
     }
   ]
 }
