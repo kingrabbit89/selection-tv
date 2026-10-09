@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "primary_complete_crosscheck_pending",
-  "updated_at": "2026-10-09T22:48:25.108Z",
+  "updated_at": "2026-10-09T22:51:58.404Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -437,7 +437,7 @@
               "Ciné+ Frisson",
               "Ciné+ Family"
             ],
-            "reason": "Les pages CANAL+ confirment des identités et certains départs mais leurs BroadcastEvent ne nomment pas toujours la chaîne ; la seconde grille Festival n’est pas indépendante."
+            "reason": "La provenance technique n’est plus demandée. La comparaison au PDF fourni conserve 32 horaires divergents bruts et 1 ligne(s) non rapprochée(s) à trier ; les cartes retenues ont leurs preuves de niveau 3 séparées."
           }
         ],
         "decision": "Ne pas passer independent_crosscheck_complete à true ; poursuivre avec une grille officielle du même flux ou une source dont l’indépendance est identifiable.",
@@ -488,6 +488,38 @@
         "series_title_time_agree_episode_open": 0,
         "aliases_open": 0,
         "conflicts_open": 1,
+        "independence_established": false
+      },
+      "cineplus_pdf_schedule_review": {
+        "checked_at": "2026-10-09T22:51:58.404Z",
+        "status": "partial_omissions_open",
+        "channels": [
+          "Ciné+ Classic",
+          "Ciné+ Festival",
+          "Ciné+ OCS",
+          "Ciné+ Emotion",
+          "Ciné+ Frisson",
+          "Ciné+ Family"
+        ],
+        "total_pdf_lines": 44,
+        "exact_title_time": 11,
+        "title_present_time_divergent": 32,
+        "unmatched_lines": [
+          {
+            "date": "2026-10-10",
+            "channel": "Ciné+ Frisson",
+            "title_printed": "Les Frasques de l’héritière",
+            "pdf_start": "23:55",
+            "pdf_page": 102,
+            "bbox": [
+              308.4,
+              604.58,
+              381.18,
+              618.08
+            ],
+            "status": "omission_requires_editorial_triage"
+          }
+        ],
         "independence_established": false
       }
     },
@@ -1181,7 +1213,7 @@
               "Ciné+ Frisson",
               "Ciné+ Family"
             ],
-            "reason": "Les pages CANAL+ confirment des identités et certains départs mais leurs BroadcastEvent ne nomment pas toujours la chaîne ; la seconde grille Festival n’est pas indépendante."
+            "reason": "La provenance technique n’est plus demandée. La comparaison au PDF fourni conserve 30 horaires divergents bruts et 2 ligne(s) non rapprochée(s) à trier ; les cartes retenues ont leurs preuves de niveau 3 séparées."
           }
         ],
         "decision": "Ne pas passer independent_crosscheck_complete à true ; poursuivre avec une grille officielle du même flux ou une source dont l’indépendance est identifiable.",
@@ -1232,6 +1264,52 @@
         "series_title_time_agree_episode_open": 0,
         "aliases_open": 0,
         "conflicts_open": 0,
+        "independence_established": false
+      },
+      "cineplus_pdf_schedule_review": {
+        "checked_at": "2026-10-09T22:51:58.404Z",
+        "status": "partial_omissions_open",
+        "channels": [
+          "Ciné+ Classic",
+          "Ciné+ Festival",
+          "Ciné+ OCS",
+          "Ciné+ Emotion",
+          "Ciné+ Frisson",
+          "Ciné+ Family"
+        ],
+        "total_pdf_lines": 50,
+        "exact_title_time": 18,
+        "title_present_time_divergent": 30,
+        "unmatched_lines": [
+          {
+            "date": "2026-10-11",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Le Goufre aux chimères",
+            "pdf_start": "00:50",
+            "pdf_page": 102,
+            "bbox": [
+              400.66,
+              393.26,
+              475.91,
+              406.76
+            ],
+            "status": "omission_requires_editorial_triage"
+          },
+          {
+            "date": "2026-10-11",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Les Vacances de M. Hulot",
+            "pdf_start": "18:20",
+            "pdf_page": 108,
+            "bbox": [
+              400.54,
+              182.16,
+              471.63,
+              195.66
+            ],
+            "status": "omission_requires_editorial_triage"
+          }
+        ],
         "independence_established": false
       }
     },
@@ -1734,7 +1812,7 @@
               "Ciné+ Frisson",
               "Ciné+ Family"
             ],
-            "reason": "Les pages CANAL+ confirment des identités et certains départs mais leurs BroadcastEvent ne nomment pas toujours la chaîne ; la seconde grille Festival n’est pas indépendante."
+            "reason": "La provenance technique n’est plus demandée. La comparaison au PDF fourni conserve 33 horaires divergents bruts et 0 ligne(s) non rapprochée(s) à trier ; les cartes retenues ont leurs preuves de niveau 3 séparées."
           }
         ],
         "decision": "Ne pas passer independent_crosscheck_complete à true ; poursuivre avec une grille officielle du même flux ou une source dont l’indépendance est identifiable.",
@@ -1785,6 +1863,23 @@
         "series_title_time_agree_episode_open": 7,
         "aliases_open": 1,
         "conflicts_open": 0,
+        "independence_established": false
+      },
+      "cineplus_pdf_schedule_review": {
+        "checked_at": "2026-10-09T22:51:58.404Z",
+        "status": "complete_for_applicable_level2_omission_review",
+        "channels": [
+          "Ciné+ Classic",
+          "Ciné+ Festival",
+          "Ciné+ OCS",
+          "Ciné+ Emotion",
+          "Ciné+ Frisson",
+          "Ciné+ Family"
+        ],
+        "total_pdf_lines": 53,
+        "exact_title_time": 20,
+        "title_present_time_divergent": 33,
+        "unmatched_lines": [],
         "independence_established": false
       }
     },
@@ -2357,7 +2452,7 @@
               "Ciné+ Frisson",
               "Ciné+ Family"
             ],
-            "reason": "Les pages CANAL+ confirment des identités et certains départs mais leurs BroadcastEvent ne nomment pas toujours la chaîne ; la seconde grille Festival n’est pas indépendante."
+            "reason": "La provenance technique n’est plus demandée. La comparaison au PDF fourni conserve 33 horaires divergents bruts et 1 ligne(s) non rapprochée(s) à trier ; les cartes retenues ont leurs preuves de niveau 3 séparées."
           }
         ],
         "decision": "Ne pas passer independent_crosscheck_complete à true ; poursuivre avec une grille officielle du même flux ou une source dont l’indépendance est identifiable.",
@@ -2408,6 +2503,38 @@
         "series_title_time_agree_episode_open": 7,
         "aliases_open": 0,
         "conflicts_open": 0,
+        "independence_established": false
+      },
+      "cineplus_pdf_schedule_review": {
+        "checked_at": "2026-10-09T22:51:58.404Z",
+        "status": "partial_omissions_open",
+        "channels": [
+          "Ciné+ Classic",
+          "Ciné+ Festival",
+          "Ciné+ OCS",
+          "Ciné+ Emotion",
+          "Ciné+ Frisson",
+          "Ciné+ Family"
+        ],
+        "total_pdf_lines": 45,
+        "exact_title_time": 11,
+        "title_present_time_divergent": 33,
+        "unmatched_lines": [
+          {
+            "date": "2026-10-13",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Island in the Sky",
+            "pdf_start": "11:10",
+            "pdf_page": 120,
+            "bbox": [
+              400.68,
+              85.5,
+              468.79,
+              99
+            ],
+            "status": "omission_requires_editorial_triage"
+          }
+        ],
         "independence_established": false
       }
     },
@@ -2966,7 +3093,7 @@
               "Ciné+ Frisson",
               "Ciné+ Family"
             ],
-            "reason": "Les pages CANAL+ confirment des identités et certains départs mais leurs BroadcastEvent ne nomment pas toujours la chaîne ; la seconde grille Festival n’est pas indépendante."
+            "reason": "La provenance technique n’est plus demandée. La comparaison au PDF fourni conserve 29 horaires divergents bruts et 3 ligne(s) non rapprochée(s) à trier ; les cartes retenues ont leurs preuves de niveau 3 séparées."
           }
         ],
         "decision": "Ne pas passer independent_crosscheck_complete à true ; poursuivre avec une grille officielle du même flux ou une source dont l’indépendance est identifiable.",
@@ -3017,6 +3144,66 @@
         "series_title_time_agree_episode_open": 7,
         "aliases_open": 0,
         "conflicts_open": 0,
+        "independence_established": false
+      },
+      "cineplus_pdf_schedule_review": {
+        "checked_at": "2026-10-09T22:51:58.404Z",
+        "status": "partial_omissions_open",
+        "channels": [
+          "Ciné+ Classic",
+          "Ciné+ Festival",
+          "Ciné+ OCS",
+          "Ciné+ Emotion",
+          "Ciné+ Frisson",
+          "Ciné+ Family"
+        ],
+        "total_pdf_lines": 44,
+        "exact_title_time": 12,
+        "title_present_time_divergent": 29,
+        "unmatched_lines": [
+          {
+            "date": "2026-10-14",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Le Goufre aux chimères",
+            "pdf_start": "17:10",
+            "pdf_page": 126,
+            "bbox": [
+              400.68,
+              176.5,
+              479.57,
+              183
+            ],
+            "status": "omission_requires_editorial_triage"
+          },
+          {
+            "date": "2026-10-14",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Les Vacances de M. Hulot",
+            "pdf_start": "22:40",
+            "pdf_page": 126,
+            "bbox": [
+              400.68,
+              352.71,
+              471.77,
+              366.21
+            ],
+            "status": "omission_requires_editorial_triage"
+          },
+          {
+            "date": "2026-10-14",
+            "channel": "Ciné+ Emotion",
+            "title_printed": "Mon babysitter",
+            "pdf_start": "20:50",
+            "pdf_page": 126,
+            "bbox": [
+              400.63,
+              547.56,
+              451.46,
+              561.06
+            ],
+            "status": "omission_requires_editorial_triage"
+          }
+        ],
         "independence_established": false
       }
     },
@@ -3681,7 +3868,7 @@
               "Ciné+ Frisson",
               "Ciné+ Family"
             ],
-            "reason": "Les pages CANAL+ confirment des identités et certains départs mais leurs BroadcastEvent ne nomment pas toujours la chaîne ; la seconde grille Festival n’est pas indépendante."
+            "reason": "La provenance technique n’est plus demandée. La comparaison au PDF fourni conserve 34 horaires divergents bruts et 2 ligne(s) non rapprochée(s) à trier ; les cartes retenues ont leurs preuves de niveau 3 séparées."
           }
         ],
         "decision": "Ne pas passer independent_crosscheck_complete à true ; poursuivre avec une grille officielle du même flux ou une source dont l’indépendance est identifiable.",
@@ -3732,6 +3919,52 @@
         "series_title_time_agree_episode_open": 7,
         "aliases_open": 2,
         "conflicts_open": 1,
+        "independence_established": false
+      },
+      "cineplus_pdf_schedule_review": {
+        "checked_at": "2026-10-09T22:51:58.404Z",
+        "status": "partial_omissions_open",
+        "channels": [
+          "Ciné+ Classic",
+          "Ciné+ Festival",
+          "Ciné+ OCS",
+          "Ciné+ Emotion",
+          "Ciné+ Frisson",
+          "Ciné+ Family"
+        ],
+        "total_pdf_lines": 51,
+        "exact_title_time": 15,
+        "title_present_time_divergent": 34,
+        "unmatched_lines": [
+          {
+            "date": "2026-10-15",
+            "channel": "Ciné+ Family",
+            "title_printed": "Trois Hommes et un coufin",
+            "pdf_start": "20:50",
+            "pdf_page": 132,
+            "bbox": [
+              492.91,
+              568.55,
+              563.66,
+              582.05
+            ],
+            "status": "omission_requires_editorial_triage"
+          },
+          {
+            "date": "2026-10-15",
+            "channel": "Ciné+ Frisson",
+            "title_printed": "Goûter à l’audace",
+            "pdf_start": "00:55",
+            "pdf_page": 126,
+            "bbox": [
+              308.38,
+              632.8,
+              366.8,
+              646.3
+            ],
+            "status": "omission_requires_editorial_triage"
+          }
+        ],
         "independence_established": false
       }
     },
@@ -4443,7 +4676,7 @@
               "Ciné+ Frisson",
               "Ciné+ Family"
             ],
-            "reason": "Les pages CANAL+ confirment des identités et certains départs mais leurs BroadcastEvent ne nomment pas toujours la chaîne ; la seconde grille Festival n’est pas indépendante."
+            "reason": "La provenance technique n’est plus demandée. La comparaison au PDF fourni conserve 34 horaires divergents bruts et 3 ligne(s) non rapprochée(s) à trier ; les cartes retenues ont leurs preuves de niveau 3 séparées."
           }
         ],
         "decision": "Ne pas passer independent_crosscheck_complete à true ; poursuivre avec une grille officielle du même flux ou une source dont l’indépendance est identifiable.",
@@ -4494,6 +4727,66 @@
         "series_title_time_agree_episode_open": 7,
         "aliases_open": 0,
         "conflicts_open": 0,
+        "independence_established": false
+      },
+      "cineplus_pdf_schedule_review": {
+        "checked_at": "2026-10-09T22:51:58.404Z",
+        "status": "partial_omissions_open",
+        "channels": [
+          "Ciné+ Classic",
+          "Ciné+ Festival",
+          "Ciné+ OCS",
+          "Ciné+ Emotion",
+          "Ciné+ Frisson",
+          "Ciné+ Family"
+        ],
+        "total_pdf_lines": 52,
+        "exact_title_time": 15,
+        "title_present_time_divergent": 34,
+        "unmatched_lines": [
+          {
+            "date": "2026-10-16",
+            "channel": "Ciné+ Emotion",
+            "title_printed": "Mon babysitter",
+            "pdf_start": "19:20",
+            "pdf_page": 138,
+            "bbox": [
+              400.66,
+              526.47,
+              451.5,
+              539.97
+            ],
+            "status": "omission_requires_editorial_triage"
+          },
+          {
+            "date": "2026-10-16",
+            "channel": "Ciné+ Festival",
+            "title_printed": "Garçon chifon",
+            "pdf_start": "03:50",
+            "pdf_page": 132,
+            "bbox": [
+              492.92,
+              418.97,
+              564.34,
+              432.47
+            ],
+            "status": "omission_requires_editorial_triage"
+          },
+          {
+            "date": "2026-10-16",
+            "channel": "Ciné+ Frisson",
+            "title_printed": "Green- land, le dernier refuge",
+            "pdf_start": "15:15",
+            "pdf_page": 138,
+            "bbox": [
+              308.4,
+              477.33,
+              380.27,
+              490.83
+            ],
+            "status": "omission_requires_editorial_triage"
+          }
+        ],
         "independence_established": false
       }
     }
@@ -19597,7 +19890,7 @@
     ],
     "confirmed": "Les objets de comparaison sauvegardés ont été relus pour les sept dates ; les concordances sont conservées sans être surcertifiées.",
     "unresolved_feed_groups": [
-      "Ciné+ et attribution de chaîne"
+      "Ciné+ six channels: 12 unmatched PDF lines require editorial triage"
     ],
     "fresh_routes_checked": [
       {
@@ -19685,6 +19978,15 @@
       "series_slots_episode_open": 35,
       "aliases_open": 3,
       "conflicts_open": 2,
+      "provenance_block_removed": true,
+      "independence_established": false
+    },
+    "cineplus_pdf_comparison": {
+      "reviewed_at": "2026-10-09T22:51:58.404Z",
+      "total": 339,
+      "exact": 102,
+      "time_divergent": 225,
+      "unmatched": 12,
       "provenance_block_removed": true,
       "independence_established": false
     }
@@ -22213,6 +22515,5163 @@
       ],
       "full_week_coverage_certified": false,
       "independent_crosscheck_certified": false
+    },
+    {
+      "id": "run23-cineplus-six-channels-full-pdf-comparison",
+      "path": "data/editorial-inputs/2026-S42/telerama.json",
+      "source_ref": "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93",
+      "pdf_pages": [
+        102,
+        108,
+        114,
+        120,
+        126,
+        132,
+        138
+      ],
+      "reviewed_at": "2026-10-09T22:51:58.404Z",
+      "dates": [
+        "2026-10-10",
+        "2026-10-11",
+        "2026-10-12",
+        "2026-10-13",
+        "2026-10-14",
+        "2026-10-15",
+        "2026-10-16"
+      ],
+      "channels": [
+        "Ciné+ Classic",
+        "Ciné+ Festival",
+        "Ciné+ OCS",
+        "Ciné+ Emotion",
+        "Ciné+ Frisson",
+        "Ciné+ Family"
+      ],
+      "lines_accepted": [
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Stolen Assignment",
+          "pdf_start": "12:30",
+          "pdf_page": 102,
+          "bbox": [
+            400.67,
+            106.16,
+            446.09,
+            119.66
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Classic",
+          "title_printed": "La Charge fantastique",
+          "pdf_start": "17:40",
+          "pdf_page": 102,
+          "bbox": [
+            400.65,
+            190.16,
+            471.29,
+            203.66
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Shirley MacLaine, comme un torrent",
+          "pdf_start": "19:55",
+          "pdf_page": 102,
+          "bbox": [
+            400.64,
+            211.17,
+            463.65,
+            231.67
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Un crime dans la tête",
+          "pdf_start": "20:50",
+          "pdf_page": 102,
+          "bbox": [
+            393.17,
+            249.14,
+            440.42,
+            267.14
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Les Invités de mon père",
+          "pdf_start": "20:50",
+          "pdf_page": 102,
+          "bbox": [
+            400.65,
+            540.34,
+            473.08,
+            553.84
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Family",
+          "title_printed": "Alvin et les Chipmunks 3",
+          "pdf_start": "16:30",
+          "pdf_page": 102,
+          "bbox": [
+            492.94,
+            499.58,
+            565.2,
+            513.08
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Family",
+          "title_printed": "Le Secret de Khéops",
+          "pdf_start": "20:50",
+          "pdf_page": 102,
+          "bbox": [
+            492.93,
+            569.59,
+            568.86,
+            583.09
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Babysitter",
+          "pdf_start": "20:50",
+          "pdf_page": 102,
+          "bbox": [
+            485.43,
+            249.13,
+            528.61,
+            257.63
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Destination finale 2",
+          "pdf_start": "20:50",
+          "pdf_page": 102,
+          "bbox": [
+            308.39,
+            554.34,
+            371.28,
+            560.84
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Insaisissables 2",
+          "pdf_start": "13:50",
+          "pdf_page": 102,
+          "bbox": [
+            308.39,
+            147.05,
+            360.8,
+            153.55
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Le Deuxième Acte",
+          "pdf_start": "20:50",
+          "pdf_page": 102,
+          "bbox": [
+            300.9,
+            249.14,
+            375.71,
+            257.64
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Les Orgueilleux",
+          "pdf_start": "02:35",
+          "pdf_page": 102,
+          "bbox": [
+            400.67,
+            422.5,
+            450.31,
+            436
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Classic",
+          "title_printed": "La Vache et le Prisonnier",
+          "pdf_start": "13:00",
+          "pdf_page": 108,
+          "bbox": [
+            400.56,
+            112.15,
+            470.9,
+            125.66
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Un éléphant, ça trompe énormément",
+          "pdf_start": "20:50",
+          "pdf_page": 108,
+          "bbox": [
+            393.17,
+            249.4,
+            478.91,
+            267.41
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Nous irons tous au paradis",
+          "pdf_start": "22:35",
+          "pdf_page": 108,
+          "bbox": [
+            400.67,
+            309.46,
+            475.06,
+            322.96
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Le Come-Back",
+          "pdf_start": "15:55",
+          "pdf_page": 108,
+          "bbox": [
+            400.65,
+            477.55,
+            452.4,
+            491.05
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Nos pires voisins",
+          "pdf_start": "19:15",
+          "pdf_page": 108,
+          "bbox": [
+            400.63,
+            519.56,
+            475.8,
+            533.06
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Nos pires voisins 2",
+          "pdf_start": "20:50",
+          "pdf_page": 108,
+          "bbox": [
+            400.63,
+            540.56,
+            479.58,
+            554.06
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Crazy, Stupid, Love",
+          "pdf_start": "22:20",
+          "pdf_page": 108,
+          "bbox": [
+            400.62,
+            575.56,
+            457.42,
+            589.06
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Family",
+          "title_printed": "Power Rangers",
+          "pdf_start": "00:00",
+          "pdf_page": 102,
+          "bbox": [
+            492.91,
+            625.59,
+            553.3,
+            639.09
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Family",
+          "title_printed": "Kung Fu Nanny",
+          "pdf_start": "16:30",
+          "pdf_page": 108,
+          "bbox": [
+            492.93,
+            498.54,
+            555.3,
+            512.05
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Family",
+          "title_printed": "Le Routard",
+          "pdf_start": "20:50",
+          "pdf_page": 108,
+          "bbox": [
+            503.12,
+            568.55,
+            564.17,
+            575.05
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Retour à Kotelnitch",
+          "pdf_start": "02:45",
+          "pdf_page": 102,
+          "bbox": [
+            492.92,
+            425.76,
+            557.74,
+            439.26
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Nos années sauvages",
+          "pdf_start": "20:50",
+          "pdf_page": 108,
+          "bbox": [
+            485.43,
+            249.41,
+            534.95,
+            267.41
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Waterworld",
+          "pdf_start": "20:50",
+          "pdf_page": 108,
+          "bbox": [
+            318.6,
+            576.8,
+            382.71,
+            583.3
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Le Livre d’Eli",
+          "pdf_start": "23:00",
+          "pdf_page": 108,
+          "bbox": [
+            308.39,
+            604.8,
+            382.49,
+            618.3
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Illusions perdues",
+          "pdf_start": "08:00",
+          "pdf_page": 108,
+          "bbox": [
+            308.41,
+            63.12,
+            383.3,
+            76.62
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Mission : Impossible – The Final Reckoning",
+          "pdf_start": "16:20",
+          "pdf_page": 108,
+          "bbox": [
+            308.41,
+            166.11,
+            387.92,
+            186.62
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ OCS",
+          "title_printed": "L’Homme qui rétrécit",
+          "pdf_start": "20:50",
+          "pdf_page": 108,
+          "bbox": [
+            300.9,
+            249.41,
+            347.1,
+            267.41
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Un crime dans la tête",
+          "pdf_start": "08:30",
+          "pdf_page": 114,
+          "bbox": [
+            400.67,
+            62.91,
+            471.25,
+            76.41
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Classic",
+          "title_printed": "La Charge fantastique",
+          "pdf_start": "13:30",
+          "pdf_page": 114,
+          "bbox": [
+            400.65,
+            139.91,
+            471.3,
+            153.41
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Les Conquérants",
+          "pdf_start": "15:45",
+          "pdf_page": 114,
+          "bbox": [
+            400.65,
+            160.91,
+            452.04,
+            174.41
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Le diable s’en mêle",
+          "pdf_start": "19:20",
+          "pdf_page": 114,
+          "bbox": [
+            400.68,
+            212.41,
+            468.64,
+            225.91
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Picnic",
+          "pdf_start": "20:50",
+          "pdf_page": 114,
+          "bbox": [
+            393.17,
+            249.14,
+            418.94,
+            257.64
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "L’amour, c’est surcoté",
+          "pdf_start": "13:30",
+          "pdf_page": 114,
+          "bbox": [
+            400.67,
+            477.33,
+            463.21,
+            490.83
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Les Noces rebelles",
+          "pdf_start": "20:50",
+          "pdf_page": 114,
+          "bbox": [
+            400.65,
+            561.34,
+            477.27,
+            574.84
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Family",
+          "title_printed": "Mon père est une saucisse",
+          "pdf_start": "20:50",
+          "pdf_page": 114,
+          "bbox": [
+            492.94,
+            542.83,
+            568.68,
+            556.33
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Bird",
+          "pdf_start": "08:30",
+          "pdf_page": 114,
+          "bbox": [
+            500.76,
+            62.91,
+            550.71,
+            69.41
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Lire Lolita à Téhéran",
+          "pdf_start": "13:30",
+          "pdf_page": 114,
+          "bbox": [
+            492.92,
+            146.91,
+            567.57,
+            160.41
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Love on Trial",
+          "pdf_start": "20:50",
+          "pdf_page": 114,
+          "bbox": [
+            485.43,
+            249.13,
+            537.35,
+            257.63
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Les Revenants",
+          "pdf_start": "22:50",
+          "pdf_page": 114,
+          "bbox": [
+            492.94,
+            348.75,
+            552.96,
+            362.25
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Waterworld",
+          "pdf_start": "13:30",
+          "pdf_page": 114,
+          "bbox": [
+            318.61,
+            477.33,
+            382.72,
+            483.83
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Les Linceuls",
+          "pdf_start": "15:40",
+          "pdf_page": 114,
+          "bbox": [
+            308.41,
+            506.58,
+            350.05,
+            513.08
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Sans pitié",
+          "pdf_start": "20:50",
+          "pdf_page": 114,
+          "bbox": [
+            308.39,
+            569.59,
+            372.87,
+            583.09
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Insaisissables 2",
+          "pdf_start": "08:30",
+          "pdf_page": 114,
+          "bbox": [
+            308.4,
+            69.91,
+            359.63,
+            76.41
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Doux Jésus",
+          "pdf_start": "13:30",
+          "pdf_page": 114,
+          "bbox": [
+            318.59,
+            132.91,
+            375.02,
+            139.41
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ OCS",
+          "title_printed": "La Mule",
+          "pdf_start": "16:50",
+          "pdf_page": 114,
+          "bbox": [
+            319.43,
+            169.16,
+            386.79,
+            175.66
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Partir un jour",
+          "pdf_start": "18:45",
+          "pdf_page": 114,
+          "bbox": [
+            308.4,
+            197.16,
+            351.28,
+            203.66
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Amsterdam",
+          "pdf_start": "20:50",
+          "pdf_page": 114,
+          "bbox": [
+            300.9,
+            249.13,
+            349.78,
+            257.63
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Première Victoire",
+          "pdf_start": "08:30",
+          "pdf_page": 120,
+          "bbox": [
+            400.68,
+            63.25,
+            463.99,
+            76.75
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Classic",
+          "title_printed": "La Garçonnière",
+          "pdf_start": "17:25",
+          "pdf_page": 120,
+          "bbox": [
+            400.67,
+            172,
+            451.04,
+            178.5
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Classic",
+          "title_printed": "La Prisonnière du désert",
+          "pdf_start": "20:50",
+          "pdf_page": 120,
+          "bbox": [
+            393.17,
+            249.41,
+            455.9,
+            267.41
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Colette",
+          "pdf_start": "16:55",
+          "pdf_page": 120,
+          "bbox": [
+            410.88,
+            477.54,
+            461.23,
+            484.04
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Le Mélange des genres",
+          "pdf_start": "20:50",
+          "pdf_page": 120,
+          "bbox": [
+            400.66,
+            519.54,
+            479.97,
+            533.04
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Haut les mains",
+          "pdf_start": "22:30",
+          "pdf_page": 120,
+          "bbox": [
+            400.65,
+            561.55,
+            463.18,
+            575.05
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Family",
+          "title_printed": "Les Saisons",
+          "pdf_start": "20:50",
+          "pdf_page": 120,
+          "bbox": [
+            492.93,
+            512.44,
+            531.36,
+            518.94
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Parthenope",
+          "pdf_start": "13:30",
+          "pdf_page": 120,
+          "bbox": [
+            492.95,
+            128.75,
+            531.9,
+            135.25
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Jackie",
+          "pdf_start": "20:50",
+          "pdf_page": 120,
+          "bbox": [
+            485.43,
+            249.41,
+            511.77,
+            257.91
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Sang froid",
+          "pdf_start": "20:50",
+          "pdf_page": 120,
+          "bbox": [
+            318.6,
+            533.54,
+            383.99,
+            540.04
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ OCS",
+          "title_printed": "I Love Peru",
+          "pdf_start": "09:50",
+          "pdf_page": 120,
+          "bbox": [
+            308.4,
+            63.12,
+            373.07,
+            76.62
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Un éléphant, ça trompe énormément",
+          "pdf_start": "13:30",
+          "pdf_page": 126,
+          "bbox": [
+            400.67,
+            98.25,
+            466.09,
+            118.76
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Le Retour de Don Camillo",
+          "pdf_start": "20:50",
+          "pdf_page": 126,
+          "bbox": [
+            393.17,
+            249.41,
+            455.72,
+            267.41
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Family",
+          "title_printed": "Scott Pilgrim",
+          "pdf_start": "20:50",
+          "pdf_page": 126,
+          "bbox": [
+            492.92,
+            540.55,
+            554.33,
+            554.05
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Family",
+          "title_printed": "Adventureland, job d’été à éviter",
+          "pdf_start": "22:40",
+          "pdf_page": 126,
+          "bbox": [
+            492.94,
+            589.54,
+            546.55,
+            603.04
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Silent Friend",
+          "pdf_start": "13:30",
+          "pdf_page": 126,
+          "bbox": [
+            503.13,
+            105.12,
+            571.63,
+            111.62
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Prima la vita",
+          "pdf_start": "19:00",
+          "pdf_page": 126,
+          "bbox": [
+            492.94,
+            211.37,
+            557.2,
+            224.87
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Left-handed girl",
+          "pdf_start": "20:50",
+          "pdf_page": 126,
+          "bbox": [
+            485.43,
+            249.41,
+            552.31,
+            257.91
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "The Ugly Stepsister",
+          "pdf_start": "01:45",
+          "pdf_page": 120,
+          "bbox": [
+            308.41,
+            627.04,
+            371.96,
+            633.54
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Le Livre d’Eli",
+          "pdf_start": "15:20",
+          "pdf_page": 126,
+          "bbox": [
+            308.4,
+            477.54,
+            382.5,
+            491.04
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Memories of Murder",
+          "pdf_start": "20:50",
+          "pdf_page": 126,
+          "bbox": [
+            308.4,
+            562.79,
+            374.81,
+            569.29
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Life of Chuck",
+          "pdf_start": "13:30",
+          "pdf_page": 126,
+          "bbox": [
+            308.4,
+            113.37,
+            368.62,
+            126.87
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ OCS",
+          "title_printed": "La Femme de",
+          "pdf_start": "20:50",
+          "pdf_page": 126,
+          "bbox": [
+            300.9,
+            249.41,
+            354.97,
+            257.91
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Le miroir se brisa",
+          "pdf_start": "08:30",
+          "pdf_page": 132,
+          "bbox": [
+            400.67,
+            63.25,
+            467.74,
+            76.75
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Classic",
+          "title_printed": "La Rivière rouge",
+          "pdf_start": "13:30",
+          "pdf_page": 132,
+          "bbox": [
+            400.68,
+            127.5,
+            476.52,
+            141
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Rivière de nuit",
+          "pdf_start": "15:35",
+          "pdf_page": 132,
+          "bbox": [
+            400.68,
+            156.75,
+            458.83,
+            170.25
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Point limite",
+          "pdf_start": "20:50",
+          "pdf_page": 132,
+          "bbox": [
+            393.17,
+            249.41,
+            440.28,
+            257.91
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Les Vestiges du jour",
+          "pdf_start": "20:50",
+          "pdf_page": 132,
+          "bbox": [
+            400.56,
+            561.57,
+            478.62,
+            575.07
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Raison et sentiments",
+          "pdf_start": "23:00",
+          "pdf_page": 132,
+          "bbox": [
+            400.55,
+            596.57,
+            470.39,
+            610.07
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Festival",
+          "title_printed": "La Vénus en fourrure",
+          "pdf_start": "00:00",
+          "pdf_page": 126,
+          "bbox": [
+            492.93,
+            362.96,
+            559.5,
+            376.46
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Omar la Fraise",
+          "pdf_start": "08:30",
+          "pdf_page": 132,
+          "bbox": [
+            492.94,
+            63.12,
+            558.8,
+            76.62
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Nos années sauvages",
+          "pdf_start": "13:30",
+          "pdf_page": 132,
+          "bbox": [
+            492.93,
+            135.62,
+            568,
+            149.12
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Lire Lolita à Téhéran",
+          "pdf_start": "15:00",
+          "pdf_page": 132,
+          "bbox": [
+            492.93,
+            156.62,
+            567.57,
+            170.12
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Lady Vengeance",
+          "pdf_start": "20:50",
+          "pdf_page": 132,
+          "bbox": [
+            485.43,
+            249.41,
+            554.01,
+            257.91
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "The Big Short : le casse du siècle",
+          "pdf_start": "20:50",
+          "pdf_page": 132,
+          "bbox": [
+            308.35,
+            547.55,
+            386.21,
+            561.05
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ OCS",
+          "title_printed": "L’Acteur",
+          "pdf_start": "13:05",
+          "pdf_page": 132,
+          "bbox": [
+            318.61,
+            91.25,
+            365.29,
+            97.75
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ OCS",
+          "title_printed": "L’Homme qui rétrécit",
+          "pdf_start": "13:30",
+          "pdf_page": 132,
+          "bbox": [
+            308.41,
+            113.5,
+            378.75,
+            127
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Atomic Blonde",
+          "pdf_start": "20:50",
+          "pdf_page": 132,
+          "bbox": [
+            300.9,
+            249.41,
+            361.95,
+            257.91
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Classic",
+          "title_printed": "La Vie de château",
+          "pdf_start": "19:20",
+          "pdf_page": 138,
+          "bbox": [
+            400.67,
+            197.16,
+            459.35,
+            210.66
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Hatari !",
+          "pdf_start": "20:50",
+          "pdf_page": 138,
+          "bbox": [
+            393.17,
+            249.13,
+            422.62,
+            257.63
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "La Petite Graine",
+          "pdf_start": "20:50",
+          "pdf_page": 138,
+          "bbox": [
+            400.66,
+            547.48,
+            464.44,
+            560.98
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Nos pires voisins",
+          "pdf_start": "23:50",
+          "pdf_page": 138,
+          "bbox": [
+            400.66,
+            603.47,
+            475.83,
+            616.97
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Family",
+          "title_printed": "L’Avare",
+          "pdf_start": "18:40",
+          "pdf_page": 138,
+          "bbox": [
+            503.96,
+            527.72,
+            554.64,
+            534.22
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Family",
+          "title_printed": "God Save the Tuche",
+          "pdf_start": "20:50",
+          "pdf_page": 138,
+          "bbox": [
+            492.93,
+            569.72,
+            559.01,
+            583.22
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Les Revenants",
+          "pdf_start": "08:30",
+          "pdf_page": 138,
+          "bbox": [
+            492.93,
+            83.91,
+            550.57,
+            97.41
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Maria",
+          "pdf_start": "13:30",
+          "pdf_page": 138,
+          "bbox": [
+            503.14,
+            148.16,
+            550.76,
+            154.66
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Eleonora Duse",
+          "pdf_start": "20:50",
+          "pdf_page": 138,
+          "bbox": [
+            485.43,
+            249.14,
+            545.15,
+            257.64
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Six Jours",
+          "pdf_start": "17:10",
+          "pdf_page": 138,
+          "bbox": [
+            318.6,
+            505.33,
+            382.35,
+            511.83
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Hancock",
+          "pdf_start": "20:50",
+          "pdf_page": 138,
+          "bbox": [
+            318.12,
+            548.58,
+            375.66,
+            555.08
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Birdman",
+          "pdf_start": "22:20",
+          "pdf_page": 138,
+          "bbox": [
+            318.6,
+            576.59,
+            379.86,
+            583.09
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ OCS",
+          "title_printed": "OSS 117 : Alerte rouge en Afrique noire",
+          "pdf_start": "02:10",
+          "pdf_page": 132,
+          "bbox": [
+            308.39,
+            404.97,
+            384.71,
+            425.47
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Le Dernier Château",
+          "pdf_start": "08:30",
+          "pdf_page": 138,
+          "bbox": [
+            308.4,
+            76.91,
+            369.78,
+            90.41
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Rampage : hors de contrôle",
+          "pdf_start": "20:50",
+          "pdf_page": 138,
+          "bbox": [
+            300.9,
+            249.14,
+            368.39,
+            267.14
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Mort d’un pourri",
+          "pdf_start": "08:50",
+          "pdf_page": 102,
+          "bbox": [
+            400.67,
+            62.91,
+            455.47,
+            76.41
+          ],
+          "inventory_starts": [
+            "08:48"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Le Samouraï",
+          "pdf_start": "10:50",
+          "pdf_page": 102,
+          "bbox": [
+            400.68,
+            85.16,
+            463.06,
+            98.66
+          ],
+          "inventory_starts": [
+            "10:48"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Classic",
+          "title_printed": "La Rivière rouge",
+          "pdf_start": "15:30",
+          "pdf_page": 102,
+          "bbox": [
+            400.66,
+            155.16,
+            476.51,
+            168.66
+          ],
+          "inventory_starts": [
+            "15:35"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Les Ensorcelés",
+          "pdf_start": "22:50",
+          "pdf_page": 102,
+          "bbox": [
+            400.67,
+            309.25,
+            453.69,
+            322.75
+          ],
+          "inventory_starts": [
+            "22:53"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Un jour de pluie à New York",
+          "pdf_start": "16:10",
+          "pdf_page": 102,
+          "bbox": [
+            400.67,
+            477.33,
+            471.8,
+            490.83
+          ],
+          "inventory_starts": [
+            "16:07"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "L’Hermine",
+          "pdf_start": "17:40",
+          "pdf_page": 102,
+          "bbox": [
+            410.87,
+            498.33,
+            473.95,
+            504.83
+          ],
+          "inventory_starts": [
+            "17:38"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Un homme pressé",
+          "pdf_start": "19:10",
+          "pdf_page": 102,
+          "bbox": [
+            400.66,
+            519.33,
+            471.7,
+            532.84
+          ],
+          "inventory_starts": [
+            "19:12"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Gemma Bovery",
+          "pdf_start": "22:20",
+          "pdf_page": 102,
+          "bbox": [
+            400.67,
+            582.33,
+            466.05,
+            595.83
+          ],
+          "inventory_starts": [
+            "22:23"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Family",
+          "title_printed": "Alvin et les Chipmunks 2",
+          "pdf_start": "15:10",
+          "pdf_page": 102,
+          "bbox": [
+            492.94,
+            477.33,
+            558.4,
+            490.83
+          ],
+          "inventory_starts": [
+            "13:36",
+            "15:04"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Family",
+          "title_printed": "Alvin et les Chipmunks : À fond la caisse",
+          "pdf_start": "18:00",
+          "pdf_page": 102,
+          "bbox": [
+            492.94,
+            520.58,
+            564.38,
+            541.08
+          ],
+          "inventory_starts": [
+            "13:36",
+            "17:55"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Family",
+          "title_printed": "Chicken Run",
+          "pdf_start": "19:30",
+          "pdf_page": 102,
+          "bbox": [
+            492.93,
+            548.58,
+            563.51,
+            562.09
+          ],
+          "inventory_starts": [
+            "19:25"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Family",
+          "title_printed": "Monster Summer",
+          "pdf_start": "22:25",
+          "pdf_page": 102,
+          "bbox": [
+            492.92,
+            597.59,
+            553.1,
+            611.09
+          ],
+          "inventory_starts": [
+            "22:24"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Sorry, Baby",
+          "pdf_start": "07:40",
+          "pdf_page": 102,
+          "bbox": [
+            500.76,
+            62.91,
+            560.7,
+            69.41
+          ],
+          "inventory_starts": [
+            "07:42"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Amanda",
+          "pdf_start": "09:20",
+          "pdf_page": 102,
+          "bbox": [
+            501.4,
+            85.16,
+            566,
+            91.66
+          ],
+          "inventory_starts": [
+            "09:23"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Bird",
+          "pdf_start": "11:10",
+          "pdf_page": 102,
+          "bbox": [
+            503.14,
+            113.16,
+            553.09,
+            119.66
+          ],
+          "inventory_starts": [
+            "11:07"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Black Dog",
+          "pdf_start": "13:00",
+          "pdf_page": 102,
+          "bbox": [
+            503.13,
+            134.16,
+            563.19,
+            140.66
+          ],
+          "inventory_starts": [
+            "13:05"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Les Revenants",
+          "pdf_start": "14:50",
+          "pdf_page": 102,
+          "bbox": [
+            492.92,
+            155.16,
+            552.94,
+            168.66
+          ],
+          "inventory_starts": [
+            "14:52"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Million Dollar Baby",
+          "pdf_start": "16:35",
+          "pdf_page": 102,
+          "bbox": [
+            492.92,
+            183.16,
+            555.47,
+            189.66
+          ],
+          "inventory_starts": [
+            "16:37"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Baccalauréat",
+          "pdf_start": "18:45",
+          "pdf_page": 102,
+          "bbox": [
+            492.91,
+            211.17,
+            537.94,
+            217.67
+          ],
+          "inventory_starts": [
+            "18:46"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Festival",
+          "title_printed": "The Addiction",
+          "pdf_start": "22:20",
+          "pdf_page": 102,
+          "bbox": [
+            492.94,
+            348.76,
+            540.31,
+            355.26
+          ],
+          "inventory_starts": [
+            "22:15"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Prostituée le jour, épouse la nuit",
+          "pdf_start": "23:40",
+          "pdf_page": 102,
+          "bbox": [
+            492.93,
+            376.76,
+            561.39,
+            390.26
+          ],
+          "inventory_starts": [
+            "23:36"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Hunter Killer",
+          "pdf_start": "15:40",
+          "pdf_page": 102,
+          "bbox": [
+            308.4,
+            477.33,
+            371.3,
+            490.83
+          ],
+          "inventory_starts": [
+            "15:47"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "The Good Criminal",
+          "pdf_start": "17:40",
+          "pdf_page": 102,
+          "bbox": [
+            308.4,
+            498.33,
+            369.44,
+            511.83
+          ],
+          "inventory_starts": [
+            "17:45"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "L’Année du requin",
+          "pdf_start": "19:20",
+          "pdf_page": 102,
+          "bbox": [
+            308.39,
+            526.34,
+            367.79,
+            532.84
+          ],
+          "inventory_starts": [
+            "19:23"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Destination finale",
+          "pdf_start": "22:20",
+          "pdf_page": 102,
+          "bbox": [
+            308.41,
+            583.58,
+            385.67,
+            597.08
+          ],
+          "inventory_starts": [
+            "20:50",
+            "22:17"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Enzo",
+          "pdf_start": "08:30",
+          "pdf_page": 102,
+          "bbox": [
+            316.86,
+            63.05,
+            380.86,
+            69.55
+          ],
+          "inventory_starts": [
+            "08:25"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Roubaix, une lumière",
+          "pdf_start": "10:10",
+          "pdf_page": 102,
+          "bbox": [
+            308.4,
+            91.05,
+            380.95,
+            104.55
+          ],
+          "inventory_starts": [
+            "10:04"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Ocean’s 8",
+          "pdf_start": "12:05",
+          "pdf_page": 102,
+          "bbox": [
+            318.6,
+            119.05,
+            377.24,
+            125.55
+          ],
+          "inventory_starts": [
+            "00:36",
+            "12:03"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Life of Chuck",
+          "pdf_start": "16:00",
+          "pdf_page": 102,
+          "bbox": [
+            308.39,
+            168.05,
+            368.6,
+            181.55
+          ],
+          "inventory_starts": [
+            "15:58"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Tár",
+          "pdf_start": "17:50",
+          "pdf_page": 102,
+          "bbox": [
+            318.59,
+            189.05,
+            376.42,
+            195.55
+          ],
+          "inventory_starts": [
+            "17:46"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ OCS",
+          "title_printed": "I Love Peru",
+          "pdf_start": "22:10",
+          "pdf_page": 102,
+          "bbox": [
+            308.4,
+            348.76,
+            344.58,
+            355.26
+          ],
+          "inventory_starts": [
+            "22:07"
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Yannick",
+          "pdf_start": "23:20",
+          "pdf_page": 102,
+          "bbox": [
+            318.6,
+            355.76,
+            383.94,
+            362.26
+          ],
+          "inventory_starts": [
+            "23:16"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Mariage à l’italienne",
+          "pdf_start": "08:40",
+          "pdf_page": 108,
+          "bbox": [
+            400.57,
+            63.15,
+            460.34,
+            76.65
+          ],
+          "inventory_starts": [
+            "08:42"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Il était une fois dans l’Ouest",
+          "pdf_start": "10:20",
+          "pdf_page": 108,
+          "bbox": [
+            400.56,
+            84.15,
+            468.83,
+            97.65
+          ],
+          "inventory_starts": [
+            "10:18"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Le Cerveau",
+          "pdf_start": "14:50",
+          "pdf_page": 108,
+          "bbox": [
+            410.76,
+            133.16,
+            477.01,
+            139.66
+          ],
+          "inventory_starts": [
+            "14:55"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Classic",
+          "title_printed": "L’Incorrigible",
+          "pdf_start": "16:40",
+          "pdf_page": 108,
+          "bbox": [
+            410.75,
+            161.16,
+            478.11,
+            167.66
+          ],
+          "inventory_starts": [
+            "16:46"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Jacques Tati, tombé de la Lune",
+          "pdf_start": "19:50",
+          "pdf_page": 108,
+          "bbox": [
+            400.53,
+            210.16,
+            470.95,
+            223.66
+          ],
+          "inventory_starts": [
+            "19:49"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Barnie et ses petites contrariétés",
+          "pdf_start": "00:00",
+          "pdf_page": 102,
+          "bbox": [
+            400.68,
+            604.58,
+            478.73,
+            618.08
+          ],
+          "inventory_starts": [
+            "00:01"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "La Fille de Brest",
+          "pdf_start": "01:20",
+          "pdf_page": 102,
+          "bbox": [
+            400.67,
+            632.58,
+            464.74,
+            646.09
+          ],
+          "inventory_starts": [
+            "01:23"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Demain on se marie",
+          "pdf_start": "17:40",
+          "pdf_page": 108,
+          "bbox": [
+            400.64,
+            498.55,
+            457.12,
+            512.05
+          ],
+          "inventory_starts": [
+            "17:41"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Family",
+          "title_printed": "The Karate Kid",
+          "pdf_start": "14:10",
+          "pdf_page": 108,
+          "bbox": [
+            503.15,
+            477.54,
+            570.24,
+            484.04
+          ],
+          "inventory_starts": [
+            "14:15"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Family",
+          "title_printed": "Rush Hour 3",
+          "pdf_start": "18:00",
+          "pdf_page": 108,
+          "bbox": [
+            503.13,
+            519.55,
+            567.98,
+            526.05
+          ],
+          "inventory_starts": [
+            "18:02"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Family",
+          "title_printed": "Le Chêne",
+          "pdf_start": "19:30",
+          "pdf_page": 108,
+          "bbox": [
+            503.13,
+            540.55,
+            569.04,
+            547.05
+          ],
+          "inventory_starts": [
+            "19:31"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Family",
+          "title_printed": "Délocalisés",
+          "pdf_start": "22:15",
+          "pdf_page": 108,
+          "bbox": [
+            503.11,
+            589.55,
+            566.52,
+            596.05
+          ],
+          "inventory_starts": [
+            "22:16"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Family",
+          "title_printed": "Les Vacances de Mr. Bean",
+          "pdf_start": "23:40",
+          "pdf_page": 108,
+          "bbox": [
+            492.9,
+            617.55,
+            563.74,
+            631.05
+          ],
+          "inventory_starts": [
+            "23:41"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Festival",
+          "title_printed": "La Gueule ouverte",
+          "pdf_start": "01:10",
+          "pdf_page": 102,
+          "bbox": [
+            492.93,
+            397.76,
+            569.17,
+            411.26
+          ],
+          "inventory_starts": [
+            "01:04"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Malcolm X",
+          "pdf_start": "13:05",
+          "pdf_page": 108,
+          "bbox": [
+            492.86,
+            126.04,
+            529.22,
+            132.54
+          ],
+          "inventory_starts": [
+            "13:09"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Amour apocalypse",
+          "pdf_start": "16:20",
+          "pdf_page": 108,
+          "bbox": [
+            492.85,
+            147.04,
+            552.95,
+            160.54
+          ],
+          "inventory_starts": [
+            "16:25"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Festival",
+          "title_printed": "La Trilogie d’Oslo : Désir",
+          "pdf_start": "18:00",
+          "pdf_page": 108,
+          "bbox": [
+            492.85,
+            175.04,
+            558.47,
+            188.54
+          ],
+          "inventory_starts": [
+            "18:02"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Isabelle Huppert, un message personnel",
+          "pdf_start": "20:00",
+          "pdf_page": 108,
+          "bbox": [
+            492.84,
+            210.04,
+            562.3,
+            230.54
+          ],
+          "inventory_starts": [
+            "19:56"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Mademoiselle",
+          "pdf_start": "22:20",
+          "pdf_page": 108,
+          "bbox": [
+            492.94,
+            316.46,
+            540.66,
+            322.96
+          ],
+          "inventory_starts": [
+            "22:21"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Mal de pierres",
+          "pdf_start": "01:20",
+          "pdf_page": 102,
+          "bbox": [
+            308.4,
+            625.58,
+            363.2,
+            639.09
+          ],
+          "inventory_starts": [
+            "01:24"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Point Break, extrême limite",
+          "pdf_start": "14:50",
+          "pdf_page": 108,
+          "bbox": [
+            308.4,
+            477.54,
+            379.31,
+            491.04
+          ],
+          "inventory_starts": [
+            "15:00"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Snowpiercer : le Transperceneige",
+          "pdf_start": "16:50",
+          "pdf_page": 108,
+          "bbox": [
+            308.41,
+            513.79,
+            372.5,
+            527.29
+          ],
+          "inventory_starts": [
+            "17:00"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Les Fils de l’homme",
+          "pdf_start": "18:50",
+          "pdf_page": 108,
+          "bbox": [
+            308.4,
+            541.79,
+            384.39,
+            555.29
+          ],
+          "inventory_starts": [
+            "19:02"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ OCS",
+          "title_printed": "L’Attachement",
+          "pdf_start": "00:25",
+          "pdf_page": 102,
+          "bbox": [
+            308.39,
+            390.76,
+            356.18,
+            397.26
+          ],
+          "inventory_starts": [
+            "00:22"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ OCS",
+          "title_printed": "L’Acteur",
+          "pdf_start": "02:10",
+          "pdf_page": 102,
+          "bbox": [
+            316.2,
+            418.76,
+            364.1,
+            425.26
+          ],
+          "inventory_starts": [
+            "02:04"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Mission : Impossible",
+          "pdf_start": "10:30",
+          "pdf_page": 108,
+          "bbox": [
+            308.41,
+            85.36,
+            385.82,
+            98.87
+          ],
+          "inventory_starts": [
+            "10:27",
+            "12:13",
+            "14:16",
+            "16:20"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Mission : Impossible 2",
+          "pdf_start": "12:20",
+          "pdf_page": 108,
+          "bbox": [
+            308.41,
+            114.61,
+            385.82,
+            128.12
+          ],
+          "inventory_starts": [
+            "10:27",
+            "12:13"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Mission : Impossible 3",
+          "pdf_start": "14:20",
+          "pdf_page": 108,
+          "bbox": [
+            308.41,
+            136.86,
+            385.82,
+            150.37
+          ],
+          "inventory_starts": [
+            "10:27"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Avignon",
+          "pdf_start": "19:10",
+          "pdf_page": 108,
+          "bbox": [
+            318.61,
+            201.12,
+            376.79,
+            207.62
+          ],
+          "inventory_starts": [
+            "19:06"
+          ]
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Sur les chemins noirs",
+          "pdf_start": "22:30",
+          "pdf_page": 108,
+          "bbox": [
+            308.41,
+            345.71,
+            387.71,
+            359.21
+          ],
+          "inventory_starts": [
+            "22:25"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Annie Hall",
+          "pdf_start": "00:20",
+          "pdf_page": 108,
+          "bbox": [
+            408.48,
+            379.46,
+            473.14,
+            385.97
+          ],
+          "inventory_starts": [
+            "00:23"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Elle et lui",
+          "pdf_start": "01:50",
+          "pdf_page": 108,
+          "bbox": [
+            408.48,
+            400.47,
+            462.95,
+            406.97
+          ],
+          "inventory_starts": [
+            "01:54"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Rivière de nuit",
+          "pdf_start": "03:20",
+          "pdf_page": 108,
+          "bbox": [
+            400.65,
+            421.47,
+            456.82,
+            434.97
+          ],
+          "inventory_starts": [
+            "03:19"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Classic",
+          "title_printed": "La Nuit du chasseur",
+          "pdf_start": "10:30",
+          "pdf_page": 114,
+          "bbox": [
+            400.67,
+            97.91,
+            471,
+            111.41
+          ],
+          "inventory_starts": [
+            "10:32"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Becoming Hitchcock : The Legacy of Blackmail",
+          "pdf_start": "12:00",
+          "pdf_page": 114,
+          "bbox": [
+            400.66,
+            118.91,
+            475.18,
+            139.41
+          ],
+          "inventory_starts": [
+            "12:02"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Falbalas",
+          "pdf_start": "17:30",
+          "pdf_page": 114,
+          "bbox": [
+            411.69,
+            183.16,
+            472.12,
+            189.66
+          ],
+          "inventory_starts": [
+            "17:31"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Kim Novak’s Vertigo",
+          "pdf_start": "22:40",
+          "pdf_page": 114,
+          "bbox": [
+            400.67,
+            306.75,
+            470.15,
+            320.25
+          ],
+          "inventory_starts": [
+            "22:39"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Le miroir se brisa",
+          "pdf_start": "23:50",
+          "pdf_page": 114,
+          "bbox": [
+            400.68,
+            369.75,
+            470.71,
+            383.25
+          ],
+          "inventory_starts": [
+            "23:54"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Lost in Translation",
+          "pdf_start": "00:10",
+          "pdf_page": 108,
+          "bbox": [
+            400.61,
+            603.56,
+            461.17,
+            617.06
+          ],
+          "inventory_starts": [
+            "00:14"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Il n’est jamais trop tard",
+          "pdf_start": "01:50",
+          "pdf_page": 108,
+          "bbox": [
+            400.61,
+            624.56,
+            459.16,
+            638.06
+          ],
+          "inventory_starts": [
+            "01:54"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "La Petite Cuisine de Mehdi",
+          "pdf_start": "15:00",
+          "pdf_page": 114,
+          "bbox": [
+            400.67,
+            498.33,
+            468.82,
+            511.83
+          ],
+          "inventory_starts": [
+            "15:04"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Le Stratège",
+          "pdf_start": "16:50",
+          "pdf_page": 114,
+          "bbox": [
+            410.86,
+            519.33,
+            475.53,
+            525.84
+          ],
+          "inventory_starts": [
+            "16:46"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Une nouvelle chance",
+          "pdf_start": "19:00",
+          "pdf_page": 114,
+          "bbox": [
+            400.65,
+            540.34,
+            479.05,
+            553.84
+          ],
+          "inventory_starts": [
+            "19:01"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Last Days of Summer",
+          "pdf_start": "22:40",
+          "pdf_page": 114,
+          "bbox": [
+            400.65,
+            589.34,
+            472.63,
+            602.84
+          ],
+          "inventory_starts": [
+            "22:45"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Family",
+          "title_printed": "L’Odyssée de Céleste",
+          "pdf_start": "16:40",
+          "pdf_page": 114,
+          "bbox": [
+            492.94,
+            477.33,
+            561.28,
+            490.83
+          ],
+          "inventory_starts": [
+            "16:36"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Family",
+          "title_printed": "Le Ballon d’or",
+          "pdf_start": "18:00",
+          "pdf_page": 114,
+          "bbox": [
+            492.95,
+            499.58,
+            563.2,
+            513.08
+          ],
+          "inventory_starts": [
+            "18:02"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Family",
+          "title_printed": "Les Voyages de Gulliver",
+          "pdf_start": "19:30",
+          "pdf_page": 114,
+          "bbox": [
+            492.95,
+            521.83,
+            567.59,
+            535.33
+          ],
+          "inventory_starts": [
+            "19:33"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Family",
+          "title_printed": "Le père Noël est une ordure",
+          "pdf_start": "22:10",
+          "pdf_page": 114,
+          "bbox": [
+            492.93,
+            577.84,
+            560.71,
+            591.34
+          ],
+          "inventory_starts": [
+            "22:12"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Family",
+          "title_printed": "L’Avare",
+          "pdf_start": "23:40",
+          "pdf_page": 114,
+          "bbox": [
+            503.13,
+            605.84,
+            552.59,
+            612.34
+          ],
+          "inventory_starts": [
+            "23:41"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Festival",
+          "title_printed": "La Vénus en fourrure",
+          "pdf_start": "00:40",
+          "pdf_page": 108,
+          "bbox": [
+            492.93,
+            393.46,
+            567.47,
+            406.96
+          ],
+          "inventory_starts": [
+            "00:42"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Le Rendez-vous de l’été",
+          "pdf_start": "10:30",
+          "pdf_page": 114,
+          "bbox": [
+            492.93,
+            90.91,
+            569.67,
+            97.41
+          ],
+          "inventory_starts": [
+            "10:26"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Le Mystérieux Regard du flamant rose",
+          "pdf_start": "11:40",
+          "pdf_page": 114,
+          "bbox": [
+            492.93,
+            111.91,
+            556.34,
+            132.41
+          ],
+          "inventory_starts": [
+            "11:43"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Omar la Fraise",
+          "pdf_start": "15:20",
+          "pdf_page": 114,
+          "bbox": [
+            492.91,
+            167.91,
+            566.86,
+            181.41
+          ],
+          "inventory_starts": [
+            "15:16"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Festival",
+          "title_printed": "La reconquista",
+          "pdf_start": "16:50",
+          "pdf_page": 114,
+          "bbox": [
+            492.95,
+            190.16,
+            543.3,
+            203.66
+          ],
+          "inventory_starts": [
+            "16:53"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Gangs of Taïwan",
+          "pdf_start": "18:40",
+          "pdf_page": 114,
+          "bbox": [
+            492.94,
+            211.16,
+            551.76,
+            224.66
+          ],
+          "inventory_starts": [
+            "18:38"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Les arènes",
+          "pdf_start": "17:40",
+          "pdf_page": 114,
+          "bbox": [
+            318.61,
+            527.58,
+            382.88,
+            534.09
+          ],
+          "inventory_starts": [
+            "17:36"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Burn Out",
+          "pdf_start": "19:10",
+          "pdf_page": 114,
+          "bbox": [
+            318.6,
+            548.59,
+            385.99,
+            555.09
+          ],
+          "inventory_starts": [
+            "19:08"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Novocaïne",
+          "pdf_start": "22:20",
+          "pdf_page": 114,
+          "bbox": [
+            318.59,
+            590.59,
+            381.91,
+            597.09
+          ],
+          "inventory_starts": [
+            "22:21"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Le Dernier Château",
+          "pdf_start": "01:55",
+          "pdf_page": 108,
+          "bbox": [
+            308.4,
+            415.71,
+            369.77,
+            429.21
+          ],
+          "inventory_starts": [
+            "01:51"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ OCS",
+          "title_printed": "L’Homme qui rétrécit",
+          "pdf_start": "10:40",
+          "pdf_page": 114,
+          "bbox": [
+            308.4,
+            83.91,
+            377.93,
+            97.41
+          ],
+          "inventory_starts": [
+            "10:35"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Une liaison pornographique",
+          "pdf_start": "12:10",
+          "pdf_page": 114,
+          "bbox": [
+            308.39,
+            104.91,
+            376.98,
+            118.41
+          ],
+          "inventory_starts": [
+            "12:11"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Roubaix, une lumière",
+          "pdf_start": "14:50",
+          "pdf_page": 114,
+          "bbox": [
+            308.38,
+            146.91,
+            380.93,
+            160.41
+          ],
+          "inventory_starts": [
+            "14:53"
+          ]
+        },
+        {
+          "date": "2026-10-12",
+          "channel": "Ciné+ OCS",
+          "title_printed": "American Gangster",
+          "pdf_start": "23:00",
+          "pdf_page": 114,
+          "bbox": [
+            308.4,
+            341.75,
+            373.31,
+            348.25
+          ],
+          "inventory_starts": [
+            "22:59"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Monsieur Papa",
+          "pdf_start": "01:40",
+          "pdf_page": 114,
+          "bbox": [
+            408.48,
+            397.75,
+            480.18,
+            404.25
+          ],
+          "inventory_starts": [
+            "01:38"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Un week-end sur deux",
+          "pdf_start": "03:00",
+          "pdf_page": 114,
+          "bbox": [
+            400.67,
+            420,
+            478.83,
+            433.5
+          ],
+          "inventory_starts": [
+            "03:05"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Un carnet de bal",
+          "pdf_start": "13:30",
+          "pdf_page": 120,
+          "bbox": [
+            400.67,
+            114.75,
+            468.33,
+            128.25
+          ],
+          "inventory_starts": [
+            "13:31"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Copie conforme",
+          "pdf_start": "15:35",
+          "pdf_page": 120,
+          "bbox": [
+            400.68,
+            144,
+            464.77,
+            157.5
+          ],
+          "inventory_starts": [
+            "15:36"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Les Fiancées en folie",
+          "pdf_start": "19:30",
+          "pdf_page": 120,
+          "bbox": [
+            400.66,
+            193.01,
+            479.67,
+            206.51
+          ],
+          "inventory_starts": [
+            "19:26"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Classic",
+          "title_printed": "La Rivière rouge",
+          "pdf_start": "22:45",
+          "pdf_page": 120,
+          "bbox": [
+            400.67,
+            309.46,
+            476.52,
+            322.96
+          ],
+          "inventory_starts": [
+            "22:44"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Un bonheur n’arrive jamais seul",
+          "pdf_start": "00:30",
+          "pdf_page": 114,
+          "bbox": [
+            400.64,
+            610.34,
+            472.33,
+            623.84
+          ],
+          "inventory_starts": [
+            "00:32"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "La Crise",
+          "pdf_start": "02:15",
+          "pdf_page": 114,
+          "bbox": [
+            408.45,
+            631.34,
+            455.83,
+            637.84
+          ],
+          "inventory_starts": [
+            "02:18"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Orgueil et préjugés",
+          "pdf_start": "18:50",
+          "pdf_page": 120,
+          "bbox": [
+            400.67,
+            498.54,
+            476.7,
+            512.04
+          ],
+          "inventory_starts": [
+            "18:45"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Jane Austen a gâché ma vie",
+          "pdf_start": "23:50",
+          "pdf_page": 120,
+          "bbox": [
+            400.65,
+            589.55,
+            477.68,
+            603.05
+          ],
+          "inventory_starts": [
+            "23:51"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Family",
+          "title_printed": "L’Incorrigible",
+          "pdf_start": "01:40",
+          "pdf_page": 114,
+          "bbox": [
+            500.74,
+            626.84,
+            568.09,
+            633.34
+          ],
+          "inventory_starts": [
+            "01:39"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Family",
+          "title_printed": "Le Chêne",
+          "pdf_start": "22:20",
+          "pdf_page": 120,
+          "bbox": [
+            503.15,
+            554.44,
+            569.06,
+            560.94
+          ],
+          "inventory_starts": [
+            "22:24"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Family",
+          "title_printed": "Il était une forêt",
+          "pdf_start": "23:40",
+          "pdf_page": 120,
+          "bbox": [
+            492.94,
+            582.44,
+            564.61,
+            595.94
+          ],
+          "inventory_starts": [
+            "23:43"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Sympathy for Mr Vengeance",
+          "pdf_start": "00:35",
+          "pdf_page": 114,
+          "bbox": [
+            492.93,
+            383.75,
+            540.46,
+            397.26
+          ],
+          "inventory_starts": [
+            "00:34"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Baccalauréat",
+          "pdf_start": "02:30",
+          "pdf_page": 114,
+          "bbox": [
+            492.93,
+            425.76,
+            536.78,
+            432.26
+          ],
+          "inventory_starts": [
+            "02:31",
+            "15:44"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Festival",
+          "title_printed": "A Scene at the Sea",
+          "pdf_start": "10:00",
+          "pdf_page": 120,
+          "bbox": [
+            492.95,
+            63.25,
+            567.49,
+            76.75
+          ],
+          "inventory_starts": [
+            "10:03"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Ce sentiment de l’été",
+          "pdf_start": "11:40",
+          "pdf_page": 120,
+          "bbox": [
+            492.95,
+            99.5,
+            562.15,
+            106
+          ],
+          "inventory_starts": [
+            "11:43"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Baccalauréat",
+          "pdf_start": "15:40",
+          "pdf_page": 120,
+          "bbox": [
+            492.94,
+            163.76,
+            537.97,
+            170.26
+          ],
+          "inventory_starts": [
+            "02:31",
+            "15:44"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Mexico 86",
+          "pdf_start": "17:50",
+          "pdf_page": 120,
+          "bbox": [
+            503.96,
+            186,
+            563.55,
+            192.5
+          ],
+          "inventory_starts": [
+            "17:49"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Les Mots qu’elles eurent un jour",
+          "pdf_start": "19:20",
+          "pdf_page": 120,
+          "bbox": [
+            492.94,
+            207,
+            564.87,
+            220.5
+          ],
+          "inventory_starts": [
+            "19:22"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Maria",
+          "pdf_start": "22:30",
+          "pdf_page": 120,
+          "bbox": [
+            503.14,
+            299.96,
+            556.74,
+            306.46
+          ],
+          "inventory_starts": [
+            "22:26"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Prosper",
+          "pdf_start": "01:35",
+          "pdf_page": 114,
+          "bbox": [
+            316.19,
+            632.59,
+            380.44,
+            639.09
+          ],
+          "inventory_starts": [
+            "01:36"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "The Batman",
+          "pdf_start": "15:50",
+          "pdf_page": 120,
+          "bbox": [
+            308.41,
+            477.54,
+            375.43,
+            491.04
+          ],
+          "inventory_starts": [
+            "15:49"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Jouer avec le feu",
+          "pdf_start": "18:55",
+          "pdf_page": 120,
+          "bbox": [
+            308.4,
+            505.54,
+            379.15,
+            519.04
+          ],
+          "inventory_starts": [
+            "18:54"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "The Good Criminal",
+          "pdf_start": "22:45",
+          "pdf_page": 120,
+          "bbox": [
+            308.41,
+            562.79,
+            370.26,
+            576.29
+          ],
+          "inventory_starts": [
+            "22:44"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Le Clan des bêtes",
+          "pdf_start": "01:40",
+          "pdf_page": 114,
+          "bbox": [
+            308.4,
+            404.75,
+            376.23,
+            418.26
+          ],
+          "inventory_starts": [
+            "01:32"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Sur la route de Papa",
+          "pdf_start": "03:20",
+          "pdf_page": 114,
+          "bbox": [
+            308.39,
+            425.76,
+            370.38,
+            439.26
+          ],
+          "inventory_starts": [
+            "03:14"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ OCS",
+          "title_printed": "American Gangster",
+          "pdf_start": "11:00",
+          "pdf_page": 120,
+          "bbox": [
+            308.41,
+            99.37,
+            373.31,
+            105.87
+          ],
+          "inventory_starts": [
+            "10:59"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Bright Star",
+          "pdf_start": "13:30",
+          "pdf_page": 120,
+          "bbox": [
+            308.4,
+            120.37,
+            376.43,
+            133.87
+          ],
+          "inventory_starts": [
+            "13:31"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Le Dernier Château",
+          "pdf_start": "15:25",
+          "pdf_page": 120,
+          "bbox": [
+            308.4,
+            141.37,
+            372.16,
+            154.87
+          ],
+          "inventory_starts": [
+            "15:26"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Les Cadeaux",
+          "pdf_start": "17:30",
+          "pdf_page": 120,
+          "bbox": [
+            318.6,
+            169.37,
+            385.91,
+            175.87
+          ],
+          "inventory_starts": [
+            "17:34"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Mikado",
+          "pdf_start": "18:50",
+          "pdf_page": 120,
+          "bbox": [
+            319.43,
+            205.61,
+            363.71,
+            212.12
+          ],
+          "inventory_starts": [
+            "18:55"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Hypnotic",
+          "pdf_start": "22:50",
+          "pdf_page": 120,
+          "bbox": [
+            318.61,
+            358.46,
+            387.02,
+            364.97
+          ],
+          "inventory_starts": [
+            "22:44"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Max et les ferrailleurs",
+          "pdf_start": "00:50",
+          "pdf_page": 120,
+          "bbox": [
+            400.66,
+            386.46,
+            474.37,
+            399.97
+          ],
+          "inventory_starts": [
+            "00:49"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Classic",
+          "title_printed": "La Banquière",
+          "pdf_start": "02:40",
+          "pdf_page": 120,
+          "bbox": [
+            409.13,
+            422.71,
+            475.22,
+            429.21
+          ],
+          "inventory_starts": [
+            "02:42"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Cadet d’eau douce",
+          "pdf_start": "12:20",
+          "pdf_page": 126,
+          "bbox": [
+            400.68,
+            63.25,
+            471.58,
+            76.75
+          ],
+          "inventory_starts": [
+            "12:06"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Nous irons tous au paradis",
+          "pdf_start": "15:10",
+          "pdf_page": 126,
+          "bbox": [
+            400.66,
+            133.26,
+            475.05,
+            146.76
+          ],
+          "inventory_starts": [
+            "15:16"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Les Ensorcelés",
+          "pdf_start": "19:00",
+          "pdf_page": 126,
+          "bbox": [
+            400.68,
+            205.75,
+            454.51,
+            219.25
+          ],
+          "inventory_starts": [
+            "18:55"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Coup de foudre à Austenland",
+          "pdf_start": "01:30",
+          "pdf_page": 120,
+          "bbox": [
+            400.68,
+            625.79,
+            477.83,
+            639.29
+          ],
+          "inventory_starts": [
+            "01:28"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Backstage",
+          "pdf_start": "15:30",
+          "pdf_page": 126,
+          "bbox": [
+            400.64,
+            484.55,
+            435.54,
+            491.05
+          ],
+          "inventory_starts": [
+            "15:34"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Un jour de pluie à New York",
+          "pdf_start": "17:25",
+          "pdf_page": 126,
+          "bbox": [
+            400.64,
+            498.55,
+            471.76,
+            512.05
+          ],
+          "inventory_starts": [
+            "17:28"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "L’Amour au présent",
+          "pdf_start": "18:50",
+          "pdf_page": 126,
+          "bbox": [
+            400.63,
+            519.56,
+            480.11,
+            533.06
+          ],
+          "inventory_starts": [
+            "18:59"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Bridget Jones : Folle de lui",
+          "pdf_start": "22:20",
+          "pdf_page": 126,
+          "bbox": [
+            400.62,
+            589.56,
+            471.05,
+            603.06
+          ],
+          "inventory_starts": [
+            "22:22"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Family",
+          "title_printed": "La Panthère des neiges",
+          "pdf_start": "01:00",
+          "pdf_page": 120,
+          "bbox": [
+            492.93,
+            610.44,
+            558.9,
+            623.94
+          ],
+          "inventory_starts": [
+            "00:59"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Family",
+          "title_printed": "Kung Fu Nanny",
+          "pdf_start": "18:30",
+          "pdf_page": 126,
+          "bbox": [
+            492.94,
+            477.54,
+            555.31,
+            491.04
+          ],
+          "inventory_starts": [
+            "18:28"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Le Rire et le Couteau",
+          "pdf_start": "00:30",
+          "pdf_page": 120,
+          "bbox": [
+            492.94,
+            371.21,
+            568.73,
+            384.71
+          ],
+          "inventory_starts": [
+            "00:26"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Premières Classes",
+          "pdf_start": "04:00",
+          "pdf_page": 120,
+          "bbox": [
+            492.94,
+            406.21,
+            557.96,
+            419.71
+          ],
+          "inventory_starts": [
+            "03:57"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Maria",
+          "pdf_start": "10:50",
+          "pdf_page": 126,
+          "bbox": [
+            503.15,
+            63.12,
+            550.76,
+            69.62
+          ],
+          "inventory_starts": [
+            "10:46"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Black Dog",
+          "pdf_start": "15:50",
+          "pdf_page": 126,
+          "bbox": [
+            503.15,
+            147.12,
+            563.2,
+            153.62
+          ],
+          "inventory_starts": [
+            "15:52"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Le Beau Rôle",
+          "pdf_start": "17:40",
+          "pdf_page": 126,
+          "bbox": [
+            492.95,
+            176.36,
+            562.99,
+            189.87
+          ],
+          "inventory_starts": [
+            "17:39"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Babysitter",
+          "pdf_start": "22:40",
+          "pdf_page": 126,
+          "bbox": [
+            503.14,
+            292.96,
+            564.44,
+            299.46
+          ],
+          "inventory_starts": [
+            "22:36"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Espion(s)",
+          "pdf_start": "17:20",
+          "pdf_page": 126,
+          "bbox": [
+            319.43,
+            506.79,
+            380.9,
+            513.29
+          ],
+          "inventory_starts": [
+            "17:15"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Goliath",
+          "pdf_start": "18:50",
+          "pdf_page": 126,
+          "bbox": [
+            318.61,
+            527.79,
+            376.16,
+            534.29
+          ],
+          "inventory_starts": [
+            "18:51"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Basic Instinct",
+          "pdf_start": "23:00",
+          "pdf_page": 126,
+          "bbox": [
+            308.39,
+            597.8,
+            368.78,
+            611.3
+          ],
+          "inventory_starts": [
+            "22:56"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ OCS",
+          "title_printed": "En attendant Bojangles",
+          "pdf_start": "00:20",
+          "pdf_page": 120,
+          "bbox": [
+            308.4,
+            400.47,
+            384.72,
+            406.97
+          ],
+          "inventory_starts": [
+            "00:16"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ OCS",
+          "title_printed": "OSS 117 : Le Caire, nid d’espions",
+          "pdf_start": "02:20",
+          "pdf_page": 120,
+          "bbox": [
+            308.39,
+            421.47,
+            380.96,
+            434.97
+          ],
+          "inventory_starts": [
+            "02:16"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Les Cadeaux",
+          "pdf_start": "09:55",
+          "pdf_page": 126,
+          "bbox": [
+            316.22,
+            63.12,
+            378.77,
+            69.62
+          ],
+          "inventory_starts": [
+            "09:52"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Amsterdam",
+          "pdf_start": "11:20",
+          "pdf_page": 126,
+          "bbox": [
+            308.41,
+            99.37,
+            347.36,
+            105.87
+          ],
+          "inventory_starts": [
+            "11:12"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Insaisissables",
+          "pdf_start": "15:20",
+          "pdf_page": 126,
+          "bbox": [
+            318.6,
+            134.37,
+            383.89,
+            140.87
+          ],
+          "inventory_starts": [
+            "15:16",
+            "17:07"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Insaisissables 2",
+          "pdf_start": "17:10",
+          "pdf_page": 126,
+          "bbox": [
+            318.27,
+            155.37,
+            387.35,
+            161.87
+          ],
+          "inventory_starts": [
+            "15:16",
+            "17:07"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Chacun chez soi",
+          "pdf_start": "19:30",
+          "pdf_page": 126,
+          "bbox": [
+            308.38,
+            211.37,
+            375.76,
+            224.87
+          ],
+          "inventory_starts": [
+            "03:52",
+            "19:21"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ OCS",
+          "title_printed": "La Chambre de Mariana",
+          "pdf_start": "22:25",
+          "pdf_page": 126,
+          "bbox": [
+            308.4,
+            348.96,
+            385.06,
+            355.46
+          ],
+          "inventory_starts": [
+            "22:20"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Classic",
+          "title_printed": "L’Incorrigible",
+          "pdf_start": "00:00",
+          "pdf_page": 126,
+          "bbox": [
+            408.49,
+            387.71,
+            475.84,
+            394.21
+          ],
+          "inventory_starts": [
+            "00:04"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Le Cerveau",
+          "pdf_start": "01:40",
+          "pdf_page": 126,
+          "bbox": [
+            409.13,
+            416.96,
+            475.39,
+            423.46
+          ],
+          "inventory_starts": [
+            "01:41"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Picnic",
+          "pdf_start": "10:10",
+          "pdf_page": 132,
+          "bbox": [
+            411.69,
+            85.5,
+            462.96,
+            92
+          ],
+          "inventory_starts": [
+            "10:14"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Kim Novak’s Vertigo",
+          "pdf_start": "12:00",
+          "pdf_page": 132,
+          "bbox": [
+            400.66,
+            106.5,
+            470.14,
+            120
+          ],
+          "inventory_starts": [
+            "12:03"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Un crime dans la tête",
+          "pdf_start": "17:40",
+          "pdf_page": 132,
+          "bbox": [
+            400.68,
+            179,
+            474.45,
+            192.5
+          ],
+          "inventory_starts": [
+            "17:37"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Becoming Hitchcock : The Legacy of Blackmail",
+          "pdf_start": "19:40",
+          "pdf_page": 132,
+          "bbox": [
+            400.67,
+            207,
+            475.19,
+            227.51
+          ],
+          "inventory_starts": [
+            "19:39"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Classic",
+          "title_printed": "La Bombe",
+          "pdf_start": "22:40",
+          "pdf_page": 132,
+          "bbox": [
+            411.69,
+            343.21,
+            473.8,
+            349.71
+          ],
+          "inventory_starts": [
+            "22:39"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Perfect Mothers",
+          "pdf_start": "00:20",
+          "pdf_page": 126,
+          "bbox": [
+            400.61,
+            624.56,
+            472.02,
+            638.06
+          ],
+          "inventory_starts": [
+            "00:23"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Nos pires voisins",
+          "pdf_start": "15:20",
+          "pdf_page": 132,
+          "bbox": [
+            400.59,
+            477.56,
+            475.75,
+            491.06
+          ],
+          "inventory_starts": [
+            "15:24",
+            "16:57"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Nos pires voisins 2",
+          "pdf_start": "17:00",
+          "pdf_page": 132,
+          "bbox": [
+            400.58,
+            498.56,
+            479.53,
+            512.06
+          ],
+          "inventory_starts": [
+            "15:24",
+            "16:57"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Quand Harry rencontre Sally",
+          "pdf_start": "18:30",
+          "pdf_page": 132,
+          "bbox": [
+            400.57,
+            519.56,
+            479.85,
+            533.06
+          ],
+          "inventory_starts": [
+            "18:26"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Rire (enfin) au féminin",
+          "pdf_start": "20:00",
+          "pdf_page": 132,
+          "bbox": [
+            400.57,
+            547.57,
+            472.67,
+            561.07
+          ],
+          "inventory_starts": [
+            "19:58"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Family",
+          "title_printed": "La Machine à démonter le temps",
+          "pdf_start": "00:20",
+          "pdf_page": 126,
+          "bbox": [
+            492.93,
+            624.54,
+            567.49,
+            638.04
+          ],
+          "inventory_starts": [
+            "00:24"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Family",
+          "title_printed": "Fatal",
+          "pdf_start": "16:50",
+          "pdf_page": 132,
+          "bbox": [
+            503.15,
+            477.54,
+            558.86,
+            484.04
+          ],
+          "inventory_starts": [
+            "16:46"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Family",
+          "title_printed": "Enzo le croco",
+          "pdf_start": "19:10",
+          "pdf_page": 132,
+          "bbox": [
+            503.13,
+            540.54,
+            571.74,
+            547.04
+          ],
+          "inventory_starts": [
+            "19:06"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Family",
+          "title_printed": "Absolument fabuleux",
+          "pdf_start": "22:30",
+          "pdf_page": 132,
+          "bbox": [
+            492.94,
+            604.79,
+            569.59,
+            618.29
+          ],
+          "inventory_starts": [
+            "22:33"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Jeux de langues",
+          "pdf_start": "01:30",
+          "pdf_page": 126,
+          "bbox": [
+            492.92,
+            397.97,
+            548.1,
+            411.47
+          ],
+          "inventory_starts": [
+            "01:24"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Un monde merveilleux",
+          "pdf_start": "02:30",
+          "pdf_page": 126,
+          "bbox": [
+            492.92,
+            425.97,
+            567.28,
+            439.47
+          ],
+          "inventory_starts": [
+            "02:24"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Ressources humaines",
+          "pdf_start": "10:10",
+          "pdf_page": 132,
+          "bbox": [
+            492.95,
+            92.37,
+            564.03,
+            98.87
+          ],
+          "inventory_starts": [
+            "10:06"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Hiver à Sokcho",
+          "pdf_start": "11:50",
+          "pdf_page": 132,
+          "bbox": [
+            492.94,
+            114.61,
+            556.63,
+            128.12
+          ],
+          "inventory_starts": [
+            "11:48"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Left-Handed Girl",
+          "pdf_start": "16:50",
+          "pdf_page": 132,
+          "bbox": [
+            492.92,
+            177.62,
+            561.88,
+            191.12
+          ],
+          "inventory_starts": [
+            "16:45"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Festival",
+          "title_printed": "La Pie voleuse",
+          "pdf_start": "18:30",
+          "pdf_page": 132,
+          "bbox": [
+            492.91,
+            198.62,
+            555.93,
+            212.12
+          ],
+          "inventory_starts": [
+            "18:46"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Festival",
+          "title_printed": "L’Infirmière de nuit",
+          "pdf_start": "22:40",
+          "pdf_page": 132,
+          "bbox": [
+            492.94,
+            327.96,
+            569.53,
+            341.46
+          ],
+          "inventory_starts": [
+            "22:43"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Memories of Murder",
+          "pdf_start": "15:50",
+          "pdf_page": 132,
+          "bbox": [
+            308.37,
+            484.55,
+            374.78,
+            491.05
+          ],
+          "inventory_starts": [
+            "15:45"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Dakar Chronicles",
+          "pdf_start": "18:00",
+          "pdf_page": 132,
+          "bbox": [
+            308.36,
+            505.55,
+            369.84,
+            519.05
+          ],
+          "inventory_starts": [
+            "17:56"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Colt 45",
+          "pdf_start": "19:30",
+          "pdf_page": 132,
+          "bbox": [
+            318.56,
+            526.55,
+            382.68,
+            533.05
+          ],
+          "inventory_starts": [
+            "19:25"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Insaisissables",
+          "pdf_start": "23:00",
+          "pdf_page": 132,
+          "bbox": [
+            318.55,
+            589.56,
+            383.84,
+            596.06
+          ],
+          "inventory_starts": [
+            "22:55"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Morlaix",
+          "pdf_start": "00:30",
+          "pdf_page": 126,
+          "bbox": [
+            316.86,
+            385.21,
+            372.84,
+            391.71
+          ],
+          "inventory_starts": [
+            "00:26"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ OCS",
+          "title_printed": "OSS 117 : Rio ne répond plus",
+          "pdf_start": "02:35",
+          "pdf_page": 126,
+          "bbox": [
+            308.4,
+            413.21,
+            382.83,
+            426.71
+          ],
+          "inventory_starts": [
+            "02:25"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ OCS",
+          "title_printed": "The Lost City of Z",
+          "pdf_start": "10:30",
+          "pdf_page": 132,
+          "bbox": [
+            308.41,
+            63.25,
+            378.19,
+            76.75
+          ],
+          "inventory_starts": [
+            "10:33"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ OCS",
+          "title_printed": "L’Attachement",
+          "pdf_start": "15:10",
+          "pdf_page": 132,
+          "bbox": [
+            308.4,
+            141.5,
+            356.19,
+            148
+          ],
+          "inventory_starts": [
+            "15:08"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ OCS",
+          "title_printed": "I Love Peru",
+          "pdf_start": "16:50",
+          "pdf_page": 132,
+          "bbox": [
+            308.4,
+            155.51,
+            385.89,
+            169.01
+          ],
+          "inventory_starts": [
+            "16:51"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Yannick",
+          "pdf_start": "18:00",
+          "pdf_page": 132,
+          "bbox": [
+            318.6,
+            176.51,
+            383.93,
+            183.01
+          ],
+          "inventory_starts": [
+            "18:01"
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Made in Italy",
+          "pdf_start": "19:20",
+          "pdf_page": 132,
+          "bbox": [
+            308.38,
+            211.51,
+            373.95,
+            225.01
+          ],
+          "inventory_starts": [
+            "19:17"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Sauve qui peut (la vie)",
+          "pdf_start": "01:20",
+          "pdf_page": 132,
+          "bbox": [
+            400.67,
+            407.46,
+            470.89,
+            420.96
+          ],
+          "inventory_starts": [
+            "01:26"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Classic",
+          "title_printed": "La Gueule ouverte",
+          "pdf_start": "02:50",
+          "pdf_page": 132,
+          "bbox": [
+            400.67,
+            428.46,
+            476.91,
+            441.96
+          ],
+          "inventory_starts": [
+            "02:51"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Paris, Texas",
+          "pdf_start": "10:30",
+          "pdf_page": 138,
+          "bbox": [
+            400.67,
+            62.91,
+            466.74,
+            76.41
+          ],
+          "inventory_starts": [
+            "10:35"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Classic",
+          "title_printed": "L’Image originelle",
+          "pdf_start": "12:50",
+          "pdf_page": 138,
+          "bbox": [
+            400.67,
+            83.91,
+            456.63,
+            97.41
+          ],
+          "inventory_starts": [
+            "12:55"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Le Retour de don Camillo",
+          "pdf_start": "13:30",
+          "pdf_page": 138,
+          "bbox": [
+            400.67,
+            97.91,
+            469.1,
+            111.41
+          ],
+          "inventory_starts": [
+            "13:31"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Le Petit Monde de don Camillo",
+          "pdf_start": "15:20",
+          "pdf_page": 138,
+          "bbox": [
+            400.66,
+            118.91,
+            471.89,
+            132.41
+          ],
+          "inventory_starts": [
+            "15:18"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Les Culottes rouges",
+          "pdf_start": "17:00",
+          "pdf_page": 138,
+          "bbox": [
+            400.68,
+            148.16,
+            456.66,
+            161.66
+          ],
+          "inventory_starts": [
+            "17:02"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Classic",
+          "title_printed": "La Proie nue",
+          "pdf_start": "23:20",
+          "pdf_page": 138,
+          "bbox": [
+            410.88,
+            299.75,
+            478.9,
+            306.25
+          ],
+          "inventory_starts": [
+            "23:22"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "L’amour, c’est surcoté",
+          "pdf_start": "01:10",
+          "pdf_page": 132,
+          "bbox": [
+            400.55,
+            631.57,
+            460.7,
+            645.07
+          ],
+          "inventory_starts": [
+            "01:14"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Bridget Jones : Folle de lui",
+          "pdf_start": "15:40",
+          "pdf_page": 138,
+          "bbox": [
+            400.68,
+            477.47,
+            471.92,
+            490.97
+          ],
+          "inventory_starts": [
+            "15:36"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Le Come-Back",
+          "pdf_start": "17:40",
+          "pdf_page": 138,
+          "bbox": [
+            400.67,
+            505.47,
+            452.43,
+            518.97
+          ],
+          "inventory_starts": [
+            "17:37"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Nos enfants chéris",
+          "pdf_start": "22:30",
+          "pdf_page": 138,
+          "bbox": [
+            400.67,
+            582.47,
+            473.09,
+            595.97
+          ],
+          "inventory_starts": [
+            "22:26"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Family",
+          "title_printed": "Le Routard",
+          "pdf_start": "00:10",
+          "pdf_page": 132,
+          "bbox": [
+            500.76,
+            632.79,
+            555.83,
+            639.29
+          ],
+          "inventory_starts": [
+            "00:14"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Family",
+          "title_printed": "Les Vacances de Mr. Bean",
+          "pdf_start": "15:20",
+          "pdf_page": 138,
+          "bbox": [
+            492.95,
+            477.47,
+            563.79,
+            490.97
+          ],
+          "inventory_starts": [
+            "15:19"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Family",
+          "title_printed": "S.O.S. Fantômes",
+          "pdf_start": "16:50",
+          "pdf_page": 138,
+          "bbox": [
+            492.94,
+            505.47,
+            548.4,
+            518.97
+          ],
+          "inventory_starts": [
+            "16:46"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Family",
+          "title_printed": "Alvin et les Chipmunks",
+          "pdf_start": "22:20",
+          "pdf_page": 138,
+          "bbox": [
+            492.94,
+            591.97,
+            548.89,
+            605.47
+          ],
+          "inventory_starts": [
+            "22:21"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Family",
+          "title_printed": "Neuilly sa mère !",
+          "pdf_start": "23:50",
+          "pdf_page": 138,
+          "bbox": [
+            492.93,
+            619.97,
+            553.44,
+            633.47
+          ],
+          "inventory_starts": [
+            "23:51"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Amours très intimes pour couples",
+          "pdf_start": "00:10",
+          "pdf_page": 132,
+          "bbox": [
+            492.93,
+            355.97,
+            562.97,
+            369.47
+          ],
+          "inventory_starts": [
+            "00:14"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Mademoiselle",
+          "pdf_start": "01:30",
+          "pdf_page": 132,
+          "bbox": [
+            492.93,
+            397.97,
+            540.65,
+            404.47
+          ],
+          "inventory_starts": [
+            "01:25"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Gangs of Taïwan",
+          "pdf_start": "06:20",
+          "pdf_page": 138,
+          "bbox": [
+            492.94,
+            62.91,
+            549.38,
+            76.41
+          ],
+          "inventory_starts": [
+            "06:19"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Festival",
+          "title_printed": "The Addiction",
+          "pdf_start": "10:10",
+          "pdf_page": 138,
+          "bbox": [
+            492.93,
+            104.91,
+            547.99,
+            118.41
+          ],
+          "inventory_starts": [
+            "10:15"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Macbeth",
+          "pdf_start": "11:40",
+          "pdf_page": 138,
+          "bbox": [
+            503.96,
+            127.16,
+            569.97,
+            133.66
+          ],
+          "inventory_starts": [
+            "11:36"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Jackie",
+          "pdf_start": "15:30",
+          "pdf_page": 138,
+          "bbox": [
+            503.14,
+            169.16,
+            566.04,
+            175.66
+          ],
+          "inventory_starts": [
+            "15:28"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Malcolm X",
+          "pdf_start": "17:10",
+          "pdf_page": 138,
+          "bbox": [
+            492.95,
+            198.41,
+            570.51,
+            211.91
+          ],
+          "inventory_starts": [
+            "17:06"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Sarah Bernhardt, la Divine",
+          "pdf_start": "23:00",
+          "pdf_page": 138,
+          "bbox": [
+            492.95,
+            336,
+            557.7,
+            349.5
+          ],
+          "inventory_starts": [
+            "22:55"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Burn Out",
+          "pdf_start": "02:20",
+          "pdf_page": 132,
+          "bbox": [
+            316.15,
+            631.56,
+            378.78,
+            638.06
+          ],
+          "inventory_starts": [
+            "02:24"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Le Règne animal",
+          "pdf_start": "18:50",
+          "pdf_page": 138,
+          "bbox": [
+            308.41,
+            527.58,
+            373.44,
+            541.08
+          ],
+          "inventory_starts": [
+            "18:47"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Le Clan des bêtes",
+          "pdf_start": "00:30",
+          "pdf_page": 132,
+          "bbox": [
+            308.4,
+            369.97,
+            376.4,
+            383.47
+          ],
+          "inventory_starts": [
+            "00:28"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Illusions perdues",
+          "pdf_start": "10:40",
+          "pdf_page": 138,
+          "bbox": [
+            308.4,
+            97.91,
+            385.68,
+            111.41
+          ],
+          "inventory_starts": [
+            "10:37"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Avignon",
+          "pdf_start": "13:30",
+          "pdf_page": 138,
+          "bbox": [
+            318.43,
+            139.91,
+            375.04,
+            146.41
+          ],
+          "inventory_starts": [
+            "13:29"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Un Noël en famille",
+          "pdf_start": "15:10",
+          "pdf_page": 138,
+          "bbox": [
+            308.41,
+            155.16,
+            372.22,
+            168.66
+          ],
+          "inventory_starts": [
+            "15:09"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ OCS",
+          "title_printed": "À la recherche du bonheur",
+          "pdf_start": "16:50",
+          "pdf_page": 138,
+          "bbox": [
+            308.4,
+            183.16,
+            380.73,
+            196.66
+          ],
+          "inventory_starts": [
+            "16:44"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ OCS",
+          "title_printed": "Orphelin",
+          "pdf_start": "18:40",
+          "pdf_page": 138,
+          "bbox": [
+            318.6,
+            211.16,
+            379.77,
+            217.66
+          ],
+          "inventory_starts": [
+            "18:38"
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ OCS",
+          "title_printed": "La Femme de",
+          "pdf_start": "22:35",
+          "pdf_page": 138,
+          "bbox": [
+            308.41,
+            351.26,
+            384.94,
+            364.76
+          ],
+          "inventory_starts": [
+            "22:34"
+          ]
+        }
+      ],
+      "omissions_resolved": [],
+      "omissions_found": [
+        {
+          "date": "2026-10-10",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Les Frasques de l’héritière",
+          "pdf_start": "23:55",
+          "pdf_page": 102,
+          "bbox": [
+            308.4,
+            604.58,
+            381.18,
+            618.08
+          ],
+          "status": "omission_requires_editorial_triage"
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Le Goufre aux chimères",
+          "pdf_start": "00:50",
+          "pdf_page": 102,
+          "bbox": [
+            400.66,
+            393.26,
+            475.91,
+            406.76
+          ],
+          "status": "omission_requires_editorial_triage"
+        },
+        {
+          "date": "2026-10-11",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Les Vacances de M. Hulot",
+          "pdf_start": "18:20",
+          "pdf_page": 108,
+          "bbox": [
+            400.54,
+            182.16,
+            471.63,
+            195.66
+          ],
+          "status": "omission_requires_editorial_triage"
+        },
+        {
+          "date": "2026-10-13",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Island in the Sky",
+          "pdf_start": "11:10",
+          "pdf_page": 120,
+          "bbox": [
+            400.68,
+            85.5,
+            468.79,
+            99
+          ],
+          "status": "omission_requires_editorial_triage"
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Le Goufre aux chimères",
+          "pdf_start": "17:10",
+          "pdf_page": 126,
+          "bbox": [
+            400.68,
+            176.5,
+            479.57,
+            183
+          ],
+          "status": "omission_requires_editorial_triage"
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Classic",
+          "title_printed": "Les Vacances de M. Hulot",
+          "pdf_start": "22:40",
+          "pdf_page": 126,
+          "bbox": [
+            400.68,
+            352.71,
+            471.77,
+            366.21
+          ],
+          "status": "omission_requires_editorial_triage"
+        },
+        {
+          "date": "2026-10-14",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Mon babysitter",
+          "pdf_start": "20:50",
+          "pdf_page": 126,
+          "bbox": [
+            400.63,
+            547.56,
+            451.46,
+            561.06
+          ],
+          "status": "omission_requires_editorial_triage"
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Family",
+          "title_printed": "Trois Hommes et un coufin",
+          "pdf_start": "20:50",
+          "pdf_page": 132,
+          "bbox": [
+            492.91,
+            568.55,
+            563.66,
+            582.05
+          ],
+          "status": "omission_requires_editorial_triage"
+        },
+        {
+          "date": "2026-10-15",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Goûter à l’audace",
+          "pdf_start": "00:55",
+          "pdf_page": 126,
+          "bbox": [
+            308.38,
+            632.8,
+            366.8,
+            646.3
+          ],
+          "status": "omission_requires_editorial_triage"
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Emotion",
+          "title_printed": "Mon babysitter",
+          "pdf_start": "19:20",
+          "pdf_page": 138,
+          "bbox": [
+            400.66,
+            526.47,
+            451.5,
+            539.97
+          ],
+          "status": "omission_requires_editorial_triage"
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Festival",
+          "title_printed": "Garçon chifon",
+          "pdf_start": "03:50",
+          "pdf_page": 132,
+          "bbox": [
+            492.92,
+            418.97,
+            564.34,
+            432.47
+          ],
+          "status": "omission_requires_editorial_triage"
+        },
+        {
+          "date": "2026-10-16",
+          "channel": "Ciné+ Frisson",
+          "title_printed": "Green- land, le dernier refuge",
+          "pdf_start": "15:15",
+          "pdf_page": 138,
+          "bbox": [
+            308.4,
+            477.33,
+            380.27,
+            490.83
+          ],
+          "status": "omission_requires_editorial_triage"
+        }
+      ],
+      "decisions": [
+        "Les six colonnes Ciné+ des sept pages ont été visuellement relues et rapprochées de l’inventaire sauvegardé.",
+        "102 lignes concordent sur le titre et l’heure ; 225 titres sont présents dans l’inventaire à un autre horaire, conservé comme divergence brute sans enquête ligne par ligne.",
+        "Douze lignes ne sont pas rapprochées de l’inventaire et restent des omissions à trier éditorialement ; aucune carte n’est ajoutée automatiquement."
+      ],
+      "limits": [
+        "Le PDF fait autorité sur ses quatre faits imprimés, mais cette revue ne certifie ni identité détaillée, ni version, ni offre, ni réception critique.",
+        "Les 225 écarts d’heure bruts ne bloquent pas seuls le numéro ; une omission prometteuse ou un défaut d’une proposition resterait bloquant."
+      ],
+      "full_week_coverage_certified": false,
+      "independent_crosscheck_certified": false
     }
   ],
   "web_schedule_reviews": [
@@ -22530,5 +27989,202 @@
         "Cette revue ne certifie pas la grille Ciné+ complète ni le niveau 2 hebdomadaire."
       ]
     }
-  ]
+  ],
+  "cineplus_pdf_grid_comparison": {
+    "reviewed_at": "2026-10-09T22:51:58.404Z",
+    "path": "data/editorial-inputs/2026-S42/telerama.json",
+    "source_ref": "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93",
+    "pdf_pages": [
+      102,
+      108,
+      114,
+      120,
+      126,
+      132,
+      138
+    ],
+    "channels": [
+      "Ciné+ Classic",
+      "Ciné+ Festival",
+      "Ciné+ OCS",
+      "Ciné+ Emotion",
+      "Ciné+ Frisson",
+      "Ciné+ Family"
+    ],
+    "total": 339,
+    "exact_title_time": 102,
+    "title_present_time_divergent": 225,
+    "unmatched_lines": [
+      {
+        "date": "2026-10-10",
+        "channel": "Ciné+ Frisson",
+        "title_printed": "Les Frasques de l’héritière",
+        "pdf_start": "23:55",
+        "pdf_page": 102,
+        "bbox": [
+          308.4,
+          604.58,
+          381.18,
+          618.08
+        ],
+        "status": "omission_requires_editorial_triage"
+      },
+      {
+        "date": "2026-10-11",
+        "channel": "Ciné+ Classic",
+        "title_printed": "Le Goufre aux chimères",
+        "pdf_start": "00:50",
+        "pdf_page": 102,
+        "bbox": [
+          400.66,
+          393.26,
+          475.91,
+          406.76
+        ],
+        "status": "omission_requires_editorial_triage"
+      },
+      {
+        "date": "2026-10-11",
+        "channel": "Ciné+ Classic",
+        "title_printed": "Les Vacances de M. Hulot",
+        "pdf_start": "18:20",
+        "pdf_page": 108,
+        "bbox": [
+          400.54,
+          182.16,
+          471.63,
+          195.66
+        ],
+        "status": "omission_requires_editorial_triage"
+      },
+      {
+        "date": "2026-10-13",
+        "channel": "Ciné+ Classic",
+        "title_printed": "Island in the Sky",
+        "pdf_start": "11:10",
+        "pdf_page": 120,
+        "bbox": [
+          400.68,
+          85.5,
+          468.79,
+          99
+        ],
+        "status": "omission_requires_editorial_triage"
+      },
+      {
+        "date": "2026-10-14",
+        "channel": "Ciné+ Classic",
+        "title_printed": "Le Goufre aux chimères",
+        "pdf_start": "17:10",
+        "pdf_page": 126,
+        "bbox": [
+          400.68,
+          176.5,
+          479.57,
+          183
+        ],
+        "status": "omission_requires_editorial_triage"
+      },
+      {
+        "date": "2026-10-14",
+        "channel": "Ciné+ Classic",
+        "title_printed": "Les Vacances de M. Hulot",
+        "pdf_start": "22:40",
+        "pdf_page": 126,
+        "bbox": [
+          400.68,
+          352.71,
+          471.77,
+          366.21
+        ],
+        "status": "omission_requires_editorial_triage"
+      },
+      {
+        "date": "2026-10-14",
+        "channel": "Ciné+ Emotion",
+        "title_printed": "Mon babysitter",
+        "pdf_start": "20:50",
+        "pdf_page": 126,
+        "bbox": [
+          400.63,
+          547.56,
+          451.46,
+          561.06
+        ],
+        "status": "omission_requires_editorial_triage"
+      },
+      {
+        "date": "2026-10-15",
+        "channel": "Ciné+ Family",
+        "title_printed": "Trois Hommes et un coufin",
+        "pdf_start": "20:50",
+        "pdf_page": 132,
+        "bbox": [
+          492.91,
+          568.55,
+          563.66,
+          582.05
+        ],
+        "status": "omission_requires_editorial_triage"
+      },
+      {
+        "date": "2026-10-15",
+        "channel": "Ciné+ Frisson",
+        "title_printed": "Goûter à l’audace",
+        "pdf_start": "00:55",
+        "pdf_page": 126,
+        "bbox": [
+          308.38,
+          632.8,
+          366.8,
+          646.3
+        ],
+        "status": "omission_requires_editorial_triage"
+      },
+      {
+        "date": "2026-10-16",
+        "channel": "Ciné+ Emotion",
+        "title_printed": "Mon babysitter",
+        "pdf_start": "19:20",
+        "pdf_page": 138,
+        "bbox": [
+          400.66,
+          526.47,
+          451.5,
+          539.97
+        ],
+        "status": "omission_requires_editorial_triage"
+      },
+      {
+        "date": "2026-10-16",
+        "channel": "Ciné+ Festival",
+        "title_printed": "Garçon chifon",
+        "pdf_start": "03:50",
+        "pdf_page": 132,
+        "bbox": [
+          492.92,
+          418.97,
+          564.34,
+          432.47
+        ],
+        "status": "omission_requires_editorial_triage"
+      },
+      {
+        "date": "2026-10-16",
+        "channel": "Ciné+ Frisson",
+        "title_printed": "Green- land, le dernier refuge",
+        "pdf_start": "15:15",
+        "pdf_page": 138,
+        "bbox": [
+          308.4,
+          477.33,
+          380.27,
+          490.83
+        ],
+        "status": "omission_requires_editorial_triage"
+      }
+    ],
+    "status": "partial_omissions_require_editorial_triage",
+    "independence_established": false
+  }
 }

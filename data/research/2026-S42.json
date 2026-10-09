@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T22:48:25.108Z",
+  "updated_at": "2026-10-09T22:51:58.404Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -14,7 +14,7 @@
     "T18 14 octobre : neuf épisodes/sujets et horaires concordent largement entre LeZapp, TV-Programme et ProgrammeTVCeSoir, sans base positive d'acquisition indépendante. Fait nouveau : Télé 7 Jours attribue au créneau 00:20 Sur la scène du crime l'épisode « Jogging fatal - affaire Nelly Crémel », tandis que LeZapp et ProgrammeTVCeSoir donnent « Meurtre en sous-sol - affaire Manteau » ; résoudre ce conflit exact ou exclure ce créneau. Face à face reste identifié comme fiction policière, hors rappel documentaire.",
     "TF1 Séries Films : neuf diffusions recoupées et nuits consultées ; blocs nocturnes génériques non détaillés, réception et cartes à terminer. CSTAR 16 octobre : Un mariage à Noël concorde à 21:10 ; Noël à la carte 22:49/22:45 et identité des quatre Douanes à départager ; indépendance et nuits restent à certifier.",
     "Rappel TNT principal réconcilié : les dix éléments génériques sont rapprochés ou exclus, dont Envoyé spécial et Au cœur de l’enquête sans sujet identifié. Les autres passes partielles (cinéma payant, TV5MONDE FBS, RMC, Ciné+) et le conflit de version Marine restent ouverts dans leurs dossiers propres.",
-    "Cinéma payant : le calendrier mensuel reste borné à huit premières diffusions et n’est plus attendu comme grille exhaustive ; les faits de grille retenus suivent le PDF fourni ou web_schedule_evidence. Poursuivre titre par titre les autres chaînes/rediffusions prometteuses, droits, offres, expirations, versions et critique indépendante avant sélection ; conserver les divergences mensuelles déjà sauvegardées.",
+    "Cinéma payant : le calendrier mensuel reste borné à huit premières diffusions. Comparaison des six chaînes Ciné+ au PDF fourni : 339 lignes relues, 102 heures exactes, 225 titres déjà inventoriés avec horaire divergent conservé, 12 lignes non rapprochées à trier (Les Frasques de l’héritière ; Le Goufre aux chimères ; Les Vacances de M. Hulot ; Island in the Sky ; Mon babysitter ; Trois Hommes et un coufin ; Goûter à l’audace ; Garçon chifon ; Green- land, le dernier refuge). Ne pas enquêter chaque écart brut ; approfondir seulement les omissions prometteuses et les propositions, avec droits, offres, expirations, versions et critique indépendante.",
     "France 4 : Rachelle Allison à la Cigale du 15/10 à 20:30 et Hakim Jemili : Super du 13/10 à 23:10 restent des observations non rendues ; la première est recoupée officiellement, la seconde conserve son titre tiers sans assimilation au libellé officiel. Aucune carte n'en dépend. Restent la réception/offres documentaires, les épisodes génériques et le rappel France 4.",
     "TV5MONDE FBS : revue applicable des omissions achevée sur les sept colonnes du PDF fourni et 50 créneaux sauvegardés, sans affirmation d’indépendance amont. Identifier seulement les sujets propres d’Au bout de l’enquête (10/10 09:30 et 17:10 ; 11/10 14:38), de Temps présent (13/10 17:05 ; 14/10 09:50) et les épisodes génériques avant tout examen éditorial ; poursuivre séparément offres et expirations TV5MONDE+.",
     "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma.",
@@ -1393,7 +1393,8 @@
     "review-tv5monde-fbs-seven-pdf-columns-2026-10-09",
     "reconcile-rmc-web-schedule-evidence-preserve-conflicts-2026-10-09",
     "close-three-selected-cineplus-events-and-scope-rmc-gaps-2026-10-09",
-    "reconcile-paid-cinema-monthly-source-scope-2026-10-09"
+    "reconcile-paid-cinema-monthly-source-scope-2026-10-09",
+    "map-cineplus-six-channel-pdf-omissions-2026-10-09"
   ],
   "blockers": [
     {
@@ -27309,6 +27310,46 @@
       },
       "evidence_note": "Huit premières diffusions et fiches opérateur ponctuelles conservées. Aucune exhaustivité de grille déduite ; droits, offres, expirations, versions et critique restent ouverts titre par titre.",
       "status": "source_scope_reconciled_nonexhaustive"
+    },
+    {
+      "id": "run23-cineplus-six-channel-pdf-comparison",
+      "work_id": null,
+      "fields": [
+        "coverage.level2.omission_review",
+        "printed_schedule.title",
+        "printed_schedule.date",
+        "printed_schedule.start",
+        "printed_schedule.channel"
+      ],
+      "source_urls": [],
+      "source_refs": [
+        "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93"
+      ],
+      "checked_at": "2026-10-09T22:51:58.404Z",
+      "stability": "cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "channels": [
+          "Ciné+ Classic",
+          "Ciné+ Festival",
+          "Ciné+ OCS",
+          "Ciné+ Emotion",
+          "Ciné+ Frisson",
+          "Ciné+ Family"
+        ],
+        "dates": [
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16"
+        ],
+        "lines": 339
+      },
+      "evidence_note": "102 concordances titre+heure, 225 titres présents avec heure divergente, 12 lignes non rapprochées conservées comme omissions à trier. Aucun champ hors grille certifié.",
+      "status": "partial_twelve_omissions_open"
     }
   ],
   "run_metrics": [
@@ -34348,7 +34389,8 @@
         "review-tv5monde-fbs-seven-pdf-columns-2026-10-09",
         "reconcile-rmc-web-schedule-evidence-preserve-conflicts-2026-10-09",
         "close-three-selected-cineplus-events-and-scope-rmc-gaps-2026-10-09",
-        "reconcile-paid-cinema-monthly-source-scope-2026-10-09"
+        "reconcile-paid-cinema-monthly-source-scope-2026-10-09",
+        "map-cineplus-six-channel-pdf-omissions-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -34361,7 +34403,7 @@
       "partial_dossiers": 0,
       "requirements_resolved": 6,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre une lacune factuelle/documentaire précise parmi les exigences encore ouvertes ; les sources mensuelles restent bornées à leur portée.",
+      "next_useful_batch": "Trier les douze lignes Ciné+ absentes de l’inventaire et approfondir seulement les pistes prometteuses ; ne pas résoudre mécaniquement les 225 écarts bruts.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -34568,23 +34610,46 @@
             "lease_until": "2026-10-09T23:38:16.947Z",
             "external_stop": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T22:49:26.919Z",
+          "elapsed_seconds": 1803.756,
+          "prompt_revision": "production-web-evidence-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "35e7f392677cd71cfdae74d72d5b00c250e56877",
+          "next_actions": [
+            "Poursuivre une lacune factuelle/documentaire précise parmi les exigences encore ouvertes ; les sources mensuelles restent bornées à leur portée."
+          ],
+          "remaining_count": 16,
+          "waiting_actions_count": 1,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T22:19:23.163Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T23:38:16.947Z",
+            "external_stop": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T22:47:37.296Z",
-        "elapsed_seconds": 1694.133,
+        "observed_at": "2026-10-09T22:49:26.919Z",
+        "elapsed_seconds": 1803.756,
         "prompt_revision": "production-web-evidence-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "c2d2f9cb53d08c865e64fd4e3bf176e9fbd16ee1",
+        "source_sha": "35e7f392677cd71cfdae74d72d5b00c250e56877",
         "next_actions": [
-          "Poursuivre la revue hebdomadaire sur le prochain défaut factuel accessible ou la passe documentaire, sans rouvrir les événements Ciné+ clos."
+          "Poursuivre une lacune factuelle/documentaire précise parmi les exigences encore ouvertes ; les sources mensuelles restent bornées à leur portée."
         ],
         "remaining_count": 16,
-        "waiting_actions_count": 3,
+        "waiting_actions_count": 1,
         "research_review_warnings": [],
         "observations": {
           "started_at": "2026-10-09T22:19:23.163Z",
@@ -34649,6 +34714,13 @@
           "ended_at": "2026-10-09T22:48:25.108Z",
           "overlap": false,
           "note": "Portée du calendrier mensuel cinéma payant réconciliée ; aucune exhaustivité inventée, champs titre par titre préservés."
+        },
+        {
+          "kind": "coverage_review",
+          "started_at": "2026-10-09T22:49:26.919Z",
+          "ended_at": "2026-10-09T22:51:58.404Z",
+          "overlap": false,
+          "note": "Six chaînes Ciné+ comparées au PDF fourni : 339 lignes, 12 omissions réelles isolées des 225 divergences horaires brutes."
         }
       ],
       "requirements_resolved_details": [
@@ -34673,7 +34745,8 @@
         "RMC reste partiel pour des défauts factuels précis ; aucun flag hebdomadaire ou indépendance de flux n’est attesté.",
         "Après la réconciliation RMC, validate-editorial ne conserve que full_week_reaudit_completed=false ; preparation-gaps reste à une action bloquante de couverture hebdomadaire et sept avertissements 10/15. Les cinq groupes de défauts RMC restent visibles dans le suivi.",
         "Les neuf événements Ciné+ Festival auparavant ouverts sont clos uniquement pour leurs quatre faits de grille. Le groupe Ciné+ demeure distinct dans la revue globale tant que les autres segments cinéma ne sont pas attestés.",
-        "La source mensuelle cinéma payant reste non exhaustive par construction ; aucune grille, droit ou offre supplémentaire n’est certifié par cette réconciliation."
+        "La source mensuelle cinéma payant reste non exhaustive par construction ; aucune grille, droit ou offre supplémentaire n’est certifié par cette réconciliation.",
+        "La comparaison Ciné+ ne certifie pas la couverture hebdomadaire : douze lignes restent à trier, tandis que 225 écarts horaires bruts sont conservés sans enquête systématique."
       ],
       "measurements": {
         "schedule_facts_corrected": {
@@ -34687,6 +34760,10 @@
         "level2_channel_reviews_completed_this_run": {
           "value": 2,
           "scope": "TCM Cinéma et TV5MONDE FBS uniquement ; aucune certification hebdomadaire globale"
+        },
+        "pdf_grid_lines_compared_this_run": {
+          "value": 339,
+          "scope": "six chaînes Ciné+ sur sept pages ; 102 exactes, 225 présentes avec horaire divergent, 12 non rapprochées"
         }
       }
     }
@@ -35361,7 +35438,7 @@
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Cinéma payant : le calendrier mensuel reste borné à huit premières diffusions et n’est plus attendu comme grille exhaustive ; les faits de grille retenus suivent le PDF fourni ou web_schedule_evidence. Poursuivre titre par titre les autres chaînes/rediffusions prometteuses, droits, offres, expirations, versions et critique indépendante avant sélection ; conserver les divergences mensuelles déjà sauvegardées.",
+      "Cinéma payant : le calendrier mensuel reste borné à huit premières diffusions. Comparaison des six chaînes Ciné+ au PDF fourni : 339 lignes relues, 102 heures exactes, 225 titres déjà inventoriés avec horaire divergent conservé, 12 lignes non rapprochées à trier (Les Frasques de l’héritière ; Le Goufre aux chimères ; Les Vacances de M. Hulot ; Island in the Sky ; Mon babysitter ; Trois Hommes et un coufin ; Goûter à l’audace ; Garçon chifon ; Green- land, le dernier refuge). Ne pas enquêter chaque écart brut ; approfondir seulement les omissions prometteuses et les propositions, avec droits, offres, expirations, versions et critique indépendante.",
       "RMC Story/Découverte : l’absence de fournisseur EPG public n’est plus bloquante sous web_schedule_evidence. Sur 127 créneaux, 87 concordent exactement et 35 concordent sur série/date/heure mais gardent leurs épisodes Au cœur des douanes à identifier. Restent deux conflits de titre (10/10 06:05 ; 15/10 22:30), trois alias à confirmer et quatre ajouts du rappel à évaluer ; aucune indépendance amont n’est affirmée.",
       "TV5MONDE FBS : revue applicable des omissions achevée sur les sept colonnes du PDF fourni et 50 créneaux sauvegardés, sans affirmation d’indépendance amont. Identifier seulement les sujets propres d’Au bout de l’enquête (10/10 09:30 et 17:10 ; 11/10 14:38), de Temps présent (13/10 17:05 ; 14/10 09:50) et les épisodes génériques avant tout examen éditorial ; poursuivre séparément offres et expirations TV5MONDE+.",
       "TCM : revue applicable des omissions achevée sur 98 créneaux (78 lignes du PDF fourni visuellement relues, 20 créneaux concordants entre TV-Programme et Télérama.fr) ; aucune omission relevée et aucune indépendance amont affirmée. Poursuivre seulement l’enrichissement éditorial des documentaires et films prometteurs non encore retenus, sans rouvrir la provenance technique des grilles.",
@@ -36438,6 +36515,36 @@
         "omissions": 0,
         "independence_established": false
       }
+    },
+    {
+      "id": "run23-cineplus-six-channel-pdf-gap-map-2026-10-09",
+      "object": {
+        "channels": [
+          "Ciné+ Classic",
+          "Ciné+ Festival",
+          "Ciné+ OCS",
+          "Ciné+ Emotion",
+          "Ciné+ Frisson",
+          "Ciné+ Family"
+        ],
+        "dates": [
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16"
+        ]
+      },
+      "question": "Quelles lignes du PDF Ciné+ ne sont pas rapprochées de l’inventaire sauvegardé ?",
+      "attempted_at": "2026-10-09T22:51:58.404Z",
+      "source_urls": [],
+      "result": "339 lignes comparées : 102 exactes, 225 mêmes titres avec horaires divergents et 12 lignes non rapprochées. Les 12 omissions sont conservées pour tri ; aucun ajout ou certification de carte automatique.",
+      "blocking_scope": "tri éditorial des 12 omissions et niveau 3 de toute proposition qui en découlerait",
+      "blocking": true,
+      "status": "partial_twelve_unmatched_pdf_lines",
+      "resume_when": "Trier les 12 lignes sur identité et signal éditorial ; approfondir uniquement celles qui sont prometteuses ou nécessaires à la couverture."
     }
   ],
   "shortlist": {
@@ -42808,6 +42915,188 @@
         "monthly_first_runs": 8,
         "operator_fiches": "nonexhaustive",
         "schedule_route": "pdf_or_web_schedule_evidence"
+      }
+    },
+    {
+      "id": "run23-cineplus-pdf-gap-map",
+      "decided_at": "2026-10-09T22:51:58.404Z",
+      "decision": "technical_provenance_closed_twelve_editorial_omissions_open",
+      "previous_scope": "Cinéma payant : le calendrier mensuel reste borné à huit premières diffusions et n’est plus attendu comme grille exhaustive ; les faits de grille retenus suivent le PDF fourni ou web_schedule_evidence. Poursuivre titre par titre les autres chaînes/rediffusions prometteuses, droits, offres, expirations, versions et critique indépendante avant sélection ; conserver les divergences mensuelles déjà sauvegardées.",
+      "current_scope": "Cinéma payant : le calendrier mensuel reste borné à huit premières diffusions. Comparaison des six chaînes Ciné+ au PDF fourni : 339 lignes relues, 102 heures exactes, 225 titres déjà inventoriés avec horaire divergent conservé, 12 lignes non rapprochées à trier (Les Frasques de l’héritière ; Le Goufre aux chimères ; Les Vacances de M. Hulot ; Island in the Sky ; Mon babysitter ; Trois Hommes et un coufin ; Goûter à l’audace ; Garçon chifon ; Green- land, le dernier refuge). Ne pas enquêter chaque écart brut ; approfondir seulement les omissions prometteuses et les propositions, avec droits, offres, expirations, versions et critique indépendante.",
+      "evidence": {
+        "total": 339,
+        "exact": 102,
+        "time_divergent": 225,
+        "unmatched": [
+          {
+            "date": "2026-10-10",
+            "channel": "Ciné+ Frisson",
+            "title_printed": "Les Frasques de l’héritière",
+            "pdf_start": "23:55",
+            "pdf_page": 102,
+            "bbox": [
+              308.4,
+              604.58,
+              381.18,
+              618.08
+            ],
+            "status": "omission_requires_editorial_triage"
+          },
+          {
+            "date": "2026-10-11",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Le Goufre aux chimères",
+            "pdf_start": "00:50",
+            "pdf_page": 102,
+            "bbox": [
+              400.66,
+              393.26,
+              475.91,
+              406.76
+            ],
+            "status": "omission_requires_editorial_triage"
+          },
+          {
+            "date": "2026-10-11",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Les Vacances de M. Hulot",
+            "pdf_start": "18:20",
+            "pdf_page": 108,
+            "bbox": [
+              400.54,
+              182.16,
+              471.63,
+              195.66
+            ],
+            "status": "omission_requires_editorial_triage"
+          },
+          {
+            "date": "2026-10-13",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Island in the Sky",
+            "pdf_start": "11:10",
+            "pdf_page": 120,
+            "bbox": [
+              400.68,
+              85.5,
+              468.79,
+              99
+            ],
+            "status": "omission_requires_editorial_triage"
+          },
+          {
+            "date": "2026-10-14",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Le Goufre aux chimères",
+            "pdf_start": "17:10",
+            "pdf_page": 126,
+            "bbox": [
+              400.68,
+              176.5,
+              479.57,
+              183
+            ],
+            "status": "omission_requires_editorial_triage"
+          },
+          {
+            "date": "2026-10-14",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Les Vacances de M. Hulot",
+            "pdf_start": "22:40",
+            "pdf_page": 126,
+            "bbox": [
+              400.68,
+              352.71,
+              471.77,
+              366.21
+            ],
+            "status": "omission_requires_editorial_triage"
+          },
+          {
+            "date": "2026-10-14",
+            "channel": "Ciné+ Emotion",
+            "title_printed": "Mon babysitter",
+            "pdf_start": "20:50",
+            "pdf_page": 126,
+            "bbox": [
+              400.63,
+              547.56,
+              451.46,
+              561.06
+            ],
+            "status": "omission_requires_editorial_triage"
+          },
+          {
+            "date": "2026-10-15",
+            "channel": "Ciné+ Family",
+            "title_printed": "Trois Hommes et un coufin",
+            "pdf_start": "20:50",
+            "pdf_page": 132,
+            "bbox": [
+              492.91,
+              568.55,
+              563.66,
+              582.05
+            ],
+            "status": "omission_requires_editorial_triage"
+          },
+          {
+            "date": "2026-10-15",
+            "channel": "Ciné+ Frisson",
+            "title_printed": "Goûter à l’audace",
+            "pdf_start": "00:55",
+            "pdf_page": 126,
+            "bbox": [
+              308.38,
+              632.8,
+              366.8,
+              646.3
+            ],
+            "status": "omission_requires_editorial_triage"
+          },
+          {
+            "date": "2026-10-16",
+            "channel": "Ciné+ Emotion",
+            "title_printed": "Mon babysitter",
+            "pdf_start": "19:20",
+            "pdf_page": 138,
+            "bbox": [
+              400.66,
+              526.47,
+              451.5,
+              539.97
+            ],
+            "status": "omission_requires_editorial_triage"
+          },
+          {
+            "date": "2026-10-16",
+            "channel": "Ciné+ Festival",
+            "title_printed": "Garçon chifon",
+            "pdf_start": "03:50",
+            "pdf_page": 132,
+            "bbox": [
+              492.92,
+              418.97,
+              564.34,
+              432.47
+            ],
+            "status": "omission_requires_editorial_triage"
+          },
+          {
+            "date": "2026-10-16",
+            "channel": "Ciné+ Frisson",
+            "title_printed": "Green- land, le dernier refuge",
+            "pdf_start": "15:15",
+            "pdf_page": 138,
+            "bbox": [
+              308.4,
+              477.33,
+              380.27,
+              490.83
+            ],
+            "status": "omission_requires_editorial_triage"
+          }
+        ]
       }
     }
   ]
