@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T21:43:52.736Z",
+  "updated_at": "2026-10-09T21:46:36.958Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -32921,10 +32921,10 @@
       "execution_kind": "scheduled_editorial_proof_policy_production",
       "prompt_revision": "production-proof-policy-2026-10-09",
       "stage": "enrichment",
-      "run_state": "running",
+      "run_state": "stopped",
       "started_at": "2026-10-09T20:56:11.648Z",
-      "ended_at": null,
-      "duration_basis": "started_at observé à l’entrée ; passage en cours au checkpoint initial.",
+      "ended_at": "2026-10-09T21:46:15.085Z",
+      "duration_basis": "started_at et ended_at observés pendant ce passage ; 3 003,437 s écoulées avant l’entrée dans la réserve finale.",
       "completed_batches": [
         "sync-main-proof-policy-2026-10-09",
         "initial-preparation-gaps-and-saved-inventory-flow-2026-10-09",
@@ -32957,8 +32957,8 @@
       "draft_cards": 0,
       "partial_dossiers": 5,
       "requirements_resolved": 16,
-      "stop_reason": null,
-      "next_useful_batch": "Poursuivre les défauts précis de couverture hors impasses annotées ; priorité à une source officielle nouvelle ou à un livrable rendu.",
+      "stop_reason": "budget_reserve_reached : décision stop du contrôleur --finish à 50 min 03,437 s ; réserve finale consacrée à la sauvegarde, au contrôle du SHA exact et à la libération du bail.",
+      "next_useful_batch": "Poursuivre les défauts précis de couverture hors impasses annotées ; priorité à une source officielle nouvelle ou à un livrable rendu, sans répéter les routes placées en attente.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -33569,26 +33569,86 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "prompt_revision": "production-proof-policy-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "2d01e3b7ac55b9e2ac4db5fec220619697e5b6f1",
+          "next_actions": [
+            "Poursuivre les défauts précis de couverture hors impasses annotées ; priorité à une source officielle nouvelle ou à un livrable rendu.",
+            "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique."
+          ],
+          "remaining_count": 18,
+          "next_actions_total": 15,
+          "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 24,
+          "waiting_actions_count": 9,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T20:56:11.648Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T22:17:47.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T21:44:32.545Z",
+          "elapsed_seconds": 2900.897
+        },
+        {
+          "prompt_revision": "production-proof-policy-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "2d01e3b7ac55b9e2ac4db5fec220619697e5b6f1",
+          "next_actions": [
+            "Poursuivre les défauts précis de couverture hors impasses annotées ; priorité à une source officielle nouvelle ou à un livrable rendu.",
+            "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique."
+          ],
+          "remaining_count": 18,
+          "next_actions_total": 15,
+          "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 24,
+          "waiting_actions_count": 9,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T20:56:11.648Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T22:17:47.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-09T21:46:15.085Z",
+          "elapsed_seconds": 3003.437
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T21:42:09.086Z",
-        "elapsed_seconds": 2757.438,
         "prompt_revision": "production-proof-policy-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "c477369daf1df01f94e38df66316761632d246a9",
+        "source_sha": "2d01e3b7ac55b9e2ac4db5fec220619697e5b6f1",
         "next_actions": [
+          "Poursuivre les défauts précis de couverture hors impasses annotées ; priorité à une source officielle nouvelle ou à un livrable rendu.",
           "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
           "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
-          "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
-          "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
+          "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique."
         ],
-        "remaining_count": 19,
+        "remaining_count": 18,
         "next_actions_total": 15,
         "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
         "all_actions_total": 24,
@@ -33601,7 +33661,11 @@
           "external_stop": null,
           "accessible_task_checks": [],
           "ready_handoff": null
-        }
+        },
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-09T21:46:15.085Z",
+        "elapsed_seconds": 3003.437
       },
       "intervals": [
         {
@@ -33757,6 +33821,27 @@
           "ended_at": "2026-10-09T21:43:52.736Z",
           "overlap": false,
           "note": "Revue de portée de quatre dossiers france.tv non retenus et comparaison exacte avec la semaine rendue."
+        },
+        {
+          "kind": "controls",
+          "started_at": "2026-10-09T21:44:32.545Z",
+          "ended_at": "2026-10-09T21:44:52.591Z",
+          "overlap": false,
+          "note": "Actualisation de preparation-gaps et du triage sur le SHA sauvegardé ; un blocage structurel de revue hebdomadaire et sept avertissements de cible non bloquants."
+        },
+        {
+          "kind": "waiting",
+          "started_at": "2026-10-09T21:44:52.591Z",
+          "ended_at": "2026-10-09T21:46:15.085Z",
+          "overlap": false,
+          "note": "Attente mesurée jusqu’au seuil observé de réserve finale ; aucun contrôle ou travail n’est compté en parallèle."
+        },
+        {
+          "kind": "save",
+          "started_at": "2026-10-09T21:46:15.085Z",
+          "ended_at": null,
+          "overlap": false,
+          "note": "Bilan terminal, sauvegarde distante, contrôle du SHA exact puis libération du bail ; fin postérieure au temps de production."
         }
       ],
       "requirements_resolved_details": [
@@ -33769,6 +33854,10 @@
         "Le suivi Arte préhistoire ciblé est clos : Chauvet, Thorin et Sulawesi satisfont le niveau 3, avec durées et limites d’offre séparées. Le rappel documentaire global et les contrôles préflight restent ouverts.",
         "Le suivi Public Sénat ciblé est clos : les deux cartes linéaires Silence dans les rangs sont vérifiées avec minutes attribuées à chaque source ; aucun replay indisponible n’est présenté comme une offre.",
         "Le suivi ciblé de quatre dossiers france.tv non retenus est clos par portée : aucun n’est rendu et aucune disponibilité n’est déduite ; la passe documentaire officielle globale reste ouverte."
+      ],
+      "control_notes": [
+        "preparation-gaps sur 2d01e3b : seul coverage-full-week reste une action structurelle bloquante ; les sept jours satisfont le minimum de dix candidats et restent sous la cible éditoriale non bloquante de quinze.",
+        "CI GitHub 37995246714 sur 2d01e3b observée en cours ; aucun succès n’est revendiqué pour cette tête."
       ]
     }
   ],
