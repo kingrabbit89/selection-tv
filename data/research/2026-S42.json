@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T12:41:03.438Z",
+  "updated_at": "2026-10-09T12:43:43.642Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -918,6 +918,15 @@
       "completed_at": "2026-10-09T12:41:03.438Z",
       "scope": "dimanche:Retour à Kotelnitch",
       "summary": "La carte déjà rédigée est déclarée complète après recoupement indépendant de Ciné+ Festival et 02:45 par Ouest-France, concordant avec l’événement CANAL+ daté.",
+      "deliverables": [
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "resolve-a-ghost-story-version-attempt-2026-10-09",
+      "completed_at": "2026-10-09T12:43:43.642Z",
+      "scope": "vendredi:A Ghost Story",
+      "summary": "La recherche officielle TCM et une voie indépendante supplémentaire ne résolvent pas la copie de 90/92 min ; la carte reste différée sans abaisser le critère de version.",
       "deliverables": [
         "data/research/2026-S42.json"
       ]
@@ -25026,7 +25035,8 @@
         "resolve-machine-tv-version-attempt-2026-10-09",
         "complete-rendezvous-reserves-2026-10-09",
         "resolve-hiver-version-attempt-2026-10-09",
-        "complete-kotelnitch-card-2026-10-09"
+        "complete-kotelnitch-card-2026-10-09",
+        "resolve-a-ghost-story-version-attempt-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -25047,7 +25057,8 @@
         "La machine à écrire : conflit de version documenté après contrôles officiel et indépendant",
         "rendezvous-1 et rendezvous-2 : cinq choix visibles et cinq réserves complètes chacun",
         "Hiver à Sokcho : versions 100/104/106 min séparées et conflit 11:47/11:48 documenté",
-        "dimanche : Retour à Kotelnitch passé de carte draft à carte complète"
+        "dimanche : Retour à Kotelnitch passé de carte draft à carte complète",
+        "A Ghost Story : conflit de copie TCM 90/92 min documenté après voie officielle et alternative"
       ],
       "requirements_resolved": [
         "sorties-physiques : profondeur de réserve minimale atteinte",
@@ -25267,18 +25278,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T12:42:03.146Z",
+          "elapsed_seconds": 2263.986,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "0e419f0ab05d7bb90aeef7bda500f06db7ef9389",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T12:04:19.160Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T13:24:36.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T12:39:17.447Z",
-        "elapsed_seconds": 2098.287,
+        "observed_at": "2026-10-09T12:42:03.146Z",
+        "elapsed_seconds": 2263.986,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "2e17676752c5e3b63b7d2cd6739aa1f33dc0f5ae",
+        "source_sha": "0e419f0ab05d7bb90aeef7bda500f06db7ef9389",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -25300,7 +25340,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Évaluer le retour ciblé sur Bird ; si la version reste non certifiée, consigner l’impasse puis approfondir une autre piste proche d’une carte complète.",
+      "next_useful_batch": "Approfondir une autre piste proche d’une carte complète hors des versions TCM/Ciné+ déjà bloquées, ou intégrer le retour Bird s’il fournit une preuve nouvelle.",
       "new_leads": 0
     }
   ],
@@ -26198,13 +26238,18 @@
         "https://www.tcmcinema.fr/programmes",
         "https://www.linternaute.com/television/programme-tv-vendredi-16-octobre-2026/film/",
         "https://www.programme-television.org/tv/chaines/tcm-cinema/vendredi-prochain",
-        "https://www.mon-programme-tv.be/television/1250997842/a-ghost-story.html"
+        "https://www.mon-programme-tv.be/television/1250997842/a-ghost-story.html",
+        "https://programmetv.ouest-france.fr/film/fantastique/la-falaise-mysterieuse-c23875/"
       ],
-      "result": "Annonce primaire TCM : vendredi 16 octobre, A Ghost Story à 20:50. Linternaute, Télé 7 Jours et Programme-TV recoupent un créneau de 90 min jusqu’à 22:20, mais la version cinéma sauvegardée fait 92 min : le créneau ne certifie pas la copie exacte.",
-      "blocking_scope": "Accès intégral à l’annonce non obtenu ; version/durée TCM reste bloquante pour une fiche complète. Ne résout ni l’indépendance de l’ensemble des grilles TCM ni la couverture hebdomadaire.",
-      "status": "primary_broadcast_verified_version_pending",
-      "resume_condition": "Nouvelle fiche TCM ou métadonnée de flux donnant explicitement la durée/version de copie ; ne pas assimiler le créneau de 90 min à la version cinéma de 92 min.",
-      "last_attempted_at": "2026-10-09T10:42:19.725Z"
+      "result": "Nouvelle recherche ciblée du domaine TCM et voie indépendante Ouest-France : aucune fiche TCM datée du 16 octobre n’a été retrouvée. Ouest-France expose une diffusion historique du 8 octobre à 19:15 sur un créneau de 92 min, qui ne prouve pas la copie du 16 octobre ; les guides du 16 restent à 90 min. La version diffusée n’est donc pas certifiée.",
+      "blocking_scope": "Carte développée A Ghost Story du vendredi uniquement ; les autres dossiers continuent.",
+      "status": "version_conflict_persisting",
+      "resume_condition": "Reprendre uniquement si TCM publie une fiche ou métadonnée du 16 octobre donnant explicitement la durée/version de copie.",
+      "last_attempted_at": "2026-10-09T12:43:43.642Z",
+      "attempted_at": [
+        "2026-10-09T10:42:19.725Z",
+        "2026-10-09T12:43:43.642Z"
+      ]
     },
     {
       "id": "machine-ecrire-version-tv-2026-10-09",
@@ -26478,7 +26523,7 @@
         "signals": [
           {
             "kind": "critique",
-          "note": "Deux critiques indépendantes, l’identité, l’affiche et la note IMDb sont sauvegardées ; la chaîne et l’horaire sont désormais recoupés indépendamment.",
+            "note": "Deux critiques indépendantes, l’identité, l’affiche et la note IMDb sont sauvegardées ; la chaîne et l’horaire sont désormais recoupés indépendamment.",
             "source_url": "https://www.critikat.com/actualite-cine/critique/retour-a-kotelnitch/"
           }
         ],
@@ -26755,7 +26800,7 @@
         "scope": {
           "day": "vendredi"
         },
-        "status": "card_drafted",
+        "status": "deferred",
         "signals": [
           {
             "kind": "critique",
@@ -26766,7 +26811,8 @@
         "alternatives": [
           "sl-vendredi-la-proie-nue",
           "sl-vendredi-falaise"
-        ]
+        ],
+        "decision_note": "Carte maintenue hors complétude : l’annonce primaire TCM fixe vendredi 16 octobre à 20:50, mais la copie cinéma fait 92 min et le créneau du 16 seulement 90 min. Une recherche ciblée supplémentaire n’a trouvé aucune métadonnée TCM de version."
       },
       {
         "id": "sl-vendredi-wachowski",
