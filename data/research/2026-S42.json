@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T14:48:24.908Z",
+  "updated_at": "2026-10-09T14:52:25.755Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -24262,6 +24262,25 @@
       },
       "evidence_note": "Deux candidats comparés ; deux concordances d’horaire. Le titre d’épisode de La p’tite librairie n’est pas attribué à la grille officielle qui n’expose que le titre générique.",
       "status": "verified_channel_crosscheck"
+    },
+    {
+      "work_id": "competition-officielle-2021",
+      "fields": [
+        "ratings.senscritique",
+        "links.sc"
+      ],
+      "source_urls": [
+        "https://www.senscritique.com/film/competition_officielle/45227355"
+      ],
+      "checked_at": "2026-10-09T14:51:30.000Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "mercredi",
+        "pool": "mercredi-selection"
+      },
+      "evidence_note": "La fiche exacte expose Compétition officielle (2021), Mariano Cohn/Gastón Duprat, et une moyenne de 6,6/10. La donnée est vérifiée mais pas encore intégrée dans works/links ; le lien 43659527 enregistré est à remplacer.",
+      "status": "verified_pending_integration"
     }
   ],
   "run_metrics": [
@@ -27299,10 +27318,10 @@
       "execution_kind": "scheduled_efficiency_production",
       "prompt_revision": "production-efficiency-2026-10-09",
       "stage": "enrichment",
-      "run_state": "running",
+      "run_state": "stopped",
       "started_at": "2026-10-09T14:02:17.855Z",
-      "ended_at": null,
-      "duration_basis": "Passage en cours ; started_at observé à l’entrée, ended_at non encore connu.",
+      "ended_at": "2026-10-09T14:52:25.755Z",
+      "duration_basis": "Durée fondée sur started_at observé à l’entrée et ended_at observé lors du bilan terminal de ce même passage.",
       "completed_batches": [
         "complete-tuesday-two-rerun-reserves-2026-10-09",
         "complete-three-cross-day-rerun-reserves-2026-10-09",
@@ -27349,8 +27368,8 @@
         "vendredi France 4 : sept candidats recoupés entre source officielle et grille indépendante, variantes de titre conservées",
         "vendredi France 2 : deux candidats recoupés entre source officielle et grille indépendante"
       ],
-      "stop_reason": null,
-      "next_useful_batch": "Observer une fois la fin du job navigateur de ce SHA au prochain checkpoint ; poursuivre entre-temps un recoupement ou dossier accessible.",
+      "stop_reason": "budget_reserve_reached",
+      "next_useful_batch": "Corriger le lien SensCritique de Compétition officielle vers la fiche exacte 45227355 et intégrer sa note 6,6/10 afin que le contrôle de préparation reconnaisse une note attendue ; reprendre ensuite la profondeur quotidienne sous dix cartes et les recoupements indépendants encore ouverts.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -27699,18 +27718,76 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T14:49:22.670Z",
+          "elapsed_seconds": 2824.815,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "654277660a36592685d52b3b67d482103fcea0b1",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T14:02:17.855Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T15:42:45.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        },
+        {
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-09T14:52:22.149Z",
+          "elapsed_seconds": 3004.294,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "654277660a36592685d52b3b67d482103fcea0b1",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T14:02:17.855Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T15:42:45.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T14:47:33.729Z",
-        "elapsed_seconds": 2715.874,
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-09T14:52:22.149Z",
+        "elapsed_seconds": 3004.294,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "5a7d7fe0dd123803b2d432f36ac8260d3d250e81",
+        "source_sha": "654277660a36592685d52b3b67d482103fcea0b1",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
@@ -27747,7 +27824,10 @@
           "started_at": "2026-10-09T14:47:33.729Z",
           "ended_at": "2026-10-09T14:48:24.908Z"
         },
-        "sauvegarde": null,
+        "sauvegarde": {
+          "started_at": "2026-10-09T14:52:22.149Z",
+          "ended_at": "2026-10-09T14:52:25.755Z"
+        },
         "attente": null,
         "extraction_reprise": {
           "started_at": "2026-10-09T14:37:36.156Z",
@@ -27761,7 +27841,8 @@
         "Hôtel du Nord : identité/version, diffusion France 3, liens, réception, notes, visuel et carte vérifiés ; validateurs canoniques, éditoriaux et liens réussis sur l’état local.",
         "Les Revenants samedi : dossier stable réutilisé, diffusion recoupée avec divergence mineure conservée ; validateurs canoniques, éditoriaux et liens réussis sur l’état local.",
         "Un crime dans la tête (1962) : identité/remake, version, diffusion, réception, notes, visuel, liens et textes contrôlés ; validateurs canoniques, éditoriaux et liens réussis sur l’état local.",
-        "Compétition officielle : version ARTE, diffusion, réception, note, visuel, liens et textes contrôlés ; validateurs canoniques, éditoriaux et liens réussis."
+        "Compétition officielle : version ARTE, diffusion, réception, note, visuel, liens et textes contrôlés ; validateurs canoniques, éditoriaux et liens réussis.",
+        "Compétition officielle : le contrôle de préparation attend une clé IMDb/SensCritique ; la consultation ciblée a trouvé la fiche exacte SensCritique 45227355 et sa moyenne 6,6/10, tandis que le lien 43659527 enregistré doit être corrigé au prochain lot avant intégration."
       ]
     }
   ],
@@ -28312,6 +28393,18 @@
       "logs_read": false,
       "steps_read": true,
       "cause": "Sur ce SHA, toutes les étapes data-and-policy applicables réussissent, y compris identité, éditorial, liens, fraîcheur, réserves et images ; seule Require a complete candidate before merging échoue comme attendu au stade enrichment. Le job navigateur est encore en cours et n’est pas anticipé.",
+      "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-09T14:50:47.000Z",
+      "head_sha": "654277660a36592685d52b3b67d482103fcea0b1",
+      "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
+      "run_id": 37947025730,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": false,
+      "steps_read": true,
+      "cause": "Tous les contrôles applicables ont réussi sur ce SHA, y compris réserves, images, présentation navigateur et pont Jellyfin Web ; seule Require a complete candidate before merging échoue parce que 2026-S42 reste au stade enrichment.",
       "reusable_only_for_exact_sha": true
     }
   ],
