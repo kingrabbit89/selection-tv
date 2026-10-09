@@ -29320,10 +29320,10 @@
       "execution_kind": "scheduled_dataflow_production",
       "prompt_revision": "production-dataflow-2026-10-09",
       "stage": "enrichment",
-      "run_state": "running",
+      "run_state": "stopped",
       "started_at": "2026-10-09T16:01:07.414Z",
-      "ended_at": null,
-      "duration_basis": "started_at observé à l’entrée ; ended_at reste inconnu pendant le passage.",
+      "ended_at": "2026-10-09T16:51:14.831Z",
+      "duration_basis": "started_at et ended_at observés pendant ce passage ; durée écoulée portée par la décision finale du contrôleur.",
       "completed_batches": [
         "sync-main-1272ed3-2026-10-09",
         "run-dataflow-saved-inventory-2026-10-09",
@@ -29345,7 +29345,7 @@
       "complete_cards": 107,
       "cards_integrated_this_run": 12,
       "draft_cards": 0,
-      "partial_dossiers": 0,
+      "partial_dossiers": 1,
       "measurements": {
         "complete_cards": {
           "value": 107,
@@ -29385,8 +29385,8 @@
         "samedi-selection : minimum de dix cartes complètes atteint avec deux réserves supplémentaires distinctes, sans pénurie déclarée",
         "vendredi-selection : minimum de dix cartes complètes atteint avec deux rediffusions supplémentaires revues, sans pénurie déclarée"
       ],
-      "stop_reason": null,
-      "next_useful_batch": "Compléter dimanche, encore à une carte du minimum, puis mardi, mercredi et jeudi à quatre cartes manquantes chacun ; remplacer ensuite les cinq doublons popular_deep.",
+      "stop_reason": "budget_reserve_reached",
+      "next_useful_batch": "Compléter dimanche, encore à une carte du minimum, avec une œuvre distincte entièrement vérifiée ; compléter ensuite mardi, mercredi et jeudi, puis les cinq doublons popular_deep.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -29561,20 +29561,78 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T16:47:15.164Z",
+          "elapsed_seconds": 2767.75,
+          "prompt_revision": "production-dataflow-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "59b417dc1edac7b78316f52f1572303cc668a46b",
+          "next_actions": [
+            "Compléter dimanche, encore à une carte du minimum, avec une œuvre distincte dont l’identité, la version et le créneau sont vérifiés.",
+            "Compléter ensuite mardi, mercredi et jeudi, chacun à quatre cartes du minimum.",
+            "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 39,
+          "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T16:01:07.414Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T17:42:00.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        },
+        {
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-09T16:51:14.831Z",
+          "elapsed_seconds": 3007.417,
+          "prompt_revision": "production-dataflow-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "59b417dc1edac7b78316f52f1572303cc668a46b",
+          "next_actions": [
+            "Compléter dimanche, encore à une carte du minimum, avec une œuvre distincte dont l’identité, la version et le créneau sont vérifiés.",
+            "Compléter ensuite mardi, mercredi et jeudi, chacun à quatre cartes du minimum.",
+            "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 39,
+          "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T16:01:07.414Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T17:42:00.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T16:44:52.051Z",
-        "elapsed_seconds": 2624.637,
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-09T16:51:14.831Z",
+        "elapsed_seconds": 3007.417,
         "prompt_revision": "production-dataflow-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "f33edd1e5dffead7700e8575bb2d1e441ff4a67e",
+        "source_sha": "59b417dc1edac7b78316f52f1572303cc668a46b",
         "next_actions": [
-          "Compléter dimanche, encore à deux cartes du minimum, avec des œuvres distinctes dont l’identité, la version et le créneau sont vérifiés.",
+          "Compléter dimanche, encore à une carte du minimum, avec une œuvre distincte dont l’identité, la version et le créneau sont vérifiés.",
           "Compléter ensuite mardi, mercredi et jeudi, chacun à quatre cartes du minimum.",
           "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
@@ -29639,6 +29697,11 @@
           "started_at": "2026-10-09T16:37:10.815Z",
           "ended_at": "2026-10-09T16:45:42.574Z",
           "note": "Recalcul de la chaîne de données, séparation du remake 2004 et du film 1962, revue ciblée de réutilisations historiques et ajout contrôlé du Gouffre aux chimères puis de Mademoiselle ; les conflits de minute restent explicites."
+        },
+        "final_controls_and_save": {
+          "started_at": "2026-10-09T16:45:42.574Z",
+          "ended_at": "2026-10-09T16:51:14.831Z",
+          "note": "Contrôles ciblés, deux sauvegardes distantes, observation unique de la CI et bilan terminal ; les validations générales restent réservées à la tête finale prête."
         }
       },
       "control_notes": [
@@ -29667,7 +29730,11 @@
         "Contrôles ciblés : 55 positions quotidiennes sur 55 sont complètes et la fraîcheur reste conforme ; dimanche, mardi, mercredi et jeudi restent sous le minimum.",
         "append_days contrôlé : dimanche passe de sept à huit cartes avec Le Gouffre aux chimères à 00:47 ; trois guides concordent, sans certification d’indépendance de leurs flux.",
         "La fausse correspondance Un crime dans la tête a été rejetée : le créneau du dimanche concerne Demme 2004, non la carte Frankenheimer 1962.",
-        "append_days contrôlé : dimanche passe de huit à neuf cartes avec Mademoiselle ; deux sources affichent 22:21 et deux 22:22, écart conservé pour le préflight."
+        "append_days contrôlé : dimanche passe de huit à neuf cartes avec Mademoiselle ; deux sources affichent 22:21 et deux 22:22, écart conservé pour le préflight.",
+        "CI observée sur 59b417dc : Validate architecture en cours ; aucun résultat de cette exécution n’est réutilisé comme certification finale.",
+        "Le Come-back a été rendu localement comme dixième carte du dimanche puis rejeté avant sauvegarde : le contrôle de fraîcheur serait tombé à 79 %, sous le seuil inchangé de 80 %. Les fichiers ont été restaurés exactement à la tête 59b417dc et le contrôle repasse à 82 %.",
+        "La carte informative actualisée sur 59b417dc signale 15 écarts bloquants et trois avertissements ; dimanche manque une carte, mardi, mercredi et jeudi quatre chacun, cinq doublons popular_deep et les audits de couverture restent ouverts.",
+        "Prochaine piste fraîche examinée pour le dernier rang du dimanche : Toba dispose d’un créneau France 5 officiel à 00:40, mais identité complète, réception, disponibilité et visuel exact restent insuffisants ; aucune carte n’a été inventée."
       ]
     }
   ],
@@ -30325,7 +30392,7 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "f33edd1e5dffead7700e8575bb2d1e441ff4a67e",
+    "checkpoint_parent_sha": "59b417dc1edac7b78316f52f1572303cc668a46b",
     "main_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
@@ -30836,6 +30903,27 @@
       "blocking": true,
       "status": "identity_version_mismatch_rejected",
       "resume_when": "Créer un dossier et une carte complets propres au film de 2004, avec diffusion actuelle, version, réception, image et liens exacts vérifiés."
+    },
+    {
+      "id": "run18-toba-sunday-dossier-2026-10-09",
+      "object": {
+        "title": "Toba, le volcan qui a failli tuer l’humanité",
+        "work_id": "toba-le-volcan-qui-a-failli-tuer-l-humanite",
+        "broadcast": "2026-10-11 00:40 France 5"
+      },
+      "question": "La piste dispose-t-elle d’assez de preuves pour devenir la dixième carte du dimanche ?",
+      "attempted_at": "2026-10-09T16:49:42.328Z",
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/10-10-2026",
+        "https://www.francetvpro.fr/contenu-de-presse/78621670",
+        "https://www.telerama.fr/television/toba-le-volcan-qui-a-failli-tuer-l-humanite-un-doc-taille-pour-les-passionnes-de-geologie_cri-7045952.php",
+        "https://www.canalplus.com/decouverte/toba-le-volcan-qui-a-failli-tuer-l-humanite/h/32203989_50074/resume-casting/"
+      ],
+      "result": "Le créneau France 5 officiel, l’identité Franck Cuveillier/Éric Ellena, la version longue 90 min, des visuels FranceTvPro et une critique attribuée Télérama sont repérés. La coexistence 2025/2026 et 90/89/88 min, l’affiche exacte à sélectionner et la portée de l’offre CANAL+ jusqu’au 03/02 restent à arbitrer avant carte.",
+      "blocking_scope": "dixième réserve du dimanche pour cette piste",
+      "blocking": true,
+      "status": "partial_dossier_promising",
+      "resume_when": "Arbitrer année et version de diffusion, ouvrir et inspecter un visuel exact, vérifier l’offre/expiration et rédiger puis contrôler la carte complète."
     }
   ],
   "shortlist": {
