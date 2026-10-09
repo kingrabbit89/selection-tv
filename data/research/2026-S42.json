@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T14:52:25.755Z",
+  "updated_at": "2026-10-09T15:11:00.904Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -24279,8 +24279,8 @@
         "day": "mercredi",
         "pool": "mercredi-selection"
       },
-      "evidence_note": "La fiche exacte expose Compétition officielle (2021), Mariano Cohn/Gastón Duprat, et une moyenne de 6,6/10. La donnée est vérifiée mais pas encore intégrée dans works/links ; le lien 43659527 enregistré est à remplacer.",
-      "status": "verified_pending_integration"
+      "evidence_note": "Fiche exacte Compétition officielle (2021), Mariano Cohn/Gastón Duprat, moyenne 6,6/10 ; lien 45227355 et note intégrés dans works, links et carte mercredi.",
+      "status": "integrated"
     }
   ],
   "run_metrics": [
@@ -27843,6 +27843,126 @@
         "Un crime dans la tête (1962) : identité/remake, version, diffusion, réception, notes, visuel, liens et textes contrôlés ; validateurs canoniques, éditoriaux et liens réussis sur l’état local.",
         "Compétition officielle : version ARTE, diffusion, réception, note, visuel, liens et textes contrôlés ; validateurs canoniques, éditoriaux et liens réussis.",
         "Compétition officielle : le contrôle de préparation attend une clé IMDb/SensCritique ; la consultation ciblée a trouvé la fiche exacte SensCritique 45227355 et sa moyenne 6,6/10, tandis que le lien 43659527 enregistré doit être corrigé au prochain lot avant intégration."
+      ]
+    },
+    {
+      "date": "2026-10-09T15:05:17.088Z",
+      "owner": "73b17260-bf81-4801-8cdd-9991f242ed97",
+      "execution_kind": "scheduled_integrity_production",
+      "prompt_revision": "production-integrity-2026-10-09",
+      "stage": "enrichment",
+      "run_state": "running",
+      "started_at": "2026-10-09T15:05:17.088Z",
+      "ended_at": null,
+      "duration_basis": "Passage en cours ; started_at observé à l’entrée, ended_at non encore connu.",
+      "completed_batches": [
+        "sync-main-9aae312-2026-10-09",
+        "integrate-competition-officielle-senscritique-2026-10-09"
+      ],
+      "deliverables_changed": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "complete_cards": 84,
+      "cards_integrated_this_run": 0,
+      "draft_cards": 0,
+      "partial_dossiers": 0,
+      "measurements": {
+        "complete_cards": {
+          "value": 84,
+          "scope": "stock final hérité après le lot ; aucune nouvelle carte créée dans ce lot"
+        },
+        "new_works": {
+          "value": 0,
+          "scope": "différence entre tête de départ 4f121b2 et checkpoint"
+        },
+        "additional_distinct_reserves": {
+          "value": 0,
+          "scope": "aucune réserve supplémentaire ; correction de preuve sur une réserve existante"
+        }
+      },
+      "requirements_resolved": [
+        "mercredi : note SensCritique reconnue et lien exact corrigé pour Compétition officielle"
+      ],
+      "stop_reason": null,
+      "next_useful_batch": "Compléter les réserves quotidiennes sous dix cartes à partir des dossiers sauvegardés et des recherches déléguées en lecture seule.",
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T15:08:43.101Z",
+          "elapsed_seconds": 206.013,
+          "prompt_revision": "production-integrity-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "4b92d3fe785b7cd0b20b18818b6216628726676d",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T15:05:17.088Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T16:05:32.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-09T15:08:43.101Z",
+        "elapsed_seconds": 206.013,
+        "prompt_revision": "production-integrity-2026-10-09",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S42",
+        "source_sha": "4b92d3fe785b7cd0b20b18818b6216628726676d",
+        "next_actions": [
+          "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+          "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+          "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+          "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+        ],
+        "remaining_count": 35,
+        "next_actions_total": 38,
+        "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "observations": {
+          "started_at": "2026-10-09T15:05:17.088Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-09T16:05:32.000Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
+        }
+      },
+      "intervals": {
+        "reprise_extraction": {
+          "started_at": "2026-10-09T15:05:17.088Z",
+          "ended_at": "2026-10-09T15:11:00.904Z"
+        },
+        "recherche": null,
+        "redaction_rendu": null,
+        "controles": null,
+        "sauvegarde": null,
+        "attente": null,
+        "note": "La fusion de main et l’extraction se chevauchent avec les lectures de contrats ; aucune somme séquentielle n’est déduite."
+      },
+      "control_notes": [
+        "Candidate synchronisée normalement avec main 9aae312 ; seul AUTOMATION.md avait changé parmi les six contrats obligatoires.",
+        "Compétition officielle : preuve SensCritique déjà sauvegardée au passage précédent, intégrée sans nouvelle consultation fictive."
       ]
     }
   ],
@@ -32127,17 +32247,17 @@
     "remaining_reference": "remaining"
   },
   "contract_reads": {
-    "main_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
-    "checked_at": "2026-10-09T11:18:20.201Z",
+    "main_sha": "9aae312f9c087d34430f13cfb2fe74d7dd08d88e",
+    "checked_at": "2026-10-09T15:11:00.904Z",
     "documents": {
-      "AUTOMATION.md": "398efe679818d849689cff03ac593697c7f2656d",
+      "AUTOMATION.md": "7c682ddc503d4b9770edbe09d0fc4ef71ef46658",
       "docs/HYBRID-WORKFLOW.md": "95cad0792febab1bc7edf076300bd38ced9c84ba",
       "ARCHITECTURE.md": "7c6e72b0729e4f915bc5a90f084c40e1cc363e8a",
       "data/automation-config.json": "e55d9a247fc0299ce6effc6c3e97eea9018f0dc3",
       "data/editorial-config.json": "e491aa84dac6b34ca4ec4b8b4cb1e88737a0b385",
       "data/personalization-config.json": "ad5716e95db25894de7ca58c874154783b1766a8"
     },
-    "note": "Les six contrats gardent les blobs attestés au début du passage. Main a ensuite reçu uniquement la correction des validateurs de réserves (#48) ; la candidate a été synchronisée par un commit de fusion normal avant le lot suivant."
+    "note": "Lecture attestée antérieurement pour cinq blobs inchangés ; AUTOMATION.md relu intégralement après changement de blob sur main."
   },
   "research_dossiers": [
     {
@@ -33543,11 +33663,12 @@
       ],
       "ratings_research": {
         "status": "verified_dynamic",
-        "checked_at": "2026-10-09T14:35:47.026Z",
+        "checked_at": "2026-10-09T14:51:30.000Z",
         "source_urls": [
-          "https://www.rottentomatoes.com/m/official_competition_2021"
+          "https://www.rottentomatoes.com/m/official_competition_2021",
+          "https://www.senscritique.com/film/competition_officielle/45227355"
         ],
-        "note": "Rotten Tomatoes 96 % sur 156 critiques ; AlloCiné presse 3,5/5 dans la fiche de réception consultée."
+        "note": "Rotten Tomatoes 96 % sur 156 critiques ; AlloCiné presse 3,5/5 ; SensCritique 6,6/10 sur la fiche exacte 45227355."
       },
       "image_research": {
         "status": "exact_poster_verified",
