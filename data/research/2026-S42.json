@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "018433005ec07f2d8900af044f82dede06d49a28",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T08:52:28.000Z",
+  "updated_at": "2026-10-09T08:55:11.000Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -508,6 +508,11 @@
       "id": "complete-wednesday-cadet-broadcast-crosscheck-2026-10-09",
       "completed_at": "2026-10-09T08:52:28.000Z",
       "description": "Recoupement de chaîne du Cadet d’eau douce fermé pour la carte sélectionnée avec Télé 7 Jours et Molotov ; divergence Programme-TV.com conservée."
+    },
+    {
+      "id": "advance-wednesday-burning-schedule-rating-2026-10-09",
+      "completed_at": "2026-10-09T08:55:11.000Z",
+      "description": "Burning an Illusion : créneau TCM du mercredi recoupé par trois pages et note IMDb datée ; piste maintenue researching avec manques explicites."
     }
   ],
   "blockers": [
@@ -20289,6 +20294,30 @@
       },
       "evidence_note": "Télé 7 Jours et Molotov concordent avec l’événement CANAL+ sur 12:06 et nomment Ciné+ Classic. Programme-TV.com affiche 12:20 : divergence conservée et source non retenue.",
       "status": "verified"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "ratings.imdb"
+      ],
+      "source_urls": [
+        "https://programmetv.ouest-france.fr/film/drame/burning-an-illusion-c194251129/",
+        "https://www.programme-television.org/tv/chaines/tcm-cinema/mercredi",
+        "https://www.mon-programme-tv.be/chaine/mercredi-prochain/172/programme-television-tcm-cinema.html",
+        "https://www.imdb.com/title/tt0082117/"
+      ],
+      "checked_at": "2026-10-09T08:55:11.000Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Burning an Illusion",
+        "broadcast": "2026-10-14 11:15 TCM Cinéma"
+      },
+      "evidence_note": "Trois pages publiques concordent sur le créneau TCM du mercredi. IMDb 6,9/10 pour 256 notes ; aucune moyenne SensCritique exploitable dans la page lue.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -21295,7 +21324,8 @@
         "complete-thursday-the-host-third-choice-2026-10-09",
         "complete-monday-les-maries-de-l-an-ii-second-choice-2026-10-09",
         "complete-monday-restore-point-third-choice-2026-10-09",
-        "complete-wednesday-cadet-broadcast-crosscheck-2026-10-09"
+        "complete-wednesday-cadet-broadcast-crosscheck-2026-10-09",
+        "advance-wednesday-burning-schedule-rating-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -21306,7 +21336,7 @@
       ],
       "complete_cards": 4,
       "draft_cards": 0,
-      "partial_dossiers": 0,
+      "partial_dossiers": 1,
       "deliverables_advanced": [
         "jeudi-selection",
         "jeudi-grille",
@@ -21438,17 +21468,45 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T08:54:42.123Z",
+          "elapsed_seconds": 1572.459,
+          "budget_seconds": 2100,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "11a923df1033bf444354a660ac1f16569a28f1fd",
+          "next_actions": [
+            "Achever deux choix développés du mercredi depuis la shortlist et les dossiers proches d’une carte.",
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi.",
+            "Produire les rubriques indépendantes encore absentes et consolider les recoupements/rappels ; préserver toutes les exigences ouvertes jusqu’à résolution effective.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T08:28:29.664Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T09:50:06.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T08:52:04.628Z",
-        "elapsed_seconds": 1414.964,
+        "observed_at": "2026-10-09T08:54:42.123Z",
+        "elapsed_seconds": 1572.459,
         "budget_seconds": 2100,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "f74dd8a7a51202f846a04ec548ea6c1c7fcdc07f",
+        "source_sha": "11a923df1033bf444354a660ac1f16569a28f1fd",
         "next_actions": [
           "Achever deux choix développés du mercredi depuis la shortlist et les dossiers proches d’une carte.",
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi.",
@@ -21470,7 +21528,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Achever deux autres choix développés du mercredi depuis la shortlist et les dossiers proches d’une carte."
+      "next_useful_batch": "Achever Burning an Illusion : version, liens directs, affiche et rédaction de la deuxième carte du mercredi."
     }
   ],
   "source_issues": [
@@ -22641,11 +22699,17 @@
             "kind": "critique",
             "note": "La réception critique déjà sauvegardée couvre la rediffusion du mercredi ; la version et l’offre restent à finaliser.",
             "source_url": "https://www.telerama.fr/cinema/burning-an-illusion-de-menelik-shabazz-notre-critique_cri-7042929.php"
+          },
+          {
+            "kind": "diffusion",
+            "note": "Ouest-France, Télé 7 Jours et Mon Programme TV concordent sur TCM Cinéma le 14 octobre à 11:15.",
+            "source_url": "https://programmetv.ouest-france.fr/film/drame/burning-an-illusion-c194251129/"
           }
         ],
         "alternatives": [
           "sl-mercredi-cadet"
-        ]
+        ],
+        "decision_note": "Diffusion et note IMDb vérifiées ; version exacte, liens, affiche et carte restent à terminer."
       },
       {
         "id": "sl-jeudi-point-limite",
