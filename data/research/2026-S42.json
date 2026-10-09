@@ -1179,6 +1179,15 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
+    },
+    {
+      "id": "advance-distinct-hd-reserve-dossiers-2026-10-09",
+      "completed_at": "2026-10-09T15:42:10.658Z",
+      "scope": "radar-hd:distinct-alternatives",
+      "summary": "Trois alternatives HD réellement distinctes des dix primaires sont avancées depuis les cartes cachées S41 : The Lost Patrol, Dear Heart et Boys Town. Les annonces Warner Archive du 22 septembre 2026 et des critiques indépendantes sont identifiées ; revalidation visuelle et revue finale des textes restent requises avant intégration.",
+      "deliverables": [
+        "data/research/2026-S42.json"
+      ]
     }
   ],
   "blockers": [
@@ -28221,7 +28230,8 @@
         "complete-daily-reserves-matrix-orient-adam-2026-10-09",
         "complete-sunday-shutter-island-reserve-2026-10-09",
         "complete-reserves-night-hunter-wages-children-2026-10-09",
-        "reuse-verified-documentary-saturday-reserve-2026-10-09"
+        "reuse-verified-documentary-saturday-reserve-2026-10-09",
+        "advance-distinct-hd-reserve-dossiers-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -28233,7 +28243,7 @@
       "complete_cards": 92,
       "cards_integrated_this_run": 8,
       "draft_cards": 0,
-      "partial_dossiers": 0,
+      "partial_dossiers": 3,
       "measurements": {
         "complete_cards": {
           "value": 92,
@@ -28271,7 +28281,7 @@
         "samedi : réserve cachée rang 8 matérialisée pour Violences sexuelles à l’école, sans compter une nouvelle œuvre distincte"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter les réserves des jours encore sous dix cartes : vendredi (6), samedi (8), dimanche (7), mardi (5), mercredi/jeudi (6), puis corriger les réserves effectives des radars HD et popularité.",
+      "next_useful_batch": "Revalider les trois visuels Warner Archive, revoir leurs textes hérités puis intégrer The Lost Patrol, Dear Heart et Boys Town comme trois premières alternatives HD distinctes ; trois autres alternatives HD restent nécessaires.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -28417,18 +28427,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T15:41:02.475Z",
+          "elapsed_seconds": 2145.387,
+          "prompt_revision": "production-integrity-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "6386c624d6778de2f1eb1fd59da1e559a7ca2428",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T15:05:17.088Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T16:25:40.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T15:37:13.066Z",
-        "elapsed_seconds": 1915.978,
+        "observed_at": "2026-10-09T15:41:02.475Z",
+        "elapsed_seconds": 2145.387,
         "prompt_revision": "production-integrity-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "669c7275256cd5221fac372ee9f718ae252364ef",
+        "source_sha": "6386c624d6778de2f1eb1fd59da1e559a7ca2428",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
@@ -28481,6 +28520,11 @@
           "started_at": "2026-10-09T15:37:30.000Z",
           "ended_at": "2026-10-09T15:39:18.995Z",
           "note": "Extraction ciblée, revue de la réutilisation et rendu mécanique ; aucune nouvelle recherche générale."
+        },
+        "recherche_hd": {
+          "started_at": "2026-10-09T15:41:10.000Z",
+          "ended_at": "2026-10-09T15:42:10.658Z",
+          "note": "Recherche ciblée de réception indépendante pour trois dossiers HD avancés ; aucune nouvelle carte certifiée."
         }
       },
       "control_notes": [
@@ -28496,7 +28540,8 @@
         "La Nuit du chasseur : URL Criterion exacte 27525 vérifiée avant sauvegarde ; copie CANAL+ 88 min conservée.",
         "Le Salaire de la peur et Les Enfants de la Résistance : copies du cycle distinguées des durées catalogue et réception critique contextualisée.",
         "Violences sexuelles… : carte stable réutilisée samedi ; soirée officielle 21:00 et début du documentaire 21:02 conservés comme observations distinctes.",
-        "La réutilisation ajoute une position de réserve mais aucun nouveau work_id distinct à l’échelle du numéro."
+        "La réutilisation ajoute une position de réserve mais aucun nouveau work_id distinct à l’échelle du numéro.",
+        "Radars HD : trois alternatives distinctes des dix primaires sont avancées avec événement Warner Archive et réception indépendante ; elles restent partial_dossiers tant que visuels et textes S42 ne sont pas revus."
       ]
     }
   ],
@@ -32037,6 +32082,75 @@
         ],
         "decision_note": "Réserve cachée rang 8 réutilisant la carte dimanche ; aucun nouveau work_id distinct à l’échelle du numéro.",
         "alternatives": []
+      },
+      {
+        "id": "sl-radar-hd-the-lost-patrol-1934",
+        "title": "The Lost Patrol",
+        "work_id": "the-lost-patrol-1934",
+        "scope": {
+          "rubrique": "radar-hd"
+        },
+        "status": "researching",
+        "signals": [
+          {
+            "kind": "sortie_physique_officielle",
+            "note": "Sortie Blu-ray Warner Archive du 22 septembre 2026, dans la fenêtre radar de 21 jours au 9 octobre.",
+            "source_url": "https://www.facebook.com/warnerarchive/posts/coming-to-blu-ray-from-the-warner-archive-collection-on-september-22nd-new-2026-/1536947838470891/"
+          },
+          {
+            "kind": "reception_independante",
+            "note": "Lecture nuancée : qualité spectrale durable mais expérience imparfaite, notamment dans l’excès de Karloff. / Défend un thriller vertigineux, hanté, lu comme métaphore de la cupidité et de l’échec militaire.",
+            "source_url": "https://www.tcm.com/articles/81888/the-lost-patrol"
+          }
+        ],
+        "decision_note": "Événement éditeur et réception contradictoire identifiés ; image datée du 24 septembre, texte hérité et carte S42 restent à revoir.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-radar-hd-dear-heart-1964",
+        "title": "Dear Heart",
+        "work_id": "dear-heart-1964",
+        "scope": {
+          "rubrique": "radar-hd"
+        },
+        "status": "researching",
+        "signals": [
+          {
+            "kind": "sortie_physique_officielle",
+            "note": "Sortie Blu-ray Warner Archive du 22 septembre 2026, dans la fenêtre radar de 21 jours au 9 octobre.",
+            "source_url": "https://www.facebook.com/warnerarchive/posts/coming-to-blu-ray-from-the-warner-archive-collection-on-september-22ndnew-2026-1/1536978421801166/"
+          },
+          {
+            "kind": "reception_independante",
+            "note": "Souligne la mise en espace claire, les foules et le New York de 1964, tout en réservant son enthousiasme pour la totalité du récit. / Relit la comédie comme un récit plus trouble de solitude, duplicité et normes sexuelles.",
+            "source_url": "https://www.popmatters.com/179627-dear-heart-2495682292.html"
+          }
+        ],
+        "decision_note": "Événement éditeur et réception indépendante identifiés ; image datée du 24 septembre, texte hérité et carte S42 restent à revoir.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-radar-hd-boys-town-1938",
+        "title": "Boys Town",
+        "work_id": "boys-town-1938",
+        "scope": {
+          "rubrique": "radar-hd"
+        },
+        "status": "researching",
+        "signals": [
+          {
+            "kind": "sortie_physique_officielle",
+            "note": "Sortie Blu-ray Warner Archive du 22 septembre 2026, dans la fenêtre radar de 21 jours au 9 octobre.",
+            "source_url": "https://www.facebook.com/warnerarchive/photos/coming-to-blu-ray-from-the-warner-archive-collection-on-september-22nd-new-2026-/1537035968462078/"
+          },
+          {
+            "kind": "reception_independante",
+            "note": "Critique d’époque soulignant l’équilibre entre mélodrame, humour et amertume ainsi que l’impact de Mickey Rooney. / Réévaluation sévère : film jugé daté, simplificateur et sentimental dans son traitement du social.",
+            "source_url": "https://variety.com/1937/film/reviews/boys-town-2-1200411687/"
+          }
+        ],
+        "decision_note": "Événement éditeur et réception contradictoire identifiés ; image datée du 24 septembre, texte hérité et carte S42 restent à revoir.",
+        "alternatives": []
       }
     ]
   },
@@ -34766,6 +34880,126 @@
         "image_url": "https://www.abusdecine.com/wp-content/uploads/les-enfants-de-la-resistance-affiche.jpg"
       },
       "reason": "Copie CANAL+ 96 min séparée des durées cinéma ; diffusion, réception contradictoire, notes, affiche, liens et textes contrôlés."
+    },
+    {
+      "title": "The Lost Patrol",
+      "work_id": "the-lost-patrol-1934",
+      "decision": "alternative HD distincte en recherche avancée",
+      "identity_research": {
+        "director": "John Ford",
+        "year": 1934,
+        "duration_observations": [
+          {
+            "duration": "74 min",
+            "version": "nouveau master Warner Archive 1080p issu d’un scan 4K d’éléments nitrate",
+            "source_url": "https://www.facebook.com/warnerarchive/posts/coming-to-blu-ray-from-the-warner-archive-collection-on-september-22nd-new-2026-/1536947838470891/"
+          }
+        ],
+        "checked_at": "2026-10-09T15:42:10.658Z"
+      },
+      "availability_research": {
+        "status": "verified_physical_release_event",
+        "checked_at": "2026-10-09T15:42:10.658Z",
+        "source_urls": [
+          "https://www.facebook.com/warnerarchive/posts/coming-to-blu-ray-from-the-warner-archive-collection-on-september-22nd-new-2026-/1536947838470891/",
+          "https://screen-connections.com/2026/08/12/warner-archive-collection-september-2026-blu-ray-releases-the-quick-draw-mcgraw-show-the-lost-patrol-marked-woman/"
+        ],
+        "note": "Sortie Blu-ray Warner Archive du 22 septembre 2026, dans la fenêtre radar de 21 jours au 9 octobre."
+      },
+      "critical_evidence": [
+        {
+          "source": "Turner Classic Movies",
+          "source_url": "https://www.tcm.com/articles/81888/the-lost-patrol",
+          "assessment": "Lecture nuancée : qualité spectrale durable mais expérience imparfaite, notamment dans l’excès de Karloff."
+        },
+        {
+          "source": "Pre-Code.com",
+          "source_url": "https://pre-code.com/lost-patrol-1934-victor-mclaglen-boris-karloff/",
+          "assessment": "Défend un thriller vertigineux, hanté, lu comme métaphore de la cupidité et de l’échec militaire."
+        }
+      ],
+      "dossier_completeness": "partial",
+      "reason": "Événement éditeur et réception contradictoire identifiés ; image datée du 24 septembre, texte hérité et carte S42 restent à revoir."
+    },
+    {
+      "title": "Dear Heart",
+      "work_id": "dear-heart-1964",
+      "decision": "alternative HD distincte en recherche avancée",
+      "identity_research": {
+        "director": "Delbert Mann",
+        "year": 1964,
+        "duration_observations": [
+          {
+            "duration": "114 min",
+            "version": "nouveau master Warner Archive 1080p issu d’un scan 4K du négatif caméra original",
+            "source_url": "https://www.facebook.com/warnerarchive/posts/coming-to-blu-ray-from-the-warner-archive-collection-on-september-22ndnew-2026-1/1536978421801166/"
+          }
+        ],
+        "checked_at": "2026-10-09T15:42:10.658Z"
+      },
+      "availability_research": {
+        "status": "verified_physical_release_event",
+        "checked_at": "2026-10-09T15:42:10.658Z",
+        "source_urls": [
+          "https://www.facebook.com/warnerarchive/posts/coming-to-blu-ray-from-the-warner-archive-collection-on-september-22ndnew-2026-1/1536978421801166/",
+          "https://screen-connections.com/2026/08/12/warner-archive-collection-september-2026-blu-ray-releases-the-quick-draw-mcgraw-show-the-lost-patrol-marked-woman/"
+        ],
+        "note": "Sortie Blu-ray Warner Archive du 22 septembre 2026, dans la fenêtre radar de 21 jours au 9 octobre."
+      },
+      "critical_evidence": [
+        {
+          "source": "PopMatters",
+          "source_url": "https://www.popmatters.com/179627-dear-heart-2495682292.html",
+          "assessment": "Souligne la mise en espace claire, les foules et le New York de 1964, tout en réservant son enthousiasme pour la totalité du récit."
+        },
+        {
+          "source": "The Awl",
+          "source_url": "https://medium.com/the-awl/best-forgotten-dear-heart-1964-2005bcf8749d",
+          "assessment": "Relit la comédie comme un récit plus trouble de solitude, duplicité et normes sexuelles."
+        }
+      ],
+      "dossier_completeness": "partial",
+      "reason": "Événement éditeur et réception indépendante identifiés ; image datée du 24 septembre, texte hérité et carte S42 restent à revoir."
+    },
+    {
+      "title": "Boys Town",
+      "work_id": "boys-town-1938",
+      "decision": "alternative HD distincte en recherche avancée",
+      "identity_research": {
+        "director": "Norman Taurog",
+        "year": 1938,
+        "duration_observations": [
+          {
+            "duration": "93 min",
+            "version": "nouveau master Warner Archive 1080p issu d’un scan 4K des meilleurs éléments de préservation",
+            "source_url": "https://www.facebook.com/warnerarchive/photos/coming-to-blu-ray-from-the-warner-archive-collection-on-september-22nd-new-2026-/1537035968462078/"
+          }
+        ],
+        "checked_at": "2026-10-09T15:42:10.658Z"
+      },
+      "availability_research": {
+        "status": "verified_physical_release_event",
+        "checked_at": "2026-10-09T15:42:10.658Z",
+        "source_urls": [
+          "https://www.facebook.com/warnerarchive/photos/coming-to-blu-ray-from-the-warner-archive-collection-on-september-22nd-new-2026-/1537035968462078/",
+          "https://screen-connections.com/2026/08/12/warner-archive-collection-september-2026-blu-ray-releases-the-quick-draw-mcgraw-show-the-lost-patrol-marked-woman/"
+        ],
+        "note": "Sortie Blu-ray Warner Archive du 22 septembre 2026, dans la fenêtre radar de 21 jours au 9 octobre."
+      },
+      "critical_evidence": [
+        {
+          "source": "Variety",
+          "source_url": "https://variety.com/1937/film/reviews/boys-town-2-1200411687/",
+          "assessment": "Critique d’époque soulignant l’équilibre entre mélodrame, humour et amertume ainsi que l’impact de Mickey Rooney."
+        },
+        {
+          "source": "DVD Savant",
+          "source_url": "https://www.dvdtalk.com/dvdsavant/s1814town.html",
+          "assessment": "Réévaluation sévère : film jugé daté, simplificateur et sentimental dans son traitement du social."
+        }
+      ],
+      "dossier_completeness": "partial",
+      "reason": "Événement éditeur et réception contradictoire identifiés ; image datée du 24 septembre, texte hérité et carte S42 restent à revoir."
     }
   ]
 }
