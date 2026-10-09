@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T11:39:58.138Z",
+  "updated_at": "2026-10-09T11:42:08.377Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -757,6 +757,18 @@
         "data/works.json",
         "data/links.json",
         "data/manifest.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "advance-streaming-releases-two-cards-2026-10-09",
+      "completed_at": "2026-10-09T11:42:08.377Z",
+      "scope": "sorties-streaming",
+      "summary": "Rubrique sorties streaming portée à deux cartes complètes avec Kursk / The Command. L’identité, l’alias Netflix, la durée, le visuel, les notes et la réception divisée sont contrôlés ; l’ouverture France de la page reste à revalider le 16 octobre.",
+      "deliverables": [
+        "data/works.json",
+        "data/links.json",
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
@@ -21755,6 +21767,44 @@
       },
       "evidence_note": "Le line-up officiel Netflix France annonce l’arrivée le 14 octobre 2026. La fiche Netflix ID 81643672 est directe mais consultée en locale Martinique et encore indisponible avant arrivée ; ouverture et disponibilité France restent à revalider le 14 octobre.",
       "status": "verified"
+    },
+    {
+      "work_id": "kursk-2018",
+      "fields": [
+        "title",
+        "aliases",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "image",
+        "links",
+        "ratings",
+        "critical_reception",
+        "offer.arrival_date",
+        "offer.url"
+      ],
+      "source_urls": [
+        "https://about.netflix.com/fr/news/line-up-mensuel",
+        "https://www.netflix.com/title/81034575",
+        "https://www.francetvpro.fr/contenu-de-presse/22628545",
+        "https://www.filmfrance.net/films/kursk/",
+        "https://www.sabanfilms.com/films/the-command/",
+        "https://www.imdb.com/title/tt4951982/",
+        "https://www.metacritic.com/movie/kursk/",
+        "https://www.theguardian.com/film/2018/sep/06/kursk-review-devastating-drama-tackles-russian-submarine-tragedy",
+        "https://variety.com/2018/film/reviews/kursk-review-1202939828/"
+      ],
+      "checked_at": "2026-10-09T11:42:08.377Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "section": "sorties-streaming",
+        "arrival_date": "2026-10-16"
+      },
+      "evidence_note": "Le line-up officiel Netflix France annonce l’arrivée le 16 octobre 2026. La page directe ID 81034575 est exacte mais indique avant cette date que le titre n’est pas encore disponible dans le pays ; ouverture France à revalider le 16 octobre.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -23634,7 +23684,7 @@
       "next_useful_batch": "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés."
     },
     {
-      "date": "2026-10-09T11:39:58.138Z",
+      "date": "2026-10-09T11:42:08.377Z",
       "started_at": "2026-10-09T11:00:32.109Z",
       "ended_at": null,
       "owner": "242b436f-e4f5-4018-b208-fca5b20fa9ec",
@@ -23651,7 +23701,8 @@
         "advance-saturday-reserve-pool-four-cards-2026-10-09",
         "draft-platform-subscription-page-one-2026-10-09",
         "draft-physical-releases-section-2026-10-09",
-        "draft-streaming-release-haffmann-2026-10-09"
+        "draft-streaming-release-haffmann-2026-10-09",
+        "advance-streaming-releases-two-cards-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -23660,7 +23711,7 @@
         "data/research/2026-S42.json",
         "data/manifest.json"
       ],
-      "complete_cards": 31,
+      "complete_cards": 32,
       "draft_cards": 1,
       "partial_dossiers": 4,
       "deliverables_advanced": [
@@ -23673,7 +23724,8 @@
         "samedi : pool avancé à quatre cartes complètes",
         "plateformes-abonnement : première page de trois cartes complètes",
         "sorties-physiques : deux cartes complètes et page rendue",
-        "sorties-streaming : première carte complète et page rendue"
+        "sorties-streaming : première carte complète et page rendue",
+        "sorties-streaming : deux cartes complètes"
       ],
       "requirements_resolved": [
         "lundi : seuil minimal de dix cartes complètes atteint"
@@ -23948,7 +24000,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Achever Kursk / The Command pour sorties-streaming, puis trouver une troisième arrivée avec page directe exacte ou reprendre les réserves physiques."
+      "next_useful_batch": "Trouver une troisième sortie streaming avec page directe exacte, ou approfondir les réserves sorties physiques et les jours déficitaires."
     }
   ],
   "source_issues": [
@@ -24921,7 +24973,7 @@
     }
   ],
   "shortlist": {
-    "updated_at": "2026-10-09T11:39:58.138Z",
+    "updated_at": "2026-10-09T11:42:08.377Z",
     "note": "Présélection révisable par jour et rubrique ; premières cartes plateformes gratuites intégrées depuis les dossiers acquis. Aucun statut ne certifie la sélection finale du numéro.",
     "entries": [
       {
@@ -26094,6 +26146,26 @@
           "Kursk / The Command à achever",
           "Maestro(s) différé faute de page Netflix directe certaine"
         ]
+      },
+      {
+        "id": "sl-sorties-streaming-kursk-2018",
+        "title": "Kursk",
+        "work_id": "kursk-2018",
+        "scope": {
+          "rubrique": "sorties-streaming"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "arrivee_netflix_france_et_reception",
+            "note": "Le line-up officiel Netflix France annonce l’arrivée le 16 octobre 2026. La page directe ID 81034575 est exacte mais indique avant cette date que le titre n’est pas encore disponible dans le pays ; ouverture France à revalider le 16 octobre.",
+            "source_url": "https://about.netflix.com/fr/news/line-up-mensuel"
+          }
+        ],
+        "decision_note": "Carte complète de rubrique ; alias The Command et indisponibilité avant arrivée explicitement conservés.",
+        "alternatives": [
+          "Troisième arrivée à identifier avec page directe exacte"
+        ]
       }
     ]
   },
@@ -26106,8 +26178,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "e944fa07f7e0a682809ab9f7e85ae709e5a9994a",
-    "produced_at": "2026-10-09T11:39:58.138Z",
+    "source_candidate_sha": "df6536b6ff31a3ae6c78bac6a2e2ee3777f8fd74",
+    "produced_at": "2026-10-09T11:42:08.377Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -26929,6 +27001,30 @@
           "canonical_fields": "Titre français et alias international, réalisateur, sortie publique 2022, pays, genre, durée Pathé de 115 minutes, affiche officielle, liens et note IMDb datée contrôlés.",
           "current_broadcast": "Le line-up officiel Netflix France annonce l’arrivée le 14 octobre 2026. La fiche Netflix ID 81643672 est directe mais consultée en locale Martinique et encore indisponible avant arrivée ; ouverture et disponibilité France restent à revalider le 14 octobre.",
           "editorial_copy": "Synopsis original rédigé depuis Pathé ; justification revue depuis AlloCiné, Télérama et Le Monde avec les réserves sur la reconstitution et les effets dramatiques conservées."
+        }
+      },
+      {
+        "work_id": "kursk-2018",
+        "section": "sorties-streaming",
+        "rank_provisional": 2,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "evidence_urls": [
+            "https://about.netflix.com/fr/news/line-up-mensuel",
+            "https://www.netflix.com/title/81034575",
+            "https://www.francetvpro.fr/contenu-de-presse/22628545",
+            "https://www.filmfrance.net/films/kursk/",
+            "https://www.sabanfilms.com/films/the-command/",
+            "https://www.imdb.com/title/tt4951982/",
+            "https://www.metacritic.com/movie/kursk/",
+            "https://www.theguardian.com/film/2018/sep/06/kursk-review-devastating-drama-tackles-russian-submarine-tragedy",
+            "https://variety.com/2018/film/reviews/kursk-review-1202939828/"
+          ],
+          "identity_version": "Film de Thomas Vinterberg sorti en 2018, IMDb tt4951982. Kursk est le titre original et français ; The Command est le titre porté par la fiche Netflix ID 81034575.",
+          "canonical_fields": "Identité, alias, réalisateur, année, pays, genre, durée France Télévisions de 118 minutes, visuel Netflix, liens et notes IMDb/Metacritic datées contrôlés.",
+          "current_broadcast": "Le line-up officiel Netflix France annonce l’arrivée le 16 octobre 2026. La page directe ID 81034575 est exacte mais indique avant cette date que le titre n’est pas encore disponible dans le pays ; ouverture France à revalider le 16 octobre.",
+          "editorial_copy": "Synopsis original rédigé depuis France Télévisions et Film France ; justification revue depuis The Guardian et Variety, avec la réception divisée conservée."
         }
       }
     ],
@@ -27930,6 +28026,63 @@
         "image_url": "https://www.pathefilms.com/assets/cover/2024/05/07/adieu_monsieur_haffmann/amh_aff_600.jpg?fm=webp&q=90&s=9b008599acddae7f88205228d4377346&w=390"
       },
       "reason": "Carte complète avec divergences d’année et portée géographique de la page Netflix explicitement conservées."
+    },
+    {
+      "title": "Kursk",
+      "work_id": "kursk-2018",
+      "decision": "carte complète sorties-streaming",
+      "identity_research": {
+        "director": "Thomas Vinterberg",
+        "year": 2018,
+        "country": "Belgique / France / Norvège",
+        "duration": "118 min",
+        "aliases": [
+          "The Command"
+        ],
+        "source_urls": [
+          "https://www.francetvpro.fr/contenu-de-presse/22628545",
+          "https://www.filmfrance.net/films/kursk/",
+          "https://www.imdb.com/title/tt4951982/"
+        ],
+        "checked_at": "2026-10-09T11:42:08.377Z"
+      },
+      "availability_research": {
+        "status": "verified_arrival_recheck_on_date",
+        "checked_at": "2026-10-09T11:42:08.377Z",
+        "source_urls": [
+          "https://about.netflix.com/fr/news/line-up-mensuel",
+          "https://www.netflix.com/title/81034575"
+        ],
+        "note": "Arrivée Netflix France le 16 octobre ; page directe exacte mais encore indisponible avant cette date."
+      },
+      "critical_evidence": [
+        {
+          "source": "The Guardian",
+          "source_url": "https://www.theguardian.com/film/2018/sep/06/kursk-review-devastating-drama-tackles-russian-submarine-tragedy",
+          "assessment": "Lecture favorable du drame humain et de la colère politique."
+        },
+        {
+          "source": "Variety",
+          "source_url": "https://variety.com/2018/film/reviews/kursk-review-1202939828/",
+          "assessment": "Réserve indépendante sur un traitement jugé impersonnel."
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic",
+        "checked_at": "2026-10-09T11:42:08.377Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt4951982/",
+          "https://www.metacritic.com/movie/kursk/"
+        ],
+        "note": "IMDb 6,6/10 sur environ 24 k notes ; Metacritic 55/100."
+      },
+      "image_research": {
+        "status": "netflix_visual_verified_ci_pending",
+        "checked_at": "2026-10-09T11:42:08.377Z",
+        "source_page": "https://www.netflix.com/title/81034575",
+        "image_url": "https://occ-0-7977-769.1.nflxso.net/dnm/api/v6/MgXQGyNr1xbI8tJSYiMWv5kXg5g/AAAABX4IMNfzB2-zQLZwK_IRgBUm2FXVxl6rCXWhxN91ejBbOgK_XVrl8VhTZhX44AjAMrnk9jz4IaOZEXru55R7jDqvxoSp5X_LPqo3__iiKb5NDQTjrB0EW9wxpw.jpg?r=f71"
+      },
+      "reason": "Carte complète ; alias et état d’ouverture de l’offre conservés."
     }
   ]
 }
