@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T19:36:02.979Z",
+  "updated_at": "2026-10-09T19:37:48.055Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -25926,6 +25926,56 @@
       },
       "evidence_note": "Les 36 entrées résiduelles sont conservées avec date, heure, titre, sous-titre et URL. Quatre épisodes de série sont hors périmètre ; les autres restent des émissions récurrentes sans œuvre documentaire distincte établie. Le tri ne certifie ni rappel indépendant ni semaine complète.",
       "status": "verified_for_reminder_pass_only"
+    },
+    {
+      "fields": [
+        "reminder.M6_W9_6ter.official_grids",
+        "reminder.recent_additions"
+      ],
+      "source_urls": [
+        "https://pro.m6.fr/m6/grille/2026-42.pdf",
+        "https://pro.m6.fr/w9/grille/2026-42.pdf",
+        "https://pro.m6.fr/6ter/grille/2026-42.pdf",
+        "https://tv-programme.com/w9/samedi-10-octobre-2026/",
+        "https://tv-programme.com/w9/dimanche-11-octobre-2026/",
+        "https://tv-programme.com/w9/jeudi-15-octobre-2026/",
+        "https://tv-programme.com/arte/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-09T19:37:31.507Z",
+      "stability": "cycle",
+      "applies_to": {
+        "week": "2026-S42",
+        "coverage_level": 2,
+        "channels": [
+          "M6",
+          "W9",
+          "6ter"
+        ],
+        "scope": "saved reminder passes only"
+      },
+      "evidence_note": "Les statuts partiels mélangeaient couverture réconciliée et enrichissement encore ouvert. Les 72 entrées officielles et les onze ajouts nommés sont clos pour leur périmètre ; les dossiers, l’indépendance des autres flux et les flags journaliers restent ouverts.",
+      "status": "verified_for_scoped_reminder_passes"
+    },
+    {
+      "fields": [
+        "reminder.T18.identity",
+        "editorial_scope"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/t18/mercredi-14-octobre-2026/",
+        "https://tv-programme.com/face-a-face-serie/s01e08-omission-e783063",
+        "https://tv-programme.com/face-a-face-serie/s01e06-collateral-e781541"
+      ],
+      "checked_at": "2026-10-09T19:37:48.055Z",
+      "stability": "cycle",
+      "applies_to": {
+        "week": "2026-S42",
+        "coverage_level": 2,
+        "date": "2026-10-14",
+        "channel": "T18"
+      },
+      "evidence_note": "Omission et Collatéral sont deux épisodes de Face à face, fiction policière ; le rappel corrige l’identité sans transformer le titre en documentaire politique.",
+      "status": "verified_for_reminder_pass_only"
     }
   ],
   "run_metrics": [
@@ -30784,7 +30834,9 @@
         "reconcile-seven-primary-reminder-items-2026-10-09",
         "close-primary-tnt-reminder-pass-2026-10-09",
         "narrow-saint-ex-short-feature-conflict-2026-10-09",
-        "triage-arte-complementary-reminder-2026-10-09"
+        "triage-arte-complementary-reminder-2026-10-09",
+        "reconcile-m6-and-recent-reminder-subsets-2026-10-09",
+        "reconcile-t18-prime-identity-reminder-2026-10-09"
       ],
       "deliverables_changed": [
         "data/radar-reserves/2026-S42.json",
@@ -31033,18 +31085,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T19:36:51.712Z",
+          "elapsed_seconds": 2342.588,
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "e4bfbce59e4011fd1499c38049abd744560937b6",
+          "next_actions": [
+            "Achever les autres passes de rappel partielles, en commençant par cinéma payant, TV5MONDE FBS, RMC et Ciné+.",
+            "Niveau 2 : reprendre seulement sur source nouvelle les quatre groupes de flux non indépendants consignés.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Réconcilier les horaires et conflits résiduels : Canal+ Grand Écran Le dahlia noir 22:58/22:59 reste sans événement officiel S42 ; pour Saint-Ex, le guide Ouest-France distingue un élément court à 03:50 (9 min) du long métrage à 03:59, mais l’écart 03:50/03:53 et 9/6 min du court reste à arbitrer. Ne pas assimiler le court à la copie du film."
+          ],
+          "remaining_count": 34,
+          "next_actions_total": 36,
+          "truncated_notice": "31 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T18:57:49.124Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T20:18:19.665Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T19:35:16.192Z",
-        "elapsed_seconds": 2247.068,
+        "observed_at": "2026-10-09T19:36:51.712Z",
+        "elapsed_seconds": 2342.588,
         "prompt_revision": "production-closure-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "56cf74a3eefe61d8d6a69f728a4364207d91ad18",
+        "source_sha": "e4bfbce59e4011fd1499c38049abd744560937b6",
         "next_actions": [
           "Achever les autres passes de rappel partielles, en commençant par cinéma payant, TV5MONDE FBS, RMC et Ciné+.",
           "Niveau 2 : reprendre seulement sur source nouvelle les quatre groupes de flux non indépendants consignés.",
@@ -31109,6 +31190,16 @@
           "started_at": "2026-10-09T19:35:16.192Z",
           "ended_at": "2026-10-09T19:36:02.979Z",
           "note": "Relecture des 36 entrées résiduelles du complément officiel ARTE ; décisions conservées entrée par entrée, sans nouveau candidat ni certification de semaine."
+        },
+        "m6_recent_reminder_reconciliation": {
+          "started_at": "2026-10-09T19:36:51.712Z",
+          "ended_at": "2026-10-09T19:37:31.507Z",
+          "note": "Relecture des portées et conclusions sauvegardées : séparation entre rappel de couverture réconcilié et enrichissement de dossiers encore ouvert."
+        },
+        "t18_identity_reminder": {
+          "started_at": "2026-10-09T19:37:31.507Z",
+          "ended_at": "2026-10-09T19:37:48.055Z",
+          "note": "Relecture de la correction T18 déjà sourcée ; deux épisodes de fiction identifiés et écartés du périmètre documentaire."
         }
       },
       "control_notes": [
