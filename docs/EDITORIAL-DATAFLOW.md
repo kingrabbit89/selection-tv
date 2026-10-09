@@ -104,7 +104,7 @@ contrôles navigateur et revue finale restent du travail éditorial obligatoire.
 
 ## Source papier facultative
 
-Un PDF Télérama peut compléter les lots selon [EDITORIAL-TELERAMA.md](EDITORIAL-TELERAMA.md), avec page et empreinte d’origine. Sans PDF ni supplément sauvegardé, le parcours actuel est inchangé. `--without-telerama` permet de préparer un lot depuis les seules sources courantes.
+À partir de S43, les appréciations positives d’un Télérama importé constituent les premières pistes de la présélection, avec leurs critiques attribuées, avant de compléter et équilibrer depuis les autres sources. `initial_editorial_suggestions` reste disponible en entier ; la priorité de file ne s’applique qu’avant la première shortlist, sans réécrire les décisions sauvegardées. Un PDF Télérama peut compléter les lots selon [EDITORIAL-TELERAMA.md](EDITORIAL-TELERAMA.md), avec page et empreinte d’origine. Sans PDF ni supplément sauvegardé, le parcours actuel est inchangé. `--without-telerama` permet de préparer un lot depuis les seules sources courantes.
 
 ## Clôture depuis les défauts actuels
 

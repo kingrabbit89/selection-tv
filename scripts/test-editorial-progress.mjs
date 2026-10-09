@@ -39,6 +39,54 @@ test('shortlist keeps sourced signals, motivated rejections and known alternativ
   assert.deepEqual(shortlistSummary({shortlist: {entries: [lead(), lead({id: 'b', status: 'card_drafted'})]}}).by_scope.samedi.card_drafted, 1);
 });
 
+const paperSignal = (extra = {}) => ({kind: 'critique', note: 'Avis éditorial papier à examiner.', publisher: 'Télérama',
+  source_ref: 'sha256:' + 'a'.repeat(64), pdf_page: 42, bbox: [10, 20, 150, 80],
+  provenance: {source_sha: 'b'.repeat(40), path: 'data/editorial-inputs/2026-S43/telerama-editorial.json', json_pointer: '/reviews/0'}, ...extra});
+const paperProgress = (signal = paperSignal(), extra = {}) => ({week: '2026-S43',
+  shortlist: {entries: [lead({signals: [signal]})]}, ...extra});
+
+test('traceable Télérama paper can orient a shortlist without a Web URL or certification', () => {
+  const progress = paperProgress();
+  const before = structuredClone(progress);
+  checkShortlist(progress);
+  checkShortlist(paperProgress(paperSignal({provenance: {...paperSignal().provenance, json_pointer: '/reviews/12'}})));
+  checkShortlist(paperProgress(paperSignal({source_url: 'not-a-url'})));
+  assert.deepEqual(progress, before, 'validation must not certify, annotate or change research');
+  assert.equal(progress.shortlist.entries[0].status, 'to_research');
+  assert.equal(progress.shortlist.entries[0].signals[0].source_url, undefined);
+  checkShortlist({shortlist: {entries: [lead()]}});
+  checkShortlist(paperProgress(paperSignal({publisher: 'Other'}), {shortlist: {entries: [lead({signals: [paperSignal({publisher: 'Other'}), ...lead().signals]})]}}));
+});
+
+test('paper signals require the complete source, page, bounding box and exact week provenance', () => {
+  const bad = [
+    {kind: ''}, {note: ' '}, {publisher: 'Other'}, {publisher: 'Telerama'}, {publisher: undefined},
+    {source_ref: 'a'.repeat(64)}, {source_ref: 'sha256:' + 'a'.repeat(63)}, {source_ref: 'sha256:' + 'g'.repeat(64)},
+    {source_ref: ['sha256:' + 'a'.repeat(64)]},
+    {pdf_page: 0}, {pdf_page: -1}, {pdf_page: 1.5}, {pdf_page: '42'}, {pdf_page: undefined},
+    {bbox: []}, {bbox: [0, 0, 1]}, {bbox: [0, 0, 1, 1, 1]}, {bbox: [0, 0, Infinity, 1]},
+    {bbox: [0, 0, NaN, 1]}, {bbox: [0, 0, '1', 1]}, {bbox: [-1, 0, 1, 1]},
+    {bbox: [1, 0, 1, 1]}, {bbox: [2, 0, 1, 1]}, {bbox: [0, 2, 1, 1]},
+    {provenance: undefined}, {provenance: []},
+    ...[
+      {source_sha: ''}, {source_sha: 'b'.repeat(39)}, {source_sha: 'g'.repeat(40)}, {source_sha: ['b'.repeat(40)]},
+      {path: 'data/editorial-inputs/2026-S42/telerama-editorial.json'},
+      {path: 'data/editorial-inputs/2026-S43/other.json'},
+      {path: 'data/editorial-inputs/2026-S43/../2026-S43/telerama-editorial.json'},
+      {json_pointer: '/reviews/-1'}, {json_pointer: '/reviews/01'}, {json_pointer: '/reviews/1/title'},
+      {json_pointer: '/other/0'}, {json_pointer: ''}, {json_pointer: ['/reviews/0']}
+    ].map(extra => ({provenance: {...paperSignal().provenance, ...extra}}))
+  ];
+  for (const extra of bad) assert.throws(() => checkShortlist(paperProgress(paperSignal(extra))), /sourced/, JSON.stringify(extra));
+  for (const week of [undefined, '', '2026-S42', '2026-S00', '2026-S54', '../2026-S43', ['2026-S43']]) {
+    assert.throws(() => checkShortlist(paperProgress(paperSignal(), {week})), /sourced/, String(week));
+  }
+  const onlyHash = {kind: 'critique', note: 'Avis sans ancrage vérifiable.', source_ref: paperSignal().source_ref};
+  assert.throws(() => checkShortlist(paperProgress(onlyHash)), /sourced/);
+  assert.throws(() => checkShortlist(paperProgress(paperSignal(), {shortlist: {entries: [lead({signals: [paperSignal()], scope: {}})]}})), /scope/);
+  assert.throws(() => checkShortlist(paperProgress(paperSignal(), {shortlist: {entries: [lead({signals: [paperSignal()], scope: {day: 'samedit'}})]}})), /scope/);
+});
+
 test('run metric gaps are reported, never reconstructed', () => {
   assert.deepEqual(lastRunGaps({}), ['no run_metrics entry recorded']);
   const gaps = lastRunGaps({run_metrics: [{date: 'x', stop_reason: 'budget_near_limit'}]});
@@ -71,6 +119,9 @@ test('validation-context rejects an inconsistent remaining_items or unsourced sh
   assert.equal(run({...base, remaining_items: items()}).mode, 'preparation');
   assert.throws(() => run({...base, remaining_items: items().slice(0, 1)}), /none lost/);
   assert.throws(() => run({...base, shortlist: {entries: [lead({signals: []})]}}), /sourced/);
+  const signal = paperSignal({provenance: {...paperSignal().provenance, path: `data/editorial-inputs/${week}/telerama-editorial.json`}});
+  assert.equal(run({...base, shortlist: {entries: [lead({signals: [signal]})]}}).mode, 'preparation');
+  assert.throws(() => run({...base, shortlist: {entries: [lead({signals: [paperSignal()]})]}}), /sourced/);
 });
 
 test('gap report classifies validator lines and states it does not certify', () => {
