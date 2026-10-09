@@ -53,7 +53,7 @@ jobs:
       - run: node scripts/validate-canonical-identities.mjs
       - run: node scripts/sync-asset-versions.mjs --check
       - run: node scripts/validate-architecture.mjs
-      - run: node --test scripts/test-editorial-progress.mjs
+      - run: node --test scripts/test-editorial-progress.mjs scripts/test-editorial-continuation.mjs scripts/test-editorial-large-checkpoint.mjs
       - run: node scripts/validate-publication-candidate.mjs
       - run: node scripts/validate-editorial.mjs
       - run: node scripts/validate-links.mjs
