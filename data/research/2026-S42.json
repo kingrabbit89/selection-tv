@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "week": "2026-S42",
-  "base_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
+  "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T20:27:32.001Z",
+  "updated_at": "2026-10-09T21:00:28.406Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1373,7 +1373,9 @@
       "id": "ci-revert-forbidden-torrent-trends",
       "completed_at": "2026-10-09T20:47:00.000Z",
       "description": "Les logs CI exacts de a77d606 montrent validation-context rouge car data/torrent-trends.json est hors périmètre éditorial. Le fichier est restauré bit pour bit depuis main ; le visuel canonique corrigé reste dans works.json."
-    }
+    },
+    "sync-main-proof-policy-2026-10-09",
+    "initial-preparation-gaps-and-saved-inventory-flow-2026-10-09"
   ],
   "blockers": [
     {
@@ -32356,6 +32358,110 @@
           "note": "validation-context refusait data/torrent-trends.json dans une candidate éditoriale ; fichier restauré exactement depuis main."
         }
       ]
+    },
+    {
+      "date": "2026-10-09T20:56:11.648Z",
+      "owner": "cd7d2e7f-38c1-4174-a6b1-4c97a6a7bcbe",
+      "execution_kind": "scheduled_editorial_proof_policy_production",
+      "prompt_revision": "production-proof-policy-2026-10-09",
+      "stage": "enrichment",
+      "run_state": "running",
+      "started_at": "2026-10-09T20:56:11.648Z",
+      "ended_at": null,
+      "duration_basis": "started_at observé à l’entrée ; passage en cours au checkpoint initial.",
+      "completed_batches": [
+        "sync-main-proof-policy-2026-10-09",
+        "initial-preparation-gaps-and-saved-inventory-flow-2026-10-09"
+      ],
+      "deliverables_changed": [
+        "data/research/2026-S42.json"
+      ],
+      "complete_cards": 125,
+      "cards_integrated_this_run": 0,
+      "draft_cards": 0,
+      "partial_dossiers": 0,
+      "requirements_resolved": 0,
+      "stop_reason": null,
+      "next_useful_batch": "Revoir selon la politique de clôture les impasses sauvegardées et leur impact, annoter les attentes exactes, puis traiter la première action réellement accessible.",
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T21:00:28.406Z",
+          "elapsed_seconds": 256.758,
+          "prompt_revision": "production-proof-policy-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "704d1fdc4c056c7d1a8e140bd13e038b5cfbffe0",
+          "next_actions": [
+            "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
+            "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
+            "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
+            "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire."
+          ],
+          "remaining_count": 34,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 38,
+          "waiting_actions": [],
+          "research_review_warnings": [
+            "Current run batch needs_review: caller startedAt has no unique exact run match; remaining and resume preserved"
+          ],
+          "observations": {
+            "started_at": "2026-10-09T20:56:11.648Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T21:57:29.571Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-09T21:00:28.406Z",
+        "elapsed_seconds": 256.758,
+        "prompt_revision": "production-proof-policy-2026-10-09",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S42",
+        "source_sha": "704d1fdc4c056c7d1a8e140bd13e038b5cfbffe0",
+        "next_actions": [
+          "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
+          "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
+          "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
+          "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet.",
+          "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire."
+        ],
+        "remaining_count": 34,
+        "next_actions_total": 38,
+        "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "all_actions_total": 38,
+        "waiting_actions": [],
+        "research_review_warnings": [
+          "Current run batch needs_review: caller startedAt has no unique exact run match; remaining and resume preserved"
+        ],
+        "observations": {
+          "started_at": "2026-10-09T20:56:11.648Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-09T21:57:29.571Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
+        }
+      },
+      "intervals": [
+        {
+          "kind": "resume_extraction",
+          "started_at": "2026-10-09T20:56:11.648Z",
+          "ended_at": "2026-10-09T21:00:28.406Z",
+          "overlap": false,
+          "note": "Bail, synchronisation main, contrats changés, préparation-gaps, flow sauvegardé et triage initial."
+        }
+      ]
     }
   ],
   "source_issues": [
@@ -33012,8 +33118,8 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "0889f4a30b06e91162b8ce78277ad369c5a2d2ac",
-    "main_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
+    "checkpoint_parent_sha": "704d1fdc4c056c7d1a8e140bd13e038b5cfbffe0",
+    "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
       "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
@@ -37626,19 +37732,18 @@
     "remaining_reference": "remaining"
   },
   "contract_reads": {
-    "main_sha": "955eaea2880806c91c7d8350775980b182b86da9",
-    "checked_at": "2026-10-09T20:05:42.127Z",
+    "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
+    "checked_at": "2026-10-09T20:59:42.000Z",
     "documents": {
-      "AUTOMATION.md": "41a5636212dfb28ad6f3b8d03ea235abebabd8f0",
+      "AUTOMATION.md": "c28c68f18acbc42057db9f188b7c6df5389c92f6",
       "docs/HYBRID-WORKFLOW.md": "95cad0792febab1bc7edf076300bd38ced9c84ba",
       "ARCHITECTURE.md": "7c6e72b0729e4f915bc5a90f084c40e1cc363e8a",
       "data/automation-config.json": "e55d9a247fc0299ce6effc6c3e97eea9018f0dc3",
-      "data/editorial-config.json": "e491aa84dac6b34ca4ec4b8b4cb1e88737a0b385",
+      "data/editorial-config.json": "6d7f39d0b91b518ca547e8d44f1bf1c18e89179b",
       "data/personalization-config.json": "ad5716e95db25894de7ca58c874154783b1766a8",
-      "docs/EDITORIAL-DATAFLOW.md": "74b284b95a2e280553804c5e175f610f6fec93fd",
-      "docs/EDITORIAL-DRAFTS.md": "761eab2ebba2748559dbc53dfe8b83cab17faa9f"
+      "docs/EDITORIAL-CLOSURE-POLICY.md": "fb1b8cdd765f7220eef03369da1bbcc1ae017627"
     },
-    "note": "Les cinq contrats obligatoires inchangés sont repris depuis la lecture attestée ; AUTOMATION.md a changé et a été relu intégralement sur main."
+    "note": "AUTOMATION.md, data/editorial-config.json et docs/EDITORIAL-CLOSURE-POLICY.md ont été relus sur main ; les quatre autres contrats sont repris depuis leur lecture attestée car leurs blobs sont inchangés."
   },
   "research_dossiers": [
     {
