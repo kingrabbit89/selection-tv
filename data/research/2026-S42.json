@@ -25433,6 +25433,37 @@
       },
       "evidence_note": "FranceTvPro confirme identité, année 2025, master 70 min, diffusion et visuel exact crédité KM ; la grille réserve 72 min et Film-documentaire recoupe identité et durée. Les recherches exactes de notes sont restées sans résultat exploitable ; l’appréciation Télérama nuancée est attribuée.",
       "status": "verified_for_card"
+    },
+    {
+      "work_id": "la-femme-de-2025",
+      "fields": [
+        "identity",
+        "version",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "duration",
+        "image",
+        "ratings",
+        "editorial_reception"
+      ],
+      "source_urls": [
+        "https://jour2fete.com/film/la-femme-de/",
+        "https://www.canalplus.com/fr/cinema/la-femme-de/h/31652071_50002",
+        "https://tv-programme.com/cine-plus-ocs/mercredi-14-octobre-2026/",
+        "https://www.imdb.com/title/tt37526897/",
+        "https://www.senscritique.com/film/la_femme_de/105720428"
+      ],
+      "checked_at": "2026-10-09T17:30:48.735Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "mercredi",
+        "rank": 10,
+        "broadcast": "2026-10-14 20:50 Ciné+ OCS"
+      },
+      "evidence_note": "Jour2Fête confirme identité, année 2025, master 93 min et affiche ; Canal+ porte 90 min et la grille datée 20:50 tandis que Télérama imprime 20:55. IMDb 5,8 et SensCritique 5,6 contrôlés ; appréciation Télérama attribuée.",
+      "status": "verified_for_card"
     }
   ],
   "run_metrics": [
@@ -29943,7 +29974,8 @@
         "append-reviewed-wednesday-inde-enfance-reserve-2026-10-09",
         "append-reviewed-thursday-grand-puzzle-pompei-reserve-2026-10-09",
         "append-reviewed-wednesday-on-aboie-en-silence-reserve-2026-10-09",
-        "append-reviewed-wednesday-unite-ados-93-reserve-2026-10-09"
+        "append-reviewed-wednesday-unite-ados-93-reserve-2026-10-09",
+        "append-reviewed-wednesday-la-femme-de-reserve-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -29951,30 +29983,30 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ],
-      "complete_cards": 113,
-      "cards_integrated_this_run": 6,
+      "complete_cards": 114,
+      "cards_integrated_this_run": 7,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "measurements": {
         "complete_cards": {
-          "value": 113,
-          "scope": "stock après checkpoint : 107 positions héritées et six réserves complètes ajoutées pendant ce passage"
+          "value": 114,
+          "scope": "stock après checkpoint : 107 positions héritées et sept réserves complètes ajoutées pendant ce passage"
         },
         "new_works": {
-          "value": 6,
-          "scope": "six œuvres nouvelles ajoutées au catalogue canonique pendant ce passage, dont Unité Ados 93 au présent checkpoint"
+          "value": 7,
+          "scope": "sept œuvres nouvelles ajoutées au catalogue canonique pendant ce passage, dont La Femme de au présent checkpoint"
         },
         "visible_cards": {
           "value": 0,
           "scope": "la position ajoutée est une réserve cachée, sans changement des trois choix visibles"
         },
         "additional_reserve_placements": {
-          "value": 6,
-          "scope": "une réserve ajoutée au dimanche, une au mardi, trois au mercredi et une au jeudi"
+          "value": 7,
+          "scope": "une réserve ajoutée au dimanche, une au mardi, quatre au mercredi et une au jeudi"
         },
         "additional_distinct_reserve_work_ids": {
-          "value": 6,
-          "scope": "six nouveaux work_id distincts absents de la tête de départ du passage"
+          "value": 7,
+          "scope": "sept nouveaux work_id distincts absents de la tête de départ du passage"
         },
         "stable_reuses": {
           "value": 0,
@@ -29982,10 +30014,11 @@
         }
       },
       "requirements_resolved": [
-        "dimanche-selection : minimum de dix cartes complètes atteint avec Vermines, diffusion France 2, identité, version, visuel, réception et avertissement -12 contrôlés sans déclarer de pénurie"
+        "dimanche-selection : minimum de dix cartes complètes atteint avec Vermines, diffusion France 2, identité, version, visuel, réception et avertissement -12 contrôlés sans déclarer de pénurie",
+        "mercredi-selection : minimum de dix cartes complètes atteint avec La Femme de, identité, master, diffusion, affiche, notes et réception contrôlés ; divergence 20:50/20:55 conservée"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter encore trois réserves mardi, une mercredi et trois jeudi, puis remplacer les cinq doublons popular_deep.",
+      "next_useful_batch": "Compléter trois réserves mardi et trois jeudi, puis remplacer les cinq doublons popular_deep.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -30155,20 +30188,49 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T17:28:37.182Z",
+          "elapsed_seconds": 1959.685,
+          "prompt_revision": "production-telerama-editorial-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "0889f4a30b06e91162b8ce78277ad369c5a2d2ac",
+          "next_actions": [
+            "Compléter encore trois réserves mardi, une mercredi et trois jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
+            "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T16:55:57.497Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T18:16:43.836Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T17:25:33.094Z",
-        "elapsed_seconds": 1775.597,
+        "observed_at": "2026-10-09T17:28:37.182Z",
+        "elapsed_seconds": 1959.685,
         "prompt_revision": "production-telerama-editorial-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "8ffa26c273b75098d53cf9c1b093305b7794bdc9",
+        "source_sha": "0889f4a30b06e91162b8ce78277ad369c5a2d2ac",
         "next_actions": [
-          "Compléter encore trois réserves mardi, deux mercredi et trois jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
+          "Compléter encore trois réserves mardi, une mercredi et trois jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
           "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
           "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
@@ -30221,6 +30283,11 @@
           "started_at": "2026-10-09T17:25:33.094Z",
           "ended_at": "2026-10-09T17:27:37.375Z",
           "note": "Unité Ados 93 achevé depuis FranceTvPro, sa grille officielle, Film-documentaire et le signal Télérama ; master 70 min, créneau 72 min et guide 75 min conservés séparément."
+        },
+        "wednesday_reserve_batch_4": {
+          "started_at": "2026-10-09T17:28:37.182Z",
+          "ended_at": "2026-10-09T17:30:48.735Z",
+          "note": "La Femme de achevé depuis Jour2Fête, Canal+, la grille datée, IMDb, SensCritique et le signal Télérama ; master 93 min distingué de la fiche/créneau 90 min, heures 20:50/20:55 conservées."
         }
       },
       "control_notes": [
@@ -30231,7 +30298,8 @@
         "Inde, une enfance sous influence utilise le photogramme exact renvoyé par l’API Arte et conserve distincts le flux Arte de 3 302 secondes et la version cinéma de 81 minutes.",
         "Le grand puzzle de Pompéi conserve séparément le master 90 min, la diffusion France 5 de 87 min et la valeur guide de 88 min ; l’inscription au Prix Roberval n’est pas transformée en récompense.",
         "On aboie en silence conserve séparément le master annoncé de 90 min, le créneau France 2 de 100 min et les valeurs guide 97/100 ; les distinctions documentées par France Télévisions ne sont pas converties en note externe.",
-        "Unité Ados 93 est daté 2025 par France Télévisions et Film-documentaire ; le master 70 min, le créneau France 2 de 72 min et la valeur guide de 75 min restent distincts."
+        "Unité Ados 93 est daté 2025 par France Télévisions et Film-documentaire ; le master 70 min, le créneau France 2 de 72 min et la valeur guide de 75 min restent distincts.",
+        "La Femme de conserve le master distributeur 93 min séparé de la fiche Canal+ et du créneau à 90 min ; la carte suit la grille numérique 20:50 et garde le magazine papier 20:55 comme divergence."
       ]
     }
   ],
@@ -30889,11 +30957,11 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "8ffa26c273b75098d53cf9c1b093305b7794bdc9",
+    "checkpoint_parent_sha": "0889f4a30b06e91162b8ce78277ad369c5a2d2ac",
     "main_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Compléter encore trois réserves mardi, une mercredi et trois jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
+      "Compléter trois réserves mardi et trois jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
       "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
       "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes."
     ],
@@ -31423,7 +31491,7 @@
     }
   ],
   "shortlist": {
-    "updated_at": "2026-10-09T17:27:37.375Z",
+    "updated_at": "2026-10-09T17:30:48.735Z",
     "note": "Présélection révisable par jour et rubrique ; premières cartes plateformes gratuites intégrées depuis les dossiers acquis. Aucun statut ne certifie la sélection finale du numéro.",
     "entries": [
       {
@@ -34187,6 +34255,24 @@
           }
         ],
         "decision_note": "Réserve complète rang 9 ; master 70 min distingué du créneau 72 min et de la valeur guide 75 min.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-mercredi-la-femme-de-reserve",
+        "title": "La Femme de",
+        "work_id": "la-femme-de-2025",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique_et_diffusion",
+            "note": "Télérama salue l’émancipation feutrée et Mélanie Thierry ; Jour2Fête et Canal+ établissent l’identité et la diffusion.",
+            "source_url": "https://jour2fete.com/film/la-femme-de/"
+          }
+        ],
+        "decision_note": "Réserve complète rang 10 ; master 93 min distingué de la valeur Canal+/créneau 90 min et divergence 20:50/20:55 conservée.",
         "alternatives": []
       }
     ]
