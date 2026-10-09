@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T21:36:25.496Z",
+  "updated_at": "2026-10-09T21:38:03.473Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -16,7 +16,7 @@
     "TF1 Séries Films : neuf diffusions recoupées et nuits consultées ; blocs nocturnes génériques non détaillés, réception et cartes à terminer. CSTAR 16 octobre : Un mariage à Noël concorde à 21:10 ; Noël à la carte 22:49/22:45 et identité des quatre Douanes à départager ; indépendance et nuits restent à certifier.",
     "Rappel TNT principal réconcilié : les dix éléments génériques sont rapprochés ou exclus, dont Envoyé spécial et Au cœur de l’enquête sans sujet identifié. Les autres passes partielles (cinéma payant, TV5MONDE FBS, RMC, Ciné+) et le conflit de version Marine restent ouverts dans leurs dossiers propres.",
     "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
-    "France 4 : compléter réception/offres documentaires et épisodes génériques ; Rachelle Allison à la Cigale retenu à 20:30 après recoupement officiel/guide courant, à revérifier au préflight. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle.",
+    "France 4 : Rachelle Allison à la Cigale du 15/10 à 20:30 et Hakim Jemili : Super du 13/10 à 23:10 restent des observations non rendues ; la première est recoupée officiellement, la seconde conserve son titre tiers sans assimilation au libellé officiel. Aucune carte n'en dépend. Restent la réception/offres documentaires, les épisodes génériques et le rappel France 4.",
     "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes. Nouvelle piste TV5Pro mène à une connexion ; guide public reste channel4/NewYork, aucune preuve FBS.",
     "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma.",
     "TF1/TFX/TMC : poursuivre les sujets/épisodes encore génériques et le tri motivé des formats de magazine ou documentaire de flux repérés ; neuf créneaux TFX, 38 TMC recoupés et deux magazines supplémentaires ajoutés, sans certification artistique.",
@@ -1375,7 +1375,8 @@
     "dodin-level3-and-france23-scope-narrowing-2026-10-09",
     "france23-generic-observation-omission-review-2026-10-09",
     "france5-pompei-level3-and-foucault-scope-review-2026-10-09",
-    "france5-four-generic-interstitial-omission-review-2026-10-09"
+    "france5-four-generic-interstitial-omission-review-2026-10-09",
+    "france4-rachelle-hakim-unselected-scope-review-2026-10-09"
   ],
   "blockers": [
     {
@@ -26769,6 +26770,31 @@
       },
       "evidence_note": "Quatre horaires officiels génériques conservés ; aucune carte ne dépend d'une identité d'épisode. Les lacunes de fin de nuit ne sont pas closes par cette revue.",
       "status": "reviewed_for_omission_no_selected_card_dependency"
+    },
+    {
+      "fields": [
+        "level2_omission_review",
+        "broadcast_scope",
+        "selection_dependency"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-4/10-10-2026/15-10-2026",
+        "https://www.programme-tv.com/chaine/jeudi/321/programme-television-france-4.html",
+        "https://tv-programme.com/france-4/mardi-13-octobre-2026/",
+        "https://www.francetvpro.fr/grille/france-4/10-10-2026/13-10-2026"
+      ],
+      "checked_at": "2026-10-09T21:38:03.473Z",
+      "stability": "cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 4",
+        "titles": [
+          "Rachelle Allison à la Cigale",
+          "Hakim Jemili : Super"
+        ]
+      },
+      "evidence_note": "Deux observations non rendues ; Rachelle horaire recoupé, Hakim identité de montage non promue. Aucun niveau 3 déclaré.",
+      "status": "reviewed_for_omission_no_selected_card_dependency"
     }
   ],
   "run_metrics": [
@@ -32871,7 +32897,8 @@
         "dodin-level3-and-france23-scope-narrowing-2026-10-09",
         "france23-generic-observation-omission-review-2026-10-09",
         "france5-pompei-level3-and-foucault-scope-review-2026-10-09",
-        "france5-four-generic-interstitial-omission-review-2026-10-09"
+        "france5-four-generic-interstitial-omission-review-2026-10-09",
+        "france4-rachelle-hakim-unselected-scope-review-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -32883,7 +32910,7 @@
       "partial_dossiers": 5,
       "requirements_resolved": 15,
       "stop_reason": null,
-      "next_useful_batch": "Traiter une carte France 5/France 4 déjà rendue dont le défaut de niveau 3 est précis, ou documenter la dépendance exacte qui empêche sa clôture ; ne pas relancer les créneaux génériques clos.",
+      "next_useful_batch": "Traiter les défauts de niveau 3 des cartes déjà rendues en priorité ; conserver séparément les rappels France 4 et France 5 encore ouverts.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -33366,20 +33393,52 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T21:37:12.369Z",
+          "elapsed_seconds": 2460.721,
+          "prompt_revision": "production-proof-policy-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "05bd88c422a220043e5e57f121a41130babfcc5c",
+          "next_actions": [
+            "Traiter une carte France 5/France 4 déjà rendue dont le défaut de niveau 3 est précis, ou documenter la dépendance exacte qui empêche sa clôture ; ne pas relancer les créneaux génériques clos.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
+            "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
+          ],
+          "remaining_count": 19,
+          "next_actions_total": 16,
+          "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 24,
+          "waiting_actions_count": 8,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T20:56:11.648Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T22:17:47.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T21:35:39.650Z",
-        "elapsed_seconds": 2368.002,
+        "observed_at": "2026-10-09T21:37:12.369Z",
+        "elapsed_seconds": 2460.721,
         "prompt_revision": "production-proof-policy-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "68f550a20d6501b578dd1e88d609c290ad465b73",
+        "source_sha": "05bd88c422a220043e5e57f121a41130babfcc5c",
         "next_actions": [
-          "Revoir le rappel France 5 restant : quatre La p'tite librairie génériques et fins de nuit ; fermer seulement ce qui relève d'observations non retenues, conserver toute vraie lacune de couverture.",
+          "Traiter une carte France 5/France 4 déjà rendue dont le défaut de niveau 3 est précis, ou documenter la dépendance exacte qui empêche sa clôture ; ne pas relancer les créneaux génériques clos.",
           "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
           "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
@@ -33526,6 +33585,13 @@
           "ended_at": "2026-10-09T21:36:25.496Z",
           "overlap": false,
           "note": "Revue d'omission des quatre interstitiels France 5 génériques ; fins de nuit et passe documentaire expressément conservées."
+        },
+        {
+          "kind": "review",
+          "started_at": "2026-10-09T21:37:12.369Z",
+          "ended_at": "2026-10-09T21:38:03.473Z",
+          "overlap": false,
+          "note": "Revue de portée des observations France 4 Rachelle Allison et Hakim Jemili, toutes deux absentes des livrables."
         }
       ],
       "requirements_resolved_details": [
@@ -34210,7 +34276,7 @@
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Traiter une carte France 5/France 4 déjà rendue dont le défaut de niveau 3 est précis, ou documenter la dépendance exacte qui empêche sa clôture ; ne pas relancer les créneaux génériques clos.",
+      "Traiter les défauts de niveau 3 des cartes déjà rendues en priorité ; conserver séparément les rappels France 4 et France 5 encore ouverts.",
       "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
       "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
       "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
@@ -41296,6 +41362,19 @@
       "evidence": "Four exact generic inventory observations compared with the rendered week on candidate 68f550a; no rendered occurrence.",
       "reason": "Le rappel de niveau 2 a conservé les quatre créneaux génériques et vérifié qu'aucune proposition ne dépend de leur épisode inconnu. Il n'exige pas une enquête de niveau 3 sur ces interstitiels non retenus. En revanche, les fins de nuit et la passe documentaire/offres sont de vraies exigences de couverture et restent ouvertes.",
       "coverage_effect": "closes only the four generic interstitial follow-ups; preserves France 5 night and documentary coverage gaps"
+    },
+    {
+      "action_text": "France 4 : compléter réception/offres documentaires et épisodes génériques ; Rachelle Allison à la Cigale retenu à 20:30 après recoupement officiel/guide courant, à revérifier au préflight. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle.",
+      "decided_at": "2026-10-09T21:38:03.473Z",
+      "decision": "two_unselected_observations_scoped_requirement_narrowed",
+      "applies_to": [
+        "Rachelle Allison à la Cigale",
+        "Hakim Jemili : Super",
+        "France 4 documentary recall"
+      ],
+      "evidence": "Saved France 4 official/guide observations and rendered-week comparison on 05bd88c.",
+      "reason": "Les deux programmes sont absents des livrables et n’exigent pas de niveau 3. La contradiction d’identité Hakim reste visible et n’est pas résolue par proximité de titre. Les véritables exigences France 4 restent séparément ouvertes.",
+      "coverage_effect": "preserves France 4 documentary offers, generic episodes and recall gaps"
     }
   ]
 }
