@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T19:34:22.228Z",
+  "updated_at": "2026-10-09T19:36:02.979Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -25904,6 +25904,28 @@
       },
       "evidence_note": "Deux entrées successives sont distinguées : contenu court puis long métrage. L’horaire et la durée du court restent contradictoires et ne certifient aucune copie.",
       "status": "partially_verified_conflict_narrowed"
+    },
+    {
+      "fields": [
+        "reminder.arte.remaining_programmes",
+        "editorial_scope"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/guide/20261013/",
+        "https://www.arte.tv/fr/guide/20261010/",
+        "https://www.arte.tv/fr/guide/20261015/",
+        "https://www.arte.tv/fr/guide/20261012/",
+        "https://www.arte.tv/fr/guide/20261016/"
+      ],
+      "checked_at": "2026-10-09T19:36:02.979Z",
+      "stability": "cycle",
+      "applies_to": {
+        "week": "2026-S42",
+        "coverage_level": 2,
+        "scope": "ARTE official complementary grids"
+      },
+      "evidence_note": "Les 36 entrées résiduelles sont conservées avec date, heure, titre, sous-titre et URL. Quatre épisodes de série sont hors périmètre ; les autres restent des émissions récurrentes sans œuvre documentaire distincte établie. Le tri ne certifie ni rappel indépendant ni semaine complète.",
+      "status": "verified_for_reminder_pass_only"
     }
   ],
   "run_metrics": [
@@ -30761,7 +30783,8 @@
         "map-level2-independent-crosscheck-gaps-2026-10-09",
         "reconcile-seven-primary-reminder-items-2026-10-09",
         "close-primary-tnt-reminder-pass-2026-10-09",
-        "narrow-saint-ex-short-feature-conflict-2026-10-09"
+        "narrow-saint-ex-short-feature-conflict-2026-10-09",
+        "triage-arte-complementary-reminder-2026-10-09"
       ],
       "deliverables_changed": [
         "data/radar-reserves/2026-S42.json",
@@ -30981,28 +31004,57 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T19:35:16.192Z",
+          "elapsed_seconds": 2247.068,
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "56cf74a3eefe61d8d6a69f728a4364207d91ad18",
+          "next_actions": [
+            "Achever les autres passes de rappel partielles, en commençant par cinéma payant, TV5MONDE FBS, RMC et Ciné+.",
+            "Niveau 2 : reprendre seulement sur source nouvelle les quatre groupes de flux non indépendants consignés.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Réconcilier les horaires et conflits résiduels : Canal+ Grand Écran Le dahlia noir 22:58/22:59 reste sans événement officiel S42 ; pour Saint-Ex, le guide Ouest-France distingue un élément court à 03:50 (9 min) du long métrage à 03:59, mais l’écart 03:50/03:53 et 9/6 min du court reste à arbitrer. Ne pas assimiler le court à la copie du film."
+          ],
+          "remaining_count": 34,
+          "next_actions_total": 36,
+          "truncated_notice": "31 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T18:57:49.124Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T20:18:19.665Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T19:33:00.424Z",
-        "elapsed_seconds": 2111.3,
+        "observed_at": "2026-10-09T19:35:16.192Z",
+        "elapsed_seconds": 2247.068,
         "prompt_revision": "production-closure-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "db6430ceac0eb4fc1bfae678a31f7320e8a38a9f",
+        "source_sha": "56cf74a3eefe61d8d6a69f728a4364207d91ad18",
         "next_actions": [
           "Achever les autres passes de rappel partielles, en commençant par cinéma payant, TV5MONDE FBS, RMC et Ciné+.",
           "Niveau 2 : reprendre seulement sur source nouvelle les quatre groupes de flux non indépendants consignés.",
           "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
-          "Réconcilier les horaires et doublons ambigus : Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min). Suivi du 08/10 : la fiche officielle Dahlia ne montre qu'un événement hors cycle ; deux autres guides répètent le doublon Saint-Ex sans l'arbitrer."
+          "Réconcilier les horaires et conflits résiduels : Canal+ Grand Écran Le dahlia noir 22:58/22:59 reste sans événement officiel S42 ; pour Saint-Ex, le guide Ouest-France distingue un élément court à 03:50 (9 min) du long métrage à 03:59, mais l’écart 03:50/03:53 et 9/6 min du court reste à arbitrer. Ne pas assimiler le court à la copie du film."
         ],
-        "remaining_count": 35,
-        "next_actions_total": 37,
-        "truncated_notice": "32 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "remaining_count": 34,
+        "next_actions_total": 36,
+        "truncated_notice": "31 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
         "observations": {
           "started_at": "2026-10-09T18:57:49.124Z",
           "lease_owned": "yes",
@@ -31052,6 +31104,11 @@
           "started_at": "2026-10-09T19:33:00.424Z",
           "ended_at": "2026-10-09T19:34:22.228Z",
           "note": "Flow recalculé au SHA sauvegardé puis consultation ciblée d’un guide daté, de la fiche CANAL+ et de l’identité du film ; séparation court/long métrage établie, granularité du court laissée ouverte."
+        },
+        "arte_reminder_triage": {
+          "started_at": "2026-10-09T19:35:16.192Z",
+          "ended_at": "2026-10-09T19:36:02.979Z",
+          "note": "Relecture des 36 entrées résiduelles du complément officiel ARTE ; décisions conservées entrée par entrée, sans nouveau candidat ni certification de semaine."
         }
       },
       "control_notes": [
