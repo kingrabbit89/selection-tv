@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "primary_complete_crosscheck_pending",
-  "updated_at": "2026-10-09T19:39:50.635Z",
+  "updated_at": "2026-10-09T19:41:01.490Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -15702,7 +15702,7 @@
         "https://www.lesnumeriques.com/cine-svod/canal-tous-les-nouveaux-films-series-et-documentaires-a-voir-en-octobre-2026-132-n262579.html"
       ],
       "checked_at": "2026-10-08T08:15:08.911Z",
-      "status": "partial",
+      "status": "scanned_nonexhaustive",
       "scope": "Nouveautés cinéma payant d'octobre ; huit diffusions du cycle rapprochées de leurs pages exactes. Liste mensuelle non exhaustive, ne clôt pas le rappel cinéma payant.",
       "matched_broadcasts": [
         {
@@ -15759,7 +15759,9 @@
         "Les annonces mensuelles ne prouvent pas les droits de lecture, les expirations ou la qualité critique.",
         "Morlaix : calendrier commercial le 14, diffusion civile le 15 à 00:26.",
         "Les Numériques donne Opus le 3, Canal+ le 17 : contradiction hors cible conservée comme limite, pas de disponibilité déduite."
-      ]
+      ],
+      "followup_at": "2026-10-09T19:41:01.490Z",
+      "status_note": "Huit annonces mensuelles rapprochées ; la liste commerciale n’est pas une grille cinéma exhaustive."
     },
     {
       "source_urls": [
@@ -15772,13 +15774,15 @@
         "https://television.telerama.fr/programme-tv-vendredi-prochain/tv5-monde-fbs/"
       ],
       "checked_at": "2026-10-08T09:08:41.901Z",
-      "status": "partial",
+      "status": "blocked_wrong_or_unresolved_feed",
       "scope": "TV5MONDE FBS sur 7 jours, nuit comprise",
       "findings": [
         "50 créneaux comparés ; flux indépendants non établis, pas de clôture du recoupement.",
         "Au coeur de nos terres et C'est qui le chef ? classés téléfilms, pas documentaires.",
         "Rappel : Au bout de l'enquête samedi 09:30/17:10 et dimanche14:38, Temps présent mardi17:05/mercredi09:50 nécessitent sujets propres avant examen."
-      ]
+      ],
+      "followup_at": "2026-10-09T19:41:01.490Z",
+      "status_note": "Sept jours Télérama relevés ; aucune grille officielle du même flux TV5MONDE FBS n’est disponible, et le flux Europe n’est pas transposable."
     },
     {
       "source_urls": [
@@ -16278,14 +16282,16 @@
         "https://pro.m6.fr/w9/grille/2026-41.pdf",
         "https://pro.m6.fr/6ter/grille/2026-41.pdf"
       ],
-      "status": "partial",
+      "status": "partial_independent_source_missing",
       "scope": "Nuit civile samedi 10, complément des dossiers S42",
       "findings": [
         "W9 : trois émissions à 00:00,01:00,01:50 ajoutées avec sujets explicites pages 34–35 ; seconde source encore nécessaire.",
         "M6 : La chute du président commence vendredi 9 à 23:40, se poursuit après minuit jusqu'au créneau 01:50 Programmes de nuit. Ne pas le recréer comme départ samedi.",
         "6ter : Hawaii 5-0 à 00:30/01:20 le samedi, puis Programmes de nuit 02:20. Série procédurale, épisodes à identifier si approfondissement.",
         "W9 : six sujets déjà inventoriés confirmés ; trois prolongements dans la nuit du 14 au 15 ajoutés. Ce contrôle d'identité ne vaut pas appréciation critique."
-      ]
+      ],
+      "followup_at": "2026-10-09T19:41:01.490Z",
+      "status_note": "Complément de nuit M6/W9/6ter intégré ; une source réellement indépendante manque encore pour les ajouts W9."
     },
     {
       "checked_at": "2026-10-08T09:32:56.558Z",
@@ -16477,7 +16483,9 @@
         "2026-10-12 RMC Découverte 06:05 : FAITES ENTRER L'ACCUSÉ Saison 5, épisode 1 : MARIE-ELISABETH CONS-BOUTBOUL, SECRETS DE FAMILLE ajouté à l'inventaire brut.",
         "Blocs sitcom (The Big Bang Theory, Young Sheldon, Lucifer, Fringe), débats quotidiens et divertissements de restauration mécanique/piscines repérés ; pas de sélection automatique. Le rappel artistique complet reste ouvert."
       ],
-      "status": "partial"
+      "status": "scanned_independence_not_established",
+      "followup_at": "2026-10-09T19:41:01.490Z",
+      "status_note": "Seize grilles RMC Story/Découverte sauvegardées ; le fournisseur SCREEN+ reste inconnu et RMC+ n’expose pas d’archive datée équivalente."
     },
     {
       "checked_at": "2026-10-08T14:12:11.804Z",
@@ -16498,7 +16506,9 @@
         "Six fiches CANAL+ avec données structurées examinées : Slow seul début dans la cible, quatre événements hors cycle, SilentFriend VOD sans événement. Pas de certification d'antenne via ces seuls objets.",
         "Retour à Kotelnitch, Kouté Vwa, Les mots qu'elles eurent un jour, Huppert et L'image originelle repérés pour passe documentaire ; aucun jugement déduit du genre de grille."
       ],
-      "status": "partial"
+      "status": "scanned_channel_attribution_unresolved",
+      "followup_at": "2026-10-09T19:41:01.490Z",
+      "status_note": "Sept grilles Ciné+ Festival sauvegardées ; les pages CANAL+ ne certifient pas toujours la chaîne exacte des événements."
     },
     {
       "checked_at": "2026-10-08T14:21:55.226Z",
@@ -16510,13 +16520,15 @@
         "https://cult.news/ecrans/limage-originelle-saison-2-portraits-de-cineastes-dune-belle-profondeur/",
         "https://cinema-histoire-pessac.fr/invites/pierre-henri-gibert/"
       ],
-      "status": "partial",
+      "status": "partial_level3_dossiers",
       "findings": [
         "Kouté Vwa et Les mots qu'elles eurent un jour : identité, deux avis contrastés chacun, notes SC directes, deux événements CANAL+ concordants sans chaîne.",
         "Naomi Kawase : réception argumentée spécifique ; Trier : article seulement au niveau de trois autres épisodes, prix de programme distinct.",
         "Page CANAL+ de série ne liste que Jaoui/Bellocchio : elle ne résout pas le conflit Trier/Coppola ni les droits des portraits recherchés.",
         "Retour à Kotelnitch et Isabelle Huppert restent dans la prospection à approfondir."
-      ]
+      ],
+      "followup_at": "2026-10-09T19:41:01.490Z",
+      "status_note": "Dossiers documentaires Ciné+ Festival avancés ; versions, droits, expirations, notes et chaîne de certains événements restent ouverts."
     }
   ],
   "cinema_discovery": {
@@ -19153,5 +19165,41 @@
     "resolved_or_excluded": 10,
     "remaining": [],
     "certification": "Passe TNT principale réconciliée ; aucune certification implicite des autres passes de rappel."
+  },
+  "open_reminder_status_summary": {
+    "checked_at": "2026-10-09T19:41:01.490Z",
+    "open_passes": [
+      {
+        "index": 1,
+        "status": "scanned_nonexhaustive",
+        "note": "Huit annonces mensuelles rapprochées ; la liste commerciale n’est pas une grille cinéma exhaustive."
+      },
+      {
+        "index": 2,
+        "status": "blocked_wrong_or_unresolved_feed",
+        "note": "Sept jours Télérama relevés ; aucune grille officielle du même flux TV5MONDE FBS n’est disponible, et le flux Europe n’est pas transposable."
+      },
+      {
+        "index": 6,
+        "status": "partial_independent_source_missing",
+        "note": "Complément de nuit M6/W9/6ter intégré ; une source réellement indépendante manque encore pour les ajouts W9."
+      },
+      {
+        "index": 19,
+        "status": "scanned_independence_not_established",
+        "note": "Seize grilles RMC Story/Découverte sauvegardées ; le fournisseur SCREEN+ reste inconnu et RMC+ n’expose pas d’archive datée équivalente."
+      },
+      {
+        "index": 20,
+        "status": "scanned_channel_attribution_unresolved",
+        "note": "Sept grilles Ciné+ Festival sauvegardées ; les pages CANAL+ ne certifient pas toujours la chaîne exacte des événements."
+      },
+      {
+        "index": 21,
+        "status": "partial_level3_dossiers",
+        "note": "Dossiers documentaires Ciné+ Festival avancés ; versions, droits, expirations, notes et chaîne de certains événements restent ouverts."
+      }
+    ],
+    "certification": "État de reprise précis uniquement ; aucune attestation de rappel hebdomadaire ni de niveau 2 complet."
   }
 }

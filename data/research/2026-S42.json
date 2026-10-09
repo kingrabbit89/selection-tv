@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T19:39:50.635Z",
+  "updated_at": "2026-10-09T19:41:01.490Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -26083,6 +26083,70 @@
       },
       "evidence_note": "Neuf résultats déjà sauvegardés reçoivent un statut explicite limité à leur source/portée ; la passe ciblée F4/Saint-Ex reste partielle pour ses conflits. Aucun drapeau journalier n’est modifié.",
       "status": "verified_for_status_reconciliation"
+    },
+    {
+      "fields": [
+        "reminder.open_statuses",
+        "resume_conditions"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026",
+        "https://www.lesnumeriques.com/cine-svod/canal-tous-les-nouveaux-films-series-et-documentaires-a-voir-en-octobre-2026-132-n262579.html",
+        "https://television.telerama.fr/programme-tv-samedi/tv5-monde-fbs/",
+        "https://television.telerama.fr/programme-tv-dimanche/tv5-monde-fbs/",
+        "https://television.telerama.fr/programme-tv-lundi/tv5-monde-fbs/",
+        "https://television.telerama.fr/programme-tv-mardi/tv5-monde-fbs/",
+        "https://television.telerama.fr/programme-tv-mercredi/tv5-monde-fbs/",
+        "https://television.telerama.fr/programme-tv-jeudi-prochain/tv5-monde-fbs/",
+        "https://television.telerama.fr/programme-tv-vendredi-prochain/tv5-monde-fbs/",
+        "https://pro.m6.fr/m6/grille/2026-41.pdf",
+        "https://pro.m6.fr/w9/grille/2026-41.pdf",
+        "https://pro.m6.fr/6ter/grille/2026-41.pdf",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-09",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-10",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-11",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-12",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-13",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-14",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-15",
+        "https://screenplus.fr/programmestv/fr/rmc-story/?date=2026-10-16",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-09",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-10",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-11",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-12",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-13",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-14",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-15",
+        "https://screenplus.fr/programmestv/fr/rmc-decouverte/?date=2026-10-16",
+        "https://television.telerama.fr/programme-tv-samedi/cine-club",
+        "https://television.telerama.fr/programme-tv-dimanche/cine-club/",
+        "https://television.telerama.fr/programme-tv-lundi/cine-club/",
+        "https://television.telerama.fr/programme-tv-mardi/cine-club/",
+        "https://television.telerama.fr/programme-tv-mercredi/cine-club/",
+        "https://television.telerama.fr/programme-tv-jeudi-prochain/cine-club/",
+        "https://television.telerama.fr/programme-tv-vendredi-prochain/cine-club/",
+        "https://www.canalplus.com/cinema/koute-vwa/h/29856185_50002",
+        "https://www.canalplus.com/cinema/les-mots-qu-elles-eurent-un-jour/h/29411889_50002",
+        "https://www.caimans-prod.com/fr/limage-originelle/",
+        "https://cult.news/ecrans/limage-originelle-saison-2-portraits-de-cineastes-dune-belle-profondeur/",
+        "https://cinema-histoire-pessac.fr/invites/pierre-henri-gibert/"
+      ],
+      "checked_at": "2026-10-09T19:41:01.490Z",
+      "stability": "cycle",
+      "applies_to": {
+        "week": "2026-S42",
+        "coverage_level": 2,
+        "pass_indexes": [
+          1,
+          2,
+          6,
+          19,
+          20,
+          21
+        ]
+      },
+      "evidence_note": "Six statuts génériques partial sont remplacés par la cause exacte : non-exhaustivité, mauvais flux, source indépendante manquante, fournisseur inconnu, chaîne non attribuée ou lacunes de niveau 3.",
+      "status": "verified_for_resume_mapping"
     }
   ],
   "run_metrics": [
@@ -30946,7 +31010,8 @@
         "reconcile-t18-prime-identity-reminder-2026-10-09",
         "reconcile-canal-three-channel-monthly-source-2026-10-09",
         "document-tuesday-classics-version-impasse-2026-10-09",
-        "normalize-ten-saved-reminder-pass-statuses-2026-10-09"
+        "normalize-ten-saved-reminder-pass-statuses-2026-10-09",
+        "map-six-open-reminder-causes-2026-10-09"
       ],
       "deliverables_changed": [
         "data/radar-reserves/2026-S42.json",
@@ -30996,7 +31061,7 @@
         "rappel TNT principal : dix éléments génériques rapprochés ou exclus ; trois créneaux CSTAR ajoutés sans sélectionner les magazines sans sujet"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Achever les passes de rappel encore réellement partielles ; reprendre les versions des deux classiques mardi uniquement sur source technique française nouvelle.",
+      "next_useful_batch": "Reprendre d’abord TV5MONDE FBS, RMC et Ciné+ uniquement sur une source nouvelle correspondant au bon flux ; compléter les dossiers niveau 3 séparément.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -31253,18 +31318,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T19:40:36.918Z",
+          "elapsed_seconds": 2567.794,
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "26e42daf68f7caef4140b8575f73a198d2e97e4e",
+          "next_actions": [
+            "Achever les autres passes de rappel partielles, en commençant par cinéma payant, TV5MONDE FBS, RMC et Ciné+.",
+            "Niveau 2 : reprendre seulement sur source nouvelle les quatre groupes de flux non indépendants consignés.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Réconcilier les horaires et conflits résiduels : Canal+ Grand Écran Le dahlia noir 22:58/22:59 reste sans événement officiel S42 ; pour Saint-Ex, le guide Ouest-France distingue un élément court à 03:50 (9 min) du long métrage à 03:59, mais l’écart 03:50/03:53 et 9/6 min du court reste à arbitrer. Ne pas assimiler le court à la copie du film."
+          ],
+          "remaining_count": 34,
+          "next_actions_total": 36,
+          "truncated_notice": "31 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T18:57:49.124Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T20:18:19.665Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T19:38:30.819Z",
-        "elapsed_seconds": 2441.695,
+        "observed_at": "2026-10-09T19:40:36.918Z",
+        "elapsed_seconds": 2567.794,
         "prompt_revision": "production-closure-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "9fa447a350ce6c995d9d2aa5b481c68fb8288621",
+        "source_sha": "26e42daf68f7caef4140b8575f73a198d2e97e4e",
         "next_actions": [
           "Achever les autres passes de rappel partielles, en commençant par cinéma payant, TV5MONDE FBS, RMC et Ciné+.",
           "Niveau 2 : reprendre seulement sur source nouvelle les quatre groupes de flux non indépendants consignés.",
@@ -31354,6 +31448,11 @@
           "started_at": "2026-10-09T19:39:30.350Z",
           "ended_at": "2026-10-09T19:39:50.635Z",
           "note": "Relecture de dix résultats de rappel déjà sauvegardés ; neuf portées closes explicitement, une passe conservée partielle pour conflits non arbitrés."
+        },
+        "open_reminder_status_mapping": {
+          "started_at": "2026-10-09T19:40:36.918Z",
+          "ended_at": "2026-10-09T19:41:01.490Z",
+          "note": "Six statuts génériques partiels réécrits en causes précises et conditions de reprise, sans fermer les exigences."
         }
       },
       "control_notes": [
