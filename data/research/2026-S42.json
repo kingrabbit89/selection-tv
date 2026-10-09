@@ -3,14 +3,14 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T21:34:59.697Z",
+  "updated_at": "2026-10-09T21:36:25.496Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
     "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
     "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV.",
     "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue.",
-    "France 5 : la réserve Le grand puzzle de Pompéi du 15/10 à 21:07 satisfait le niveau 3 ; présentation Science grand format 21:05, film 21:07, diffusion 87 min, guide 88 min et master annoncé 90 min restent distincts. Michel Foucault du 16/10 à 23:35 demeure une observation non retenue, sans dépendance de carte. Restent le rappel des quatre La p'tite librairie génériques, les fins de nuit et la passe documentaire/offres France 5, sans enquête de niveau 3 sur les observations non retenues.",
+    "France 5 : Pompéi satisfait le niveau 3 et Foucault reste une observation non retenue. Les quatre créneaux officiels génériques La p'tite librairie (11/10 00:10 et 09:15, 13/10 10:00, 14/10 00:00) sont conservés sans identité d'épisode et n'apparaissent dans aucune carte ; leur revue d'omission est close. Restent les fins de nuit non couvertes par les grilles officielles et la passe documentaire/offres France 5.",
     "T18 14 octobre : neuf épisodes/sujets nommés et horaires concordants entre deux guides ; indépendance des flux/source officielle encore à établir. Face à face identifié comme fiction policière ; descriptif politique LeZapp exclu.",
     "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
     "TF1 Séries Films : neuf diffusions recoupées et nuits consultées ; blocs nocturnes génériques non détaillés, réception et cartes à terminer. CSTAR 16 octobre : Un mariage à Noël concorde à 21:10 ; Noël à la carte 22:49/22:45 et identité des quatre Douanes à départager ; indépendance et nuits restent à certifier.",
@@ -1374,7 +1374,8 @@
     "silence-dans-les-rangs-field-scoped-level3-review-2026-10-09",
     "dodin-level3-and-france23-scope-narrowing-2026-10-09",
     "france23-generic-observation-omission-review-2026-10-09",
-    "france5-pompei-level3-and-foucault-scope-review-2026-10-09"
+    "france5-pompei-level3-and-foucault-scope-review-2026-10-09",
+    "france5-four-generic-interstitial-omission-review-2026-10-09"
   ],
   "blockers": [
     {
@@ -26747,6 +26748,27 @@
       },
       "evidence_note": "Réserve complète ; présentation 21:05 et film 21:07 séparés, diffusion 87 min, fenêtre guide 88 min et master annoncé 90 min non assimilés.",
       "status": "editorial_level3_review_complete_under_closure_policy"
+    },
+    {
+      "fields": [
+        "level2_omission_review",
+        "inventory_presence",
+        "selection_dependency"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/11-10-2026",
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/13-10-2026",
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/14-10-2026"
+      ],
+      "checked_at": "2026-10-09T21:36:25.496Z",
+      "stability": "cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "France 5",
+        "observation_count": 4
+      },
+      "evidence_note": "Quatre horaires officiels génériques conservés ; aucune carte ne dépend d'une identité d'épisode. Les lacunes de fin de nuit ne sont pas closes par cette revue.",
+      "status": "reviewed_for_omission_no_selected_card_dependency"
     }
   ],
   "run_metrics": [
@@ -32848,7 +32870,8 @@
         "silence-dans-les-rangs-field-scoped-level3-review-2026-10-09",
         "dodin-level3-and-france23-scope-narrowing-2026-10-09",
         "france23-generic-observation-omission-review-2026-10-09",
-        "france5-pompei-level3-and-foucault-scope-review-2026-10-09"
+        "france5-pompei-level3-and-foucault-scope-review-2026-10-09",
+        "france5-four-generic-interstitial-omission-review-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -32860,7 +32883,7 @@
       "partial_dossiers": 5,
       "requirements_resolved": 15,
       "stop_reason": null,
-      "next_useful_batch": "Revoir le rappel France 5 restant : quatre La p'tite librairie génériques et fins de nuit ; fermer seulement ce qui relève d'observations non retenues, conserver toute vraie lacune de couverture.",
+      "next_useful_batch": "Traiter une carte France 5/France 4 déjà rendue dont le défaut de niveau 3 est précis, ou documenter la dépendance exacte qui empêche sa clôture ; ne pas relancer les créneaux génériques clos.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -33311,20 +33334,52 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T21:35:39.650Z",
+          "elapsed_seconds": 2368.002,
+          "prompt_revision": "production-proof-policy-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "68f550a20d6501b578dd1e88d609c290ad465b73",
+          "next_actions": [
+            "Revoir le rappel France 5 restant : quatre La p'tite librairie génériques et fins de nuit ; fermer seulement ce qui relève d'observations non retenues, conserver toute vraie lacune de couverture.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
+            "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
+          ],
+          "remaining_count": 19,
+          "next_actions_total": 16,
+          "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 24,
+          "waiting_actions_count": 8,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T20:56:11.648Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T22:17:47.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T21:33:57.135Z",
-        "elapsed_seconds": 2265.487,
+        "observed_at": "2026-10-09T21:35:39.650Z",
+        "elapsed_seconds": 2368.002,
         "prompt_revision": "production-proof-policy-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "ea6010839bda4797be870d5c169d39a38d2f027e",
+        "source_sha": "68f550a20d6501b578dd1e88d609c290ad465b73",
         "next_actions": [
-          "Revoir les cartes France 5 déjà proches de la clôture (Pompéi et Foucault) et isoler leurs seuls défauts de niveau 3, sans rouvrir les observations brutes non retenues.",
+          "Revoir le rappel France 5 restant : quatre La p'tite librairie génériques et fins de nuit ; fermer seulement ce qui relève d'observations non retenues, conserver toute vraie lacune de couverture.",
           "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
           "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
@@ -33464,6 +33519,13 @@
           "ended_at": "2026-10-09T21:34:59.697Z",
           "overlap": false,
           "note": "Revue ciblée Pompéi/Foucault : niveau 3 de la réserve, portée des durées et absence de dépendance de carte Foucault."
+        },
+        {
+          "kind": "review",
+          "started_at": "2026-10-09T21:35:39.650Z",
+          "ended_at": "2026-10-09T21:36:25.496Z",
+          "overlap": false,
+          "note": "Revue d'omission des quatre interstitiels France 5 génériques ; fins de nuit et passe documentaire expressément conservées."
         }
       ],
       "requirements_resolved_details": [
@@ -34148,7 +34210,7 @@
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Revoir le rappel France 5 restant : quatre La p'tite librairie génériques et fins de nuit ; fermer seulement ce qui relève d'observations non retenues, conserver toute vraie lacune de couverture.",
+      "Traiter une carte France 5/France 4 déjà rendue dont le défaut de niveau 3 est précis, ou documenter la dépendance exacte qui empêche sa clôture ; ne pas relancer les créneaux génériques clos.",
       "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
       "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
       "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
@@ -41221,6 +41283,19 @@
       "evidence": "Targeted editorial-work-packet on ea60108; saved card pointer, official France 5 grids, programme files and existing verification records.",
       "reason": "Pompéi satisfait le niveau 3 avec les durées correctement séparées. Foucault n’est ni rendu ni retenu et reste une observation avec sa divergence historique ; ses champs de carte ne bloquent pas le numéro. Le suivi demeure ouvert uniquement pour le rappel générique, les fins de nuit et la passe documentaire/offres France 5.",
       "coverage_effect": "France 5 global documentary recall remains open; no claim of complete night coverage"
+    },
+    {
+      "action_text": "France 5 : la réserve Le grand puzzle de Pompéi du 15/10 à 21:07 satisfait le niveau 3 ; présentation Science grand format 21:05, film 21:07, diffusion 87 min, guide 88 min et master annoncé 90 min restent distincts. Michel Foucault du 16/10 à 23:35 demeure une observation non retenue, sans dépendance de carte. Restent le rappel des quatre La p'tite librairie génériques, les fins de nuit et la passe documentaire/offres France 5, sans enquête de niveau 3 sur les observations non retenues.",
+      "decided_at": "2026-10-09T21:36:25.496Z",
+      "decision": "four_generic_interstitials_reviewed_requirement_narrowed_to_true_coverage_gaps",
+      "applies_to": [
+        "France 5 La p'tite librairie generic observations",
+        "France 5 night coverage",
+        "France 5 documentary pass"
+      ],
+      "evidence": "Four exact generic inventory observations compared with the rendered week on candidate 68f550a; no rendered occurrence.",
+      "reason": "Le rappel de niveau 2 a conservé les quatre créneaux génériques et vérifié qu'aucune proposition ne dépend de leur épisode inconnu. Il n'exige pas une enquête de niveau 3 sur ces interstitiels non retenus. En revanche, les fins de nuit et la passe documentaire/offres sont de vraies exigences de couverture et restent ouvertes.",
+      "coverage_effect": "closes only the four generic interstitial follow-ups; preserves France 5 night and documentary coverage gaps"
     }
   ]
 }
