@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T22:34:01.887Z",
+  "updated_at": "2026-10-09T22:39:16.416Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -21,7 +21,7 @@
     "TF1/TFX/TMC : poursuivre les sujets/épisodes encore génériques et le tri motivé des formats de magazine ou documentaire de flux repérés ; neuf créneaux TFX, 38 TMC recoupés et deux magazines supplémentaires ajoutés, sans certification artistique.",
     "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer. Programmetvcesoir et Ouest-France soutiennent les titres inventoriés ; suivis ciblés enregistrés, indépendance non établie, conflits non clos.",
     "Ciné+ Festival : la grille Télérama fournie et relue arbitre six des neuf cartes précédemment ouvertes. Restent La reconquista le 11/10 à 10:20 et Secrets et mensonges le 12/10 à 06:12 puis le 14/10 à 08:29, absents des pages papier relues ; obtenir pour chacun une preuve conforme à web_schedule_evidence ou remplacer la proposition. Les autres rediffusions non retenues restent différées ; durées de versions et droits replay demeurent séparés des créneaux.",
-    "TCM : 98 créneaux comparés aux sept grilles Télérama courantes, aucun écart d'heure ; Nashville Blues/The Thing Called Love rapprochés par la fiche liée. Une nuit au cinéma : Flics et voyous identifié (Laurent Bouzereau, 2013, 55 min). Source officielle ou indépendance des flux encore à obtenir ; documentaires et autres films à enrichir."
+    "TCM : revue applicable des omissions achevée sur 98 créneaux (78 lignes du PDF fourni visuellement relues, 20 créneaux concordants entre TV-Programme et Télérama.fr) ; aucune omission relevée et aucune indépendance amont affirmée. Poursuivre seulement l’enrichissement éditorial des documentaires et films prometteurs non encore retenus, sans rouvrir la provenance technique des grilles."
   ],
   "completed_batches": [
     {
@@ -1389,7 +1389,8 @@
         "data/research/2026-S42.json"
       ]
     },
-    "review-telerama-five-pages-close-six-cineplus-festival-events-2026-10-09"
+    "review-telerama-five-pages-close-six-cineplus-festival-events-2026-10-09",
+    "review-tcm-seven-days-pdf-and-web-schedule-evidence-2026-10-09"
   ],
   "blockers": [
     {
@@ -27095,6 +27096,54 @@
       },
       "evidence_note": "Ligne imprimée visuellement relue page 138, bbox [492.93,83.91,550.57,97.41]. L’horaire imprimé confirme la carte.",
       "status": "verified_for_card_under_telerama_schedule_authority"
+    },
+    {
+      "id": "run23-tcm-level2-schedule-review",
+      "work_id": null,
+      "fields": [
+        "coverage.level2.omission_review",
+        "broadcast.title",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/tcm-cinema/samedi-10-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-samedi/tcm-france",
+        "https://tv-programme.com/tcm-cinema/dimanche-11-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-dimanche/tcm-france",
+        "https://tv-programme.com/tcm-cinema/lundi-12-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-lundi/tcm-france",
+        "https://tv-programme.com/tcm-cinema/mardi-13-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-mardi/tcm-france",
+        "https://tv-programme.com/tcm-cinema/mercredi-14-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-mercredi/tcm-france",
+        "https://tv-programme.com/tcm-cinema/jeudi-15-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-jeudi-prochain/tcm-france",
+        "https://tv-programme.com/tcm-cinema/vendredi-16-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-vendredi-prochain/tcm-france"
+      ],
+      "source_refs": [
+        "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93"
+      ],
+      "checked_at": "2026-10-09T22:39:16.416Z",
+      "stability": "cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "TCM Cinéma",
+        "dates": [
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16"
+        ],
+        "slots": 98
+      },
+      "evidence_note": "Sept colonnes PDF relues : 78 lignes imprimées acceptées ; 20 autres créneaux concordants entre deux guides d’éditeurs distincts. Zéro omission relevée. Indépendance amont non établie et non revendiquée.",
+      "status": "level2_applicable_review_complete_without_independence_claim"
     }
   ],
   "run_metrics": [
@@ -34129,7 +34178,8 @@
         "sync-main-web-evidence-contracts-2026-10-09",
         "initial-preparation-gaps-saved-flow-and-triage-2026-10-09",
         "review-telerama-page-132-correct-three-thursday-reserve-times-2026-10-09",
-        "review-telerama-five-pages-close-six-cineplus-festival-events-2026-10-09"
+        "review-telerama-five-pages-close-six-cineplus-festival-events-2026-10-09",
+        "review-tcm-seven-days-pdf-and-web-schedule-evidence-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -34140,9 +34190,9 @@
       "cards_integrated_this_run": 0,
       "draft_cards": 0,
       "partial_dossiers": 0,
-      "requirements_resolved": 1,
+      "requirements_resolved": 2,
       "stop_reason": null,
-      "next_useful_batch": "Traiter une autre action accessible de couverture ou de niveau 3 ; les trois événements Ciné+ Festival résiduels attendent une preuve nouvelle conforme à web_schedule_evidence ou un remplacement.",
+      "next_useful_batch": "Poursuivre une action accessible de couverture documentaire ou un défaut précis de niveau 3, sans rouvrir les attentes Ciné+ et TCM correctement bornées.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -34234,26 +34284,47 @@
             "lease_until": "2026-10-09T23:19:39.374Z",
             "external_stop": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T22:36:12.386Z",
+          "elapsed_seconds": 1009.223,
+          "prompt_revision": "production-web-evidence-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "94e1eff9f2ec03b2a8eb783a34792cca87dcb072",
+          "next_actions": [
+            "Traiter une autre action accessible de couverture ou de niveau 3 ; les trois événements Ciné+ Festival résiduels attendent une preuve nouvelle conforme à web_schedule_evidence ou un remplacement."
+          ],
+          "remaining_count": 17,
+          "waiting_actions_count": 8,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T22:19:23.163Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T23:19:39.374Z",
+            "external_stop": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T22:30:14.856Z",
-        "elapsed_seconds": 651.693,
+        "observed_at": "2026-10-09T22:36:12.386Z",
+        "elapsed_seconds": 1009.223,
         "prompt_revision": "production-web-evidence-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "c19b13e4dfce8bf3b7a241047f10cf71fe768d8e",
+        "source_sha": "94e1eff9f2ec03b2a8eb783a34792cca87dcb072",
         "next_actions": [
-          "Réconcilier l’attente accessible suivante portant seulement sur la provenance Web, sans fermer les conflits factuels ni la revue hebdomadaire des omissions."
+          "Traiter une autre action accessible de couverture ou de niveau 3 ; les trois événements Ciné+ Festival résiduels attendent une preuve nouvelle conforme à web_schedule_evidence ou un remplacement."
         ],
         "remaining_count": 17,
-        "waiting_actions_count": 7,
-        "research_review_warnings": [
-          "research_attempts[30].retry_gate needs_review: unmapped or invalid exact action_texts"
-        ],
+        "waiting_actions_count": 8,
+        "research_review_warnings": [],
         "observations": {
           "started_at": "2026-10-09T22:19:23.163Z",
           "lease_owned": "yes",
@@ -34282,10 +34353,18 @@
           "ended_at": "2026-10-09T22:34:01.887Z",
           "overlap": false,
           "note": "Pages Télérama 102, 108, 114, 132 et 138 rendues et relues ; six cartes Ciné+ Festival arbitrées, trois horaires corrigés et trois événements résiduels conservés."
+        },
+        {
+          "kind": "coverage_review",
+          "started_at": "2026-10-09T22:36:12.386Z",
+          "ended_at": "2026-10-09T22:39:16.416Z",
+          "overlap": false,
+          "note": "Sept pages TCM du PDF rendues et relues ; 78 lignes papier et 20 créneaux Web rapprochés, sans omission ni affirmation d’indépendance."
         }
       ],
       "requirements_resolved_details": [
-        "Un crime dans la tête, réserve jeudi rang 10 : attente de provenance Web close par revue de la ligne imprimée faisant autorité ; horaire corrigé à 17:40."
+        "Un crime dans la tête, réserve jeudi rang 10 : attente de provenance Web close par revue de la ligne imprimée faisant autorité ; horaire corrigé à 17:40.",
+        "TCM Cinéma : ancienne exigence de provenance technique close pour le rappel d’omissions selon la politique à jour ; 98 créneaux relus, zéro omission, enrichissement éditorial conservé."
       ],
       "control_notes": [
         "preparation-gaps sur eadc052 : seul coverage-full-week reste bloquant structurellement ; les sept jours ont dix cartes matérialisées et l’objectif de quinze reste un avertissement non bloquant.",
@@ -34293,7 +34372,9 @@
         "Contrôles ciblés après correction : identités canoniques, fraîcheur (97 % public, 87 % réserves), liens exacts et réserves (70/70, 49/49) réussis sur S42. validate-editorial ne signale que la barrière attendue full_week_reaudit_completed=false ; aucun autre échec.",
         "preparation-gaps actualisé : deux messages bloquants regroupés en une action de couverture hebdomadaire ; sept avertissements de profondeur à 10/15, minima satisfaits.",
         "Six événements Ciné+ Festival retenus sont établis par les lignes papier relues ; trois événements absents du PDF restent explicitement ouverts. Aucun niveau 2, flux indépendant ou champ hors grille n’est certifié.",
-        "Contrôles après le lot Ciné+ Festival : identités canoniques, fraîcheur (97 % public, 87 % réserves), liens exacts et réserves (70/70, 49/49) réussis. validate-editorial ne conserve que la barrière attendue full_week_reaudit_completed=false ; preparation-gaps regroupe ses deux messages en une action bloquante et conserve sept avertissements 10/15."
+        "Contrôles après le lot Ciné+ Festival : identités canoniques, fraîcheur (97 % public, 87 % réserves), liens exacts et réserves (70/70, 49/49) réussis. validate-editorial ne conserve que la barrière attendue full_week_reaudit_completed=false ; preparation-gaps regroupe ses deux messages en une action bloquante et conserve sept avertissements 10/15.",
+        "La revue TCM est bornée au niveau 2 applicable : 98 créneaux, zéro omission ; full_week_reaudit_completed et independent_crosscheck_complete restent faux à cause des autres groupes ouverts.",
+        "Après réconciliation TCM, validate-editorial ne conserve que full_week_reaudit_completed=false. preparation-gaps reste à une action bloquante de couverture hebdomadaire et sept avertissements 10/15 ; aucune attestation globale n’a été ajoutée."
       ],
       "measurements": {
         "schedule_facts_corrected": {
@@ -34303,6 +34384,10 @@
         "selected_broadcast_events_closed_by_pdf_this_run": {
           "value": 7,
           "scope": "un événement jeudi du premier checkpoint et six événements Ciné+ Festival de ce checkpoint ; fermetures de niveau 3 pour les quatre faits de grille uniquement"
+        },
+        "level2_channel_reviews_completed_this_run": {
+          "value": 1,
+          "scope": "TCM Cinéma uniquement ; 98 créneaux, sept dates, journées et nuits, aucune certification hebdomadaire globale"
         }
       }
     }
@@ -34977,6 +35062,7 @@
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
+      "TCM : revue applicable des omissions achevée sur 98 créneaux (78 lignes du PDF fourni visuellement relues, 20 créneaux concordants entre TV-Programme et Télérama.fr) ; aucune omission relevée et aucune indépendance amont affirmée. Poursuivre seulement l’enrichissement éditorial des documentaires et films prometteurs non encore retenus, sans rouvrir la provenance technique des grilles.",
       "Ciné+ Festival : la grille Télérama fournie et relue arbitre six des neuf cartes précédemment ouvertes. Restent La reconquista le 11/10 à 10:20 et Secrets et mensonges le 12/10 à 06:12 puis le 14/10 à 08:29, absents des pages papier relues ; obtenir pour chacun une preuve conforme à web_schedule_evidence ou remplacer la proposition. Les autres rediffusions non retenues restent différées ; durées de versions et droits replay demeurent séparés des créneaux.",
       "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
       "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
@@ -35960,6 +36046,50 @@
         "resume_when": "Une archive officielle T18 exacte, une preuve positive d’acquisition distincte ou une décision d’exclusion motivée couvre le créneau du 14 octobre à 00:20.",
         "observed_at": "2026-10-09T21:41:31.970Z",
         "evidence": "research_attempts run22-t18-14-october-independent-route-and-episode-conflict ; LeZapp, TV-Programme, ProgrammeTVCeSoir, Télé 7 Jours et SCREEN+ sauvegardés."
+      }
+    },
+    {
+      "id": "run23-tcm-web-evidence-policy-reconciliation-2026-10-09",
+      "object": {
+        "channel": "TCM Cinéma",
+        "dates": [
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16"
+        ]
+      },
+      "question": "La revue TCM reste-t-elle bloquée par l’absence d’indépendance amont après la règle web_schedule_evidence et l’autorité du PDF fourni ?",
+      "attempted_at": "2026-10-09T22:39:16.416Z",
+      "source_urls": [
+        "https://tv-programme.com/tcm-cinema/samedi-10-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-samedi/tcm-france",
+        "https://tv-programme.com/tcm-cinema/dimanche-11-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-dimanche/tcm-france",
+        "https://tv-programme.com/tcm-cinema/lundi-12-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-lundi/tcm-france",
+        "https://tv-programme.com/tcm-cinema/mardi-13-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-mardi/tcm-france",
+        "https://tv-programme.com/tcm-cinema/mercredi-14-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-mercredi/tcm-france",
+        "https://tv-programme.com/tcm-cinema/jeudi-15-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-jeudi-prochain/tcm-france",
+        "https://tv-programme.com/tcm-cinema/vendredi-16-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-vendredi-prochain/tcm-france"
+      ],
+      "result": "Non pour le rappel d’omissions : 78 lignes PDF relues font autorité et 20 créneaux hors PDF concordent entre deux guides d’éditeurs distincts. La revue applicable TCM est achevée sans certifier l’indépendance amont ni les champs de niveau 3.",
+      "blocking_scope": "aucun blocage TCM de provenance technique ; l’enrichissement éditorial non retenu reste une action distincte",
+      "blocking": false,
+      "status": "resolved_by_pdf_authority_and_web_schedule_evidence",
+      "resolution": {
+        "decided_at": "2026-10-09T22:39:16.416Z",
+        "pdf_lines": 78,
+        "web_lines": 20,
+        "omissions": 0,
+        "independence_established": false
       }
     }
   ],
@@ -42192,6 +42322,27 @@
           132,
           138
         ]
+      }
+    },
+    {
+      "id": "run23-tcm-provenance-requirement-narrowed",
+      "decided_at": "2026-10-09T22:39:16.416Z",
+      "decision": "schedule_provenance_requirement_closed_editorial_enrichment_preserved",
+      "previous_scope": "TCM : 98 créneaux comparés aux sept grilles Télérama courantes, aucun écart d'heure ; Nashville Blues/The Thing Called Love rapprochés par la fiche liée. Une nuit au cinéma : Flics et voyous identifié (Laurent Bouzereau, 2013, 55 min). Source officielle ou indépendance des flux encore à obtenir ; documentaires et autres films à enrichir.",
+      "current_scope": "TCM : revue applicable des omissions achevée sur 98 créneaux (78 lignes du PDF fourni visuellement relues, 20 créneaux concordants entre TV-Programme et Télérama.fr) ; aucune omission relevée et aucune indépendance amont affirmée. Poursuivre seulement l’enrichissement éditorial des documentaires et films prometteurs non encore retenus, sans rouvrir la provenance technique des grilles.",
+      "evidence": {
+        "pdf_pages": [
+          103,
+          109,
+          115,
+          121,
+          127,
+          133,
+          139
+        ],
+        "pdf_lines": 78,
+        "web_schedule_evidence_lines": 20,
+        "omissions": 0
       }
     }
   ]
