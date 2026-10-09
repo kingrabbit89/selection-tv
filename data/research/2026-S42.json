@@ -1353,6 +1353,11 @@
         "data/coverage/2026-S42.json",
         "data/research/2026-S42.json"
       ]
+    },
+    {
+      "id": "enrichment-aelita-tuesday-version-safe-replacement",
+      "completed_at": "2026-10-09T20:18:14.000Z",
+      "description": "Aelita, reine de Mars remplace La Vieille Dame indigne au rang 10 mardi : version ARTE 114 min, diffusion officielle recoupée, analyse indépendante, visuel exact et liens directs. Le pool reste à dix cartes ; aucune création nette de réserve n’est revendiquée."
     }
   ],
   "blockers": [
@@ -1371,6 +1376,28 @@
       "alert_owner": "a200f4a9-e530-46af-852d-3c0c9604a3f4",
       "resolved_at": "2026-10-08T07:03:10.807Z",
       "resolution": "main 041fbcda6ffa7c86f258a929010d2a7f7361066b : retrait sourcé de la chaîne arrêtée dans retired_channels ; aucune grille fictive ni modification de seuil par ce lot."
+    },
+    {
+      "id": "image-adieu-monsieur-haffmann-timeout",
+      "type": "candidate-image",
+      "requires_user": false,
+      "status": "open",
+      "first_seen_at": "2026-10-09T20:17:57.155Z",
+      "message": "Adieu Monsieur Haffmann : la source Pathé actuelle expire en timeout pour le client d’image sans Referer ; un visuel exact sain est requis.",
+      "source_urls": [
+        "https://www.pathefilms.com/assets/cover/2024/05/07/adieu_monsieur_haffmann/amh_aff_600.jpg?fm=webp&q=90&s=9b008599acddae7f88205228d4377346&w=390"
+      ]
+    },
+    {
+      "id": "image-coyote-vs-acme-404",
+      "type": "candidate-image",
+      "requires_user": false,
+      "status": "open",
+      "first_seen_at": "2026-10-09T20:17:57.155Z",
+      "message": "Coyote vs. Acme : la source Creators Faire actuelle renvoie 404 ; un visuel exact sain est requis.",
+      "source_urls": [
+        "https://cdn-ildnlpg.nitrocdn.com/gjnrPtGVFFeUBEafyaoIgcCXoNNlioLB/assets/images/optimized/rev-0cd8850/creatorsfaire.com/storage/2026/04/Coyote-vs-Acme-Poster-1229x1536.jpg"
+      ]
     }
   ],
   "verification_records": [
@@ -26147,6 +26174,38 @@
       },
       "evidence_note": "Six statuts génériques partial sont remplacés par la cause exacte : non-exhaustivité, mauvais flux, source indépendante manquante, fournisseur inconnu, chaîne non attribuée ou lacunes de niveau 3.",
       "status": "verified_for_resume_mapping"
+    },
+    {
+      "work_id": "aelita-reine-de-mars-1924",
+      "fields": [
+        "identity",
+        "version",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "critical_reception",
+        "image",
+        "links",
+        "editorial_copy"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/009357-000-F/aelita-reine-de-mars/",
+        "https://www.arte.tv/fr/guide/20261012/",
+        "https://programmetv.ouest-france.fr/film/science-fiction/aelita-c5468/",
+        "https://www.cinematheque.fr/film/40965.html",
+        "https://www.sensesofcinema.com/2017/soviet-cinema/1924-aelita-queen-of-mars-yakov-protazanov/",
+        "https://commons.wikimedia.org/wiki/File:Aelita_1924_still_03.jpg"
+      ],
+      "checked_at": "2026-10-09T20:18:14.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "mardi",
+        "rank": 10,
+        "broadcast": "2026-10-13 00:30 Arte"
+      },
+      "evidence_note": "ARTE certifie l’identité et la version de 114 min ainsi que la diffusion ; le guide officiel sauvegardé et Ouest-France concordent sur 00:30. La Cinémathèque recoupe l’œuvre tout en conservant sa copie de 111 min comme version distincte. Senses of Cinema fonde la réception argumentée ; le photogramme Commons exact a été ouvert avec sa provenance.",
+      "status": "verified_for_card"
     }
   ],
   "run_metrics": [
@@ -31580,41 +31639,50 @@
       "completed_batches": [
         "review-new-tv5-fbs-and-rmc-level2-sources-2026-10-09",
         "review-cineplus-w9-level2-sources-2026-10-09",
-        "review-orange-cineplus-reminder-source-2026-10-09"
+        "review-orange-cineplus-reminder-source-2026-10-09",
+        "enrichment-aelita-tuesday-version-safe-replacement"
       ],
       "deliverables_changed": [
+        "data/research/2026-S42.json",
         "data/coverage/2026-S42.json",
-        "data/research/2026-S42.json"
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json"
       ],
       "complete_cards": 125,
-      "cards_integrated_this_run": 0,
+      "cards_integrated_this_run": 1,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "measurements": {
         "complete_cards": {
           "value": 125,
-          "scope": "stock hérité inchangé au checkpoint ; aucune carte ajoutée dans ce passage"
+          "scope": "Stock final inchangé ; une carte complète nouvelle remplace une réserve existante, sans hausse du total."
         },
-        "new_works": {
-          "value": 0,
-          "scope": "aucune œuvre canonique ajoutée dans ce passage"
-        },
+        "new_works": 1,
         "visible_cards": {
           "value": 0,
           "scope": "aucune carte visible modifiée dans ce passage"
         },
         "additional_reserve_placements": {
           "value": 0,
-          "scope": "aucune réserve intégrée dans ce passage"
+          "scope": "Aucune réserve nette ajoutée ; Aelita remplace La Vieille Dame indigne au rang 10."
         },
         "stable_reuses": {
-          "value": 0,
-          "scope": "aucune réutilisation intégrée dans ce passage"
-        }
+          "value": 9,
+          "scope": "Neuf cartes mardi conservées à l’identique pendant la recomposition complète du pool."
+        },
+        "scope": "Diff between candidate at run start 8ed0058 and this checkpoint; cumulative stock is not counted as creation.",
+        "visible_cards_added": 0,
+        "distinct_reserve_additions": 0,
+        "reserve_replacements": 1,
+        "simple_reuses": 9,
+        "final_complete_card_stock": 125,
+        "requirements_closed": 0,
+        "note": "Aelita replaces one existing Tuesday reserve; the Tuesday pool remains at ten distinct works. One subdefect is resolved, but the combined Tuesday version requirement remains open for La Prisonnière du désert."
       },
-      "requirements_resolved": [],
+      "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Remplacer La Vieille Dame indigne par Aelita, reine de Mars après vérification du visuel, des liens directs et de la réception critique, sans toucher aux autres cartes mardi.",
+      "next_useful_batch": "Remplacer les deux visuels hérités défaillants Adieu Monsieur Haffmann et Coyote vs. Acme par des sources exactes saines, puis relancer uniquement le contrôle d’images.",
       "verification_records": [
         {
           "fields": [
@@ -31721,18 +31789,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T20:11:29.883Z",
+          "elapsed_seconds": 660.984,
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "01a31b01d2f92ecb60b59e9b7a83afcc34160603",
+          "next_actions": [
+            "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
+            "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
+            "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
+            "Mardi : certifier les copies exactes de La Prisonnière du désert et La Vieille Dame indigne, ou les remplacer par des alternatives entièrement vérifiées.",
+            "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet."
+          ],
+          "remaining_count": 34,
+          "next_actions_total": 39,
+          "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T20:00:28.899Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T21:00:47.435Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T20:01:59.119Z",
-        "elapsed_seconds": 90.22,
+        "observed_at": "2026-10-09T20:11:29.883Z",
+        "elapsed_seconds": 660.984,
         "prompt_revision": "production-closure-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "8ed0058de8ece4522c3a7e65adf63f32021da130",
+        "source_sha": "01a31b01d2f92ecb60b59e9b7a83afcc34160603",
         "next_actions": [
           "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
           "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
@@ -31762,6 +31859,21 @@
           "started_at": "2026-10-09T20:01:59.119Z",
           "ended_at": "2026-10-09T20:10:18.000Z",
           "note": "Recherches TV5MONDE FBS, RMC, Ciné+ Festival, W9 et cinéma payant conduites en parallèle puis revues ; nouvelles concordances conservées sans surcertifier l’indépendance ni l’exhaustivité."
+        },
+        "research": {
+          "started_at": "2026-10-09T20:11:29.883Z",
+          "ended_at": "2026-10-09T20:15:40.000Z",
+          "note": "Alternative mardi comparée aux dossiers sauvegardés ; fraîcheur, version ARTE, diffusion, critique indépendante et visuel exact vérifiés."
+        },
+        "drafting_and_rendering": {
+          "started_at": "2026-10-09T20:15:40.000Z",
+          "ended_at": "2026-10-09T20:18:14.000Z",
+          "note": "Plan replace_days complet relu, handoff généré et appliqué ; neuf cartes conservées et rang 10 remplacé."
+        },
+        "controls": {
+          "started_at": "2026-10-09T20:18:14.000Z",
+          "ended_at": "2026-10-09T20:18:18.855Z",
+          "note": "Identités, liens, fraîcheur, réserves et images contrôlés en parallèle. Aelita passe les contrôles de données et d’image ; deux visuels hérités échouent. Le navigateur local est indisponible faute de binaire Playwright, donc aucune réussite de présentation n’est revendiquée."
         }
       },
       "control_notes": [
@@ -31769,7 +31881,25 @@
         "TV-Programme identifie son éditeur mais pas son fournisseur EPG ; les écarts RMC du samedi restent ouverts.",
         "Les flags independent_crosscheck_complete, editorial_reminder_complete et full_week_reaudit_completed restent false.",
         "Molotov est un distributeur tiers et fournit des recoupements forts, mais l’origine amont de ses métadonnées EPG n’est pas publiée : les flags de niveau 2 restent inchangés.",
-        "Orange apporte des fiches opérateur distinctes et des contradictions utiles ; elles ne constituent pas une grille Ciné+ exhaustive des sept jours."
+        "Orange apporte des fiches opérateur distinctes et des contradictions utiles ; elles ne constituent pas une grille Ciné+ exhaustive des sept jours.",
+        "Contrôles réussis : identités canoniques, liens exacts, fraîcheur (97 % public, 87 % réserves) et réserves (70/70).",
+        "validate-editorial échoue uniquement sur full_week_reaudit_completed=false, barrière attendue tant que la revue de couverture reste ouverte.",
+        "validate-image-sources confirme le nouveau visuel Aelita mais révèle deux défauts hérités : Adieu Monsieur Haffmann timeout sans Referer et Coyote vs. Acme 404.",
+        "validate-layout local non exécuté jusqu’au rendu : binaire Playwright absent ; aucun résultat de présentation n’est certifié pour cette tête."
+      ],
+      "blockers": [
+        {
+          "id": "image-adieu-monsieur-haffmann-timeout",
+          "status": "open",
+          "requires_user": false,
+          "note": "Le visuel Pathé ne répond pas au client sans Referer (timeout) ; rechercher un visuel exact sain sans assouplir le contrôle."
+        },
+        {
+          "id": "image-coyote-vs-acme-404",
+          "status": "open",
+          "requires_user": false,
+          "note": "Le visuel Creators Faire renvoie 404 ; rechercher un visuel exact sain sans assouplir le contrôle."
+        }
       ]
     }
   ],
@@ -32434,7 +32564,7 @@
       "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
       "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
       "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
-      "Mardi : certifier les copies exactes de La Prisonnière du désert et La Vieille Dame indigne, ou les remplacer par des alternatives entièrement vérifiées.",
+      "Mardi : certifier la copie exacte de La Prisonnière du désert ou la remplacer par une alternative entièrement vérifiée ; La Vieille Dame indigne a été remplacée par Aelita, version ARTE 114 min vérifiée.",
       "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet."
     ],
     "publisher": {
@@ -33216,6 +33346,24 @@
       "result": "Les fiches Orange, source opérateur distincte, recoupent plusieurs créneaux exacts de Ciné+ Classic et Frisson et conservent les écarts 13:30/13:32, 15:35/15:36, 08:47–08:50, 10:47–10:50 et 11:32/11:34. Moustique fournit une grille secondaire, sans provenance EPG publiée. Ces fiches ne forment ni une archive exhaustive des sept jours ni une preuve de fournisseur indépendant ; le rappel cinéma payant reste ouvert.",
       "blocking_scope": "rappel cinéma payant hebdomadaire",
       "resume_condition": "Une extraction systématique des sept jours et de toutes les chaînes Ciné+ depuis une source opérateur ou officielle, avec contradictions réconciliées, est encore requise."
+    },
+    {
+      "id": "run21-tuesday-aelita-version-safe-replacement-2026-10-09",
+      "checked_at": "2026-10-09T20:18:14.000Z",
+      "object": "Aelita, reine de Mars — version ARTE et remplacement de La Vieille Dame indigne au rang 10 mardi",
+      "question": "Une alternative fraîche et entièrement vérifiable permet-elle de retirer une carte dont la copie TCM exacte n’est pas certifiée ?",
+      "urls": [
+        "https://www.arte.tv/fr/videos/009357-000-F/aelita-reine-de-mars/",
+        "https://www.arte.tv/fr/guide/20261012/",
+        "https://programmetv.ouest-france.fr/film/science-fiction/aelita-c5468/",
+        "https://www.cinematheque.fr/film/40965.html",
+        "https://www.sensesofcinema.com/2017/soviet-cinema/1924-aelita-queen-of-mars-yakov-protazanov/",
+        "https://commons.wikimedia.org/wiki/File:Aelita_1924_still_03.jpg"
+      ],
+      "status": "complete_card_integrated_version_exact",
+      "result": "Aelita est absente de S38–S41. ARTE identifie l’œuvre de Iakov Protazanov, la version de 114 min, la disponibilité à partir du 12 octobre et la diffusion du 13 octobre à 00:30 ; Ouest-France recoupe le créneau. Senses of Cinema fournit une analyse indépendante et Commons un photogramme exact ouvert avec provenance. La Vieille Dame indigne est retirée du pool mardi sans effacer son dossier ni prétendre certifier sa copie TCM.",
+      "blocking_scope": "mardi-selection rank 10",
+      "resume_condition": "Carte achevée ; aucun complément requis pour ce remplacement. La copie de La Prisonnière du désert reste une exigence distincte."
     }
   ],
   "shortlist": {
@@ -36051,7 +36199,7 @@
         "scope": {
           "day": "mardi"
         },
-        "status": "card_complete",
+        "status": "rejected",
         "signals": [
           {
             "kind": "distinction",
@@ -36063,7 +36211,33 @@
           "sl-mardi-les-enfants-voles-du-chili-2026",
           "sl-mardi-la-prisonniere-du-desert-1956"
         ],
-        "decision_note": "La fenêtre EPG de 90 min reste distincte de la durée canonique 94 min ; aucune coupe TCM n’est certifiée."
+        "decision_note": "Retirée du pool mardi : la fenêtre EPG de 90 min ne certifie pas la copie TCM d’une œuvre canonique de 94 min. Le dossier reste sauvegardé ; Aelita, dont la version ARTE de 114 min est exacte, prend le rang 10."
+      },
+      {
+        "id": "sl-mardi-aelita-reine-de-mars-1924",
+        "title": "Aelita, reine de Mars",
+        "work_id": "aelita-reine-de-mars-1924",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "analyse_critique",
+            "note": "Senses of Cinema replace la fantaisie martienne, son succès populaire et sa réception polarisée dans les contradictions de la NEP et du cinéma soviétique des années 1920.",
+            "source_url": "https://www.sensesofcinema.com/2017/soviet-cinema/1924-aelita-queen-of-mars-yakov-protazanov/"
+          },
+          {
+            "kind": "version_diffusion",
+            "note": "ARTE annonce une version de 114 min, disponible le 12 octobre et diffusée mardi 13 octobre à 00:30.",
+            "source_url": "https://www.arte.tv/fr/videos/009357-000-F/aelita-reine-de-mars/"
+          }
+        ],
+        "alternatives": [
+          "sl-mardi-la-prisonniere-du-desert-1956",
+          "sl-mardi-la-vieille-dame-indigne-1965"
+        ],
+        "decision_note": "Alternative fraîche retenue au rang 10 : identité certaine, copie ARTE 114 min, horaire officiel recoupé, critique indépendante et visuel exact avec provenance."
       }
     ]
   },

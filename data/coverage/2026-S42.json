@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "primary_complete_crosscheck_pending",
-  "updated_at": "2026-10-09T20:05:42.127Z",
+  "updated_at": "2026-10-09T20:18:14.000Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -18288,6 +18288,92 @@
         },
         "decision": "carte complète",
         "reason": "Troisième choix du mercredi matérialisé avec version Arte propre au cycle, diffusion officielle recoupée, réception indépendante avec réserve, notes datées, liens directs et affiche exacte."
+      },
+      {
+        "title": "Aelita, reine de Mars",
+        "work_id": "aelita-reine-de-mars-1924",
+        "catalogue_match": "nouvelle entrée canonique créée après identité et version certaines",
+        "decision": "carte complète mardi — réserve rang 10, remplace La Vieille Dame indigne",
+        "reason": "Alternative fraîche dont la copie ARTE 114 min et le créneau 00:30 sont vérifiés, contrairement à la copie TCM remplacée.",
+        "identity_research": {
+          "director": "Iakov Protazanov",
+          "year": 1924,
+          "country": "Union soviétique",
+          "type": "long métrage muet de science-fiction",
+          "canonical_work_id": "aelita-reine-de-mars-1924",
+          "status": "verified",
+          "checked_at": "2026-10-09T20:18:14.000Z",
+          "source_urls": [
+            "https://www.arte.tv/fr/videos/009357-000-F/aelita-reine-de-mars/",
+            "https://www.cinematheque.fr/film/40965.html"
+          ],
+          "duration_observations": [
+            {
+              "minutes": 114,
+              "version": "version ARTE ciblée",
+              "source_url": "https://www.arte.tv/fr/videos/009357-000-F/aelita-reine-de-mars/"
+            },
+            {
+              "minutes": 111,
+              "version": "copie décrite par la Cinémathèque, conservée distincte",
+              "source_url": "https://www.cinematheque.fr/film/40965.html"
+            }
+          ],
+          "note": "La carte cible exclusivement la version ARTE de 114 min."
+        },
+        "critical_evidence": [
+          {
+            "source": "Senses of Cinema",
+            "author": "Lisa K. Broad",
+            "published_at": "2017-11",
+            "source_url": "https://www.sensesofcinema.com/2017/soviet-cinema/1924-aelita-queen-of-mars-yakov-protazanov/",
+            "kind": "professional_analysis",
+            "access": "full",
+            "checked_at": "2026-10-09T20:18:14.000Z",
+            "assessment": "Analyse la réception polarisée, la relation entre fantaisie martienne et réalités de la NEP, ainsi que les contradictions politiques et mélodramatiques du film."
+          }
+        ],
+        "ratings_research": {
+          "status": "not_used_no_direct_dated_rating_read",
+          "checked_at": "2026-10-09T20:18:14.000Z",
+          "source_urls": [],
+          "note": "Aucune note agrégée inventée ; réception argumentée privilégiée."
+        },
+        "broadcast_research": {
+          "date": "2026-10-13",
+          "start": "00:30",
+          "channel": "Arte",
+          "checked_at": "2026-10-09T20:18:14.000Z",
+          "status": "verified_official_plus_independent_grid",
+          "source_urls": [
+            "https://www.arte.tv/fr/videos/009357-000-F/aelita-reine-de-mars/",
+            "https://www.arte.tv/fr/guide/20261012/",
+            "https://programmetv.ouest-france.fr/film/science-fiction/aelita-c5468/"
+          ],
+          "note": "Page et guide ARTE concordent avec Ouest-France."
+        },
+        "image_research": {
+          "checked_at": "2026-10-09T20:18:14.000Z",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Aelita_1924_still_03.jpg",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Aelita_1924_still_03.jpg",
+          "status": "exact_public_domain_still_visually_verified_ci_pending",
+          "visually_checked": true,
+          "note": "Photogramme exact ouvert ; santé distante finale soumise au CI."
+        },
+        "dossier_completeness": {
+          "status": "complete_for_card",
+          "completed_at": "2026-10-09T20:18:14.000Z",
+          "fields": {
+            "identity": "verified",
+            "current_broadcast": "verified",
+            "version": "arte_114min_exact",
+            "critical_reception": "verified_argumented",
+            "ratings": "not_used_reason_documented",
+            "image": "visually_verified_ci_pending",
+            "links": "direct_exact_links_verified",
+            "editorial_copy": "drafted_and_reviewed"
+          }
+        }
       }
     ]
   },
