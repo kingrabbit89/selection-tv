@@ -1,13 +1,15 @@
 import fs from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
+import {planResearchActions} from './editorial-research-triage.mjs';
 
 // A wall-clock work target, not an execution limit or a hidden quota estimate.
 // Starting another batch stops at 50 minutes to retain 5 minutes for saving.
 // Historical revisions retain their own 55- or 35-minute target during audit.
 export const SOFT_BUDGET_SECONDS = 55 * 60;
 export const SAVE_RESERVE_SECONDS = 5 * 60;
-export const CONTINUATION_REVISION = 'production-closure-2026-10-09';
+export const CONTINUATION_REVISION = 'production-proof-policy-2026-10-09';
+export const CLOSURE_CONTINUATION_REVISION = 'production-closure-2026-10-09';
 export const TELERAMA_EDITORIAL_CONTINUATION_REVISION = 'production-telerama-editorial-2026-10-09';
 export const PREVIOUS_CONTINUATION_REVISION = 'production-telerama-optional-2026-10-09';
 export const DATAFLOW_CONTINUATION_REVISION = 'production-dataflow-2026-10-09';
@@ -17,6 +19,7 @@ export const LEGACY_CONTINUATION_REVISION = 'production-continuation-2026-10-09'
 const legacyBudget = Object.freeze({budget_seconds:35 * 60, reserve_seconds:SAVE_RESERVE_SECONDS});
 export const BUDGET_PROFILES = Object.freeze({
   [CONTINUATION_REVISION]:Object.freeze({budget_seconds:SOFT_BUDGET_SECONDS, reserve_seconds:SAVE_RESERVE_SECONDS}),
+  [CLOSURE_CONTINUATION_REVISION]:Object.freeze({budget_seconds:SOFT_BUDGET_SECONDS, reserve_seconds:SAVE_RESERVE_SECONDS}),
   [TELERAMA_EDITORIAL_CONTINUATION_REVISION]:Object.freeze({budget_seconds:SOFT_BUDGET_SECONDS, reserve_seconds:SAVE_RESERVE_SECONDS}),
   [PREVIOUS_CONTINUATION_REVISION]:Object.freeze({budget_seconds:SOFT_BUDGET_SECONDS, reserve_seconds:SAVE_RESERVE_SECONDS}),
   [DATAFLOW_CONTINUATION_REVISION]:Object.freeze({budget_seconds:SOFT_BUDGET_SECONDS, reserve_seconds:SAVE_RESERVE_SECONDS}),
@@ -57,10 +60,10 @@ function readyHandedOff(progress, observation, started, now) {
     observation?.handed_to_publisher === true && observedDuringRun(observation, started, now);
 }
 
-function allTasksBlocked(progress, checks, started, now) {
+function allTasksBlocked(progress, checks, started, now, tasks = nextActions(progress)) {
   if (!Array.isArray(progress?.remaining) || !progress.remaining.length || !progress.remaining.every(text)) return false;
   // An unreviewed resume hint cannot disappear behind checked requirements.
-  const tasks = nextActions(progress);
+  // The proof policy also includes the current batch and deferred requirements.
   if (!tasks.length || checks.length !== tasks.length) return false;
   const checked = checks.map(check => check?.task);
   if (new Set(checked).size !== checked.length || !tasks.every(task => checked.includes(task))) return false;
@@ -72,7 +75,7 @@ function allTasksBlocked(progress, checks, started, now) {
  * Inputs are declarations, not independent verification of a remote lease,
  * source quality or successful publisher checks. Callers must observe them.
  * ready_handoff: {validated:true, handed_to_publisher:true, observed_at,evidence}
- * accessible_task_checks: [{task:<exact remaining text or resume hint>,status,observed_at,evidence}]
+ * accessible_task_checks: [{task:<exact remaining text, resume hint or current batch>,status,observed_at,evidence}]
  */
 export function decideContinuation({progress = {}, started_at = null, now = null,
   lease_owned = 'unknown', lease_until = null, external_stop = null,
@@ -82,7 +85,15 @@ export function decideContinuation({progress = {}, started_at = null, now = null
   const current = milliseconds(now), started = milliseconds(started_at);
   const elapsed = current !== null && started !== null && current >= started ? (current - started) / 1000 : null;
   const expiry = milliseconds(lease_until);
-  const actions = nextActions(progress);
+  // Historical decisions retain their original action ordering and cannot be
+  // changed by retry records subsequently added to their research checkpoint.
+  let researchPlan = null, researchPlanError = null;
+  if (prompt_revision === CONTINUATION_REVISION) {
+    try {researchPlan = planResearchActions(progress, {now, startedAt:started_at});}
+    catch (error) {researchPlanError = error.message;}
+  }
+  const actions = researchPlan?.actionable_actions ?? nextActions(progress);
+  const allActions = researchPlan?.all_actions ?? actions;
   const observations = {started_at, lease_owned, lease_until, external_stop,
     accessible_task_checks: array(accessible_task_checks), ready_handoff};
   const result = (action, reason_code, next_actions = actions) => ({
@@ -91,6 +102,9 @@ export function decideContinuation({progress = {}, started_at = null, now = null
     week: progress.week || null, source_sha, next_actions: next_actions.slice(0, 5),
     remaining_count: array(progress.remaining).length, next_actions_total: next_actions.length,
     truncated_notice: next_actions.length > 5 ? `${next_actions.length - 5} further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.` : null,
+    ...(prompt_revision === CONTINUATION_REVISION ? {all_actions_total:allActions.length,
+      waiting_actions:researchPlan?.waiting_actions ?? [],
+      research_review_warnings:researchPlan?.review_warnings ?? [researchPlanError]} : {}),
     observations
   });
   // A directly observed loss of ownership forbids writes even without a clock.
@@ -107,7 +121,7 @@ export function decideContinuation({progress = {}, started_at = null, now = null
     return result('stop', external_stop.reason_code === 'interrupted' ? 'external_interruption' : 'tools_blocked');
   }
   if (readyHandedOff(progress, ready_handoff, started, current)) return result('stop', 'ready_handed_off', []);
-  if (allTasksBlocked(progress, array(accessible_task_checks), started, current)) return result('stop', 'all_accessible_tasks_blocked');
+  if (!researchPlanError && allTasksBlocked(progress, array(accessible_task_checks), started, current, allActions)) return result('stop', 'all_accessible_tasks_blocked');
   if (elapsed >= profile.budget_seconds - profile.reserve_seconds) return result('stop', 'budget_reserve_reached');
   if (lease_owned !== 'yes') return result('unknown', 'lease_ownership_unknown');
   if (expiry === null) return result('unknown', 'lease_expiry_unknown');
@@ -116,10 +130,11 @@ export function decideContinuation({progress = {}, started_at = null, now = null
   // A legacy ready flag cannot bypass unfinished work or the actual handoff.
   if (progress.stage === 'ready' && progress.remaining.length) return result('unknown', 'ready_requirements_unmet');
   if (!progress.remaining.length) return result('unknown', 'no_open_task_or_handoff_evidence');
+  if (researchPlanError) return result('unknown', 'research_conditions_need_review');
   const blocked = new Set(array(accessible_task_checks)
     .filter(check => check?.status === 'blocked' && observedDuringRun(check, started, current)).map(check => check.task));
   const usable = actions.filter(task => !blocked.has(task));
-  if (!usable.length) return result('unknown', 'task_checks_incomplete');
+  if (!usable.length) return result('unknown', researchPlan?.waiting_actions.length ? 'research_conditions_need_review' : 'task_checks_incomplete');
   return result('continue', 'next_useful_batch', usable);
 }
 
@@ -154,7 +169,7 @@ export function auditRecordedRun(run = {}, progress = {}) {
     return ['last continuation_decision has an invalid action; actual stop cause remains unknown'];
   }
   if (!iso(decision.observed_at)) warnings.push('last continuation_decision lacks a real observed_at; do not reconstruct it');
-  if (decision.prompt_revision === undefined && [CONTINUATION_REVISION, PREVIOUS_CONTINUATION_REVISION].includes(run.prompt_revision)) {
+  if (decision.prompt_revision === undefined && [CONTINUATION_REVISION, CLOSURE_CONTINUATION_REVISION, PREVIOUS_CONTINUATION_REVISION].includes(run.prompt_revision)) {
     warnings.push('last continuation_decision lacks prompt_revision required by the efficiency policy');
   } else if (decision.prompt_revision !== undefined && decision.prompt_revision !== run.prompt_revision) {
     warnings.push('last continuation_decision prompt_revision disagrees with the recorded run; do not replace its historical policy');

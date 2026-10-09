@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
-import {auditRecordedRun, CONTINUATION_REVISION, TELERAMA_EDITORIAL_CONTINUATION_REVISION, PREVIOUS_CONTINUATION_REVISION, DATAFLOW_CONTINUATION_REVISION, INTEGRITY_CONTINUATION_REVISION, EFFICIENCY_CONTINUATION_REVISION, LEGACY_CONTINUATION_REVISION, decideContinuation, nextActions, parseCli} from './editorial-continuation.mjs';
+import {auditRecordedRun, CONTINUATION_REVISION, CLOSURE_CONTINUATION_REVISION, TELERAMA_EDITORIAL_CONTINUATION_REVISION, PREVIOUS_CONTINUATION_REVISION, DATAFLOW_CONTINUATION_REVISION, INTEGRITY_CONTINUATION_REVISION, EFFICIENCY_CONTINUATION_REVISION, LEGACY_CONTINUATION_REVISION, decideContinuation, nextActions, parseCli} from './editorial-continuation.mjs';
 
 const started_at = '2026-10-09T07:02:51.000Z';
 const now = '2026-10-09T07:19:27.285Z';
@@ -209,7 +209,7 @@ test('unknown revisions never select a budget implicitly, and the new revision s
 });
 
 test('optional paper input and earlier 55-minute revisions preserve the observed work threshold', () => {
-  for (const revision of [CONTINUATION_REVISION, TELERAMA_EDITORIAL_CONTINUATION_REVISION, PREVIOUS_CONTINUATION_REVISION, DATAFLOW_CONTINUATION_REVISION, INTEGRITY_CONTINUATION_REVISION, EFFICIENCY_CONTINUATION_REVISION]) {
+  for (const revision of [CONTINUATION_REVISION, CLOSURE_CONTINUATION_REVISION, TELERAMA_EDITORIAL_CONTINUATION_REVISION, PREVIOUS_CONTINUATION_REVISION, DATAFLOW_CONTINUATION_REVISION, INTEGRITY_CONTINUATION_REVISION, EFFICIENCY_CONTINUATION_REVISION]) {
     const before = decideContinuation(input({now:'2026-10-09T07:52:50.000Z',prompt_revision:revision}));
     const after = decideContinuation(input({now:'2026-10-09T07:52:51.000Z',prompt_revision:revision}));
     assert.equal(before.action,'continue');
@@ -295,4 +295,168 @@ test('compact priorities retain counts and all-blocked uses the full untruncated
   const checks = nextActions(many).map(task=>({task,status:'blocked',observed_at:now,evidence:'Dépendance vérifiée.'}));
   assert.equal(decideContinuation(input({progress:many,accessible_task_checks:checks})).reason_code,'all_accessible_tasks_blocked');
   assert.equal(decideContinuation(input({progress:many,accessible_task_checks:checks.slice(0,5)})).action,'continue');
+});
+
+const sourceTask = 'Vérifier la source indépendante de TV5MONDE.';
+const replacementTask = 'Remplacer le film dont la version est ambiguë.';
+const currentBatch = 'Appliquer le dossier Aelita déjà vérifié.';
+const retryGate = extra => ({state:'waiting_for_new_evidence', action_texts:[sourceTask],
+  reason:'Les guides consultés ne publient pas leur provenance.',
+  resume_when:'Une archive officielle ou une provenance positive devient disponible.',
+  observed_at:'2026-10-09T07:10:00.000Z', evidence:'Les pages examinées ne déclarent pas leur fournisseur de données.', ...extra});
+const proofProgress = extra => ({...progress, remaining:[sourceTask,replacementTask],
+  resume:{next_actions:[sourceTask,replacementTask]},
+  run_metrics:[{started_at,ended_at:null,run_state:'running',stop_reason:null,next_useful_batch:currentBatch}],
+  research_attempts:[{retry_gate:retryGate()}], ...extra});
+const observedChecks = tasks => tasks.map(task => ({task,status:'blocked',observed_at:now,
+  evidence:'La dépendance exacte de cette action a été contrôlée pendant ce passage.'}));
+
+test('proof policy prioritizes the current running batch and defers only exact gated actions', () => {
+  const checkpoint = proofProgress();
+  const before = structuredClone(checkpoint);
+  const decision = decideContinuation(input({progress:checkpoint}));
+  assert.equal(decision.action,'continue');
+  assert.deepEqual(decision.next_actions,[currentBatch,replacementTask]);
+  assert.equal(decision.remaining_count,2);
+  assert.equal(decision.all_actions_total,3);
+  assert.equal(decision.next_actions_total,2);
+  assert.equal(decision.waiting_actions.length,1);
+  assert.equal(decision.waiting_actions[0].action_text,sourceTask);
+  assert.deepEqual(checkpoint,before);
+  assert.deepEqual(nextActions(checkpoint),[sourceTask,replacementTask]);
+});
+
+test('a finished or future run cannot promote its stale useful batch', () => {
+  for (const metric of [
+    {started_at,ended_at:'2026-10-09T07:12:00.000Z',stop_reason:'budget_reserve_reached',next_useful_batch:currentBatch},
+    {started_at:'2026-10-09T08:00:00.000Z',ended_at:null,next_useful_batch:currentBatch}
+  ]) {
+    const decision = decideContinuation(input({progress:proofProgress({run_metrics:[metric]})}));
+    assert.equal(decision.action,'continue');
+    assert.deepEqual(decision.next_actions,[replacementTask]);
+  }
+});
+
+test('deferred research is retained and cannot certify ready or an early all-blocked stop', () => {
+  const checkpoint = proofProgress({remaining:[sourceTask],resume:{next_actions:[sourceTask]},run_metrics:[],
+    editorial_review_completed:true});
+  const decision = decideContinuation(input({progress:checkpoint}));
+  assert.equal(decision.action,'unknown');
+  assert.equal(decision.reason_code,'research_conditions_need_review');
+  assert.equal(decision.remaining_count,1);
+  assert.equal(decision.all_actions_total,1);
+  assert.deepEqual(decision.next_actions,[]);
+  assert.equal(decision.waiting_actions[0].action_text,sourceTask);
+  const handoff = {validated:true,handed_to_publisher:true,observed_at:now,evidence:'Passage au publicateur déclaré.'};
+  const falseReady = decideContinuation(input({progress:{...checkpoint,stage:'ready'},ready_handoff:handoff}));
+  assert.equal(falseReady.action,'unknown');
+  assert.equal(falseReady.reason_code,'ready_requirements_unmet');
+  const historicalCheck = observedChecks([sourceTask]).map(check => ({...check,observed_at:'2026-10-09T06:59:59.000Z'}));
+  assert.equal(decideContinuation(input({progress:checkpoint,accessible_task_checks:historicalCheck})).reason_code,
+    'research_conditions_need_review');
+});
+
+test('all-blocked needs current exact observations for the batch and every deferred original action', () => {
+  const checkpoint = proofProgress();
+  const fullTasks = [currentBatch,sourceTask,replacementTask];
+  const checks = observedChecks(fullTasks);
+  assert.equal(decideContinuation(input({progress:checkpoint,accessible_task_checks:checks})).reason_code,
+    'all_accessible_tasks_blocked');
+  // A retry gate, even well documented, is not a current blocked observation.
+  const withoutDeferred = checks.filter(check => check.task !== sourceTask);
+  const withoutBatch = checks.filter(check => check.task !== currentBatch);
+  const staleDeferred = checks.map(check => check.task === sourceTask ? {...check,
+    observed_at:'2026-10-09T07:00:00.000Z'} : check);
+  const renamedDeferred = checks.map(check => check.task === sourceTask ? {...check,task:'TV5MONDE'} : check);
+  for (const partial of [withoutDeferred,withoutBatch,staleDeferred,renamedDeferred]) {
+    assert.notEqual(decideContinuation(input({progress:checkpoint,accessible_task_checks:partial})).reason_code,
+      'all_accessible_tasks_blocked');
+  }
+  const currentActionChecks = decideContinuation(input({progress:checkpoint,accessible_task_checks:withoutDeferred}));
+  assert.equal(currentActionChecks.action,'unknown');
+  assert.equal(currentActionChecks.reason_code,'research_conditions_need_review');
+});
+
+test('new evidence reopens an exact deferred task and historical revisions ignore retry gates', () => {
+  const checkpoint = proofProgress();
+  const resumed = {...checkpoint,research_attempts:[{retry_gate:retryGate({state:'reopened',
+    reopened_at:'2026-10-09T07:17:00.000Z',new_evidence:'Une archive officielle datée identifie le programme.'})}]};
+  const decision = decideContinuation(input({progress:resumed}));
+  assert.equal(decision.action,'continue');
+  assert.deepEqual(decision.next_actions,[currentBatch,sourceTask,replacementTask]);
+  assert.deepEqual(decision.waiting_actions,[]);
+  for (const revision of [CLOSURE_CONTINUATION_REVISION,TELERAMA_EDITORIAL_CONTINUATION_REVISION,
+    PREVIOUS_CONTINUATION_REVISION,DATAFLOW_CONTINUATION_REVISION,INTEGRITY_CONTINUATION_REVISION,
+    EFFICIENCY_CONTINUATION_REVISION,LEGACY_CONTINUATION_REVISION]) {
+    const historical = decideContinuation(input({progress:checkpoint,prompt_revision:revision}));
+    assert.deepEqual(historical.next_actions,nextActions(checkpoint));
+    assert.equal(historical.all_actions_total,undefined);
+    assert.equal(historical.waiting_actions,undefined);
+    const run = {started_at,ended_at:now,prompt_revision:revision,run_state:'running',
+      stop_reason:null,continuation_decision:historical};
+    assert.deepEqual(auditRecordedRun(run,checkpoint),[]);
+  }
+});
+
+test('a recorded current-batch blocked decision replays at its observation before ended_at', () => {
+  const checkpoint = proofProgress();
+  const decision = decideContinuation(input({progress:checkpoint,
+    accessible_task_checks:observedChecks([currentBatch,sourceTask,replacementTask])}));
+  assert.equal(decision.reason_code,'all_accessible_tasks_blocked');
+  const run = {...checkpoint.run_metrics[0],prompt_revision:CONTINUATION_REVISION,run_state:'stopped',
+    ended_at:'2026-10-09T07:20:00.000Z',stop_reason:decision.reason_code,continuation_decision:decision};
+  const saved = {...checkpoint,run_metrics:[run]};
+  assert.deepEqual(auditRecordedRun(run,saved),[]);
+});
+
+test('invalid gates keep the research task active and cannot relax stop or lease guards', () => {
+  const checkpoint = proofProgress({research_attempts:[{retry_gate:retryGate({observed_at:'2026-10-09T08:00:00.000Z'})}]});
+  const decision = decideContinuation(input({progress:checkpoint}));
+  assert.equal(decision.action,'continue');
+  assert.deepEqual(decision.next_actions,[currentBatch,sourceTask,replacementTask]);
+  assert.deepEqual(decision.waiting_actions,[]);
+  assert(decision.research_review_warnings.length);
+  assert.equal(decideContinuation(input({progress:checkpoint,lease_owned:'no'})).reason_code,'lease_lost');
+  assert.equal(decideContinuation(input({progress:checkpoint,lease_until:now})).reason_code,'lease_expired');
+  assert.equal(decideContinuation(input({progress:{},lease_owned:'no',now:null})).reason_code,'lease_lost');
+  assert.equal(decideContinuation(input({progress:checkpoint,now:null})).reason_code,'clock_unknown');
+  const oldDecision = decideContinuation(input({progress:checkpoint,prompt_revision:CLOSURE_CONTINUATION_REVISION}));
+  delete oldDecision.prompt_revision;
+  assert(auditRecordedRun({started_at,prompt_revision:CLOSURE_CONTINUATION_REVISION,continuation_decision:oldDecision},checkpoint)
+    .some(w => /lacks prompt_revision/.test(w)));
+});
+
+test('an unfinished historical run cannot add a batch to the current pass or its all-blocked requirements', () => {
+  const checkpoint = proofProgress({run_metrics:[{started_at:'2026-10-08T07:02:51.000Z',
+    ended_at:null,run_state:'running',stop_reason:null,next_useful_batch:currentBatch}]});
+  const decision = decideContinuation(input({progress:checkpoint}));
+  assert.equal(decision.action,'continue');
+  assert.deepEqual(decision.next_actions,[replacementTask]);
+  assert.equal(decision.all_actions_total,2);
+  assert(decision.research_review_warnings.length);
+  assert.equal(decideContinuation(input({progress:checkpoint,
+    accessible_task_checks:observedChecks([sourceTask,replacementTask])})).reason_code,
+    'all_accessible_tasks_blocked');
+  assert.equal(decideContinuation(input({progress:checkpoint,accessible_task_checks:observedChecks([replacementTask])})).reason_code,
+    'research_conditions_need_review');
+});
+
+test('an unknown decision before new evidence replays as waiting after the gate is later reopened', () => {
+  const checkpoint = proofProgress({remaining:[sourceTask],resume:{next_actions:[sourceTask]},run_metrics:[]});
+  const decision = decideContinuation(input({progress:checkpoint}));
+  assert.equal(decision.action,'unknown');
+  assert.equal(decision.reason_code,'research_conditions_need_review');
+  const run = {started_at,prompt_revision:CONTINUATION_REVISION,run_state:'stopped',
+    ended_at:'2026-10-09T07:20:00.000Z',stop_reason:'research_conditions_need_review',continuation_decision:decision};
+  const later = {...checkpoint,run_metrics:[run],research_attempts:[{retry_gate:retryGate({state:'reopened',
+    reopened_at:'2026-10-09T07:21:00.000Z',new_evidence:'Une archive officielle publiée après cette décision confirme le programme.'})}]};
+  assert.deepEqual(auditRecordedRun(run,later),[]);
+  const reopened = decideContinuation(input({progress:later,now:'2026-10-09T07:22:00.000Z'}));
+  assert.equal(reopened.action,'continue');
+  assert.deepEqual(reopened.next_actions,[sourceTask]);
+  assert.deepEqual(reopened.waiting_actions,[]);
+  assert.equal(reopened.remaining_count,1);
+  const alreadyReopened = {...later,research_attempts:[{retry_gate:retryGate({state:'reopened',
+    reopened_at:'2026-10-09T07:18:00.000Z',new_evidence:'Une archive était effectivement disponible avant la décision.'})}]};
+  assert(auditRecordedRun(run,alreadyReopened).some(w => /not supported/.test(w)));
 });

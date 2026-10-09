@@ -139,3 +139,12 @@ sont calculés avec les minima existants : il faut produire des alternatives
 distinctes revues, sans inventer un candidat ou une pénurie. L'application refuse
 main/master, un numéro publié ou une revue déjà scellée. La sauvegarde distante
 reste soumise au bail et aux contrôles normaux de la candidate.
+
+## Reprendre les recherches sur fait nouveau
+
+La politique `docs/EDITORIAL-CLOSURE-POLICY.md` distingue preuves de source,
+impact sur cartes/couverture et notes brutes. `editorial-research-triage.mjs` lit
+un checkpoint immuable et affiche les actions accessibles et les attentes
+explicitement reliées aux actions exactes, sans modifier la candidate. Le
+contrôleur de la nouvelle révision consomme ce même plan ; les exigences
+conservées et les gardes de publication restent distinctes des priorités.
