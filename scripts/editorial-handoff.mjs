@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
+import {preflightCommitFiles} from './github-weekly-api.mjs';
 
 export const digest = text => text === null ? null : createHash('sha256').update(text).digest('hex');
 export const MAX_CHECKPOINT_OUTPUT_BYTES = 32 * 1024 * 1024;
@@ -28,8 +29,8 @@ export function validateBundle(bundle) {
     assert(!seen.has(file.path),'duplicate path');seen.add(file.path);
     assert(file.base_sha256===null||/^[a-f0-9]{64}$/.test(file.base_sha256),'invalid base digest');
     assert(typeof file.content==='string'&&Buffer.byteLength(file.content)<12*1024*1024,'invalid/oversize content');
-    if(file.path.endsWith('.json'))JSON.parse(file.content);
   }
+  preflightCommitFiles(bundle.files);
   return bundle;
 }
 export function planImport(bundle,read){
@@ -69,15 +70,20 @@ function main(){
     const [week,base,out,stage='inventory']=args;
     assert(out,'Usage: export WEEK BASE_SHA OUTPUT [inventory|enrichment|ready]');
     assert.match(base,/^[a-f0-9]{40}$/);
-    const files=[...allowedPaths(week)].filter(p=>fs.existsSync(p)).map(p=>({path:p,base_sha256:digest(gitRead(base,p)),content:fs.readFileSync(p,'utf8')})).filter(f=>digest(f.content)!==f.base_sha256);
+    const files=[...allowedPaths(week)].filter(p=>fs.existsSync(p)).map(p=>{
+      const content=fs.readFileSync(p,'utf8');
+      return {path:p,base_sha256:digest(gitRead(base,p)),content,content_sha256:digest(content),content_bytes:Buffer.byteLength(content,'utf8')};
+    }).filter(f=>digest(f.content)!==f.base_sha256);
     const progress=fs.existsSync(`data/research/${week}.json`)?JSON.parse(fs.readFileSync(`data/research/${week}.json`)):{};
     const bundle={schema_version:1,week,base_sha:base,stage,remaining:progress.remaining||['Reprendre la recherche et vérifier les critères éditoriaux.'],files};
     validateBundle(bundle);fs.writeFileSync(out,JSON.stringify(bundle,null,2)+'\n');console.log(out);
   }else if(command==='apply'||command==='check'){
-    const bundle=JSON.parse(fs.readFileSync(args[0],'utf8'));
+    const raw=fs.readFileSync(args[0],'utf8'),bundle=JSON.parse(raw);
     const changes=planImport(bundle,p=>fs.existsSync(p)?fs.readFileSync(p,'utf8'):null);
     if(command==='apply')for(const f of changes){fs.mkdirSync(path.dirname(f.path),{recursive:true});fs.writeFileSync(f.path,f.content);}
     console.log(`${changes.length} file(s) ${command==='apply'?'imported':'validated'}; publication unchanged.`);
+    if(command==='check')console.log(JSON.stringify({bundle_bytes:Buffer.byteLength(raw,'utf8'),bundle_sha256:digest(raw),
+      files:preflightCommitFiles(bundle.files).fingerprints}));
   }else throw Error('Usage: editorial-handoff.mjs export|check|apply ...');
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href)main();

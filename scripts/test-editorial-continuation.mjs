@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
-import {auditRecordedRun, CONTINUATION_REVISION, LEGACY_CONTINUATION_REVISION, decideContinuation, nextActions, parseCli} from './editorial-continuation.mjs';
+import {auditRecordedRun, CONTINUATION_REVISION, PREVIOUS_CONTINUATION_REVISION, LEGACY_CONTINUATION_REVISION, decideContinuation, nextActions, parseCli} from './editorial-continuation.mjs';
 
 const started_at = '2026-10-09T07:02:51.000Z';
 const now = '2026-10-09T07:19:27.285Z';
@@ -206,6 +206,21 @@ test('unknown revisions never select a budget implicitly, and the new revision s
     stop_reason:'two_daily_third_choices_completed_validated_and_checkpoint_ready_for_remote_save_before_active_work_limit'};
   assert(!auditRecordedRun(legacyCheckpoint,progress).some(w=>/before the .*minute work threshold/.test(w)));
   assert(auditRecordedRun({...legacyCheckpoint,prompt_revision:CONTINUATION_REVISION},progress).some(w=>/before the 50-minute/.test(w)));
+});
+
+test('integrity and previous efficiency revisions preserve the same observed 50-minute work threshold', () => {
+  for (const revision of [CONTINUATION_REVISION, PREVIOUS_CONTINUATION_REVISION]) {
+    const before = decideContinuation(input({now:'2026-10-09T07:52:50.000Z',prompt_revision:revision}));
+    const after = decideContinuation(input({now:'2026-10-09T07:52:51.000Z',prompt_revision:revision}));
+    assert.equal(before.action,'continue');
+    assert.equal(after.reason_code,'budget_reserve_reached');
+    assert.equal(after.budget_seconds,3300);
+    assert.equal(after.reserve_seconds,300);
+    assert(auditRecordedRun({prompt_revision:revision},progress).some(w => /lacks continuation_decision/.test(w)));
+    const run = {started_at,prompt_revision:revision,ended_at:after.observed_at,
+      run_state:'stopped',stop_reason:after.reason_code,continuation_decision:after};
+    assert.deepEqual(auditRecordedRun(run,progress),[]);
+  }
 });
 
 test('CLI parses known clock/lease inputs and rejects accidental unsupported flags', () => {
