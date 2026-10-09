@@ -25,6 +25,34 @@ const card = overrides => ({work_id:'film-1962',date:'2026-10-10',time:'20:50',c
     current_broadcast:'Créneau du 10 octobre recoupé avec la chaîne.',editorial_copy:'Synopsis et justification écrits et relus pour cette proposition.',evidence_urls:['https://official.example.test/film']},...overrides});
 const plan = cards => ({schema_version:1,week:'2026-S42',from:'2026-10-10',source_sha:'a'.repeat(40),cards:cards || [card()],remaining:['Terminer les six autres jours et les rubriques, puis revoir la candidate complète.']});
 const issueFrom = result => JSON.parse(result.bundle.files.find(file => file.path === 'data/weeks/2026-S42.json').content);
+const appendedCard = (rank=5,overrides={}) => {
+  const supplied=work('next-film-2005','Prochain film',2005);delete supplied.occurrences;
+  return card({work_id:supplied.id,work:supplied,links:{imdb:'https://www.imdb.com/title/tt0056218/'},rank,grid_reason:undefined,...overrides});
+};
+const savedDailyContext = () => {
+  const original=fixture(), cards=[card()];
+  for(let rank=2;rank<=4;rank++){
+    const supplied=work('saved-film-'+rank,'Film conservé '+rank,2000+rank);delete supplied.occurrences;
+    cards.push(card({work_id:supplied.id,work:supplied,rank,links:{imdb:'https://www.imdb.com/title/tt0056218/'},
+      grid_reason:rank===4?undefined:'Commentaire de grille conservé '+rank}));
+  }
+  const first=buildDraftBundle(original,plan(cards));
+  const raw=new Map(['data/works.json','data/links.json','data/manifest.json'].map(name=>[name,original.read(name)]));
+  for(const file of first.bundle.files)raw.set(file.path,file.content);
+  const issue=JSON.parse(raw.get('data/weeks/2026-S42.json'));
+  issue.pages.push({id:'sommaire',className:'page',html:'<p>Sommaire sauvegardé à préserver</p>'});
+  issue.pages.push({id:'custom-notes',className:'page',html:'<p>Page étrangère au lot</p>'});
+  issue.page_count=issue.pages.length;
+  issue.personalization.pools['samedi-selection'].shortage_reason={status:'pending',note:'Motif original non modifié'};
+  issue.personalization.pools['samedi-selection'].candidates[0].review={checked_at:'2026-08-01',status:'conflict',note:'Ancienne preuve à conserver'};
+  const manifest=JSON.parse(raw.get('data/manifest.json'));manifest.weeks.find(entry=>entry.week==='2026-S42').page_count=issue.page_count;
+  const works=JSON.parse(raw.get('data/works.json'));delete works.works[0].image_checked;
+  raw.set('data/weeks/2026-S42.json',JSON.stringify(issue,null,2)+'\n');
+  raw.set('data/manifest.json',JSON.stringify(manifest,null,2)+'\n');
+  raw.set('data/works.json',JSON.stringify(works,null,2)+'\n');
+  return {sha:original.sha,read:name=>raw.get(name)??null,manifest,works,issue,
+    links:JSON.parse(raw.get('data/links.json')),shell:raw.get('semaines/2026-S42/index.html')};
+};
 
 test('one decision renders a feature, matching pool and explicit grid without changing latest or proof dates', () => {
   const context=fixture(), snapshot=JSON.stringify(context), result=buildDraftBundle(context,plan()), issue=issueFrom(result);
@@ -102,6 +130,58 @@ test('existing daily decisions need explicit replacement; unrelated pages and fu
   assert.match(issue.pages[2].html,/<span>3<\/span><\/div>$/);
   assert(!issue.pages.some(page => page.id === 'samedi-grille-2'),'stale second grid is removed when the whole day is replaced');
   assert(!result.bundle.files.some(file => file.path.startsWith('semaines/')),'existing shell preserved');
+});
+
+test('incremental daily reserves preserve all saved cards, pages and original evidence without resubmitting reviews', () => {
+  const context=savedDailyContext(), snapshot=JSON.stringify(context);
+  const decision=appendedCard(), originalPool=context.issue.personalization.pools['samedi-selection'];
+  const result=buildDraftBundle(context,{...plan([decision]),append_days:['samedi']}), issue=issueFrom(result);
+  assert.deepEqual(issue.personalization.pools['samedi-selection'].candidates.slice(0,4),originalPool.candidates);
+  assert.deepEqual({...issue.personalization.pools['samedi-selection'],candidates:[]},{...originalPool,candidates:[]});
+  assert.equal(issue.personalization.pools['samedi-selection'].candidates[4].rank,5);
+  assert.equal(issue.personalization.pools['samedi-selection'].candidates[4].title,'Prochain film');
+  assert.deepEqual(issue.pages,context.issue.pages,'no primary, grid, footer, navigation or unrelated page is regenerated');
+  assert.equal(issue.page_count,context.issue.page_count);
+  assert.equal(result.bundle.files.some(file=>file.path==='data/manifest.json'),false,'public manifest and draft entry remain exact');
+  assert.equal(result.report.authored_cards,1);assert.equal(result.report.public_daily_cards,0);
+  assert.equal(result.report.reviews.length,1);assert.equal(result.report.reviews[0].work_id,decision.work_id);
+  assert.equal(result.report.toc_rendered,false);
+  assert.equal(result.report.publication_ready,false);assert.equal(result.report.review_sealed,false);
+  assert.equal(issue.publication_status,'draft');assert.deepEqual(result.bundle.remaining,plan().remaining);
+  assert.equal(JSON.stringify(context),snapshot);
+});
+
+test('incremental grid rows require an explicit reason and preserve existing HTML around the added row', () => {
+  const context=savedDailyContext(), source=context.issue.pages.find(page=>page.id==='samedi-grille');
+  const reason='Nouvelle justification explicite <et> relue.';
+  const result=buildDraftBundle(context,{...plan([appendedCard(5,{grid_reason:reason})]),append_days:['samedi']});
+  const issue=issueFrom(result), grid=issue.pages.find(page=>page.id===source.id);
+  assert(grid.html.startsWith(source.html.split('</tbody>')[0]));
+  assert(grid.html.endsWith('</tbody>'+source.html.split('</tbody>')[1]));
+  assert.match(grid.html,/Nouvelle justification explicite &lt;et&gt; relue\./);
+  assert.equal((grid.html.match(/<td class="prog">/g)||[]).length,4);
+  assert.deepEqual(issue.pages.filter(page=>page.id!==source.id),context.issue.pages.filter(page=>page.id!==source.id));
+  assert.throws(()=>buildDraftBundle(context,{...plan([appendedCard(5,{grid_reason:reason})]),append_days:['samedi'],grid_page_size:3}),/exceeds existing page capacity/);
+  const withoutGrid={...context,issue:structuredClone(context.issue)};withoutGrid.issue.pages=withoutGrid.issue.pages.filter(page=>page.id!==source.id);
+  assert.throws(()=>buildDraftBundle(withoutGrid,{...plan([appendedCard(5,{grid_reason:reason})]),append_days:['samedi']}),/require an existing grid page/);
+});
+
+test('incremental mode rejects stale plans, primary replacements, duplicate works, guessed ranks and incompatible operations', () => {
+  const context=savedDailyContext(), valid={...plan([appendedCard()]),append_days:['samedi']}, snapshot=JSON.stringify(context);
+  assert.throws(()=>buildDraftBundle(context,{...valid,source_sha:'b'.repeat(40)}),/stale plan/);
+  for(const rank of [undefined,1,4,6])assert.throws(()=>buildDraftBundle(context,{...valid,cards:[appendedCard(rank,{rank})]}),/rank/);
+  const duplicate=appendedCard(5,{work_id:'saved-film-4',work:undefined});
+  assert.throws(()=>buildDraftBundle(context,{...valid,cards:[duplicate]}),/cannot replace an existing candidate/);
+  assert.throws(()=>buildDraftBundle(context,{...valid,cards:[appendedCard(5,{review:undefined})]}),/explicit card review/);
+  for(const append_days of [[],['unknown'],['samedi','samedi'],['dimanche'],['samedi','dimanche']])
+    assert.throws(()=>buildDraftBundle(context,{...valid,append_days}),/append_days/);
+  for(const extra of [{replace_days:['samedi']},{render_toc:true},{methode:{}},{cover:{}},{sections:[{}]},{shortage_reasons:{samedi:'changed'}}])
+    assert.throws(()=>buildDraftBundle(context,{...valid,...extra}),/cannot be mixed/);
+  const missingPrimary={...context,issue:structuredClone(context.issue)};
+  missingPrimary.issue.personalization.pools['samedi-selection'].candidates.length=2;
+  assert.throws(()=>buildDraftBundle(missingPrimary,valid),/cannot create or replace daily primaries/);
+  assert.throws(()=>buildDraftBundle(fixture(),valid),/requires an existing draft/);
+  assert.equal(JSON.stringify(context),snapshot,'all rejected plans leave the saved state intact');
 });
 
 test('titles and editorial copy are escaped; active URLs and conflicting versions are rejected', () => {

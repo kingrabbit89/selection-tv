@@ -7,13 +7,15 @@ import {pathToFileURL} from 'node:url';
 // Historical revisions retain their own 55- or 35-minute target during audit.
 export const SOFT_BUDGET_SECONDS = 55 * 60;
 export const SAVE_RESERVE_SECONDS = 5 * 60;
-export const CONTINUATION_REVISION = 'production-integrity-2026-10-09';
-export const PREVIOUS_CONTINUATION_REVISION = 'production-efficiency-2026-10-09';
+export const CONTINUATION_REVISION = 'production-dataflow-2026-10-09';
+export const PREVIOUS_CONTINUATION_REVISION = 'production-integrity-2026-10-09';
+export const EFFICIENCY_CONTINUATION_REVISION = 'production-efficiency-2026-10-09';
 export const LEGACY_CONTINUATION_REVISION = 'production-continuation-2026-10-09';
 const legacyBudget = Object.freeze({budget_seconds:35 * 60, reserve_seconds:SAVE_RESERVE_SECONDS});
 export const BUDGET_PROFILES = Object.freeze({
   [CONTINUATION_REVISION]:Object.freeze({budget_seconds:SOFT_BUDGET_SECONDS, reserve_seconds:SAVE_RESERVE_SECONDS}),
   [PREVIOUS_CONTINUATION_REVISION]:Object.freeze({budget_seconds:SOFT_BUDGET_SECONDS, reserve_seconds:SAVE_RESERVE_SECONDS}),
+  [EFFICIENCY_CONTINUATION_REVISION]:Object.freeze({budget_seconds:SOFT_BUDGET_SECONDS, reserve_seconds:SAVE_RESERVE_SECONDS}),
   [LEGACY_CONTINUATION_REVISION]:legacyBudget
 });
 const budgetProfile = revision => Object.hasOwn(BUDGET_PROFILES, revision) ? BUDGET_PROFILES[revision] : null;
