@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T22:46:36.075Z",
+  "updated_at": "2026-10-09T22:48:25.108Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -14,7 +14,7 @@
     "T18 14 octobre : neuf épisodes/sujets et horaires concordent largement entre LeZapp, TV-Programme et ProgrammeTVCeSoir, sans base positive d'acquisition indépendante. Fait nouveau : Télé 7 Jours attribue au créneau 00:20 Sur la scène du crime l'épisode « Jogging fatal - affaire Nelly Crémel », tandis que LeZapp et ProgrammeTVCeSoir donnent « Meurtre en sous-sol - affaire Manteau » ; résoudre ce conflit exact ou exclure ce créneau. Face à face reste identifié comme fiction policière, hors rappel documentaire.",
     "TF1 Séries Films : neuf diffusions recoupées et nuits consultées ; blocs nocturnes génériques non détaillés, réception et cartes à terminer. CSTAR 16 octobre : Un mariage à Noël concorde à 21:10 ; Noël à la carte 22:49/22:45 et identité des quatre Douanes à départager ; indépendance et nuits restent à certifier.",
     "Rappel TNT principal réconcilié : les dix éléments génériques sont rapprochés ou exclus, dont Envoyé spécial et Au cœur de l’enquête sans sujet identifié. Les autres passes partielles (cinéma payant, TV5MONDE FBS, RMC, Ciné+) et le conflit de version Marine restent ouverts dans leurs dossiers propres.",
-    "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
+    "Cinéma payant : le calendrier mensuel reste borné à huit premières diffusions et n’est plus attendu comme grille exhaustive ; les faits de grille retenus suivent le PDF fourni ou web_schedule_evidence. Poursuivre titre par titre les autres chaînes/rediffusions prometteuses, droits, offres, expirations, versions et critique indépendante avant sélection ; conserver les divergences mensuelles déjà sauvegardées.",
     "France 4 : Rachelle Allison à la Cigale du 15/10 à 20:30 et Hakim Jemili : Super du 13/10 à 23:10 restent des observations non rendues ; la première est recoupée officiellement, la seconde conserve son titre tiers sans assimilation au libellé officiel. Aucune carte n'en dépend. Restent la réception/offres documentaires, les épisodes génériques et le rappel France 4.",
     "TV5MONDE FBS : revue applicable des omissions achevée sur les sept colonnes du PDF fourni et 50 créneaux sauvegardés, sans affirmation d’indépendance amont. Identifier seulement les sujets propres d’Au bout de l’enquête (10/10 09:30 et 17:10 ; 11/10 14:38), de Temps présent (13/10 17:05 ; 14/10 09:50) et les épisodes génériques avant tout examen éditorial ; poursuivre séparément offres et expirations TV5MONDE+.",
     "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma.",
@@ -1392,7 +1392,8 @@
     "review-tcm-seven-days-pdf-and-web-schedule-evidence-2026-10-09",
     "review-tv5monde-fbs-seven-pdf-columns-2026-10-09",
     "reconcile-rmc-web-schedule-evidence-preserve-conflicts-2026-10-09",
-    "close-three-selected-cineplus-events-and-scope-rmc-gaps-2026-10-09"
+    "close-three-selected-cineplus-events-and-scope-rmc-gaps-2026-10-09",
+    "reconcile-paid-cinema-monthly-source-scope-2026-10-09"
   ],
   "blockers": [
     {
@@ -27280,6 +27281,34 @@
       },
       "evidence_note": "Deux guides datés d’éditeurs distincts concordent sur les quatre faits de grille des trois cartes. Aucune indépendance amont n’est affirmée.",
       "status": "verified_for_selected_cards_under_web_schedule_evidence"
+    },
+    {
+      "id": "run23-paid-cinema-monthly-source-scope-review",
+      "work_id": null,
+      "fields": [
+        "source_scope",
+        "schedule_evidence_route",
+        "title_level_residual_fields"
+      ],
+      "source_urls": [
+        "https://tv.orange.fr/fiche-info/en-direct/videos/1758700882",
+        "https://tv.orange.fr/fiche-info/en-direct/videos/1758700880",
+        "https://tv.orange.fr/fiche-info/en-direct/videos/1755589532",
+        "https://tv.orange.fr/fiche-info/en-direct/videos/1755588468",
+        "https://tv.orange.fr/fiche-info/en-direct/videos/1757606948",
+        "https://tv.orange.fr/fiche-info/en-direct/videos/1752939916",
+        "https://tv.orange.fr/fiche-info/en-direct/videos/1755173230",
+        "https://tv.orange.fr/fiche-info/en-direct/videos/1755180422",
+        "https://tv.moustique.be/chaine/287/cine-classic.html?date=2026-10-10&period=morning"
+      ],
+      "checked_at": "2026-10-09T22:48:25.108Z",
+      "stability": "cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "scope": "paid_cinema_monthly_and_operator_sources"
+      },
+      "evidence_note": "Huit premières diffusions et fiches opérateur ponctuelles conservées. Aucune exhaustivité de grille déduite ; droits, offres, expirations, versions et critique restent ouverts titre par titre.",
+      "status": "source_scope_reconciled_nonexhaustive"
     }
   ],
   "run_metrics": [
@@ -34318,7 +34347,8 @@
         "review-tcm-seven-days-pdf-and-web-schedule-evidence-2026-10-09",
         "review-tv5monde-fbs-seven-pdf-columns-2026-10-09",
         "reconcile-rmc-web-schedule-evidence-preserve-conflicts-2026-10-09",
-        "close-three-selected-cineplus-events-and-scope-rmc-gaps-2026-10-09"
+        "close-three-selected-cineplus-events-and-scope-rmc-gaps-2026-10-09",
+        "reconcile-paid-cinema-monthly-source-scope-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -34329,9 +34359,9 @@
       "cards_integrated_this_run": 0,
       "draft_cards": 0,
       "partial_dossiers": 0,
-      "requirements_resolved": 5,
+      "requirements_resolved": 6,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre la revue hebdomadaire sur le prochain défaut factuel accessible ou la passe documentaire, sans rouvrir les événements Ciné+ clos.",
+      "next_useful_batch": "Poursuivre une lacune factuelle/documentaire précise parmi les exigences encore ouvertes ; les sources mensuelles restent bornées à leur portée.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -34515,23 +34545,46 @@
             "lease_until": "2026-10-09T23:38:16.947Z",
             "external_stop": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T22:47:37.296Z",
+          "elapsed_seconds": 1694.133,
+          "prompt_revision": "production-web-evidence-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "c2d2f9cb53d08c865e64fd4e3bf176e9fbd16ee1",
+          "next_actions": [
+            "Poursuivre la revue hebdomadaire sur le prochain défaut factuel accessible ou la passe documentaire, sans rouvrir les événements Ciné+ clos."
+          ],
+          "remaining_count": 16,
+          "waiting_actions_count": 3,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T22:19:23.163Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T23:38:16.947Z",
+            "external_stop": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T22:45:32.860Z",
-        "elapsed_seconds": 1569.697,
+        "observed_at": "2026-10-09T22:47:37.296Z",
+        "elapsed_seconds": 1694.133,
         "prompt_revision": "production-web-evidence-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "0638f5a3d835baa03a899e4152882becd04bfb13",
+        "source_sha": "c2d2f9cb53d08c865e64fd4e3bf176e9fbd16ee1",
         "next_actions": [
-          "Traiter une prochaine lacune factuelle ou documentaire accessible ; ne pas rouvrir les provenances techniques déjà réconciliées."
+          "Poursuivre la revue hebdomadaire sur le prochain défaut factuel accessible ou la passe documentaire, sans rouvrir les événements Ciné+ clos."
         ],
-        "remaining_count": 17,
-        "waiting_actions_count": 4,
+        "remaining_count": 16,
+        "waiting_actions_count": 3,
         "research_review_warnings": [],
         "observations": {
           "started_at": "2026-10-09T22:19:23.163Z",
@@ -34589,6 +34642,13 @@
           "ended_at": "2026-10-09T22:46:36.075Z",
           "overlap": false,
           "note": "Trois cartes Ciné+ hors PDF closes par web_schedule_evidence ; deux conflits RMC confirmés hors tout livrable retenu et conservés comme observations non bloquantes."
+        },
+        {
+          "kind": "coverage_reconciliation",
+          "started_at": "2026-10-09T22:47:37.296Z",
+          "ended_at": "2026-10-09T22:48:25.108Z",
+          "overlap": false,
+          "note": "Portée du calendrier mensuel cinéma payant réconciliée ; aucune exhaustivité inventée, champs titre par titre préservés."
         }
       ],
       "requirements_resolved_details": [
@@ -34596,7 +34656,8 @@
         "TCM Cinéma : ancienne exigence de provenance technique close pour le rappel d’omissions selon la politique à jour ; 98 créneaux relus, zéro omission, enrichissement éditorial conservé.",
         "TV5MONDE FBS : exigence de provenance amont close pour le niveau 2 sous autorité du PDF fourni ; sujets/épisodes/offres résiduels conservés.",
         "RMC Story/Découverte : ancienne exigence de fournisseur EPG retirée selon web_schedule_evidence ; conflits, alias et épisodes génériques restent ouverts.",
-        "Ciné+ Festival : les neuf événements de cartes retenues sont clos (six par PDF relu, trois par deux guides datés d’éditeurs distincts) ; aucune indépendance amont affirmée."
+        "Ciné+ Festival : les neuf événements de cartes retenues sont clos (six par PDF relu, trois par deux guides datés d’éditeurs distincts) ; aucune indépendance amont affirmée.",
+        "Cinéma payant : attente d’exhaustivité de la source mensuelle close ; champs titre par titre et divergences conservés."
       ],
       "control_notes": [
         "preparation-gaps sur eadc052 : seul coverage-full-week reste bloquant structurellement ; les sept jours ont dix cartes matérialisées et l’objectif de quinze reste un avertissement non bloquant.",
@@ -34611,7 +34672,8 @@
         "Après la réconciliation TV5MONDE FBS, validate-editorial ne conserve que full_week_reaudit_completed=false ; preparation-gaps reste à une action bloquante de couverture hebdomadaire et sept avertissements 10/15.",
         "RMC reste partiel pour des défauts factuels précis ; aucun flag hebdomadaire ou indépendance de flux n’est attesté.",
         "Après la réconciliation RMC, validate-editorial ne conserve que full_week_reaudit_completed=false ; preparation-gaps reste à une action bloquante de couverture hebdomadaire et sept avertissements 10/15. Les cinq groupes de défauts RMC restent visibles dans le suivi.",
-        "Les neuf événements Ciné+ Festival auparavant ouverts sont clos uniquement pour leurs quatre faits de grille. Le groupe Ciné+ demeure distinct dans la revue globale tant que les autres segments cinéma ne sont pas attestés."
+        "Les neuf événements Ciné+ Festival auparavant ouverts sont clos uniquement pour leurs quatre faits de grille. Le groupe Ciné+ demeure distinct dans la revue globale tant que les autres segments cinéma ne sont pas attestés.",
+        "La source mensuelle cinéma payant reste non exhaustive par construction ; aucune grille, droit ou offre supplémentaire n’est certifié par cette réconciliation."
       ],
       "measurements": {
         "schedule_facts_corrected": {
@@ -35299,11 +35361,11 @@
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
+      "Cinéma payant : le calendrier mensuel reste borné à huit premières diffusions et n’est plus attendu comme grille exhaustive ; les faits de grille retenus suivent le PDF fourni ou web_schedule_evidence. Poursuivre titre par titre les autres chaînes/rediffusions prometteuses, droits, offres, expirations, versions et critique indépendante avant sélection ; conserver les divergences mensuelles déjà sauvegardées.",
       "RMC Story/Découverte : l’absence de fournisseur EPG public n’est plus bloquante sous web_schedule_evidence. Sur 127 créneaux, 87 concordent exactement et 35 concordent sur série/date/heure mais gardent leurs épisodes Au cœur des douanes à identifier. Restent deux conflits de titre (10/10 06:05 ; 15/10 22:30), trois alias à confirmer et quatre ajouts du rappel à évaluer ; aucune indépendance amont n’est affirmée.",
       "TV5MONDE FBS : revue applicable des omissions achevée sur les sept colonnes du PDF fourni et 50 créneaux sauvegardés, sans affirmation d’indépendance amont. Identifier seulement les sujets propres d’Au bout de l’enquête (10/10 09:30 et 17:10 ; 11/10 14:38), de Temps présent (13/10 17:05 ; 14/10 09:50) et les épisodes génériques avant tout examen éditorial ; poursuivre séparément offres et expirations TV5MONDE+.",
       "TCM : revue applicable des omissions achevée sur 98 créneaux (78 lignes du PDF fourni visuellement relues, 20 créneaux concordants entre TV-Programme et Télérama.fr) ; aucune omission relevée et aucune indépendance amont affirmée. Poursuivre seulement l’enrichissement éditorial des documentaires et films prometteurs non encore retenus, sans rouvrir la provenance technique des grilles.",
-      "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
-      "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet."
+      "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle."
     ],
     "publisher": {
       "checked_at": "2026-10-08T14:40:33.431Z",
@@ -36188,20 +36250,36 @@
         "https://tv.orange.fr/fiche-info/en-direct/videos/1755180422",
         "https://tv.moustique.be/chaine/287/cine-classic.html?date=2026-10-10&period=morning"
       ],
-      "status": "operator_fiches_and_secondary_grid_added_nonexhaustive",
-      "result": "Les fiches Orange, source opérateur distincte, recoupent plusieurs créneaux exacts de Ciné+ Classic et Frisson et conservent les écarts 13:30/13:32, 15:35/15:36, 08:47–08:50, 10:47–10:50 et 11:32/11:34. Moustique fournit une grille secondaire, sans provenance EPG publiée. Ces fiches ne forment ni une archive exhaustive des sept jours ni une preuve de fournisseur indépendant ; le rappel cinéma payant reste ouvert.",
-      "blocking_scope": "rappel cinéma payant hebdomadaire",
+      "status": "monthly_source_scope_reconciled_schedule_evidence_separate",
+      "result": "Le calendrier mensuel et les fiches Orange conservent leur portée ponctuelle. La grille hebdomadaire fournie et web_schedule_evidence sont les voies de preuve des faits de grille ; aucune exhaustivité artificielle n’est demandée à l’annonce mensuelle.",
+      "blocking_scope": "aucun : le calendrier mensuel n’est pas requis comme grille exhaustive ; les champs titre par titre restent dans remaining",
       "resume_condition": "Une extraction systématique des sept jours et de toutes les chaînes Ciné+ depuis une source opérateur ou officielle, avec contradictions réconciliées, est encore requise.",
-      "retry_gate": {
-        "state": "waiting_for_new_evidence",
-        "action_texts": [
-          "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet.",
-          "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection."
-        ],
-        "reason": "Le calendrier mensuel, les fiches Orange ponctuelles et la grille secondaire ont été exploités dans leur portée ; ils ne deviennent pas une grille hebdomadaire exhaustive par répétition.",
-        "resume_when": "Une grille primaire ou une acquisition indépendante documentée couvre les chaînes cinéma manquantes et leurs rediffusions sur les sept dates.",
-        "observed_at": "2026-10-09T21:02:05.686Z",
-        "evidence": "research_attempts[27] ; editorial_reminder_passes[1] et open_reminder_status_summary index 1."
+      "retry_gate_history": [
+        {
+          "state": "waiting_for_new_evidence",
+          "action_texts": [
+            "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet.",
+            "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection."
+          ],
+          "reason": "Le calendrier mensuel, les fiches Orange ponctuelles et la grille secondaire ont été exploités dans leur portée ; ils ne deviennent pas une grille hebdomadaire exhaustive par répétition.",
+          "resume_when": "Une grille primaire ou une acquisition indépendante documentée couvre les chaînes cinéma manquantes et leurs rediffusions sur les sept dates.",
+          "observed_at": "2026-10-09T21:02:05.686Z",
+          "evidence": "research_attempts[27] ; editorial_reminder_passes[1] et open_reminder_status_summary index 1."
+        }
+      ],
+      "blocking": false,
+      "resolved_at": "2026-10-09T22:48:25.108Z",
+      "resolution": {
+        "monthly_first_runs": 8,
+        "operator_fiches_nonexhaustive": true,
+        "schedule_evidence_path": "authoritative_pdf_or_web_schedule_evidence",
+        "residual_fields": [
+          "rights",
+          "offers",
+          "expirations",
+          "versions",
+          "critical_reception"
+        ]
       }
     },
     {
@@ -42718,6 +42796,18 @@
         "conflicts": 2,
         "aliases": 3,
         "generic_episode_slots": 35
+      }
+    },
+    {
+      "id": "run23-paid-cinema-monthly-source-scope",
+      "decided_at": "2026-10-09T22:48:25.108Z",
+      "decision": "monthly_exhaustiveness_requirement_closed_title_level_fields_preserved",
+      "previous_scope": "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
+      "current_scope": "Cinéma payant : le calendrier mensuel reste borné à huit premières diffusions et n’est plus attendu comme grille exhaustive ; les faits de grille retenus suivent le PDF fourni ou web_schedule_evidence. Poursuivre titre par titre les autres chaînes/rediffusions prometteuses, droits, offres, expirations, versions et critique indépendante avant sélection ; conserver les divergences mensuelles déjà sauvegardées.",
+      "evidence": {
+        "monthly_first_runs": 8,
+        "operator_fiches": "nonexhaustive",
+        "schedule_route": "pdf_or_web_schedule_evidence"
       }
     }
   ]
