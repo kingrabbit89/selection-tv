@@ -30,6 +30,7 @@ export function reconcileRadar({issue, radar, works, config}) {
   const byId = new Map(), byTitle = new Map();
   for (const work of catalogue) {
     assert(typeof work?.id === 'string' && work.id.trim(), 'canonical catalogue entry requires a nonempty work ID');
+    assert(!byId.has(work.id), 'canonical catalogue requires unique work IDs');
     byId.set(work.id, [...(byId.get(work.id) || []), work]);
     for (const title of [work.title,...(work.aliases || [])]) {
       if (!title) continue;

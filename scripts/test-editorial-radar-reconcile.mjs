@@ -67,6 +67,10 @@ test('malformed canonical entries cannot make different title-only films look id
   const original = structuredClone(input);
   assert.throws(() => reconcileRadar(input), /nonempty work ID/);
   assert.deepEqual(input, original);
+  input.works.works = [{id:'same-id',title:'Film A'},{id:'same-id',title:'Film B'}];
+  const duplicateIds = structuredClone(input);
+  assert.throws(() => reconcileRadar(input), /unique work IDs/);
+  assert.deepEqual(input, duplicateIds);
 });
 
 test('explicit edition disagreements retain both candidates for review', () => {
