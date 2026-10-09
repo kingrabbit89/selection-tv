@@ -5,7 +5,7 @@
   "stage": "enrichment",
   "updated_at": "2026-10-09T19:13:11.359Z",
   "remaining": [
-    "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+    "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
     "Réconcilier les horaires et doublons ambigus : Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min). Suivi du 08/10 : la fiche officielle Dahlia ne montre qu'un événement hors cycle ; deux autres guides répètent le doublon Saint-Ex sans l'arbitrer.",
     "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
@@ -1311,6 +1311,16 @@
         "data/works.json",
         "data/links.json",
         "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "review-and-close-primary-inventory-level-2026-10-09",
+      "completed_at": "2026-10-09T19:25:29.218Z",
+      "scope": "coverage:level-1-primary-inventory",
+      "summary": "Les sept inventaires primaires sont relus contre inventory et coverage : 308 à 340 lignes par jour, 67 à 78 lignes nocturnes, 35 chaînes, toutes les 29 chaînes actives requises, comptes par chaîne et 70 à 87 pages sources. Seul le niveau 1 est clôturé ; indépendance et rappel restent faux.",
+      "deliverables": [
+        "data/coverage/2026-S42.json",
         "data/research/2026-S42.json"
       ]
     }
@@ -25790,6 +25800,38 @@
       },
       "evidence_note": "Identité René Allio 1965 certaine, durée canonique 94 min. Trois guides concordent sur 10:50 ; la fenêtre EPG 90 min est conservée séparément et ne certifie pas une coupe TCM.",
       "status": "verified_for_card"
+    },
+    {
+      "fields": [
+        "inventory.days",
+        "inventory.nights",
+        "inventory.channels_scanned",
+        "inventory.channel_counts",
+        "inventory.source_pages",
+        "inventory.required_fields"
+      ],
+      "source_urls": [
+        "data/inventory/2026-S42.json",
+        "data/coverage/2026-S42.json",
+        "data/editorial-config.json"
+      ],
+      "checked_at": "2026-10-09T19:25:29.218Z",
+      "stability": "cycle",
+      "applies_to": {
+        "week": "2026-S42",
+        "coverage_level": 1,
+        "dates": [
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16"
+        ]
+      },
+      "evidence_note": "Revue locale des objets sauvegardés au SHA e675efb : sept dates, 308–340 lignes/jour, 67–78 lignes nocturnes, 35 chaînes dans inventory et coverage, 29/29 chaînes actives requises, comptes par chaîne et champs factuels présents. Ne certifie ni l’indépendance du niveau 2 ni les propositions du niveau 3.",
+      "status": "verified_for_requirement"
     }
   ],
   "run_metrics": [
@@ -30642,14 +30684,16 @@
         "sync-main-955eaea-closure-tooling-2026-10-09",
         "replace-five-duplicate-popular-deep-reserves-2026-10-09",
         "append-three-reviewed-thursday-reserves-2026-10-09",
-        "append-three-new-reviewed-tuesday-reserves-2026-10-09"
+        "append-three-new-reviewed-tuesday-reserves-2026-10-09",
+        "review-and-close-primary-inventory-level-2026-10-09"
       ],
       "deliverables_changed": [
         "data/radar-reserves/2026-S42.json",
         "data/research/2026-S42.json",
         "data/weeks/2026-S42.json",
         "data/works.json",
-        "data/links.json"
+        "data/links.json",
+        "data/coverage/2026-S42.json"
       ],
       "complete_cards": 125,
       "cards_integrated_this_run": 11,
@@ -30684,10 +30728,11 @@
       "requirements_resolved": [
         "popular_deep : cinq réserves complètes distinctes des choix principaux et de popular_scan, avec signaux dans la fenêtre de 60 jours",
         "jeudi-selection : minimum de dix cartes complètes atteint avec trois réutilisations vérifiées, sans déclarer de pénurie",
-        "mardi-selection : minimum de dix cartes complètes atteint avec trois œuvres nouvelles vérifiées, sans déclarer de pénurie"
+        "mardi-selection : minimum de dix cartes complètes atteint avec trois œuvres nouvelles vérifiées, sans déclarer de pénurie",
+        "couverture niveau 1 : inventaire primaire des sept jours, chaînes actives, journées, nuits, sources, comptes et champs factuels relus et attestés"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Achever et attester la revue de couverture des sept jours en réconciliant les exigences déclarées avec les preuves actuelles.",
+      "next_useful_batch": "Achever les secondes lectures réellement indépendantes et la passe de rappel éditorial ; ne pas attester full_week_reaudit_completed tant que ces niveaux restent faux.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -30770,28 +30815,61 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T19:24:19.274Z",
+          "elapsed_seconds": 1590.15,
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "e675efbaa328c030658361a0c07af43082cef93e",
+          "next_actions": [
+            "Achever et attester la revue de couverture des sept jours en réconciliant les 35 exigences déclarées avec les preuves du SHA courant.",
+            "Conserver les écarts de durée d’œuvre/fenêtre EPG des deux classiques mardi tant qu’aucune source de copie TCM/Ciné+ ne les arbitre.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Réconcilier les horaires et doublons ambigus : Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min)."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 37,
+          "truncated_notice": "32 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T18:57:49.124Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T20:18:19.665Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T19:15:28.995Z",
-        "elapsed_seconds": 1059.871,
+        "observed_at": "2026-10-09T19:24:19.274Z",
+        "elapsed_seconds": 1590.15,
         "prompt_revision": "production-closure-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "b9fd570f996f24ec12fa5c6741bb03053fdc637c",
+        "source_sha": "e675efbaa328c030658361a0c07af43082cef93e",
         "next_actions": [
-          "Compléter trois réserves mardi depuis les dossiers avancés et les diffusions vérifiées.",
-          "Achever et attester la revue de couverture des sept jours sans retirer les exigences encore ouvertes."
+          "Achever et attester la revue de couverture des sept jours en réconciliant les 35 exigences déclarées avec les preuves du SHA courant.",
+          "Conserver les écarts de durée d’œuvre/fenêtre EPG des deux classiques mardi tant qu’aucune source de copie TCM/Ciné+ ne les arbitre.",
+          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+          "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+          "Réconcilier les horaires et doublons ambigus : Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min)."
         ],
         "remaining_count": 35,
-        "next_actions_total": 36,
+        "next_actions_total": 37,
+        "truncated_notice": "32 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
         "observations": {
           "started_at": "2026-10-09T18:57:49.124Z",
           "lease_owned": "yes",
-          "lease_until": "2026-10-09T19:57:49.124Z",
+          "lease_until": "2026-10-09T20:18:19.665Z",
           "external_stop": null,
           "accessible_task_checks": [],
           "ready_handoff": null
@@ -30817,13 +30895,19 @@
           "started_at": "2026-10-09T19:15:28.995Z",
           "ended_at": "2026-10-09T19:22:59.968Z",
           "note": "Trois dossiers sans exposition récente enrichis en parallèle ; identités, diffusions, images, notes ou motifs d’absence et réception relus, puis handoff unique contrôlé."
+        },
+        "primary_inventory_review": {
+          "started_at": "2026-10-09T19:24:19.274Z",
+          "ended_at": "2026-10-09T19:25:29.218Z",
+          "note": "Revue structurée des sept jours au SHA e675efb : lignes, nuits, chaînes, comptes, pages sources et champs factuels comparés entre inventory, coverage et contrat."
         }
       },
       "control_notes": [
         "Le plan mécanique de réconciliation supprimait les doublons mais exposait un déficit de cinq ; il n’a pas été appliqué seul.",
         "Les cinq remplaçants sont distincts des choix visibles et du sillonnage. Le signal de circulation n’est pas traité comme preuve de qualité.",
         "Jeudi atteint dix cartes : Becoming Hitchcock conserve 68/70/72 min distincts, La Maison des femmes 105/110 min distincts et Un crime dans la tête sépare Frankenheimer 1962 du remake Demme 2004.",
-        "Mardi atteint dix cartes. Les fenêtres EPG 115/90 min de La Prisonnière du désert et La Vieille Dame indigne restent distinctes des durées canoniques 119/94 min ; aucune coupe n’est inventée."
+        "Mardi atteint dix cartes. Les fenêtres EPG 115/90 min de La Prisonnière du désert et La Vieille Dame indigne restent distinctes des durées canoniques 119/94 min ; aucune coupe n’est inventée.",
+        "Les sept primary_scan_complete passent à true après revue des preuves. Les sept independent_crosscheck_complete, les sept editorial_reminder_complete et full_week_reaudit_completed restent false."
       ]
     }
   ],
@@ -31485,8 +31569,8 @@
     "main_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Achever et attester la revue de couverture des sept jours en réconciliant les 35 exigences déclarées avec les preuves du SHA courant.",
-      "Conserver les écarts de durée d’œuvre/fenêtre EPG des deux classiques mardi tant qu’aucune source de copie TCM/Ciné+ ne les arbitre."
+      "Achever les secondes lectures indépendantes par jour et chaîne ; les comparaisons marquées not_established restent bloquantes.",
+      "Achever la passe de rappel éditorial et résoudre ou exclure motivément les omissions/conflits avant full_week_reaudit_completed."
     ],
     "publisher": {
       "checked_at": "2026-10-08T14:40:33.431Z",
