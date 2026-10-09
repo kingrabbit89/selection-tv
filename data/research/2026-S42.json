@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "018433005ec07f2d8900af044f82dede06d49a28",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T10:36:47.673Z",
+  "updated_at": "2026-10-09T10:38:54.688Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -624,6 +624,15 @@
       "completed_at": "2026-10-09T10:36:47.673Z",
       "scope": "vendredi",
       "summary": "TV Digital3D recoupe la diffusion La Proie nue du 16 octobre à 23:22 sur Ciné+ Classic ; carte développée désormais complète sans assimiler créneau et durée de copie.",
+      "deliverables": [
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "document-sunday-la-gueule-ouverte-conflict-2026-10-09",
+      "completed_at": "2026-10-09T10:38:54.688Z",
+      "scope": "dimanche",
+      "summary": "Deux voies alternatives inspectées pour La Gueule ouverte ; conflit Ciné+ Festival/Club et 01:04/01:11 consigné, sans promouvoir la carte draft.",
       "deliverables": [
         "data/research/2026-S42.json"
       ]
@@ -22221,7 +22230,8 @@
         "render-method-page-2026-10-09",
         "advance-thursday-machine-ecrire-dossier-2026-10-09",
         "complete-thursday-point-limite-2026-10-09",
-        "complete-friday-la-proie-nue-2026-10-09"
+        "complete-friday-la-proie-nue-2026-10-09",
+        "document-sunday-la-gueule-ouverte-conflict-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -22249,7 +22259,8 @@
         "methode",
         "jeudi : dossier La machine à écrire presque complet",
         "jeudi : Point limite carte complète",
-        "vendredi : La Proie nue carte complète"
+        "vendredi : La Proie nue carte complète",
+        "dimanche : conflit La Gueule ouverte documenté"
       ],
       "requirements_resolved": [
         "Burning an Illusion : deuxième carte du mercredi matérialisée sans masquer le conflit de versions",
@@ -22586,18 +22597,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T10:37:57.097Z",
+          "elapsed_seconds": 2426.425,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "1c048b3e5c4e415122fdcebaae2ec42fad5cc3cc",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T09:57:30.672Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T11:16:44.423Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T10:35:59.991Z",
-        "elapsed_seconds": 2309.319,
+        "observed_at": "2026-10-09T10:37:57.097Z",
+        "elapsed_seconds": 2426.425,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "e46b888763c07fd64e55346f69e8f618a5c527f6",
+        "source_sha": "1c048b3e5c4e415122fdcebaae2ec42fad5cc3cc",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -22619,7 +22659,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Achever A Ghost Story seulement si une preuve de version TCM apparaît ; sinon produire une rubrique indépendante entièrement vérifiée."
+      "next_useful_batch": "Ne reprendre La Gueule ouverte que sur source nouvelle ; produire une autre carte proche de la complétude ou une rubrique indépendante."
     }
   ],
   "source_issues": [
@@ -23517,6 +23557,26 @@
       "blocking": true,
       "status": "needs_new_source",
       "resume_when": "Une page programme France Télévisions exacte, une offre france.tv exploitable ou des métadonnées de flux indiquent la durée/version diffusée."
+    },
+    {
+      "id": "la-gueule-ouverte-channel-conflict-2026-10-09",
+      "object": {
+        "title": "La Gueule ouverte",
+        "work_id": "la-gueule-ouverte-1974",
+        "intended_broadcast": "2026-10-11 01:04 Ciné+ Festival"
+      },
+      "question": "Trouver un recoupement réellement indépendant de la chaîne et de l’heure annoncées par la fiche CANAL+ et la grille sauvegardée.",
+      "attempted_at": "2026-10-09T10:38:54.688Z",
+      "source_urls": [
+        "https://tv.digital3d.com/detail/cineplus-club-43?date=2026-10-11&time=22%3A21",
+        "https://programmetv.ouest-france.fr/film/drame/la-gueule-ouverte-c29665/",
+        "https://www.programme-tv.net/programme/canal-plus/dimanche/1.html"
+      ],
+      "result": "TV Digital3D indexe 01:11–02:45 sur Ciné+ Club, en conflit avec 01:04 sur Ciné+ Festival. La fiche Ouest-France ouverte reste calée sur une diffusion historique et Télé-Loisirs redirige vers une grille glissante. Aucune source alternative exploitable ne certifie le créneau ciblé.",
+      "blocking_scope": "Carte développée du dimanche pour La Gueule ouverte uniquement ; les autres dossiers et la couverture continuent.",
+      "blocking": true,
+      "status": "needs_new_source",
+      "resume_when": "Nouvelle grille indépendante figée ou page officielle nommant explicitement Ciné+ Festival et 01:04 le 11 octobre 2026."
     }
   ],
   "shortlist": {
@@ -23636,7 +23696,8 @@
         "alternatives": [
           "sl-dimanche-kotelnitch",
           "sl-dimanche-silence-rangs"
-        ]
+        ],
+        "decision_note": "Carte draft maintenue hors complétude : source alternative en conflit sur chaîne et heure ; ne reprendre qu’avec une nouvelle grille figée ou page officielle explicite."
       },
       {
         "id": "sl-dimanche-kotelnitch",
