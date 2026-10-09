@@ -48,9 +48,9 @@
     "Tenir une présélection révisable par jour et par rubrique, fondée sur des signaux éditoriaux vérifiables et sourcés ; approfondir d'abord ses pistes et conserver les alternatives, sans ajouter de titre faible pour remplir un quota.",
     "Appliquer ensuite seulement le filtre éditorial.",
     "Conserver 3 choix développés par jour mais ne jamais plafonner la grille filtrée ; paginer si nécessaire.",
-    "Effectuer une passe de rappel indépendante avec au moins un second guide TV et un guide éditorial tel que Télérama pour détecter les omissions, sans copier son jugement. Cette seconde lecture couvre les jours et chaînes du périmètre pour les omissions ; elle ne certifie pas individuellement chaque horaire brut. Deux agrégateurs partageant un même flux ne comptent pas comme deux sources indépendantes.",
+    "Effectuer une passe de rappel indépendante avec au moins un second guide TV et un guide éditorial tel que Télérama pour détecter les omissions, sans copier son jugement. Cette seconde lecture couvre les jours et chaînes du périmètre pour les omissions ; elle ne certifie pas individuellement chaque horaire brut. Deux agrégateurs partageant un même flux ne comptent pas comme deux sources indépendantes. Lorsqu’un PDF Télérama est fourni, sa grille relue fait autorité sur son périmètre : la seconde lecture des omissions peut s’appuyer sur elle sans prouver son fournisseur EPG ni déclarer une indépendance inconnue.",
     "Pour chaque titre retenu, rechercher au moins un lien direct exact ; pour un film, viser deux liens exacts quand disponibles.",
-    "Vérifier les horaires de chaque programme retenu, réserve et ligne de grille commentée avec une source officielle ou deux grilles réellement indépendantes.",
+    "Vérifier les horaires de chaque programme retenu, réserve et ligne de grille commentée avec une source officielle ou deux grilles réellement indépendantes. Pour une ligne lisible du PDF Télérama fourni pour la cible, le titre imprimé, la chaîne, le jour et l’heure font autorité après revue de transcription, sans seconde preuve indépendante de ces quatre faits ; conserver les écarts et les corrections officielles ultérieures datées.",
     "Ne pas générer de page d’index alphabétique dans le numéro : le catalogue permanent et la recherche globale sont les points d’entrée canoniques pour retrouver une œuvre.",
     "Évaluer et consigner l’indépendance des sources sur des preuves positives de provenance ou d’acquisition, avec portée et limites, selon docs/EDITORIAL-CLOSURE-POLICY.md ; le nom public d’un fournisseur EPG n’est pas une condition universelle. Un autre domaine, éditeur ou distributeur et une concordance seuls ne prouvent pas l’indépendance ; une provenance inconnue reste inconnue.",
     "Revoir l’impact des divergences du relevé brut : une note sourcée sans effet sur une proposition, une omission ou la couverture ne bloque pas seule le numéro. Les vraies lacunes de chaîne/date/nuit et les défauts des propositions restent bloquants.",
@@ -181,5 +181,17 @@
       "source_url": "https://canal-assistance.canalplus.com/fr/conversations/abonnement-canal-series/suppression-chaine-paramount/69578e44b680bd747e55af6d",
       "reason": "Arrêt définitif de diffusion confirmé par Olivier_EquipeCANAL (compte officiel). La chaîne linéaire est retirée des scans obligatoires ; Paramount+ reste une plateforme distincte."
     }
-  ]
+  ],
+  "schedule_authority": {
+    "provided_telerama_pdf": "authoritative",
+    "fields": [
+      "title",
+      "channel",
+      "date",
+      "start"
+    ],
+    "scope": "printed_entries_for_target_week",
+    "later_official_corrections": "review_and_record",
+    "uncovered_scope": "existing_web_checks"
+  }
 }

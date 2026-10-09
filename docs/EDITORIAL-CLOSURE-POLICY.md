@@ -4,6 +4,34 @@ Cette politique précise les trois niveaux de `AUTOMATION.md`. Elle ne change
 aucune chaîne obligatoire, aucun seuil, aucune barrière de publication et
 n'atteste aucune source ou carte par elle-même.
 
+## Grille de référence fournie par l’utilisateur
+
+Quand un PDF Télérama correspondant à la cible est fourni, sa grille fait autorité
+pour les titres imprimés, chaînes, jours et heures qu’elle couvre, après revue
+de la transcription. Conserver l’empreinte du PDF, la page, la position, le texte
+lu et la date réelle de revue. Ce choix de référence n’est pas une preuve
+d’indépendance EPG et n’en nécessite pas une pour ces quatre faits.
+
+La seconde lecture des omissions compare réellement l’inventaire avec cette
+référence. Conserver les jours/chaînes/nuits relus, omissions et limites dans
+`coverage.grid_authority_reviews`. Ne pas déclarer une indépendance inconnue ;
+l’arbitrage PDF peut néanmoins achever cette revue sur son périmètre. Une
+ancienne impasse portant uniquement sur la provenance d’un horaire ainsi relu
+ne reste pas une condition de publication. Les fragments ambigus et la
+couverture absente demeurent ouverts. La revue globale `full_week_reaudit_completed`
+est déclarée seulement après achèvement réel de tout le périmètre applicable.
+
+Une divergence d’un agrégateur ne renverse pas seule la référence. Conserver
+les valeurs et appliquer celle du PDF à la grille retenue après revue ; ne pas
+certifier un créneau Web divergent non retenu. Une correction officielle
+ultérieure, précise et datée pour le même événement peut prévaloir, avec sa
+preuve et son motif conservés. Deux PDFs contradictoires ou une identité/version
+ambiguë imposent une revue, pas un choix automatique.
+
+Cette autorité ne s’étend ni aux offres replay, expirations, images ou critiques,
+ni aux métadonnées/version non prouvées par la ligne. Sans PDF pour la cible,
+les règles ci-dessous s’appliquent sans changement.
+
 ## Évaluer les sources
 
 Pour chaque recoupement, conserver les URLs ou captures réellement lues, leur
@@ -31,10 +59,12 @@ l'origine indépendante de tous ses horaires. La portée de chaque preuve compte
 Le niveau 2 est une seconde lecture des jours, chaînes et nuits pour détecter
 les omissions. Il ne demande pas de certifier individuellement chaque créneau
 brut. Une chaîne/date/nuit réellement non relue reste une lacune bloquante.
-Une provenance inconnue ne devient pas une seconde lecture certifiée.
+Une provenance inconnue ne devient pas une seconde source indépendante ; la grille PDF choisie par l’utilisateur peut toutefois servir à la seconde lecture des omissions selon la règle précédente.
 
-Au niveau 3, une diffusion doit toujours être vérifiée par une source officielle
-ou deux grilles dont l'indépendance est établie. Une preuve peut se composer de
+Au niveau 3, les quatre faits imprimés d’une ligne du PDF fourni peuvent être
+acceptés après revue de transcription selon la règle précédente. Hors de ce
+périmètre, une diffusion reste vérifiée par une source officielle ou deux
+grilles dont l’indépendance est établie. Une preuve peut se composer de
 plusieurs pièces complémentaires si elles désignent exactement le même événement
 et la même identité/version : expliciter les liens et les champs réellement
 prouvés. Ne jamais exiger sans justification que tous les champs soient réunis
@@ -112,7 +142,8 @@ checkpoint immuable et ne modifie aucun fichier de candidate. Il conserve
 `all_actions` et affiche `actionable_actions`, `waiting_actions` et les
 `review_warnings`. Sans annotation valide, une question reste à examiner.
 
-La révision `production-proof-policy-2026-10-09` du contrôleur privilégie le
+Les révisions `production-proof-policy-2026-10-09` et
+`production-telerama-authority-2026-10-09` du contrôleur privilégient le
 prochain lot du passage courant et propose les actions accessibles. Les
 attentes demeurent visibles et les exigences demeurent dans `remaining`.
 Leur suspension ne vaut ni résolution, ni attestation de couverture, ni

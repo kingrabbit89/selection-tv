@@ -11,6 +11,7 @@ import {addDays, weekForSaturday} from './week-calendar.mjs';
 import {dailyReserveCandidates, sectionPageMatches} from './editorial-contracts.mjs';
 import {validateTeleramaReport,teleramaExtractionContent} from './editorial-telerama-import.mjs';
 import {joinTeleramaEditorial} from './editorial-telerama-signals.mjs';
+import {teleramaAuthorityPolicy,reviewTeleramaGrid,authoritativeTitleConflictAction} from './editorial-telerama-authority.mjs';
 
 const days = ['samedi','dimanche','lundi','mardi','mercredi','jeudi','vendredi'];
 const array = value => Array.isArray(value) ? value : [];
@@ -214,10 +215,15 @@ export function buildProductionPlan(context, options={}) {
   const freshness = context.personalization_config?.freshness || context.freshness || {};
   const history = exposureIndex(saved.issues,catalogue,Number(freshness.history_lookback_issues || 4));
   const scopeDeficits = deficitsFor(context,range,options), observations = [], warnings = [];
+  const authorityPolicy=teleramaAuthorityPolicy(context.editorial_config);
   const add = (item,source) => {
     if (!item || !String(item.title || '').trim()) {warnings.push({reason:'observation_title_missing',provenance:source}); return;}
     const observation = {...item,start:item.start || item.time,provenance:source};
-    const day = days[Array.from({length:7},(_,i)=>addDays(range.from,i)).indexOf(observation.date)];
+    // The printed Friday night belongs to this issue; keep its actual Saturday
+    // civil date. This narrow opt-in does not rewrite a Web or legacy slot.
+    const lastPrintedNight=authorityPolicy && source.origin==='supplementary_pdf' &&
+      observation.date===addDays(range.to,1) && observation.start<'06:00';
+    const day = days[Array.from({length:7},(_,i)=>addDays(range.from,i)).indexOf(observation.date)] || (lastPrintedNight?'vendredi':null);
     observation.day = day || null;
     const rubric = observation.scope?.rubrique || observation.rubrique;
     const intention = observation.editorial_intention === true;
@@ -314,6 +320,7 @@ export function buildProductionPlan(context, options={}) {
   }
   const attempts = array(context.research?.research_attempts), shortlist = array(context.research?.shortlist?.entries), queue = [];
   for (const group of groups.values()) {
+    const gridReview=reviewTeleramaGrid(group.slots,authorityPolicy);
     const ids = new Set(group.candidates.map(item=>item.work.id).filter(Boolean));
     const names = new Set([group.title,...group.candidates.flatMap(item=>[item.work.title,...array(item.work.aliases)])].map(normalizedTitle).filter(Boolean));
     const ambiguous = group.candidates.length>1;
@@ -338,10 +345,11 @@ export function buildProductionPlan(context, options={}) {
     const conflictingRequirements = [];
     if (ambiguous) conflictingRequirements.push('resolve_same_title_identity_or_remake');
     for (const slot of group.slots) {
-      if(slot.event_titles) conflictingRequirements.push('resolve_scoped_event_title_conflict');
+      if(slot.event_titles) conflictingRequirements.push(authoritativeTitleConflictAction(slot,gridReview));
       if (slot.identity_hints.some(item=>item.conflict)) conflictingRequirements.push(...slot.identity_hints.map(item=>item.conflict).filter(Boolean));
       if (unique(slot.versions).length>1 || unique(slot.ids).length>1) conflictingRequirements.push('resolve_duplicate_slot_version_or_identity_conflict');
     }
+    if(gridReview?.conflicting_pdf_grids.length)conflictingRequirements.push('review_conflicting_pdf_grids');
     conflicts.forEach(({record})=>array(record.fields).forEach(field=>conflictingRequirements.push('resolve_saved_conflict:'+field)));
     const facts = [], texts = [], missing = [];
     for (const candidate of group.candidates) {
@@ -401,8 +409,11 @@ export function buildProductionPlan(context, options={}) {
     const scopedShortlist=shortlist.filter(entry=>matches(entry) && (!entry.scope?.day || entry.scope.day===group.scope) &&
       (!entry.scope?.rubrique || entry.scope.rubrique===group.scope));
     const triageOnly=classification==='new_identity' && !scopedShortlist.some(entry=>!['rejected','deferred'].includes(entry.status));
-    const dynamic = ['review_identity_match_and_exact_version','review_current_broadcast_sources_and_independence','image_health_preflight',
+    // Uncovered alternatives retain their own verification requirement below;
+    // they must not hold up use of the printed PDF slot after its review.
+    const dynamic = ['review_identity_match_and_exact_version',gridReview?'review_telerama_grid_transcription_and_record_source':'review_current_broadcast_sources_and_independence','image_health_preflight',
       'review_current_ratings_or_saved_specific_unavailability','editorial_selection_and_card_review'];
+    if(gridReview?.discrepancies.some(item=>item.kind==='web_time_differs_for_same_title_day_channel'))dynamic.push('compare_printed_grid_times');
     for (const field of stableFields) if (facts.some(fact=>fact.field===field) && !facts.some(fact=>fact.field===field &&
       (array(fact.evidence).some(proof=>proof.stability==='stable' && /^verified(?:_|$)/.test(proof.status || '') && proof.source_urls.length) || array(fact.source_urls).length))) {
       dynamic.push('review_saved_field_provenance:'+field);
@@ -431,6 +442,7 @@ export function buildProductionPlan(context, options={}) {
       historical_exposure:history.get(group.title),canonical_historical_exposure:group.candidates.map(item=>({work_id:item.work.id,exposure:history.get(item.work.title)})),
       shortlist:scopedShortlist,blocked_observations:blocked,
       facts_are_not_fresh_checks:true,automatic_selection:false});
+    if(gridReview)queue.at(-1).schedule_authority=gridReview;
   }
   const byScope = new Map(scopeDeficits.map(item=>[item.scope,item]));
   queue.sort((a,b)=>{
@@ -463,6 +475,10 @@ export function buildProductionPlan(context, options={}) {
       sources:array(report.sources),availability:report.availability || null,coverage_certified:false},warnings,
     freshness_policy:{...freshness,historical_weeks:history.prior.map(item=>item.entry.week),note:'Historical exposure is information, not automatic eligibility or disqualification.'},
     ...(paperSources.length?{supplementary_sources:paperSources}:{}),
+    ...(paperSources.length && authorityPolicy?{schedule_authority:{...authorityPolicy,
+      source_preference:'provided_telerama_pdf',sources:paperSources.map(source=>({sha256:source.sha256,provenance:source.provenance})),
+      groups_with_printed_references:queue.filter(row=>row.schedule_authority).length,
+      coverage_certified:false,automatic_certification:false}}:{}),
     ...editorial,
     queue_order:'Preparation before raw-title triage; production deficits, explicitly saved shortlist, supplied observations, then day/title; materialized/paused last; no artistic ranking.',
     queue:selected.slice(offset,offset+limit),queue_total:selected.length,next_offset:offset+limit<selected.length?offset+limit:null};

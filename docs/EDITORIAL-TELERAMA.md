@@ -1,8 +1,39 @@
 # Import facultatif d'un magazine Télérama
 
-Le magazine fourni complète la découverte, la présélection et la vérification des programmes.
-Le parcours courant continue sans PDF. L'import ne remplace pas l'inventaire Web,
-ne sélectionne aucune œuvre, ne coche aucun flag et ne certifie aucune diffusion.
+Le magazine fourni complète la découverte et la présélection. Sur décision de
+l’utilisateur, sa grille est la référence des titres imprimés, chaînes, jours
+et heures pour la cible après revue de transcription. Le parcours courant
+continue sans PDF. L’import seul ne sélectionne aucune œuvre, ne coche aucun
+flag et ne certifie ni une transcription ni la couverture.
+
+## Portée de l’autorité
+
+Appliquer `schedule_authority` dans `data/editorial-config.json` et la règle de
+`AUTOMATION.md`. Le lot expose une référence de grille avec les pointeurs PDF ;
+les anciennes valeurs Web restent disponibles. Une extraction incertaine demande
+une lecture de page, pas une nouvelle grille indépendante pour confirmer la
+ligne lisible. Les flags techniques anciens `requires_title_review` et
+`requires_broadcast_confirmation` ne demandent plus, dans ce périmètre, une
+seconde preuve de diffusion : la revue de la ligne imprimée fournit la référence.
+
+L’inventaire Web garde ses lignes, URLs et comptes réellement relevés. Une
+référence PDF est un pointeur de papier ; ne pas fabriquer une URL Web pour la
+faire entrer dans un champ de source. Appliquer ses valeurs de grille dans les
+propositions revues en conservant séparément la provenance de l’arbitrage.
+
+Le rappel des omissions reste une vraie comparaison. Consigner dans
+`coverage.grid_authority_reviews` les empreintes/pages, dates/chaînes, lignes
+acceptées, date de revue, omissions résolues et limites. Ne pas cocher une
+indépendance EPG inconnue. Après achèvement réel de cette revue et des contrôles
+hors PDF, l’arbitrage Télérama peut soutenir l’attestation globale de couverture.
+Une absence dans l’extraction films/documentaires ne prouve pas une absence
+dans le magazine : lire les pages utiles ou utiliser les sources ordinaires.
+
+Les offres, expirations, versions, critique indépendante, notes, visuels et liens
+restent à vérifier. Une correction officielle ultérieure sur le même événement
+est enregistrée et peut remplacer l’horaire imprimé ; un simple écart d’agrégateur
+reste documenté et ne déclenche pas une enquête sans fin. Sans magazine valide
+pour la cible, le fonctionnement Web existant reste disponible.
 
 ## Un PDF fourni
 
@@ -31,8 +62,9 @@ reste rejetée et tracée, jamais reconstituée.
 Les scans sans texte, autres mises en page et pages non reconnues demandent une
 revue manuelle ou une préparation OCR distincte ; ils ne deviennent pas une
 grille complète validée. La première nuit du samedi peut être dans le numéro
-précédent ; cette limite reste visible. Les horaires retenus et l'indépendance
-réelle des sources restent à confirmer. Certaines ligatures du PDF peuvent
+précédent ; cette limite reste visible. Les lignes retenues doivent être relues ; leur titre imprimé, chaîne, jour et
+heure font alors autorité sans enquête sur le fournisseur EPG. Les corrections
+officielles ultérieures datées restent consignées. Certaines ligatures du PDF peuvent
 perdre une lettre : `requires_title_review` impose une revue du titre avant
 son rapprochement définitif.
 
@@ -67,8 +99,8 @@ extraction différente du même PDF exige de revoir le supplément existant.
 Les passages suivants chargent les observations sauvegardées au SHA exact avec
 leurs pointeurs de page, sans relire le PDF et sans accès réseau supplémentaire.
 Un titre différent au même créneau devient une contradiction à examiner ; il
-ne remplace pas silencieusement le relevé existant. Les correspondances au
-catalogue restent des pistes à vérifier, avec tous les contrôles ordinaires.
+ne remplace pas silencieusement le relevé existant. Les correspondances au catalogue restent des identités/versions à vérifier ;
+la préférence de grille ne crée ni alias canonique ni carte complète.
 
 ## Entrée préparée et parcours sans magazine
 
