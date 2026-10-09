@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T14:33:11.697Z",
+  "updated_at": "2026-10-09T14:35:47.026Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1074,6 +1074,18 @@
       "completed_at": "2026-10-09T14:33:11.697Z",
       "scope": "samedi-selection:reserve",
       "summary": "Le film de John Frankenheimer Un crime dans la tête (1962) est séparé du remake, enrichi jusqu’à une carte complète puis ajouté comme réserve rang 6 du samedi. CANAL+ établit l’événement 20:50/Ciné+ Classic et la copie 121 min ; Cinémathèque, Roger Ebert, IMDb et le visuel exact complètent le dossier.",
+      "deliverables": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "complete-wednesday-competition-officielle-reserve-2026-10-09",
+      "completed_at": "2026-10-09T14:35:47.026Z",
+      "scope": "mercredi-selection:reserve",
+      "summary": "Compétition officielle est enrichi puis ajouté comme réserve complète rang 5 du mercredi. Le guide officiel ARTE établit 22:40 et la copie 109 min ; Screen Daily, Le Monde, Rotten Tomatoes et le visuel exact complètent le dossier.",
       "deliverables": [
         "data/works.json",
         "data/links.json",
@@ -24017,6 +24029,92 @@
       },
       "evidence_note": "Notes datées et affiche exacte du film de 1962 inspectée.",
       "status": "verified"
+    },
+    {
+      "work_id": "competition-officielle-2021",
+      "fields": [
+        "identity",
+        "directors",
+        "year",
+        "countries",
+        "duration.version"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/guide/20261014/",
+        "https://www.imdb.com/title/tt11700260/",
+        "https://www.rottentomatoes.com/m/official_competition_2021"
+      ],
+      "checked_at": "2026-10-09T14:35:47.026Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "version": "ARTE 109 min"
+      },
+      "evidence_note": "Film 2021 certain ; copie ARTE 109 min distinguée des fiches cinéma 114/115 min.",
+      "status": "verified"
+    },
+    {
+      "work_id": "competition-officielle-2021",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "daily_reserve_card"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/guide/20261014/",
+        "https://tv-programme.com/arte/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-09T14:35:47.026Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "start": "22:40",
+        "channel": "Arte",
+        "section": "mercredi-selection",
+        "rank": 5
+      },
+      "evidence_note": "Guide officiel et grille datée concordants.",
+      "status": "verified_current_cycle"
+    },
+    {
+      "work_id": "competition-officielle-2021",
+      "fields": [
+        "critical_reception",
+        "editorial_copy"
+      ],
+      "source_urls": [
+        "https://www.screendaily.com/reviews/official-competition-venice-review/5163002.article",
+        "https://www.lemonde.fr/cinema/article/2022/06/01/competition-officielle-clara-sola-la-ruche-les-films-a-l-affiche-cette-semaine_6128414_3476.html"
+      ],
+      "checked_at": "2026-10-09T14:35:47.026Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "section": "mercredi-selection"
+      },
+      "evidence_note": "Deux critiques argumentées étayent la satire ; réserve sur le dispositif théâtral conservée.",
+      "status": "verified"
+    },
+    {
+      "work_id": "competition-officielle-2021",
+      "fields": [
+        "ratings.rottentomatoes",
+        "image",
+        "image.provenance"
+      ],
+      "source_urls": [
+        "https://www.rottentomatoes.com/m/official_competition_2021",
+        "https://www.imdb.com/title/tt11700260/"
+      ],
+      "checked_at": "2026-10-09T14:35:47.026Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42"
+      },
+      "evidence_note": "Réception datée et affiche exacte inspectée.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -27064,7 +27162,8 @@
         "complete-sunday-la-reconquista-reserve-2026-10-09",
         "complete-sunday-hotel-du-nord-reserve-2026-10-09",
         "complete-saturday-les-revenants-reserve-2026-10-09",
-        "complete-saturday-un-crime-dans-la-tete-reserve-2026-10-09"
+        "complete-saturday-un-crime-dans-la-tete-reserve-2026-10-09",
+        "complete-wednesday-competition-officielle-reserve-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -27081,10 +27180,11 @@
         "dimanche : La reconquista complète en réserve rang 4",
         "dimanche : Hôtel du Nord complet en réserve rang 5",
         "samedi : Les Revenants complet en réserve rang 5",
-        "samedi : Un crime dans la tête (1962) complet en réserve rang 6"
+        "samedi : Un crime dans la tête (1962) complet en réserve rang 6",
+        "mercredi : Compétition officielle complet en réserve rang 5"
       ],
-      "complete_cards": 83,
-      "cards_integrated_this_run": 9,
+      "complete_cards": 84,
+      "cards_integrated_this_run": 10,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "requirements_resolved": [
@@ -27093,10 +27193,11 @@
         "dimanche : un dossier complet supplémentaire intégré au pool quotidien",
         "dimanche : réserve quotidienne portée de quatre à cinq cartes complètes",
         "samedi : réserve quotidienne portée de quatre à cinq cartes complètes",
-        "samedi : réserve quotidienne portée de cinq à six cartes complètes"
+        "samedi : réserve quotidienne portée de cinq à six cartes complètes",
+        "mercredi : réserve quotidienne portée de quatre à cinq cartes complètes"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Terminer un dossier proche d’une carte complète pour mercredi ou vendredi, ou poursuivre les recoupements de couverture sans reprendre les conflits épuisés.",
+      "next_useful_batch": "Terminer un dossier proche d’une carte complète pour vendredi ou poursuivre les recoupements de couverture accessibles.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -27271,18 +27372,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T14:34:03.645Z",
+          "elapsed_seconds": 1905.79,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "9f622886aa51995c0215892820b8264a4671c2dd",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T14:02:17.855Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T15:22:30.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T14:31:13.001Z",
-        "elapsed_seconds": 1735.146,
+        "observed_at": "2026-10-09T14:34:03.645Z",
+        "elapsed_seconds": 1905.79,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "47fb6f993fbec3c0af3dba3fe771e1204150260d",
+        "source_sha": "9f622886aa51995c0215892820b8264a4671c2dd",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
@@ -27308,16 +27438,16 @@
           "ended_at": "2026-10-09T14:07:54.264Z"
         },
         "redaction_rendu": {
-          "started_at": "2026-10-09T14:31:45.000Z",
-          "ended_at": "2026-10-09T14:33:11.697Z"
+          "started_at": "2026-10-09T14:34:20.000Z",
+          "ended_at": "2026-10-09T14:35:47.026Z"
         },
         "recherche": {
-          "started_at": "2026-10-09T14:31:13.001Z",
-          "ended_at": "2026-10-09T14:33:11.697Z"
+          "started_at": "2026-10-09T14:34:03.645Z",
+          "ended_at": "2026-10-09T14:35:47.026Z"
         },
         "controles": {
-          "started_at": "2026-10-09T14:32:00.000Z",
-          "ended_at": "2026-10-09T14:33:11.697Z"
+          "started_at": "2026-10-09T14:34:40.000Z",
+          "ended_at": "2026-10-09T14:35:47.026Z"
         },
         "sauvegarde": null,
         "attente": null
@@ -27328,7 +27458,8 @@
         "Le contrôle navigateur local n’a pas pu démarrer faute de binaire Chromium installé ; aucune réussite de présentation n’est revendiquée pour cette tête et la CI distante reste requise.",
         "Hôtel du Nord : identité/version, diffusion France 3, liens, réception, notes, visuel et carte vérifiés ; validateurs canoniques, éditoriaux et liens réussis sur l’état local.",
         "Les Revenants samedi : dossier stable réutilisé, diffusion recoupée avec divergence mineure conservée ; validateurs canoniques, éditoriaux et liens réussis sur l’état local.",
-        "Un crime dans la tête (1962) : identité/remake, version, diffusion, réception, notes, visuel, liens et textes contrôlés ; validateurs canoniques, éditoriaux et liens réussis sur l’état local."
+        "Un crime dans la tête (1962) : identité/remake, version, diffusion, réception, notes, visuel, liens et textes contrôlés ; validateurs canoniques, éditoriaux et liens réussis sur l’état local.",
+        "Compétition officielle : version ARTE, diffusion, réception, note, visuel, liens et textes contrôlés ; validateurs canoniques, éditoriaux et liens réussis."
       ]
     }
   ],
@@ -30636,6 +30767,24 @@
         ],
         "decision_note": "Réserve complète rang 6 ; version CANAL+ 121 min distincte du DCP/IMDb 126 min et remake 2004 exclu.",
         "alternatives": []
+      },
+      {
+        "id": "sl-mercredi-competition-officielle-reserve",
+        "title": "Compétition officielle",
+        "work_id": "competition-officielle-2021",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "diffusion_officielle_et_reception_argumentee",
+            "note": "ARTE annonce mercredi 14 octobre à 22:40 une copie de 109 min ; Screen Daily et Le Monde étayent la satire du cinéma.",
+            "source_url": "https://www.arte.tv/fr/guide/20261014/"
+          }
+        ],
+        "decision_note": "Réserve complète rang 5 ; copie ARTE 109 min distinguée des fiches cinéma 114/115 min.",
+        "alternatives": []
       }
     ]
   },
@@ -32887,6 +33036,74 @@
       },
       "dossier_completeness": "complete",
       "reason": "Identité/version, diffusion, réception, notes, visuel, liens et textes sont complets et revus."
+    },
+    {
+      "title": "Compétition officielle",
+      "work_id": "competition-officielle-2021",
+      "decision": "carte complète de réserve mercredi-selection",
+      "identity_research": {
+        "directors": [
+          "Mariano Cohn",
+          "Gastón Duprat"
+        ],
+        "year": 2021,
+        "countries": [
+          "Espagne",
+          "Argentine"
+        ],
+        "duration_observations": [
+          {
+            "duration": "109 min",
+            "version": "copie ARTE",
+            "source_url": "https://www.arte.tv/fr/guide/20261014/"
+          },
+          {
+            "duration": "114/115 min",
+            "version": "fiches cinéma",
+            "source_url": "https://www.rottentomatoes.com/m/official_competition_2021"
+          }
+        ],
+        "imdb_id": "tt11700260",
+        "checked_at": "2026-10-09T14:35:47.026Z"
+      },
+      "availability_research": {
+        "status": "verified_linear_broadcast",
+        "checked_at": "2026-10-09T14:35:47.026Z",
+        "source_urls": [
+          "https://www.arte.tv/fr/guide/20261014/",
+          "https://tv-programme.com/arte/mercredi-14-octobre-2026/"
+        ],
+        "note": "ARTE et TV-Programme concordent sur le 14 octobre à 22:40 ; ARTE donne 109 min."
+      },
+      "critical_evidence": [
+        {
+          "source": "Screen Daily",
+          "source_url": "https://www.screendaily.com/reviews/official-competition-venice-review/5163002.article",
+          "assessment": "Décrit une comédie espagnole-argentine centrée sur la collision des méthodes et des ego."
+        },
+        {
+          "source": "Le Monde",
+          "source_url": "https://www.lemonde.fr/cinema/article/2022/06/01/competition-officielle-clara-sola-la-ruche-les-films-a-l-affiche-cette-semaine_6128414_3476.html",
+          "assessment": "Salue une satire enjouée et décapante du star-system et des postures artistiques."
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic",
+        "checked_at": "2026-10-09T14:35:47.026Z",
+        "source_urls": [
+          "https://www.rottentomatoes.com/m/official_competition_2021"
+        ],
+        "note": "Rotten Tomatoes 96 % sur 156 critiques ; AlloCiné presse 3,5/5 dans la fiche de réception consultée."
+      },
+      "image_research": {
+        "status": "exact_poster_verified",
+        "checked_at": "2026-10-09T14:35:47.026Z",
+        "source_page": "https://www.imdb.com/title/tt11700260/",
+        "image_url": "https://m.media-amazon.com/images/M/MV5BZGI2NzRlNWMtYzdiMC00ZTg5LWIwMjYtOGRjYWEyMDJkYmFkXkEyXkFqcGc%40._V1_.jpg",
+        "note": "Affiche exacte inspectée sur IMDb."
+      },
+      "dossier_completeness": "complete",
+      "reason": "Identité/version, diffusion, réception, notes, visuel, liens et textes complets et revus."
     }
   ]
 }
