@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "week": "2026-S42",
-  "base_sha": "eadfd023669970da304879f587cba4125908a655",
+  "base_sha": "c013bed26ecddb68622f1c81c1f0e4f898ae9330",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T08:35:36.949Z",
+  "updated_at": "2026-10-09T08:43:38.319Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -501,7 +501,8 @@
       "completed_at": "2026-10-09T08:35:36.949Z",
       "description": "The Host a reçu une identité canonique, une diffusion France 4 officielle recoupée, deux lectures critiques, une note datée, des liens exacts et une affiche du distributeur ; le jeudi expose désormais trois choix développés.",
       "items": 1
-    }
+    },
+    "complete-monday-les-maries-de-l-an-ii-second-choice-2026-10-09"
   ],
   "blockers": [
     {
@@ -20115,6 +20116,79 @@
       },
       "evidence_note": "Affiche exacte inspectée ; textes originaux relus et carte rendue. Santé distante encore soumise au CI.",
       "status": "verified"
+    },
+    {
+      "work_id": "les-maries-de-l-an-ii-1971",
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "countries",
+        "duration",
+        "version"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/079358-000-A/les-maries-de-l-an-deux/",
+        "https://www.telerama.fr/cinema/films/les-maries-de-l-an-ii,15037.php",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=4417.html"
+      ],
+      "checked_at": "2026-10-09T08:42:10.566Z",
+      "stability": "stable",
+      "applies_to": "film 1971 et version ARTE S42",
+      "evidence_note": "Identité certaine ; durée ARTE 95 min et durée cinéma 98 min séparées.",
+      "status": "verified"
+    },
+    {
+      "work_id": "les-maries-de-l-an-ii-1971",
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel",
+        "availability_until"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/079358-000-A/les-maries-de-l-an-deux/",
+        "https://tv-programme.com/arte/lundi-12-octobre-2026/"
+      ],
+      "checked_at": "2026-10-09T08:42:10.566Z",
+      "stability": "dynamic",
+      "applies_to": "diffusion Arte 2026-S42 et offre France",
+      "evidence_note": "Diffusion 12 octobre 13:30 et disponibilité annoncée jusqu’au 1er mars 2027 ; préflight encore requis.",
+      "status": "verified"
+    },
+    {
+      "work_id": "les-maries-de-l-an-ii-1971",
+      "fields": [
+        "critical_reception",
+        "editorial_reservations"
+      ],
+      "source_urls": [
+        "https://www.lemonde.fr/archives/article/1971/04/10/les-maries-de-l-an-ii-de-jean-paul-rappeneau_2459962_1819218.html",
+        "https://www.dvdclassik.com/critique/les-maries-de-l-an-ii-rappeneau",
+        "https://www.avoir-alire.com/les-maries-de-l-an-ii-jean-paul-rappeneau-critique"
+      ],
+      "checked_at": "2026-10-09T08:42:10.566Z",
+      "stability": "stable",
+      "applies_to": "réception du film 1971",
+      "evidence_note": "Éloge du mouvement et du raffinement ; réserve explicite sur l’inégalité des rôles.",
+      "status": "verified"
+    },
+    {
+      "work_id": "les-maries-de-l-an-ii-1971",
+      "fields": [
+        "rating",
+        "poster",
+        "poster_provenance"
+      ],
+      "source_urls": [
+        "https://www.senscritique.com/film/les_maries_de_l_an_deux/494193",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=4417.html"
+      ],
+      "checked_at": "2026-10-09T08:42:10.566Z",
+      "stability": "dynamic",
+      "applies_to": "note et visuel utilisés dans la carte S42",
+      "evidence_note": "SensCritique 6,4 ; affiche française exacte inspectée, santé distante encore soumise au CI.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -21107,18 +21181,19 @@
       "next_useful_batch": "Finaliser le troisième choix du jeudi avec diffusion propre au cycle entièrement recoupée, puis poursuivre lundi ou mercredi."
     },
     {
-      "date": "2026-10-09T08:35:36.949Z",
+      "date": "2026-10-09T08:43:38.319Z",
       "started_at": "2026-10-09T08:28:29.664Z",
       "ended_at": null,
       "owner": "7f9c1d7e-16ae-47a1-840a-afac3ba16831",
       "execution_kind": "scheduled_continuation_production",
       "prompt_revision": "production-continuation-2026-10-09",
       "stage": "enrichment",
-      "elapsed_seconds": 427,
-      "duration_basis": "started_at capturé à l’entrée ; checkpoint intermédiaire après synchronisation de main, recherche ciblée et rendu de la troisième carte du jeudi.",
+      "elapsed_seconds": 909,
+      "duration_basis": "started_at capturé à l’entrée ; checkpoint intermédiaire après synchronisation de main et deux cartes développées complètes.",
       "completed_batches": [
         "synchronize-main-eadfd023",
-        "complete-thursday-the-host-third-choice-2026-10-09"
+        "complete-thursday-the-host-third-choice-2026-10-09",
+        "complete-monday-les-maries-de-l-an-ii-second-choice-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -21127,17 +21202,20 @@
         "data/coverage/2026-S42.json",
         "data/research/2026-S42.json"
       ],
-      "complete_cards": 1,
+      "complete_cards": 2,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "deliverables_advanced": [
         "jeudi-selection",
         "jeudi-grille",
         "catalogue canonique",
-        "liens directs"
+        "liens directs",
+        "lundi-selection",
+        "lundi-grille"
       ],
       "requirements_resolved": [
-        "jeudi : troisième choix développé complet matérialisé"
+        "jeudi : troisième choix développé complet matérialisé",
+        "lundi : deuxième choix développé complet matérialisé"
       ],
       "remaining": {
         "stage": "enrichment",
@@ -21172,27 +21250,55 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T08:39:37.997Z",
+          "elapsed_seconds": 668.333,
+          "budget_seconds": 2100,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "c013bed26ecddb68622f1c81c1f0e4f898ae9330",
+          "next_actions": [
+            "Achever deux choix développés pour lundi et mercredi à partir de la shortlist et de dossiers proches d’une carte ; préserver les limites de diffusion/version déjà consignées.",
+            "Construire les réserves complètes des jours à trois choix puis du jeudi, sans nouvelle collecte générale.",
+            "Produire les rubriques indépendantes encore absentes et consolider les recoupements/rappels ; préserver les 35 exigences jusqu’à résolution effective.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T08:28:29.664Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T09:29:26.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T08:31:58.987Z",
-        "elapsed_seconds": 209.323,
+        "observed_at": "2026-10-09T08:39:37.997Z",
+        "elapsed_seconds": 668.333,
         "budget_seconds": 2100,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "4452a4ee91c5ecac230cfd383d66c3c0c7901420",
+        "source_sha": "c013bed26ecddb68622f1c81c1f0e4f898ae9330",
         "next_actions": [
-          "Achever un troisième choix développé du jeudi depuis une piste dont la diffusion actuelle peut être entièrement recoupée ; ne pas retenir Un crime dans la tête sans preuve propre au créneau visé.",
           "Achever deux choix développés pour lundi et mercredi à partir de la shortlist et de dossiers proches d’une carte ; préserver les limites de diffusion/version déjà consignées.",
           "Construire les réserves complètes des jours à trois choix puis du jeudi, sans nouvelle collecte générale.",
           "Produire les rubriques indépendantes encore absentes et consolider les recoupements/rappels ; préserver les 35 exigences jusqu’à résolution effective.",
-          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits."
+          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+          "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
         ],
         "remaining_count": 35,
-        "next_actions_total": 39,
-        "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "next_actions_total": 38,
+        "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
         "observations": {
           "started_at": "2026-10-09T08:28:29.664Z",
           "lease_owned": "yes",
@@ -21204,7 +21310,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Achever une carte lundi ou mercredi depuis un dossier déjà proche de l’achèvement."
+      "next_useful_batch": "Achever le troisième choix du lundi ou une carte du mercredi depuis un dossier proche de l’achèvement."
     }
   ],
   "source_issues": [
@@ -21799,7 +21905,7 @@
     }
   },
   "documentary_research_queue": [],
-  "status": "in_progress",
+  "status": "checkpoint",
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
@@ -21807,9 +21913,10 @@
     "main_sha": "eadfd023669970da304879f587cba4125908a655",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Achever deux choix développés pour lundi et mercredi à partir de la shortlist et de dossiers proches d’une carte ; préserver les limites de diffusion/version déjà consignées.",
-      "Construire les réserves complètes des jours à trois choix puis du jeudi, sans nouvelle collecte générale.",
-      "Produire les rubriques indépendantes encore absentes et consolider les recoupements/rappels ; préserver les 35 exigences jusqu’à résolution effective."
+      "Achever le troisième choix développé du lundi depuis une piste dont diffusion, version, réception, visuel et fraîcheur peuvent être complètement vérifiés.",
+      "Achever deux choix développés du mercredi depuis la shortlist et les dossiers proches d’une carte.",
+      "Construire les réserves complètes des jours à trois choix, sans nouvelle collecte générale.",
+      "Produire les rubriques indépendantes encore absentes et consolider les recoupements/rappels ; préserver toutes les exigences ouvertes jusqu’à résolution effective."
     ],
     "publisher": {
       "checked_at": "2026-10-08T14:40:33.431Z",
@@ -22084,7 +22191,7 @@
     }
   ],
   "shortlist": {
-    "updated_at": "2026-10-08T22:20:06.269696Z",
+    "updated_at": "2026-10-09T08:43:38.319Z",
     "note": "Présélection révisable par jour et rubrique ; premières cartes plateformes gratuites intégrées depuis les dossiers acquis. Aucun statut ne certifie la sélection finale du numéro.",
     "entries": [
       {
@@ -22592,6 +22699,27 @@
           "sl-jeudi-fantomes-tonkin"
         ],
         "decision_note": "Troisième carte développée du jeudi rendue avec diffusion officielle et grille datée concordante, identité, visuel, note et réception vérifiés."
+      },
+      {
+        "id": "sl-lundi-maries-an-ii",
+        "title": "Les Mariés de l'an II",
+        "work_id": "les-maries-de-l-an-ii-1971",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Le Monde et DVDClassik étayent la précision et le mouvement de la mise en scène ; la réserve Avoir-Alire sur la moindre consistance du rôle de Charlotte est conservée.",
+            "source_url": "https://www.lemonde.fr/archives/article/1971/04/10/les-maries-de-l-an-ii-de-jean-paul-rappeneau_2459962_1819218.html"
+          }
+        ],
+        "decision_note": "Deuxième carte développée du lundi rendue avec version ARTE de 95 minutes et écart cinéma de 98 minutes conservé ; troisième choix, réserves et préflight restent ouverts.",
+        "alternatives": [
+          "sl-lundi-koute-vwa",
+          "sl-lundi-crime-tete"
+        ]
       }
     ]
   },
@@ -23033,6 +23161,28 @@
             "https://www.lemonde.fr/cinema/article/2006/11/21/the-host-sous-le-masque-du-monstre-un-grand-film-mutant_836888_3476.html",
             "https://www.imdb.com/title/tt0468492/ratings/",
             "https://www.allocine.fr/film/fichefilm_gen_cfilm=111431.html"
+          ]
+        }
+      },
+      {
+        "work_id": "les-maries-de-l-an-ii-1971",
+        "date": "2026-10-12",
+        "rank_provisional": 2,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "identity_version": "Film de Jean-Paul Rappeneau, 1971 ; version ARTE 95 min ciblée, fiches cinéma 98 min conservées comme durée distincte.",
+          "canonical_fields": "Identité, liens, note SensCritique 6,4 et affiche exacte contrôlés.",
+          "current_broadcast": "Lundi 12 octobre 13:30 sur Arte, recoupé par la page officielle et la grille datée ; offre annoncée jusqu’au 1er mars 2027.",
+          "editorial_copy": "Textes originaux revus depuis ARTE, Le Monde, DVDClassik et Avoir-Alire avec réserve explicite.",
+          "evidence_urls": [
+            "https://www.arte.tv/fr/videos/079358-000-A/les-maries-de-l-an-deux/",
+            "https://tv-programme.com/arte/lundi-12-octobre-2026/",
+            "https://www.lemonde.fr/archives/article/1971/04/10/les-maries-de-l-an-ii-de-jean-paul-rappeneau_2459962_1819218.html",
+            "https://www.dvdclassik.com/critique/les-maries-de-l-an-ii-rappeneau",
+            "https://www.avoir-alire.com/les-maries-de-l-an-ii-jean-paul-rappeneau-critique",
+            "https://www.senscritique.com/film/les_maries_de_l_an_deux/494193",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=4417.html"
           ]
         }
       }
