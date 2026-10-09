@@ -31708,10 +31708,10 @@
       "execution_kind": "scheduled_editorial_closure_production",
       "prompt_revision": "production-closure-2026-10-09",
       "stage": "enrichment",
-      "run_state": "running",
+      "run_state": "stopped",
       "started_at": "2026-10-09T20:00:28.899Z",
-      "ended_at": null,
-      "duration_basis": "started_at observé à l’entrée ; passage encore en cours au checkpoint.",
+      "ended_at": "2026-10-09T20:50:36.705Z",
+      "duration_basis": "started_at et ended_at observés pendant ce passage ; 3 007,806 s écoulées avant l’entrée dans la réserve finale.",
       "completed_batches": [
         "review-new-tv5-fbs-and-rmc-level2-sources-2026-10-09",
         "review-cineplus-w9-level2-sources-2026-10-09",
@@ -31763,8 +31763,8 @@
         "requirements_closed_scope": "Une action resume précise sur les deux copies mardi est close par remplacement ; le tableau remaining conserve ses 34 exigences de couverture et de production."
       },
       "requirements_resolved": 1,
-      "stop_reason": null,
-      "next_useful_batch": "Sauvegarder la correction de périmètre et laisser la CI du nouveau SHA distinguer la barrière éditoriale attendue des défauts réels.",
+      "stop_reason": "budget_reserve_reached : décision stop du contrôleur --finish à 50 min 07,806 s, cinq minutes finales réservées à la sauvegarde et à la libération du bail.",
+      "next_useful_batch": "TV5MONDE FBS : reprendre seulement si une archive ou un guide du même flux FBS apporte une indépendance nouvelle ; sinon passer à RMC/Ciné+ avec une provenance nouvelle, sans répéter les routes consignées.",
       "verification_records": [
         {
           "fields": [
@@ -32108,18 +32108,101 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "20cdcd4763429cb64110f274bfd4341293b6e875",
+          "next_actions": [
+            "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
+            "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
+            "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
+            "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire."
+          ],
+          "remaining_count": 34,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T20:00:28.899Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T21:40:52.031Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T20:45:57.761Z",
+          "elapsed_seconds": 2728.862
+        },
+        {
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "20cdcd4763429cb64110f274bfd4341293b6e875",
+          "next_actions": [
+            "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
+            "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
+            "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
+            "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire."
+          ],
+          "remaining_count": 34,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T20:00:28.899Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T21:40:52.031Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T20:50:23.007Z",
+          "elapsed_seconds": 2994.108
+        },
+        {
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "20cdcd4763429cb64110f274bfd4341293b6e875",
+          "next_actions": [
+            "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
+            "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
+            "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
+            "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire."
+          ],
+          "remaining_count": 34,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T20:00:28.899Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T21:40:52.031Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-09T20:50:36.705Z",
+          "elapsed_seconds": 3007.806
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T20:42:23.401Z",
-        "elapsed_seconds": 2514.502,
         "prompt_revision": "production-closure-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "a77d606a14b2e12c651c379d12a3506c44c11bba",
+        "source_sha": "20cdcd4763429cb64110f274bfd4341293b6e875",
         "next_actions": [
           "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
           "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
@@ -32137,7 +32220,11 @@
           "external_stop": null,
           "accessible_task_checks": [],
           "ready_handoff": null
-        }
+        },
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-09T20:50:36.705Z",
+        "elapsed_seconds": 3007.806
       },
       "intervals": {
         "resume_and_extraction": {
@@ -32204,6 +32291,16 @@
           "started_at": "2026-10-09T20:42:23.401Z",
           "ended_at": "2026-10-09T20:47:00.000Z",
           "note": "Résultats et logs GitHub lus sur a77d606/base 955eaea : les deux jobs échouent avant validation sur le seul fichier hors périmètre data/torrent-trends.json. Ce fichier est restauré depuis main ; aucun seuil, workflow ou contrat n’est modifié."
+        },
+        "ci_revalidation": {
+          "started_at": "2026-10-09T20:45:57.761Z",
+          "ended_at": "2026-10-09T20:49:21.624Z",
+          "note": "CI GitHub lue sur 20cdcd4/base 955eaea : browser-presentation vert avec rendu et Jellyfin ; data-and-policy vert jusqu’à la barrière finale, y compris identités, architecture, publication-candidate, éditorial, liens, fraîcheur, réserves et images. Seul Require a complete candidate before merging reste rouge, résultat attendu avec 34 exigences ouvertes."
+        },
+        "final_save_and_release": {
+          "started_at": "2026-10-09T20:50:36.705Z",
+          "ended_at": null,
+          "note": "Bilan terminal, sauvegarde distante et libération du bail ; borne de fin complétée au checkpoint final si mesurable."
         }
       },
       "control_notes": [
@@ -32224,7 +32321,9 @@
         "validate-editorial sur la candidate échoue uniquement sur full_week_reaudit_completed=false ; cette barrière de couverture reste ouverte et n’est pas abaissée.",
         "Les pages visibles sont inchangées après restauration exacte ; le remplacement affecte seulement la réserve rang 9 du pool mardi.",
         "CI a77d606/base 955eaea : browser-presentation et data-and-policy échouent au précontrôle pour data/torrent-trends.json, chemin interdit à la candidate ; aucun résultat aval n’est certifié.",
-        "Correction ciblée : data/torrent-trends.json restauré depuis main ; la réparation de l’image Coyote reste portée par data/works.json, chemin éditorial autorisé."
+        "Correction ciblée : data/torrent-trends.json restauré depuis main ; la réparation de l’image Coyote reste portée par data/works.json, chemin éditorial autorisé.",
+        "CI 20cdcd4/base 955eaea : browser-presentation vert ; data-and-policy ne rougit que sur Require a complete candidate before merging, barrière volontaire cohérente avec remaining=34.",
+        "Un premier contrôle d’image a rencontré un timeout Dear Heart ; l’URL a ensuite répondu 200 image/jpeg (87 kB) sans Referer et la relance complète est verte 90/90. L’incident est classé transitoire, sans source ni exception inventée."
       ],
       "blockers": [
         {
