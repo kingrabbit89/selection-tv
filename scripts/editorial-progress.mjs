@@ -11,6 +11,22 @@ export const runMetricFields = ['prompt_revision', 'started_at', 'ended_at', 'du
 const array = value => Array.isArray(value) ? value : [];
 const nonEmpty = value => typeof value === 'string' && value.trim().length > 0;
 
+// A paper signal can orient research without an invented Web URL. This checks
+// only its traceable structure and week, not the review, work identity or card.
+const traceableTeleramaSignal = (signal, week) => {
+  const provenance = signal?.provenance;
+  const bbox = signal?.bbox;
+  return nonEmpty(week) && /^\d{4}-S(?:0[1-9]|[1-4]\d|5[0-3])$/.test(week) &&
+    signal?.publisher === 'Télérama' && nonEmpty(signal.source_ref) && /^sha256:[a-fA-F0-9]{64}$/.test(signal.source_ref) &&
+    Number.isInteger(signal?.pdf_page) && signal.pdf_page > 0 &&
+    Array.isArray(bbox) && bbox.length === 4 && bbox.every(Number.isFinite) &&
+    bbox[0] >= 0 && bbox[1] >= 0 && bbox[2] > bbox[0] && bbox[3] > bbox[1] &&
+    provenance && typeof provenance === 'object' && !Array.isArray(provenance) &&
+    nonEmpty(provenance.source_sha) && /^[a-fA-F0-9]{40}$/.test(provenance.source_sha) &&
+    provenance.path === `data/editorial-inputs/${week}/telerama-editorial.json` &&
+    nonEmpty(provenance.json_pointer) && /^\/reviews\/(?:0|[1-9]\d*)$/.test(provenance.json_pointer);
+};
+
 // remaining stays the authoritative string array. remaining_items, when
 // present, must describe exactly the same requirements: none lost or invented.
 export function checkRemainingItems(progress) {
@@ -47,7 +63,8 @@ export function checkShortlist(progress) {
     assert(days.includes(scope.day) || nonEmpty(scope.rubrique), 'shortlist scope needs a day or a rubrique: ' + entry.id);
     assert(shortlistStatuses.includes(entry.status), 'invalid shortlist status: ' + entry.id);
     if (entry.status === 'rejected' || entry.status === 'deferred') assert(nonEmpty(entry.decision_note), 'shortlist decision_note required: ' + entry.id);
-    else assert(array(entry.signals).some(signal => nonEmpty(signal?.kind) && nonEmpty(signal?.note) && /^https?:\/\//.test(signal?.source_url || '')),
+    else assert(array(entry.signals).some(signal => nonEmpty(signal?.kind) && nonEmpty(signal?.note) &&
+      (/^https?:\/\//.test(signal?.source_url || '') || traceableTeleramaSignal(signal, progress.week))),
       'shortlist entry needs a sourced editorial signal: ' + entry.id);
     for (const other of array(entry.alternatives)) assert(ids.has(other), 'unknown shortlist alternative: ' + entry.id + ' -> ' + other);
   }

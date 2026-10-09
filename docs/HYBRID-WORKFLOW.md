@@ -91,3 +91,12 @@ Une branche promote créée sans PR peut être reprise automatiquement uniquemen
 Le watchdog conserve son passage du samedi à 10:00 UTC, ajoute des passages de 11:20 à 23:20 UTC, et réconcilie les alertes après les exécutions du publicateur. Les événements du publicateur ne créent pas une nouvelle alerte : ils ferment l'alerte existante seulement après vérification publique. Les passages tardifs du samedi UTC qui tombent dimanche à Paris contrôlent encore le cycle du samedi. La surveillance des nouvelles versions Android reste séparée des événements de publication.
 
 Le résumé du publicateur indique seulement si un jeton dédié est configuré ou si le jeton intégré est utilisé. Aucune valeur secrète n'est affichée. La présence d'un jeton ne prouve ni sa validité ni toutes ses permissions ; seules des opérations réelles autorisées peuvent les établir.
+
+## PDF Télérama fourni : référence de grille
+
+Le PDF de la bonne cible fait autorité pour ses titres imprimés, chaînes, jours
+et heures après revue de transcription, selon AUTOMATION.md et
+docs/EDITORIAL-TELERAMA.md. La seconde lecture des omissions reste requise, mais
+la provenance EPG inconnue ne bloque pas les faits arbitrés par ce PDF. Conserver
+les preuves de revue et limites sans déclarer une indépendance inconnue. Les
+contrôles hors PDF et les barrières de publication restent applicables.

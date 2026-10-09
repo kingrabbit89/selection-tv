@@ -85,3 +85,78 @@ export function joinTeleramaEditorial(queue,context,options,range){
     unmatched_reviews:candidates.filter(row=>!row.matching_queue_ids.length).length,reviewed_summaries:candidates.filter(row=>row.summary_reviewed).length,
     ordering:'Civil day, then native publisher appreciation for triage; queue order and editorial choice remain unchanged.',publication_ready:false}};
 }
+
+// Initial opinions direct investigation, never identify a work or choose it.
+// This opt-in leaves all historical plans and saved production choices intact.
+export function prepareInitialTeleramaSuggestions(queue,context,options,editorialCandidates){
+  const policy=context.editorial_config?.initial_suggestions;
+  if(options.useTelerama===false || policy?.provided_telerama_editorial!=='primary_seed' ||
+    !/^\d{4}-S(?:0[1-9]|[1-4]\d|5[0-3])$/.test(policy.from_week || '') || context.week<policy.from_week ||
+    policy.native_rating_min!==2 || !Array.isArray(policy.priority_order) ||
+    JSON.stringify(policy.priority_order)!==JSON.stringify(['Bravo','Très bien','Bien']) ||
+    !Array.isArray(editorialCandidates) || !editorialCandidates.length)return {};
+  const shortlist=Array.isArray(context.research?.shortlist?.entries)?context.research.shortlist.entries:[];
+  const initialPhase=shortlist.length===0;
+  const rows=value=>Array.isArray(value)?value:[];
+  const savedDossiers=[...rows(context.research?.research_dossiers),...rows(context.research?.dossiers),
+    ...rows(context.coverage?.documentary_discovery?.candidates),...rows(context.coverage?.cinema_discovery?.candidates)];
+  const exactSavedDecision=(row,hint)=>savedDossiers.some(dossier=>{
+    if(![dossier.status,dossier.decision].some(state=>/^(?:rejected|deferred|excluded|retained|selected|card_drafted|card_complete|dossier_complete)(?:_|$)/.test(state || '')))return false;
+    const ids=row.canonical_candidates.map(candidate=>candidate.work_id),id=dossier.work_id || dossier.applies_to?.work_id;
+    const names=[hint.title,hint.reviewed_title].filter(Boolean).map(normalizedTitle);
+    if(id?!ids.includes(id):![dossier.title,dossier.applies_to?.title].some(title=>names.includes(normalizedTitle(title))))return false;
+    const scope=dossier.applies_to || dossier.scope || dossier.object || dossier;
+    return [['week',context.week],['date',hint.date],['start',hint.start],['channel',hint.channel],['day',row.scope],['rubrique',row.scope]]
+      .every(([field,actual])=>scope[field]==null || (Array.isArray(scope[field])?scope[field].includes(actual):scope[field]===actual));
+  });
+  const reasonsFor=(row,hint)=>{
+    const reasons=[];
+    if(['paused_scoped','already_materialized','conflicted'].includes(row.classification))reasons.push(row.classification);
+    if(row.canonical_candidates.length>1)reasons.push('ambiguous_canonical_identity');
+    if(row.shortlist.some(entry=>['rejected','deferred','excluded'].includes(entry.status)))reasons.push('saved_shortlist_decision');
+    if(exactSavedDecision(row,hint))reasons.push('saved_dossier_decision');
+    if(row.blocked_observations.some(slot=>slot.date===hint.date && slot.start===hint.start && slot.channel===hint.channel))reasons.push('scoped_saved_pause');
+    return [...new Set(reasons)];
+  };
+  // Raw title/slot matching cannot attribute a critic's opinion to a remake or
+  // a conflicted canonical identity. Keep the full opinion in the report.
+  for(const row of queue)if(row.classification==='conflicted' || row.canonical_candidates.length>1)delete row.editorial_signals;
+  const suggestions=editorialCandidates.filter(hint=>(hint.native_rating.t_count??0)>=policy.native_rating_min).map(hint=>{
+    const matches=queue.filter(row=>hint.matching_queue_ids.includes(row.id));
+    const preserved=matches.flatMap(row=>{const reasons=reasonsFor(row,hint);if(matches.length>1)reasons.push('multiple_matching_queue_groups');return reasons.length?[{queue_id:row.id,reasons}]:[];});
+    const eligible=matches.length===1?matches.filter(row=>!reasonsFor(row,hint).length):[];
+    const suggestion={...hint,matching_queue_ids:eligible.map(row=>row.id),observed_matching_queue_ids:[...hint.matching_queue_ids],
+      role:'primary_initial_editorial_seed',canonical_identity_verified:false,final_selection:'editorial_review',
+      saved_states_preserved:preserved,queue_priority_applied:initialPhase && eligible.length>0,
+      next_action:!initialPhase?'consult_saved_shortlist_and_remaining_without_restarting_seed':eligible.length?
+        'editorial_triage_before_full_enrichment':preserved.length?'preserve_saved_state_and_review_match_if_needed':'investigate_title_and_civil_slot',
+      match_basis:eligible.length?'exact_title_and_civil_slot_needs_identity_review':preserved.length?'saved_state_or_ambiguous_match_not_reopened':'unmatched_review_to_reconcile'};
+    const pointer=hint.provenance;
+    // The shortlist accepts an immutable paper pointer after it is in Git.
+    // Explicit/local reports retain their real local provenance instead.
+    if(/^[a-f0-9]{40}$/.test(pointer.source_sha || '') &&
+      pointer.path===`data/editorial-inputs/${context.week}/telerama-editorial.json` && /^\/reviews\/\d+$/.test(pointer.json_pointer)) {
+      suggestion.shortlist_signal={kind:'publisher_editorial_opinion',
+        note:`Télérama : ${hint.native_rating.label}${hint.author?' — '+hint.author:''}${hint.review_summary?' ; '+hint.review_summary:''}`,
+        publisher:'Télérama',source_ref:hint.source_ref,pdf_page:hint.pdf_page,bbox:structuredClone(hint.bbox),provenance:structuredClone(pointer)};
+    }
+    return suggestion;
+  });
+  suggestions.sort((a,b)=>policy.priority_order.indexOf(a.native_rating.label)-policy.priority_order.indexOf(b.native_rating.label) ||
+    a.date.localeCompare(b.date) || a.start.localeCompare(b.start) || a.id.localeCompare(b.id));
+  if(initialPhase){
+    const priority=new Map(),original=new Map(queue.map((row,index)=>[row,index]));
+    for(const suggestion of suggestions)for(const id of suggestion.matching_queue_ids)
+      if(!priority.has(id))priority.set(id,policy.priority_order.indexOf(suggestion.native_rating.label));
+    queue.sort((a,b)=>(priority.get(a.id)??Infinity)-(priority.get(b.id)??Infinity) || original.get(a)-original.get(b));
+  }
+  return {initial_editorial_suggestions:suggestions,initial_editorial_suggestions_summary:{
+    publisher:'Télérama',from_week:policy.from_week,positive_suggestions:suggestions.length,
+    matched_actionable_suggestions:suggestions.filter(row=>row.matching_queue_ids.length).length,
+    unmatched_suggestions:suggestions.filter(row=>!row.observed_matching_queue_ids.length).length,
+    preserved_saved_states:suggestions.filter(row=>row.saved_states_preserved.length).length,
+    phase:initialPhase?'initial_seed':'saved_shortlist_production',queue_prioritized:initialPhase && suggestions.some(row=>row.matching_queue_ids.length),
+    priority_order:[...policy.priority_order],other_sources:policy.other_sources,final_selection:policy.final_selection,
+    automatic_selection:false,identity_verified:false,publication_ready:false,
+    ordering:'Native publisher appreciation: Bravo, Très bien, Bien. Unmatched titles need investigation; saved decisions and production states stay intact.'}};
+}

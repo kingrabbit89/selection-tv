@@ -66,7 +66,7 @@ if(exists('data/inventory/'+target+'.json')){
     const channels=new Set((day.channels_scanned||[]).map(norm));
     if(items.length<minItems)bad(day.date+': raw inventory '+items.length+' < '+minItems);
     const hosts=new Set(sources.map(value=>{try{return new URL(typeof value==='string'?value:value.url).hostname.replace(/^www\./,'')}catch{return ''}}).filter(Boolean));
-    if(hosts.size<2)bad(day.date+': two distinct source domains required for independent cross-check');
+    if(hosts.size<2)bad(day.date+': two distinct source domains required for source diversity; independence is reviewed separately');
     const slots=new Set();
     for(const item of items){const slot=[norm(item.title),norm(item.channel),item.start||item.time].join('|');if(slots.has(slot))bad(day.date+': duplicate inventory programme '+item.title);slots.add(slot)}
     if(sources.length<minSources)bad(day.date+': source_pages '+sources.length+' < '+minSources);

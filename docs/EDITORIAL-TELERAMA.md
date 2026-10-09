@@ -1,8 +1,40 @@
 # Import facultatif d'un magazine Télérama
 
-Le magazine fourni complète la découverte, la présélection et la vérification des programmes.
-Le parcours courant continue sans PDF. L'import ne remplace pas l'inventaire Web,
-ne sélectionne aucune œuvre, ne coche aucun flag et ne certifie aucune diffusion.
+Le magazine fourni complète la découverte et, à partir de S43, constitue le
+point de départ des premières suggestions de la présélection. Sur décision de
+l’utilisateur, sa grille est la référence des titres imprimés, chaînes, jours
+et heures pour la cible après revue de transcription. Le parcours courant
+continue sans PDF. L’import seul ne sélectionne aucune œuvre, ne coche aucun
+flag et ne certifie ni une transcription ni la couverture.
+
+## Portée de l’autorité
+
+Appliquer `schedule_authority` dans `data/editorial-config.json` et la règle de
+`AUTOMATION.md`. Le lot expose une référence de grille avec les pointeurs PDF ;
+les anciennes valeurs Web restent disponibles. Une extraction incertaine demande
+une lecture de page, pas une nouvelle grille indépendante pour confirmer la
+ligne lisible. Les flags techniques anciens `requires_title_review` et
+`requires_broadcast_confirmation` ne demandent plus, dans ce périmètre, une
+seconde preuve de diffusion : la revue de la ligne imprimée fournit la référence.
+
+L’inventaire Web garde ses lignes, URLs et comptes réellement relevés. Une
+référence PDF est un pointeur de papier ; ne pas fabriquer une URL Web pour la
+faire entrer dans un champ de source. Appliquer ses valeurs de grille dans les
+propositions revues en conservant séparément la provenance de l’arbitrage.
+
+Le rappel des omissions reste une vraie comparaison. Consigner dans
+`coverage.grid_authority_reviews` les empreintes/pages, dates/chaînes, lignes
+acceptées, date de revue, omissions résolues et limites. Ne pas cocher une
+indépendance EPG inconnue. Après achèvement réel de cette revue et des contrôles
+hors PDF, l’arbitrage Télérama peut soutenir l’attestation globale de couverture.
+Une absence dans l’extraction films/documentaires ne prouve pas une absence
+dans le magazine : lire les pages utiles ou utiliser les sources ordinaires.
+
+Les offres, expirations, versions, critique indépendante, notes, visuels et liens
+restent à vérifier. Une correction officielle ultérieure sur le même événement
+est enregistrée et peut remplacer l’horaire imprimé ; un simple écart d’agrégateur
+reste documenté et ne déclenche pas une enquête sans fin. Sans magazine valide
+pour la cible, le fonctionnement Web existant reste disponible.
 
 ## Un PDF fourni
 
@@ -31,8 +63,9 @@ reste rejetée et tracée, jamais reconstituée.
 Les scans sans texte, autres mises en page et pages non reconnues demandent une
 revue manuelle ou une préparation OCR distincte ; ils ne deviennent pas une
 grille complète validée. La première nuit du samedi peut être dans le numéro
-précédent ; cette limite reste visible. Les horaires retenus et l'indépendance
-réelle des sources restent à confirmer. Certaines ligatures du PDF peuvent
+précédent ; cette limite reste visible. Les lignes retenues doivent être relues ; leur titre imprimé, chaîne, jour et
+heure font alors autorité sans enquête sur le fournisseur EPG. Les corrections
+officielles ultérieures datées restent consignées. Certaines ligatures du PDF peuvent
 perdre une lettre : `requires_title_review` impose une revue du titre avant
 son rapprochement définitif.
 
@@ -67,8 +100,8 @@ extraction différente du même PDF exige de revoir le supplément existant.
 Les passages suivants chargent les observations sauvegardées au SHA exact avec
 leurs pointeurs de page, sans relire le PDF et sans accès réseau supplémentaire.
 Un titre différent au même créneau devient une contradiction à examiner ; il
-ne remplace pas silencieusement le relevé existant. Les correspondances au
-catalogue restent des pistes à vérifier, avec tous les contrôles ordinaires.
+ne remplace pas silencieusement le relevé existant. Les correspondances au catalogue restent des identités/versions à vérifier ;
+la préférence de grille ne crée ni alias canonique ni carte complète.
 
 ## Entrée préparée et parcours sans magazine
 
@@ -86,7 +119,8 @@ node scripts/editorial-production-flow.mjs YYYY-Sxx --ref SHA_CANDIDATE \
 
 Cette option ignore le supplément dans le lot et conserve tous les fichiers et
 preuves sauvegardés. Sans PDF, entrée préparée ou supplément de recherche, le
-plan de travail est identique au parcours précédent. La cadence, le budget,
+plan de travail applique le parcours Web complet de `AUTOMATION.md`, sans
+attendre de magazine ni de preuve d’amont EPG. La cadence, le budget,
 les seuils et la publication protégée gardent leurs règles actuelles.
 
 ## Méthode simple depuis un nouveau chat
@@ -157,11 +191,47 @@ Le producteur lit automatiquement l'entrée préparée `telerama-editorial.json`
 au même SHA exact que les autres données. Le lot expose les critiques par
 jour/appréciation comme aide au tri, leurs résumés relus, auteurs et pointeurs.
 Il joint `editorial_signals` seulement sur titre et créneau civil exacts ; les
-autres critiques restent explicitement à rapprocher. L'ordre normal de la
-file, les décisions de sélection et le catalogue ne sont pas réécrits.
+autres critiques restent explicitement à rapprocher. Les décisions enregistrées
+et le catalogue ne sont pas réécrits.
 
 Ces avis servent à orienter les choix avec les autres critères éditoriaux.
 Ils ne deviennent ni notes IMDb/SensCritique, ni consensus, ni preuves de
 diffusion actuelle, ni cartes complètes. Un résumé relu n'est pas une nouvelle
 consultation du diffuseur. Une seule rédaction reste une seule source.
 `--without-telerama` ignore aussi ce complément éditorial.
+
+## Premières suggestions à partir de S43
+
+La politique `initial_suggestions` donne aux appréciations positives du
+magazine fourni pour la bonne semaine la priorité pour amorcer la sélection :
+Bravo (TTTT), Très bien (TTT), puis Bien (TT). Lire
+`initial_editorial_suggestions` en entier, avec les auteurs, les paraphrases
+relues et les pointeurs de page/empreinte. Avant toute shortlist enregistrée,
+les avis rapprochés orientent réellement l’ordre initial de la file. Les avis
+non rapprochés restent des pistes à investiguer (`investigate_title_and_civil_slot`),
+sans transmettre leur critique à un homonyme. Une critique sans résumé reste
+à lire ; Bof et Hélas restent des réserves attribuées, sans veto automatique.
+
+Les autres sources complètent les jours, rubriques et découvertes peu couverts,
+et permettent de remplacer une piste non adaptée. Les critères éditoriaux,
+la passe documentaire et les contrôles des cartes restent applicables. La
+présélection définitive est révisable ; les appréciations ne deviennent ni
+notes IMDb/SensCritique ni consensus. Télérama ne décide pas automatiquement
+du contenu publié.
+
+Après enregistrement d’une shortlist, poursuivre les dossiers choisis et les
+lacunes du numéro ; ne pas repartir de zéro ni rouvrir les rejets, reports ou
+impasses sur le seul fait qu’un avis est bien noté. S42 conserve sa présélection
+en cours. Sans entrée éditoriale valide ou avec `--without-telerama`, la présélection Web continue ; la règle
+`web_schedule_evidence` reste applicable.
+
+L’amorce issue d’une entrée Git fournit `shortlist_signal`, prêt à reprendre
+dans `shortlist.entries[].signals` après revue, avec
+`kind`, `note`, `publisher: "Télérama"`, `source_ref: "sha256:EMPREINTE_PDF"`,
+`pdf_page`, `bbox` et `provenance` : `source_sha` Git exact, chemin
+`data/editorial-inputs/YYYY-Sxx/telerama-editorial.json` et pointeur
+`/reviews/INDEX`. Reprendre les valeurs de l’avis réellement importé, puis
+vérifier leur concordance. Aucune URL Web n’est nécessaire pour cette preuve
+papier. Une extraction locale doit être importée avant de recevoir une
+provenance Git ; la seule conformité du signal ne certifie ni sa lecture, ni
+une identité, ni la qualité finale d’une carte.
