@@ -3,11 +3,10 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T21:00:28.406Z",
+  "updated_at": "2026-10-09T21:02:05.686Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
-    "Réconcilier les horaires et conflits résiduels : Canal+ Grand Écran Le dahlia noir 22:58/22:59 reste sans événement officiel S42 ; pour Saint-Ex, le guide Ouest-France distingue un élément court à 03:50 (9 min) du long métrage à 03:59, mais l’écart 03:50/03:53 et 9/6 min du court reste à arbitrer. Ne pas assimiler le court à la copie du film.",
     "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
     "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV.",
     "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue.",
@@ -1375,7 +1374,8 @@
       "description": "Les logs CI exacts de a77d606 montrent validation-context rouge car data/torrent-trends.json est hors périmètre éditorial. Le fichier est restauré bit pour bit depuis main ; le visuel canonique corrigé reste dans works.json."
     },
     "sync-main-proof-policy-2026-10-09",
-    "initial-preparation-gaps-and-saved-inventory-flow-2026-10-09"
+    "initial-preparation-gaps-and-saved-inventory-flow-2026-10-09",
+    "proof-policy-impact-and-retry-gate-review-2026-10-09"
   ],
   "blockers": [
     {
@@ -32371,18 +32371,20 @@
       "duration_basis": "started_at observé à l’entrée ; passage en cours au checkpoint initial.",
       "completed_batches": [
         "sync-main-proof-policy-2026-10-09",
-        "initial-preparation-gaps-and-saved-inventory-flow-2026-10-09"
+        "initial-preparation-gaps-and-saved-inventory-flow-2026-10-09",
+        "proof-policy-impact-and-retry-gate-review-2026-10-09"
       ],
       "deliverables_changed": [
-        "data/research/2026-S42.json"
+        "data/research/2026-S42.json",
+        "data/coverage/2026-S42.json"
       ],
       "complete_cards": 125,
       "cards_integrated_this_run": 0,
       "draft_cards": 0,
       "partial_dossiers": 0,
-      "requirements_resolved": 0,
+      "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Revoir selon la politique de clôture les impasses sauvegardées et leur impact, annoter les attentes exactes, puis traiter la première action réellement accessible.",
+      "next_useful_batch": "Réexaminer la couverture TCM et Ciné+ avec la portée des acquisitions sauvegardées ; fermer seulement les fausses exigences de durée de copie, puis traiter une action de couverture encore accessible.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -32460,7 +32462,17 @@
           "ended_at": "2026-10-09T21:00:28.406Z",
           "overlap": false,
           "note": "Bail, synchronisation main, contrats changés, préparation-gaps, flow sauvegardé et triage initial."
+        },
+        {
+          "kind": "controls",
+          "started_at": "2026-10-09T21:01:37.315Z",
+          "ended_at": "2026-10-09T21:02:05.686Z",
+          "overlap": false,
+          "note": "Revue d’impact de deux divergences brutes et annotation des quatre impasses exactes qui attendent un fait nouveau."
         }
+      ],
+      "requirements_resolved_details": [
+        "Le Dahlia noir 22:58/22:59 et le court associé à Saint-Ex ont reçu une revue d’impact : divergences brutes conservées, sans effet démontré sur carte, réserve, ligne commentée, omission ou couverture ; l’exigence de résolution bloquante a été retirée."
       ]
     }
   ],
@@ -33835,7 +33847,18 @@
       "blocking_scope": "niveau 2 TV5MONDE FBS pour les sept jours",
       "blocking": true,
       "status": "same_feed_named_but_epg_independence_not_established",
-      "resume_when": "Une archive officielle publique du flux FBS ou une source révélant explicitement un fournisseur EPG indépendant devient accessible."
+      "resume_when": "Une archive officielle publique du flux FBS ou une source révélant explicitement un fournisseur EPG indépendant devient accessible.",
+      "retry_gate": {
+        "state": "waiting_for_new_evidence",
+        "action_texts": [
+          "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
+          "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes. Nouvelle piste TV5Pro mène à une connexion ; guide public reste channel4/NewYork, aucune preuve FBS."
+        ],
+        "reason": "Deux recherches ciblées et plusieurs voies officielles/agrégateurs ont retrouvé le bon flux ou d’autres flux sans base positive d’acquisition distincte ; répéter ces routes ne répond pas à la provenance.",
+        "resume_when": "Une archive officielle publique du flux FBS ou une source documentant une acquisition originale distincte pour les dates du 10 au 16 octobre devient accessible.",
+        "observed_at": "2026-10-09T21:02:05.686Z",
+        "evidence": "research_attempts[18], [23] et [24] ; level2_review_summary.fresh_routes_checked ; URLs TV5MONDE, TVinfo, TéléObs et Ouest-France sauvegardées."
+      }
     },
     {
       "id": "run21-rmc-independent-provider-2026-10-09",
@@ -33867,7 +33890,18 @@
       "blocking_scope": "niveau 2 RMC Story et RMC Découverte pour les sept jours",
       "blocking": true,
       "status": "dated_grid_found_provider_not_disclosed",
-      "resume_when": "Une archive RMC+ datée après diffusion ou une grille dont le fournisseur EPG est explicitement indépendant devient accessible."
+      "resume_when": "Une archive RMC+ datée après diffusion ou une grille dont le fournisseur EPG est explicitement indépendant devient accessible.",
+      "retry_gate": {
+        "state": "waiting_for_new_evidence",
+        "action_texts": [
+          "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
+          "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer. Programmetvcesoir et Ouest-France soutiennent les titres inventoriés ; suivis ciblés enregistrés, indépendance non établie, conflits non clos."
+        ],
+        "reason": "RMC+ ne fournit pas l’archive S42 et les deux grilles secondaires consultées n’établissent pas une acquisition distincte ; aucune nouvelle consultation identique ne peut lever ce point.",
+        "resume_when": "Une archive officielle RMC S42 ou une preuve positive d’acquisition originale distincte couvre RMC Story et RMC Découverte sur les sept dates.",
+        "observed_at": "2026-10-09T21:02:05.686Z",
+        "evidence": "research_attempts[19], [23] et [25] ; 127 créneaux comparés, conflits et limites conservés dans coverage."
+      }
     },
     {
       "id": "run21-cineplus-festival-w9-crosscheck-2026-10-09",
@@ -33886,7 +33920,17 @@
       "status": "strong_third_party_triangulation_upstream_epg_provenance_undisclosed",
       "result": "CANAL+ expose l’événement Kouté Vwa du 12 octobre à 04:49–06:12 sans nom de chaîne ; Ouest-France nomme Ciné+ Festival au même horaire et Molotov associe l’œuvre à Ciné+ Festival. Molotov expose aussi les trois créneaux W9 exacts 00:00, 01:00 et 01:50. Ces observations de distribution tierce renforcent fortement les rapprochements, mais Molotov ne publie pas l’origine amont de ses métadonnées EPG : l’indépendance de données et l’attribution officielle chaîne+horaire restent non certifiées.",
       "blocking_scope": "niveau 2 Ciné+ Festival et W9",
-      "resume_condition": "Une grille CANAL+ portant chaîne et horaire dans le même événement, ou un fournisseur EPG explicitement indépendant, permettrait de fermer littéralement ces exigences."
+      "resume_condition": "Une grille CANAL+ portant chaîne et horaire dans le même événement, ou un fournisseur EPG explicitement indépendant, permettrait de fermer littéralement ces exigences.",
+      "retry_gate": {
+        "state": "waiting_for_new_evidence",
+        "action_texts": [
+          "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante."
+        ],
+        "reason": "CANAL+, Ouest-France et Molotov ont été rapprochés ; le lien exact est fort mais la provenance amont de Molotov ne démontre pas une seconde acquisition indépendante, et répéter ces pages ne change pas la preuve.",
+        "resume_when": "Un événement officiel nomme Ciné+ Festival avec l’horaire, ou une source documente une acquisition originale indépendante pour la nuit W9.",
+        "observed_at": "2026-10-09T21:02:05.686Z",
+        "evidence": "research_attempts[26] et verification_records du passage précédent, avec les pages CANAL+, Ouest-France et Molotov sauvegardées."
+      }
     },
     {
       "id": "run21-cineplus-orange-monthly-reminder-2026-10-09",
@@ -33907,7 +33951,18 @@
       "status": "operator_fiches_and_secondary_grid_added_nonexhaustive",
       "result": "Les fiches Orange, source opérateur distincte, recoupent plusieurs créneaux exacts de Ciné+ Classic et Frisson et conservent les écarts 13:30/13:32, 15:35/15:36, 08:47–08:50, 10:47–10:50 et 11:32/11:34. Moustique fournit une grille secondaire, sans provenance EPG publiée. Ces fiches ne forment ni une archive exhaustive des sept jours ni une preuve de fournisseur indépendant ; le rappel cinéma payant reste ouvert.",
       "blocking_scope": "rappel cinéma payant hebdomadaire",
-      "resume_condition": "Une extraction systématique des sept jours et de toutes les chaînes Ciné+ depuis une source opérateur ou officielle, avec contradictions réconciliées, est encore requise."
+      "resume_condition": "Une extraction systématique des sept jours et de toutes les chaînes Ciné+ depuis une source opérateur ou officielle, avec contradictions réconciliées, est encore requise.",
+      "retry_gate": {
+        "state": "waiting_for_new_evidence",
+        "action_texts": [
+          "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet.",
+          "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection."
+        ],
+        "reason": "Le calendrier mensuel, les fiches Orange ponctuelles et la grille secondaire ont été exploités dans leur portée ; ils ne deviennent pas une grille hebdomadaire exhaustive par répétition.",
+        "resume_when": "Une grille primaire ou une acquisition indépendante documentée couvre les chaînes cinéma manquantes et leurs rediffusions sur les sept dates.",
+        "observed_at": "2026-10-09T21:02:05.686Z",
+        "evidence": "research_attempts[27] ; editorial_reminder_passes[1] et open_reminder_status_summary index 1."
+      }
     },
     {
       "id": "run21-tuesday-aelita-version-safe-replacement-2026-10-09",
