@@ -1156,6 +1156,18 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
+    },
+    {
+      "id": "complete-reserves-night-hunter-wages-children-2026-10-09",
+      "completed_at": "2026-10-09T15:35:44.282Z",
+      "scope": "daily-reserves:samedi,vendredi",
+      "summary": "Trois réserves complètes supplémentaires sont intégrées : La Nuit du chasseur samedi rang 7, Le Salaire de la peur vendredi rang 5 et Les Enfants de la Résistance vendredi rang 6. Les copies du cycle restent séparées des durées catalogue ; aucune profondeur quotidienne minimale n’est déclarée atteinte.",
+      "deliverables": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
     }
   ],
   "blockers": [
@@ -24497,6 +24509,100 @@
       },
       "evidence_note": "Guide officiel, page directe et grille datée concordent sur le créneau ; l’offre est propre au cycle.",
       "status": "verified"
+    },
+    {
+      "work_id": "la-nuit-du-chasseur-1955",
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "duration.version",
+        "image",
+        "links",
+        "ratings",
+        "critical_reception",
+        "broadcast.start"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-nuit-du-chasseur/h/935349_50002",
+        "https://tv-programme.com/cine-plus-classic/samedi-10-octobre-2026/",
+        "https://www.criterion.com/films/27525-the-night-of-the-hunter",
+        "https://www.rogerebert.com/reviews/great-movie-the-night-of-the-hunter-1955"
+      ],
+      "checked_at": "2026-10-09T15:35:44.282Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "start": "01:34",
+        "channel": "Ciné+ Classic",
+        "version": "CANAL+ 88 min"
+      },
+      "evidence_note": "Version ciblée et diffusion recoupées ; métadonnées, réception, notes, visuel et textes relus.",
+      "status": "verified"
+    },
+    {
+      "work_id": "le-salaire-de-la-peur-1953",
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "duration.version",
+        "image",
+        "links",
+        "ratings",
+        "critical_reception",
+        "broadcast.start"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-5/17-10-2026/16-10-2026",
+        "https://www.francetvpro.fr/contenu-de-presse/76719024",
+        "https://programmetv.ouest-france.fr/film/aventures/le-salaire-de-la-peur-c57758/video-bande-annonce/",
+        "https://www.criterion.com/films/370-the-wages-of-fear"
+      ],
+      "checked_at": "2026-10-09T15:35:44.282Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "start": "21:05",
+        "channel": "France 5",
+        "version": "France 5 151 min"
+      },
+      "evidence_note": "Version ciblée et diffusion recoupées ; métadonnées, réception, notes, visuel et textes relus.",
+      "status": "verified"
+    },
+    {
+      "work_id": "les-enfants-de-la-resistance-2025",
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "duration.version",
+        "image",
+        "links",
+        "ratings",
+        "critical_reception",
+        "broadcast.start"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/les-enfants-de-la-resistance/h/31330819_50001",
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+        "https://tv-programme.com/canal-plus/vendredi-16-octobre-2026/",
+        "https://www.abusdecine.com/critique/les-enfants-de-la-resistance/",
+        "https://www.actuabd.com/Les-Enfants-de-la-Resistance-le-film-evenement-familial-pour-les-vacances"
+      ],
+      "checked_at": "2026-10-09T15:35:44.282Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "start": "21:10",
+        "channel": "Canal+",
+        "version": "CANAL+ 96 min"
+      },
+      "evidence_note": "Version ciblée et diffusion recoupées ; métadonnées, réception contradictoire, notes, visuel et textes relus.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -28075,7 +28181,8 @@
         "sync-main-9aae312-2026-10-09",
         "integrate-competition-officielle-senscritique-2026-10-09",
         "complete-daily-reserves-matrix-orient-adam-2026-10-09",
-        "complete-sunday-shutter-island-reserve-2026-10-09"
+        "complete-sunday-shutter-island-reserve-2026-10-09",
+        "complete-reserves-night-hunter-wages-children-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -28084,30 +28191,30 @@
         "data/research/2026-S42.json",
         "data/manifest.json"
       ],
-      "complete_cards": 88,
-      "cards_integrated_this_run": 4,
+      "complete_cards": 91,
+      "cards_integrated_this_run": 7,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "measurements": {
         "complete_cards": {
-          "value": 88,
-          "scope": "stock final au checkpoint ; 84 héritées au début du passage et 4 nouvelles réserves complètes"
+          "value": 91,
+          "scope": "stock final au checkpoint ; 84 héritées au début du passage et 7 nouvelles réserves complètes"
         },
         "new_works": {
-          "value": 2,
-          "scope": "Matrix Generation et Shutter Island ajoutés entre la tête de départ 4f121b2 et ce checkpoint ; les deux autres œuvres existaient déjà dans les données"
+          "value": 4,
+          "scope": "Matrix Generation, Shutter Island, Le Salaire de la peur et Les Enfants de la Résistance ajoutés depuis la tête de départ ; trois œuvres existaient déjà au catalogue central"
         },
         "visible_cards": {
           "value": 0,
-          "scope": "les quatre cartes ajoutées sont des réserves de rang 6 ou 7, hors des trois choix visibles de chaque jour"
+          "scope": "les sept cartes ajoutées sont des réserves de rang 5 à 7, hors des trois choix visibles de chaque jour"
         },
         "additional_distinct_reserves": {
-          "value": 4,
-          "scope": "quatre work_id distincts, chacun hors des choix visibles de son jour"
+          "value": 7,
+          "scope": "sept work_id distincts ajoutés hors des choix visibles de leur jour"
         },
         "stable_reuses": {
-          "value": 1,
-          "scope": "L’Intérêt d’Adam réutilise le dossier et la justification de rubrique ; sa diffusion quotidienne reste vérifiée séparément"
+          "value": 2,
+          "scope": "L’Intérêt d’Adam et La Nuit du chasseur réutilisent des métadonnées stables ; leurs diffusions du cycle sont vérifiées séparément"
         }
       },
       "requirements_resolved": [
@@ -28115,10 +28222,12 @@
         "dimanche : réserve complète rang 6 matérialisée pour Matrix Generation",
         "mercredi : réserve complète rang 6 matérialisée pour Orient-Express, le voyage d’une légende",
         "jeudi : réserve complète rang 6 matérialisée pour L’Intérêt d’Adam",
-        "dimanche : réserve complète rang 7 matérialisée pour Shutter Island"
+        "dimanche : réserve complète rang 7 matérialisée pour Shutter Island",
+        "samedi : réserve complète rang 7 matérialisée pour La Nuit du chasseur",
+        "vendredi : réserves complètes rangs 5 et 6 matérialisées pour Le Salaire de la peur et Les Enfants de la Résistance"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter les réserves des jours encore sous dix cartes, en priorité vendredi (4) puis samedi (6), mardi (5), mercredi/jeudi (6) et dimanche (7), depuis des dossiers à version et diffusion exactes.",
+      "next_useful_batch": "Compléter les réserves des jours encore sous dix cartes : vendredi (6), samedi/dimanche (7), mardi (5), mercredi/jeudi (6), puis corriger les réserves effectives des radars HD et popularité.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -28206,18 +28315,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T15:33:28.697Z",
+          "elapsed_seconds": 1691.609,
+          "prompt_revision": "production-integrity-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "ab2c1640cbb55d3b955cb30ada3b8c41222be0da",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T15:05:17.088Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T16:25:40.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T15:22:45.857Z",
-        "elapsed_seconds": 1048.769,
+        "observed_at": "2026-10-09T15:33:28.697Z",
+        "elapsed_seconds": 1691.609,
         "prompt_revision": "production-integrity-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "964bae389aa3b8fefa4298a94007f4fa914439c9",
+        "source_sha": "ab2c1640cbb55d3b955cb30ada3b8c41222be0da",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
@@ -28231,7 +28369,7 @@
         "observations": {
           "started_at": "2026-10-09T15:05:17.088Z",
           "lease_owned": "yes",
-          "lease_until": "2026-10-09T16:05:32.000Z",
+          "lease_until": "2026-10-09T16:25:40.000Z",
           "external_stop": null,
           "accessible_task_checks": [],
           "ready_handoff": null
@@ -28259,6 +28397,12 @@
           "ended_at": "2026-10-09T15:28:49.968Z",
           "overlap": true,
           "note": "Extraction ciblée, vérification des preuves, rédaction et rendu du handoff se chevauchent ; aucune somme séquentielle n’est calculée."
+        },
+        "recherche_redaction_batch_daily_2": {
+          "started_at": "2026-10-09T15:33:40.000Z",
+          "ended_at": "2026-10-09T15:35:44.282Z",
+          "overlap": true,
+          "note": "Extraction ciblée, recherches déléguées en lecture seule, revue, rédaction et rendu se chevauchent ; aucune somme séquentielle n’est calculée."
         }
       },
       "control_notes": [
@@ -28269,7 +28413,10 @@
         "Orient-Express : copie ARTE 83 min distinguée de la fiche 82 min ; diffusion, expiration, réception, visuel, liens et textes contrôlés.",
         "L’Intérêt d’Adam : master 78 min et version CANAL+ 74 min conservés séparément ; diffusion et réception déjà sauvegardées réutilisées avec contrôle du créneau.",
         "Shutter Island : copie ARTE 128 min séparée des versions cinéma 137/138 min ; diffusion, offre du cycle, réception contradictoire, notes, affiche, liens et textes contrôlés.",
-        "Handoff dimanche contrôlé avec conservation intégrale des six cartes existantes et ajout d’une réserve de rang 7."
+        "Handoff dimanche contrôlé avec conservation intégrale des six cartes existantes et ajout d’une réserve de rang 7.",
+        "Lot samedi/vendredi contrôlé : pools existants conservés intégralement, trois réserves ajoutées, validateurs canoniques, éditoriaux, liens et préparation relus.",
+        "La Nuit du chasseur : URL Criterion exacte 27525 vérifiée avant sauvegarde ; copie CANAL+ 88 min conservée.",
+        "Le Salaire de la peur et Les Enfants de la Résistance : copies du cycle distinguées des durées catalogue et réception critique contextualisée."
       ]
     }
   ],
@@ -31738,6 +31885,60 @@
         ],
         "decision_note": "Réserve complète rang 7 ; copie ARTE 128 min distinguée des versions cinéma 137/138 min.",
         "alternatives": []
+      },
+      {
+        "id": "sl-samedi-la-nuit-du-chasseur-reserve",
+        "title": "La Nuit du chasseur",
+        "work_id": "la-nuit-du-chasseur-1955",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "diffusion_officielle_et_reception_argumentee",
+            "note": "CANAL+ expose une copie de 88 min le 10 octobre à 01:34 ; Criterion et Roger Ebert étayent la forme gothique et expressionniste.",
+            "source_url": "https://www.canalplus.com/cinema/la-nuit-du-chasseur/h/935349_50002"
+          }
+        ],
+        "decision_note": "Réserve complète rang 7 ; exposition S40 conservée pour le contrôle global de fraîcheur.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-vendredi-le-salaire-de-la-peur-reserve",
+        "title": "Le Salaire de la peur",
+        "work_id": "le-salaire-de-la-peur-1953",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "diffusion_officielle_et_reception_argumentee",
+            "note": "France 5 annonce une copie de 151 min le 16 octobre à 21:05 ; palmarès et réception étayent l’intérêt, avec contextualisation des représentations datées.",
+            "source_url": "https://www.francetvpro.fr/contenu-de-presse/76719024"
+          }
+        ],
+        "decision_note": "Réserve complète rang 5 ; copie France 5 151 min distincte des durées catalogue.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-vendredi-les-enfants-de-la-resistance-reserve",
+        "title": "Les Enfants de la Résistance",
+        "work_id": "les-enfants-de-la-resistance-2025",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "diffusion_officielle_et_reception_contradictoire",
+            "note": "CANAL+ annonce sa copie de 96 min le 16 octobre à 21:10 ; Abus de Ciné et ActuaBD fournissent une réception argumentée et nuancée.",
+            "source_url": "https://www.canalplus.com/fr/cinema/les-enfants-de-la-resistance/h/31330819_50001"
+          }
+        ],
+        "decision_note": "Réserve complète rang 6 ; copie CANAL+ séparée des durées cinéma 100/101 min.",
+        "alternatives": []
       }
     ]
   },
@@ -34291,6 +34492,182 @@
         "image_url": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak%3D/v3/t/assets/p3531967_p_v12_an.jpg"
       },
       "reason": "Identité et versions séparées, diffusion et offre du cycle, réception contradictoire, notes, visuel et textes relus ; contrôles distants encore requis."
+    },
+    {
+      "title": "La Nuit du chasseur",
+      "work_id": "la-nuit-du-chasseur-1955",
+      "decision": "réserve complète samedi rang 7",
+      "identity_research": {
+        "director": "Charles Laughton",
+        "year": 1955,
+        "country": "États-Unis",
+        "duration_observations": [
+          {
+            "duration": "88 min",
+            "version": "version CANAL+ ciblée",
+            "source_url": "https://www.canalplus.com/cinema/la-nuit-du-chasseur/h/935349_50002"
+          }
+        ],
+        "checked_at": "2026-10-09T15:35:44.282Z"
+      },
+      "availability_research": {
+        "status": "verified_cycle_broadcast_only",
+        "checked_at": "2026-10-09T15:35:44.282Z",
+        "source_urls": [
+          "https://www.canalplus.com/cinema/la-nuit-du-chasseur/h/935349_50002",
+          "https://tv-programme.com/cine-plus-classic/samedi-10-octobre-2026/"
+        ],
+        "note": "BroadcastEvent du 10 octobre de 01:34 à 03:04 et contentDuration PT1H28M ; aucune disponibilité replay inférée."
+      },
+      "critical_evidence": [
+        {
+          "source": "Criterion",
+          "source_url": "https://www.criterion.com/films/27525-the-night-of-the-hunter",
+          "assessment": "Décrit une fable gothique américaine expressionniste, entre terreur, humour et merveilleux."
+        },
+        {
+          "source": "Roger Ebert",
+          "source_url": "https://www.rogerebert.com/reviews/great-movie-the-night-of-the-hunter-1955",
+          "assessment": "Souligne la puissance durable d’un film expressionniste longtemps incompris."
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic",
+        "checked_at": "2026-10-09T15:35:44.282Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0048424/",
+          "https://www.senscritique.com/film/la_nuit_du_chasseur/385235"
+        ],
+        "note": "IMDb 7,9 ; SensCritique 8,1."
+      },
+      "image_research": {
+        "status": "exact_poster_rechecked_ci_pending",
+        "checked_at": "2026-10-09T15:35:44.282Z",
+        "source_page": "https://www.benitomovieposter.com/",
+        "image_url": "https://www.benitomovieposter.com/catalog/images/movieposter/158032.jpg"
+      },
+      "reason": "Copie 88 min, diffusion, réception, notes, affiche, liens et textes contrôlés ; exposition S40 conservée et ratio de fraîcheur à vérifier sur le numéro complet."
+    },
+    {
+      "title": "Le Salaire de la peur",
+      "work_id": "le-salaire-de-la-peur-1953",
+      "decision": "réserve complète vendredi rang 5",
+      "identity_research": {
+        "director": "Henri-Georges Clouzot",
+        "year": 1953,
+        "country": "France / Italie",
+        "duration_observations": [
+          {
+            "duration": "151 min",
+            "version": "version France 5 du cycle",
+            "source_url": "https://www.francetvpro.fr/contenu-de-presse/76719024"
+          },
+          {
+            "duration": "148/156 min",
+            "version": "durées catalogue distinctes, non substituées",
+            "source_url": "https://www.criterion.com/films/370-the-wages-of-fear"
+          }
+        ],
+        "checked_at": "2026-10-09T15:35:44.282Z"
+      },
+      "availability_research": {
+        "status": "verified_cycle_broadcast_only",
+        "checked_at": "2026-10-09T15:35:44.282Z",
+        "source_urls": [
+          "https://www.francetvpro.fr/grille/france-5/17-10-2026/16-10-2026",
+          "https://www.francetvpro.fr/contenu-de-presse/76719024",
+          "https://programmetv.ouest-france.fr/film/aventures/le-salaire-de-la-peur-c57758/video-bande-annonce/"
+        ],
+        "note": "France 5 annonce le 16 octobre à 21:05 une version de 02:31 ; aucune offre à la demande inférée."
+      },
+      "critical_evidence": [
+        {
+          "source": "Criterion",
+          "source_url": "https://www.criterion.com/films/370-the-wages-of-fear",
+          "assessment": "Repère éditorial sur la construction du suspense et la portée du film."
+        },
+        {
+          "source": "Festival de Cannes / Berlinale",
+          "source_url": "https://www.francetvpro.fr/contenu-de-presse/76719024",
+          "assessment": "Palme d’or et Ours d’or 1953 conservés comme repères historiques, sans les convertir en consensus critique."
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic",
+        "checked_at": "2026-10-09T15:35:44.282Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0046268/",
+          "https://www.senscritique.com/film/le_salaire_de_la_peur/431892"
+        ],
+        "note": "IMDb 8,1/10 (75 k) ; SensCritique 8,0/10."
+      },
+      "image_research": {
+        "status": "exact_poster_checked_ci_pending",
+        "checked_at": "2026-10-09T15:35:44.282Z",
+        "source_page": "https://www.imdb.com/title/tt0046268/",
+        "image_url": "https://m.media-amazon.com/images/M/MV5BNWZiNmI1NDQtMDQ3Mi00YmYxLWEzNDYtZmE2NzgxNTVmMDFiXkEyXkFqcGc%40._V1_.jpg"
+      },
+      "reason": "Version France 5, diffusion, réception, notes, affiche, liens et textes contrôlés ; représentations datées explicitement contextualisées."
+    },
+    {
+      "title": "Les Enfants de la Résistance",
+      "work_id": "les-enfants-de-la-resistance-2025",
+      "decision": "réserve complète vendredi rang 6",
+      "identity_research": {
+        "director": "Christophe Barratier",
+        "year": 2025,
+        "country": "France",
+        "duration_observations": [
+          {
+            "duration": "96 min",
+            "version": "version CANAL+ ciblée",
+            "source_url": "https://www.canalplus.com/fr/cinema/les-enfants-de-la-resistance/h/31330819_50001"
+          },
+          {
+            "duration": "100/101 min",
+            "version": "versions cinéma distinctes",
+            "source_url": "https://www.studiocanal.com/title/children-of-the-resistance-2025/"
+          }
+        ],
+        "checked_at": "2026-10-09T15:35:44.282Z"
+      },
+      "availability_research": {
+        "status": "verified_cycle_broadcast_only",
+        "checked_at": "2026-10-09T15:35:44.282Z",
+        "source_urls": [
+          "https://www.canalplus.com/fr/cinema/les-enfants-de-la-resistance/h/31330819_50001",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+          "https://tv-programme.com/canal-plus/vendredi-16-octobre-2026/"
+        ],
+        "note": "Diffusion CANAL+ le 16 octobre à 21:10 recoupée ; aucun replay ni expiration inféré."
+      },
+      "critical_evidence": [
+        {
+          "source": "Abus de Ciné",
+          "source_url": "https://www.abusdecine.com/critique/les-enfants-de-la-resistance/",
+          "assessment": "Appréciation positive de l’équilibre entre gravité et humour."
+        },
+        {
+          "source": "ActuaBD",
+          "source_url": "https://www.actuabd.com/Les-Enfants-de-la-Resistance-le-film-evenement-familial-pour-les-vacances",
+          "assessment": "Avis nuancé sur la fidélité, la tension, le jeu et le rythme."
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic",
+        "checked_at": "2026-10-09T15:35:44.282Z",
+        "source_urls": [
+          "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000006174.html"
+        ],
+        "note": "AlloCiné presse 2,9/5 (18) ; spectateurs 3,3/5 (1 819)."
+      },
+      "image_research": {
+        "status": "exact_poster_checked_ci_pending",
+        "checked_at": "2026-10-09T15:35:44.282Z",
+        "source_page": "https://www.abusdecine.com/critique/les-enfants-de-la-resistance/",
+        "image_url": "https://www.abusdecine.com/wp-content/uploads/les-enfants-de-la-resistance-affiche.jpg"
+      },
+      "reason": "Copie CANAL+ 96 min séparée des durées cinéma ; diffusion, réception contradictoire, notes, affiche, liens et textes contrôlés."
     }
   ]
 }
