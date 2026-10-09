@@ -22286,13 +22286,13 @@
     {
       "date": "2026-10-09T10:04:02.793Z",
       "started_at": "2026-10-09T09:57:30.672Z",
-      "ended_at": null,
+      "ended_at": "2026-10-09T10:49:25.537Z",
       "owner": "bb995f58-8797-409f-8b42-879769f7c8a7",
       "execution_kind": "scheduled_efficiency_production",
       "prompt_revision": "production-efficiency-2026-10-09",
       "stage": "enrichment",
-      "elapsed_seconds": null,
-      "duration_basis": "Passage en cours ; started_at observé à l’entrée, ended_at sera fixé au bilan terminal.",
+      "elapsed_seconds": 3114.865,
+      "duration_basis": "Différence entre started_at et ended_at observés pendant cette exécution.",
       "completed_batches": [
         "synchronize-main-e42a29ef",
         "draft-wednesday-burning-an-illusion-2026-10-09",
@@ -22309,7 +22309,8 @@
         "document-sunday-la-gueule-ouverte-conflict-2026-10-09",
         "complete-tuesday-regrouping-2026-10-09",
         "refresh-a-ghost-story-version-attempt-2026-10-09",
-        "verify-friday-la-falaise-broadcast-2026-10-09"
+        "verify-friday-la-falaise-broadcast-2026-10-09",
+        "restore-main-editorial-prompt-contract-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -22317,7 +22318,8 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json",
         "data/coverage/2026-S42.json",
-        "data/manifest.json"
+        "data/manifest.json",
+        "docs/EDITORIAL-AGENT-PROMPT.md"
       ],
       "complete_cards": 17,
       "draft_cards": 1,
@@ -22353,7 +22355,8 @@
         "livrable : page Méthode matérialisée sans certifier les exigences ouvertes",
         "Point limite : recoupement indépendant de la chaîne Ciné+ Classic",
         "La Proie nue : recoupement indépendant de la chaîne Ciné+ Classic",
-        "Regrouping : recoupement indépendant de la diffusion TCM Cinéma"
+        "Regrouping : recoupement indépendant de la diffusion TCM Cinéma",
+        "CI validation-context : la candidate ne modifie plus docs/EDITORIAL-AGENT-PROMPT.md par rapport à main"
       ],
       "remaining": {
         "stage": "enrichment",
@@ -22795,18 +22798,76 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T10:45:34.999Z",
+          "elapsed_seconds": 2884.327,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "5ea5711ee7d08b33bd96e00202fb8d360abf1082",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T09:57:30.672Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T11:16:44.423Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        },
+        {
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-09T10:48:46.927Z",
+          "elapsed_seconds": 3076.255,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "7f2fb9f9a3581b21027df0a27f36c145e46c2227",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T09:57:30.672Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T11:16:44.423Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T10:43:58.655Z",
-        "elapsed_seconds": 2787.983,
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-09T10:48:46.927Z",
+        "elapsed_seconds": 3076.255,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "9a7882bb33d3af21100bf4d2d68d75cd6602874f",
+        "source_sha": "7f2fb9f9a3581b21027df0a27f36c145e46c2227",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -22826,9 +22887,9 @@
           "ready_handoff": null
         }
       },
-      "run_state": "running",
-      "stop_reason": null,
-      "next_useful_batch": "Achever l’identité canonique, le visuel, les liens, la note ou son absence motivée et la version de La falaise mystérieuse avant toute carte."
+      "run_state": "stopped",
+      "stop_reason": "budget_reserve_reached",
+      "next_useful_batch": "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés."
     }
   ],
   "source_issues": [
