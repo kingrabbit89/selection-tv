@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T21:25:20.767Z",
+  "updated_at": "2026-10-09T21:26:33.429Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -19,7 +19,6 @@
     "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
     "Public Sénat : Silence dans les rangs documenté (prix et limites de réception), horaires légèrement divergents et replay indisponible ; terminer offre/expiration, notes, affiche et revue comparative.",
     "France 4 : compléter réception/offres documentaires et épisodes génériques ; Rachelle Allison à la Cigale retenu à 20:30 après recoupement officiel/guide courant, à revérifier au préflight. Hakim Jemili : titre du montage Super non confirmé par la fiche officielle.",
-    "France 4 documentaires : Wachowski (Thibaut Sève, distinct de Matrix Generation) est matérialisé en troisième choix draft du vendredi avec œuvre 61 min, créneau62min, diffusion recoupée, réception attribuée, visuel exact et absence de moyenne documentée ; recontrôler au préflight. On ne va pas se défiler reste à compléter pour la passe documentaire.",
     "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes. Nouvelle piste TV5Pro mène à une connexion ; guide public reste channel4/NewYork, aucune preuve FBS.",
     "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma.",
     "TF1/TFX/TMC : poursuivre les sujets/épisodes encore génériques et le tri motivé des formats de magazine ou documentaire de flux repérés ; neuf créneaux TFX, 38 TMC recoupés et deux magazines supplémentaires ajoutés, sans certification artistique.",
@@ -1372,7 +1371,8 @@
     "love-on-trial-canal-date-complementary-proof-2026-10-09",
     "cineplus-fresh-official-route-review-and-exact-ci-2026-10-09",
     "tcm-three-selected-card-closure-policy-review-2026-10-09",
-    "un-crime-selected-event-scope-review-2026-10-09"
+    "un-crime-selected-event-scope-review-2026-10-09",
+    "france4-wachowski-level3-and-unselected-defer-2026-10-09"
   ],
   "blockers": [
     {
@@ -26514,6 +26514,38 @@
       },
       "evidence_note": "Trois guides courants concordent jusque dans l’identité Frankenheimer 1962, mais aucune base positive d’acquisition indépendante n’est connue ; cette concordance ne clôt pas la carte.",
       "status": "observed_concordant_independence_unknown"
+    },
+    {
+      "work_id": "de-matrix-a-sense8-la-revolution-wachowski-2024",
+      "fields": [
+        "identity",
+        "broadcast",
+        "critical_evidence",
+        "image",
+        "links",
+        "ratings_unavailable_reason"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/contenu-de-presse/66573045",
+        "https://www.francetvpro.fr/grille/france-4/03-10-2026/15-10-2026",
+        "https://tv-programme.com/france-4/vendredi-16-octobre-2026/",
+        "https://www.telerama.fr/television/de-matrix-a-sense8-la-revolution-wachowski-de-thibaut-seve-notre-critique_cri-7032889.php",
+        "https://www.troiscouleurs.fr/series/series-critiques/a-voir-absolument-sur-france-tv-le-docu-de-matrix-a-sense8-la-revolution-wachowski/"
+      ],
+      "checked_at": "2026-10-09T21:26:33.429Z",
+      "stability": "mixed_stable_and_cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "start": "00:00",
+        "channel": "France 4",
+        "sections": [
+          "vendredi-selection",
+          "rendezvous-1"
+        ]
+      },
+      "evidence_note": "Revue de niveau 3 de la carte déjà rendue ; les durées œuvre/créneau/ancienne notice restent séparées et aucune offre replay n’est ajoutée.",
+      "status": "editorial_level3_review_complete_under_closure_policy"
     }
   ],
   "run_metrics": [
@@ -32609,7 +32641,8 @@
         "love-on-trial-canal-date-complementary-proof-2026-10-09",
         "cineplus-fresh-official-route-review-and-exact-ci-2026-10-09",
         "tcm-three-selected-card-closure-policy-review-2026-10-09",
-        "un-crime-selected-event-scope-review-2026-10-09"
+        "un-crime-selected-event-scope-review-2026-10-09",
+        "france4-wachowski-level3-and-unselected-defer-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -32619,9 +32652,9 @@
       "cards_integrated_this_run": 0,
       "draft_cards": 0,
       "partial_dossiers": 5,
-      "requirements_resolved": 11,
+      "requirements_resolved": 12,
       "stop_reason": null,
-      "next_useful_batch": "Clore le suivi France 4 documentaire si la carte Wachowski retenue satisfait bien le niveau 3 et si On ne va pas se défiler est absent des pools courants ; conserver séparément les lacunes de rappel France 4.",
+      "next_useful_batch": "Revoir le suivi Arte préhistoire : confirmer que Chauvet, Thorin et Sulawesi déjà rendus satisfont leurs seules exigences de niveau 3, sans fermer le rappel documentaire ni confondre les durées 52/53/54 min de Thorin.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -32880,30 +32913,62 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T21:25:50.000Z",
+          "elapsed_seconds": 1778.352,
+          "prompt_revision": "production-proof-policy-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "f228308f1f2a59eec17ecf6a42c3536d53bf3a7f",
+          "next_actions": [
+            "Clore le suivi France 4 documentaire si la carte Wachowski retenue satisfait bien le niveau 3 et si On ne va pas se défiler est absent des pools courants ; conserver séparément les lacunes de rappel France 4.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
+            "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
+          ],
+          "remaining_count": 23,
+          "next_actions_total": 20,
+          "truncated_notice": "15 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 28,
+          "waiting_actions_count": 8,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T20:56:11.648Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T22:17:47.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T21:24:11.767Z",
-        "elapsed_seconds": 1680.119,
+        "observed_at": "2026-10-09T21:25:50.000Z",
+        "elapsed_seconds": 1778.352,
         "prompt_revision": "production-proof-policy-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "83e9595940858da991a452ac43efccf6e79b2410",
+        "source_sha": "f228308f1f2a59eec17ecf6a42c3536d53bf3a7f",
         "next_actions": [
-          "Revoir Un crime dans la tête, carte retenue réutilisée samedi et jeudi : distinguer les champs déjà prouvés du seul défaut exact encore ouvert, puis clore ou remplacer sans exiger un master technique systématique.",
+          "Clore le suivi France 4 documentaire si la carte Wachowski retenue satisfait bien le niveau 3 et si On ne va pas se défiler est absent des pools courants ; conserver séparément les lacunes de rappel France 4.",
           "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
           "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
           "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
         ],
         "remaining_count": 23,
-        "next_actions_total": 21,
-        "truncated_notice": "16 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "next_actions_total": 20,
+        "truncated_notice": "15 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
         "all_actions_total": 28,
-        "waiting_actions_count": 7,
+        "waiting_actions_count": 8,
         "research_review_warnings": [],
         "observations": {
           "started_at": "2026-10-09T20:56:11.648Z",
@@ -32991,6 +33056,13 @@
           "ended_at": "2026-10-09T21:25:20.767Z",
           "overlap": false,
           "note": "Extraction ciblée, recherche officielle et deux guides supplémentaires pour Un crime dans la tête ; carte samedi close, défaut jeudi borné à la provenance de diffusion."
+        },
+        {
+          "kind": "review",
+          "started_at": "2026-10-09T21:25:50.000Z",
+          "ended_at": "2026-10-09T21:26:33.429Z",
+          "overlap": false,
+          "note": "Extraction ciblée France 4 : carte Wachowski complète sous la politique de portée, piste On ne va pas se défiler absente des pools et différée."
         }
       ],
       "requirements_resolved_details": [
@@ -32998,7 +33070,8 @@
         "Six exigences d’enrichissement de pistes non retenues sont closes par décisions motivées, sans retirer leurs observations ni les lacunes de couverture distinctes.",
         "Le rappel W9 est réconcilié pour sa portée de couverture sur la grille primaire M6/W9 ; l’action combinée reste ouverte pour Ciné+ Festival.",
         "Deux suivis de dossiers Ciné+ sont clos : quatre cartes retenues relient événements CANAL+ et attribution de chaîne par titre/date/heure ; les pistes non retenues sont différées. Le niveau 2 Ciné+ reste ouvert.",
-        "Deux suivis TCM obsolètes sont clos : La falaise mystérieuse, Regrouping et Burning an Illusion satisfont le niveau 3 dans la portée de leurs preuves, sans inventer de master technique ni de replay ; quatre pistes non retenues restent différées. Les exigences de niveau 2 TCM restent ouvertes."
+        "Deux suivis TCM obsolètes sont clos : La falaise mystérieuse, Regrouping et Burning an Illusion satisfont le niveau 3 dans la portée de leurs preuves, sans inventer de master technique ni de replay ; quatre pistes non retenues restent différées. Les exigences de niveau 2 TCM restent ouvertes.",
+        "Le suivi France 4 documentaire ciblé est clos : la carte Wachowski satisfait le niveau 3 avec durées bornées ; On ne va pas se défiler est différé hors sélection. Le rappel France 4 et Hakim Jemili restent ouverts séparément."
       ]
     }
   ],
@@ -33672,7 +33745,7 @@
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Clore le suivi France 4 documentaire si la carte Wachowski retenue satisfait bien le niveau 3 et si On ne va pas se défiler est absent des pools courants ; conserver séparément les lacunes de rappel France 4.",
+      "Revoir le suivi Arte préhistoire : confirmer que Chauvet, Thorin et Sulawesi déjà rendus satisfont leurs seules exigences de niveau 3, sans fermer le rappel documentaire ni confondre les durées 52/53/54 min de Thorin.",
       "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
       "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
       "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
@@ -40669,6 +40742,18 @@
       "evidence": "Targeted work packet on 83e9595 plus fresh official/guide checks on 2026-10-09.",
       "reason": "La carte du samedi est complète ; la seule carte retenue encore ouverte est celle du jeudi faute de provenance positive. Les événements Grand Écran du remake et les rediffusions non retenues n’ont pas à être enrichis pour clore les cartes actuelles, mais leurs observations et divergences restent sauvegardées.",
       "coverage_effect": "one_selected_thursday_card_remains_blocking; no weekly coverage closure"
+    },
+    {
+      "action_text": "France 4 documentaires : Wachowski (Thibaut Sève, distinct de Matrix Generation) est matérialisé en troisième choix draft du vendredi avec œuvre 61 min, créneau62min, diffusion recoupée, réception attribuée, visuel exact et absence de moyenne documentée ; recontrôler au préflight. On ne va pas se défiler reste à compléter pour la passe documentaire.",
+      "decided_at": "2026-10-09T21:26:33.429Z",
+      "decision": "selected_card_verified_unselected_lead_deferred",
+      "applies_to": [
+        "De \"Matrix\" à \"Sense8\", la révolution Wachowski",
+        "On ne va pas se défiler"
+      ],
+      "evidence": "Targeted editorial-work-packet on f228308 plus exact current-pool scan in data/weeks/2026-S42.json.",
+      "reason": "La carte Wachowski retenue satisfait le niveau 3 et garde les trois indications de durée dans leur portée. On ne va pas se défiler ne figure dans aucun pool, son ancienne expiration 2025 est périmée et aucune qualité actuelle n’est déduite : la piste est différée. Le rappel France 4 et Hakim Jemili restent ouverts dans une exigence distincte.",
+      "coverage_effect": "none_on_open_france4_reminder_requirement"
     }
   ]
 }
