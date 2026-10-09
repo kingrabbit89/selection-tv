@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "018433005ec07f2d8900af044f82dede06d49a28",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T10:34:37.421Z",
+  "updated_at": "2026-10-09T10:36:47.673Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -617,6 +617,15 @@
       "deliverables": [
         "data/research/2026-S42.json",
         "data/coverage/2026-S42.json"
+      ]
+    },
+    {
+      "id": "complete-friday-la-proie-nue-2026-10-09",
+      "completed_at": "2026-10-09T10:36:47.673Z",
+      "scope": "vendredi",
+      "summary": "TV Digital3D recoupe la diffusion La Proie nue du 16 octobre à 23:22 sur Ciné+ Classic ; carte développée désormais complète sans assimiler créneau et durée de copie.",
+      "deliverables": [
+        "data/research/2026-S42.json"
       ]
     }
   ],
@@ -19441,9 +19450,10 @@
       ],
       "source_urls": [
         "https://www.canalplus.com/cinema/la-proie-nue/h/1550542_50002",
-        "https://tv-programme.com/cine-plus-classic/vendredi-16-octobre-2026/"
+        "https://tv-programme.com/cine-plus-classic/vendredi-16-octobre-2026/",
+        "https://tv.digital3d.com/programme/tt0060736/la-proie-nue"
       ],
-      "checked_at": "2026-10-08T13:11:06.459241+00:00",
+      "checked_at": "2026-10-09T10:36:47.673Z",
       "stability": "dynamic",
       "applies_to": {
         "week": "2026-S42",
@@ -19451,8 +19461,11 @@
         "start": "23:22",
         "channel": "Ciné+ Classic"
       },
-      "evidence_note": "L’événement officiel CANAL+ et la grille datée concordent sur 23:22. Le BroadcastEvent ne nomme pas la chaîne ; l’indépendance du flux de grille reste à consolider au niveau couverture.",
-      "status": "needs_check"
+      "evidence_note": "CANAL+ fixe l’événement à 23:22 et la copie affichée à 91 min ; TV Digital3D recoupe indépendamment vendredi 16 octobre, 23:22–00:55 sur Ciné+ Classic. Le créneau de 93 min reste distinct de la durée de copie.",
+      "status": "verified",
+      "reused_in": [
+        "production-efficiency-2026-10-09"
+      ]
     },
     {
       "work_id": "la-proie-nue-1965",
@@ -22207,7 +22220,8 @@
         "render-cover-from-developed-choices-2026-10-09",
         "render-method-page-2026-10-09",
         "advance-thursday-machine-ecrire-dossier-2026-10-09",
-        "complete-thursday-point-limite-2026-10-09"
+        "complete-thursday-point-limite-2026-10-09",
+        "complete-friday-la-proie-nue-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -22217,7 +22231,7 @@
         "data/coverage/2026-S42.json",
         "data/manifest.json"
       ],
-      "complete_cards": 15,
+      "complete_cards": 16,
       "draft_cards": 1,
       "partial_dossiers": 1,
       "deliverables_advanced": [
@@ -22234,7 +22248,8 @@
         "couverture",
         "methode",
         "jeudi : dossier La machine à écrire presque complet",
-        "jeudi : Point limite carte complète"
+        "jeudi : Point limite carte complète",
+        "vendredi : La Proie nue carte complète"
       ],
       "requirements_resolved": [
         "Burning an Illusion : deuxième carte du mercredi matérialisée sans masquer le conflit de versions",
@@ -22244,7 +22259,8 @@
         "rubrique Rendez-vous : deux pages et dix cartes complètes matérialisées",
         "livrable : couverture et hero matérialisés depuis des choix développés",
         "livrable : page Méthode matérialisée sans certifier les exigences ouvertes",
-        "Point limite : recoupement indépendant de la chaîne Ciné+ Classic"
+        "Point limite : recoupement indépendant de la chaîne Ciné+ Classic",
+        "La Proie nue : recoupement indépendant de la chaîne Ciné+ Classic"
       ],
       "remaining": {
         "stage": "enrichment",
@@ -22541,18 +22557,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T10:35:59.991Z",
+          "elapsed_seconds": 2309.319,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "e46b888763c07fd64e55346f69e8f618a5c527f6",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T09:57:30.672Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T11:16:44.423Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T10:33:05.813Z",
-        "elapsed_seconds": 2135.141,
+        "observed_at": "2026-10-09T10:35:59.991Z",
+        "elapsed_seconds": 2309.319,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "487b286cc531f6ae8c53bc2d152b183d0e567828",
+        "source_sha": "e46b888763c07fd64e55346f69e8f618a5c527f6",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -22574,7 +22619,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Achever une autre carte draft proche de la complétude, en priorité vendredi, ou produire une rubrique indépendante entièrement vérifiée."
+      "next_useful_batch": "Achever A Ghost Story seulement si une preuve de version TCM apparaît ; sinon produire une rubrique indépendante entièrement vérifiée."
     }
   ],
   "source_issues": [
@@ -23850,18 +23895,24 @@
         "scope": {
           "day": "vendredi"
         },
-        "status": "card_drafted",
+        "status": "card_complete",
         "signals": [
           {
             "kind": "critique",
             "note": "Michael Atkinson souligne l’épure, le découpage et la force hostile du paysage ; les représentations datées restent une réserve explicite.",
             "source_url": "https://www.criterion.com/current/posts/623-the-naked-prey-into-the-wild"
+          },
+          {
+            "kind": "diffusion_independante",
+            "note": "TV Digital3D recoupe le vendredi 16 octobre à 23:22 sur Ciné+ Classic ; le créneau 1h33 reste distingué de la copie CANAL+ à 1h31.",
+            "source_url": "https://tv.digital3d.com/programme/tt0060736/la-proie-nue"
           }
         ],
         "alternatives": [
           "sl-vendredi-a-ghost-story",
           "sl-vendredi-wachowski"
-        ]
+        ],
+        "decision_note": "Carte développée complète pour comparaison ; diffusion et chaîne recoupées indépendamment, préflight final encore requis."
       },
       {
         "id": "sl-vendredi-a-ghost-story",
