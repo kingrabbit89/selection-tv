@@ -3,10 +3,19 @@ import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
 
 // A wall-clock work target, not an execution limit or a hidden quota estimate.
-// Starting another batch stops at 30 minutes to retain 5 minutes for saving.
-export const SOFT_BUDGET_SECONDS = 35 * 60;
+// Starting another batch stops at 50 minutes to retain 5 minutes for saving.
+// The previous revision retains its historical 35-minute target during audit.
+export const SOFT_BUDGET_SECONDS = 55 * 60;
 export const SAVE_RESERVE_SECONDS = 5 * 60;
-export const CONTINUATION_REVISION = 'production-continuation-2026-10-09';
+export const CONTINUATION_REVISION = 'production-efficiency-2026-10-09';
+export const LEGACY_CONTINUATION_REVISION = 'production-continuation-2026-10-09';
+const legacyBudget = Object.freeze({budget_seconds:35 * 60, reserve_seconds:SAVE_RESERVE_SECONDS});
+export const BUDGET_PROFILES = Object.freeze({
+  [CONTINUATION_REVISION]:Object.freeze({budget_seconds:SOFT_BUDGET_SECONDS, reserve_seconds:SAVE_RESERVE_SECONDS}),
+  [LEGACY_CONTINUATION_REVISION]:legacyBudget
+});
+const budgetProfile = revision => Object.hasOwn(BUDGET_PROFILES, revision) ? BUDGET_PROFILES[revision] : null;
+const requiresDecision = revision => [CONTINUATION_REVISION, LEGACY_CONTINUATION_REVISION].includes(revision);
 const text = value => typeof value === 'string' && value.trim().length > 0;
 const array = value => Array.isArray(value) ? value : [];
 const unique = values => [...new Set(values.filter(text))];
@@ -57,7 +66,9 @@ function allTasksBlocked(progress, checks, started, now) {
  */
 export function decideContinuation({progress = {}, started_at = null, now = null,
   lease_owned = 'unknown', lease_until = null, external_stop = null,
-  accessible_task_checks = [], ready_handoff = null, source_sha = null} = {}) {
+  accessible_task_checks = [], ready_handoff = null, source_sha = null,
+  prompt_revision = CONTINUATION_REVISION} = {}) {
+  const profile = budgetProfile(prompt_revision);
   const current = milliseconds(now), started = milliseconds(started_at);
   const elapsed = current !== null && started !== null && current >= started ? (current - started) / 1000 : null;
   const expiry = milliseconds(lease_until);
@@ -66,7 +77,7 @@ export function decideContinuation({progress = {}, started_at = null, now = null
     accessible_task_checks: array(accessible_task_checks), ready_handoff};
   const result = (action, reason_code, next_actions = actions) => ({
     action, reason_code, observed_at: iso(now) ? now : null, elapsed_seconds: elapsed,
-    budget_seconds: SOFT_BUDGET_SECONDS, reserve_seconds: SAVE_RESERVE_SECONDS,
+    prompt_revision, budget_seconds: profile?.budget_seconds ?? null, reserve_seconds: SAVE_RESERVE_SECONDS,
     week: progress.week || null, source_sha, next_actions: next_actions.slice(0, 5),
     remaining_count: array(progress.remaining).length, next_actions_total: next_actions.length,
     truncated_notice: next_actions.length > 5 ? `${next_actions.length - 5} further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.` : null,
@@ -76,6 +87,7 @@ export function decideContinuation({progress = {}, started_at = null, now = null
   if (lease_owned === 'no') return result('stop', 'lease_lost');
   if (current === null) return result('unknown', 'clock_unknown');
   if (expiry !== null && current >= expiry) return result('stop', 'lease_expired');
+  if (!profile) return result('unknown', 'prompt_revision_unknown');
   if (started === null) return result('unknown', 'start_time_unknown');
   if (current < started) return result('unknown', 'clock_inconsistent');
   if (external_stop !== null) {
@@ -86,7 +98,7 @@ export function decideContinuation({progress = {}, started_at = null, now = null
   }
   if (readyHandedOff(progress, ready_handoff, started, current)) return result('stop', 'ready_handed_off', []);
   if (allTasksBlocked(progress, array(accessible_task_checks), started, current)) return result('stop', 'all_accessible_tasks_blocked');
-  if (elapsed >= SOFT_BUDGET_SECONDS - SAVE_RESERVE_SECONDS) return result('stop', 'budget_reserve_reached');
+  if (elapsed >= profile.budget_seconds - profile.reserve_seconds) return result('stop', 'budget_reserve_reached');
   if (lease_owned !== 'yes') return result('unknown', 'lease_ownership_unknown');
   if (expiry === null) return result('unknown', 'lease_expiry_unknown');
   if ((expiry - current) / 1000 <= SAVE_RESERVE_SECONDS) return result('stop', 'lease_reserve_reached');
@@ -112,15 +124,18 @@ const checkpointStop = reason => typeof reason === 'string' &&
 export function auditRecordedRun(run = {}, progress = {}) {
   const warnings = [];
   const decision = run.continuation_decision;
+  // A historical run is evaluated under its own instructions. Numeric budget
+  // fields or an injected observation cannot silently select another policy.
+  const profile = budgetProfile(run.prompt_revision);
   const checkpoint = checkpointStop(run.stop_reason);
   if (!decision) {
-    if (run.prompt_revision === CONTINUATION_REVISION) warnings.push('last run lacks continuation_decision required by its prompt revision; do not reconstruct observations');
+    if (requiresDecision(run.prompt_revision)) warnings.push('last run lacks continuation_decision required by its prompt revision; do not reconstruct observations');
     if (checkpoint) {
       warnings.push('last stop_reason describes a completed batch/checkpoint, which alone is not a reason to end the run; actual stop cause remains unknown');
       const start = milliseconds(run.started_at), end = milliseconds(run.ended_at);
-      if (start !== null && end !== null && end >= start && (end - start) / 1000 < SOFT_BUDGET_SECONDS - SAVE_RESERVE_SECONDS &&
+      if (profile && start !== null && end !== null && end >= start && (end - start) / 1000 < profile.budget_seconds - profile.reserve_seconds &&
         (array(progress.remaining).length || text(run.next_useful_batch))) {
-        warnings.push('recorded checkpoint was reached before the 30-minute work threshold with unfinished work; no observed permissible stop is recorded (no hidden quota/runtime cause inferred)');
+        warnings.push(`recorded checkpoint was reached before the ${(profile.budget_seconds - profile.reserve_seconds) / 60}-minute work threshold with unfinished work; no observed permissible stop is recorded (no hidden quota/runtime cause inferred)`);
       }
     }
     return warnings;
@@ -129,8 +144,15 @@ export function auditRecordedRun(run = {}, progress = {}) {
     return ['last continuation_decision has an invalid action; actual stop cause remains unknown'];
   }
   if (!iso(decision.observed_at)) warnings.push('last continuation_decision lacks a real observed_at; do not reconstruct it');
-  if (decision.budget_seconds !== SOFT_BUDGET_SECONDS || decision.reserve_seconds !== SAVE_RESERVE_SECONDS) {
-    warnings.push('last continuation_decision does not record the 35-minute soft target and 5-minute saving reserve');
+  if (decision.prompt_revision === undefined && run.prompt_revision === CONTINUATION_REVISION) {
+    warnings.push('last continuation_decision lacks prompt_revision required by the efficiency policy');
+  } else if (decision.prompt_revision !== undefined && decision.prompt_revision !== run.prompt_revision) {
+    warnings.push('last continuation_decision prompt_revision disagrees with the recorded run; do not replace its historical policy');
+  }
+  if (!profile) {
+    warnings.push('last continuation_decision has no known run prompt revision; do not infer its budget from numeric fields or another pass');
+  } else if (decision.budget_seconds !== profile.budget_seconds || decision.reserve_seconds !== profile.reserve_seconds) {
+    warnings.push(`last continuation_decision does not record the ${profile.budget_seconds / 60}-minute soft target and ${profile.reserve_seconds / 60}-minute saving reserve required by its run revision`);
   }
   if (!Array.isArray(decision.next_actions)) warnings.push('last continuation_decision lacks explicit next_actions');
   const start = milliseconds(run.started_at), at = milliseconds(decision.observed_at);
@@ -148,12 +170,15 @@ export function auditRecordedRun(run = {}, progress = {}) {
     return warnings;
   }
   if (facts.started_at !== (run.started_at ?? null)) warnings.push('last continuation_decision observations.started_at differs from the recorded run start; never substitute another pass clock');
-  const replay = decideContinuation({...facts, progress, started_at: run.started_at ?? null, now: decision.observed_at});
-  if (decision.action !== replay.action || decision.reason_code !== replay.reason_code) {
-    warnings.push('last continuation_decision is not supported by its recorded clock, lease, stop and task observations; no hidden cause inferred');
+  if (profile) {
+    const replay = decideContinuation({...facts, progress, started_at: run.started_at ?? null, now: decision.observed_at,
+      prompt_revision:run.prompt_revision});
+    if (decision.action !== replay.action || decision.reason_code !== replay.reason_code) {
+      warnings.push('last continuation_decision is not supported by its recorded clock, lease, stop and task observations; no hidden cause inferred');
+    }
   }
   const intermediate = run.run_state !== 'stopped' && (run.run_state === 'running' || !text(run.stop_reason) || run.stop_reason === 'checkpoint_in_progress');
-  if (decision.action === 'continue' && !intermediate && (checkpoint || run.prompt_revision === CONTINUATION_REVISION || run.run_state === 'stopped')) {
+  if (decision.action === 'continue' && !intermediate && (checkpoint || requiresDecision(run.prompt_revision) || run.run_state === 'stopped')) {
     warnings.push('last decision says continue, but the run records a terminal stop; record a subsequent observed stop or continue the next useful batch');
   }
   return warnings;

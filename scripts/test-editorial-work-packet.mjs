@@ -13,6 +13,30 @@ const fixture = () => ({week: '2026-S42', sha: 'a'.repeat(40),
   works:{works:[{id:'original',title:'Un crime dans la tête',year:1962},{id:'remake',title:'Un crime dans la tête',year:2004}]},
   links:{links:{}}, manifest:{latest:'2026-S41'}, files:[]});
 
+const batchFixture = () => {
+  const input = fixture();
+  input.works.works.push({id:'ghost',title:'A Ghost Story',aliases:['Une histoire de fantôme'],year:2017});
+  input.inventory.days[0].items.push({title:'Une histoire de fantôme',channel:'Ciné+ Classic',start:'23:00',version:'TCM copy'});
+  input.links.links['Un crime dans la tête']={official:'https://original.test/'};
+  input.links.links['Une histoire de fantôme']={imdb:'https://ghost.test/'};
+  input.research.verification_records=[
+    {work_id:'original',checked_at:'2026-08-01',status:'conflict',fields:['version'],source_urls:['https://original.test/'],evidence_note:'1962 copy unresolved'},
+    {work_id:'remake',checked_at:'2026-08-02',status:'verified',fields:['director'],source_urls:['https://remake.test/']},
+    {applies_to:{title:'Une histoire de fantôme'},checked_at:'2026-08-03',status:'unavailable',fields:['replay'],source_urls:['https://ghost.test/']},
+    {applies_to:{week:'2026-S42',channel:'Ciné+ Classic',date:'2026-10-10'},checked_at:'2026-08-04',status:'needs_check'},
+    {applies_to:'A Ghost Story version uncertain',checked_at:'2026-08-05',status:'conflict'},
+    {work_id:'unrelated',checked_at:'2026-08-06',status:'verified'}
+  ];
+  input.coverage.documentary_discovery.candidates=[
+    {title:'Un crime dans la tête',critical_evidence:[{checked_at:'2026-08-07',access:'partial'}]},
+    {title:'Une histoire de fantôme',critical_evidence:[{checked_at:'2026-08-08',assessment:'Contradictory reception'}]}
+  ];
+  input.coverage.cinema_official_broadcast_observations=[{work_id:'original',comparison:'conflict',note:'Channel absent'}];
+  input.research.research_attempts=[{id:'ghost-offer',object:{title:'A Ghost Story',offer:'France'},status:'paused_offer',blocking_scope:'Only this offer',resume_condition:'New exact offer'}];
+  input.historicalIssues=[{entry:{week:'2026-S41'},issue:{pages:[{id:'samedi-selection',html:'<h3>Un crime dans la tête</h3><h3>A Ghost Story</h3>'}]}}];
+  return input;
+};
+
 test('same-title remakes stay ambiguous, with no automatic identity or reuse', () => {
   const input=fixture(), snapshot=structuredClone(input);
   const p=buildWorkPacket(input,{title:'Un crime dans la tête'});
@@ -133,6 +157,94 @@ test('historical HTML decodes apostrophes, quotes and ampersands once before com
     assert.deepEqual(buildWorkPacket(input,{title}).work.requested_title_historical_exposure,[{week:'2026-S41',scopes:['public']}],title);
   }
   assert.deepEqual(buildWorkPacket(input,{title:'Bob & Alice'}).work.requested_title_historical_exposure,[],'do not decode twice');
+});
+test('batch shares context while preserving each title’s exact evidence, ambiguity and history', () => {
+  const input=batchFixture(), snapshot=structuredClone(input);
+  const titles=['A Ghost Story','Un crime dans la tête'];
+  const batch=buildWorkPacket(input,{titles});
+  assert.deepEqual(batch.works,titles.map(title=>buildWorkPacket(input,{title}).work));
+  assert.deepEqual(batch.works.map(work=>work.requested_title),titles,'requested order is retained, not ranked');
+  assert.equal(batch.works[1].identity_status,'ambiguous_catalogue_matches');
+  assert.deepEqual(batch.works[1].canonical_title_historical_exposure.map(row=>row.work_id),['original','remake']);
+  assert.equal(batch.works[0].verification_records[0].checked_at,'2026-08-03');
+  assert.equal(batch.works[0].research_attempts[0].blocking_scope,'Only this offer');
+  assert.equal(batch.works[0].supporting_schedule_records[0].status,'needs_check');
+  assert.equal(batch.works[0].unstructured_applicability_records[0].status,'conflict');
+  assert.equal(batch.work,undefined);
+  assert.equal(batch.catalogue_leads,undefined);
+  assert.equal(batch.researched_dossier_index,undefined);
+  assert.deepEqual(batch.remaining,['Certifier les grilles']);
+  for(const work of batch.works){
+    assert.equal(work.no_automatic_reuse,true);
+    assert.equal(work.remaining,undefined,'global requirements appear only once');
+    assert.equal(work.freshness_context,undefined,'shared history context appears only once');
+  }
+  assert.equal(batch.publication_ready,false);
+  assert.deepEqual(input,snapshot);
+  const compact=buildWorkPacket(input,{titles,compact:true});
+  assert.deepEqual(compact.works,batch.works);
+  assert.equal(compact.remaining,undefined);
+  assert.equal(compact.remaining_count,1);
+});
+test('one-title lists preserve single-title output and bounded batches never resolve unknown works', () => {
+  const input=batchFixture();
+  for(const compact of [false,true]){
+    assert.deepEqual(buildWorkPacket(input,{titles:['Un crime dans la tête'],compact}),
+      buildWorkPacket(input,{title:'Un crime dans la tête',compact}));
+  }
+  const titles=Array.from({length:8},(_,i)=>'Unknown '+i);
+  const batch=buildWorkPacket(input,{titles});
+  assert.deepEqual(batch.works.map(work=>work.requested_title),titles);
+  assert(batch.works.every(work=>work.found===false&&work.identity_status==='no_catalogue_match'));
+  assert.deepEqual(batch.remaining,['Certifier les grilles']);
+  assert.throws(()=>buildWorkPacket(input,{titles:[...titles,'Ninth']}),/1\.\.8/);
+  assert.throws(()=>buildWorkPacket(input,{titles:[]}),/1\.\.8/);
+  assert.throws(()=>buildWorkPacket(input,{titles:['']}),/nonempty/);
+  assert.throws(()=>buildWorkPacket(input,{title:'A',titles:['B']}),/not both/);
+});
+test('batch Git extraction reads one resolved snapshot even if the requested ref moves', () => {
+  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'selection-packet-batch-'));
+  const git=args=>execFileSync('git',args,{cwd:dir,encoding:'utf8',stdio:['ignore','pipe','pipe']});
+  const write=(name,content)=>{const file=path.join(dir,'data',name+'.json');fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,JSON.stringify(content));};
+  try {
+    git(['init','-q']);git(['config','user.name','fixture']);git(['config','user.email','fixture@example.test']);
+    const input=batchFixture();
+    for(const [name,content]of Object.entries({'research/2026-S42':input.research,'inventory/2026-S42':input.inventory,'coverage/2026-S42':input.coverage,'manifest':input.manifest,'works':input.works,'links':input.links}))write(name,content);
+    git(['add','.']);git(['commit','-qm','old evidence']);const sha=git(['rev-parse','HEAD']).trim();
+    git(['branch','moving',sha]);
+    input.research.verification_records=[];write('research/2026-S42',input.research);
+    input.works.works=[];write('works',input.works);
+    git(['add','.']);git(['commit','-qm','new evidence']);const newer=git(['rev-parse','HEAD']).trim();
+    write('coverage/2026-S42',{week:'2026-S43'});
+    const before=git(['status','--porcelain']);
+    const calls=[];
+    const runGit=args=>{
+      calls.push([...args]);
+      const output=git(args);
+      if(args[0]==='rev-parse'&&args.includes('moving^{commit}'))git(['update-ref','refs/heads/moving',newer]);
+      return output;
+    };
+    const packet=packetFromGit('2026-S42','moving',{titles:['Un crime dans la tête','A Ghost Story']},dir,runGit);
+    assert.equal(calls.filter(args=>args[0]==='rev-parse').length,1);
+    assert.equal(calls.filter(args=>args[0]==='ls-tree').length,1);
+    const shows=calls.filter(args=>args[0]==='show').map(args=>args[1]);
+    assert(shows.every(ref=>ref.startsWith(sha+':')),'every read uses the one resolved SHA');
+    assert.equal(new Set(shows).size,shows.length,'each data file is read at most once for the batch');
+    assert.equal(git(['rev-parse','moving']).trim(),newer,'test moved the ref after resolution');
+    assert.equal(packet.source_sha,sha);
+    assert.deepEqual(packet.works.map(work=>work.canonical_candidates.length),[2,1]);
+    assert.equal(packet.works[0].verification_records[0].checked_at,'2026-08-01');
+    assert.equal(packet.works[1].verification_records[0].checked_at,'2026-08-03');
+    assert.equal(git(['status','--porcelain']),before);
+    const cli=path.resolve('scripts/editorial-work-packet.mjs');
+    const one=execFileSync(process.execPath,[cli,'2026-S42','--ref',sha,'--title','Un crime dans la tête','--compact'],{cwd:dir,encoding:'utf8'});
+    assert.equal(one.trim(),JSON.stringify(packetFromGit('2026-S42',sha,{title:'Un crime dans la tête',compact:true},dir)));
+    const repeated=execFileSync(process.execPath,[cli,'2026-S42','--ref',sha,'--title','A Ghost Story','--title','Un crime dans la tête','--compact'],{cwd:dir,encoding:'utf8'});
+    assert.deepEqual(JSON.parse(repeated).works.map(work=>work.requested_title),['A Ghost Story','Un crime dans la tête']);
+    const titleArgs=Array.from({length:8},(_,i)=>['--title','Unknown '+i]).flat();
+    assert.equal(JSON.parse(execFileSync(process.execPath,[cli,'2026-S42','--ref',sha,...titleArgs],{cwd:dir,encoding:'utf8'})).works.length,8);
+    assert.throws(()=>execFileSync(process.execPath,[cli,'2026-S42','--ref',sha,...titleArgs,'--title','Ninth'],{cwd:dir,encoding:'utf8',stdio:['ignore','pipe','pipe']}),/1\.\.8/);
+  } finally {fs.rmSync(dir,{recursive:true,force:true});}
 });
 test('git packet uses requested immutable ref, leaves files unchanged and rejects malformed checkpoints', () => {
   const dir=fs.mkdtempSync(path.join(os.tmpdir(),'selection-packet-'));

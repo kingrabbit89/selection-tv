@@ -83,8 +83,17 @@ function scopeMatchesObservation(scope, observation, week) {
     Array.isArray(expected) ? !expected.length || expected.includes(actual) : !hasValue(expected) || expected === actual);
 }
 
-export function buildWorkPacket({week, sha, research, inventory, coverage, works, links, manifest, issue, files, historicalIssues = [], historyMissingWeeks = [], freshness = {}}, {title, limit = 12, offset = 0, compact = false} = {}) {
+function requestedTitles({title, titles} = {}) {
+  if (titles === undefined) return title ? [title] : [];
+  assert(title === undefined, 'use title or titles, not both');
+  assert(Array.isArray(titles) && titles.length > 0 && titles.length <= 8 &&
+    titles.every(value => typeof value === 'string' && value.trim()), 'titles must contain 1..8 nonempty titles');
+  return titles;
+}
+
+export function buildWorkPacket({week, sha, research, inventory, coverage, works, links, manifest, issue, files, historicalIssues = [], historyMissingWeeks = [], freshness = {}}, {title, titles, limit = 12, offset = 0, compact = false} = {}) {
   assert.match(week, /^\d{4}-S\d{2}$/);
+  const requested = requestedTitles({title, titles});
   assert(Number.isInteger(limit) && limit > 0 && limit <= 40, 'limit must be 1..40');
   assert(Number.isInteger(offset) && offset >= 0, 'offset must be a nonnegative integer');
   for (const [name, data] of Object.entries({research, inventory, coverage, issue})) {
@@ -121,7 +130,9 @@ export function buildWorkPacket({week, sha, research, inventory, coverage, works
       completed_dossiers: run.newly_completed_editorial_dossiers ?? null,
       complete_cards: run.newly_verified_complete_cards ?? null}))[0] || null
   };
-  if (title) {
+  // Every targeted work uses the same frozen evidence and shared indexes. Keep
+  // each work's exact evidence separate, including ambiguous remake matches.
+  const extractWork = title => {
     const candidates = matches(title);
     const ids = new Set(candidates.map(work => work.id).filter(Boolean));
     const names = new Set([title, ...candidates.flatMap(work => [work.title, ...array(work.aliases)])].map(normalizedTitle).filter(Boolean));
@@ -137,7 +148,7 @@ export function buildWorkPacket({week, sha, research, inventory, coverage, works
     const unstructuredRecords = allRecords.filter(record => typeof record.applies_to === 'string' &&
       [record.applies_to, record.evidence_note].some(value => [...names].some(name =>
         (' ' + normalizedTitle(value) + ' ').includes(' ' + name + ' '))));
-    packet.work = {
+    const work = {
       requested_title: title,
       identity_status: candidates.length > 1 ? 'ambiguous_catalogue_matches' : candidates.length === 1 ? 'catalogue_lead_needs_confirmation' : 'no_catalogue_match',
       canonical_candidates: candidates,
@@ -158,9 +169,16 @@ export function buildWorkPacket({week, sha, research, inventory, coverage, works
       shortlist_entries: array(research?.shortlist?.entries).filter(entry => titled(entry.title) || ids.has(entry.work_id)),
       no_automatic_reuse: true
     };
-    packet.work.found = Object.values(packet.work).some(value => Array.isArray(value) && value.length > 0);
-    packet.work.next_action = candidates.length > 1 ? 'Resolve identity/version before reusing any catalogue field.' :
+    work.found = Object.values(work).some(value => Array.isArray(value) && value.length > 0);
+    work.next_action = candidates.length > 1 ? 'Resolve identity/version before reusing any catalogue field.' :
       'Review saved evidence, complete missing fields and draft/review the card; do not repeat verified searches without a freshness or contradiction reason.';
+    return work;
+  };
+  if (requested.length) {
+    // One title keeps the existing output contract. Multiple titles appear in
+    // requested order; that order is not an editorial ranking.
+    if (requested.length === 1) packet.work = extractWork(requested[0]);
+    else packet.works = requested.map(extractWork);
   } else {
     packet.priority_review = research?.priority_review || null;
     packet.saved_promising_candidates = array(research?.remaining_groups?.promising_candidates);
@@ -234,10 +252,14 @@ export function buildWorkPacket({week, sha, research, inventory, coverage, works
   return packet;
 }
 
-export function packetFromGit(week, ref, options = {}, cwd = process.cwd()) {
+export function packetFromGit(week, ref, options = {}, cwd = process.cwd(), runGit) {
   assert.match(week, /^\d{4}-S\d{2}$/);
+  requestedTitles(options);
   assert(typeof ref === 'string' && /^[A-Za-z0-9_][A-Za-z0-9_./-]*$/.test(ref) && !ref.includes('..'), 'invalid ref');
-  const git = args => execFileSync('git', args, {cwd, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, stdio: ['ignore','pipe','pipe']});
+  // Tests can observe real Git reads and move a ref without shell shims or
+  // process-wide environment changes. The CLI always uses the default runner.
+  const git = runGit === undefined ? args => execFileSync('git', args, {cwd, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, stdio: ['ignore','pipe','pipe']}) : runGit;
+  assert.equal(typeof git, 'function', 'Git runner must be a function');
   const sha = git(['rev-parse', '--verify', `${ref}^{commit}`]).trim();
   assert.match(sha, /^[a-f0-9]{40}$/);
   const available = new Set(git(['ls-tree', '-r', '--name-only', sha, '--', 'data', `semaines/${week}`]).trim().split('\n'));
@@ -268,19 +290,20 @@ export function packetFromGit(week, ref, options = {}, cwd = process.cwd()) {
 
 function main() {
   const [week, ...args] = process.argv.slice(2);
-  let ref, title, limit = 12, offset = 0, compact = false;
+  let ref, limit = 12, offset = 0, compact = false;
+  const titles = [];
   for (let i = 0; i < args.length; i++) {
     const flag = args[i];
     if (flag === '--compact') { compact = true; continue; }
     const value = args[++i];
-    assert(value, 'Usage: WEEK --ref REF [--title TITLE] [--limit 1..40] [--offset N] [--compact]');
+    assert(value, 'Usage: WEEK --ref REF [--title TITLE (repeat up to 8)] [--limit 1..40] [--offset N] [--compact]');
     if (flag === '--ref') ref = value;
-    else if (flag === '--title') title = value;
+    else if (flag === '--title') titles.push(value);
     else if (flag === '--limit') limit = Number(value);
     else if (flag === '--offset') offset = Number(value);
     else throw Error('Unknown flag: ' + flag);
   }
   assert(ref, '--ref required; use an exact candidate ref, never infer a stale checkout');
-  console.log(JSON.stringify(packetFromGit(week, ref, {title, limit, offset, compact}), null, compact ? 0 : 2));
+  console.log(JSON.stringify(packetFromGit(week, ref, {...(titles.length ? {titles} : {}), limit, offset, compact}), null, compact ? 0 : 2));
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
