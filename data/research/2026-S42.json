@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T14:46:25.838Z",
+  "updated_at": "2026-10-09T14:48:24.908Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -27317,7 +27317,6 @@
         "crosscheck-friday-france2-candidates-2026-10-09"
       ],
       "deliverables_changed": [
-        "data/coverage/2026-S42.json",
         "data/research/2026-S42.json"
       ],
       "deliverables_advanced": [
@@ -27351,7 +27350,7 @@
         "vendredi France 2 : deux candidats recoupés entre source officielle et grille indépendante"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre un autre recoupement de chaîne du vendredi ou terminer un dossier quotidien non bloqué.",
+      "next_useful_batch": "Observer une fois la fin du job navigateur de ce SHA au prochain checkpoint ; poursuivre entre-temps un recoupement ou dossier accessible.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -27671,18 +27670,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T14:47:33.729Z",
+          "elapsed_seconds": 2715.874,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "5a7d7fe0dd123803b2d432f36ac8260d3d250e81",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T14:02:17.855Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T15:42:45.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T14:45:58.584Z",
-        "elapsed_seconds": 2620.729,
+        "observed_at": "2026-10-09T14:47:33.729Z",
+        "elapsed_seconds": 2715.874,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "7f208c8a04b1c65590b1842f7dd8581414f43f01",
+        "source_sha": "5a7d7fe0dd123803b2d432f36ac8260d3d250e81",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
@@ -27716,8 +27744,8 @@
           "ended_at": "2026-10-09T14:40:52.320Z"
         },
         "controles": {
-          "started_at": "2026-10-09T14:45:58.584Z",
-          "ended_at": "2026-10-09T14:46:25.838Z"
+          "started_at": "2026-10-09T14:47:33.729Z",
+          "ended_at": "2026-10-09T14:48:24.908Z"
         },
         "sauvegarde": null,
         "attente": null,
@@ -28272,6 +28300,18 @@
       "browser_presentation": "success",
       "logs_read": true,
       "cause": "Tous les contrôles applicables ont réussi, y compris images distantes et présentation navigateur ; seule Require a complete candidate before merging échoue volontairement parce que 2026-S42 reste en préparation.",
+      "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-09T14:48:24.908Z",
+      "head_sha": "5a7d7fe0dd123803b2d432f36ac8260d3d250e81",
+      "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
+      "run_id": 37946786108,
+      "data_and_policy": "failure",
+      "browser_presentation": "in_progress",
+      "logs_read": false,
+      "steps_read": true,
+      "cause": "Sur ce SHA, toutes les étapes data-and-policy applicables réussissent, y compris identité, éditorial, liens, fraîcheur, réserves et images ; seule Require a complete candidate before merging échoue comme attendu au stade enrichment. Le job navigateur est encore en cours et n’est pas anticipé.",
       "reusable_only_for_exact_sha": true
     }
   ],
