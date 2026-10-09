@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "018433005ec07f2d8900af044f82dede06d49a28",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T10:40:52.276Z",
+  "updated_at": "2026-10-09T10:42:19.725Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -645,6 +645,15 @@
       "deliverables": [
         "data/research/2026-S42.json",
         "data/coverage/2026-S42.json"
+      ]
+    },
+    {
+      "id": "refresh-a-ghost-story-version-attempt-2026-10-09",
+      "completed_at": "2026-10-09T10:42:19.725Z",
+      "scope": "vendredi",
+      "summary": "Trois nouveaux recoupements confirment le créneau TCM de 90 min pour A Ghost Story ; conflit avec la durée cinéma 92 min conservé, carte non promue.",
+      "deliverables": [
+        "data/research/2026-S42.json"
       ]
     }
   ],
@@ -22265,7 +22274,8 @@
         "complete-thursday-point-limite-2026-10-09",
         "complete-friday-la-proie-nue-2026-10-09",
         "document-sunday-la-gueule-ouverte-conflict-2026-10-09",
-        "complete-tuesday-regrouping-2026-10-09"
+        "complete-tuesday-regrouping-2026-10-09",
+        "refresh-a-ghost-story-version-attempt-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -22295,7 +22305,8 @@
         "jeudi : Point limite carte complète",
         "vendredi : La Proie nue carte complète",
         "dimanche : conflit La Gueule ouverte documenté",
-        "mardi : Regrouping carte complète"
+        "mardi : Regrouping carte complète",
+        "vendredi : A Ghost Story conflit de version actualisé"
       ],
       "requirements_resolved": [
         "Burning an Illusion : deuxième carte du mercredi matérialisée sans masquer le conflit de versions",
@@ -22691,18 +22702,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T10:41:44.171Z",
+          "elapsed_seconds": 2653.499,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "64f9a03e2183b4e8b2f6d5ad2b32d185ffbefed6",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T09:57:30.672Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T11:16:44.423Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T10:40:04.301Z",
-        "elapsed_seconds": 2553.629,
+        "observed_at": "2026-10-09T10:41:44.171Z",
+        "elapsed_seconds": 2653.499,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "45d6ea32c2708bdecc4d0b301dd224a1e3d1ca79",
+        "source_sha": "64f9a03e2183b4e8b2f6d5ad2b32d185ffbefed6",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -22724,7 +22764,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Produire une rubrique indépendante entièrement vérifiée ou achever un autre choix/réserve proche de la complétude."
+      "next_useful_batch": "Ne reprendre A Ghost Story que sur métadonnée de copie TCM ; produire une rubrique indépendante ou une autre carte finalisable."
     }
   ],
   "source_issues": [
@@ -23595,12 +23635,16 @@
         "https://www.facebook.com/TCMcinema/photos/-notre-cycle-doctobre-histoires-de-fant%C3%B4mes-tous-les-vendredis-%C3%A0-20h50-sur-tcm-c/1535674608590544/",
         "https://www.acces.tv/wp-content/uploads/2024/11/Guide-des-chaines-2024-BAT-FINAL1.pdf",
         "https://www.tcmcinema.fr/",
-        "https://www.tcmcinema.fr/programmes"
+        "https://www.tcmcinema.fr/programmes",
+        "https://www.linternaute.com/television/programme-tv-vendredi-16-octobre-2026/film/",
+        "https://www.programme-television.org/tv/chaines/tcm-cinema/vendredi-prochain",
+        "https://www.mon-programme-tv.be/television/1250997842/a-ghost-story.html"
       ],
-      "result": "Annonce exacte primaire découverte et lue dans l’index Web ; titre/date jour-mois/heure/chaîne concordants avec la grille datée. Deux ouvertures X ont échoué et la voie primaire alternative Facebook est également bloquée en ouverture directe. Site TCM inaccessible via Web. Aucun contournement ; aucune durée TCM déduite.",
+      "result": "Annonce primaire TCM : vendredi 16 octobre, A Ghost Story à 20:50. Linternaute, Télé 7 Jours et Programme-TV recoupent un créneau de 90 min jusqu’à 22:20, mais la version cinéma sauvegardée fait 92 min : le créneau ne certifie pas la copie exacte.",
       "blocking_scope": "Accès intégral à l’annonce non obtenu ; version/durée TCM reste bloquante pour une fiche complète. Ne résout ni l’indépendance de l’ensemble des grilles TCM ni la couverture hebdomadaire.",
-      "status": "primary_broadcast_index_evidence_saved_version_pending",
-      "resume_condition": "Nouvelle fiche/guide officiel TCM spécifiant la durée/version de la copie, ou accès primaire complet/corrigé apportant ce fait ; ne pas répéter les mêmes recherches d’annonce sans changement."
+      "status": "primary_broadcast_verified_version_pending",
+      "resume_condition": "Nouvelle fiche TCM ou métadonnée de flux donnant explicitement la durée/version de copie ; ne pas assimiler le créneau de 90 min à la version cinéma de 92 min.",
+      "last_attempted_at": "2026-10-09T10:42:19.725Z"
     },
     {
       "id": "machine-ecrire-version-tv-2026-10-09",
