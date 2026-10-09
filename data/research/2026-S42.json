@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T21:22:48.733Z",
+  "updated_at": "2026-10-09T21:25:20.767Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -27,7 +27,7 @@
     "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer. Programmetvcesoir et Ouest-France soutiennent les titres inventoriés ; suivis ciblés enregistrés, indépendance non établie, conflits non clos.",
     "Ciné+ : 45 fiches CANAL+ consultées, 14 heures concordantes (dont La gueule ouverte sur Festival), 4 écarts et 27 BroadcastEvent hors cible. Chaîne absente des objets officiels : certifier les chaînes/grilles et les autres rediffusions, ne pas réutiliser les événements anciens. Durées de versions et droits replay à distinguer des créneaux.",
     "TCM : 98 créneaux comparés aux sept grilles Télérama courantes, aucun écart d'heure ; Nashville Blues/The Thing Called Love rapprochés par la fiche liée. Une nuit au cinéma : Flics et voyous identifié (Laurent Bouzereau, 2013, 55 min). Source officielle ou indépendance des flux encore à obtenir ; documentaires et autres films à enrichir.",
-    "Un crime dans la tête : deux films (Frankenheimer1962/Demme2004) distingués sur six diffusions ; 10/10 20:50 Classic officiellement attesté. Terminer autres diffusions, versions, réception complémentaire, droits/expiration, notes et affiches. Grand Écran : horaires guides actualisés les 11 et15/10, indépendance/confirmation officielle encore requise."
+    "Un crime dans la tête : la réserve du 10/10 à 20:50 sur Ciné+ Classic est complète et officiellement attestée. La réserve retenue du 15/10 à 17:37 concorde sur TV-Programme, TV Digital3D et ProgrammeTVCeSoir, mais la provenance d'acquisition indépendante n'est pas établie et aucun événement officiel exact n'a été trouvé ; obtenir une base positive ou remplacer cette carte. Les diffusions Grand Écran du remake 2004 et les autres rediffusions non retenues sont différées ; identités et divergences restent conservées."
   ],
   "completed_batches": [
     {
@@ -1371,7 +1371,8 @@
     "cineplus-selected-card-gap-map-2026-10-09",
     "love-on-trial-canal-date-complementary-proof-2026-10-09",
     "cineplus-fresh-official-route-review-and-exact-ci-2026-10-09",
-    "tcm-three-selected-card-closure-policy-review-2026-10-09"
+    "tcm-three-selected-card-closure-policy-review-2026-10-09",
+    "un-crime-selected-event-scope-review-2026-10-09"
   ],
   "blockers": [
     {
@@ -26489,6 +26490,30 @@
       },
       "evidence_note": "BFI et BBFC établissent l’identité ; la carte emploie la durée canonique BFI de 105 min. Ouest-France, Programme Télévision et Mon Programme TV corroborent le créneau TCM. Les critiques, note, visuel exact et lien direct sont sauvegardés. Les durées 101/102/105/107 min restent explicitement divergentes et aucune version technique TCM n’est inférée de la grille.",
       "status": "editorial_level3_review_complete_under_closure_policy"
+    },
+    {
+      "work_id": "un-crime-dans-la-tete-1962",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "identity"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-classic/jeudi-15-octobre-2026/",
+        "https://tv.digital3d.com/detail/cineplus-classic-44?date=2026-10-15&time=17%3A16",
+        "https://www.programmetvcesoir.net/chaine/cine-classic/2026-10-15"
+      ],
+      "checked_at": "2026-10-09T21:25:20.767Z",
+      "stability": "cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "start": "17:37",
+        "channel": "Ciné+ Classic"
+      },
+      "evidence_note": "Trois guides courants concordent jusque dans l’identité Frankenheimer 1962, mais aucune base positive d’acquisition indépendante n’est connue ; cette concordance ne clôt pas la carte.",
+      "status": "observed_concordant_independence_unknown"
     }
   ],
   "run_metrics": [
@@ -32583,7 +32608,8 @@
         "cineplus-selected-card-gap-map-2026-10-09",
         "love-on-trial-canal-date-complementary-proof-2026-10-09",
         "cineplus-fresh-official-route-review-and-exact-ci-2026-10-09",
-        "tcm-three-selected-card-closure-policy-review-2026-10-09"
+        "tcm-three-selected-card-closure-policy-review-2026-10-09",
+        "un-crime-selected-event-scope-review-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -32595,7 +32621,7 @@
       "partial_dossiers": 5,
       "requirements_resolved": 11,
       "stop_reason": null,
-      "next_useful_batch": "Revoir Un crime dans la tête, carte retenue réutilisée samedi et jeudi : distinguer les champs déjà prouvés du seul défaut exact encore ouvert, puis clore ou remplacer sans exiger un master technique systématique.",
+      "next_useful_batch": "Clore le suivi France 4 documentaire si la carte Wachowski retenue satisfait bien le niveau 3 et si On ne va pas se défiler est absent des pools courants ; conserver séparément les lacunes de rappel France 4.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -32822,29 +32848,61 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T21:24:11.767Z",
+          "elapsed_seconds": 1680.119,
+          "prompt_revision": "production-proof-policy-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "83e9595940858da991a452ac43efccf6e79b2410",
+          "next_actions": [
+            "Revoir Un crime dans la tête, carte retenue réutilisée samedi et jeudi : distinguer les champs déjà prouvés du seul défaut exact encore ouvert, puis clore ou remplacer sans exiger un master technique systématique.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
+            "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
+          ],
+          "remaining_count": 23,
+          "next_actions_total": 21,
+          "truncated_notice": "16 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 28,
+          "waiting_actions_count": 7,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T20:56:11.648Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T22:17:47.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T21:19:33.016Z",
-        "elapsed_seconds": 1401.368,
+        "observed_at": "2026-10-09T21:24:11.767Z",
+        "elapsed_seconds": 1680.119,
         "prompt_revision": "production-proof-policy-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "d897cb3b60939ba4f694ea992ed4d37fffcd846d",
+        "source_sha": "83e9595940858da991a452ac43efccf6e79b2410",
         "next_actions": [
-          "Préparer des remplacements entièrement vérifiés pour les neuf créneaux Ciné+ Festival encore ouverts ; ne reprendre les mêmes pages CANAL+ qu’en présence d’un événement daté nouveau.",
+          "Revoir Un crime dans la tête, carte retenue réutilisée samedi et jeudi : distinguer les champs déjà prouvés du seul défaut exact encore ouvert, puis clore ou remplacer sans exiger un master technique systématique.",
           "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
           "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
           "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
         ],
-        "remaining_count": 25,
-        "next_actions_total": 23,
-        "truncated_notice": "18 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
-        "all_actions_total": 30,
+        "remaining_count": 23,
+        "next_actions_total": 21,
+        "truncated_notice": "16 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "all_actions_total": 28,
         "waiting_actions_count": 7,
         "research_review_warnings": [],
         "observations": {
@@ -32926,6 +32984,13 @@
           "ended_at": "2026-10-09T21:22:48.733Z",
           "overlap": false,
           "note": "Extraction ciblée et revue de clôture de trois cartes TCM retenues ; portée des durées, diffusions, visuels, critiques et limites techniques explicitement séparée."
+        },
+        {
+          "kind": "research",
+          "started_at": "2026-10-09T21:24:11.767Z",
+          "ended_at": "2026-10-09T21:25:20.767Z",
+          "overlap": false,
+          "note": "Extraction ciblée, recherche officielle et deux guides supplémentaires pour Un crime dans la tête ; carte samedi close, défaut jeudi borné à la provenance de diffusion."
         }
       ],
       "requirements_resolved_details": [
@@ -33607,7 +33672,7 @@
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Revoir Un crime dans la tête, carte retenue réutilisée samedi et jeudi : distinguer les champs déjà prouvés du seul défaut exact encore ouvert, puis clore ou remplacer sans exiger un master technique systématique.",
+      "Clore le suivi France 4 documentaire si la carte Wachowski retenue satisfait bien le niveau 3 et si On ne va pas se défiler est absent des pools courants ; conserver séparément les lacunes de rappel France 4.",
       "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
       "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
       "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
@@ -34500,6 +34565,36 @@
       "result": "La playlist ARTE associe le programme 089930-000-A au mardi 13 octobre à 02:25 et donne 5 857 s pour cette diffusion. La version producteur de 107 min reste explicitement distincte. ARTE et le producteur établissent l’identité ; Film-Rezensionen fournit une analyse indépendante notée 8/10 ; le photogramme ARTE exact a été téléchargé et inspecté. La Prisonnière du désert est retirée du pool sans prétendre résoudre sa copie Ciné+.",
       "blocking_scope": "mardi-selection rank 9",
       "resume_condition": "Carte achevée ; l’exigence mardi sur les copies ambiguës est close par deux alternatives entièrement vérifiées."
+    },
+    {
+      "id": "run22-un-crime-thursday-positive-provenance-2026-10-09",
+      "object": {
+        "work_id": "un-crime-dans-la-tete-1962",
+        "broadcast": "2026-10-15 17:37 Ciné+ Classic"
+      },
+      "question": "La diffusion retenue du jeudi possède-t-elle un événement officiel exact ou une base positive d’acquisition indépendante ?",
+      "attempted_at": "2026-10-09T21:25:20.767Z",
+      "source_urls": [
+        "https://www.canalplus.com/cinema/un-crime-dans-la-tete/h/1453848_50002/resume-casting/",
+        "https://tv-programme.com/cine-plus-classic/jeudi-15-octobre-2026/",
+        "https://tv.digital3d.com/detail/cineplus-classic-44?date=2026-10-15&time=17%3A16",
+        "https://www.programmetvcesoir.net/chaine/cine-classic/2026-10-15"
+      ],
+      "result": "La voie officielle exacte consultée publie le 10 octobre, pas le 15. Trois guides concordent pour le 15 à 17:37, mais leur mode d’acquisition reste inconnu ; aucun transfert d’événement ni d’indépendance n’est affirmé.",
+      "blocking_scope": "carte réserve jeudi rang 10 uniquement",
+      "blocking": true,
+      "status": "waiting_for_positive_broadcast_provenance_or_replacement",
+      "resume_when": "Un événement officiel exact, une preuve positive d’acquisition distincte ou une réserve de remplacement entièrement vérifiée couvre ce rang.",
+      "retry_gate": {
+        "state": "waiting_for_new_evidence",
+        "action_texts": [
+          "Un crime dans la tête : la réserve du 10/10 à 20:50 sur Ciné+ Classic est complète et officiellement attestée. La réserve retenue du 15/10 à 17:37 concorde sur TV-Programme, TV Digital3D et ProgrammeTVCeSoir, mais la provenance d'acquisition indépendante n'est pas établie et aucun événement officiel exact n'a été trouvé ; obtenir une base positive ou remplacer cette carte. Les diffusions Grand Écran du remake 2004 et les autres rediffusions non retenues sont différées ; identités et divergences restent conservées."
+        ],
+        "reason": "Une recherche officielle ciblée et deux voies alternatives supplémentaires ont confirmé la concordance sans établir leur provenance ; répéter les mêmes pages ne produit pas l’indépendance manquante.",
+        "resume_when": "Un événement officiel exact, une preuve positive d’acquisition distincte ou une réserve de remplacement entièrement vérifiée couvre ce rang.",
+        "observed_at": "2026-10-09T21:25:20.767Z",
+        "evidence": "coverage.closure_policy_reviews et trois guides datés exacts ; événement officiel du 10 octobre non transposé."
+      }
     }
   ],
   "shortlist": {
@@ -40562,6 +40657,18 @@
       "evidence": "Targeted editorial-work-packet on d897cb3 plus exact current-pool scan in data/weeks/2026-S42.json.",
       "reason": "Regrouping et Burning an Illusion satisfont le niveau 3 sans transformer leurs divergences de durée en identification de copie TCM. Roger Corman, Thrillers et Flics et voyous ne figurent dans aucun pool courant et restent différés ; leurs observations sont conservées. Le rappel et l’indépendance TCM restent ouverts dans deux exigences distinctes.",
       "coverage_effect": "none_on_open_level2_tcm_requirements"
+    },
+    {
+      "action_text": "Un crime dans la tête : deux films (Frankenheimer1962/Demme2004) distingués sur six diffusions ; 10/10 20:50 Classic officiellement attesté. Terminer autres diffusions, versions, réception complémentaire, droits/expiration, notes et affiches. Grand Écran : horaires guides actualisés les 11 et15/10, indépendance/confirmation officielle encore requise.",
+      "decided_at": "2026-10-09T21:25:20.767Z",
+      "decision": "scope_narrowed_not_closed",
+      "applies_to": [
+        "Un crime dans la tête (1962)",
+        "Un crime dans la tête (2004)"
+      ],
+      "evidence": "Targeted work packet on 83e9595 plus fresh official/guide checks on 2026-10-09.",
+      "reason": "La carte du samedi est complète ; la seule carte retenue encore ouverte est celle du jeudi faute de provenance positive. Les événements Grand Écran du remake et les rediffusions non retenues n’ont pas à être enrichis pour clore les cartes actuelles, mais leurs observations et divergences restent sauvegardées.",
+      "coverage_effect": "one_selected_thursday_card_remains_blocking; no weekly coverage closure"
     }
   ]
 }
