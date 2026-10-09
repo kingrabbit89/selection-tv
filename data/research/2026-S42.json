@@ -1358,6 +1358,11 @@
       "id": "enrichment-aelita-tuesday-version-safe-replacement",
       "completed_at": "2026-10-09T20:18:14.000Z",
       "description": "Aelita, reine de Mars remplace La Vieille Dame indigne au rang 10 mardi : version ARTE 114 min, diffusion officielle recoupée, analyse indépendante, visuel exact et liens directs. Le pool reste à dix cartes ; aucune création nette de réserve n’est revendiquée."
+    },
+    {
+      "id": "enrichment-la-fille-tuesday-version-safe-replacement",
+      "completed_at": "2026-10-09T20:35:18.644Z",
+      "description": "La Fille aux mains d’or remplace La Prisonnière du désert au rang 9 mardi : version ARTE 5 857 s reliée au créneau 02:25, analyse indépendante, visuel exact et liens directs. Le pool reste à dix cartes ; aucune réserve nette n’est revendiquée."
     }
   ],
   "blockers": [
@@ -26235,6 +26240,38 @@
       },
       "evidence_note": "ARTE certifie l’identité et la version de 114 min ainsi que la diffusion ; le guide officiel sauvegardé et Ouest-France concordent sur 00:30. La Cinémathèque recoupe l’œuvre tout en conservant sa copie de 111 min comme version distincte. Senses of Cinema fonde la réception argumentée ; le photogramme Commons exact a été ouvert avec sa provenance.",
       "status": "verified_for_card"
+    },
+    {
+      "work_id": "la-fille-aux-mains-d-or-2020",
+      "fields": [
+        "identity",
+        "version",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "critical_reception",
+        "image",
+        "links",
+        "editorial_copy"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/089930-000-A/la-fille-aux-mains-d-or/",
+        "https://www.arte.tv/fr/guide/20261012/",
+        "https://api.arte.tv/api/player/v2/playlist/fr/089930-000-A",
+        "https://www.ifproductions.de/projects/dasmaedchen/?lang=en",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=280303.html",
+        "https://www.film-rezensionen.de/2021/06/das-maedchen-mit-den-goldenen-haenden/"
+      ],
+      "checked_at": "2026-10-09T20:35:18.644Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "mardi",
+        "rank": 9,
+        "broadcast": "2026-10-13 02:25 Arte"
+      },
+      "evidence_note": "La fiche ARTE établit l’identité et le créneau ; la playlist officielle associe ce créneau à 5 857 s. Le producteur recoupe l’œuvre tout en conservant sa version de 107 min comme distincte. Film-Rezensionen fonde l’évaluation argumentée ; le photogramme officiel 940 × 530 a été téléchargé et inspecté.",
+      "status": "verified_for_card"
     }
   ],
   "run_metrics": [
@@ -31671,7 +31708,8 @@
         "review-orange-cineplus-reminder-source-2026-10-09",
         "enrichment-aelita-tuesday-version-safe-replacement",
         "repair-two-inherited-image-sources-2026-10-09",
-        "repair-hondo-inherited-image-source-2026-10-09"
+        "repair-hondo-inherited-image-source-2026-10-09",
+        "enrichment-la-fille-tuesday-version-safe-replacement"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -31682,39 +31720,39 @@
         "data/torrent-trends.json"
       ],
       "complete_cards": 125,
-      "cards_integrated_this_run": 1,
+      "cards_integrated_this_run": 2,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "measurements": {
         "complete_cards": {
           "value": 125,
-          "scope": "Stock final inchangé ; une carte complète nouvelle remplace une réserve existante, sans hausse du total."
+          "scope": "Stock final inchangé ; deux cartes complètes nouvelles remplacent deux réserves existantes."
         },
-        "new_works": 1,
+        "new_works": 2,
         "visible_cards": {
           "value": 0,
           "scope": "aucune carte visible modifiée dans ce passage"
         },
         "additional_reserve_placements": {
           "value": 0,
-          "scope": "Aucune réserve nette ajoutée ; Aelita remplace La Vieille Dame indigne au rang 10."
+          "scope": "Aucune réserve nette ajoutée ; deux substitutions dans le pool mardi."
         },
         "stable_reuses": {
-          "value": 9,
-          "scope": "Neuf cartes mardi conservées à l’identique pendant la recomposition complète du pool."
+          "value": 8,
+          "scope": "Huit œuvres du pool mardi de la tête de départ restent présentes dans l’état final."
         },
-        "scope": "Diff between candidate at run start 8ed0058 and this checkpoint; cumulative stock is not counted as creation.",
+        "scope": "Diff entre la tête candidate au début du passage 8ed0058 et ce checkpoint ; le stock cumulatif n’est pas compté comme création.",
         "visible_cards_added": 0,
         "distinct_reserve_additions": 0,
-        "reserve_replacements": 1,
-        "simple_reuses": 9,
+        "reserve_replacements": 2,
+        "simple_reuses": 8,
         "final_complete_card_stock": 125,
         "requirements_closed": 0,
-        "note": "Aelita replaces one existing Tuesday reserve; the Tuesday pool remains at ten distinct works. One subdefect is resolved, but the combined Tuesday version requirement remains open for La Prisonnière du désert."
+        "note": "Deux nouvelles œuvres remplacent deux réserves mardi dont les copies exactes étaient ambiguës. Le pool reste à dix œuvres distinctes et le stock global à 125 cartes ; aucun gain net de réserve ni fermeture d’une chaîne remaining n’est revendiqué."
       },
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Reprendre la prochaine action accessible de la décision observée : traiter le défaut précis de La Prisonnière du désert ou une autre exigence de niveau 2 seulement si une source nouvelle permet de la réduire.",
+      "next_useful_batch": "Sauvegarder ce lot sous bail, relire la tête candidate et le bail, puis exécuter la décision de continuation sur le nouveau SHA.",
       "verification_records": [
         {
           "fields": [
@@ -31850,6 +31888,38 @@
           },
           "evidence_note": "Affiche officielle exacte 1953 répertoriée par IMP Awards ; URL JPEG directe ouverte sans Referer.",
           "status": "verified"
+        },
+        {
+          "work_id": "la-fille-aux-mains-d-or-2020",
+          "fields": [
+            "identity",
+            "version",
+            "broadcast.date",
+            "broadcast.start",
+            "broadcast.channel",
+            "critical_reception",
+            "image",
+            "links",
+            "editorial_copy"
+          ],
+          "source_urls": [
+            "https://www.arte.tv/fr/videos/089930-000-A/la-fille-aux-mains-d-or/",
+            "https://www.arte.tv/fr/guide/20261012/",
+            "https://api.arte.tv/api/player/v2/playlist/fr/089930-000-A",
+            "https://www.ifproductions.de/projects/dasmaedchen/?lang=en",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=280303.html",
+            "https://www.film-rezensionen.de/2021/06/das-maedchen-mit-den-goldenen-haenden/"
+          ],
+          "checked_at": "2026-10-09T20:35:18.644Z",
+          "stability": "mixed",
+          "applies_to": {
+            "week": "2026-S42",
+            "day": "mardi",
+            "rank": 9,
+            "broadcast": "2026-10-13 02:25 Arte"
+          },
+          "evidence_note": "La fiche ARTE établit l’identité et le créneau ; la playlist officielle associe ce créneau à 5 857 s. Le producteur recoupe l’œuvre tout en conservant sa version de 107 min comme distincte. Film-Rezensionen fonde l’évaluation argumentée ; le photogramme officiel 940 × 530 a été téléchargé et inspecté.",
+          "status": "verified_for_card"
         }
       ],
       "continuation_decisions": [
@@ -31939,18 +32009,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T20:29:27.331Z",
+          "elapsed_seconds": 1738.432,
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "734498eade4538f345e30d95e88ecd327316594a",
+          "next_actions": [
+            "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
+            "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
+            "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
+            "Mardi : certifier la copie exacte de La Prisonnière du désert ou la remplacer par une alternative entièrement vérifiée ; La Vieille Dame indigne a été remplacée par Aelita, version ARTE 114 min vérifiée.",
+            "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet."
+          ],
+          "remaining_count": 34,
+          "next_actions_total": 39,
+          "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T20:00:28.899Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T21:16:40.452Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T20:20:33.296Z",
-        "elapsed_seconds": 1204.397,
+        "observed_at": "2026-10-09T20:29:27.331Z",
+        "elapsed_seconds": 1738.432,
         "prompt_revision": "production-closure-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "61773ae6d7b0db3ff8b75332fac65ece0f7fa371",
+        "source_sha": "734498eade4538f345e30d95e88ecd327316594a",
         "next_actions": [
           "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
           "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
@@ -32005,6 +32104,26 @@
           "started_at": "2026-10-09T20:24:56.000Z",
           "ended_at": "2026-10-09T20:27:32.001Z",
           "note": "Premier contrôle ciblé : les deux remplacements initiaux passent et révèlent le timeout Hondo. Après remplacement Hondo, validate-image-sources passe 34/34 sans nouvelle exception."
+        },
+        "production_flow_refresh": {
+          "started_at": "2026-10-09T20:29:27.331Z",
+          "ended_at": "2026-10-09T20:32:28.686Z",
+          "note": "Production-flow recalculé sur le SHA 734498e puis file rapprochée des manques réels ; la sélection s’est portée sur un dossier mardi avancé, non sur l’ordre générique de la file."
+        },
+        "tuesday_replacement_research": {
+          "started_at": "2026-10-09T20:32:28.686Z",
+          "ended_at": "2026-10-09T20:35:18.644Z",
+          "note": "Fiche, guide et playlist ARTE, producteur, AlloCiné, critique indépendante, fraîcheur et photogramme exact vérifiés. Les durées 5 857 s ARTE et 107 min producteur restent explicitement distinctes."
+        },
+        "tuesday_replacement_drafting": {
+          "started_at": "2026-10-09T20:35:18.644Z",
+          "ended_at": "2026-10-09T20:36:02.000Z",
+          "note": "Plan replace_days complet rendu et handoff contrôlé puis appliqué ; neuf cartes relues, huit œuvres de la tête de départ et Aelita conservées, rang 9 remplacé. Les pages visibles ont été restaurées bit pour bit car les trois choix primaires restent inchangés."
+        },
+        "tuesday_replacement_controls": {
+          "started_at": "2026-10-09T20:36:02.000Z",
+          "ended_at": "2026-10-09T20:38:42.926Z",
+          "note": "Identités et liens exacts verts ; fraîcheur S42 verte (97 % public, 87 % réserves), réserves S42 vertes 70/70 et 49/49, images distantes vertes 90/90. validate-editorial reste rouge uniquement sur full_week_reaudit_completed=false."
         }
       },
       "control_notes": [
@@ -32019,7 +32138,11 @@
         "validate-layout local non exécuté jusqu’au rendu : binaire Playwright absent ; aucun résultat de présentation n’est certifié pour cette tête.",
         "Deux URL d’image héritées ont été remplacées par des affiches exactes publiées par les distributeurs officiels ; le contrôle automatisé reste à exécuter sur le nouvel état.",
         "Le premier contrôle après les deux remplacements a révélé un timeout Hondo jusque-là masqué ; cette troisième source a été remplacée avant relance ciblée.",
-        "validate-image-sources final : 34/34 œuvres de grille Android TV ont au moins une source utilisable ou une exception documentée ; aucune exception nouvelle n’a été ajoutée."
+        "validate-image-sources final : 34/34 œuvres de grille Android TV ont au moins une source utilisable ou une exception documentée ; aucune exception nouvelle n’a été ajoutée.",
+        "La Fille aux mains d’or : la playlist ARTE relie le créneau du 13 octobre à 02:25 à une version de 5 857 s ; la version producteur de 107 min reste distincte.",
+        "Contrôles ciblés après remplacement : identités et liens exacts verts ; fraîcheur S42 97 % public / 87 % réserves ; réserves 70/70 et 49/49 ; images 90/90.",
+        "validate-editorial sur la candidate échoue uniquement sur full_week_reaudit_completed=false ; cette barrière de couverture reste ouverte et n’est pas abaissée.",
+        "Les pages visibles sont inchangées après restauration exacte ; le remplacement affecte seulement la réserve rang 9 du pool mardi."
       ],
       "blockers": [
         {
@@ -32707,7 +32830,6 @@
       "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
       "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
       "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
-      "Mardi : certifier la copie exacte de La Prisonnière du désert ou la remplacer par une alternative entièrement vérifiée ; La Vieille Dame indigne a été remplacée par Aelita, version ARTE 114 min vérifiée.",
       "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet."
     ],
     "publisher": {
@@ -33507,6 +33629,24 @@
       "result": "Aelita est absente de S38–S41. ARTE identifie l’œuvre de Iakov Protazanov, la version de 114 min, la disponibilité à partir du 12 octobre et la diffusion du 13 octobre à 00:30 ; Ouest-France recoupe le créneau. Senses of Cinema fournit une analyse indépendante et Commons un photogramme exact ouvert avec provenance. La Vieille Dame indigne est retirée du pool mardi sans effacer son dossier ni prétendre certifier sa copie TCM.",
       "blocking_scope": "mardi-selection rank 10",
       "resume_condition": "Carte achevée ; aucun complément requis pour ce remplacement. La copie de La Prisonnière du désert reste une exigence distincte."
+    },
+    {
+      "id": "run21-tuesday-la-fille-version-safe-replacement-2026-10-09",
+      "checked_at": "2026-10-09T20:35:18.644Z",
+      "object": "La Fille aux mains d'or — version ARTE et remplacement de La Prisonnière du désert au rang 9 mardi",
+      "question": "Une alternative fraîche permet-elle de retirer la dernière carte mardi dont la copie exacte restait ambiguë ?",
+      "urls": [
+        "https://www.arte.tv/fr/videos/089930-000-A/la-fille-aux-mains-d-or/",
+        "https://www.arte.tv/fr/guide/20261012/",
+        "https://api.arte.tv/api/player/v2/playlist/fr/089930-000-A",
+        "https://www.ifproductions.de/projects/dasmaedchen/?lang=en",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=280303.html",
+        "https://www.film-rezensionen.de/2021/06/das-maedchen-mit-den-goldenen-haenden/"
+      ],
+      "status": "complete_card_integrated_version_exact",
+      "result": "La playlist ARTE associe le programme 089930-000-A au mardi 13 octobre à 02:25 et donne 5 857 s pour cette diffusion. La version producteur de 107 min reste explicitement distincte. ARTE et le producteur établissent l’identité ; Film-Rezensionen fournit une analyse indépendante notée 8/10 ; le photogramme ARTE exact a été téléchargé et inspecté. La Prisonnière du désert est retirée du pool sans prétendre résoudre sa copie Ciné+.",
+      "blocking_scope": "mardi-selection rank 9",
+      "resume_condition": "Carte achevée ; l’exigence mardi sur les copies ambiguës est close par deux alternatives entièrement vérifiées."
     }
   ],
   "shortlist": {
@@ -36321,7 +36461,7 @@
         "scope": {
           "day": "mardi"
         },
-        "status": "card_complete",
+        "status": "rejected",
         "signals": [
           {
             "kind": "patrimoine",
@@ -36333,7 +36473,7 @@
           "sl-mardi-les-enfants-voles-du-chili-2026",
           "sl-mardi-la-vieille-dame-indigne-1965"
         ],
-        "decision_note": "La fenêtre EPG de 115 min reste distincte de la durée canonique 119 min ; aucune coupe n’est déduite."
+        "decision_note": "Retirée du pool mardi : la fenêtre EPG Ciné+ de 115 min ne certifie pas la copie exacte d’une œuvre canonique de 119 min. Le dossier reste sauvegardé ; La Fille aux mains d’or, dont ARTE relie le créneau à une version de 5 857 s, prend le rang 9."
       },
       {
         "id": "sl-mardi-la-vieille-dame-indigne-1965",
@@ -36381,6 +36521,32 @@
           "sl-mardi-la-vieille-dame-indigne-1965"
         ],
         "decision_note": "Alternative fraîche retenue au rang 10 : identité certaine, copie ARTE 114 min, horaire officiel recoupé, critique indépendante et visuel exact avec provenance."
+      },
+      {
+        "id": "sl-mardi-la-fille-aux-mains-d-or-2020",
+        "title": "La Fille aux mains d'or",
+        "work_id": "la-fille-aux-mains-d-or-2020",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "analyse_critique",
+            "note": "Film-Rezensionen décrit un drame tragique et très émouvant sur la mémoire et l’identité, tout en signalant une narration parfois opaque et des fils secondaires interrompus.",
+            "source_url": "https://www.film-rezensionen.de/2021/06/das-maedchen-mit-den-goldenen-haenden/"
+          },
+          {
+            "kind": "version_diffusion",
+            "note": "La playlist officielle ARTE associe le programme au 13 octobre à 02:25 et à une durée exacte de 5 857 secondes.",
+            "source_url": "https://api.arte.tv/api/player/v2/playlist/fr/089930-000-A"
+          }
+        ],
+        "alternatives": [
+          "sl-mardi-aelita-reine-de-mars-1924",
+          "sl-mardi-la-prisonniere-du-desert-1956"
+        ],
+        "decision_note": "Alternative fraîche retenue au rang 9 : version ARTE exacte, horaire officiel, analyse critique indépendante et visuel officiel inspecté."
       }
     ]
   },

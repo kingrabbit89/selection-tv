@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "primary_complete_crosscheck_pending",
-  "updated_at": "2026-10-09T20:18:14.000Z",
+  "updated_at": "2026-10-09T20:35:18.644Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -18369,6 +18369,107 @@
             "version": "arte_114min_exact",
             "critical_reception": "verified_argumented",
             "ratings": "not_used_reason_documented",
+            "image": "visually_verified_ci_pending",
+            "links": "direct_exact_links_verified",
+            "editorial_copy": "drafted_and_reviewed"
+          }
+        }
+      },
+      {
+        "title": "La Fille aux mains d'or",
+        "work_id": "la-fille-aux-mains-d-or-2020",
+        "catalogue_match": "nouvelle entrée canonique créée après identité et version certaines",
+        "decision": "carte complète mardi — réserve rang 9, remplace La Prisonnière du désert",
+        "reason": "Alternative fraîche dont la playlist ARTE relie explicitement la version 5 857 s au créneau 02:25.",
+        "identity_research": {
+          "director": "Katharina Marie Schubert",
+          "year": 2020,
+          "country": "Allemagne",
+          "type": "long métrage dramatique",
+          "canonical_work_id": "la-fille-aux-mains-d-or-2020",
+          "status": "verified",
+          "checked_at": "2026-10-09T20:35:18.644Z",
+          "source_urls": [
+            "https://www.arte.tv/fr/videos/089930-000-A/la-fille-aux-mains-d-or/",
+            "https://api.arte.tv/api/player/v2/playlist/fr/089930-000-A",
+            "https://www.ifproductions.de/projects/dasmaedchen/?lang=en",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=280303.html"
+          ],
+          "duration_observations": [
+            {
+              "seconds": 5857,
+              "minutes_rounded": 98,
+              "version": "version ARTE ciblée",
+              "source_url": "https://api.arte.tv/api/player/v2/playlist/fr/089930-000-A"
+            },
+            {
+              "minutes": 107,
+              "version": "version producteur distincte",
+              "source_url": "https://www.ifproductions.de/projects/dasmaedchen/?lang=en"
+            },
+            {
+              "minutes": 103,
+              "version": "durée AlloCiné distincte",
+              "source_url": "https://www.allocine.fr/film/fichefilm_gen_cfilm=280303.html"
+            }
+          ],
+          "note": "La carte cible exclusivement la version ARTE de 5 857 s ; aucune durée n’est déduite de la seule fenêtre EPG."
+        },
+        "critical_evidence": [
+          {
+            "source": "Film-Rezensionen.de",
+            "published_at": "2021-06",
+            "source_url": "https://www.film-rezensionen.de/2021/06/das-maedchen-mit-den-goldenen-haenden/",
+            "kind": "professional_review",
+            "access": "full",
+            "checked_at": "2026-10-09T20:35:18.644Z",
+            "assessment": "Évalue le film à 8/10, tragique et très émouvant dans son combat pour la mémoire et l’identité, tout en relevant l’opacité, la difficulté d’empathie et des fils secondaires interrompus."
+          }
+        ],
+        "ratings_research": {
+          "status": "verified_single_professional_score",
+          "checked_at": "2026-10-09T20:35:18.644Z",
+          "source_urls": [
+            "https://www.film-rezensionen.de/2021/06/das-maedchen-mit-den-goldenen-haenden/"
+          ],
+          "values": [
+            {
+              "source": "Film-Rezensionen.de",
+              "value": "8/10"
+            }
+          ],
+          "note": "Le faible score public AlloCiné, fondé sur dix notes, n’est pas utilisé comme consensus."
+        },
+        "broadcast_research": {
+          "date": "2026-10-13",
+          "start": "02:25",
+          "channel": "Arte",
+          "checked_at": "2026-10-09T20:35:18.644Z",
+          "status": "verified_official_page_guide_playlist",
+          "source_urls": [
+            "https://www.arte.tv/fr/videos/089930-000-A/la-fille-aux-mains-d-or/",
+            "https://www.arte.tv/fr/guide/20261012/",
+            "https://api.arte.tv/api/player/v2/playlist/fr/089930-000-A"
+          ],
+          "note": "La playlist ARTE donne beginRounded 2026-10-13T00:25:00Z et 5 857 s."
+        },
+        "image_research": {
+          "checked_at": "2026-10-09T20:35:18.644Z",
+          "source_page": "https://www.arte.tv/fr/videos/089930-000-A/la-fille-aux-mains-d-or/",
+          "image_url": "https://api-cdn.arte.tv/img/v2/image/tgjuEKB29p96DqzX8uJgC4/940x530",
+          "status": "exact_official_still_visually_verified_ci_pending",
+          "visually_checked": true,
+          "note": "JPEG 940 × 530 téléchargé et inspecté ; santé finale soumise au contrôle ciblé."
+        },
+        "dossier_completeness": {
+          "status": "complete_for_card",
+          "completed_at": "2026-10-09T20:35:18.644Z",
+          "fields": {
+            "identity": "verified",
+            "current_broadcast": "verified",
+            "version": "arte_5857s_exact",
+            "critical_reception": "verified_argumented",
+            "ratings": "single_professional_score",
             "image": "visually_verified_ci_pending",
             "links": "direct_exact_links_verified",
             "editorial_copy": "drafted_and_reviewed"
