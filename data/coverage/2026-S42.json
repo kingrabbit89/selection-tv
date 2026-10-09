@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "partial",
-  "updated_at": "2026-10-09T10:34:37.421Z",
+  "updated_at": "2026-10-09T10:40:52.276Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -14362,8 +14362,8 @@
         "channel": "TCM Cinéma",
         "date": "2026-10-13",
         "start": "03:40",
-        "work_id": null,
-        "decision": "carte draft créée",
+        "work_id": "regrouping-1976",
+        "decision": "carte complète mardi — préflight final encore requis",
         "availability_source": "https://tv-programme.com/tcm-cinema/mardi-13-octobre-2026/",
         "identity_research": {
           "director": "Lizzie Borden",
@@ -14414,7 +14414,40 @@
           "checked_at": "2026-10-08T13:41:46.610Z",
           "note": "Aucune offre numérique française actuelle certifiée. La circulation en restauration/festivals et le supplément Blu-ray américain ne prouvent ni droits France ni replay TCM."
         },
-        "reason": "Carte développée rendue avec identité, durée 75 min, visuel exact et trois lectures critiques attribuées. L’indépendance des guides TCM et l’offre précise restent ouvertes."
+        "reason": "Identité, copie 75 min, visuel exact, absence de note motivée et trois lectures critiques sont sauvegardés. Ouest-France, Télé-Loisirs et TV Digital3D recoupent indépendamment le mardi 13 octobre à 03:40 sur TCM Cinéma.",
+        "broadcast_research": {
+          "date": "2026-10-13",
+          "start": "03:40",
+          "channel": "TCM Cinéma",
+          "checked_at": "2026-10-09T10:40:52.276Z",
+          "status": "verified_independent_crosschecks",
+          "source_urls": [
+            "https://tv-programme.com/tcm-cinema/mardi-13-octobre-2026/",
+            "https://tv.digital3d.com/detail/tcm-cinema-113?date=2026-10-13&time=14%3A10",
+            "https://programmetv.ouest-france.fr/film/documentaire/",
+            "https://www.programme-tv.net/programme/chaine/mardi-prochain/programme-tcm-cinema-113.html"
+          ],
+          "note": "Trois éditeurs distincts recoupent titre, chaîne, heure et créneau 75 min. Le créneau concorde avec la copie 75 min retenue, sans transformer les anciennes fiches 80 min en même version."
+        },
+        "dossier_completeness": {
+          "status": "card_complete_preflight_pending",
+          "completed_at": "2026-10-09T10:40:52.276Z",
+          "fields": {
+            "identity": "verified",
+            "version": "75min_copy_verified",
+            "critical_reception": "verified_with_reservations",
+            "ratings": "unavailable_reason_verified",
+            "image": "visually_verified_ci_pending",
+            "links": "direct_exact_links_verified",
+            "editorial_copy": "drafted_and_reviewed",
+            "current_broadcast": "verified_with_independent_crosschecks"
+          },
+          "not_yet_publication_ready": [
+            "Compléter les autres choix et réserves du mardi",
+            "Recontrôler diffusion et visuel au préflight",
+            "Achever les 35 exigences de remaining"
+          ]
+        }
       },
       {
         "title": "Le cinéma qui respire",
