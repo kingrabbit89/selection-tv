@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T22:39:16.416Z",
+  "updated_at": "2026-10-09T22:42:00.676Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -16,7 +16,7 @@
     "Rappel TNT principal réconcilié : les dix éléments génériques sont rapprochés ou exclus, dont Envoyé spécial et Au cœur de l’enquête sans sujet identifié. Les autres passes partielles (cinéma payant, TV5MONDE FBS, RMC, Ciné+) et le conflit de version Marine restent ouverts dans leurs dossiers propres.",
     "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
     "France 4 : Rachelle Allison à la Cigale du 15/10 à 20:30 et Hakim Jemili : Super du 13/10 à 23:10 restent des observations non rendues ; la première est recoupée officiellement, la seconde conserve son titre tiers sans assimilation au libellé officiel. Aucune carte n'en dépend. Restent la réception/offres documentaires, les épisodes génériques et le rappel France 4.",
-    "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes. Nouvelle piste TV5Pro mène à une connexion ; guide public reste channel4/NewYork, aucune preuve FBS.",
+    "TV5MONDE FBS : revue applicable des omissions achevée sur les sept colonnes du PDF fourni et 50 créneaux sauvegardés, sans affirmation d’indépendance amont. Identifier seulement les sujets propres d’Au bout de l’enquête (10/10 09:30 et 17:10 ; 11/10 14:38), de Temps présent (13/10 17:05 ; 14/10 09:50) et les épisodes génériques avant tout examen éditorial ; poursuivre séparément offres et expirations TV5MONDE+.",
     "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma.",
     "TF1/TFX/TMC : poursuivre les sujets/épisodes encore génériques et le tri motivé des formats de magazine ou documentaire de flux repérés ; neuf créneaux TFX, 38 TMC recoupés et deux magazines supplémentaires ajoutés, sans certification artistique.",
     "RMC Story/Découverte : 127 créneaux comparés à SCREEN+ (flux indépendant non établi), 2 titres en conflit (10/10 06:05, 15/10 22:30), 3 alias à confirmer, épisodes Douanes génériques à identifier ; quatre ajouts du rappel à recouper et évaluer. Programmetvcesoir et Ouest-France soutiennent les titres inventoriés ; suivis ciblés enregistrés, indépendance non établie, conflits non clos.",
@@ -1390,7 +1390,8 @@
       ]
     },
     "review-telerama-five-pages-close-six-cineplus-festival-events-2026-10-09",
-    "review-tcm-seven-days-pdf-and-web-schedule-evidence-2026-10-09"
+    "review-tcm-seven-days-pdf-and-web-schedule-evidence-2026-10-09",
+    "review-tv5monde-fbs-seven-pdf-columns-2026-10-09"
   ],
   "blockers": [
     {
@@ -27144,6 +27145,47 @@
       },
       "evidence_note": "Sept colonnes PDF relues : 78 lignes imprimées acceptées ; 20 autres créneaux concordants entre deux guides d’éditeurs distincts. Zéro omission relevée. Indépendance amont non établie et non revendiquée.",
       "status": "level2_applicable_review_complete_without_independence_claim"
+    },
+    {
+      "id": "run23-tv5monde-fbs-level2-schedule-review",
+      "work_id": null,
+      "fields": [
+        "coverage.level2.omission_review",
+        "broadcast.title",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://television.telerama.fr/programme-tv-samedi/tv5-monde-fbs/",
+        "https://television.telerama.fr/programme-tv-dimanche/tv5-monde-fbs/",
+        "https://television.telerama.fr/programme-tv-lundi/tv5-monde-fbs/",
+        "https://television.telerama.fr/programme-tv-mardi/tv5-monde-fbs/",
+        "https://television.telerama.fr/programme-tv-mercredi/tv5-monde-fbs/",
+        "https://television.telerama.fr/programme-tv-jeudi-prochain/tv5-monde-fbs/",
+        "https://television.telerama.fr/programme-tv-vendredi-prochain/tv5-monde-fbs/"
+      ],
+      "source_refs": [
+        "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93"
+      ],
+      "checked_at": "2026-10-09T22:42:00.676Z",
+      "stability": "cycle_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "channel": "TV5MONDE FBS",
+        "dates": [
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16"
+        ],
+        "compared_slots": 50
+      },
+      "evidence_note": "Sept colonnes papier visuellement relues, 14 lignes extraites individuellement et 50 comparaisons sauvegardées par date. Aucune omission constatée ; indépendance amont non affirmée. Les sujets/épisodes génériques restent ouverts.",
+      "status": "level2_applicable_review_complete_without_independence_claim"
     }
   ],
   "run_metrics": [
@@ -34179,7 +34221,8 @@
         "initial-preparation-gaps-saved-flow-and-triage-2026-10-09",
         "review-telerama-page-132-correct-three-thursday-reserve-times-2026-10-09",
         "review-telerama-five-pages-close-six-cineplus-festival-events-2026-10-09",
-        "review-tcm-seven-days-pdf-and-web-schedule-evidence-2026-10-09"
+        "review-tcm-seven-days-pdf-and-web-schedule-evidence-2026-10-09",
+        "review-tv5monde-fbs-seven-pdf-columns-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -34190,9 +34233,9 @@
       "cards_integrated_this_run": 0,
       "draft_cards": 0,
       "partial_dossiers": 0,
-      "requirements_resolved": 2,
+      "requirements_resolved": 3,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre une action accessible de couverture documentaire ou un défaut précis de niveau 3, sans rouvrir les attentes Ciné+ et TCM correctement bornées.",
+      "next_useful_batch": "Traiter un manque documentaire factuel accessible ou une autre ancienne attente de provenance, en conservant les conflits et identités génériques.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -34307,20 +34350,43 @@
             "lease_until": "2026-10-09T23:19:39.374Z",
             "external_stop": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T22:40:41.496Z",
+          "elapsed_seconds": 1278.333,
+          "prompt_revision": "production-web-evidence-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "da3313877eed0900980ae3fa637fe5ea6b64d9a1",
+          "next_actions": [
+            "Poursuivre une action accessible de couverture documentaire ou un défaut précis de niveau 3, sans rouvrir les attentes Ciné+ et TCM correctement bornées."
+          ],
+          "remaining_count": 17,
+          "waiting_actions_count": 8,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T22:19:23.163Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T23:38:16.947Z",
+            "external_stop": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T22:36:12.386Z",
-        "elapsed_seconds": 1009.223,
+        "observed_at": "2026-10-09T22:40:41.496Z",
+        "elapsed_seconds": 1278.333,
         "prompt_revision": "production-web-evidence-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "94e1eff9f2ec03b2a8eb783a34792cca87dcb072",
+        "source_sha": "da3313877eed0900980ae3fa637fe5ea6b64d9a1",
         "next_actions": [
-          "Traiter une autre action accessible de couverture ou de niveau 3 ; les trois événements Ciné+ Festival résiduels attendent une preuve nouvelle conforme à web_schedule_evidence ou un remplacement."
+          "Poursuivre une action accessible de couverture documentaire ou un défaut précis de niveau 3, sans rouvrir les attentes Ciné+ et TCM correctement bornées."
         ],
         "remaining_count": 17,
         "waiting_actions_count": 8,
@@ -34328,7 +34394,7 @@
         "observations": {
           "started_at": "2026-10-09T22:19:23.163Z",
           "lease_owned": "yes",
-          "lease_until": "2026-10-09T23:19:39.374Z",
+          "lease_until": "2026-10-09T23:38:16.947Z",
           "external_stop": null
         }
       },
@@ -34360,11 +34426,19 @@
           "ended_at": "2026-10-09T22:39:16.416Z",
           "overlap": false,
           "note": "Sept pages TCM du PDF rendues et relues ; 78 lignes papier et 20 créneaux Web rapprochés, sans omission ni affirmation d’indépendance."
+        },
+        {
+          "kind": "coverage_review",
+          "started_at": "2026-10-09T22:40:41.496Z",
+          "ended_at": "2026-10-09T22:42:00.676Z",
+          "overlap": false,
+          "note": "Sept colonnes TV5 Monde du PDF déjà rendu ont été relues ; ancienne exigence de fournisseur EPG retirée, sujets et épisodes génériques conservés."
         }
       ],
       "requirements_resolved_details": [
         "Un crime dans la tête, réserve jeudi rang 10 : attente de provenance Web close par revue de la ligne imprimée faisant autorité ; horaire corrigé à 17:40.",
-        "TCM Cinéma : ancienne exigence de provenance technique close pour le rappel d’omissions selon la politique à jour ; 98 créneaux relus, zéro omission, enrichissement éditorial conservé."
+        "TCM Cinéma : ancienne exigence de provenance technique close pour le rappel d’omissions selon la politique à jour ; 98 créneaux relus, zéro omission, enrichissement éditorial conservé.",
+        "TV5MONDE FBS : exigence de provenance amont close pour le niveau 2 sous autorité du PDF fourni ; sujets/épisodes/offres résiduels conservés."
       ],
       "control_notes": [
         "preparation-gaps sur eadc052 : seul coverage-full-week reste bloquant structurellement ; les sept jours ont dix cartes matérialisées et l’objectif de quinze reste un avertissement non bloquant.",
@@ -34374,7 +34448,9 @@
         "Six événements Ciné+ Festival retenus sont établis par les lignes papier relues ; trois événements absents du PDF restent explicitement ouverts. Aucun niveau 2, flux indépendant ou champ hors grille n’est certifié.",
         "Contrôles après le lot Ciné+ Festival : identités canoniques, fraîcheur (97 % public, 87 % réserves), liens exacts et réserves (70/70, 49/49) réussis. validate-editorial ne conserve que la barrière attendue full_week_reaudit_completed=false ; preparation-gaps regroupe ses deux messages en une action bloquante et conserve sept avertissements 10/15.",
         "La revue TCM est bornée au niveau 2 applicable : 98 créneaux, zéro omission ; full_week_reaudit_completed et independent_crosscheck_complete restent faux à cause des autres groupes ouverts.",
-        "Après réconciliation TCM, validate-editorial ne conserve que full_week_reaudit_completed=false. preparation-gaps reste à une action bloquante de couverture hebdomadaire et sept avertissements 10/15 ; aucune attestation globale n’a été ajoutée."
+        "Après réconciliation TCM, validate-editorial ne conserve que full_week_reaudit_completed=false. preparation-gaps reste à une action bloquante de couverture hebdomadaire et sept avertissements 10/15 ; aucune attestation globale n’a été ajoutée.",
+        "TV5MONDE FBS : revue de grille bornée au niveau 2 applicable ; aucun flag hebdomadaire global ni indépendance de flux n’est attesté.",
+        "Après la réconciliation TV5MONDE FBS, validate-editorial ne conserve que full_week_reaudit_completed=false ; preparation-gaps reste à une action bloquante de couverture hebdomadaire et sept avertissements 10/15."
       ],
       "measurements": {
         "schedule_facts_corrected": {
@@ -34386,8 +34462,8 @@
           "scope": "un événement jeudi du premier checkpoint et six événements Ciné+ Festival de ce checkpoint ; fermetures de niveau 3 pour les quatre faits de grille uniquement"
         },
         "level2_channel_reviews_completed_this_run": {
-          "value": 1,
-          "scope": "TCM Cinéma uniquement ; 98 créneaux, sept dates, journées et nuits, aucune certification hebdomadaire globale"
+          "value": 2,
+          "scope": "TCM Cinéma et TV5MONDE FBS uniquement ; aucune certification hebdomadaire globale"
         }
       }
     }
@@ -35062,10 +35138,10 @@
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
+      "TV5MONDE FBS : revue applicable des omissions achevée sur les sept colonnes du PDF fourni et 50 créneaux sauvegardés, sans affirmation d’indépendance amont. Identifier seulement les sujets propres d’Au bout de l’enquête (10/10 09:30 et 17:10 ; 11/10 14:38), de Temps présent (13/10 17:05 ; 14/10 09:50) et les épisodes génériques avant tout examen éditorial ; poursuivre séparément offres et expirations TV5MONDE+.",
       "TCM : revue applicable des omissions achevée sur 98 créneaux (78 lignes du PDF fourni visuellement relues, 20 créneaux concordants entre TV-Programme et Télérama.fr) ; aucune omission relevée et aucune indépendance amont affirmée. Poursuivre seulement l’enrichissement éditorial des documentaires et films prometteurs non encore retenus, sans rouvrir la provenance technique des grilles.",
       "Ciné+ Festival : la grille Télérama fournie et relue arbitre six des neuf cartes précédemment ouvertes. Restent La reconquista le 11/10 à 10:20 et Secrets et mensonges le 12/10 à 06:12 puis le 14/10 à 08:29, absents des pages papier relues ; obtenir pour chacun une preuve conforme à web_schedule_evidence ou remplacer la proposition. Les autres rediffusions non retenues restent différées ; durées de versions et droits replay demeurent séparés des créneaux.",
       "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
-      "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
       "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
       "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet."
     ],
@@ -35798,21 +35874,40 @@
         "https://programme-tv.nouvelobs.com/diffusion/15348550.php",
         "https://programmetv.ouest-france.fr/magazine/sportif/le-match-dans-le-match-m282455979/e01-le-match-dans-le-match-c443452444/"
       ],
-      "result": "TVinfo nomme explicitement TV5 MONDE (FBS) et couvre les sept dates ; TéléObs et Ouest-France apportent des concordances ponctuelles. Ces services restent toutefois des agrégateurs sans provenance EPG publiée. L’identité organisationnelle de TVinfo ne prouve pas l’indépendance du flux de données. La route professionnelle officielle FBS reste authentifiée et le guide Europe est un autre flux.",
+      "result": "La grille du magazine fourni, relue sur les sept pages TV5 Monde, fait autorité pour les faits imprimés. L’absence de fournisseur EPG public ne bloque plus le rappel d’omissions ; les sujets et épisodes génériques demeurent non identifiés.",
       "blocking_scope": "niveau 2 TV5MONDE FBS pour les sept jours",
-      "blocking": true,
-      "status": "same_feed_named_but_epg_independence_not_established",
+      "blocking": false,
+      "status": "schedule_provenance_resolved_generic_subjects_open",
       "resume_when": "Une archive officielle publique du flux FBS ou une source révélant explicitement un fournisseur EPG indépendant devient accessible.",
-      "retry_gate": {
-        "state": "waiting_for_new_evidence",
-        "action_texts": [
-          "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
-          "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes. Nouvelle piste TV5Pro mène à une connexion ; guide public reste channel4/NewYork, aucune preuve FBS."
+      "retry_gate_history": [
+        {
+          "state": "waiting_for_new_evidence",
+          "action_texts": [
+            "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
+            "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes. Nouvelle piste TV5Pro mène à une connexion ; guide public reste channel4/NewYork, aucune preuve FBS."
+          ],
+          "reason": "Deux recherches ciblées et plusieurs voies officielles/agrégateurs ont retrouvé le bon flux ou d’autres flux sans base positive d’acquisition distincte ; répéter ces routes ne répond pas à la provenance.",
+          "resume_when": "Une archive officielle publique du flux FBS ou une source documentant une acquisition originale distincte pour les dates du 10 au 16 octobre devient accessible.",
+          "observed_at": "2026-10-09T21:02:05.686Z",
+          "evidence": "research_attempts[18], [23] et [24] ; level2_review_summary.fresh_routes_checked ; URLs TV5MONDE, TVinfo, TéléObs et Ouest-France sauvegardées."
+        }
+      ],
+      "resolved_at": "2026-10-09T22:42:00.676Z",
+      "resolution": {
+        "pdf_pages": [
+          103,
+          109,
+          115,
+          121,
+          127,
+          133,
+          139
         ],
-        "reason": "Deux recherches ciblées et plusieurs voies officielles/agrégateurs ont retrouvé le bon flux ou d’autres flux sans base positive d’acquisition distincte ; répéter ces routes ne répond pas à la provenance.",
-        "resume_when": "Une archive officielle publique du flux FBS ou une source documentant une acquisition originale distincte pour les dates du 10 au 16 octobre devient accessible.",
-        "observed_at": "2026-10-09T21:02:05.686Z",
-        "evidence": "research_attempts[18], [23] et [24] ; level2_review_summary.fresh_routes_checked ; URLs TV5MONDE, TVinfo, TéléObs et Ouest-France sauvegardées."
+        "compared_slots": 50,
+        "extracted_lines": 14,
+        "omissions": 0,
+        "independence_established": false,
+        "residual_scope": "sujets, épisodes, offres et expirations"
       }
     },
     {
@@ -42343,6 +42438,27 @@
         "pdf_lines": 78,
         "web_schedule_evidence_lines": 20,
         "omissions": 0
+      }
+    },
+    {
+      "id": "run23-tv5-fbs-provenance-requirement-narrowed",
+      "decided_at": "2026-10-09T22:42:00.676Z",
+      "decision": "schedule_provenance_requirement_closed_generic_subjects_preserved",
+      "previous_scope": "TV5MONDE FBS : sept grilles Télérama datées recoupées avec l'inventaire (50 créneaux comparés, détail dans coverage) ; établir indépendance des flux ou source officielle, identifier sujets de magazines et épisodes. Nouvelle piste TV5Pro mène à une connexion ; guide public reste channel4/NewYork, aucune preuve FBS.",
+      "current_scope": "TV5MONDE FBS : revue applicable des omissions achevée sur les sept colonnes du PDF fourni et 50 créneaux sauvegardés, sans affirmation d’indépendance amont. Identifier seulement les sujets propres d’Au bout de l’enquête (10/10 09:30 et 17:10 ; 11/10 14:38), de Temps présent (13/10 17:05 ; 14/10 09:50) et les épisodes génériques avant tout examen éditorial ; poursuivre séparément offres et expirations TV5MONDE+.",
+      "evidence": {
+        "pdf_pages": [
+          103,
+          109,
+          115,
+          121,
+          127,
+          133,
+          139
+        ],
+        "source_ref": "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93",
+        "compared_slots": 50,
+        "extracted_lines": 14
       }
     }
   ]
