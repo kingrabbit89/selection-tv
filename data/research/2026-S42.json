@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "week": "2026-S42",
-  "base_sha": "018433005ec07f2d8900af044f82dede06d49a28",
+  "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T11:08:00.000Z",
+  "updated_at": "2026-10-09T11:18:20.201Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -671,6 +671,28 @@
       "completed_at": "2026-10-09T11:08:00.000Z",
       "scope": "lundi",
       "summary": "Pool du lundi porté de quatre à sept cartes complètes : trois choix développés et quatre réserves. Love on Trial, La reconquista et Les Revenants ont été ajoutés après contrôle d’identité, versions, diffusion, réception, notes et visuels ; le seuil final de dix reste ouvert.",
+      "deliverables": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "sync-main-validator-fix-2026-10-09",
+      "completed_at": "2026-10-09T11:18:20.201Z",
+      "scope": "candidate",
+      "summary": "Candidate synchronisée normalement avec main après la correction #48 des validateurs de réserves ; recherches éditoriales préservées, aucun force push.",
+      "deliverables": [
+        "scripts/test-html-text.mjs",
+        "scripts/validate-reserves.mjs"
+      ]
+    },
+    {
+      "id": "complete-monday-reserve-pool-ten-cards-2026-10-09",
+      "completed_at": "2026-10-09T11:18:20.201Z",
+      "scope": "lundi",
+      "summary": "Pool du lundi porté à dix cartes complètes. Secrets et mensonges, La Passion de Dodin Bouffant et Picnic ont été ajoutés après contrôle d’identité, version, diffusion, réception contradictoire, notes datées et affiches exactes ; le seuil minimal du jour est atteint sans certifier les autres exigences.",
       "deliverables": [
         "data/works.json",
         "data/links.json",
@@ -21181,6 +21203,159 @@
       },
       "evidence_note": "Diffusion et notes datées contrôlées pour Les Revenants; aucune disponibilité replay n’est déduite du créneau linéaire.",
       "status": "verified"
+    },
+    {
+      "work_id": "secrets-et-mensonges-1996",
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "identity_version",
+        "image",
+        "links"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/secrets-et-mensonges/h/177164_40099/resume-casting/",
+        "https://www.themoviedb.org/movie/11159-secrets-lies/images/posters",
+        "https://www.criterion.com/current/posts/7337-secrets-lies-seen-and-not-seen",
+        "https://www.rogerebert.com/reviews/secrets-and-lies-1996"
+      ],
+      "checked_at": "2026-10-09T11:18:20.201Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "version": "fiche CANAL+ et IMDb"
+      },
+      "evidence_note": "Identité, version, réception, liens et affiche contrôlés pour Secrets et mensonges; divergences conservées dans le dossier.",
+      "status": "verified"
+    },
+    {
+      "work_id": "secrets-et-mensonges-1996",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "ratings"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-lundi/cine-club",
+        "https://www.imdb.com/title/tt0117589/",
+        "https://www.senscritique.com/film/secrets_et_mensonges/373225"
+      ],
+      "checked_at": "2026-10-09T11:18:20.201Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-12 06:12 Ciné+ Festival"
+      },
+      "evidence_note": "Diffusion et notes datées contrôlées pour Secrets et mensonges; les conflits et recontrôles nécessaires restent explicites.",
+      "status": "verified"
+    },
+    {
+      "work_id": "la-passion-de-dodin-bouffant-2023",
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "identity_version",
+        "image",
+        "links"
+      ],
+      "source_urls": [
+        "https://www.gaumont.com/fr/film/la-passion-de-dodin-bouffant",
+        "https://www.gaumont.com/fr/film/la-passion-de-dodin-bouffant",
+        "https://www.bfi.org.uk/sight-and-sound/reviews/taste-things-tran-anh-hungs-elegant-gastro-film-feast-senses",
+        "https://www.lemonde.fr/culture/article/2023/05/24/cannes-2023-la-passion-de-dodin-bouffant-le-pot-au-feu-indigeste-de-tran-anh-hung_6174710_3246.html"
+      ],
+      "checked_at": "2026-10-09T11:18:20.201Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "version": "version cinéma officielle Gaumont/Unifrance"
+      },
+      "evidence_note": "Identité, version, réception, liens et affiche contrôlés pour La Passion de Dodin Bouffant; divergences conservées dans le dossier.",
+      "status": "verified"
+    },
+    {
+      "work_id": "la-passion-de-dodin-bouffant-2023",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "ratings"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-2/03-10-2026/11-10-2026",
+        "https://tv-programme.com/france-2/lundi-12-octobre-2026/",
+        "https://www.imdb.com/title/tt19760052/",
+        "https://www.metacritic.com/movie/the-taste-of-things/",
+        "https://www.rottentomatoes.com/m/the_taste_of_things"
+      ],
+      "checked_at": "2026-10-09T11:18:20.201Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-12 02:55 France 2"
+      },
+      "evidence_note": "Diffusion et notes datées contrôlées pour La Passion de Dodin Bouffant; les conflits et recontrôles nécessaires restent explicites.",
+      "status": "conflict"
+    },
+    {
+      "work_id": "picnic-1955",
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "identity_version",
+        "image",
+        "links"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/picnic/h/174854_50002/resume-casting/",
+        "https://www.justwatch.com/us/movie/picnic",
+        "https://www.tcm.com/articles/31586/picnic",
+        "https://www.timeout.com/movies/picnic"
+      ],
+      "checked_at": "2026-10-09T11:18:20.201Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "version": "version CANAL+"
+      },
+      "evidence_note": "Identité, version, réception, liens et affiche contrôlés pour Picnic; divergences conservées dans le dossier.",
+      "status": "verified"
+    },
+    {
+      "work_id": "picnic-1955",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "ratings"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/picnic/h/174854_50002/resume-casting/",
+        "https://tv-programme.com/cine-plus-classic/lundi-12-octobre-2026/",
+        "https://www.senscritique.com/film/picnic/492471"
+      ],
+      "checked_at": "2026-10-09T11:18:20.201Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-12 20:50 Ciné+ Classic"
+      },
+      "evidence_note": "Diffusion et notes datées contrôlées pour Picnic; les conflits et recontrôles nécessaires restent explicites.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -23060,7 +23235,7 @@
       "next_useful_batch": "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés."
     },
     {
-      "date": "2026-10-09T11:08:00.000Z",
+      "date": "2026-10-09T11:18:20.201Z",
       "started_at": "2026-10-09T11:00:32.109Z",
       "ended_at": null,
       "owner": "242b436f-e4f5-4018-b208-fca5b20fa9ec",
@@ -23070,7 +23245,9 @@
       "elapsed_seconds": null,
       "duration_basis": "Passage en cours ; durée terminale non encore observée.",
       "completed_batches": [
-        "advance-monday-reserve-pool-seven-cards-2026-10-09"
+        "advance-monday-reserve-pool-seven-cards-2026-10-09",
+        "sync-main-validator-fix-2026-10-09",
+        "complete-monday-reserve-pool-ten-cards-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -23078,16 +23255,19 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ],
-      "complete_cards": 20,
+      "complete_cards": 23,
       "draft_cards": 1,
       "partial_dossiers": 2,
       "deliverables_advanced": [
         "lundi : pool avancé à sept cartes complètes sur dix requises",
         "catalogue canonique",
         "liens directs",
-        "lundi-grille"
+        "lundi-grille",
+        "lundi : pool complet de dix cartes"
       ],
-      "requirements_resolved": [],
+      "requirements_resolved": [
+        "lundi : seuil minimal de dix cartes complètes atteint"
+      ],
       "remaining": {
         "stage": "enrichment",
         "count": 35,
@@ -23122,18 +23302,76 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T11:10:50.925Z",
+          "elapsed_seconds": 618.816,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "f6679d692b1db502026bfa7f8a5febe7f709476e",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T11:00:32.109Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T12:01:23.619Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T11:15:48.755Z",
+          "elapsed_seconds": 916.646,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "849f8f1dba9eb66773d418d0101279d2fdf6fdbc",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T11:00:32.109Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T12:01:23.619Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T11:01:58.204Z",
-        "elapsed_seconds": 86.095,
+        "observed_at": "2026-10-09T11:15:48.755Z",
+        "elapsed_seconds": 916.646,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "ea4efe37f5a6bfa190b27def66724092ee4afd3c",
+        "source_sha": "849f8f1dba9eb66773d418d0101279d2fdf6fdbc",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -24077,10 +24315,26 @@
       "blocking": true,
       "status": "needs_new_source",
       "resume_when": "Nouvelle grille indépendante figée ou page officielle nommant explicitement Ciné+ Festival et 01:04 le 11 octobre 2026."
+    },
+    {
+      "id": "maigret-voit-rouge-selection-review-2026-10-09",
+      "subject": "Maigret voit rouge (1963), diffusion Arte du 12 octobre 20:55",
+      "question": "Réception, version et disponibilité sont-elles assez solides pour une réserve du lundi ?",
+      "attempted_at": "2026-10-09T11:18:20.201Z",
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/129825-000-A/maigret-voit-rouge/",
+        "https://www.dvdclassik.com/critique/maigret-voit-rouge-grangier",
+        "https://www.avoir-alire.com/maigret-voit-rouge-gilles-grangier-critique",
+        "https://cinedweller.com/movie/maigret-voit-rouge-la-critique-du-film/"
+      ],
+      "result": "Identité et diffusion établies, mais réception très divisée, durée 84/85/87/93 min divergente et expiration ARTE absente. Trois dossiers plus solides ont été retenus.",
+      "blocking_scope": "nonblocking_alternative_rejected",
+      "status": "rejected",
+      "resume_when": "Reprendre seulement si une source de version ARTE ou une réception nouvelle change matériellement la comparaison."
     }
   ],
   "shortlist": {
-    "updated_at": "2026-10-09T08:48:34.038Z",
+    "updated_at": "2026-10-09T11:18:20.201Z",
     "note": "Présélection révisable par jour et rubrique ; premières cartes plateformes gratuites intégrées depuis les dossiers acquis. Aucun statut ne certifie la sélection finale du numéro.",
     "entries": [
       {
@@ -25003,6 +25257,82 @@
         ],
         "decision_note": "Réserve complète rang 7 ; film 2004 distingué de la série homonyme et durées divergentes conservées.",
         "alternatives": []
+      },
+      {
+        "id": "sl-lundi-secrets-et-mensonges",
+        "title": "Secrets et mensonges",
+        "work_id": "secrets-et-mensonges-1996",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique_et_diffusion",
+            "note": "La fiche CANAL+ établit la version de 136 minutes ; Criterion et RogerEbert.com étayent la force émotionnelle du film.",
+            "source_url": "https://www.criterion.com/current/posts/7337-secrets-lies-seen-and-not-seen"
+          }
+        ],
+        "decision_note": "Réserve complète rang 8 ; diffusion matinale et intensité du dénouement explicitement conservées.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-lundi-dodin-bouffant",
+        "title": "La Passion de Dodin Bouffant",
+        "work_id": "la-passion-de-dodin-bouffant-2023",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique_et_diffusion",
+            "note": "FranceTVPro atteste la diffusion et Gaumont l’identité ; Sight and Sound et Le Monde fournissent des lectures opposées.",
+            "source_url": "https://www.gaumont.com/fr/film/la-passion-de-dodin-bouffant"
+          }
+        ],
+        "decision_note": "Réserve complète rang 9 ; durée cinéma 134 min séparée de la case France 2 et conflit 02:55/03:05 à revalider.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-lundi-picnic-1955",
+        "title": "Picnic",
+        "work_id": "picnic-1955",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique_et_diffusion",
+            "note": "La page CANAL+ annonce la diffusion du 12 octobre ; TCM et Screen Slate étayent les qualités visuelles avec contrepoints de Time Out et Roger Ebert.",
+            "source_url": "https://www.canalplus.com/cinema/picnic/h/174854_50002/resume-casting/"
+          }
+        ],
+        "decision_note": "Réserve complète rang 10 ; version CANAL+ 108 min séparée des durées cinéma et conventions datées signalées.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-lundi-maigret-voit-rouge",
+        "title": "Maigret voit rouge",
+        "work_id": "maigret-voit-rouge-1963",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "rejected",
+        "signals": [
+          {
+            "kind": "critique_contradictoire",
+            "note": "DVDClassik défend l’atmosphère et le casting, tandis qu’Avoir-Alire et CinéDweller jugent le film faible, daté et peu convaincant.",
+            "source_url": "https://www.dvdclassik.com/critique/maigret-voit-rouge-grangier"
+          }
+        ],
+        "decision_note": "Écarté du pool du lundi : réception trop divisée pour remplacer les trois dossiers mieux étayés ; disponibilité ARTE sans expiration publique et durées 84/85/87/93 min divergentes conservées.",
+        "alternatives": [
+          "sl-lundi-secrets-et-mensonges",
+          "sl-lundi-dodin-bouffant",
+          "sl-lundi-picnic-1955"
+        ]
       }
     ]
   },
@@ -25015,8 +25345,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "ea4efe37f5a6bfa190b27def66724092ee4afd3c",
-    "produced_at": "2026-10-09T11:08:00.000Z",
+    "source_candidate_sha": "849f8f1dba9eb66773d418d0101279d2fdf6fdbc",
+    "produced_at": "2026-10-09T11:18:20.201Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -25584,6 +25914,81 @@
             "https://www.allocine.fr/film/fichefilm_gen_cfilm=53374.html"
           ]
         }
+      },
+      {
+        "work_id": "secrets-et-mensonges-1996",
+        "date": "2026-10-12",
+        "rank_provisional": 8,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "identity_version": "Long métrage de Mike Leigh sorti en 1996, distinct de toute série homonyme. La fiche CANAL+ et IMDb concordent sur une durée de 136 minutes.",
+          "canonical_fields": "Titre français et original, réalisateur, année, pays, genre, durée, liens directs, affiche exacte et notes IMDb/SensCritique datées contrôlés.",
+          "current_broadcast": "Lundi 12 octobre à 06:12 sur Ciné+ Festival, horaire relevé dans la grille datée TV-Programme et recoupé par le guide courant de Télérama ; la fiche CANAL+ exacte établit l’identité et la version.",
+          "editorial_copy": "Synopsis original rédigé depuis les fiches CANAL+/IMDb ; justification revue depuis Criterion et RogerEbert.com, sans transformer l’intensité du jeu et du dénouement en qualité universelle.",
+          "evidence_urls": [
+            "https://www.canalplus.com/cinema/secrets-et-mensonges/h/177164_40099/resume-casting/",
+            "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
+            "https://television.telerama.fr/programme-tv-lundi/cine-club",
+            "https://www.imdb.com/title/tt0117589/",
+            "https://www.senscritique.com/film/secrets_et_mensonges/373225",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=15225.html",
+            "https://www.criterion.com/current/posts/7337-secrets-lies-seen-and-not-seen",
+            "https://www.rogerebert.com/reviews/secrets-and-lies-1996",
+            "https://www.themoviedb.org/movie/11159-secrets-lies/images/posters"
+          ]
+        }
+      },
+      {
+        "work_id": "la-passion-de-dodin-bouffant-2023",
+        "date": "2026-10-12",
+        "rank_provisional": 9,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "identity_version": "Long métrage français de Trần Anh Hùng sorti en 2023, durée cinéma officielle de 134 minutes. La grille France 2 annonce une case de 129 minutes, traitée comme donnée de diffusion et non comme durée intrinsèque.",
+          "canonical_fields": "Titre français et international, réalisateur, année, pays, genre, durée catalogue, liens directs, affiche Gaumont et notes IMDb/Metacritic/Rotten Tomatoes datées contrôlés.",
+          "current_broadcast": "La grille primaire FranceTVPro annonce lundi 12 octobre à 02:55 sur France 2 ; plusieurs guides tiers affichent désormais 03:05. L’horaire 02:55 est retenu pour la préparation avec contradiction explicite à revalider au préflight.",
+          "editorial_copy": "Synopsis original rédigé depuis Gaumont et France Télévisions ; justification revue depuis Sight and Sound, RogerEbert.com, le Guardian et Le Monde, avec les contrepoints négatifs conservés.",
+          "evidence_urls": [
+            "https://www.francetvpro.fr/grille/france-2/03-10-2026/11-10-2026",
+            "https://tv-programme.com/france-2/lundi-12-octobre-2026/",
+            "https://www.gaumont.com/fr/film/la-passion-de-dodin-bouffant",
+            "https://en.unifrance.org/movie/54922/the-taste-of-things",
+            "https://www.imdb.com/title/tt19760052/",
+            "https://www.metacritic.com/movie/the-taste-of-things/",
+            "https://www.rottentomatoes.com/m/the_taste_of_things",
+            "https://www.bfi.org.uk/sight-and-sound/reviews/taste-things-tran-anh-hungs-elegant-gastro-film-feast-senses",
+            "https://www.rogerebert.com/reviews/the-taste-of-things-film-review-2023",
+            "https://www.theguardian.com/film/2023/may/24/the-pot-au-feu-review-juliette-binoche-foodie-romance-is-an-invitation-to-drool",
+            "https://www.lemonde.fr/culture/article/2023/05/24/cannes-2023-la-passion-de-dodin-bouffant-le-pot-au-feu-indigeste-de-tran-anh-hung_6174710_3246.html"
+          ]
+        }
+      },
+      {
+        "work_id": "picnic-1955",
+        "date": "2026-10-12",
+        "rank_provisional": 10,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "identity_version": "Film de Joshua Logan sorti en 1955, distinct des nombreux homonymes. La version CANAL+ annoncée à 108 minutes est ciblée ; SensCritique annonce 112 minutes et les fiches cinéma jusqu’à 115 minutes, divergences conservées.",
+          "canonical_fields": "Titre, réalisateur, année, pays, genre, version CANAL+, liens directs, affiche exacte et note SensCritique datée contrôlés.",
+          "current_broadcast": "Lundi 12 octobre à 20:50 sur Ciné+ Classic, horaire de grille datée TV-Programme recoupé par la page CANAL+ exacte qui annonce une diffusion le 12 octobre.",
+          "editorial_copy": "Synopsis original rédigé depuis CANAL+ et SensCritique ; justification revue depuis TCM, Screen Slate, Time Out et Roger Ebert, avec les réserves sur l’adaptation et les conventions datées conservées.",
+          "evidence_urls": [
+            "https://www.canalplus.com/cinema/picnic/h/174854_50002/resume-casting/",
+            "https://tv-programme.com/cine-plus-classic/lundi-12-octobre-2026/",
+            "https://www.imdb.com/title/tt0048491/",
+            "https://www.senscritique.com/film/picnic/492471",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=2240.html",
+            "https://www.tcm.com/articles/31586/picnic",
+            "https://www.screenslate.com/articles/picnic",
+            "https://www.timeout.com/movies/picnic",
+            "https://www.rogerebert.com/reviews/picnic-1996",
+            "https://www.justwatch.com/us/movie/picnic"
+          ]
+        }
       }
     ],
     "publication_ready": false,
@@ -25591,8 +25996,8 @@
     "remaining_reference": "remaining"
   },
   "contract_reads": {
-    "main_sha": "e42a29ef84e3fc73b47818bd6c9dc012009d49ab",
-    "checked_at": "2026-10-09T11:01:10.000Z",
+    "main_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
+    "checked_at": "2026-10-09T11:18:20.201Z",
     "documents": {
       "AUTOMATION.md": "398efe679818d849689cff03ac593697c7f2656d",
       "docs/HYBRID-WORKFLOW.md": "95cad0792febab1bc7edf076300bd38ced9c84ba",
@@ -25601,7 +26006,7 @@
       "data/editorial-config.json": "e491aa84dac6b34ca4ec4b8b4cb1e88737a0b385",
       "data/personalization-config.json": "ad5716e95db25894de7ca58c874154783b1766a8"
     },
-    "note": "AUTOMATION.md a été relu car son blob a changé ; les cinq autres contrats gardent les blobs identiques de la lecture attestée précédente. docs/EDITORIAL-DRAFTS.md a aussi été relu avant le rendu du lot."
+    "note": "Les six contrats gardent les blobs attestés au début du passage. Main a ensuite reçu uniquement la correction des validateurs de réserves (#48) ; la candidate a été synchronisée par un commit de fusion normal avant le lot suivant."
   },
   "research_dossiers": [
     {
@@ -25996,6 +26401,188 @@
         "note": "Affiche exacte inspectée ; slug commercial incohérent conservé comme limite de provenance."
       },
       "reason": "Carte complète ajoutée au pool du lundi en rang 7 ; film et série séparés, version CANAL+ ciblée."
+    },
+    {
+      "title": "Secrets et mensonges",
+      "work_id": "secrets-et-mensonges-1996",
+      "date": "2026-10-12",
+      "start": "06:12",
+      "channel": "Ciné+ Festival",
+      "decision": "réserve complète lundi",
+      "identity_research": {
+        "director": "Mike Leigh",
+        "year": 1996,
+        "country": "Royaume-Uni / France",
+        "duration_observations": [
+          {
+            "duration": "136 min",
+            "version": "fiche CANAL+ et IMDb",
+            "source_url": "https://www.canalplus.com/cinema/secrets-et-mensonges/h/177164_40099/resume-casting/"
+          }
+        ],
+        "checked_at": "2026-10-09T11:18:20.201Z"
+      },
+      "broadcast_research": {
+        "status": "verified_for_candidate",
+        "checked_at": "2026-10-09T11:18:20.201Z",
+        "source_urls": [
+          "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
+          "https://television.telerama.fr/programme-tv-lundi/cine-club"
+        ]
+      },
+      "critical_evidence": [
+        {
+          "source": "Criterion",
+          "source_url": "https://www.criterion.com/current/posts/7337-secrets-lies-seen-and-not-seen",
+          "assessment": "Lecture de la mise en scène, des regards et des silences qui fondent la vérité émotionnelle du film."
+        },
+        {
+          "source": "RogerEbert.com",
+          "source_url": "https://www.rogerebert.com/reviews/secrets-and-lies-1996",
+          "assessment": "Défense de la justesse émotionnelle et de l’ensemble, avec intensité finale assumée."
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic",
+        "checked_at": "2026-10-09T11:18:20.201Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0117589/",
+          "https://www.senscritique.com/film/secrets_et_mensonges/373225"
+        ],
+        "note": "IMDb 8,0/10 (51 k) ; SensCritique 7,2/10 (2,3 k)."
+      },
+      "image_research": {
+        "status": "poster_visually_verified_ci_pending",
+        "checked_at": "2026-10-09T11:18:20.201Z",
+        "source_page": "https://www.themoviedb.org/movie/11159-secrets-lies/images/posters",
+        "image_url": "https://image.tmdb.org/t/p/original/h9nWpAJqSC19aNv2Vq9oEedB294.jpg"
+      },
+      "reason": "Carte complète ajoutée en rang 8 ; identité certaine, diffusion recoupée, réception indépendante et visuel exact."
+    },
+    {
+      "title": "La Passion de Dodin Bouffant",
+      "work_id": "la-passion-de-dodin-bouffant-2023",
+      "date": "2026-10-12",
+      "start": "02:55",
+      "channel": "France 2",
+      "decision": "réserve complète lundi",
+      "identity_research": {
+        "director": "Trần Anh Hùng",
+        "year": 2023,
+        "country": "France",
+        "duration_observations": [
+          {
+            "duration": "134 min",
+            "version": "version cinéma officielle Gaumont/Unifrance",
+            "source_url": "https://www.gaumont.com/fr/film/la-passion-de-dodin-bouffant"
+          },
+          {
+            "duration": "129 min",
+            "version": "case France 2 annoncée, pas durée intrinsèque",
+            "source_url": "https://www.francetvpro.fr/grille/france-2/03-10-2026/11-10-2026"
+          }
+        ],
+        "checked_at": "2026-10-09T11:18:20.201Z"
+      },
+      "broadcast_research": {
+        "status": "verified_for_candidate_with_preflight_conflict",
+        "checked_at": "2026-10-09T11:18:20.201Z",
+        "source_urls": [
+          "https://www.francetvpro.fr/grille/france-2/03-10-2026/11-10-2026",
+          "https://tv-programme.com/france-2/lundi-12-octobre-2026/"
+        ],
+        "note": "Source primaire à 02:55 ; plusieurs guides courants à 03:05. Horaire primaire retenu, recontrôle préflight obligatoire."
+      },
+      "critical_evidence": [
+        {
+          "source": "Sight and Sound",
+          "source_url": "https://www.bfi.org.uk/sight-and-sound/reviews/taste-things-tran-anh-hungs-elegant-gastro-film-feast-senses",
+          "assessment": "Défend l’élégance, l’expérience sensorielle et l’attention au geste."
+        },
+        {
+          "source": "Le Monde",
+          "source_url": "https://www.lemonde.fr/culture/article/2023/05/24/cannes-2023-la-passion-de-dodin-bouffant-le-pot-au-feu-indigeste-de-tran-anh-hung_6174710_3246.html",
+          "assessment": "Contrepoint négatif : académisme, peu d’aspérités et d’enjeu dramatique."
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic",
+        "checked_at": "2026-10-09T11:18:20.201Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt19760052/",
+          "https://www.metacritic.com/movie/the-taste-of-things/",
+          "https://www.rottentomatoes.com/m/the_taste_of_things"
+        ],
+        "note": "IMDb 7,4/10 (22 k) ; Metacritic 85/100 (43) ; Rotten Tomatoes 97 % (197)."
+      },
+      "image_research": {
+        "status": "official_poster_visually_verified_ci_pending",
+        "checked_at": "2026-10-09T11:18:20.201Z",
+        "source_page": "https://www.gaumont.com/fr/film/la-passion-de-dodin-bouffant",
+        "image_url": "https://www.gaumont.com/sites/com/files/styles/max_height_710/public/2024-10/24_10_25_1729847717_DODIN_120_DEF_NEW.jpg.webp?itok=sGqfcBbN"
+      },
+      "reason": "Carte complète ajoutée en rang 9 ; réception contradictoire, durée catalogue et conflit d’horaire préflight conservés."
+    },
+    {
+      "title": "Picnic",
+      "work_id": "picnic-1955",
+      "date": "2026-10-12",
+      "start": "20:50",
+      "channel": "Ciné+ Classic",
+      "decision": "réserve complète lundi",
+      "identity_research": {
+        "director": "Joshua Logan",
+        "year": 1955,
+        "country": "États-Unis",
+        "duration_observations": [
+          {
+            "duration": "108 min",
+            "version": "version CANAL+",
+            "source_url": "https://www.canalplus.com/cinema/picnic/h/174854_50002/resume-casting/"
+          },
+          {
+            "duration": "112 à 115 min",
+            "version": "fiches cinéma",
+            "source_url": "https://www.senscritique.com/film/picnic/492471"
+          }
+        ],
+        "checked_at": "2026-10-09T11:18:20.201Z"
+      },
+      "broadcast_research": {
+        "status": "verified_for_candidate",
+        "checked_at": "2026-10-09T11:18:20.201Z",
+        "source_urls": [
+          "https://www.canalplus.com/cinema/picnic/h/174854_50002/resume-casting/",
+          "https://tv-programme.com/cine-plus-classic/lundi-12-octobre-2026/"
+        ]
+      },
+      "critical_evidence": [
+        {
+          "source": "TCM",
+          "source_url": "https://www.tcm.com/articles/31586/picnic",
+          "assessment": "Défend la mise en scène visuelle, le CinemaScope et la séquence de danse."
+        },
+        {
+          "source": "Time Out",
+          "source_url": "https://www.timeout.com/movies/picnic",
+          "assessment": "Contrepoint sur le caractère théâtral, emphatique et daté."
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic",
+        "checked_at": "2026-10-09T11:18:20.201Z",
+        "source_urls": [
+          "https://www.senscritique.com/film/picnic/492471"
+        ],
+        "note": "SensCritique 6,5/10."
+      },
+      "image_research": {
+        "status": "poster_visually_verified_ci_pending",
+        "checked_at": "2026-10-09T11:18:20.201Z",
+        "source_page": "https://www.justwatch.com/us/movie/picnic",
+        "image_url": "https://images.justwatch.com/poster/247419607/s718/picnic.jpg"
+      },
+      "reason": "Carte complète ajoutée en rang 10 ; qualités visuelles et réserves historiques explicites, version CANAL+ distinguée."
     }
   ]
 }
