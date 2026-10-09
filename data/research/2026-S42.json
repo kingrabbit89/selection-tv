@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "3111c849101f085ebc90f781460f57879c13786b",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T07:10:24.056Z",
+  "updated_at": "2026-10-09T07:16:33.667Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -482,6 +482,12 @@
       "id": "complete-sunday-two-developed-drafts-2026-10-09",
       "completed_at": "2026-10-09T07:10:24.056Z",
       "description": "Retour à Kotelnitch et Violences sexuelles à l’école : silence dans les rangs ont été rendus comme deuxième et troisième choix développés draft du dimanche depuis la présélection. Les limites de provenance de chaîne, la divergence 09:34/09:35 et l’absence de note du second titre restent explicites.",
+      "items": 2
+    },
+    {
+      "id": "complete-tuesday-two-developed-drafts-2026-10-09",
+      "completed_at": "2026-10-09T07:19:27.285Z",
+      "description": "La diffusion mardi de Sulawesi a réutilisé son dossier vérifié sans nouvelle consultation fictive ; Regrouping a reçu identité canonique, image Criterion, liens exacts, motif d’absence de note et carte développée. Les limites de provenance TCM et la comparaison finale restent ouvertes.",
       "items": 2
     }
   ],
@@ -19861,6 +19867,60 @@
       },
       "evidence_note": "Photogramme officiel CAT&Cie ouvert depuis FranceTvPro. Recherche exacte titre/réalisatrice : aucun identifiant IMDb établi et aucune note visible sur la fiche SensCritique exacte ; ce constat ne prouve pas une absence définitive.",
       "status": "verified"
+    },
+    {
+      "work_id": "regrouping-1976",
+      "fields": [
+        "work_id",
+        "identity",
+        "duration",
+        "image",
+        "image.provenance",
+        "ratings_unavailable_reason"
+      ],
+      "source_urls": [
+        "https://www.imdb.com/title/tt0207050/",
+        "https://www.rottentomatoes.com/m/regrouping",
+        "https://www.criterion.com/current/posts/8921--we-no-longer-demand-a-consenses-a-brief-history-of-regrouping",
+        "https://s3.amazonaws.com/criterion-production/editorial_content_posts/hero/8921-/ERdYbZcYHc3LQyUDQGe8KuZm8DkVCL_original.jpg"
+      ],
+      "checked_at": "2026-10-09T07:16:33.667Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Regrouping",
+        "version": "copie 75 minutes"
+      },
+      "evidence_note": "IMDb exact tt0207050 et Rotten Tomatoes exact établissent identité et copie 75 min ; aucune note exploitable n’est affichée. Photogramme exact de l’essai Criterion ouvert et inspecté. Aucun champ de Born in Flames n’est transféré.",
+      "status": "verified"
+    },
+    {
+      "work_id": "sulawesi-l-ile-des-premieres-images-2025",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "daily_card"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/guide/20261013/",
+        "https://tv-programme.com/arte/mardi-13-octobre-2026/",
+        "https://www.arte.tv/fr/videos/118245-000-A/sulawesi-l-ile-des-premieres-images/"
+      ],
+      "checked_at": "2026-10-08T09:23:39.837Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "start": "11:25",
+        "channel": "Arte",
+        "section": "mardi-selection"
+      },
+      "evidence_note": "La diffusion du mardi est recoupée dans les preuves sauvegardées entre le guide officiel ARTE et TV-Programme. Le dossier stable a été réutilisé sans prétendre à une consultation nouvelle.",
+      "status": "verified",
+      "reused_in": [
+        "mardi-selection"
+      ]
     }
   ],
   "run_metrics": [
@@ -20769,17 +20829,18 @@
       "note": "Chauvet réutilisé depuis les preuves déjà sauvegardées pour le troisième choix du samedi ; Wachowski achevé avec identité, version, diffusion, réception, liens, visuel et absence de moyenne documentée. Rapport informatif passé de44à42écarts ; les35exigences restent ouvertes."
     },
     {
-      "date": "2026-10-09T07:10:24.056Z",
+      "date": "2026-10-09T07:19:27.285Z",
       "started_at": "2026-10-09T07:02:51.000Z",
-      "ended_at": "2026-10-09T07:10:24.056Z",
+      "ended_at": "2026-10-09T07:19:27.285Z",
       "owner": "12ef07b7-8160-41dc-9302-61cbac0aad09",
       "execution_kind": "scheduled_scoped_production_batch",
       "prompt_revision": "production-shortlist-2026-10-08",
       "stage": "enrichment",
-      "elapsed_seconds": 453,
-      "duration_basis": "started_at provient du début connu de cette reprise ; ended_at est l’horodatage du checkpoint local avant sauvegarde distante et hors attente CI.",
+      "elapsed_seconds": 996,
+      "duration_basis": "started_at provient du début connu de cette reprise ; ended_at est l’horodatage du checkpoint local avant la seconde sauvegarde distante et hors attente CI.",
       "completed_batches": [
-        "complete-sunday-two-developed-drafts-2026-10-09"
+        "complete-sunday-two-developed-drafts-2026-10-09",
+        "complete-tuesday-two-developed-drafts-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -20789,24 +20850,27 @@
         "data/research/2026-S42.json"
       ],
       "complete_cards": 0,
-      "draft_cards": 2,
+      "draft_cards": 4,
       "partial_dossiers": 0,
       "deliverables_advanced": [
         "dimanche-selection",
         "dimanche-grille",
+        "mardi-selection",
+        "mardi-grille",
         "catalogue canonique",
         "liens directs"
       ],
       "requirements_resolved": [
-        "dimanche : trois choix développés matérialisés"
+        "dimanche : trois choix développés matérialisés",
+        "mardi : trois choix développés matérialisés"
       ],
       "remaining": {
         "stage": "enrichment",
         "count": 35,
         "reference": "remaining"
       },
-      "stop_reason": "coherent_sunday_batch_rendered_checked_and_ready_for_remote_save_before_active_work_limit",
-      "next_useful_batch": "Construire les réserves complètes des jours à trois choix, puis achever deux choix développés d’un jour encore à 1/3 depuis la shortlist."
+      "stop_reason": "two_coherent_daily_batches_rendered_checked_and_ready_for_remote_save_before_active_work_limit",
+      "next_useful_batch": "Construire les réserves complètes des jours à trois choix, puis achever deux choix développés de lundi, mercredi ou jeudi depuis la shortlist."
     }
   ],
   "source_issues": [
@@ -21405,13 +21469,13 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "7288f7d79d40faec7a004ba3b03f91bdc236aa9d",
+    "checkpoint_parent_sha": "dd047e8cc03661796e4ad9cdf834df9087182cb0",
     "main_sha": "3111c849101f085ebc90f781460f57879c13786b",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Dimanche dispose désormais de trois choix développés draft. Construire les réserves complètes du samedi, dimanche et vendredi depuis les pistes vérifiées, sans relancer une collecte générale.",
-      "Achever deux choix développés pour lundi, mardi, mercredi et jeudi à partir de la shortlist et des dossiers proches d’une carte ; préserver les limites de diffusion/version déjà consignées.",
-      "Produire les rubriques indépendantes encore absentes (abonnements, sorties, replay, radars) ; réutiliser les dossiers seulement avec des faits d’offre propres à la rubrique.",
+      "Samedi, dimanche, mardi et vendredi disposent de trois choix développés draft. Construire leurs réserves complètes depuis les pistes vérifiées, sans nouvelle collecte générale.",
+      "Achever deux choix développés pour lundi, mercredi et jeudi à partir de la shortlist et des dossiers proches d’une carte ; préserver les limites de diffusion/version déjà consignées.",
+      "Produire les rubriques indépendantes encore absentes (abonnements, sorties, replay, radars) avec des faits d’offre propres à chaque rubrique.",
       "Consolider les recoupements, rappels et conflits de couverture sur preuves réelles ; préserver les 35 exigences restantes jusqu’à leur résolution effective."
     ],
     "publisher": {
@@ -21908,18 +21972,20 @@
         "scope": {
           "day": "mardi"
         },
-        "status": "researching",
+        "status": "card_drafted",
         "signals": [
           {
             "kind": "critique",
-            "note": "La lecture de 4Columns étaye le montage et la difficulté formelle ; version, offre, note et visuel restent à terminer.",
+            "note": "Trois lectures attribuées, IMDb exact, durée 75 min, photogramme Criterion et motif d’absence de note sont sauvegardés ; la provenance du créneau TCM reste limitée.",
             "source_url": "https://www.4columns.org/anderson-melissa/regrouping"
           }
         ],
         "alternatives": [
           "sl-mardi-les-mots",
           "sl-mardi-chauvet"
-        ]
+        ],
+        "work_id": "regrouping-1976",
+        "decision_note": "Carte développée rendue avec identité, durée visée, visuel et réception vérifiés ; indépendance des deux guides TCM et disponibilité exacte restent des limites explicites."
       },
       {
         "id": "sl-mardi-chauvet",
@@ -22143,6 +22209,27 @@
         ],
         "decision_note": "Carte de rubrique documentée et rendue ; offre numérique France explicitement distincte de la version linéaire. Comparaison du numéro et préflight restent ouverts.",
         "alternatives": []
+      },
+      {
+        "id": "sl-mardi-sulawesi",
+        "title": "Sulawesi, l'île des premières images",
+        "work_id": "sulawesi-l-ile-des-premieres-images-2025",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Le dossier ARTE, deux lectures attribuées, le visuel, le motif d’absence de moyenne et la diffusion mardi recoupée sont sauvegardés.",
+            "source_url": "https://www.lejournaldesarts.fr/medias/la-prehistoire-des-images-184458"
+          }
+        ],
+        "decision_note": "Carte quotidienne complète rendue par réutilisation du dossier stable et des preuves propres au mardi ; comparaison hebdomadaire et préflight ouverts.",
+        "alternatives": [
+          "sl-mardi-regrouping",
+          "sl-mardi-les-mots"
+        ]
       }
     ]
   },
@@ -22155,8 +22242,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "7288f7d79d40faec7a004ba3b03f91bdc236aa9d",
-    "produced_at": "2026-10-09T07:10:24.056Z",
+    "source_candidate_sha": "dd047e8cc03661796e4ad9cdf834df9087182cb0",
+    "produced_at": "2026-10-09T07:19:27.285Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -22498,6 +22585,47 @@
             "https://www.francetvpro.fr/contenu-de-presse/74754337",
             "https://enfance-majuscule.fr/palmares-du-prix-media-enfance-majuscule-2026-nos-8-programmes-laureats-2/",
             "https://www.senscritique.com/film/violences_sexuelles_a_l_ecole_silence_dans_les_rangs/139752032"
+          ]
+        }
+      },
+      {
+        "work_id": "regrouping-1976",
+        "date": "2026-10-13",
+        "rank_provisional": 3,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "identity_version": "Premier film de Lizzie Borden, documentaire expérimental américain de 1976, distinct de Born in Flames ; copie de 75 minutes visée.",
+          "canonical_fields": "Identité stable réutilisée ; IMDb exact, durée, photogramme Criterion et motif d’absence de note contrôlés le 9 octobre.",
+          "current_broadcast": "Mardi 13 octobre à 03:40 sur TCM Cinéma selon deux guides concordants ; leur indépendance n’est pas démontrée.",
+          "editorial_copy": "Synopsis et justification originaux relus avec difficulté formelle et objections historiques explicitement conservées.",
+          "evidence_urls": [
+            "https://tv-programme.com/tcm-cinema/mardi-13-octobre-2026/",
+            "https://www.imdb.com/title/tt0207050/",
+            "https://www.rottentomatoes.com/m/regrouping",
+            "https://www.criterion.com/current/posts/8921--we-no-longer-demand-a-consenses-a-brief-history-of-regrouping",
+            "https://www.4columns.org/anderson-melissa/regrouping",
+            "https://www.bfi.org.uk/sight-and-sound/news/regrouping-again-lizzie-bordens-diabolical-hour-comes-around"
+          ]
+        }
+      },
+      {
+        "work_id": "sulawesi-l-ile-des-premieres-images-2025",
+        "date": "2026-10-13",
+        "rank_provisional": 2,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "identity_version": "Documentaire de Pascal Goblot et Denis van Waerebeke, France, 2025 ; offre ARTE affichée 56 minutes et créneau linéaire de 55 minutes séparés.",
+          "canonical_fields": "Identité, durée ARTE, liens exacts, motif documenté d’absence de moyenne et visuel officiel réutilisés depuis les vérifications sauvegardées.",
+          "current_broadcast": "Mardi 13 octobre à 11:25 sur Arte, recoupé par le guide officiel ARTE et la grille indépendante sauvegardés.",
+          "editorial_copy": "La carte quotidienne réutilise le dossier et les textes déjà revus sans inventer de nouvelle consultation stable.",
+          "evidence_urls": [
+            "https://www.arte.tv/fr/guide/20261013/",
+            "https://tv-programme.com/arte/mardi-13-octobre-2026/",
+            "https://www.arte.tv/fr/videos/118245-000-A/sulawesi-l-ile-des-premieres-images/",
+            "https://www.telerama.fr/television/sulawesi-l-ile-des-premieres-images-sur-arte-tv-une-renversante-lecon-d-art-prehistorique-dans-les-grottes-d-indonesie_cri-7042482.php",
+            "https://www.lejournaldesarts.fr/medias/la-prehistoire-des-images-184458"
           ]
         }
       }
