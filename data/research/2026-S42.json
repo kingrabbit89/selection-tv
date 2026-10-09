@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T21:07:36.602Z",
+  "updated_at": "2026-10-09T21:12:19.284Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1369,7 +1369,8 @@
     "initial-preparation-gaps-and-saved-inventory-flow-2026-10-09",
     "proof-policy-impact-and-retry-gate-review-2026-10-09",
     "defer-six-unselected-dossiers-and-close-w9-primary-reminder-2026-10-09",
-    "cineplus-four-card-complementary-proof-review-2026-10-09"
+    "cineplus-four-card-complementary-proof-review-2026-10-09",
+    "cineplus-selected-card-gap-map-2026-10-09"
   ],
   "blockers": [
     {
@@ -32464,7 +32465,8 @@
         "initial-preparation-gaps-and-saved-inventory-flow-2026-10-09",
         "proof-policy-impact-and-retry-gate-review-2026-10-09",
         "defer-six-unselected-dossiers-and-close-w9-primary-reminder-2026-10-09",
-        "cineplus-four-card-complementary-proof-review-2026-10-09"
+        "cineplus-four-card-complementary-proof-review-2026-10-09",
+        "cineplus-selected-card-gap-map-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -32473,10 +32475,10 @@
       "complete_cards": 125,
       "cards_integrated_this_run": 0,
       "draft_cards": 0,
-      "partial_dossiers": 0,
+      "partial_dossiers": 6,
       "requirements_resolved": 9,
       "stop_reason": null,
-      "next_useful_batch": "Revoir les autres cartes Ciné+ Festival : distinguer celles qui ont un événement CANAL+ exact de celles qui exigent une attribution supplémentaire, sans confondre niveau 2 et niveau 3.",
+      "next_useful_batch": "Remplacer ou étayer les cartes Ciné+ Festival encore dépourvues d’événement officiel exact, en commençant par les créneaux réutilisés dans plusieurs pages : Les Revenants, La reconquista, Secrets et mensonges et Love on Trial.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -32575,29 +32577,61 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T21:10:11.494Z",
+          "elapsed_seconds": 839.846,
+          "prompt_revision": "production-proof-policy-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "f0436d83a030ba16825dd17300b5471d968aa8f3",
+          "next_actions": [
+            "Revoir les autres cartes Ciné+ Festival : distinguer celles qui ont un événement CANAL+ exact de celles qui exigent une attribution supplémentaire, sans confondre niveau 2 et niveau 3.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
+            "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
+          ],
+          "remaining_count": 25,
+          "next_actions_total": 23,
+          "truncated_notice": "18 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 30,
+          "waiting_actions_count": 7,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T20:56:11.648Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T21:57:29.571Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T21:06:52.498Z",
-        "elapsed_seconds": 640.85,
+        "observed_at": "2026-10-09T21:10:11.494Z",
+        "elapsed_seconds": 839.846,
         "prompt_revision": "production-proof-policy-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "52d50919467cb0d0844baa690f465fd858d7fa7f",
+        "source_sha": "f0436d83a030ba16825dd17300b5471d968aa8f3",
         "next_actions": [
-          "Revoir les événements Ciné+ Festival des cartes retenues comme assemblages de pièces complémentaires, puis isoler les seules attributions de chaîne encore réellement manquantes.",
+          "Revoir les autres cartes Ciné+ Festival : distinguer celles qui ont un événement CANAL+ exact de celles qui exigent une attribution supplémentaire, sans confondre niveau 2 et niveau 3.",
           "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
           "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
           "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
         ],
-        "remaining_count": 27,
-        "next_actions_total": 25,
-        "truncated_notice": "20 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
-        "all_actions_total": 32,
+        "remaining_count": 25,
+        "next_actions_total": 23,
+        "truncated_notice": "18 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "all_actions_total": 30,
         "waiting_actions_count": 7,
         "research_review_warnings": [],
         "observations": {
@@ -32637,6 +32671,13 @@
           "ended_at": "2026-10-09T21:07:36.602Z",
           "overlap": false,
           "note": "Assemblage champ par champ de quatre événements CANAL+ et décisions sur deux suivis Ciné+."
+        },
+        {
+          "kind": "review",
+          "started_at": "2026-10-09T21:10:11.494Z",
+          "ended_at": "2026-10-09T21:12:19.284Z",
+          "overlap": false,
+          "note": "Revue ciblée de six œuvres Ciné+ Festival et cartographie de dix créneaux retenus encore dépourvus d’un événement officiel exact ou d’une provenance indépendante positive."
         }
       ],
       "requirements_resolved_details": [
@@ -33305,6 +33346,7 @@
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
+      "Remplacer ou étayer les cartes Ciné+ Festival encore dépourvues d’événement officiel exact, en commençant par les créneaux réutilisés dans plusieurs pages : Les Revenants, La reconquista, Secrets et mensonges et Love on Trial.",
       "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
       "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
       "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
