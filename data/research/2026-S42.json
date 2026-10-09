@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T15:49:47.979Z",
+  "updated_at": "2026-10-09T15:52:44.238Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1208,6 +1208,15 @@
         "data/works.json",
         "data/weeks/2026-S42.json",
         "data/radar-reserves/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "identify-next-three-distinct-hd-candidates-2026-10-09",
+      "completed_at": "2026-10-09T15:52:44.238Z",
+      "scope": "radar-hd:next-alternatives",
+      "summary": "Trois alternatives HD distinctes supplémentaires sont identifiées depuis la collection officielle Criterion de septembre : Days and Nights in the Forest, The Secret Agent et Nouvelle Vague. Dates, identités, durées et signaux 4K sont sauvegardés ; réception indépendante, visuels, liens et textes restent ouverts.",
+      "deliverables": [
         "data/research/2026-S42.json"
       ]
     }
@@ -24786,6 +24795,66 @@
       "applies_to": "2026-S42 radar-1 reserve",
       "evidence_note": "Annonce éditeur datée, identité, visuel, synopsis et justification relus avant rendu mécanique du handoff.",
       "status": "verified"
+    },
+    {
+      "work_id": "days-and-nights-in-the-forest-1970",
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "duration",
+        "physical_release_date",
+        "restoration_signal"
+      ],
+      "urls": [
+        "https://www.criterion.com/films/34234-days-and-nights-in-the-forest",
+        "https://www.criterion.com/shop/collection/997-september-2026-disc-releases"
+      ],
+      "checked_at": "2026-10-09T15:52:44.238Z",
+      "stability": "stable_release_record",
+      "applies_to": "2026-S42 radar HD candidate",
+      "evidence_note": "Fiche Criterion exacte et collection des sorties de septembre relues ; ce lot ne certifie ni réception indépendante ni carte complète.",
+      "status": "verified"
+    },
+    {
+      "work_id": "the-secret-agent-2025",
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "duration",
+        "physical_release_date",
+        "restoration_signal"
+      ],
+      "urls": [
+        "https://www.criterion.com/films/35607-the-secret-agent",
+        "https://www.criterion.com/shop/collection/997-september-2026-disc-releases"
+      ],
+      "checked_at": "2026-10-09T15:52:44.238Z",
+      "stability": "stable_release_record",
+      "applies_to": "2026-S42 radar HD candidate",
+      "evidence_note": "Fiche Criterion exacte et collection des sorties de septembre relues ; ce lot ne certifie ni réception indépendante ni carte complète.",
+      "status": "verified"
+    },
+    {
+      "work_id": "nouvelle-vague-2025",
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "duration",
+        "physical_release_date",
+        "restoration_signal"
+      ],
+      "urls": [
+        "https://www.criterion.com/films/35769-nouvelle-vague",
+        "https://www.criterion.com/shop/collection/997-september-2026-disc-releases"
+      ],
+      "checked_at": "2026-10-09T15:52:44.238Z",
+      "stability": "stable_release_record",
+      "applies_to": "2026-S42 radar HD candidate",
+      "evidence_note": "Fiche Criterion exacte et collection des sorties de septembre relues ; ce lot ne certifie ni réception indépendante ni carte complète.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -28369,7 +28438,8 @@
         "reuse-verified-documentary-saturday-reserve-2026-10-09",
         "advance-distinct-hd-reserve-dossiers-2026-10-09",
         "revalidate-three-hd-reserve-images-2026-10-09",
-        "integrate-three-distinct-hd-reserves-2026-10-09"
+        "integrate-three-distinct-hd-reserves-2026-10-09",
+        "identify-next-three-distinct-hd-candidates-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -28382,7 +28452,7 @@
       "complete_cards": 95,
       "cards_integrated_this_run": 11,
       "draft_cards": 0,
-      "partial_dossiers": 0,
+      "partial_dossiers": 3,
       "measurements": {
         "complete_cards": {
           "value": 95,
@@ -28421,7 +28491,7 @@
         "radar HD : trois doublons de réserves interpages remplacés par The Lost Patrol, Dear Heart et Boys Town ; 13 œuvres distinctes et trois réserves globales utilisables"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Produire trois autres alternatives HD distinctes hors des dix primaires, puis corriger les trois doublons restants de hd2 ; ensuite traiter les cinq doublons du radar popularité.",
+      "next_useful_batch": "Compléter réception indépendante, visuels exacts, liens forts, notes et textes pour Days and Nights in the Forest, The Secret Agent et Nouvelle Vague, puis remplacer les trois doublons restants de hd2.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -28654,18 +28724,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T15:51:46.642Z",
+          "elapsed_seconds": 2789.554,
+          "prompt_revision": "production-integrity-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "565cbd7060a89aa68758a67c17a4ebe98fbbb8c3",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T15:05:17.088Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T16:25:40.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T15:45:40.950Z",
-        "elapsed_seconds": 2423.862,
+        "observed_at": "2026-10-09T15:51:46.642Z",
+        "elapsed_seconds": 2789.554,
         "prompt_revision": "production-integrity-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "394a581cb54c94745996ae37ad48685d9526a5cd",
+        "source_sha": "565cbd7060a89aa68758a67c17a4ebe98fbbb8c3",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
@@ -28733,6 +28832,11 @@
           "started_at": "2026-10-09T15:47:00.874Z",
           "ended_at": "2026-10-09T15:49:47.979Z",
           "note": "Revue des objets sauvegardés, plan de huit cartes avec conservation des cinq primaires, rendu et contrôle du handoff ; aucune somme séquentielle avec les contrôles."
+        },
+        "recherche_hd_batch2": {
+          "started_at": "2026-10-09T15:51:46.642Z",
+          "ended_at": "2026-10-09T15:52:44.238Z",
+          "note": "Extraction ciblée puis lecture des trois fiches Criterion et de la collection officielle datée ; dossiers volontairement partiels."
         }
       },
       "control_notes": [
@@ -28751,7 +28855,8 @@
         "La réutilisation ajoute une position de réserve mais aucun nouveau work_id distinct à l’échelle du numéro.",
         "Radars HD : trois alternatives distinctes des dix primaires sont avancées avec événement Warner Archive et réception indépendante ; elles restent partial_dossiers tant que visuels et textes S42 ne sont pas revus.",
         "Visuels HD : Dear Heart et Boys Town ouverts directement ; affiche IMDb exacte de The Lost Patrol inspectée via le résultat image, mais ouverture CDN directe échouée, donc CI distante explicitement requise.",
-        "Handoff radar-1 contrôlé : cinq primaires conservés, The Lost Patrol, Dear Heart et Boys Town ajoutés aux rangs 6 à 8. Les doublons HD passent de six à trois ; le radar passe de 10 à 13 œuvres distinctes et de 0 à 3 réserves globales utilisables."
+        "Handoff radar-1 contrôlé : cinq primaires conservés, The Lost Patrol, Dear Heart et Boys Town ajoutés aux rangs 6 à 8. Les doublons HD passent de six à trois ; le radar passe de 10 à 13 œuvres distinctes et de 0 à 3 réserves globales utilisables.",
+        "Prochaine vague HD : trois fiches Criterion exactes et la collection de septembre relues ; aucune carte ni réception indépendante n’est déclarée complète à ce stade."
       ]
     }
   ],
@@ -32361,6 +32466,60 @@
         ],
         "decision_note": "Alternative HD distincte intégrée comme réserve cachée de radar-1 ; ne ferme pas les trois réserves globales encore manquantes.",
         "alternatives": []
+      },
+      {
+        "id": "sl-radar-hd-days-and-nights-in-the-forest-1970",
+        "title": "Days and Nights in the Forest",
+        "work_id": "days-and-nights-in-the-forest-1970",
+        "scope": {
+          "rubrique": "radar-hd"
+        },
+        "status": "researching",
+        "signals": [
+          {
+            "kind": "sortie_physique_officielle",
+            "note": "Nouvelle restauration numérique 4K ; édition UHD/Blu-ray Criterion sortie le 29 septembre 2026.",
+            "source_url": "https://www.criterion.com/films/34234-days-and-nights-in-the-forest"
+          }
+        ],
+        "decision_note": "Alternative HD distincte potentielle ; identité, signal éditeur et date sont établis, mais réception indépendante, liens, visuel et textes restent à produire avant toute carte.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-radar-hd-the-secret-agent-2025",
+        "title": "The Secret Agent",
+        "work_id": "the-secret-agent-2025",
+        "scope": {
+          "rubrique": "radar-hd"
+        },
+        "status": "researching",
+        "signals": [
+          {
+            "kind": "sortie_physique_officielle",
+            "note": "Nouveau master numérique 4K approuvé par le réalisateur ; édition UHD/Blu-ray Criterion sortie le 22 septembre 2026.",
+            "source_url": "https://www.criterion.com/films/35607-the-secret-agent"
+          }
+        ],
+        "decision_note": "Alternative HD distincte potentielle ; identité, signal éditeur et date sont établis, mais réception indépendante, liens, visuel et textes restent à produire avant toute carte.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-radar-hd-nouvelle-vague-2025",
+        "title": "Nouvelle Vague",
+        "work_id": "nouvelle-vague-2025",
+        "scope": {
+          "rubrique": "radar-hd"
+        },
+        "status": "researching",
+        "signals": [
+          {
+            "kind": "sortie_physique_officielle",
+            "note": "Nouveau master numérique 4K supervisé et approuvé par Richard Linklater et David Chambille ; édition UHD/Blu-ray Criterion sortie le 22 septembre 2026.",
+            "source_url": "https://www.criterion.com/films/35769-nouvelle-vague"
+          }
+        ],
+        "decision_note": "Alternative HD distincte potentielle ; identité, signal éditeur et date sont établis, mais réception indépendante, liens, visuel et textes restent à produire avant toute carte.",
+        "alternatives": []
       }
     ]
   },
@@ -35240,6 +35399,99 @@
       "status": "card_complete",
       "updated_at": "2026-10-09T15:49:47.979Z",
       "decision_note": "Carte HD complète intégrée comme réserve cachée de radar-1 ; contrôles distants finaux encore requis sur la tête candidate."
+    },
+    {
+      "title": "Days and Nights in the Forest",
+      "work_id": "days-and-nights-in-the-forest-1970",
+      "decision": "alternative HD distincte à approfondir",
+      "identity_research": {
+        "director": "Satyajit Ray",
+        "year": 1970,
+        "duration_observations": [
+          {
+            "duration": "116 min",
+            "version": "master Criterion 4K de septembre 2026",
+            "source_url": "https://www.criterion.com/films/34234-days-and-nights-in-the-forest"
+          }
+        ],
+        "checked_at": "2026-10-09T15:52:44.238Z"
+      },
+      "availability_research": {
+        "status": "verified_physical_release_event",
+        "checked_at": "2026-10-09T15:52:44.238Z",
+        "source_urls": [
+          "https://www.criterion.com/films/34234-days-and-nights-in-the-forest",
+          "https://www.criterion.com/shop/collection/997-september-2026-disc-releases"
+        ],
+        "note": "Nouvelle restauration numérique 4K ; édition UHD/Blu-ray Criterion sortie le 29 septembre 2026."
+      },
+      "critical_evidence": [],
+      "dossier_completeness": "partial",
+      "reason": "Signal officiel et identité établis ; réception indépendante argumentée, visuel exact, liens forts, notes et textes restent requis.",
+      "status": "researching",
+      "updated_at": "2026-10-09T15:52:44.238Z"
+    },
+    {
+      "title": "The Secret Agent",
+      "work_id": "the-secret-agent-2025",
+      "decision": "alternative HD distincte à approfondir",
+      "identity_research": {
+        "director": "Kleber Mendonça Filho",
+        "year": 2025,
+        "duration_observations": [
+          {
+            "duration": "161 min",
+            "version": "master Criterion 4K de septembre 2026",
+            "source_url": "https://www.criterion.com/films/35607-the-secret-agent"
+          }
+        ],
+        "checked_at": "2026-10-09T15:52:44.238Z"
+      },
+      "availability_research": {
+        "status": "verified_physical_release_event",
+        "checked_at": "2026-10-09T15:52:44.238Z",
+        "source_urls": [
+          "https://www.criterion.com/films/35607-the-secret-agent",
+          "https://www.criterion.com/shop/collection/997-september-2026-disc-releases"
+        ],
+        "note": "Nouveau master numérique 4K approuvé par le réalisateur ; édition UHD/Blu-ray Criterion sortie le 22 septembre 2026."
+      },
+      "critical_evidence": [],
+      "dossier_completeness": "partial",
+      "reason": "Signal officiel et identité établis ; réception indépendante argumentée, visuel exact, liens forts, notes et textes restent requis.",
+      "status": "researching",
+      "updated_at": "2026-10-09T15:52:44.238Z"
+    },
+    {
+      "title": "Nouvelle Vague",
+      "work_id": "nouvelle-vague-2025",
+      "decision": "alternative HD distincte à approfondir",
+      "identity_research": {
+        "director": "Richard Linklater",
+        "year": 2025,
+        "duration_observations": [
+          {
+            "duration": "106 min",
+            "version": "master Criterion 4K de septembre 2026",
+            "source_url": "https://www.criterion.com/films/35769-nouvelle-vague"
+          }
+        ],
+        "checked_at": "2026-10-09T15:52:44.238Z"
+      },
+      "availability_research": {
+        "status": "verified_physical_release_event",
+        "checked_at": "2026-10-09T15:52:44.238Z",
+        "source_urls": [
+          "https://www.criterion.com/films/35769-nouvelle-vague",
+          "https://www.criterion.com/shop/collection/997-september-2026-disc-releases"
+        ],
+        "note": "Nouveau master numérique 4K supervisé et approuvé par Richard Linklater et David Chambille ; édition UHD/Blu-ray Criterion sortie le 22 septembre 2026."
+      },
+      "critical_evidence": [],
+      "dossier_completeness": "partial",
+      "reason": "Signal officiel et identité établis ; réception indépendante argumentée, visuel exact, liens forts, notes et textes restent requis.",
+      "status": "researching",
+      "updated_at": "2026-10-09T15:52:44.238Z"
     }
   ]
 }
