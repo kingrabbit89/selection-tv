@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T14:27:13.059Z",
+  "updated_at": "2026-10-09T14:30:28.541Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1055,6 +1055,16 @@
       "deliverables": [
         "data/works.json",
         "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "complete-saturday-les-revenants-reserve-2026-10-09",
+      "completed_at": "2026-10-09T14:30:28.541Z",
+      "scope": "samedi-selection:reserve",
+      "summary": "Les Revenants est ajouté comme réserve complète rang 5 du samedi. Ouest-France et TV-Programme concordent sur 14:52 et Ciné+ Festival ; la fiche Programme-TV à 14:50 sous l’ancien libellé Ciné+ Club est conservée comme divergence, tandis que la version CANAL+ de 102 minutes et le dossier stable sont réutilisés.",
+      "deliverables": [
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
@@ -23879,6 +23889,34 @@
       },
       "evidence_note": "FranceTvPro fournit l’événement primaire exact ; deux guides courants concordent sur 00:20. Carte complète rang 5.",
       "status": "verified_current_cycle"
+    },
+    {
+      "work_id": "les-revenants-2004",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "duration.version",
+        "daily_reserve_card"
+      ],
+      "source_urls": [
+        "https://programmetv.ouest-france.fr/film/fantastique/les-revenants-c3337188/",
+        "https://tv-programme.com/cine-plus-festival/samedi-10-octobre-2026/",
+        "https://www.programme-tv.com/television/1253678855/les-revenants.html",
+        "https://www.canalplus.com/cinema/les-revenants/h/344123_40099/resume-casting/"
+      ],
+      "checked_at": "2026-10-09T14:30:28.541Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "start": "14:52",
+        "channel": "Ciné+ Festival",
+        "section": "samedi-selection",
+        "rank": 5
+      },
+      "evidence_note": "Ouest-France et TV-Programme concordent sur 14:52/Ciné+ Festival et Ouest-France affiche 1 h 42, cohérent avec la version CANAL+ 102 min. Programme-TV indique 14:50, Ciné+ Club et 105 min ; divergence conservée sans modifier la carte.",
+      "status": "verified_reuse_with_minor_grid_conflict"
     }
   ],
   "run_metrics": [
@@ -26924,7 +26962,8 @@
         "complete-tuesday-two-rerun-reserves-2026-10-09",
         "complete-three-cross-day-rerun-reserves-2026-10-09",
         "complete-sunday-la-reconquista-reserve-2026-10-09",
-        "complete-sunday-hotel-du-nord-reserve-2026-10-09"
+        "complete-sunday-hotel-du-nord-reserve-2026-10-09",
+        "complete-saturday-les-revenants-reserve-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -26939,20 +26978,22 @@
         "jeudi : Picnic complet en réserve rang 5",
         "vendredi : Les Revenants complet en réserve rang 4",
         "dimanche : La reconquista complète en réserve rang 4",
-        "dimanche : Hôtel du Nord complet en réserve rang 5"
+        "dimanche : Hôtel du Nord complet en réserve rang 5",
+        "samedi : Les Revenants complet en réserve rang 5"
       ],
-      "complete_cards": 81,
-      "cards_integrated_this_run": 7,
+      "complete_cards": 82,
+      "cards_integrated_this_run": 8,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "requirements_resolved": [
         "mardi : réserve quotidienne portée de trois à cinq cartes complètes",
         "mercredi, jeudi et vendredi : un dossier complet supplémentaire intégré à chaque pool quotidien",
         "dimanche : un dossier complet supplémentaire intégré au pool quotidien",
-        "dimanche : réserve quotidienne portée de quatre à cinq cartes complètes"
+        "dimanche : réserve quotidienne portée de quatre à cinq cartes complètes",
+        "samedi : réserve quotidienne portée de quatre à cinq cartes complètes"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Terminer un dossier proche d’une carte complète pour samedi, mercredi ou vendredi sans reprendre les voies épuisées de La Gueule ouverte.",
+      "next_useful_batch": "Terminer un dossier proche d’une carte complète pour mercredi ou vendredi, ou poursuivre un recoupement indépendant accessible sans reprendre une voie épuisée.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -27069,18 +27110,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T14:28:16.690Z",
+          "elapsed_seconds": 1558.835,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "6447ffc17f49ea61262f42e75f24c013b7e0acac",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T14:02:17.855Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T15:22:30.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T14:22:54.937Z",
-        "elapsed_seconds": 1237.082,
+        "observed_at": "2026-10-09T14:28:16.690Z",
+        "elapsed_seconds": 1558.835,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "c6292acedfc3fdaa60e2598c9881d908c3a20a8a",
+        "source_sha": "6447ffc17f49ea61262f42e75f24c013b7e0acac",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
@@ -27106,16 +27176,16 @@
           "ended_at": "2026-10-09T14:07:54.264Z"
         },
         "redaction_rendu": {
-          "started_at": "2026-10-09T14:25:00.000Z",
-          "ended_at": "2026-10-09T14:27:13.059Z"
+          "started_at": "2026-10-09T14:31:00.000Z",
+          "ended_at": "2026-10-09T14:30:28.541Z"
         },
         "recherche": {
-          "started_at": "2026-10-09T14:20:34.308Z",
-          "ended_at": "2026-10-09T14:27:13.059Z"
+          "started_at": "2026-10-09T14:28:16.690Z",
+          "ended_at": "2026-10-09T14:30:28.541Z"
         },
         "controles": {
-          "started_at": "2026-10-09T14:26:19.902Z",
-          "ended_at": "2026-10-09T14:27:13.059Z"
+          "started_at": "2026-10-09T14:33:00.000Z",
+          "ended_at": "2026-10-09T14:30:28.541Z"
         },
         "sauvegarde": null,
         "attente": null
@@ -27124,7 +27194,8 @@
         "Identités canoniques, politique éditoriale, liens exacts et diff JSON contrôlés localement.",
         "Le rapport preparation-gaps confirme cinq cartes complètes le mardi ; seuil de dix encore ouvert.",
         "Le contrôle navigateur local n’a pas pu démarrer faute de binaire Chromium installé ; aucune réussite de présentation n’est revendiquée pour cette tête et la CI distante reste requise.",
-        "Hôtel du Nord : identité/version, diffusion France 3, liens, réception, notes, visuel et carte vérifiés ; validateurs canoniques, éditoriaux et liens réussis sur l’état local."
+        "Hôtel du Nord : identité/version, diffusion France 3, liens, réception, notes, visuel et carte vérifiés ; validateurs canoniques, éditoriaux et liens réussis sur l’état local.",
+        "Les Revenants samedi : dossier stable réutilisé, diffusion recoupée avec divergence mineure conservée ; validateurs canoniques, éditoriaux et liens réussis sur l’état local."
       ]
     }
   ],
@@ -30395,6 +30466,24 @@
           }
         ],
         "decision_note": "Réserve complète rang 5 ; copie France 3 de 94 minutes distinguée des fiches cinéma à 95 minutes.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-samedi-les-revenants-reserve",
+        "title": "Les Revenants",
+        "work_id": "les-revenants-2004",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "rediffusion_recoupee_dossier_complet",
+            "note": "Ouest-France et TV-Programme concordent sur samedi 10 octobre à 14:52 sur Ciné+ Festival ; la divergence Programme-TV 14:50/Ciné+ Club reste explicitement conservée.",
+            "source_url": "https://programmetv.ouest-france.fr/film/fantastique/les-revenants-c3337188/"
+          }
+        ],
+        "decision_note": "Réserve complète rang 5 ; film de Robin Campillo 2004 distinct de la série, copie CANAL+ 102 min.",
         "alternatives": []
       }
     ]
