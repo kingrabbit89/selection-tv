@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T11:36:45.234Z",
+  "updated_at": "2026-10-09T11:39:58.138Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -740,6 +740,19 @@
       "completed_at": "2026-10-09T11:36:45.234Z",
       "scope": "sorties-physiques",
       "summary": "Rubrique sorties physiques rendue avec deux cartes complètes : Annihilation et Le Loup-garou de Londres, dans leurs éditions SteelBook françaises du 14 octobre exactement identifiées. Les réserves supplémentaires de la rubrique restent ouvertes.",
+      "deliverables": [
+        "data/works.json",
+        "data/links.json",
+        "data/manifest.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "draft-streaming-release-haffmann-2026-10-09",
+      "completed_at": "2026-10-09T11:39:58.138Z",
+      "scope": "sorties-streaming",
+      "summary": "Première carte sorties streaming rendue pour Adieu Monsieur Haffmann. Arrivée Netflix France du 14 octobre établie par le line-up officiel ; page directe ID 81643672 encore indisponible avant arrivée et locale Martinique, contrôle France à reprendre le 14 octobre.",
       "deliverables": [
         "data/works.json",
         "data/links.json",
@@ -21706,6 +21719,42 @@
       },
       "evidence_note": "Titre français et original, réalisateur, année, durée, genre, liens d’identité, visuel exact de l’édition et moyenne Metacritic contrôlés. La provenance du master, les langues et les sous-titres ne sont pas documentés par la fiche ESC et ne sont pas extrapolés.",
       "status": "verified"
+    },
+    {
+      "work_id": "adieu-monsieur-haffmann-2022",
+      "fields": [
+        "title",
+        "aliases",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "image",
+        "links",
+        "ratings",
+        "critical_reception",
+        "offer.arrival_date",
+        "offer.url"
+      ],
+      "source_urls": [
+        "https://about.netflix.com/fr/news/line-up-mensuel",
+        "https://www.netflix.com/mq/title/81643672",
+        "https://www.pathefilms.com/fr/films/adieu-monsieur-haffmann/",
+        "https://www.imdb.com/title/tt10545704/",
+        "https://www.allocine.fr/film/fichefilm-280533/critiques/presse/",
+        "https://www.telerama.fr/cinema/adieu-monsieur-haffmann-gilles-lellouche-et-daniel-auteuil-coinces-dans-un-drame-historique-tres-cliche-2343_cri-7008356.php",
+        "https://www.lemonde.fr/cinema/article/2022/01/12/vitalina-varela-little-palestine-ouistreham-les-films-a-l-affiche-cette-semaine_6109071_3476.html"
+      ],
+      "checked_at": "2026-10-09T11:39:58.138Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "section": "sorties-streaming",
+        "arrival_date": "2026-10-14"
+      },
+      "evidence_note": "Le line-up officiel Netflix France annonce l’arrivée le 14 octobre 2026. La fiche Netflix ID 81643672 est directe mais consultée en locale Martinique et encore indisponible avant arrivée ; ouverture et disponibilité France restent à revalider le 14 octobre.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -23585,7 +23634,7 @@
       "next_useful_batch": "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés."
     },
     {
-      "date": "2026-10-09T11:36:45.234Z",
+      "date": "2026-10-09T11:39:58.138Z",
       "started_at": "2026-10-09T11:00:32.109Z",
       "ended_at": null,
       "owner": "242b436f-e4f5-4018-b208-fca5b20fa9ec",
@@ -23601,7 +23650,8 @@
         "advance-thursday-reserve-pool-four-cards-2026-10-09",
         "advance-saturday-reserve-pool-four-cards-2026-10-09",
         "draft-platform-subscription-page-one-2026-10-09",
-        "draft-physical-releases-section-2026-10-09"
+        "draft-physical-releases-section-2026-10-09",
+        "draft-streaming-release-haffmann-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -23610,7 +23660,7 @@
         "data/research/2026-S42.json",
         "data/manifest.json"
       ],
-      "complete_cards": 30,
+      "complete_cards": 31,
       "draft_cards": 1,
       "partial_dossiers": 4,
       "deliverables_advanced": [
@@ -23622,7 +23672,8 @@
         "jeudi : pool avancé à quatre cartes complètes",
         "samedi : pool avancé à quatre cartes complètes",
         "plateformes-abonnement : première page de trois cartes complètes",
-        "sorties-physiques : deux cartes complètes et page rendue"
+        "sorties-physiques : deux cartes complètes et page rendue",
+        "sorties-streaming : première carte complète et page rendue"
       ],
       "requirements_resolved": [
         "lundi : seuil minimal de dix cartes complètes atteint"
@@ -23835,18 +23886,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T11:38:20.383Z",
+          "elapsed_seconds": 2268.274,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "e944fa07f7e0a682809ab9f7e85ae709e5a9994a",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T11:00:32.109Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T12:21:30.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T11:33:50.548Z",
-        "elapsed_seconds": 1998.439,
+        "observed_at": "2026-10-09T11:38:20.383Z",
+        "elapsed_seconds": 2268.274,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "f5d4ddbf8e4a92a977816d84fef76c1366dda978",
+        "source_sha": "e944fa07f7e0a682809ab9f7e85ae709e5a9994a",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -23868,7 +23948,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Produire sorties-streaming avec Maestro(s), Adieu Monsieur Haffmann et Kursk après contrôle des pages directes et des identités, ou approfondir les réserves physiques."
+      "next_useful_batch": "Achever Kursk / The Command pour sorties-streaming, puis trouver une troisième arrivée avec page directe exacte ou reprendre les réserves physiques."
     }
   ],
   "source_issues": [
@@ -24841,7 +24921,7 @@
     }
   ],
   "shortlist": {
-    "updated_at": "2026-10-09T11:36:45.234Z",
+    "updated_at": "2026-10-09T11:39:58.138Z",
     "note": "Présélection révisable par jour et rubrique ; premières cartes plateformes gratuites intégrées depuis les dossiers acquis. Aucun statut ne certifie la sélection finale du numéro.",
     "entries": [
       {
@@ -25993,6 +26073,27 @@
         ],
         "decision_note": "Carte complète de rubrique ; édition, EAN, format, date, visuel exact et réception indépendante vérifiés sans extrapoler restauration, master ou bonus.",
         "alternatives": []
+      },
+      {
+        "id": "sl-sorties-streaming-adieu-monsieur-haffmann-2022",
+        "title": "Adieu Monsieur Haffmann",
+        "work_id": "adieu-monsieur-haffmann-2022",
+        "scope": {
+          "rubrique": "sorties-streaming"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "arrivee_netflix_france_et_reception",
+            "note": "Le line-up officiel Netflix France annonce l’arrivée le 14 octobre 2026. La fiche Netflix ID 81643672 est directe mais consultée en locale Martinique et encore indisponible avant arrivée ; ouverture et disponibilité France restent à revalider le 14 octobre.",
+            "source_url": "https://about.netflix.com/fr/news/line-up-mensuel"
+          }
+        ],
+        "decision_note": "Carte complète de rubrique avec réserve explicite sur la page Netflix non encore ouverte en France avant le 14 octobre.",
+        "alternatives": [
+          "Kursk / The Command à achever",
+          "Maestro(s) différé faute de page Netflix directe certaine"
+        ]
       }
     ]
   },
@@ -26005,8 +26106,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "f5d4ddbf8e4a92a977816d84fef76c1366dda978",
-    "produced_at": "2026-10-09T11:36:45.234Z",
+    "source_candidate_sha": "e944fa07f7e0a682809ab9f7e85ae709e5a9994a",
+    "produced_at": "2026-10-09T11:39:58.138Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -26806,6 +26907,28 @@
           "canonical_fields": "Titre français et original, réalisateur, année, durée, genre, liens d’identité, visuel exact de l’édition et moyenne Metacritic contrôlés. La provenance du master, les langues et les sous-titres ne sont pas documentés par la fiche ESC et ne sont pas extrapolés.",
           "current_broadcast": "La fiche ESC Distribution atteste l’édition limitée, l’éditeur Universal, les formats et la date française du 14 octobre 2026. Aucun code numérique n’est annoncé pour cette édition française.",
           "editorial_copy": "Synopsis original rédigé depuis l’identité vérifiée ; justification revue depuis The Guardian et deux textes de RogerEbert.com, avec les réserves de structure explicitement conservées."
+        }
+      },
+      {
+        "work_id": "adieu-monsieur-haffmann-2022",
+        "section": "sorties-streaming",
+        "rank_provisional": 1,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "evidence_urls": [
+            "https://about.netflix.com/fr/news/line-up-mensuel",
+            "https://www.netflix.com/mq/title/81643672",
+            "https://www.pathefilms.com/fr/films/adieu-monsieur-haffmann/",
+            "https://www.imdb.com/title/tt10545704/",
+            "https://www.allocine.fr/film/fichefilm-280533/critiques/presse/",
+            "https://www.telerama.fr/cinema/adieu-monsieur-haffmann-gilles-lellouche-et-daniel-auteuil-coinces-dans-un-drame-historique-tres-cliche-2343_cri-7008356.php",
+            "https://www.lemonde.fr/cinema/article/2022/01/12/vitalina-varela-little-palestine-ouistreham-les-films-a-l-affiche-cette-semaine_6109071_3476.html"
+          ],
+          "identity_version": "Film de Fred Cavayé distribué en France le 12 janvier 2022, IMDb tt10545704. Pathé indique une production 2020, IMDb 2021 et la sortie publique française 2022 ; la carte retient cette dernière sans effacer la divergence.",
+          "canonical_fields": "Titre français et alias international, réalisateur, sortie publique 2022, pays, genre, durée Pathé de 115 minutes, affiche officielle, liens et note IMDb datée contrôlés.",
+          "current_broadcast": "Le line-up officiel Netflix France annonce l’arrivée le 14 octobre 2026. La fiche Netflix ID 81643672 est directe mais consultée en locale Martinique et encore indisponible avant arrivée ; ouverture et disponibilité France restent à revalider le 14 octobre.",
+          "editorial_copy": "Synopsis original rédigé depuis Pathé ; justification revue depuis AlloCiné, Télérama et Le Monde avec les réserves sur la reconstitution et les effets dramatiques conservées."
         }
       }
     ],
@@ -27748,6 +27871,65 @@
         "image_url": "https://esc-boutique.com/wp-content/uploads/2026/07/37014320729371.png"
       },
       "reason": "Carte de rubrique complète ; faits non documentés par la fiche française laissés explicitement hors du livrable."
+    },
+    {
+      "title": "Adieu Monsieur Haffmann",
+      "work_id": "adieu-monsieur-haffmann-2022",
+      "decision": "carte complète sorties-streaming",
+      "identity_research": {
+        "director": "Fred Cavayé",
+        "public_year": 2022,
+        "production_year": 2020,
+        "imdb_year": 2021,
+        "country": "France / Belgique",
+        "duration": "115 min",
+        "source_urls": [
+          "https://www.pathefilms.com/fr/films/adieu-monsieur-haffmann/",
+          "https://www.imdb.com/title/tt10545704/"
+        ],
+        "checked_at": "2026-10-09T11:39:58.138Z"
+      },
+      "availability_research": {
+        "status": "verified_arrival_recheck_on_date",
+        "checked_at": "2026-10-09T11:39:58.138Z",
+        "source_urls": [
+          "https://about.netflix.com/fr/news/line-up-mensuel",
+          "https://www.netflix.com/mq/title/81643672"
+        ],
+        "note": "Arrivée Netflix France annoncée le 14 octobre ; la page directe, encore indisponible et consultée en locale Martinique, doit être revalidée en France le jour d’arrivée."
+      },
+      "critical_evidence": [
+        {
+          "source": "AlloCiné presse",
+          "source_url": "https://www.allocine.fr/film/fichefilm-280533/critiques/presse/",
+          "assessment": "Réception presse diverse, forces d’interprétation et réserves de reconstitution."
+        },
+        {
+          "source": "Télérama",
+          "source_url": "https://www.telerama.fr/cinema/adieu-monsieur-haffmann-gilles-lellouche-et-daniel-auteuil-coinces-dans-un-drame-historique-tres-cliche-2343_cri-7008356.php",
+          "assessment": "Réserve argumentée sur les clichés et la reconstitution."
+        },
+        {
+          "source": "Le Monde",
+          "source_url": "https://www.lemonde.fr/cinema/article/2022/01/12/vitalina-varela-little-palestine-ouistreham-les-films-a-l-affiche-cette-semaine_6109071_3476.html",
+          "assessment": "Réserve indépendante sur la démonstration dramatique."
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic",
+        "checked_at": "2026-10-09T11:39:58.138Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt10545704/"
+        ],
+        "note": "IMDb 7,1/10 sur environ 3,7 k notes."
+      },
+      "image_research": {
+        "status": "official_poster_verified_ci_pending",
+        "checked_at": "2026-10-09T11:39:58.138Z",
+        "source_page": "https://www.pathefilms.com/fr/films/adieu-monsieur-haffmann/",
+        "image_url": "https://www.pathefilms.com/assets/cover/2024/05/07/adieu_monsieur_haffmann/amh_aff_600.jpg?fm=webp&q=90&s=9b008599acddae7f88205228d4377346&w=390"
+      },
+      "reason": "Carte complète avec divergences d’année et portée géographique de la page Netflix explicitement conservées."
     }
   ]
 }
