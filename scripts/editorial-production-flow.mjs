@@ -3,9 +3,12 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
+import {execFile} from 'node:child_process';
+import {promisify} from 'node:util';
 import {collectSources} from './editorial-source-collector.mjs';
 import {buildProductionPlan, productionContextFromGit} from './editorial-production-plan.mjs';
 import {buildSourceInventoryHandoff} from './editorial-source-import.mjs';
+import {buildTeleramaHandoff} from './editorial-telerama-import.mjs';
 import {addDays, weekForSaturday} from './week-calendar.mjs';
 
 export function issueStart(week) {
@@ -33,12 +36,23 @@ export function officialSourcePlan(week) {
   return {schema_version:1,week,sources,note:'Five official channels only; raw observations, no coverage certification.'};
 }
 
+export async function extractTeleramaPdf({week,pdf,out,libraryFileId,cwd=process.cwd()}) {
+  const args=[path.join(cwd,'scripts/editorial-telerama-pdf.py'),path.resolve(pdf),'--week',week,'--output',path.resolve(out)];
+  if(libraryFileId)args.push('--library-file-id',libraryFileId);
+  await promisify(execFile)('python3',args,{cwd,timeout:180000,maxBuffer:2*1024*1024});
+  return JSON.parse(fs.readFileSync(out,'utf8'));
+}
+
 export async function prepareProductionFlow({week, ref, outDir, sourcePlan = null,
-  sourceReport = null, collectOfficial = false, cacheDir = null, refresh = false, limit = 6, offset = 0, cwd = process.cwd()},
-  {readContext = productionContextFromGit, collect = collectSources, buildPlan = buildProductionPlan} = {}) {
+  sourceReport = null, collectOfficial = false, cacheDir = null, refresh = false, limit = 6, offset = 0, cwd = process.cwd(),
+  teleramaPdf=null,teleramaReport=null,teleramaLibraryId=null,teleramaEditorial=null,useTelerama=true},
+  {readContext = productionContextFromGit, collect = collectSources, buildPlan = buildProductionPlan,extractPdf=extractTeleramaPdf} = {}) {
   assert(outDir && typeof outDir === 'string', 'outDir required');
   assert(!fs.existsSync(outDir), 'output directory must be new; preserve the previous batch');
   assert(!(sourcePlan && sourceReport), 'use sourcePlan or sourceReport, not both');
+  assert(!(teleramaPdf && teleramaReport),'use Telerama PDF or report, not both');
+  assert(useTelerama || !(teleramaPdf || teleramaReport || teleramaEditorial),'cannot import Telerama while disabling the supplement');
+  assert(!teleramaLibraryId || teleramaPdf,'library reference requires a PDF input');
   assert(!collectOfficial || !(sourcePlan || sourceReport),'official seed cannot be mixed with another source input');
   if(collectOfficial) sourcePlan=officialSourcePlan(week);
   assert(!refresh || sourcePlan,'refresh requires explicit collection');
@@ -48,6 +62,14 @@ export async function prepareProductionFlow({week, ref, outDir, sourcePlan = nul
   assert.equal(context.week, week);
   assert.match(context.sha || '', /^[a-f0-9]{40}$/, 'immutable source SHA required');
   const from = issueStart(week), to = addDays(from,6);
+  let paperReport=teleramaReport;
+  if(teleramaPdf) {
+    fs.mkdirSync(outDir,{recursive:true});
+    paperReport=await extractPdf({week,pdf:teleramaPdf,out:path.join(outDir,'telerama-report.json'),
+      libraryFileId:teleramaLibraryId,cwd});
+  }
+  const paperImport=paperReport?buildTeleramaHandoff(context,paperReport,{from,
+    base_research_content:context.research_source_content,generated_at:new Date().toISOString()}):null;
   let report = sourceReport;
   if (sourcePlan) {
     assert(Array.isArray(sourcePlan.sources) && sourcePlan.sources.length, 'explicit source plan required');
@@ -68,11 +90,20 @@ export async function prepareProductionFlow({week, ref, outDir, sourcePlan = nul
     generated_at:new Date().toISOString()}) : null;
   const plan = buildPlan(context, {observations:report?.observations || [],sourceReport:report,
     observations_provenance:report ? {path:path.join(outDir,'source-report.json'),source_sha:null} : undefined,
+    useTelerama,editorialReports:teleramaEditorial?[{report:teleramaEditorial,
+      provenance:{source_sha:null,path:path.join(outDir,'telerama-editorial.json'),json_pointer:''}}]:[],
+    supplementaryReports:paperImport?.added?[{report:paperReport,
+      provenance:{path:path.join(outDir,'telerama-report.json'),source_sha:null,json_pointer:''}}]:[],
     limit, offset, compact:true});
   assert.equal(plan.source_sha, context.sha, 'batch source SHA changed');
   assert.equal(plan.publication_ready, false, 'preparation must not certify publication');
   fs.mkdirSync(outDir,{recursive:true});
+  if(teleramaEditorial)fs.writeFileSync(path.join(outDir,'telerama-editorial.json'),JSON.stringify(teleramaEditorial,null,2)+'\n');
   if (report) fs.writeFileSync(path.join(outDir,'source-report.json'),JSON.stringify(report,null,2)+'\n');
+  if(paperReport) {
+    fs.writeFileSync(path.join(outDir,'telerama-report.json'),JSON.stringify(paperReport,null,2)+'\n');
+    if(paperImport.bundle.files.length) fs.writeFileSync(path.join(outDir,'telerama-handoff.json'),JSON.stringify(paperImport.bundle,null,2)+'\n');
+  }
   if(inventoryImport) {
     fs.writeFileSync(path.join(outDir,'inventory-normalization.json'),JSON.stringify(inventoryImport.report,null,2)+'\n');
     if(inventoryImport.bundle.files.length) fs.writeFileSync(path.join(outDir,'inventory-handoff.json'),JSON.stringify(inventoryImport.bundle,null,2)+'\n');
@@ -89,8 +120,13 @@ export async function prepareProductionFlow({week, ref, outDir, sourcePlan = nul
     duplicate_observations:inventoryImport.report.duplicate_observations,excluded_observations:inventoryImport.report.excluded_observations,
     conflicting_events:inventoryImport.report.conflicting_events.length,
     handoff:inventoryImport.bundle.files.length ? path.join(outDir,'inventory-handoff.json') : null};
+  if(plan.supplementary_sources?.length)summary.supplementary_sources=plan.supplementary_sources;
+  if(plan.editorial_review_summary)summary.editorial_review=plan.editorial_review_summary;
+  if(paperImport)summary.telerama_import={added:paperImport.added,observations:paperReport.observations.length,
+    sha256:paperReport.source.sha256,coverage_certified:false,
+    handoff:paperImport.bundle.files.length?path.join(outDir,'telerama-handoff.json'):null};
   fs.writeFileSync(path.join(outDir,'summary.json'),JSON.stringify(summary,null,2)+'\n');
-  return {summary,plan,source_report:report,inventory_import:inventoryImport};
+  return {summary,plan,source_report:report,inventory_import:inventoryImport,telerama_report:paperReport,telerama_import:paperImport};
 }
 
 export function parseCli(args) {
@@ -99,15 +135,20 @@ export function parseCli(args) {
     const flag=args[index];
     if (flag==='--refresh') {options.refresh=true;continue;}
     if (flag==='--collect-official') {options.collectOfficial=true;continue;}
-    assert(['--ref','--out-dir','--source-plan','--source-report','--cache-dir','--limit','--offset'].includes(flag), 'unknown flag '+flag);
+    if (flag==='--without-telerama') {options.useTelerama=false;continue;}
+    assert(['--ref','--out-dir','--source-plan','--source-report','--cache-dir','--limit','--offset',
+      '--telerama-pdf','--telerama-report','--telerama-library-id','--telerama-editorial'].includes(flag), 'unknown flag '+flag);
     const value=args[++index]; assert(value && !value.startsWith('--'), 'missing value '+flag);
     const key={'--ref':'ref','--out-dir':'outDir','--source-plan':'sourcePlanPath','--source-report':'sourceReportPath',
-      '--cache-dir':'cacheDir','--limit':'limit','--offset':'offset'}[flag];
+      '--cache-dir':'cacheDir','--limit':'limit','--offset':'offset','--telerama-pdf':'teleramaPdf',
+      '--telerama-report':'teleramaReportPath','--telerama-library-id':'teleramaLibraryId','--telerama-editorial':'teleramaEditorialPath'}[flag];
     options[key]=['limit','offset'].includes(key) ? Number(value) : value;
   }
   assert(options.ref && options.outDir, '--ref and --out-dir required');
   if (options.sourcePlanPath) options.sourcePlan=JSON.parse(fs.readFileSync(options.sourcePlanPath,'utf8'));
   if (options.sourceReportPath) options.sourceReport=JSON.parse(fs.readFileSync(options.sourceReportPath,'utf8'));
+  if (options.teleramaReportPath) options.teleramaReport=JSON.parse(fs.readFileSync(options.teleramaReportPath,'utf8'));
+  if (options.teleramaEditorialPath) options.teleramaEditorial=JSON.parse(fs.readFileSync(options.teleramaEditorialPath,'utf8'));
   return options;
 }
 

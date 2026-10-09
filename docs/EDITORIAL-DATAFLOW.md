@@ -101,3 +101,7 @@ Pour produire les cartes revues, utiliser [EDITORIAL-DRAFTS.md](EDITORIAL-DRAFTS
 Son mode `append_days` ajoute les seules réserves nouvelles sans réécrire les
 cartes héritées. Choix, textes, indépendance des sources, fraîcheur, preuves,
 contrôles navigateur et revue finale restent du travail éditorial obligatoire.
+
+## Source papier facultative
+
+Un PDF Télérama peut compléter les lots selon [EDITORIAL-TELERAMA.md](EDITORIAL-TELERAMA.md), avec page et empreinte d’origine. Sans PDF ni supplément sauvegardé, le parcours actuel est inchangé. `--without-telerama` permet de préparer un lot depuis les seules sources courantes.
