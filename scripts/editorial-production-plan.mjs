@@ -10,6 +10,7 @@ import {normalizedTitle} from './editorial-work-packet.mjs';
 import {addDays, weekForSaturday} from './week-calendar.mjs';
 import {dailyReserveCandidates, sectionPageMatches} from './editorial-contracts.mjs';
 import {validateTeleramaReport,teleramaExtractionContent} from './editorial-telerama-import.mjs';
+import {joinTeleramaEditorial} from './editorial-telerama-signals.mjs';
 
 const days = ['samedi','dimanche','lundi','mardi','mercredi','jeudi','vendredi'];
 const array = value => Array.isArray(value) ? value : [];
@@ -440,6 +441,7 @@ export function buildProductionPlan(context, options={}) {
     const triage = item => item.work_stage==='editorial_triage_before_full_enrichment'?1:0;
     return inactive(a)-inactive(b) || triage(a)-triage(b) || deficit(b)-deficit(a) || declared(b)-declared(a) || supplied(b)-supplied(a) || days.indexOf(a.scope)-days.indexOf(b.scope) || a.title.localeCompare(b.title);
   });
+  const editorial=joinTeleramaEditorial(queue,context,options,range);
   const selected = options.scope ? queue.filter(item=>item.scope===options.scope) : queue;
   const byClassification = Object.fromEntries(['already_materialized','reusable_needs_broadcast_review','new_identity','conflicted','paused_scoped']
     .map(kind=>[kind,queue.filter(item=>item.classification===kind).length]));
@@ -461,6 +463,7 @@ export function buildProductionPlan(context, options={}) {
       sources:array(report.sources),availability:report.availability || null,coverage_certified:false},warnings,
     freshness_policy:{...freshness,historical_weeks:history.prior.map(item=>item.entry.week),note:'Historical exposure is information, not automatic eligibility or disqualification.'},
     ...(paperSources.length?{supplementary_sources:paperSources}:{}),
+    ...editorial,
     queue_order:'Preparation before raw-title triage; production deficits, explicitly saved shortlist, supplied observations, then day/title; materialized/paused last; no artistic ranking.',
     queue:selected.slice(offset,offset+limit),queue_total:selected.length,next_offset:offset+limit<selected.length?offset+limit:null};
 }
@@ -486,6 +489,7 @@ export function productionContextFromGit(week,ref,cwd=process.cwd(),runGit) {
     inventory:read(`data/inventory/${week}.json`),inventory_source_content:raw(`data/inventory/${week}.json`),
     coverage:read(`data/coverage/${week}.json`),research:read(`data/research/${week}.json`),research_source_content:raw(`data/research/${week}.json`),
     prepared_telerama_report:read(`data/editorial-inputs/${week}/telerama.json`),
+    prepared_telerama_editorial:read(`data/editorial-inputs/${week}/telerama-editorial.json`),
     currentissue:read(`data/weeks/${week}.json`),works:read('data/works.json'),links:read('data/links.json')};
 }
 
