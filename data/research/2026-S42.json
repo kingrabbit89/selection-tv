@@ -1144,6 +1144,18 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
+    },
+    {
+      "id": "complete-sunday-shutter-island-reserve-2026-10-09",
+      "completed_at": "2026-10-09T15:28:49.968Z",
+      "scope": "daily-reserves:dimanche",
+      "summary": "Shutter Island est intégré comme réserve complète dimanche rang 7. La copie ARTE de 128 min est explicitement distinguée des versions cinéma de 137/138 min ; diffusion, disponibilité, réception contradictoire, notes, visuel, liens et textes ont été contrôlés.",
+      "deliverables": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
     }
   ],
   "blockers": [
@@ -24428,6 +24440,63 @@
       },
       "evidence_note": "Diffusion recoupée ; les deux durées sont conservées comme observations distinctes.",
       "status": "verified"
+    },
+    {
+      "work_id": "shutter-island-2010",
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "duration.versions",
+        "image",
+        "links",
+        "ratings",
+        "critical_reception"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/128690-000-A/shutter-island/",
+        "https://www.paramountpictures.fr/film/shutter-island/",
+        "https://www.rottentomatoes.com/m/1198124-shutter_island",
+        "https://www.allocine.fr/film/fichefilm-132039/critiques/presse/"
+      ],
+      "checked_at": "2026-10-09T15:28:49.968Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "version": "copie ARTE 128 min ; versions cinéma 137/138 min distinctes"
+      },
+      "evidence_note": "Identité, durées de versions, réception, notes, affiche et liens contrôlés ; aucune durée de bande-annonce n’est utilisée.",
+      "status": "verified"
+    },
+    {
+      "work_id": "shutter-island-2010",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "broadcast.duration",
+        "offer.available_from",
+        "offer.available_until"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/guide/20261011/",
+        "https://www.arte.tv/fr/videos/128690-000-A/shutter-island/",
+        "https://tv-programme.com/arte/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-09T15:28:49.968Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "start": "21:00",
+        "channel": "Arte",
+        "version": "copie ARTE 128 min",
+        "available_until": "2026-10-18T21:00:00+02:00"
+      },
+      "evidence_note": "Guide officiel, page directe et grille datée concordent sur le créneau ; l’offre est propre au cycle.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -28005,7 +28074,8 @@
       "completed_batches": [
         "sync-main-9aae312-2026-10-09",
         "integrate-competition-officielle-senscritique-2026-10-09",
-        "complete-daily-reserves-matrix-orient-adam-2026-10-09"
+        "complete-daily-reserves-matrix-orient-adam-2026-10-09",
+        "complete-sunday-shutter-island-reserve-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -28014,40 +28084,41 @@
         "data/research/2026-S42.json",
         "data/manifest.json"
       ],
-      "complete_cards": 87,
-      "cards_integrated_this_run": 3,
+      "complete_cards": 88,
+      "cards_integrated_this_run": 4,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "measurements": {
         "complete_cards": {
-          "value": 87,
-          "scope": "stock final au checkpoint ; 84 héritées au début du passage et 3 nouvelles réserves complètes"
+          "value": 88,
+          "scope": "stock final au checkpoint ; 84 héritées au début du passage et 4 nouvelles réserves complètes"
         },
         "new_works": {
-          "value": 1,
-          "scope": "Matrix Generation ajouté entre tête de départ 4f121b2 et ce checkpoint ; Orient-Express existait comme entrée d’archive et L’Intérêt d’Adam existait déjà"
+          "value": 2,
+          "scope": "Matrix Generation et Shutter Island ajoutés entre la tête de départ 4f121b2 et ce checkpoint ; les deux autres œuvres existaient déjà dans les données"
         },
         "visible_cards": {
           "value": 0,
-          "scope": "les trois cartes ajoutées sont des réserves de rang 6, hors des trois choix visibles de chaque jour"
+          "scope": "les quatre cartes ajoutées sont des réserves de rang 6 ou 7, hors des trois choix visibles de chaque jour"
         },
         "additional_distinct_reserves": {
-          "value": 3,
-          "scope": "trois work_id distincts, chacun hors des choix visibles de son jour"
+          "value": 4,
+          "scope": "quatre work_id distincts, chacun hors des choix visibles de son jour"
         },
         "stable_reuses": {
           "value": 1,
-          "scope": "L’Intérêt d’Adam réutilise le dossier et la justification de rubrique ; la diffusion quotidienne reste vérifiée séparément"
+          "scope": "L’Intérêt d’Adam réutilise le dossier et la justification de rubrique ; sa diffusion quotidienne reste vérifiée séparément"
         }
       },
       "requirements_resolved": [
         "mercredi : note SensCritique reconnue et lien exact corrigé pour Compétition officielle",
         "dimanche : réserve complète rang 6 matérialisée pour Matrix Generation",
         "mercredi : réserve complète rang 6 matérialisée pour Orient-Express, le voyage d’une légende",
-        "jeudi : réserve complète rang 6 matérialisée pour L’Intérêt d’Adam"
+        "jeudi : réserve complète rang 6 matérialisée pour L’Intérêt d’Adam",
+        "dimanche : réserve complète rang 7 matérialisée pour Shutter Island"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter les réserves des jours encore sous dix cartes, en priorité vendredi (4) puis samedi/dimanche/mardi/mercredi/jeudi, depuis des dossiers à version et diffusion exactes.",
+      "next_useful_batch": "Compléter les réserves des jours encore sous dix cartes, en priorité vendredi (4) puis samedi (6), mardi (5), mercredi/jeudi (6) et dimanche (7), depuis des dossiers à version et diffusion exactes.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -28106,18 +28177,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T15:22:45.857Z",
+          "elapsed_seconds": 1048.769,
+          "prompt_revision": "production-integrity-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "964bae389aa3b8fefa4298a94007f4fa914439c9",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T15:05:17.088Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T16:05:32.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T15:12:43.131Z",
-        "elapsed_seconds": 446.043,
+        "observed_at": "2026-10-09T15:22:45.857Z",
+        "elapsed_seconds": 1048.769,
         "prompt_revision": "production-integrity-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "4b0c9503eb4fc93b9948c20f6e5af697f7c91430",
+        "source_sha": "964bae389aa3b8fefa4298a94007f4fa914439c9",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
@@ -28153,6 +28253,12 @@
           "ended_at": "2026-10-09T15:17:57.846Z",
           "overlap": true,
           "note": "Recherche ciblée, revue des preuves et rendu du handoff se chevauchent ; aucune somme séquentielle n’est calculée."
+        },
+        "recherche_redaction_batch_shutter": {
+          "started_at": "2026-10-09T15:23:10.000Z",
+          "ended_at": "2026-10-09T15:28:49.968Z",
+          "overlap": true,
+          "note": "Extraction ciblée, vérification des preuves, rédaction et rendu du handoff se chevauchent ; aucune somme séquentielle n’est calculée."
         }
       },
       "control_notes": [
@@ -28161,7 +28267,9 @@
         "Handoff multi-œuvres contrôlé : trois jours remplacés avec conservation intégrale des pools existants ; trois réserves de rang 6 ajoutées.",
         "Matrix Generation : identité/copie ARTE 53 min, diffusion, expiration, réception, note, visuel, liens et textes contrôlés.",
         "Orient-Express : copie ARTE 83 min distinguée de la fiche 82 min ; diffusion, expiration, réception, visuel, liens et textes contrôlés.",
-        "L’Intérêt d’Adam : master 78 min et version CANAL+ 74 min conservés séparément ; diffusion et réception déjà sauvegardées réutilisées avec contrôle du créneau."
+        "L’Intérêt d’Adam : master 78 min et version CANAL+ 74 min conservés séparément ; diffusion et réception déjà sauvegardées réutilisées avec contrôle du créneau.",
+        "Shutter Island : copie ARTE 128 min séparée des versions cinéma 137/138 min ; diffusion, offre du cycle, réception contradictoire, notes, affiche, liens et textes contrôlés.",
+        "Handoff dimanche contrôlé avec conservation intégrale des six cartes existantes et ajout d’une réserve de rang 7."
       ]
     }
   ],
@@ -31612,6 +31720,24 @@
         ],
         "decision_note": "Réserve complète rang 6 ; version CANAL+ 74 min et master Memento 78 min conservés séparément.",
         "alternatives": []
+      },
+      {
+        "id": "sl-dimanche-shutter-island-reserve",
+        "title": "Shutter Island",
+        "work_id": "shutter-island-2010",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "diffusion_officielle_et_reception_contradictoire",
+            "note": "ARTE annonce le 11 octobre à 21:00 une copie de 128 min ; Rotten Tomatoes et AlloCiné étayent qualités de genre et réserves sur la virtuosité.",
+            "source_url": "https://www.arte.tv/fr/videos/128690-000-A/shutter-island/"
+          }
+        ],
+        "decision_note": "Réserve complète rang 7 ; copie ARTE 128 min distinguée des versions cinéma 137/138 min.",
+        "alternatives": []
       }
     ]
   },
@@ -34099,6 +34225,72 @@
         "image_url": "https://media.senscritique.com/media/000020388758/0/orient_express_le_voyage_d_une_legende.jpg"
       },
       "reason": "Copie ARTE ciblée, divergence 82/83 min conservée et réception indépendante étayée."
+    },
+    {
+      "title": "Shutter Island",
+      "work_id": "shutter-island-2010",
+      "decision": "réserve complète dimanche rang 7",
+      "identity_research": {
+        "director": "Martin Scorsese",
+        "year": 2010,
+        "country": "États-Unis",
+        "duration_observations": [
+          {
+            "duration": "128 min",
+            "version": "copie ARTE du cycle",
+            "source_url": "https://www.arte.tv/fr/videos/128690-000-A/shutter-island/"
+          },
+          {
+            "duration": "137 min",
+            "version": "fiche studio Paramount",
+            "source_url": "https://www.paramountpictures.fr/film/shutter-island/"
+          },
+          {
+            "duration": "138 min",
+            "version": "fiche Rotten Tomatoes",
+            "source_url": "https://www.rottentomatoes.com/m/1198124-shutter_island"
+          }
+        ],
+        "checked_at": "2026-10-09T15:28:49.968Z"
+      },
+      "availability_research": {
+        "status": "verified_cycle_broadcast_and_offer",
+        "checked_at": "2026-10-09T15:28:49.968Z",
+        "source_urls": [
+          "https://www.arte.tv/fr/guide/20261011/",
+          "https://www.arte.tv/fr/videos/128690-000-A/shutter-island/",
+          "https://tv-programme.com/arte/dimanche-11-octobre-2026/"
+        ],
+        "note": "Le guide officiel ARTE annonce le 11 octobre à 21:00 une copie de 128 min ; la page directe indique une disponibilité du 11 au 18 octobre à 21:00. La bande-annonce d’une minute exposée sur la page ne constitue pas la durée de l’œuvre."
+      },
+      "critical_evidence": [
+        {
+          "source": "Rotten Tomatoes",
+          "source_url": "https://www.rottentomatoes.com/m/1198124-shutter_island",
+          "assessment": "Réception agrégée favorable mais mesurée : efficacité de genre reconnue sans classement parmi les sommets de Scorsese."
+        },
+        {
+          "source": "AlloCiné presse",
+          "source_url": "https://www.allocine.fr/film/fichefilm-132039/critiques/presse/",
+          "assessment": "Les critiques valorisent la maîtrise visuelle tout en formulant des réserves sur une virtuosité appuyée et sursignifiante."
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic",
+        "checked_at": "2026-10-09T15:28:49.968Z",
+        "source_urls": [
+          "https://www.rottentomatoes.com/m/1198124-shutter_island",
+          "https://www.allocine.fr/film/fichefilm-132039/critiques/presse/"
+        ],
+        "note": "Rotten Tomatoes 69 % sur 262 critiques ; AlloCiné presse 3,8/5 sur 31 titres."
+      },
+      "image_research": {
+        "status": "exact_poster_opened_ci_pending",
+        "checked_at": "2026-10-09T15:28:49.968Z",
+        "source_page": "https://www.rottentomatoes.com/m/1198124-shutter_island",
+        "image_url": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak%3D/v3/t/assets/p3531967_p_v12_an.jpg"
+      },
+      "reason": "Identité et versions séparées, diffusion et offre du cycle, réception contradictoire, notes, visuel et textes relus ; contrôles distants encore requis."
     }
   ]
 }
