@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T19:41:01.490Z",
+  "updated_at": "2026-10-09T20:27:32.001Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1381,22 +1381,51 @@
       "id": "image-adieu-monsieur-haffmann-timeout",
       "type": "candidate-image",
       "requires_user": false,
-      "status": "open",
+      "status": "resolved",
       "first_seen_at": "2026-10-09T20:17:57.155Z",
       "message": "Adieu Monsieur Haffmann : la source Pathé actuelle expire en timeout pour le client d’image sans Referer ; un visuel exact sain est requis.",
       "source_urls": [
         "https://www.pathefilms.com/assets/cover/2024/05/07/adieu_monsieur_haffmann/amh_aff_600.jpg?fm=webp&q=90&s=9b008599acddae7f88205228d4377346&w=390"
+      ],
+      "resolved_at": "2026-10-09T20:24:56.000Z",
+      "resolution": "Remplacé par l’affiche exacte publiée par le distributeur Menemsha Films ; URL directe JPEG ouverte sans Referer et contrôle automatisé à relancer.",
+      "resolution_source_urls": [
+        "https://www.menemshafilms.com/farewell-mr-haffmann",
+        "https://static.wixstatic.com/media/34df17_af09f2183b9a4423bc588979ba9a17b7~mv2.jpg/v1/crop/x_12%2Cy_0%2Cw_1977%2Ch_2889/fill/w_774%2Ch_1134%2Cal_c%2Cq_90%2Cusm_0.66_1.00_0.01%2Cenc_auto/FMH-New-US-Poster-19th-Award.jpg"
       ]
     },
     {
       "id": "image-coyote-vs-acme-404",
       "type": "candidate-image",
       "requires_user": false,
-      "status": "open",
+      "status": "resolved",
       "first_seen_at": "2026-10-09T20:17:57.155Z",
       "message": "Coyote vs. Acme : la source Creators Faire actuelle renvoie 404 ; un visuel exact sain est requis.",
       "source_urls": [
         "https://cdn-ildnlpg.nitrocdn.com/gjnrPtGVFFeUBEafyaoIgcCXoNNlioLB/assets/images/optimized/rev-0cd8850/creatorsfaire.com/storage/2026/04/Coyote-vs-Acme-Poster-1229x1536.jpg"
+      ],
+      "resolved_at": "2026-10-09T20:24:56.000Z",
+      "resolution": "Remplacé par le one-sheet exact exposé par le site officiel Ketchup Entertainment ; URL directe JPEG ouverte et contrôle automatisé à relancer.",
+      "resolution_source_urls": [
+        "https://www.coyotevsacme.com/home/",
+        "https://dx35vtwkllhj9.cloudfront.net/ketchup-entertainment/coyote-vs-acme/images/regions/us/onesheet.jpg"
+      ]
+    },
+    {
+      "id": "image-hondo-timeout",
+      "type": "candidate-image",
+      "requires_user": false,
+      "status": "resolved",
+      "first_seen_at": "2026-10-09T20:26:08.733Z",
+      "message": "Hondo, l’homme du désert : la source Cinematerial a expiré en timeout pour le client d’image sans Referer.",
+      "source_urls": [
+        "https://media-cache.cinematerial.com/p/500x/530cfqkm/hondo-italian-movie-poster.jpg?v=1456490726"
+      ],
+      "resolved_at": "2026-10-09T20:26:08.733Z",
+      "resolution": "Remplacé par l’affiche cinéma exacte répertoriée par IMP Awards ; URL JPEG directe ouverte sans Referer, contrôle automatisé à relancer.",
+      "resolution_source_urls": [
+        "https://www.impawards.com/1953/hondo.html",
+        "https://www.impawards.com/1953/posters/hondo.jpg"
       ]
     }
   ],
@@ -31640,14 +31669,17 @@
         "review-new-tv5-fbs-and-rmc-level2-sources-2026-10-09",
         "review-cineplus-w9-level2-sources-2026-10-09",
         "review-orange-cineplus-reminder-source-2026-10-09",
-        "enrichment-aelita-tuesday-version-safe-replacement"
+        "enrichment-aelita-tuesday-version-safe-replacement",
+        "repair-two-inherited-image-sources-2026-10-09",
+        "repair-hondo-inherited-image-source-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
         "data/coverage/2026-S42.json",
         "data/works.json",
         "data/links.json",
-        "data/weeks/2026-S42.json"
+        "data/weeks/2026-S42.json",
+        "data/torrent-trends.json"
       ],
       "complete_cards": 125,
       "cards_integrated_this_run": 1,
@@ -31682,7 +31714,7 @@
       },
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Remplacer les deux visuels hérités défaillants Adieu Monsieur Haffmann et Coyote vs. Acme par des sources exactes saines, puis relancer uniquement le contrôle d’images.",
+      "next_useful_batch": "Reprendre la prochaine action accessible de la décision observée : traiter le défaut précis de La Prisonnière du désert ou une autre exigence de niveau 2 seulement si une source nouvelle permet de la réduire.",
       "verification_records": [
         {
           "fields": [
@@ -31758,6 +31790,66 @@
           "applies_to": "2026-S42 Ciné+ Classic and Ciné+ Frisson reminder",
           "evidence_note": "Orange recoupe plusieurs créneaux comme opérateur distinct et expose aussi des écarts de une à trois minutes. Moustique ne publie pas son fournisseur EPG. La consultation est ponctuelle et ne vaut pas grille hebdomadaire exhaustive.",
           "status": "partial_nonexhaustive_with_conflicts"
+        },
+        {
+          "work_id": "adieu-monsieur-haffmann-2022",
+          "fields": [
+            "image",
+            "image_source_url",
+            "image_health"
+          ],
+          "urls": [
+            "https://www.menemshafilms.com/farewell-mr-haffmann",
+            "https://static.wixstatic.com/media/34df17_af09f2183b9a4423bc588979ba9a17b7~mv2.jpg/v1/crop/x_12%2Cy_0%2Cw_1977%2Ch_2889/fill/w_774%2Ch_1134%2Cal_c%2Cq_90%2Cusm_0.66_1.00_0.01%2Cenc_auto/FMH-New-US-Poster-19th-Award.jpg"
+          ],
+          "checked_at": "2026-10-09T20:24:56.000Z",
+          "stability": "dynamic",
+          "applies_to": {
+            "week": "2026-S42",
+            "section": "sorties-streaming"
+          },
+          "evidence_note": "Affiche exacte exposée sur la fiche Menemsha Films ; URL JPEG directe ouverte sans Referer.",
+          "status": "verified"
+        },
+        {
+          "work_id": "coyote-vs-acme-2026",
+          "fields": [
+            "image",
+            "image_source_url",
+            "image_health"
+          ],
+          "urls": [
+            "https://www.coyotevsacme.com/home/",
+            "https://dx35vtwkllhj9.cloudfront.net/ketchup-entertainment/coyote-vs-acme/images/regions/us/onesheet.jpg"
+          ],
+          "checked_at": "2026-10-09T20:24:56.000Z",
+          "stability": "dynamic",
+          "applies_to": {
+            "week": "2026-S42",
+            "section": "radar-torrent"
+          },
+          "evidence_note": "One-sheet exact exposé dans le HTML du site officiel Ketchup Entertainment ; URL JPEG directe ouverte.",
+          "status": "verified"
+        },
+        {
+          "work_id": "hondo-l-homme-du-desert",
+          "fields": [
+            "image",
+            "image_source_url",
+            "image_health"
+          ],
+          "urls": [
+            "https://www.impawards.com/1953/hondo.html",
+            "https://www.impawards.com/1953/posters/hondo.jpg"
+          ],
+          "checked_at": "2026-10-09T20:26:08.733Z",
+          "stability": "dynamic",
+          "applies_to": {
+            "week": "2026-S42",
+            "validator_scope": "visual_works"
+          },
+          "evidence_note": "Affiche officielle exacte 1953 répertoriée par IMP Awards ; URL JPEG directe ouverte sans Referer.",
+          "status": "verified"
         }
       ],
       "continuation_decisions": [
@@ -31818,23 +31910,52 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T20:20:33.296Z",
+          "elapsed_seconds": 1204.397,
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "61773ae6d7b0db3ff8b75332fac65ece0f7fa371",
+          "next_actions": [
+            "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
+            "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
+            "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
+            "Mardi : certifier la copie exacte de La Prisonnière du désert ou la remplacer par une alternative entièrement vérifiée ; La Vieille Dame indigne a été remplacée par Aelita, version ARTE 114 min vérifiée.",
+            "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet."
+          ],
+          "remaining_count": 34,
+          "next_actions_total": 39,
+          "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T20:00:28.899Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T21:16:40.452Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T20:11:29.883Z",
-        "elapsed_seconds": 660.984,
+        "observed_at": "2026-10-09T20:20:33.296Z",
+        "elapsed_seconds": 1204.397,
         "prompt_revision": "production-closure-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "01a31b01d2f92ecb60b59e9b7a83afcc34160603",
+        "source_sha": "61773ae6d7b0db3ff8b75332fac65ece0f7fa371",
         "next_actions": [
           "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
           "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
           "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
-          "Mardi : certifier les copies exactes de La Prisonnière du désert et La Vieille Dame indigne, ou les remplacer par des alternatives entièrement vérifiées.",
+          "Mardi : certifier la copie exacte de La Prisonnière du désert ou la remplacer par une alternative entièrement vérifiée ; La Vieille Dame indigne a été remplacée par Aelita, version ARTE 114 min vérifiée.",
           "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet."
         ],
         "remaining_count": 34,
@@ -31843,7 +31964,7 @@
         "observations": {
           "started_at": "2026-10-09T20:00:28.899Z",
           "lease_owned": "yes",
-          "lease_until": "2026-10-09T21:00:47.435Z",
+          "lease_until": "2026-10-09T21:16:40.452Z",
           "external_stop": null,
           "accessible_task_checks": [],
           "ready_handoff": null
@@ -31874,6 +31995,16 @@
           "started_at": "2026-10-09T20:18:14.000Z",
           "ended_at": "2026-10-09T20:18:18.855Z",
           "note": "Identités, liens, fraîcheur, réserves et images contrôlés en parallèle. Aelita passe les contrôles de données et d’image ; deux visuels hérités échouent. Le navigateur local est indisponible faute de binaire Playwright, donc aucune réussite de présentation n’est revendiquée."
+        },
+        "image_source_repair": {
+          "started_at": "2026-10-09T20:20:33.296Z",
+          "ended_at": "2026-10-09T20:26:08.733Z",
+          "note": "Deux URL défaillantes isolées ont été remplacées par des affiches exactes publiées sur les pages officielles de leurs distributeurs ; réponses JPEG vérifiées avant intégration. Le premier contrôle a révélé un troisième timeout hérité pour Hondo, également remplacé par une affiche exacte."
+        },
+        "image_control": {
+          "started_at": "2026-10-09T20:24:56.000Z",
+          "ended_at": "2026-10-09T20:27:32.001Z",
+          "note": "Premier contrôle ciblé : les deux remplacements initiaux passent et révèlent le timeout Hondo. Après remplacement Hondo, validate-image-sources passe 34/34 sans nouvelle exception."
         }
       },
       "control_notes": [
@@ -31885,20 +32016,32 @@
         "Contrôles réussis : identités canoniques, liens exacts, fraîcheur (97 % public, 87 % réserves) et réserves (70/70).",
         "validate-editorial échoue uniquement sur full_week_reaudit_completed=false, barrière attendue tant que la revue de couverture reste ouverte.",
         "validate-image-sources confirme le nouveau visuel Aelita mais révèle deux défauts hérités : Adieu Monsieur Haffmann timeout sans Referer et Coyote vs. Acme 404.",
-        "validate-layout local non exécuté jusqu’au rendu : binaire Playwright absent ; aucun résultat de présentation n’est certifié pour cette tête."
+        "validate-layout local non exécuté jusqu’au rendu : binaire Playwright absent ; aucun résultat de présentation n’est certifié pour cette tête.",
+        "Deux URL d’image héritées ont été remplacées par des affiches exactes publiées par les distributeurs officiels ; le contrôle automatisé reste à exécuter sur le nouvel état.",
+        "Le premier contrôle après les deux remplacements a révélé un timeout Hondo jusque-là masqué ; cette troisième source a été remplacée avant relance ciblée.",
+        "validate-image-sources final : 34/34 œuvres de grille Android TV ont au moins une source utilisable ou une exception documentée ; aucune exception nouvelle n’a été ajoutée."
       ],
       "blockers": [
         {
           "id": "image-adieu-monsieur-haffmann-timeout",
-          "status": "open",
+          "status": "resolved",
           "requires_user": false,
-          "note": "Le visuel Pathé ne répond pas au client sans Referer (timeout) ; rechercher un visuel exact sain sans assouplir le contrôle."
+          "note": "Le visuel Pathé ne répond pas au client sans Referer (timeout) ; rechercher un visuel exact sain sans assouplir le contrôle.",
+          "resolved_at": "2026-10-09T20:24:56.000Z"
         },
         {
           "id": "image-coyote-vs-acme-404",
-          "status": "open",
+          "status": "resolved",
           "requires_user": false,
-          "note": "Le visuel Creators Faire renvoie 404 ; rechercher un visuel exact sain sans assouplir le contrôle."
+          "note": "Le visuel Creators Faire renvoie 404 ; rechercher un visuel exact sain sans assouplir le contrôle.",
+          "resolved_at": "2026-10-09T20:24:56.000Z"
+        },
+        {
+          "id": "image-hondo-timeout",
+          "status": "resolved",
+          "requires_user": false,
+          "resolved_at": "2026-10-09T20:26:08.733Z",
+          "note": "Timeout Cinematerial remplacé par une affiche exacte accessible."
         }
       ]
     }
@@ -38116,10 +38259,11 @@
         "note": "IMDb 7,1/10 sur environ 3,7 k notes."
       },
       "image_research": {
-        "status": "official_poster_verified_ci_pending",
-        "checked_at": "2026-10-09T11:39:58.138Z",
-        "source_page": "https://www.pathefilms.com/fr/films/adieu-monsieur-haffmann/",
-        "image_url": "https://www.pathefilms.com/assets/cover/2024/05/07/adieu_monsieur_haffmann/amh_aff_600.jpg?fm=webp&q=90&s=9b008599acddae7f88205228d4377346&w=390"
+        "status": "official_distributor_poster_verified_ci_pending",
+        "checked_at": "2026-10-09T20:24:56.000Z",
+        "source_page": "https://www.menemshafilms.com/farewell-mr-haffmann",
+        "image_url": "https://static.wixstatic.com/media/34df17_af09f2183b9a4423bc588979ba9a17b7~mv2.jpg/v1/crop/x_12%2Cy_0%2Cw_1977%2Ch_2889/fill/w_774%2Ch_1134%2Cal_c%2Cq_90%2Cusm_0.66_1.00_0.01%2Cenc_auto/FMH-New-US-Poster-19th-Award.jpg",
+        "note": "Affiche exacte exposée sur la fiche du distributeur Menemsha Films ; URL directe JPEG 774 × 1134 ouverte sans Referer."
       },
       "reason": "Carte complète avec divergences d’année et portée géographique de la page Netflix explicitement conservées."
     },
