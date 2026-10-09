@@ -517,23 +517,29 @@ try{
    await page.waitForTimeout(500);
 
    const sectionReserveState=await page.evaluate(()=>{
-     const visible=(root,selector)=>[...root.querySelectorAll(selector)].filter(el=>{
+     // Pagination moves live cards and trailing summaries onto continuation
+     // sheets. Count the complete section, preserving the visibility checks.
+     const section=id=>[document.getElementById(id),...document.querySelectorAll(`[data-layout-source="${id}"]`)].filter(Boolean);
+     const visible=(roots,selector)=>roots.flatMap(root=>[...root.querySelectorAll(selector)]).filter(el=>{
        const cs=getComputedStyle(el),r=el.getBoundingClientRect();
        return !el.classList.contains('seen-hidden')&&cs.display!=='none'&&cs.visibility!=='hidden'&&r.width>0&&r.height>0;
      });
-     const rendezvous=document.getElementById('rendezvous-1');
-     const physical=document.getElementById('sorties-physiques');
-     if(!rendezvous||!physical)return {missing:true};
+     const rendezvous=section('rendezvous-1');
+     const physical=section('sorties-physiques');
+     if(!document.getElementById('rendezvous-1')||!document.getElementById('sorties-physiques'))return {missing:true};
+     const summary=roots=>roots.map(root=>root.querySelector('.reserve-summary')?.textContent||'').find(Boolean)||'';
      const rv=visible(rendezvous,'article.week-card');
      const ph=visible(physical,'article.release-card');
      return {
        missing:false,
+       rendezvousPages:rendezvous.map(root=>root.id),
        rendezvousVisible:rv.length,
        rendezvousReplacements:rv.filter(x=>x.classList.contains('replacement-generated')).length,
-       rendezvousSummary:rendezvous.querySelector('.reserve-summary')?.textContent||'',
+       rendezvousSummary:summary(rendezvous),
+       physicalPages:physical.map(root=>root.id),
        physicalVisible:ph.length,
        physicalReplacements:ph.filter(x=>x.classList.contains('replacement-generated')).length,
-       physicalSummary:physical.querySelector('.reserve-summary')?.textContent||'',
+       physicalSummary:summary(physical),
        physicalReplacementTypes:ph.filter(x=>x.classList.contains('replacement-generated')).map(x=>x.className)
      };
    });
