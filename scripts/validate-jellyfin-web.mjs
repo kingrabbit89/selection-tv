@@ -9,6 +9,11 @@ const root=resolve(import.meta.dirname,'..');
 const bridgeSource=await readFile(resolve(root,'assets/js/jellyfin-bridge.js'),'utf8');
 const worksSource=await readFile(resolve(root,'data/works.json'),'utf8');
 const linksSource=await readFile(resolve(root,'data/links.json'),'utf8');
+const manifest=JSON.parse(await readFile(resolve(root,'data/manifest.json'),'utf8'));
+const publicWeeks=(manifest.weeks||[]).filter(week=>week.status!=='draft');
+const latestWeek=publicWeeks.find(week=>week.week===manifest.latest)||publicWeeks[0];
+assert(latestWeek?.path,'manifest must expose a public latest week for the Jellyfin bridge');
+const actualWeeklyUrl=new URL(latestWeek.path,'https://kingrabbit89.github.io/selection-tv/').href;
 
 const server=createServer(async(req,res)=>{
   const u=new URL(req.url,'http://localhost');
@@ -99,15 +104,15 @@ try{
     </div>
     <script src="https://kingrabbit89.github.io/selection-tv/assets/js/jellyfin-bridge.js"><\/script>`;
 
-  const weeklyUrl='https://kingrabbit89.github.io/selection-tv/semaines/2026-S41/';
+  const fixtureWeeklyUrl='https://kingrabbit89.github.io/selection-tv/semaines/2026-S41/';
   await page.route('https://kingrabbit89.github.io/selection-tv/latest.html',route=>
     route.fulfill({
       status:200,
       contentType:'text/html; charset=utf-8',
-      body:'<!doctype html><meta charset="utf-8"><script>location.replace('+JSON.stringify(weeklyUrl)+')</script>'
+      body:'<!doctype html><meta charset="utf-8"><script>location.replace('+JSON.stringify(fixtureWeeklyUrl)+')</script>'
     })
   );
-  await page.route(weeklyUrl,route=>
+  await page.route(fixtureWeeklyUrl,route=>
     route.fulfill({status:200,contentType:'text/html; charset=utf-8',body:childHtml})
   );
   await page.route('https://kingrabbit89.github.io/selection-tv/assets/js/jellyfin-bridge.js',route=>
@@ -125,7 +130,7 @@ try{
   await page.locator('#selectionTvFrame').waitFor({state:'attached'});
   let child=null;
   for(let attempt=0;attempt<50;attempt++){
-    child=page.frames().find(f=>f!==page.mainFrame()&&f.url().startsWith(weeklyUrl))||null;
+    child=page.frames().find(f=>f!==page.mainFrame()&&f.url().startsWith(fixtureWeeklyUrl))||null;
     if(child)break;
     await page.waitForTimeout(100);
   }
@@ -169,7 +174,10 @@ try{
   await page.waitForFunction(()=>location.hash.includes('details?id=jf-paris-texas'));
   assert.match(page.url(),/#\/details\?id=jf-paris-texas&serverId=fixture-server$/,'stale cached ID must recover to the live Jellyfin item');
 
-  // Exercise actual latest.html, manifest, S41 JSON and all shared scripts.
+  // Exercise actual latest.html, the public week selected by the current
+  // manifest, its JSON and all shared scripts. Promotion PRs intentionally
+  // change manifest.latest, so this must follow the manifest instead of a
+  // historical hard-coded week.
   // Only Jellyfin API and external image hosts remain fixtures.
   await page.unrouteAll();
   await page.route('**/*',async route=>{
@@ -191,16 +199,16 @@ try{
   await page.goto(origin+'/integrations/jellyfin/selection-tv.html',{waitUntil:'domcontentloaded'});
   let fullChild;
   for(let attempt=0;attempt<100;attempt++){
-    fullChild=page.frames().find(f=>f.url().startsWith(weeklyUrl));
+    fullChild=page.frames().find(f=>f.url().startsWith(actualWeeklyUrl));
     if(fullChild)break;
     await page.waitForTimeout(100);
   }
-  assert(fullChild,'actual latest.html did not resolve S41');
+  assert(fullChild,`actual latest.html did not resolve ${manifest.latest}`);
   await fullChild.locator('#samedi-selection article.feature').first().scrollIntoViewIfNeeded();
   await fullChild.locator('#samedi-selection .jellyfin-open').first().waitFor({state:'attached'});
   await fullChild.locator('.jellyfin-private-uploads-page').first().waitFor({state:'attached'});
-  assert(await fullChild.locator('.book>.page').count()>=26,'real S41 content was not rendered');
-  console.log('✓ Actual latest.html → full S41 → Jellyfin buttons and Vos Uploads (API fixture)');
+  assert(await fullChild.locator('.book>.page').count()>=26,`real ${manifest.latest} content was not rendered`);
+  console.log(`✓ Actual latest.html → full ${manifest.latest} → Jellyfin buttons and Vos Uploads (API fixture)`);
 
   // A different logged-in account must invalidate the entire in-memory bridge.
   const navigation=page.waitForEvent('domcontentloaded');
