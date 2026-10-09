@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T22:51:58.404Z",
+  "updated_at": "2026-10-09T22:54:56.812Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -14,7 +14,7 @@
     "T18 14 octobre : neuf épisodes/sujets et horaires concordent largement entre LeZapp, TV-Programme et ProgrammeTVCeSoir, sans base positive d'acquisition indépendante. Fait nouveau : Télé 7 Jours attribue au créneau 00:20 Sur la scène du crime l'épisode « Jogging fatal - affaire Nelly Crémel », tandis que LeZapp et ProgrammeTVCeSoir donnent « Meurtre en sous-sol - affaire Manteau » ; résoudre ce conflit exact ou exclure ce créneau. Face à face reste identifié comme fiction policière, hors rappel documentaire.",
     "TF1 Séries Films : neuf diffusions recoupées et nuits consultées ; blocs nocturnes génériques non détaillés, réception et cartes à terminer. CSTAR 16 octobre : Un mariage à Noël concorde à 21:10 ; Noël à la carte 22:49/22:45 et identité des quatre Douanes à départager ; indépendance et nuits restent à certifier.",
     "Rappel TNT principal réconcilié : les dix éléments génériques sont rapprochés ou exclus, dont Envoyé spécial et Au cœur de l’enquête sans sujet identifié. Les autres passes partielles (cinéma payant, TV5MONDE FBS, RMC, Ciné+) et le conflit de version Marine restent ouverts dans leurs dossiers propres.",
-    "Cinéma payant : le calendrier mensuel reste borné à huit premières diffusions. Comparaison des six chaînes Ciné+ au PDF fourni : 339 lignes relues, 102 heures exactes, 225 titres déjà inventoriés avec horaire divergent conservé, 12 lignes non rapprochées à trier (Les Frasques de l’héritière ; Le Goufre aux chimères ; Les Vacances de M. Hulot ; Island in the Sky ; Mon babysitter ; Trois Hommes et un coufin ; Goûter à l’audace ; Garçon chifon ; Green- land, le dernier refuge). Ne pas enquêter chaque écart brut ; approfondir seulement les omissions prometteuses et les propositions, avec droits, offres, expirations, versions et critique indépendante.",
+    "Cinéma payant : la revue applicable des omissions des six chaînes Ciné+ est achevée sur 339 lignes du PDF fourni (102 heures exactes, 225 titres présents avec horaire divergent, dix variantes de titre rapprochées, deux programmes adultes découverts puis écartés de la sélection, zéro omission résiduelle). Ne pas enquêter chaque écart brut ; poursuivre seulement les propositions et pistes prometteuses avec droits, offres, expirations, versions et critique indépendante.",
     "France 4 : Rachelle Allison à la Cigale du 15/10 à 20:30 et Hakim Jemili : Super du 13/10 à 23:10 restent des observations non rendues ; la première est recoupée officiellement, la seconde conserve son titre tiers sans assimilation au libellé officiel. Aucune carte n'en dépend. Restent la réception/offres documentaires, les épisodes génériques et le rappel France 4.",
     "TV5MONDE FBS : revue applicable des omissions achevée sur les sept colonnes du PDF fourni et 50 créneaux sauvegardés, sans affirmation d’indépendance amont. Identifier seulement les sujets propres d’Au bout de l’enquête (10/10 09:30 et 17:10 ; 11/10 14:38), de Temps présent (13/10 17:05 ; 14/10 09:50) et les épisodes génériques avant tout examen éditorial ; poursuivre séparément offres et expirations TV5MONDE+.",
     "Canal+ / Cinéma / Box Office : tableau mensuel comparé (42 heures concordantes, 149 écarts consignés) ; départager les horaires, Coutures à minuit le 10 et alias L'Ombre/The Old Woman le 14. Compléter les autres chaînes cinéma.",
@@ -1394,7 +1394,8 @@
     "reconcile-rmc-web-schedule-evidence-preserve-conflicts-2026-10-09",
     "close-three-selected-cineplus-events-and-scope-rmc-gaps-2026-10-09",
     "reconcile-paid-cinema-monthly-source-scope-2026-10-09",
-    "map-cineplus-six-channel-pdf-omissions-2026-10-09"
+    "map-cineplus-six-channel-pdf-omissions-2026-10-09",
+    "reconcile-cineplus-aliases-and-close-level2-2026-10-09"
   ],
   "blockers": [
     {
@@ -27350,6 +27351,235 @@
       },
       "evidence_note": "102 concordances titre+heure, 225 titres présents avec heure divergente, 12 lignes non rapprochées conservées comme omissions à trier. Aucun champ hors grille certifié.",
       "status": "partial_twelve_omissions_open"
+    },
+    {
+      "id": "run23-cineplus-twelve-line-triage",
+      "work_id": null,
+      "fields": [
+        "coverage.level2.omission_review",
+        "title_alias",
+        "editorial_exclusion"
+      ],
+      "source_urls": [
+        "https://www.cinematheque.fr/film/36885.html",
+        "https://www.larousse.fr/encyclopedie/film/Aventure_dans_le_Grand_Nord/976"
+      ],
+      "source_refs": [
+        "sha256:e96cce75ed043a4788bf56edbdcf5e86867e0055df55fd4b7ab4b78ecf0c6e93"
+      ],
+      "checked_at": "2026-10-09T22:54:56.812Z",
+      "stability": "mixed_stable_identity_and_cycle_specific_schedule",
+      "applies_to": {
+        "week": "2026-S42",
+        "aliases": [
+          {
+            "date": "2026-10-11",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Le Goufre aux chimères",
+            "pdf_start": "00:50",
+            "pdf_page": 102,
+            "bbox": [
+              400.66,
+              393.26,
+              475.91,
+              406.76
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "Le gouffre aux chimères",
+            "basis": "variante typographique évidente, même date et même chaîne",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          },
+          {
+            "date": "2026-10-11",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Les Vacances de M. Hulot",
+            "pdf_start": "18:20",
+            "pdf_page": 108,
+            "bbox": [
+              400.54,
+              182.16,
+              471.63,
+              195.66
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "Les Vacances de monsieur Hulot",
+            "basis": "abréviation typographique, même date et même chaîne",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          },
+          {
+            "date": "2026-10-13",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Island in the Sky",
+            "pdf_start": "11:10",
+            "pdf_page": 120,
+            "bbox": [
+              400.68,
+              85.5,
+              468.79,
+              99
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "Aventure dans le Grand Nord",
+            "basis": "titre original confirmé par la Cinémathèque française et Larousse",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          },
+          {
+            "date": "2026-10-14",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Le Goufre aux chimères",
+            "pdf_start": "17:10",
+            "pdf_page": 126,
+            "bbox": [
+              400.68,
+              176.5,
+              479.57,
+              183
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "Le gouffre aux chimères",
+            "basis": "variante typographique évidente, même date et même chaîne",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          },
+          {
+            "date": "2026-10-14",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Les Vacances de M. Hulot",
+            "pdf_start": "22:40",
+            "pdf_page": 126,
+            "bbox": [
+              400.68,
+              352.71,
+              471.77,
+              366.21
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "Les Vacances de monsieur Hulot",
+            "basis": "abréviation typographique, même date et même chaîne",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          },
+          {
+            "date": "2026-10-14",
+            "channel": "Ciné+ Emotion",
+            "title_printed": "Mon babysitter",
+            "pdf_start": "20:50",
+            "pdf_page": 126,
+            "bbox": [
+              400.63,
+              547.56,
+              451.46,
+              561.06
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "Mon baby-sitter",
+            "basis": "variante de trait d’union, même date et même chaîne",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          },
+          {
+            "date": "2026-10-15",
+            "channel": "Ciné+ Family",
+            "title_printed": "Trois Hommes et un coufin",
+            "pdf_start": "20:50",
+            "pdf_page": 132,
+            "bbox": [
+              492.91,
+              568.55,
+              563.66,
+              582.05
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "3 hommes et un couffin",
+            "basis": "numéral et coquille de transcription rapprochés sur le même créneau",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          },
+          {
+            "date": "2026-10-16",
+            "channel": "Ciné+ Emotion",
+            "title_printed": "Mon babysitter",
+            "pdf_start": "19:20",
+            "pdf_page": 138,
+            "bbox": [
+              400.66,
+              526.47,
+              451.5,
+              539.97
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "Mon baby-sitter",
+            "basis": "variante de trait d’union, même date et même chaîne",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          },
+          {
+            "date": "2026-10-16",
+            "channel": "Ciné+ Festival",
+            "title_printed": "Garçon chifon",
+            "pdf_start": "03:50",
+            "pdf_page": 132,
+            "bbox": [
+              492.92,
+              418.97,
+              564.34,
+              432.47
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "Garçon chiffon",
+            "basis": "coquille de transcription rapprochée sur le même créneau",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          },
+          {
+            "date": "2026-10-16",
+            "channel": "Ciné+ Frisson",
+            "title_printed": "Green- land, le dernier refuge",
+            "pdf_start": "15:15",
+            "pdf_page": 138,
+            "bbox": [
+              308.4,
+              477.33,
+              380.27,
+              490.83
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "Greenland, le dernier refuge",
+            "basis": "césure de colonne rapprochée sur le même créneau",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          }
+        ],
+        "discovered_excluded": [
+          {
+            "date": "2026-10-10",
+            "channel": "Ciné+ Frisson",
+            "title_printed": "Les Frasques de l’héritière",
+            "pdf_start": "23:55",
+            "pdf_page": 102,
+            "bbox": [
+              308.4,
+              604.58,
+              381.18,
+              618.08
+            ],
+            "status": "discovered_and_excluded_from_editorial_selection",
+            "resolved_at": "2026-10-09T22:54:56.812Z",
+            "decision_note": "Programme adulte/érotique découvert par le rappel PDF, sans signal éditorial justifiant une recommandation ou une réserve ; conservé comme ligne de couverture, hors shortlist et livrables."
+          },
+          {
+            "date": "2026-10-15",
+            "channel": "Ciné+ Frisson",
+            "title_printed": "Goûter à l’audace",
+            "pdf_start": "00:55",
+            "pdf_page": 126,
+            "bbox": [
+              308.38,
+              632.8,
+              366.8,
+              646.3
+            ],
+            "status": "discovered_and_excluded_from_editorial_selection",
+            "resolved_at": "2026-10-09T22:54:56.812Z",
+            "decision_note": "Programme adulte/érotique découvert par le rappel PDF, sans signal éditorial justifiant une recommandation ou une réserve ; conservé comme ligne de couverture, hors shortlist et livrables."
+          }
+        ]
+      },
+      "evidence_note": "Dix variantes rapprochées ; deux lignes adultes conservées comme découvertes de grille mais écartées des recommandations. Aucun champ de version, droit ou offre certifié.",
+      "status": "complete_for_level2_omission_review"
     }
   ],
   "run_metrics": [
@@ -34390,7 +34620,8 @@
         "reconcile-rmc-web-schedule-evidence-preserve-conflicts-2026-10-09",
         "close-three-selected-cineplus-events-and-scope-rmc-gaps-2026-10-09",
         "reconcile-paid-cinema-monthly-source-scope-2026-10-09",
-        "map-cineplus-six-channel-pdf-omissions-2026-10-09"
+        "map-cineplus-six-channel-pdf-omissions-2026-10-09",
+        "reconcile-cineplus-aliases-and-close-level2-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -34403,7 +34634,7 @@
       "partial_dossiers": 0,
       "requirements_resolved": 6,
       "stop_reason": null,
-      "next_useful_batch": "Trier les douze lignes Ciné+ absentes de l’inventaire et approfondir seulement les pistes prometteuses ; ne pas résoudre mécaniquement les 225 écarts bruts.",
+      "next_useful_batch": "Relancer les contrôles de préparation sur l’attestation hebdomadaire, puis traiter le premier défaut précis de niveau 3 ou de livrable encore ouvert.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -34633,20 +34864,43 @@
             "lease_until": "2026-10-09T23:38:16.947Z",
             "external_stop": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T22:53:22.766Z",
+          "elapsed_seconds": 2039.603,
+          "prompt_revision": "production-web-evidence-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "08f7c5ca5087227cfd81222cc9fab8ad88aed813",
+          "next_actions": [
+            "Trier les douze lignes Ciné+ absentes de l’inventaire et approfondir seulement les pistes prometteuses ; ne pas résoudre mécaniquement les 225 écarts bruts."
+          ],
+          "remaining_count": 16,
+          "waiting_actions_count": 1,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T22:19:23.163Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T23:38:16.947Z",
+            "external_stop": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T22:49:26.919Z",
-        "elapsed_seconds": 1803.756,
+        "observed_at": "2026-10-09T22:53:22.766Z",
+        "elapsed_seconds": 2039.603,
         "prompt_revision": "production-web-evidence-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "35e7f392677cd71cfdae74d72d5b00c250e56877",
+        "source_sha": "08f7c5ca5087227cfd81222cc9fab8ad88aed813",
         "next_actions": [
-          "Poursuivre une lacune factuelle/documentaire précise parmi les exigences encore ouvertes ; les sources mensuelles restent bornées à leur portée."
+          "Trier les douze lignes Ciné+ absentes de l’inventaire et approfondir seulement les pistes prometteuses ; ne pas résoudre mécaniquement les 225 écarts bruts."
         ],
         "remaining_count": 16,
         "waiting_actions_count": 1,
@@ -34721,6 +34975,13 @@
           "ended_at": "2026-10-09T22:51:58.404Z",
           "overlap": false,
           "note": "Six chaînes Ciné+ comparées au PDF fourni : 339 lignes, 12 omissions réelles isolées des 225 divergences horaires brutes."
+        },
+        {
+          "kind": "coverage_reconciliation",
+          "started_at": "2026-10-09T22:53:22.766Z",
+          "ended_at": "2026-10-09T22:54:56.812Z",
+          "overlap": false,
+          "note": "Douze écarts Ciné+ triés : dix variantes rapprochées, deux programmes adultes découverts et écartés ; zéro omission résiduelle."
         }
       ],
       "requirements_resolved_details": [
@@ -34729,7 +34990,8 @@
         "TV5MONDE FBS : exigence de provenance amont close pour le niveau 2 sous autorité du PDF fourni ; sujets/épisodes/offres résiduels conservés.",
         "RMC Story/Découverte : ancienne exigence de fournisseur EPG retirée selon web_schedule_evidence ; conflits, alias et épisodes génériques restent ouverts.",
         "Ciné+ Festival : les neuf événements de cartes retenues sont clos (six par PDF relu, trois par deux guides datés d’éditeurs distincts) ; aucune indépendance amont affirmée.",
-        "Cinéma payant : attente d’exhaustivité de la source mensuelle close ; champs titre par titre et divergences conservés."
+        "Cinéma payant : attente d’exhaustivité de la source mensuelle close ; champs titre par titre et divergences conservés.",
+        "Niveau 2 : les douze écarts Ciné+ ont été triés (dix variantes certaines, deux découvertes adultes écartées de la sélection) ; la revue applicable des omissions des sept jours est achevée sans affirmation d’indépendance globale."
       ],
       "control_notes": [
         "preparation-gaps sur eadc052 : seul coverage-full-week reste bloquant structurellement ; les sept jours ont dix cartes matérialisées et l’objectif de quinze reste un avertissement non bloquant.",
@@ -34746,7 +35008,8 @@
         "Après la réconciliation RMC, validate-editorial ne conserve que full_week_reaudit_completed=false ; preparation-gaps reste à une action bloquante de couverture hebdomadaire et sept avertissements 10/15. Les cinq groupes de défauts RMC restent visibles dans le suivi.",
         "Les neuf événements Ciné+ Festival auparavant ouverts sont clos uniquement pour leurs quatre faits de grille. Le groupe Ciné+ demeure distinct dans la revue globale tant que les autres segments cinéma ne sont pas attestés.",
         "La source mensuelle cinéma payant reste non exhaustive par construction ; aucune grille, droit ou offre supplémentaire n’est certifié par cette réconciliation.",
-        "La comparaison Ciné+ ne certifie pas la couverture hebdomadaire : douze lignes restent à trier, tandis que 225 écarts horaires bruts sont conservés sans enquête systématique."
+        "La comparaison Ciné+ ne certifie pas la couverture hebdomadaire : douze lignes restent à trier, tandis que 225 écarts horaires bruts sont conservés sans enquête systématique.",
+        "full_week_reaudit_completed est attesté uniquement pour la revue applicable des omissions ; independent_crosscheck_complete reste faux et tous les contrôles de niveau 3 demeurent requis."
       ],
       "measurements": {
         "schedule_facts_corrected": {
@@ -34764,6 +35027,14 @@
         "pdf_grid_lines_compared_this_run": {
           "value": 339,
           "scope": "six chaînes Ciné+ sur sept pages ; 102 exactes, 225 présentes avec horaire divergent, 12 non rapprochées"
+        },
+        "level2_aliases_reconciled_this_run": {
+          "value": 10,
+          "scope": "lignes Ciné+ initialement non rapprochées, sans nouvelle carte ni réserve"
+        },
+        "level2_discoveries_excluded_this_run": {
+          "value": 2,
+          "scope": "programmes adultes/érotiques conservés comme lignes de couverture, hors shortlist et livrables"
         }
       }
     }
@@ -35438,7 +35709,7 @@
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Cinéma payant : le calendrier mensuel reste borné à huit premières diffusions. Comparaison des six chaînes Ciné+ au PDF fourni : 339 lignes relues, 102 heures exactes, 225 titres déjà inventoriés avec horaire divergent conservé, 12 lignes non rapprochées à trier (Les Frasques de l’héritière ; Le Goufre aux chimères ; Les Vacances de M. Hulot ; Island in the Sky ; Mon babysitter ; Trois Hommes et un coufin ; Goûter à l’audace ; Garçon chifon ; Green- land, le dernier refuge). Ne pas enquêter chaque écart brut ; approfondir seulement les omissions prometteuses et les propositions, avec droits, offres, expirations, versions et critique indépendante.",
+      "Cinéma payant : la revue applicable des omissions des six chaînes Ciné+ est achevée sur 339 lignes du PDF fourni (102 heures exactes, 225 titres présents avec horaire divergent, dix variantes de titre rapprochées, deux programmes adultes découverts puis écartés de la sélection, zéro omission résiduelle). Ne pas enquêter chaque écart brut ; poursuivre seulement les propositions et pistes prometteuses avec droits, offres, expirations, versions et critique indépendante.",
       "RMC Story/Découverte : l’absence de fournisseur EPG public n’est plus bloquante sous web_schedule_evidence. Sur 127 créneaux, 87 concordent exactement et 35 concordent sur série/date/heure mais gardent leurs épisodes Au cœur des douanes à identifier. Restent deux conflits de titre (10/10 06:05 ; 15/10 22:30), trois alias à confirmer et quatre ajouts du rappel à évaluer ; aucune indépendance amont n’est affirmée.",
       "TV5MONDE FBS : revue applicable des omissions achevée sur les sept colonnes du PDF fourni et 50 créneaux sauvegardés, sans affirmation d’indépendance amont. Identifier seulement les sujets propres d’Au bout de l’enquête (10/10 09:30 et 17:10 ; 11/10 14:38), de Temps présent (13/10 17:05 ; 14/10 09:50) et les épisodes génériques avant tout examen éditorial ; poursuivre séparément offres et expirations TV5MONDE+.",
       "TCM : revue applicable des omissions achevée sur 98 créneaux (78 lignes du PDF fourni visuellement relues, 20 créneaux concordants entre TV-Programme et Télérama.fr) ; aucune omission relevée et aucune indépendance amont affirmée. Poursuivre seulement l’enrichissement éditorial des documentaires et films prometteurs non encore retenus, sans rouvrir la provenance technique des grilles.",
@@ -36545,6 +36816,30 @@
       "blocking": true,
       "status": "partial_twelve_unmatched_pdf_lines",
       "resume_when": "Trier les 12 lignes sur identité et signal éditorial ; approfondir uniquement celles qui sont prometteuses ou nécessaires à la couverture."
+    },
+    {
+      "id": "run23-cineplus-alias-and-editorial-triage-2026-10-09",
+      "object": {
+        "channels": [
+          "Ciné+ Classic",
+          "Ciné+ Festival",
+          "Ciné+ OCS",
+          "Ciné+ Emotion",
+          "Ciné+ Frisson",
+          "Ciné+ Family"
+        ],
+        "lines_reviewed": 12
+      },
+      "question": "Les douze lignes non rapprochées sont-elles de vraies omissions éditoriales ?",
+      "attempted_at": "2026-10-09T22:54:56.812Z",
+      "source_urls": [
+        "https://www.cinematheque.fr/film/36885.html",
+        "https://www.larousse.fr/encyclopedie/film/Aventure_dans_le_Grand_Nord/976"
+      ],
+      "result": "Dix lignes rapprochées de l’inventaire par variantes certaines ; les deux lignes restantes sont conservées comme découvertes de couverture et exclues de la sélection comme programmes adultes sans signal éditorial. Zéro omission résiduelle sur le périmètre Ciné+ relu.",
+      "blocking_scope": null,
+      "blocking": false,
+      "status": "complete"
     }
   ],
   "shortlist": {
@@ -43095,6 +43390,221 @@
               490.83
             ],
             "status": "omission_requires_editorial_triage"
+          }
+        ]
+      }
+    },
+    {
+      "id": "run23-cineplus-twelve-line-triage",
+      "decided_at": "2026-10-09T22:54:56.812Z",
+      "decision": "ten_aliases_reconciled_two_discoveries_excluded_zero_omissions",
+      "previous_scope": "Cinéma payant : le calendrier mensuel reste borné à huit premières diffusions. Comparaison des six chaînes Ciné+ au PDF fourni : 339 lignes relues, 102 heures exactes, 225 titres déjà inventoriés avec horaire divergent conservé, 12 lignes non rapprochées à trier (Les Frasques de l’héritière ; Le Goufre aux chimères ; Les Vacances de M. Hulot ; Island in the Sky ; Mon babysitter ; Trois Hommes et un coufin ; Goûter à l’audace ; Garçon chifon ; Green- land, le dernier refuge). Ne pas enquêter chaque écart brut ; approfondir seulement les omissions prometteuses et les propositions, avec droits, offres, expirations, versions et critique indépendante.",
+      "current_scope": "Cinéma payant : la revue applicable des omissions des six chaînes Ciné+ est achevée sur 339 lignes du PDF fourni (102 heures exactes, 225 titres présents avec horaire divergent, dix variantes de titre rapprochées, deux programmes adultes découverts puis écartés de la sélection, zéro omission résiduelle). Ne pas enquêter chaque écart brut ; poursuivre seulement les propositions et pistes prometteuses avec droits, offres, expirations, versions et critique indépendante.",
+      "evidence": {
+        "resolved": [
+          {
+            "date": "2026-10-11",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Le Goufre aux chimères",
+            "pdf_start": "00:50",
+            "pdf_page": 102,
+            "bbox": [
+              400.66,
+              393.26,
+              475.91,
+              406.76
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "Le gouffre aux chimères",
+            "basis": "variante typographique évidente, même date et même chaîne",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          },
+          {
+            "date": "2026-10-11",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Les Vacances de M. Hulot",
+            "pdf_start": "18:20",
+            "pdf_page": 108,
+            "bbox": [
+              400.54,
+              182.16,
+              471.63,
+              195.66
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "Les Vacances de monsieur Hulot",
+            "basis": "abréviation typographique, même date et même chaîne",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          },
+          {
+            "date": "2026-10-13",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Island in the Sky",
+            "pdf_start": "11:10",
+            "pdf_page": 120,
+            "bbox": [
+              400.68,
+              85.5,
+              468.79,
+              99
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "Aventure dans le Grand Nord",
+            "basis": "titre original confirmé par la Cinémathèque française et Larousse",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          },
+          {
+            "date": "2026-10-14",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Le Goufre aux chimères",
+            "pdf_start": "17:10",
+            "pdf_page": 126,
+            "bbox": [
+              400.68,
+              176.5,
+              479.57,
+              183
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "Le gouffre aux chimères",
+            "basis": "variante typographique évidente, même date et même chaîne",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          },
+          {
+            "date": "2026-10-14",
+            "channel": "Ciné+ Classic",
+            "title_printed": "Les Vacances de M. Hulot",
+            "pdf_start": "22:40",
+            "pdf_page": 126,
+            "bbox": [
+              400.68,
+              352.71,
+              471.77,
+              366.21
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "Les Vacances de monsieur Hulot",
+            "basis": "abréviation typographique, même date et même chaîne",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          },
+          {
+            "date": "2026-10-14",
+            "channel": "Ciné+ Emotion",
+            "title_printed": "Mon babysitter",
+            "pdf_start": "20:50",
+            "pdf_page": 126,
+            "bbox": [
+              400.63,
+              547.56,
+              451.46,
+              561.06
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "Mon baby-sitter",
+            "basis": "variante de trait d’union, même date et même chaîne",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          },
+          {
+            "date": "2026-10-15",
+            "channel": "Ciné+ Family",
+            "title_printed": "Trois Hommes et un coufin",
+            "pdf_start": "20:50",
+            "pdf_page": 132,
+            "bbox": [
+              492.91,
+              568.55,
+              563.66,
+              582.05
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "3 hommes et un couffin",
+            "basis": "numéral et coquille de transcription rapprochés sur le même créneau",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          },
+          {
+            "date": "2026-10-16",
+            "channel": "Ciné+ Emotion",
+            "title_printed": "Mon babysitter",
+            "pdf_start": "19:20",
+            "pdf_page": 138,
+            "bbox": [
+              400.66,
+              526.47,
+              451.5,
+              539.97
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "Mon baby-sitter",
+            "basis": "variante de trait d’union, même date et même chaîne",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          },
+          {
+            "date": "2026-10-16",
+            "channel": "Ciné+ Festival",
+            "title_printed": "Garçon chifon",
+            "pdf_start": "03:50",
+            "pdf_page": 132,
+            "bbox": [
+              492.92,
+              418.97,
+              564.34,
+              432.47
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "Garçon chiffon",
+            "basis": "coquille de transcription rapprochée sur le même créneau",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          },
+          {
+            "date": "2026-10-16",
+            "channel": "Ciné+ Frisson",
+            "title_printed": "Green- land, le dernier refuge",
+            "pdf_start": "15:15",
+            "pdf_page": 138,
+            "bbox": [
+              308.4,
+              477.33,
+              380.27,
+              490.83
+            ],
+            "status": "resolved_alias_or_transcription_variant",
+            "inventory_title": "Greenland, le dernier refuge",
+            "basis": "césure de colonne rapprochée sur le même créneau",
+            "resolved_at": "2026-10-09T22:54:56.812Z"
+          }
+        ],
+        "excluded": [
+          {
+            "date": "2026-10-10",
+            "channel": "Ciné+ Frisson",
+            "title_printed": "Les Frasques de l’héritière",
+            "pdf_start": "23:55",
+            "pdf_page": 102,
+            "bbox": [
+              308.4,
+              604.58,
+              381.18,
+              618.08
+            ],
+            "status": "discovered_and_excluded_from_editorial_selection",
+            "resolved_at": "2026-10-09T22:54:56.812Z",
+            "decision_note": "Programme adulte/érotique découvert par le rappel PDF, sans signal éditorial justifiant une recommandation ou une réserve ; conservé comme ligne de couverture, hors shortlist et livrables."
+          },
+          {
+            "date": "2026-10-15",
+            "channel": "Ciné+ Frisson",
+            "title_printed": "Goûter à l’audace",
+            "pdf_start": "00:55",
+            "pdf_page": 126,
+            "bbox": [
+              308.38,
+              632.8,
+              366.8,
+              646.3
+            ],
+            "status": "discovered_and_excluded_from_editorial_selection",
+            "resolved_at": "2026-10-09T22:54:56.812Z",
+            "decision_note": "Programme adulte/érotique découvert par le rappel PDF, sans signal éditorial justifiant une recommandation ou une réserve ; conservé comme ligne de couverture, hors shortlist et livrables."
           }
         ]
       }
