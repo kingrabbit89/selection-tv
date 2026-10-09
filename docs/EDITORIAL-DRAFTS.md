@@ -9,6 +9,20 @@ Le producteur décide lui-même des identités, versions, titres retenus, rangs,
 synopsis et justifications. Aucun score, titre ou métadonnée n'est déduit par
 l'outil. Une correspondance de titre avec le catalogue n'autorise pas la réutilisation.
 
+Pour préparer un lot, extraire plusieurs dossiers dans un seul appel :
+
+```sh
+node scripts/editorial-work-packet.mjs YYYY-Sxx --ref SHA_CANDIDATE --compact \
+  --title "Premier titre exact" --title "Deuxième titre exact"
+```
+
+Le mode plusieurs titres accepte jusqu'à huit titres, lit une seule fois les
+fichiers au même SHA et affiche le contexte partagé une fois. Chaque dossier
+garde ses preuves, versions possibles, tentatives et avertissements historiques.
+Un seul `--title` garde le format précédent. Achever les seuls champs manquants
+ou périssables, puis réunir les cartes réellement revues dans un même plan ;
+une piste bloquée ne doit pas retarder les autres.
+
 ## Utilisation
 
 1. Sous le bail éditorial, lire le SHA actuel de la candidate et les paquets des
