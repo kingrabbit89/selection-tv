@@ -30,7 +30,7 @@ ambiguë imposent une revue, pas un choix automatique.
 
 Cette autorité ne s’étend ni aux offres replay, expirations, images ou critiques,
 ni aux métadonnées/version non prouvées par la ligne. Sans PDF pour la cible,
-les règles ci-dessous s’appliquent sans changement.
+le parcours Web ci-dessous permet de terminer sans attendre de magazine.
 
 ## Évaluer les sources
 
@@ -42,7 +42,7 @@ les faits comparés et les limites. Distinguer trois conclusions :
 |---|---|
 | Indépendance établie | Expliquer une base positive de provenance ou d'acquisition distincte et sa portée. |
 | Flux commun établi | Conserver la preuve de cette dépendance ; ces deux reprises ne comptent pas comme deux sources. |
-| Provenance inconnue | Conserver l'incertitude et rechercher une base positive différente ; ne certifier ni indépendance ni flux commun. |
+| Provenance inconnue | Conserver l’incertitude ; elle ne bloque pas seule le recoupement concordant ou la revue des omissions décrits ci-dessous. Ne certifier ni indépendance ni flux commun. |
 
 Le nom public du fournisseur EPG n'est pas une condition universelle. La base
 positive peut être une provenance publiée, une acquisition originale documentée
@@ -59,18 +59,55 @@ l'origine indépendante de tous ses horaires. La portée de chaque preuve compte
 Le niveau 2 est une seconde lecture des jours, chaînes et nuits pour détecter
 les omissions. Il ne demande pas de certifier individuellement chaque créneau
 brut. Une chaîne/date/nuit réellement non relue reste une lacune bloquante.
-Une provenance inconnue ne devient pas une seconde source indépendante ; la grille PDF choisie par l’utilisateur peut toutefois servir à la seconde lecture des omissions selon la règle précédente.
+Une provenance inconnue ne devient pas une seconde source indépendante. Elle ne bloque pas seule la revue des omissions, avec ou sans PDF. La seconde lecture compare réellement les grilles complètes au relevé, en utilisant un autre guide lorsqu’il est accessible et en consignant les limites d’une lecture de référence unique. Les jours, chaînes et nuits non lus restent des lacunes réelles.
 
 Au niveau 3, les quatre faits imprimés d’une ligne du PDF fourni peuvent être
 acceptés après revue de transcription selon la règle précédente. Hors de ce
-périmètre, une diffusion reste vérifiée par une source officielle ou deux
-grilles dont l’indépendance est établie. Une preuve peut se composer de
+périmètre, une diffusion est vérifiée par une preuve officielle exacte ou par
+deux guides actuels d’éditeurs distincts réellement lus et concordants sur
+titre, chaîne, date et heure du même événement et du bon flux géographique.
+Une provenance technique inconnue reste consignée ; cette nouvelle voie est
+un recoupement concordant, pas un certificat d’indépendance. Un flux commun
+démontré compte une seule référence. Une correction officielle exacte et
+datée prévaut ; tout écart matériel reste à résoudre ou la carte à remplacer. Une preuve peut se composer de
 plusieurs pièces complémentaires si elles désignent exactement le même événement
 et la même identité/version : expliciter les liens et les champs réellement
 prouvés. Ne jamais exiger sans justification que tous les champs soient réunis
 dans un unique objet JSON. Un rapprochement de titre, une attribution de chaîne
 générale ou un horaire concordant sans lien démontré ne suffit pas à compléter
 un champ officiel absent.
+
+## Achever la revue Web sans magazine
+
+La configuration `web_schedule_evidence` introduit explicitement la voie de
+recoupement concordant à partir de S42. Deux guides peuvent reproduire la
+même erreur ; enregistrer cette limite et rechercher une correction officielle
+si un écart ou une anomalie l’exige, sans prétendre avoir prouvé leur indépendance.
+La disponibilité de Télérama ou d’une provenance EPG publiée n’est plus une
+condition de clôture.
+
+La seconde lecture des omissions couvre réellement jours, chaînes et nuits.
+Consigner dans `coverage.web_schedule_reviews` : dates, chaînes, flux, URLs ou
+captures, dates réelles de consultation et de revue, segments relus, comparaison
+avec l’inventaire, omissions examinées, décisions motivées et limites. Comparer
+un autre guide lorsqu’il est accessible. Avec une seule grille complète pour
+une chaîne, relire son contenu contre l’inventaire lors d’une revue distincte
+de l’extraction et documenter cette portée ; aucune page ou nuit manquante
+n’est déclarée couverte. Le rappel éditorial utilise les sources critiques et
+les découvertes disponibles, sans exiger un magazine ou des notes indisponibles.
+
+Garder `independent_crosscheck_complete` faux si l’indépendance est inconnue.
+Déclarer `full_week_reaudit_completed` uniquement après achèvement réel de toute
+la revue applicable, avec la méthode et ses limites sauvegardées. Les autres
+champs, quotas, offres, versions, visuels, liens et contrôles de publication
+conservent leurs exigences. Une ancienne attente portant uniquement sur
+l’amont technique est réconciliée sur cette règle ; les manques factuels et
+les segments non lus demeurent dans `remaining`.
+
+Pour une carte dont les faits ne sont pas suffisamment établis après recherche
+ciblée et alternative distincte, constituer et intégrer un remplacement vérifié
+pour son emplacement. Ne pas suspendre tout le numéro sur une proposition
+remplaçable, ni retirer une vraie exigence sans preuve ou remplacement.
 
 ## Revoir l'impact des écarts
 
@@ -144,7 +181,8 @@ checkpoint immuable et ne modifie aucun fichier de candidate. Il conserve
 
 Les révisions `production-proof-policy-2026-10-09` et
 `production-telerama-authority-2026-10-09` et
-`production-telerama-first-suggestions-2026-10-09` du contrôleur privilégient le
+`production-telerama-first-suggestions-2026-10-09` et
+`production-web-evidence-2026-10-09` du contrôleur privilégient le
 prochain lot du passage courant et proposent les actions accessibles. Les
 attentes demeurent visibles et les exigences demeurent dans `remaining`.
 Leur suspension ne vaut ni résolution, ni attestation de couverture, ni
