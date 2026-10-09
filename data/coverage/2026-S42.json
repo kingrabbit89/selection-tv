@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "partial",
-  "updated_at": "2026-10-09T10:08:10.627Z",
+  "updated_at": "2026-10-09T10:18:50.361Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -14224,7 +14224,7 @@
         "channel": "Ciné+ Classic",
         "date": "2026-10-12",
         "start": "12:02",
-        "decision": "à vérifier",
+        "decision": "réserve complète lundi",
         "availability_source": "https://tv-programme.com/cine-plus-classic/lundi-12-octobre-2026/",
         "identity_research": {
           "director": "Laurent Bouzereau",
@@ -14235,8 +14235,22 @@
             "https://www.eyeforfilm.co.uk/review/becoming-hitchcock-the-legacy-of-blackmail-2024-film-review-by-amber-wilkinson"
           ],
           "checked_at": "2026-10-08T13:16:22Z",
-          "canonical_work_id": null,
-          "catalogue_match": "aucun dans works.json courant"
+          "canonical_work_id": "becoming-hitchcock-the-legacy-of-blackmail-2024",
+          "catalogue_match": "becoming-hitchcock-the-legacy-of-blackmail-2024",
+          "country": "France",
+          "duration_observations": [
+            {
+              "duration": "68 min",
+              "version": "version CANAL+ de diffusion",
+              "source_url": "https://www.canalplus.com/cinema/becoming-hitchcock-the-legacy-of-blackmail/h/27531750_50002"
+            },
+            {
+              "duration": "72 min",
+              "version": "version IMDb / fiche VOD CANAL+",
+              "source_url": "https://www.imdb.com/title/tt33583006/"
+            }
+          ],
+          "note": "Identité certaine ; la réserve emploie la version CANAL+ 68 min propre à la diffusion, sans assimiler les fiches 70/72 min."
         },
         "version_note": "CANAL+ 68 min, SensCritique 1h10, Filmuforia/Rotten Tomatoes 72 min. Ne pas considérer ces durées comme une même version certifiée.",
         "critical_evidence": [
@@ -14270,24 +14284,36 @@
           "note": "Début officiel du 12 octobre à 12:02 concordant, mais chaîne absente de BroadcastEvent. Abonnement, droits, lecture et expiration replay non certifiés. Article TCM américain utilisé pour l'identité, pas pour l'offre française."
         },
         "ratings_research": {
-          "checked_at": "2026-10-08T13:16:22Z",
-          "status": "needs_check",
-          "imdb_id": "tt33583006",
-          "imdb_access": "HTTP 403, aucun contournement",
-          "rotten_tomatoes": {
-            "source_url": "https://www.rottentomatoes.com/m/becoming_hitchcock_the_legacy_of_blackmail",
-            "critic_reviews": 0,
-            "audience_ratings": 0,
-            "aggregate": null,
-            "note": "Page consultée sans agrégat. Cela ne signifie pas absence de critiques indépendantes : deux sont lues."
-          },
-          "senscritique": {
-            "source_url": "https://www.senscritique.com/film/becoming_hitchcock_the_legacy_of_blackmail/101714437",
-            "aggregate": null,
-            "note": "Aucune moyenne affichée dans le contenu lu ; les compteurs 19/7/0 et l'échelle Ma note ne sont pas une note moyenne."
-          }
+          "checked_at": "2026-10-09T10:18:50.361Z",
+          "status": "verified_dynamic",
+          "source_urls": [
+            "https://www.imdb.com/title/tt33583006/"
+          ],
+          "note": "IMDb affiche 7,2/10 pour 371 votes. Rotten Tomatoes et SensCritique restent sans moyenne exploitable dans les lectures déjà sauvegardées."
         },
-        "reason": "Réception contrastée réellement documentée ; aucun consensus. Version, chaîne/diffusion complète, droits, notes, affiche et arbitrage éditorial encore à vérifier."
+        "reason": "Identité, version de diffusion, créneau actuel, réception contrastée, note datée, affiche, liens et textes sont vérifiés ; carte complète ajoutée au pool du lundi en rang 4.",
+        "work_id": "becoming-hitchcock-the-legacy-of-blackmail-2024",
+        "broadcast_research": {
+          "date": "2026-10-12",
+          "start": "12:02",
+          "channel": "Ciné+ Classic",
+          "checked_at": "2026-10-09T10:18:50.361Z",
+          "source_urls": [
+            "https://www.canalplus.com/cinema/becoming-hitchcock-the-legacy-of-blackmail/h/27531750_50002",
+            "https://tv-programme.com/cine-plus-classic/lundi-12-octobre-2026/",
+            "https://www.programme-television.org/tv/chaines/cine-classic/lundi"
+          ],
+          "status": "verified_for_candidate",
+          "note": "Le BroadcastEvent CANAL+ sauvegardé fixe lundi 12 octobre à 12:02 ; les grilles datées concordent et nomment Ciné+ Classic. Expires de l’événement ne vaut pas expiration replay."
+        },
+        "image_research": {
+          "checked_at": "2026-10-09T10:18:50.361Z",
+          "source_page": "https://www.primevideo.com/-/nl/detail/Becoming-Hitchcock-The-Legacy-of-Blackmail/0U22LYO06VR719K9HK947SBRBE",
+          "image_url": "https://m.media-amazon.com/images/S/pv-target-images/97ef37c4981f65db8d4a134617dcbfa3d91343424551ddaead8252e384cbd627.jpg",
+          "status": "poster_visually_verified_ci_pending",
+          "visually_checked": true,
+          "note": "Affiche exacte inspectée, titre anglais lisible ; contrôle distant CI encore requis."
+        }
       },
       {
         "title": "Regrouping",
