@@ -25310,6 +25310,39 @@
       },
       "evidence_note": "Canal+ et la grille sauvegardée confirment la diffusion ; Unifrance, Canal+, IMDb et Cineuropa recoupent l’identité. Le visuel Unifrance crédité Marie Rouge a été ouvert. IMDb et la revue de presse AlloCiné ont été relus le 9 octobre ; les réserves critiques attribuées sont conservées sans consensus inventé.",
       "status": "verified_for_card"
+    },
+    {
+      "work_id": "disciples-2026",
+      "fields": [
+        "identity",
+        "version",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "duration",
+        "availability",
+        "image",
+        "ratings_unavailability",
+        "editorial_reception"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/117210-000-A/inde-une-enfance-sous-influence/",
+        "https://api.arte.tv/api/player/v2/config/fr/117210-000-A",
+        "https://www.imdb.com/title/tt42204122/",
+        "https://www.filmdienst.de/film/details/627182/kindheit-unter-einfluss",
+        "https://www.theguardian.com/film/2026/aug/24/disciples-review-india",
+        "https://letterboxd.com/film/disciples-2026/details/"
+      ],
+      "checked_at": "2026-10-09T17:17:00.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "mercredi",
+        "rank": 7,
+        "broadcast": "2026-10-14 00:45 Arte"
+      },
+      "evidence_note": "Arte confirme le créneau, la version de 3 302 secondes et les droits ; Filmdienst, Letterboxd et IMDbPro recoupent Disciples et la version cinéma 81 min. Le photogramme officiel a été téléchargé et inspecté. Guardian et Télérama apportent des appréciations attribuées ; aucune note homonyme n’est reprise.",
+      "status": "verified_for_card"
     }
   ],
   "run_metrics": [
@@ -29816,7 +29849,8 @@
         "sync-main-cd97e36-telerama-inputs-2026-10-09",
         "run-dataflow-with-saved-telerama-2026-10-09",
         "append-reviewed-sunday-vermines-reserve-2026-10-09",
-        "append-reviewed-tuesday-la-maison-des-femmes-reserve-2026-10-09"
+        "append-reviewed-tuesday-la-maison-des-femmes-reserve-2026-10-09",
+        "append-reviewed-wednesday-inde-enfance-reserve-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -29824,30 +29858,30 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ],
-      "complete_cards": 109,
-      "cards_integrated_this_run": 2,
+      "complete_cards": 110,
+      "cards_integrated_this_run": 3,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "measurements": {
         "complete_cards": {
-          "value": 109,
-          "scope": "stock après checkpoint : 107 positions héritées et deux réserves complètes ajoutées pendant ce passage"
+          "value": 110,
+          "scope": "stock après checkpoint : 107 positions héritées et trois réserves complètes ajoutées pendant ce passage"
         },
         "new_works": {
-          "value": 2,
-          "scope": "Vermines (2023) et La Maison des femmes (production 2025) ajoutés au catalogue canonique pendant ce passage"
+          "value": 3,
+          "scope": "Vermines (2023), La Maison des femmes (production 2025) et Disciples (2026) ajoutés au catalogue canonique pendant ce passage"
         },
         "visible_cards": {
           "value": 0,
           "scope": "la position ajoutée est une réserve cachée, sans changement des trois choix visibles"
         },
         "additional_reserve_placements": {
-          "value": 2,
-          "scope": "une réserve quotidienne distincte ajoutée au dimanche et une au mardi"
+          "value": 3,
+          "scope": "une réserve quotidienne distincte ajoutée au dimanche, une au mardi et une au mercredi"
         },
         "additional_distinct_reserve_work_ids": {
-          "value": 2,
-          "scope": "vermines-2023 et la-maison-des-femmes-2025, absents de la tête de départ du passage"
+          "value": 3,
+          "scope": "vermines-2023, la-maison-des-femmes-2025 et disciples-2026, absents de la tête de départ du passage"
         },
         "stable_reuses": {
           "value": 0,
@@ -29858,7 +29892,7 @@
         "dimanche-selection : minimum de dix cartes complètes atteint avec Vermines, diffusion France 2, identité, version, visuel, réception et avertissement -12 contrôlés sans déclarer de pénurie"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter encore trois réserves mardi et quatre mercredi/jeudi, puis remplacer les cinq doublons popular_deep.",
+      "next_useful_batch": "Compléter encore trois réserves mardi et trois mercredi, quatre jeudi, puis remplacer les cinq doublons popular_deep.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -29910,29 +29944,65 @@
             "lease_until": "2026-10-09T17:56:59.951Z",
             "external_stop": null,
             "ready_handoff": null
+          },
+          "elapsed_seconds": 717.388
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T17:13:59.540Z",
+          "elapsed_seconds": 1082.043,
+          "prompt_revision": "production-telerama-editorial-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "6737d9463309d0ba4f48672ff062e6c29f5e63ef",
+          "next_actions": [
+            "Compléter encore trois réserves mardi et quatre mercredi/jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
+            "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T16:55:57.497Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T17:56:59.951Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
           }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T17:07:54.885Z",
+        "observed_at": "2026-10-09T17:13:59.540Z",
+        "elapsed_seconds": 1082.043,
         "prompt_revision": "production-telerama-editorial-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "6d2da993e74d147873e304b0aa77fe715f3aaac4",
+        "source_sha": "6737d9463309d0ba4f48672ff062e6c29f5e63ef",
         "next_actions": [
-          "Compléter mardi, mercredi et jeudi avec quatre cartes chacun depuis les dossiers avancés et les signaux Télérama.",
+          "Compléter encore trois réserves mardi et quatre mercredi/jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
           "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
-          "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes."
+          "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
+          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+          "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
         ],
         "remaining_count": 35,
+        "next_actions_total": 38,
+        "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
         "observations": {
           "started_at": "2026-10-09T16:55:57.497Z",
           "lease_owned": "yes",
           "lease_until": "2026-10-09T17:56:59.951Z",
           "external_stop": null,
+          "accessible_task_checks": [],
           "ready_handoff": null
         }
       },
@@ -29951,13 +30021,19 @@
           "started_at": "2026-10-09T17:07:54.885Z",
           "ended_at": "2026-10-09T17:11:51.046Z",
           "note": "Flow relu au SHA sauvegardé, dossier La Maison des femmes complété depuis les preuves Canal+, Unifrance, IMDb, AlloCiné, Cineuropa et le signal Télérama préparé ; carte de réserve mardi contrôlée."
+        },
+        "wednesday_reserve_batch_1": {
+          "started_at": "2026-10-09T17:13:59.540Z",
+          "ended_at": "2026-10-09T17:17:44.762Z",
+          "note": "Dossier Disciples/Inde, une enfance sous influence complété depuis Arte, son API lecteur, Filmdienst, IMDbPro, Letterboxd, Guardian et le signal Télérama préparé ; version Arte 56 min séparée du montage cinéma 81 min."
         }
       },
       "control_notes": [
         "Le supplément Télérama sauvegardé expose 1 333 observations et 41 critiques relues, dont 30 rapprochées exactement ; il reste un signal éditorial et ne certifie pas les diffusions.",
         "Toba n’a pas été sauvegardé en carte : son ajout aurait abaissé la fraîcheur des réserves à 79 %, sous le seuil contractuel de 80 %.",
         "Vermines porte la durée de copie 105/106 min séparément du créneau France 2 de 102 min ; aucune contradiction n’a été résolue par simple proximité.",
-        "La Maison des femmes conserve séparément la production 2025, la sortie France 2026 et la divergence de métadonnée Canal+ 105/110 min ; la carte retient la durée canonique Unifrance de 110 min sans assimiler la proximité du créneau à une version."
+        "La Maison des femmes conserve séparément la production 2025, la sortie France 2026 et la divergence de métadonnée Canal+ 105/110 min ; la carte retient la durée canonique Unifrance de 110 min sans assimiler la proximité du créneau à une version.",
+        "Inde, une enfance sous influence utilise le photogramme exact renvoyé par l’API Arte et conserve distincts le flux Arte de 3 302 secondes et la version cinéma de 81 minutes."
       ]
     }
   ],
@@ -30615,11 +30691,11 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "6d2da993e74d147873e304b0aa77fe715f3aaac4",
+    "checkpoint_parent_sha": "6737d9463309d0ba4f48672ff062e6c29f5e63ef",
     "main_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Compléter encore trois réserves mardi et quatre mercredi/jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
+      "Compléter encore trois réserves mardi et trois mercredi, puis quatre jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
       "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
       "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes."
     ],
@@ -31149,7 +31225,7 @@
     }
   ],
   "shortlist": {
-    "updated_at": "2026-10-09T17:11:51.046Z",
+    "updated_at": "2026-10-09T17:17:44.762Z",
     "note": "Présélection révisable par jour et rubrique ; premières cartes plateformes gratuites intégrées depuis les dossiers acquis. Aucun statut ne certifie la sélection finale du numéro.",
     "entries": [
       {
@@ -33841,6 +33917,24 @@
           }
         ],
         "decision_note": "Réserve complète rang 7 ; production 2025 et sortie 2026 distinguées, durée canonique Unifrance 110 min retenue et ancienne métadonnée Canal+ 105 min conservée comme divergence.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-mercredi-inde-enfance-reserve",
+        "title": "Inde, une enfance sous influence",
+        "work_id": "disciples-2026",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique_et_diffusion",
+            "note": "Télérama décrit une observation sobre et glaçante de l’endoctrinement ; Arte confirme mercredi 14 octobre à 00:45 et les droits jusqu’en avril 2027.",
+            "source_url": "https://www.arte.tv/fr/videos/117210-000-A/inde-une-enfance-sous-influence/"
+          }
+        ],
+        "decision_note": "Réserve complète rang 7 ; version Arte 56 min distinguée du montage cinéma Disciples de 81 min, sans note homonyme reprise.",
         "alternatives": []
       }
     ]
