@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "partial",
-  "updated_at": "2026-10-09T08:43:38.319Z",
+  "updated_at": "2026-10-09T08:48:34.038Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -17188,6 +17188,130 @@
           "not_yet_publication_ready": [
             "Achever le troisième choix et les réserves du lundi",
             "Recontrôler diffusion, offre, note et visuel au préflight",
+            "Achever les 35 exigences conservées dans remaining"
+          ]
+        }
+      },
+      {
+        "title": "Restore Point",
+        "work_id": "restore-point",
+        "catalogue_match": "entrée historique incomplète enrichie et normalisée dans works.json",
+        "decision": "carte développée lundi — rang 3 ; réserves et préflight encore ouverts",
+        "reason": "Diffusion officielle et grille datée concordantes. Identité, versions divergentes, réception contrastée, note, liens et affiche sont documentés.",
+        "identity_research": {
+          "original_title": "Bod obnovy",
+          "director": "Robert Hloz",
+          "year": 2023,
+          "countries": [
+            "Tchéquie",
+            "Slovaquie",
+            "Pologne",
+            "Serbie"
+          ],
+          "type": "long métrage",
+          "canonical_work_id": "restore-point",
+          "status": "verified",
+          "checked_at": "2026-10-09T08:46:33.905Z",
+          "source_urls": [
+            "https://www.kviff.com/en/programme/film/63/40704-restore-point",
+            "https://www.canalplus.com/cinema/restore-point/h/28871937_50001/resume-casting/",
+            "https://www.imdb.com/title/tt9362492/",
+            "https://www.senscritique.com/film/restore_point/56497992",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=299343.html"
+          ],
+          "duration_observations": [
+            {
+              "minutes": 109,
+              "version": "version CANAL+ France ciblée",
+              "source_url": "https://www.canalplus.com/cinema/restore-point/h/28871937_50001/resume-casting/"
+            },
+            {
+              "minutes": 111,
+              "version": "version KVIFF 2023",
+              "source_url": "https://www.kviff.com/en/programme/film/63/40704-restore-point"
+            },
+            {
+              "minutes": 100,
+              "version": "fiche SensCritique, version non précisée",
+              "source_url": "https://www.senscritique.com/film/restore_point/56497992"
+            }
+          ],
+          "note": "La carte cible la version CANAL+ de 109 minutes ; les écarts 100/111 minutes restent conservés."
+        },
+        "critical_evidence": [
+          {
+            "source": "Variety",
+            "source_url": "https://variety.com/2023/film/reviews/restore-point-review-1235663910/",
+            "kind": "professional_review",
+            "access": "full",
+            "checked_at": "2026-10-09T08:46:33.905Z",
+            "assessment": "Salue l’habileté de la mise en scène, l’efficacité du récit et la portée internationale d’une science-fiction tchèque aux moyens maîtrisés."
+          },
+          {
+            "source": "Screen Daily",
+            "source_url": "https://www.screendaily.com/reviews/restore-point-karlovy-vary-review/5183493.article",
+            "kind": "professional_review",
+            "access": "partial",
+            "checked_at": "2026-10-09T08:46:33.905Z",
+            "assessment": "Met en avant l’ambition du concept et le style visuel du thriller ; lecture partielle conservée comme telle."
+          },
+          {
+            "source": "The Guardian",
+            "author": "Phil Hoad",
+            "published_at": "2024-03-26",
+            "source_url": "https://www.theguardian.com/film/2024/mar/26/restore-point-review-czech-blade-runner-is-a-valiant-attempt-to-satisfy-cyber-noir-cravings",
+            "kind": "professional_review",
+            "access": "full",
+            "checked_at": "2026-10-09T08:46:33.905Z",
+            "assessment": "Reconnaît la réussite visuelle mais juge le récit trop complexe, les performances froides et la réflexion trop dépendante de Blade Runner et Minority Report."
+          }
+        ],
+        "ratings_research": {
+          "status": "verified_dynamic",
+          "checked_at": "2026-10-09T08:46:33.905Z",
+          "source_urls": [
+            "https://www.imdb.com/title/tt9362492/ratings/",
+            "https://www.senscritique.com/film/restore_point/56497992"
+          ],
+          "note": "IMDb affichait 6,1/10 sur environ 3 600 votes ; SensCritique 5,7. Seule la note IMDb prévue par la carte est publiée."
+        },
+        "broadcast_research": {
+          "date": "2026-10-12",
+          "start": "00:30",
+          "channel": "Canal+",
+          "checked_at": "2026-10-09T08:46:33.905Z",
+          "status": "verified_official_plus_dated_grid",
+          "source_urls": [
+            "https://tv-programme.com/canal-plus/lundi-12-octobre-2026/",
+            "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+            "https://www.canalplus.com/cinema/restore-point/h/28871937_50001/resume-casting/"
+          ],
+          "note": "Lundi 12 octobre à 00:30 sur Canal+, concordance exacte entre la grille datée et le PDF mensuel officiel déjà inspecté."
+        },
+        "image_research": {
+          "checked_at": "2026-10-09T08:46:33.905Z",
+          "source_page": "https://www.xyzfilms.com/films/",
+          "image_url": "https://images.squarespace-cdn.com/content/v1/609bfa37471bc403ef734432/f3155ce5-e4cd-459d-9a01-26a83f3536aa/Restore%2BPoint%2BPoster.jpg",
+          "status": "official_sales_poster_visually_verified_ci_pending",
+          "visually_checked": true,
+          "note": "Affiche exacte publiée par XYZ Films, ouverte et inspectée ; santé distante soumise au CI."
+        },
+        "dossier_completeness": {
+          "status": "complete_for_draft_card",
+          "completed_at": "2026-10-09T08:46:33.905Z",
+          "fields": {
+            "identity": "verified",
+            "current_broadcast": "verified_official_plus_dated_grid",
+            "version": "targeted_canal_109min_conflicts_preserved",
+            "critical_reception": "verified_with_reservation",
+            "ratings": "verified_and_dated",
+            "image": "visually_verified_ci_pending",
+            "links": "direct_exact_links_verified",
+            "editorial_copy": "drafted_and_reviewed_for_this_batch"
+          },
+          "not_yet_publication_ready": [
+            "Construire les réserves complètes du lundi",
+            "Recontrôler diffusion, note et visuel au préflight",
             "Achever les 35 exigences conservées dans remaining"
           ]
         }

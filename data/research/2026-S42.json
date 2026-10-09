@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "week": "2026-S42",
-  "base_sha": "c013bed26ecddb68622f1c81c1f0e4f898ae9330",
+  "base_sha": "018433005ec07f2d8900af044f82dede06d49a28",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T08:43:38.319Z",
+  "updated_at": "2026-10-09T08:48:34.038Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -502,7 +502,8 @@
       "description": "The Host a reçu une identité canonique, une diffusion France 4 officielle recoupée, deux lectures critiques, une note datée, des liens exacts et une affiche du distributeur ; le jeudi expose désormais trois choix développés.",
       "items": 1
     },
-    "complete-monday-les-maries-de-l-an-ii-second-choice-2026-10-09"
+    "complete-monday-les-maries-de-l-an-ii-second-choice-2026-10-09",
+    "complete-monday-restore-point-third-choice-2026-10-09"
   ],
   "blockers": [
     {
@@ -20189,6 +20190,78 @@
       "applies_to": "note et visuel utilisés dans la carte S42",
       "evidence_note": "SensCritique 6,4 ; affiche française exacte inspectée, santé distante encore soumise au CI.",
       "status": "verified"
+    },
+    {
+      "work_id": "restore-point",
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "countries",
+        "duration",
+        "version"
+      ],
+      "source_urls": [
+        "https://www.kviff.com/en/programme/film/63/40704-restore-point",
+        "https://www.canalplus.com/cinema/restore-point/h/28871937_50001/resume-casting/",
+        "https://www.senscritique.com/film/restore_point/56497992"
+      ],
+      "checked_at": "2026-10-09T08:46:33.905Z",
+      "stability": "stable",
+      "applies_to": "film 2023 et version CANAL+ S42",
+      "evidence_note": "Identité certaine ; version CANAL+ 109 min ciblée, écarts KVIFF 111 min et SensCritique 100 min conservés.",
+      "status": "verified"
+    },
+    {
+      "work_id": "restore-point",
+      "fields": [
+        "broadcast_date",
+        "broadcast_start",
+        "channel"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/canal-plus/lundi-12-octobre-2026/",
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
+      ],
+      "checked_at": "2026-10-09T08:46:33.905Z",
+      "stability": "dynamic",
+      "applies_to": "diffusion Canal+ 2026-S42",
+      "evidence_note": "Date, heure, chaîne et titre concordants ; préflight encore requis.",
+      "status": "verified"
+    },
+    {
+      "work_id": "restore-point",
+      "fields": [
+        "critical_reception",
+        "editorial_reservations"
+      ],
+      "source_urls": [
+        "https://variety.com/2023/film/reviews/restore-point-review-1235663910/",
+        "https://www.screendaily.com/reviews/restore-point-karlovy-vary-review/5183493.article",
+        "https://www.theguardian.com/film/2024/mar/26/restore-point-review-czech-blade-runner-is-a-valiant-attempt-to-satisfy-cyber-noir-cravings"
+      ],
+      "checked_at": "2026-10-09T08:46:33.905Z",
+      "stability": "stable",
+      "applies_to": "réception du film 2023",
+      "evidence_note": "Ambition visuelle et efficacité reconnues ; emprunts, froideur et complexité conservés en réserve.",
+      "status": "verified"
+    },
+    {
+      "work_id": "restore-point",
+      "fields": [
+        "rating",
+        "poster",
+        "poster_provenance"
+      ],
+      "source_urls": [
+        "https://www.imdb.com/title/tt9362492/ratings/",
+        "https://www.xyzfilms.com/films/"
+      ],
+      "checked_at": "2026-10-09T08:46:33.905Z",
+      "stability": "dynamic",
+      "applies_to": "note et visuel de la carte S42",
+      "evidence_note": "IMDb 6,1 ; affiche XYZ Films inspectée, santé distante encore soumise au CI.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -21181,19 +21254,20 @@
       "next_useful_batch": "Finaliser le troisième choix du jeudi avec diffusion propre au cycle entièrement recoupée, puis poursuivre lundi ou mercredi."
     },
     {
-      "date": "2026-10-09T08:43:38.319Z",
+      "date": "2026-10-09T08:48:34.038Z",
       "started_at": "2026-10-09T08:28:29.664Z",
       "ended_at": null,
       "owner": "7f9c1d7e-16ae-47a1-840a-afac3ba16831",
       "execution_kind": "scheduled_continuation_production",
       "prompt_revision": "production-continuation-2026-10-09",
       "stage": "enrichment",
-      "elapsed_seconds": 909,
-      "duration_basis": "started_at capturé à l’entrée ; checkpoint intermédiaire après synchronisation de main et deux cartes développées complètes.",
+      "elapsed_seconds": 1204,
+      "duration_basis": "started_at capturé à l’entrée ; checkpoint intermédiaire après synchronisation de main et trois cartes développées complètes.",
       "completed_batches": [
         "synchronize-main-eadfd023",
         "complete-thursday-the-host-third-choice-2026-10-09",
-        "complete-monday-les-maries-de-l-an-ii-second-choice-2026-10-09"
+        "complete-monday-les-maries-de-l-an-ii-second-choice-2026-10-09",
+        "complete-monday-restore-point-third-choice-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -21202,7 +21276,7 @@
         "data/coverage/2026-S42.json",
         "data/research/2026-S42.json"
       ],
-      "complete_cards": 2,
+      "complete_cards": 3,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "deliverables_advanced": [
@@ -21215,7 +21289,8 @@
       ],
       "requirements_resolved": [
         "jeudi : troisième choix développé complet matérialisé",
-        "lundi : deuxième choix développé complet matérialisé"
+        "lundi : deuxième choix développé complet matérialisé",
+        "lundi : exactement trois choix développés complets matérialisés"
       ],
       "remaining": {
         "stage": "enrichment",
@@ -21278,27 +21353,55 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T08:44:53.702Z",
+          "elapsed_seconds": 984.038,
+          "budget_seconds": 2100,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "018433005ec07f2d8900af044f82dede06d49a28",
+          "next_actions": [
+            "Achever le troisième choix développé du lundi depuis une piste dont diffusion, version, réception, visuel et fraîcheur peuvent être complètement vérifiés.",
+            "Achever deux choix développés du mercredi depuis la shortlist et les dossiers proches d’une carte.",
+            "Construire les réserves complètes des jours à trois choix, sans nouvelle collecte générale.",
+            "Produire les rubriques indépendantes encore absentes et consolider les recoupements/rappels ; préserver toutes les exigences ouvertes jusqu’à résolution effective.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 39,
+          "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T08:28:29.664Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T09:29:26.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T08:39:37.997Z",
-        "elapsed_seconds": 668.333,
+        "observed_at": "2026-10-09T08:44:53.702Z",
+        "elapsed_seconds": 984.038,
         "budget_seconds": 2100,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "c013bed26ecddb68622f1c81c1f0e4f898ae9330",
+        "source_sha": "018433005ec07f2d8900af044f82dede06d49a28",
         "next_actions": [
-          "Achever deux choix développés pour lundi et mercredi à partir de la shortlist et de dossiers proches d’une carte ; préserver les limites de diffusion/version déjà consignées.",
-          "Construire les réserves complètes des jours à trois choix puis du jeudi, sans nouvelle collecte générale.",
-          "Produire les rubriques indépendantes encore absentes et consolider les recoupements/rappels ; préserver les 35 exigences jusqu’à résolution effective.",
-          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
-          "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          "Achever le troisième choix développé du lundi depuis une piste dont diffusion, version, réception, visuel et fraîcheur peuvent être complètement vérifiés.",
+          "Achever deux choix développés du mercredi depuis la shortlist et les dossiers proches d’une carte.",
+          "Construire les réserves complètes des jours à trois choix, sans nouvelle collecte générale.",
+          "Produire les rubriques indépendantes encore absentes et consolider les recoupements/rappels ; préserver toutes les exigences ouvertes jusqu’à résolution effective.",
+          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits."
         ],
         "remaining_count": 35,
-        "next_actions_total": 38,
-        "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "next_actions_total": 39,
+        "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
         "observations": {
           "started_at": "2026-10-09T08:28:29.664Z",
           "lease_owned": "yes",
@@ -21310,7 +21413,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Achever le troisième choix du lundi ou une carte du mercredi depuis un dossier proche de l’achèvement."
+      "next_useful_batch": "Achever une carte du mercredi depuis Cadet d’eau douce ou une autre piste dont le recoupement peut être fermé."
     }
   ],
   "source_issues": [
@@ -21913,9 +22016,8 @@
     "main_sha": "eadfd023669970da304879f587cba4125908a655",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Achever le troisième choix développé du lundi depuis une piste dont diffusion, version, réception, visuel et fraîcheur peuvent être complètement vérifiés.",
       "Achever deux choix développés du mercredi depuis la shortlist et les dossiers proches d’une carte.",
-      "Construire les réserves complètes des jours à trois choix, sans nouvelle collecte générale.",
+      "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi.",
       "Produire les rubriques indépendantes encore absentes et consolider les recoupements/rappels ; préserver toutes les exigences ouvertes jusqu’à résolution effective."
     ],
     "publisher": {
@@ -22191,7 +22293,7 @@
     }
   ],
   "shortlist": {
-    "updated_at": "2026-10-09T08:43:38.319Z",
+    "updated_at": "2026-10-09T08:48:34.038Z",
     "note": "Présélection révisable par jour et rubrique ; premières cartes plateformes gratuites intégrées depuis les dossiers acquis. Aucun statut ne certifie la sélection finale du numéro.",
     "entries": [
       {
@@ -22720,6 +22822,27 @@
           "sl-lundi-koute-vwa",
           "sl-lundi-crime-tete"
         ]
+      },
+      {
+        "id": "sl-lundi-restore-point",
+        "title": "Restore Point",
+        "work_id": "restore-point",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Variety et Screen Daily valorisent l’ambition visuelle ; le Guardian fournit la réserve sur les emprunts et la complexité du récit.",
+            "source_url": "https://variety.com/2023/film/reviews/restore-point-review-1235663910/"
+          }
+        ],
+        "decision_note": "Troisième carte développée du lundi rendue avec versions 109/111/100 minutes séparées ; réserves et préflight restent ouverts.",
+        "alternatives": [
+          "sl-lundi-maries-an-ii",
+          "sl-lundi-crime-tete"
+        ]
       }
     ]
   },
@@ -23183,6 +23306,30 @@
             "https://www.avoir-alire.com/les-maries-de-l-an-ii-jean-paul-rappeneau-critique",
             "https://www.senscritique.com/film/les_maries_de_l_an_deux/494193",
             "https://www.allocine.fr/film/fichefilm_gen_cfilm=4417.html"
+          ]
+        }
+      },
+      {
+        "work_id": "restore-point",
+        "date": "2026-10-12",
+        "rank_provisional": 3,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "identity_version": "Film de Robert Hloz, 2023 ; version CANAL+ 109 min ciblée, écarts 111/100 min conservés.",
+          "canonical_fields": "Identité, liens, note IMDb 6,1 et affiche XYZ Films exacte contrôlés.",
+          "current_broadcast": "Lundi 12 octobre 00:30 sur Canal+, grille datée et PDF officiel concordants.",
+          "editorial_copy": "Textes originaux revus depuis CANAL+, KVIFF, Variety, Screen Daily et le Guardian.",
+          "evidence_urls": [
+            "https://www.canalplus.com/cinema/restore-point/h/28871937_50001/resume-casting/",
+            "https://tv-programme.com/canal-plus/lundi-12-octobre-2026/",
+            "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+            "https://www.kviff.com/en/programme/film/63/40704-restore-point",
+            "https://variety.com/2023/film/reviews/restore-point-review-1235663910/",
+            "https://www.screendaily.com/reviews/restore-point-karlovy-vary-review/5183493.article",
+            "https://www.theguardian.com/film/2024/mar/26/restore-point-review-czech-blade-runner-is-a-valiant-attempt-to-satisfy-cyber-noir-cravings",
+            "https://www.imdb.com/title/tt9362492/ratings/",
+            "https://www.xyzfilms.com/films/"
           ]
         }
       }
