@@ -1,10 +1,11 @@
 import {execFileSync} from 'node:child_process';
+export const MAX_GITHUB_API_OUTPUT_BYTES = 32 * 1024 * 1024;
 export function github(repo=process.env.GITHUB_REPOSITORY){
   if(!/^[\w.-]+\/[\w.-]+$/.test(repo||''))throw Error('GITHUB_REPOSITORY missing/invalid');
   return (endpoint,method='GET',body)=>{
     const args=['api',`repos/${repo}/${endpoint}`,'--method',method];
     if(body!==undefined)args.push('--input','-');
-    const out=execFileSync('gh',args,{encoding:'utf8',input:body===undefined?undefined:JSON.stringify(body),stdio:['pipe','pipe','pipe']});
+    const out=execFileSync('gh',args,{encoding:'utf8',maxBuffer:MAX_GITHUB_API_OUTPUT_BYTES,input:body===undefined?undefined:JSON.stringify(body),stdio:['pipe','pipe','pipe']});
     return out.trim()?JSON.parse(out):null;
   };
 }
