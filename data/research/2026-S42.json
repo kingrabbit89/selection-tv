@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T13:40:16.708Z",
+  "updated_at": "2026-10-09T13:43:41.793Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -996,6 +996,15 @@
       "summary": "Chaque page Radar 1080p conserve ses cinq cartes visibles et reçoit trois remplaçants complets déjà vérifiés depuis l’autre page ; hd1 et hd2 atteignent huit candidats sans nouvelle consultation fictive.",
       "deliverables": [
         "data/radar-reserves/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "advance-la-gueule-ouverte-channel-crosscheck-2026-10-09",
+      "completed_at": "2026-10-09T13:43:41.793Z",
+      "scope": "dimanche:La Gueule ouverte",
+      "summary": "Trois guides concordent avec l’événement CANAL+ sur 01:04 et Ciné+ Festival, mais l’indépendance de leurs flux n’est pas établie ; le blocage exact et sa condition de reprise sont sauvegardés sans certifier la carte.",
+      "deliverables": [
         "data/research/2026-S42.json"
       ]
     }
@@ -23506,6 +23515,31 @@
       },
       "evidence_note": "Top 10 public · #9 le 17 août Identité, liens directs, visuel et justification revus ; le rang TorrentFreak reste un signal de circulation et non une preuve de qualité.",
       "status": "verified"
+    },
+    {
+      "work_id": "la-gueule-ouverte-1974",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "version.duration",
+        "source_independence"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-gueule-ouverte/h/438611_50002",
+        "https://tv-programme.com/cine-plus-festival/dimanche-11-octobre-2026/",
+        "https://www.programmetvcesoir.net/chaine/cine-festival/2026-10-11",
+        "https://programmestv.sudinfo.be/programme-tv/chaine/cine-festival/484/samediprochain"
+      ],
+      "checked_at": "2026-10-09T13:43:41.793Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "dimanche",
+        "broadcast": "2026-10-11 01:04 Ciné+ Festival"
+      },
+      "evidence_note": "L’événement CANAL+ confirme exactement 01:04 et la version affichée de 83 min sans nommer la chaîne. TV-Programme, ProgrammeTVCeSoir et Sudinfo nomment Ciné+ Festival et concordent à 01:04, mais leurs fournisseurs de grille ne sont pas documentés ; ils ne sont donc pas promus en seconde lecture réellement indépendante. Le créneau de 1 h 41 reste distinct du master 83 min.",
+      "status": "needs_check"
     }
   ],
   "run_metrics": [
@@ -26262,7 +26296,8 @@
         "complete-falaise-replace-ghost-friday-card-2026-10-09",
         "complete-radar-hd-ten-cards-2026-10-09",
         "complete-popularity-radar-public-scan-reserves-2026-10-09",
-        "complete-radar-hd-cross-page-reserves-2026-10-09"
+        "complete-radar-hd-cross-page-reserves-2026-10-09",
+        "advance-la-gueule-ouverte-channel-crosscheck-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -26280,7 +26315,8 @@
         "radar-torrent : cinq cartes publiques complètes",
         "radar-torrent-sillonnage : cinq cartes complètes",
         "popular_deep : cinq réserves complètes issues de dossiers déjà vérifiés",
-        "hd1 et hd2 : huit candidats complets chacun, dont trois remplaçants croisés"
+        "hd1 et hd2 : huit candidats complets chacun, dont trois remplaçants croisés",
+        "dimanche : La Gueule ouverte, recoupement concordant mais indépendance des flux non établie"
       ],
       "complete_cards": 74,
       "draft_cards": 0,
@@ -26297,7 +26333,7 @@
         "radar HD : réserve minimale de huit candidats complets atteinte pour hd1 et hd2"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter les réserves quotidiennes déficitaires à partir de dossiers proches d’une carte ; ensuite reprendre la certification indépendante de couverture.",
+      "next_useful_batch": "Terminer un candidat quotidien dont diffusion, version, réception et visuel peuvent être tous certifiés ; ne reprendre La Gueule ouverte qu’avec une source primaire Ciné+ ou un flux explicitement indépendant.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -26414,18 +26450,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T13:42:21.464Z",
+          "elapsed_seconds": 2325.257,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "0855a84825e8f8a8977129206337c20a87781a02",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers les plus avancés.",
+            "Produire les deux radars et leur fichier de réserves à partir de signaux récents vérifiés.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T13:03:36.207Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T14:23:44.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T13:38:39.959Z",
-        "elapsed_seconds": 2103.752,
+        "observed_at": "2026-10-09T13:42:21.464Z",
+        "elapsed_seconds": 2325.257,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "a660a4e7ba7ac15f76debb8d5cc7424c91ca95b7",
+        "source_sha": "0855a84825e8f8a8977129206337c20a87781a02",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers les plus avancés.",
           "Produire les deux radars et leur fichier de réserves à partir de signaux récents vérifiés.",
@@ -27492,6 +27557,27 @@
       "blocking_scope": "resolved_for_physical_reserve_dossier",
       "status": "resolved",
       "resume_when": "Nouvelle recherche seulement si la fiche française change de contenu ou si le contrôle CI du visuel échoue."
+    },
+    {
+      "id": "la-gueule-ouverte-independent-channel-crosscheck-2026-10-09",
+      "object": {
+        "title": "La Gueule ouverte",
+        "work_id": "la-gueule-ouverte-1974",
+        "broadcast": "2026-10-11 01:04 Ciné+ Festival"
+      },
+      "question": "Le nom de chaîne et l’horaire peuvent-ils être recoupés par une source réellement indépendante du premier guide ?",
+      "attempted_at": "2026-10-09T13:43:41.793Z",
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-gueule-ouverte/h/438611_50002",
+        "https://tv-programme.com/cine-plus-festival/dimanche-11-octobre-2026/",
+        "https://www.programmetvcesoir.net/chaine/cine-festival/2026-10-11",
+        "https://programmestv.sudinfo.be/programme-tv/chaine/cine-festival/484/samediprochain"
+      ],
+      "result": "L’événement CANAL+ confirme exactement 01:04 et la version affichée de 83 min sans nommer la chaîne. TV-Programme, ProgrammeTVCeSoir et Sudinfo nomment Ciné+ Festival et concordent à 01:04, mais leurs fournisseurs de grille ne sont pas documentés ; ils ne sont donc pas promus en seconde lecture réellement indépendante. Le créneau de 1 h 41 reste distinct du master 83 min.",
+      "blocking_scope": "carte et réserve du dimanche pour cette œuvre uniquement",
+      "blocking": true,
+      "status": "crosscheck_concordant_independence_not_established",
+      "resume_when": "Une grille primaire Ciné+ ou un fournisseur explicitement indépendant nomme Ciné+ Festival à 01:04, sans confondre durée de créneau et durée du film."
     }
   ],
   "shortlist": {
