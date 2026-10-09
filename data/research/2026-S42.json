@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T19:13:11.359Z",
+  "updated_at": "2026-10-09T19:34:05.000Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -15,7 +15,7 @@
     "T18 14 octobre : neuf épisodes/sujets nommés et horaires concordants entre deux guides ; indépendance des flux/source officielle encore à établir. Face à face identifié comme fiction policière ; descriptif politique LeZapp exclu.",
     "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
     "TF1 Séries Films : neuf diffusions recoupées et nuits consultées ; blocs nocturnes génériques non détaillés, réception et cartes à terminer. CSTAR 16 octobre : Un mariage à Noël concorde à 21:10 ; Noël à la carte 22:49/22:45 et identité des quatre Douanes à départager ; indépendance et nuits restent à certifier.",
-    "Rappel TNT : traiter les programmes non rapprochés consignés dans editorial_reminder_passes ; ne pas déduire l'identité d'une simple proximité de titre (soirée Marine notamment). Compléter rappel cinéma payant et recoupements manquants.",
+    "Rappel TNT principal réconcilié : dix éléments rapprochés ou exclus ; achever les autres passes partielles, notamment cinéma payant, TV5MONDE FBS, RMC et Ciné+.",
     "Rappel TNT : Fréquenstar résolu sur W9 dimanche 11:20 (Hoshi) ; sujets Envoyé spécial et Au cœur de l'enquête à obtenir. Intraçables : mini-série et épisodes 3/4 confirmés par TF1 ; réception, versions et enrichissement à faire ; Meurtres à Cayenne confirmé téléfilm policier par le diffuseur.",
     "France 2/3 : Dodin Bouffant retenu à 02:55 le 12 selon la grille officielle relue ; entrée tierce La p'tite librairie du 15 à 12:15 exclue du relevé actif (Ici 12/13). Recontrôler au préflight les programmes retenus ; collections génériques/épisodes encore à compléter.",
     "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
@@ -1320,6 +1320,37 @@
       "scope": "coverage:level-1-primary-inventory",
       "summary": "Les sept inventaires primaires sont relus contre inventory et coverage : 308 à 340 lignes par jour, 67 à 78 lignes nocturnes, 35 chaînes, toutes les 29 chaînes actives requises, comptes par chaîne et 70 à 87 pages sources. Seul le niveau 1 est clôturé ; indépendance et rappel restent faux.",
       "deliverables": [
+        "data/coverage/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "map-level2-independent-crosscheck-gaps-2026-10-09",
+      "completed_at": "2026-10-09T19:27:54.655Z",
+      "scope": "coverage:level-2-gap-map",
+      "summary": "Les comparaisons sauvegardées sont relues pour les sept dates. TCM, TV5MONDE FBS, RMC Story/Découverte et l’attribution des chaînes Ciné+ restent explicitement non certifiables ; quatre voies officielles fraîches sont examinées sans transposer un flux ou une date.",
+      "deliverables": [
+        "data/coverage/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "reconcile-seven-primary-reminder-items-2026-10-09",
+      "completed_at": "2026-10-09T19:28:48.693Z",
+      "scope": "coverage:editorial-reminder-primary-pass",
+      "summary": "Sept des dix éléments génériques du rappel TNT initial sont rapprochés à des épisodes nommés ou exclus comme téléréalité. Trois défauts précis restent ouverts ; aucun flag de rappel ou de semaine n’est certifié.",
+      "deliverables": [
+        "data/coverage/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "close-primary-tnt-reminder-pass-2026-10-09",
+      "completed_at": "2026-10-09T19:30:04.161Z",
+      "scope": "coverage:editorial-reminder-primary-pass",
+      "summary": "Les trois derniers éléments du rappel TNT initial sont rapprochés. Trois créneaux Au cœur de l’enquête sont ajoutés à l’inventaire ; les magazines sans sujet sont conservés hors recommandations et le conflit de version Marine reste attaché au dossier, sans faux horaire ni identité.",
+      "deliverables": [
+        "data/inventory/2026-S42.json",
         "data/coverage/2026-S42.json",
         "data/research/2026-S42.json"
       ]
@@ -25832,6 +25863,27 @@
       },
       "evidence_note": "Revue locale des objets sauvegardés au SHA e675efb : sept dates, 308–340 lignes/jour, 67–78 lignes nocturnes, 35 chaînes dans inventory et coverage, 29/29 chaînes actives requises, comptes par chaîne et champs factuels présents. Ne certifie ni l’indépendance du niveau 2 ni les propositions du niveau 3.",
       "status": "verified_for_requirement"
+    },
+    {
+      "fields": [
+        "inventory.CSTAR.broadcasts",
+        "reminder.primary_pass"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cstar/jeudi-15-octobre-2026/",
+        "https://programmetv.ouest-france.fr/magazine/reportages/au-coeur-de-l-enquete-m149978911/",
+        "https://ftvpro.francetv.fr/grille/france-2/10-10-2026/15-10-2026",
+        "https://ftvpro.francetv.fr/contenu-de-presse/78065129"
+      ],
+      "checked_at": "2026-10-09T19:30:04.161Z",
+      "stability": "cycle",
+      "applies_to": {
+        "week": "2026-S42",
+        "coverage_level": 2,
+        "scope": "primary_tnt_reminder"
+      },
+      "evidence_note": "Trois créneaux CSTAR datés ajoutés ; Envoyé spécial et la soirée Marine présents dans les sources officielles. Les sujets génériques ne deviennent pas des œuvres recommandées et les versions non arbitrées restent hors sélection.",
+      "status": "verified_for_requirement"
     }
   ],
   "run_metrics": [
@@ -30685,7 +30737,10 @@
         "replace-five-duplicate-popular-deep-reserves-2026-10-09",
         "append-three-reviewed-thursday-reserves-2026-10-09",
         "append-three-new-reviewed-tuesday-reserves-2026-10-09",
-        "review-and-close-primary-inventory-level-2026-10-09"
+        "review-and-close-primary-inventory-level-2026-10-09",
+        "map-level2-independent-crosscheck-gaps-2026-10-09",
+        "reconcile-seven-primary-reminder-items-2026-10-09",
+        "close-primary-tnt-reminder-pass-2026-10-09"
       ],
       "deliverables_changed": [
         "data/radar-reserves/2026-S42.json",
@@ -30693,12 +30748,13 @@
         "data/weeks/2026-S42.json",
         "data/works.json",
         "data/links.json",
-        "data/coverage/2026-S42.json"
+        "data/coverage/2026-S42.json",
+        "data/inventory/2026-S42.json"
       ],
       "complete_cards": 125,
       "cards_integrated_this_run": 11,
       "draft_cards": 0,
-      "partial_dossiers": 0,
+      "partial_dossiers": 1,
       "measurements": {
         "complete_cards": {
           "value": 125,
@@ -30729,10 +30785,12 @@
         "popular_deep : cinq réserves complètes distinctes des choix principaux et de popular_scan, avec signaux dans la fenêtre de 60 jours",
         "jeudi-selection : minimum de dix cartes complètes atteint avec trois réutilisations vérifiées, sans déclarer de pénurie",
         "mardi-selection : minimum de dix cartes complètes atteint avec trois œuvres nouvelles vérifiées, sans déclarer de pénurie",
-        "couverture niveau 1 : inventaire primaire des sept jours, chaînes actives, journées, nuits, sources, comptes et champs factuels relus et attestés"
+        "couverture niveau 1 : inventaire primaire des sept jours, chaînes actives, journées, nuits, sources, comptes et champs factuels relus et attestés",
+        "rappel TNT initial : sept éléments génériques rapprochés ou exclus ; déficit ramené de dix à trois sans certifier les autres passes",
+        "rappel TNT principal : dix éléments génériques rapprochés ou exclus ; trois créneaux CSTAR ajoutés sans sélectionner les magazines sans sujet"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Achever les secondes lectures réellement indépendantes et la passe de rappel éditorial ; ne pas attester full_week_reaudit_completed tant que ces niveaux restent faux.",
+      "next_useful_batch": "Achever les autres passes de rappel partielles et reprendre les quatre groupes d’indépendance seulement sur source nouvelle.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -30844,24 +30902,53 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T19:26:17.826Z",
+          "elapsed_seconds": 1708.702,
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "2e28b98854c67594fb1577d2c724932f7bb6602c",
+          "next_actions": [
+            "Achever les secondes lectures indépendantes par jour et chaîne ; les comparaisons marquées not_established restent bloquantes.",
+            "Achever la passe de rappel éditorial et résoudre ou exclure motivément les omissions/conflits avant full_week_reaudit_completed.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Réconcilier les horaires et doublons ambigus : Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min). Suivi du 08/10 : la fiche officielle Dahlia ne montre qu’un événement hors cycle ; deux autres guides répètent le doublon Saint-Ex sans l’arbitrer."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 37,
+          "truncated_notice": "32 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T18:57:49.124Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T20:18:19.665Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T19:24:19.274Z",
-        "elapsed_seconds": 1590.15,
+        "observed_at": "2026-10-09T19:26:17.826Z",
+        "elapsed_seconds": 1708.702,
         "prompt_revision": "production-closure-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "e675efbaa328c030658361a0c07af43082cef93e",
+        "source_sha": "2e28b98854c67594fb1577d2c724932f7bb6602c",
         "next_actions": [
-          "Achever et attester la revue de couverture des sept jours en réconciliant les 35 exigences déclarées avec les preuves du SHA courant.",
-          "Conserver les écarts de durée d’œuvre/fenêtre EPG des deux classiques mardi tant qu’aucune source de copie TCM/Ciné+ ne les arbitre.",
-          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+          "Achever les secondes lectures indépendantes par jour et chaîne ; les comparaisons marquées not_established restent bloquantes.",
+          "Achever la passe de rappel éditorial et résoudre ou exclure motivément les omissions/conflits avant full_week_reaudit_completed.",
+          "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
-          "Réconcilier les horaires et doublons ambigus : Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min)."
+          "Réconcilier les horaires et doublons ambigus : Canal+ Grand Écran Le dahlia noir 22:58/22:59 ; Ciné+ OCS Saint-Ex 03:53 (6 min) et 03:59 (91 min). Suivi du 08/10 : la fiche officielle Dahlia ne montre qu’un événement hors cycle ; deux autres guides répètent le doublon Saint-Ex sans l’arbitrer."
         ],
         "remaining_count": 35,
         "next_actions_total": 37,
@@ -30900,6 +30987,16 @@
           "started_at": "2026-10-09T19:24:19.274Z",
           "ended_at": "2026-10-09T19:25:29.218Z",
           "note": "Revue structurée des sept jours au SHA e675efb : lignes, nuits, chaînes, comptes, pages sources et champs factuels comparés entre inventory, coverage et contrat."
+        },
+        "level2_gap_review": {
+          "started_at": "2026-10-09T19:26:17.826Z",
+          "ended_at": "2026-10-09T19:27:54.655Z",
+          "note": "Relecture des objets de comparaison des sept dates et recherche fraîche groupée sur TV5MONDE, RMC et CANAL+ ; les flux/date non équivalents sont écartés."
+        },
+        "reminder_reconciliation": {
+          "started_at": "2026-10-09T19:27:54.655Z",
+          "ended_at": "2026-10-09T19:30:04.161Z",
+          "note": "Comparaison ciblée du rappel initial avec les entrées et épisodes ajoutés par les lots ultérieurs ; sept écarts clos, trois conservés."
         }
       },
       "control_notes": [
@@ -30907,7 +31004,10 @@
         "Les cinq remplaçants sont distincts des choix visibles et du sillonnage. Le signal de circulation n’est pas traité comme preuve de qualité.",
         "Jeudi atteint dix cartes : Becoming Hitchcock conserve 68/70/72 min distincts, La Maison des femmes 105/110 min distincts et Un crime dans la tête sépare Frankenheimer 1962 du remake Demme 2004.",
         "Mardi atteint dix cartes. Les fenêtres EPG 115/90 min de La Prisonnière du désert et La Vieille Dame indigne restent distinctes des durées canoniques 119/94 min ; aucune coupe n’est inventée.",
-        "Les sept primary_scan_complete passent à true après revue des preuves. Les sept independent_crosscheck_complete, les sept editorial_reminder_complete et full_week_reaudit_completed restent false."
+        "Les sept primary_scan_complete passent à true après revue des preuves. Les sept independent_crosscheck_complete, les sept editorial_reminder_complete et full_week_reaudit_completed restent false.",
+        "Le niveau 2 reste faux : les concordances TCM, TV5MONDE FBS, RMC et Ciné+ ne sont pas converties en indépendance. Trois impasses ciblées indiquent les conditions concrètes de reprise.",
+        "La passe de rappel principale conserve seulement trois défauts précis, mais les sept editorial_reminder_complete restent false car d’autres passes sauvegardées sont encore partielles.",
+        "La passe TNT principale est réconciliée, mais les sept editorial_reminder_complete restent false : cinéma payant, TV5MONDE FBS, RMC et Ciné+ demeurent des passes partielles."
       ]
     }
   ],
@@ -31569,8 +31669,8 @@
     "main_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Achever les secondes lectures indépendantes par jour et chaîne ; les comparaisons marquées not_established restent bloquantes.",
-      "Achever la passe de rappel éditorial et résoudre ou exclure motivément les omissions/conflits avant full_week_reaudit_completed."
+      "Achever les autres passes de rappel partielles, en commençant par cinéma payant, TV5MONDE FBS, RMC et Ciné+.",
+      "Niveau 2 : reprendre seulement sur source nouvelle les quatre groupes de flux non indépendants consignés."
     ],
     "publisher": {
       "checked_at": "2026-10-08T14:40:33.431Z",
@@ -32095,6 +32195,79 @@
       "blocking": false,
       "status": "deferred_freshness_threshold",
       "resume_when": "Réexaminer seulement quand la fenêtre de fraîcheur autorise cette réexposition ou pour un autre emplacement justifié ; ne pas l’utiliser pour remplir un quota."
+    },
+    {
+      "id": "run20-tv5-fbs-independent-source-2026-10-09",
+      "object": {
+        "channel": "TV5MONDE FBS",
+        "dates": [
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16"
+        ]
+      },
+      "question": "Une grille officielle du même flux FBS peut-elle établir l’indépendance de la seconde lecture sauvegardée ?",
+      "attempted_at": "2026-10-09T19:27:54.655Z",
+      "source_urls": [
+        "https://www.tv5monde.com/tv/programmes",
+        "https://europe.tv5monde.com/fr/guide-tv"
+      ],
+      "result": "Le guide officiel générique ne fournit pas une archive FBS datée vérifiable dans cette consultation ; la grille Europe est officiellement datée mais relève d’un autre flux et ne peut pas être transposée.",
+      "blocking_scope": "niveau 2 TV5MONDE pour les sept jours",
+      "blocking": true,
+      "status": "two_official_routes_wrong_or_unresolved_feed",
+      "resume_when": "Une grille TV5MONDE explicitement FBS et datée du 10 au 16 octobre, ou une source indépendante au fournisseur identifié, devient accessible."
+    },
+    {
+      "id": "run20-rmc-independent-archive-2026-10-09",
+      "object": {
+        "channels": [
+          "RMC Story",
+          "RMC Découverte"
+        ],
+        "dates": [
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16"
+        ]
+      },
+      "question": "Le service officiel RMC+ expose-t-il une archive de grille datée permettant de remplacer SCREEN+ dont le fournisseur est inconnu ?",
+      "attempted_at": "2026-10-09T19:27:54.655Z",
+      "source_urls": [
+        "https://www.rmcbfmplay.com/chaine/rmc-story?subMenuId=RefMenuItem%3A%3Armcgo_home_rmcstory"
+      ],
+      "result": "Le service officiel expose catalogue, direct et replays, mais aucune grille archivée datée de la semaine cible n’a été obtenue. SCREEN+ reste une concordance de flux à indépendance non établie.",
+      "blocking_scope": "niveau 2 RMC Story et RMC Découverte pour les sept jours",
+      "blocking": true,
+      "status": "official_catalogue_no_dated_schedule_archive",
+      "resume_when": "Une archive officielle RMC ou une seconde grille au fournisseur explicitement indépendant couvre les dates cibles."
+    },
+    {
+      "id": "run20-canal-grand-ecran-dahlia-time-2026-10-09",
+      "object": {
+        "title": "Le Dahlia noir",
+        "channel": "Canal+ Grand Écran",
+        "conflict": "22:58/22:59"
+      },
+      "question": "La page officielle de chaîne ou la fiche œuvre arbitre-t-elle le départ S42 à la minute ?",
+      "attempted_at": "2026-10-09T19:27:54.655Z",
+      "source_urls": [
+        "https://boutique.canalplus.com/experience-canal-plus/chaines/canal-plus-grand-ecran/",
+        "https://www.canalplus.com/gf/cinema/"
+      ],
+      "result": "La page de chaîne confirme Le Dahlia noir dans l’offre Grand Écran, mais n’expose pas l’horaire cible ; la page cinéma ne fournit pas d’événement S42 exploitable. Le conflit 22:58/22:59 reste ouvert.",
+      "blocking_scope": "conflit brut Canal+ Grand Écran, sans effet sur une carte retenue actuelle",
+      "blocking": true,
+      "status": "official_presence_without_target_event",
+      "resume_when": "Une grille technique CANAL+ datée S42 ou un BroadcastEvent exact nomme la chaîne et l’heure cible."
     }
   ],
   "shortlist": {

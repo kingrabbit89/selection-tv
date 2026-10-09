@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "primary_complete_crosscheck_pending",
-  "updated_at": "2026-10-09T19:25:29.218Z",
+  "updated_at": "2026-10-09T19:34:05.000Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -396,7 +396,52 @@
       ],
       "channels_scanned_basis": "Report depuis data/inventory/2026-S42.json (channels_scanned, channel_sources, channel_scan_notes) le 2026-10-08 : grille lue et source datée pour chaque chaîne. Sans occurrence dans le périmètre ce jour : M6, TF1 Séries Films (grille examinée, aucun programme du périmètre retenu ; ce zéro ne prouve pas une pénurie de qualité). Représentation seulement : ne certifie ni le recoupement indépendant, ni le rappel éditorial, ni la complétude.",
       "primary_scan_reviewed_at": "2026-10-09T19:25:29.218Z",
-      "primary_scan_review": "308 lignes factuelles, dont 78 entre 00:00 et 05:59 ; 35 chaînes relevées dans inventory et coverage, les 29 chaînes actives requises présentes ; 87 pages sources sauvegardées ; comptes par chaîne présents ; aucun titre, horaire, chaîne ou source_url manquant. Cette revue clôt seulement le niveau 1."
+      "primary_scan_review": "308 lignes factuelles, dont 78 entre 00:00 et 05:59 ; 35 chaînes relevées dans inventory et coverage, les 29 chaînes actives requises présentes ; 87 pages sources sauvegardées ; comptes par chaîne présents ; aucun titre, horaire, chaîne ou source_url manquant. Cette revue clôt seulement le niveau 1.",
+      "independent_crosscheck_review": {
+        "checked_at": "2026-10-09T19:27:54.655Z",
+        "status": "incomplete",
+        "evidence_reviewed": {
+          "tcm_slots": 14,
+          "tv5_fbs_slots": 6,
+          "rmc_slots": 6,
+          "cine_festival_slots": 14,
+          "cine_official_exact_starts": 2,
+          "cine_official_time_conflicts": 3
+        },
+        "unresolved_groups": [
+          {
+            "channels": [
+              "TCM Cinéma"
+            ],
+            "reason": "La seconde grille Télérama concorde mais son indépendance avec le flux primaire n’est pas établie."
+          },
+          {
+            "channels": [
+              "TV5MONDE"
+            ],
+            "reason": "Le guide TV5MONDE FBS recoupé ne dispose pas d’une source officielle du même flux ; le guide officiel Europe est un autre signal."
+          },
+          {
+            "channels": [
+              "RMC Story",
+              "RMC Découverte"
+            ],
+            "reason": "SCREEN+ indique des grilles transmises sans identifier le fournisseur ; l’indépendance du flux primaire reste inconnue et des conflits sont conservés."
+          },
+          {
+            "channels": [
+              "Ciné+ Classic",
+              "Ciné+ Festival",
+              "Ciné+ OCS",
+              "Ciné+ Emotion",
+              "Ciné+ Frisson",
+              "Ciné+ Family"
+            ],
+            "reason": "Les pages CANAL+ confirment des identités et certains départs mais leurs BroadcastEvent ne nomment pas toujours la chaîne ; la seconde grille Festival n’est pas indépendante."
+          }
+        ],
+        "decision": "Ne pas passer independent_crosscheck_complete à true ; poursuivre avec une grille officielle du même flux ou une source dont l’indépendance est identifiable."
+      }
     },
     {
       "date": "2026-10-11",
@@ -1059,7 +1104,52 @@
       ],
       "channels_scanned_basis": "Report depuis data/inventory/2026-S42.json (channels_scanned, channel_sources, channel_scan_notes) le 2026-10-08 : grille lue et source datée pour chaque chaîne. Sans occurrence dans le périmètre ce jour : TFX (grille examinée, aucun programme du périmètre retenu ; ce zéro ne prouve pas une pénurie de qualité). Représentation seulement : ne certifie ni le recoupement indépendant, ni le rappel éditorial, ni la complétude.",
       "primary_scan_reviewed_at": "2026-10-09T19:25:29.218Z",
-      "primary_scan_review": "340 lignes factuelles, dont 73 entre 00:00 et 05:59 ; 35 chaînes relevées dans inventory et coverage, les 29 chaînes actives requises présentes ; 76 pages sources sauvegardées ; comptes par chaîne présents ; aucun titre, horaire, chaîne ou source_url manquant. Cette revue clôt seulement le niveau 1."
+      "primary_scan_review": "340 lignes factuelles, dont 73 entre 00:00 et 05:59 ; 35 chaînes relevées dans inventory et coverage, les 29 chaînes actives requises présentes ; 76 pages sources sauvegardées ; comptes par chaîne présents ; aucun titre, horaire, chaîne ou source_url manquant. Cette revue clôt seulement le niveau 1.",
+      "independent_crosscheck_review": {
+        "checked_at": "2026-10-09T19:27:54.655Z",
+        "status": "incomplete",
+        "evidence_reviewed": {
+          "tcm_slots": 14,
+          "tv5_fbs_slots": 9,
+          "rmc_slots": 22,
+          "cine_festival_slots": 16,
+          "cine_official_exact_starts": 4,
+          "cine_official_time_conflicts": 0
+        },
+        "unresolved_groups": [
+          {
+            "channels": [
+              "TCM Cinéma"
+            ],
+            "reason": "La seconde grille Télérama concorde mais son indépendance avec le flux primaire n’est pas établie."
+          },
+          {
+            "channels": [
+              "TV5MONDE"
+            ],
+            "reason": "Le guide TV5MONDE FBS recoupé ne dispose pas d’une source officielle du même flux ; le guide officiel Europe est un autre signal."
+          },
+          {
+            "channels": [
+              "RMC Story",
+              "RMC Découverte"
+            ],
+            "reason": "SCREEN+ indique des grilles transmises sans identifier le fournisseur ; l’indépendance du flux primaire reste inconnue et des conflits sont conservés."
+          },
+          {
+            "channels": [
+              "Ciné+ Classic",
+              "Ciné+ Festival",
+              "Ciné+ OCS",
+              "Ciné+ Emotion",
+              "Ciné+ Frisson",
+              "Ciné+ Family"
+            ],
+            "reason": "Les pages CANAL+ confirment des identités et certains départs mais leurs BroadcastEvent ne nomment pas toujours la chaîne ; la seconde grille Festival n’est pas indépendante."
+          }
+        ],
+        "decision": "Ne pas passer independent_crosscheck_complete à true ; poursuivre avec une grille officielle du même flux ou une source dont l’indépendance est identifiable."
+      }
     },
     {
       "date": "2026-10-12",
@@ -1531,7 +1621,52 @@
       ],
       "channels_scanned_basis": "Report depuis data/inventory/2026-S42.json (channels_scanned, channel_sources, channel_scan_notes) le 2026-10-08 : grille lue et source datée pour chaque chaîne. Sans occurrence dans le périmètre ce jour : M6 (grille examinée, aucun programme du périmètre retenu ; ce zéro ne prouve pas une pénurie de qualité). Représentation seulement : ne certifie ni le recoupement indépendant, ni le rappel éditorial, ni la complétude.",
       "primary_scan_reviewed_at": "2026-10-09T19:25:29.218Z",
-      "primary_scan_review": "312 lignes factuelles, dont 67 entre 00:00 et 05:59 ; 35 chaînes relevées dans inventory et coverage, les 29 chaînes actives requises présentes ; 71 pages sources sauvegardées ; comptes par chaîne présents ; aucun titre, horaire, chaîne ou source_url manquant. Cette revue clôt seulement le niveau 1."
+      "primary_scan_review": "312 lignes factuelles, dont 67 entre 00:00 et 05:59 ; 35 chaînes relevées dans inventory et coverage, les 29 chaînes actives requises présentes ; 71 pages sources sauvegardées ; comptes par chaîne présents ; aucun titre, horaire, chaîne ou source_url manquant. Cette revue clôt seulement le niveau 1.",
+      "independent_crosscheck_review": {
+        "checked_at": "2026-10-09T19:27:54.655Z",
+        "status": "incomplete",
+        "evidence_reviewed": {
+          "tcm_slots": 14,
+          "tv5_fbs_slots": 8,
+          "rmc_slots": 16,
+          "cine_festival_slots": 13,
+          "cine_official_exact_starts": 2,
+          "cine_official_time_conflicts": 0
+        },
+        "unresolved_groups": [
+          {
+            "channels": [
+              "TCM Cinéma"
+            ],
+            "reason": "La seconde grille Télérama concorde mais son indépendance avec le flux primaire n’est pas établie."
+          },
+          {
+            "channels": [
+              "TV5MONDE"
+            ],
+            "reason": "Le guide TV5MONDE FBS recoupé ne dispose pas d’une source officielle du même flux ; le guide officiel Europe est un autre signal."
+          },
+          {
+            "channels": [
+              "RMC Story",
+              "RMC Découverte"
+            ],
+            "reason": "SCREEN+ indique des grilles transmises sans identifier le fournisseur ; l’indépendance du flux primaire reste inconnue et des conflits sont conservés."
+          },
+          {
+            "channels": [
+              "Ciné+ Classic",
+              "Ciné+ Festival",
+              "Ciné+ OCS",
+              "Ciné+ Emotion",
+              "Ciné+ Frisson",
+              "Ciné+ Family"
+            ],
+            "reason": "Les pages CANAL+ confirment des identités et certains départs mais leurs BroadcastEvent ne nomment pas toujours la chaîne ; la seconde grille Festival n’est pas indépendante."
+          }
+        ],
+        "decision": "Ne pas passer independent_crosscheck_complete à true ; poursuivre avec une grille officielle du même flux ou une source dont l’indépendance est identifiable."
+      }
     },
     {
       "date": "2026-10-13",
@@ -2073,7 +2208,52 @@
       ],
       "channels_scanned_basis": "Report depuis data/inventory/2026-S42.json (channels_scanned, channel_sources, channel_scan_notes) le 2026-10-08 : grille lue et source datée pour chaque chaîne. Sans occurrence dans le périmètre ce jour : TF1 Séries Films (grille examinée, aucun programme du périmètre retenu ; ce zéro ne prouve pas une pénurie de qualité). Représentation seulement : ne certifie ni le recoupement indépendant, ni le rappel éditorial, ni la complétude.",
       "primary_scan_reviewed_at": "2026-10-09T19:25:29.218Z",
-      "primary_scan_review": "319 lignes factuelles, dont 72 entre 00:00 et 05:59 ; 35 chaînes relevées dans inventory et coverage, les 29 chaînes actives requises présentes ; 70 pages sources sauvegardées ; comptes par chaîne présents ; aucun titre, horaire, chaîne ou source_url manquant. Cette revue clôt seulement le niveau 1."
+      "primary_scan_review": "319 lignes factuelles, dont 72 entre 00:00 et 05:59 ; 35 chaînes relevées dans inventory et coverage, les 29 chaînes actives requises présentes ; 70 pages sources sauvegardées ; comptes par chaîne présents ; aucun titre, horaire, chaîne ou source_url manquant. Cette revue clôt seulement le niveau 1.",
+      "independent_crosscheck_review": {
+        "checked_at": "2026-10-09T19:27:54.655Z",
+        "status": "incomplete",
+        "evidence_reviewed": {
+          "tcm_slots": 15,
+          "tv5_fbs_slots": 5,
+          "rmc_slots": 21,
+          "cine_festival_slots": 13,
+          "cine_official_exact_starts": 0,
+          "cine_official_time_conflicts": 1
+        },
+        "unresolved_groups": [
+          {
+            "channels": [
+              "TCM Cinéma"
+            ],
+            "reason": "La seconde grille Télérama concorde mais son indépendance avec le flux primaire n’est pas établie."
+          },
+          {
+            "channels": [
+              "TV5MONDE"
+            ],
+            "reason": "Le guide TV5MONDE FBS recoupé ne dispose pas d’une source officielle du même flux ; le guide officiel Europe est un autre signal."
+          },
+          {
+            "channels": [
+              "RMC Story",
+              "RMC Découverte"
+            ],
+            "reason": "SCREEN+ indique des grilles transmises sans identifier le fournisseur ; l’indépendance du flux primaire reste inconnue et des conflits sont conservés."
+          },
+          {
+            "channels": [
+              "Ciné+ Classic",
+              "Ciné+ Festival",
+              "Ciné+ OCS",
+              "Ciné+ Emotion",
+              "Ciné+ Frisson",
+              "Ciné+ Family"
+            ],
+            "reason": "Les pages CANAL+ confirment des identités et certains départs mais leurs BroadcastEvent ne nomment pas toujours la chaîne ; la seconde grille Festival n’est pas indépendante."
+          }
+        ],
+        "decision": "Ne pas passer independent_crosscheck_complete à true ; poursuivre avec une grille officielle du même flux ou une source dont l’indépendance est identifiable."
+      }
     },
     {
       "date": "2026-10-14",
@@ -2601,11 +2781,56 @@
       ],
       "channels_scanned_basis": "Report depuis data/inventory/2026-S42.json (channels_scanned, channel_sources, channel_scan_notes) le 2026-10-08 : grille lue et source datée pour chaque chaîne. Sans occurrence dans le périmètre ce jour : M6, TFX, Gulli (grille examinée, aucun programme du périmètre retenu ; ce zéro ne prouve pas une pénurie de qualité). Représentation seulement : ne certifie ni le recoupement indépendant, ni le rappel éditorial, ni la complétude.",
       "primary_scan_reviewed_at": "2026-10-09T19:25:29.218Z",
-      "primary_scan_review": "316 lignes factuelles, dont 70 entre 00:00 et 05:59 ; 35 chaînes relevées dans inventory et coverage, les 29 chaînes actives requises présentes ; 71 pages sources sauvegardées ; comptes par chaîne présents ; aucun titre, horaire, chaîne ou source_url manquant. Cette revue clôt seulement le niveau 1."
+      "primary_scan_review": "316 lignes factuelles, dont 70 entre 00:00 et 05:59 ; 35 chaînes relevées dans inventory et coverage, les 29 chaînes actives requises présentes ; 71 pages sources sauvegardées ; comptes par chaîne présents ; aucun titre, horaire, chaîne ou source_url manquant. Cette revue clôt seulement le niveau 1.",
+      "independent_crosscheck_review": {
+        "checked_at": "2026-10-09T19:27:54.655Z",
+        "status": "incomplete",
+        "evidence_reviewed": {
+          "tcm_slots": 13,
+          "tv5_fbs_slots": 5,
+          "rmc_slots": 20,
+          "cine_festival_slots": 14,
+          "cine_official_exact_starts": 2,
+          "cine_official_time_conflicts": 0
+        },
+        "unresolved_groups": [
+          {
+            "channels": [
+              "TCM Cinéma"
+            ],
+            "reason": "La seconde grille Télérama concorde mais son indépendance avec le flux primaire n’est pas établie."
+          },
+          {
+            "channels": [
+              "TV5MONDE"
+            ],
+            "reason": "Le guide TV5MONDE FBS recoupé ne dispose pas d’une source officielle du même flux ; le guide officiel Europe est un autre signal."
+          },
+          {
+            "channels": [
+              "RMC Story",
+              "RMC Découverte"
+            ],
+            "reason": "SCREEN+ indique des grilles transmises sans identifier le fournisseur ; l’indépendance du flux primaire reste inconnue et des conflits sont conservés."
+          },
+          {
+            "channels": [
+              "Ciné+ Classic",
+              "Ciné+ Festival",
+              "Ciné+ OCS",
+              "Ciné+ Emotion",
+              "Ciné+ Frisson",
+              "Ciné+ Family"
+            ],
+            "reason": "Les pages CANAL+ confirment des identités et certains départs mais leurs BroadcastEvent ne nomment pas toujours la chaîne ; la seconde grille Festival n’est pas indépendante."
+          }
+        ],
+        "decision": "Ne pas passer independent_crosscheck_complete à true ; poursuivre avec une grille officielle du même flux ou une source dont l’indépendance est identifiable."
+      }
     },
     {
       "date": "2026-10-15",
-      "raw_items": 312,
+      "raw_items": 314,
       "overnight_items": 68,
       "primary_scan_complete": true,
       "independent_crosscheck_complete": false,
@@ -3234,13 +3459,58 @@
         "CSTAR"
       ],
       "channels_scanned_basis": "Report depuis data/inventory/2026-S42.json (channels_scanned, channel_sources, channel_scan_notes) le 2026-10-08 : grille lue et source datée pour chaque chaîne. Sans occurrence dans le périmètre ce jour : M6, TFX, TF1 Séries Films (grille examinée, aucun programme du périmètre retenu ; ce zéro ne prouve pas une pénurie de qualité). Représentation seulement : ne certifie ni le recoupement indépendant, ni le rappel éditorial, ni la complétude.",
-      "primary_scan_reviewed_at": "2026-10-09T19:25:29.218Z",
-      "primary_scan_review": "312 lignes factuelles, dont 68 entre 00:00 et 05:59 ; 35 chaînes relevées dans inventory et coverage, les 29 chaînes actives requises présentes ; 74 pages sources sauvegardées ; comptes par chaîne présents ; aucun titre, horaire, chaîne ou source_url manquant. Cette revue clôt seulement le niveau 1."
+      "primary_scan_reviewed_at": "2026-10-09T19:30:04.161Z",
+      "primary_scan_review": "314 lignes factuelles, dont 68 entre 00:00 et 05:59 ; 35 chaînes relevées dans inventory et coverage, les 29 chaînes actives requises présentes ; 74 pages sources sauvegardées ; comptes par chaîne présents ; aucun titre, horaire, chaîne ou source_url manquant. Cette revue clôt seulement le niveau 1.",
+      "independent_crosscheck_review": {
+        "checked_at": "2026-10-09T19:27:54.655Z",
+        "status": "incomplete",
+        "evidence_reviewed": {
+          "tcm_slots": 15,
+          "tv5_fbs_slots": 5,
+          "rmc_slots": 21,
+          "cine_festival_slots": 17,
+          "cine_official_exact_starts": 2,
+          "cine_official_time_conflicts": 0
+        },
+        "unresolved_groups": [
+          {
+            "channels": [
+              "TCM Cinéma"
+            ],
+            "reason": "La seconde grille Télérama concorde mais son indépendance avec le flux primaire n’est pas établie."
+          },
+          {
+            "channels": [
+              "TV5MONDE"
+            ],
+            "reason": "Le guide TV5MONDE FBS recoupé ne dispose pas d’une source officielle du même flux ; le guide officiel Europe est un autre signal."
+          },
+          {
+            "channels": [
+              "RMC Story",
+              "RMC Découverte"
+            ],
+            "reason": "SCREEN+ indique des grilles transmises sans identifier le fournisseur ; l’indépendance du flux primaire reste inconnue et des conflits sont conservés."
+          },
+          {
+            "channels": [
+              "Ciné+ Classic",
+              "Ciné+ Festival",
+              "Ciné+ OCS",
+              "Ciné+ Emotion",
+              "Ciné+ Frisson",
+              "Ciné+ Family"
+            ],
+            "reason": "Les pages CANAL+ confirment des identités et certains départs mais leurs BroadcastEvent ne nomment pas toujours la chaîne ; la seconde grille Festival n’est pas indépendante."
+          }
+        ],
+        "decision": "Ne pas passer independent_crosscheck_complete à true ; poursuivre avec une grille officielle du même flux ou une source dont l’indépendance est identifiable."
+      }
     },
     {
       "date": "2026-10-16",
-      "raw_items": 323,
-      "overnight_items": 72,
+      "raw_items": 324,
+      "overnight_items": 73,
       "primary_scan_complete": true,
       "independent_crosscheck_complete": false,
       "editorial_reminder_complete": false,
@@ -3915,8 +4185,53 @@
         "scope": "Deux observations France 2 présentes dans l’inventaire éditorial du vendredi ; l’épisode littéraire reste porté par l’inventaire tandis que FranceTvPro expose le titre générique.",
         "note": "FranceTvPro et TV-Programme concordent sur les deux créneaux. Le recoupement est borné à France 2 et ne ferme pas les flags globaux."
       },
-      "primary_scan_reviewed_at": "2026-10-09T19:25:29.218Z",
-      "primary_scan_review": "323 lignes factuelles, dont 72 entre 00:00 et 05:59 ; 35 chaînes relevées dans inventory et coverage, les 29 chaînes actives requises présentes ; 73 pages sources sauvegardées ; comptes par chaîne présents ; aucun titre, horaire, chaîne ou source_url manquant. Cette revue clôt seulement le niveau 1."
+      "primary_scan_reviewed_at": "2026-10-09T19:30:04.161Z",
+      "primary_scan_review": "324 lignes factuelles, dont 73 entre 00:00 et 05:59 ; 35 chaînes relevées dans inventory et coverage, les 29 chaînes actives requises présentes ; 73 pages sources sauvegardées ; comptes par chaîne présents ; aucun titre, horaire, chaîne ou source_url manquant. Cette revue clôt seulement le niveau 1.",
+      "independent_crosscheck_review": {
+        "checked_at": "2026-10-09T19:27:54.655Z",
+        "status": "incomplete",
+        "evidence_reviewed": {
+          "tcm_slots": 13,
+          "tv5_fbs_slots": 12,
+          "rmc_slots": 21,
+          "cine_festival_slots": 16,
+          "cine_official_exact_starts": 2,
+          "cine_official_time_conflicts": 0
+        },
+        "unresolved_groups": [
+          {
+            "channels": [
+              "TCM Cinéma"
+            ],
+            "reason": "La seconde grille Télérama concorde mais son indépendance avec le flux primaire n’est pas établie."
+          },
+          {
+            "channels": [
+              "TV5MONDE"
+            ],
+            "reason": "Le guide TV5MONDE FBS recoupé ne dispose pas d’une source officielle du même flux ; le guide officiel Europe est un autre signal."
+          },
+          {
+            "channels": [
+              "RMC Story",
+              "RMC Découverte"
+            ],
+            "reason": "SCREEN+ indique des grilles transmises sans identifier le fournisseur ; l’indépendance du flux primaire reste inconnue et des conflits sont conservés."
+          },
+          {
+            "channels": [
+              "Ciné+ Classic",
+              "Ciné+ Festival",
+              "Ciné+ OCS",
+              "Ciné+ Emotion",
+              "Ciné+ Frisson",
+              "Ciné+ Family"
+            ],
+            "reason": "Les pages CANAL+ confirment des identités et certains départs mais leurs BroadcastEvent ne nomment pas toujours la chaîne ; la seconde grille Festival n’est pas indépendante."
+          }
+        ],
+        "decision": "Ne pas passer independent_crosscheck_complete à true ; poursuivre avec une grille officielle du même flux ou une source dont l’indépendance est identifiable."
+      }
     }
   ],
   "documentary_discovery": {
@@ -15220,31 +15535,21 @@
     {
       "source_url": "https://www.ozap.com/actu/le-telefilm-on-aboie-en-silence-avec-melanie-doutey-sur-france-2-alerte-a-lhotel-30-jours-pour-tout-relancer-sur-m6-la-boite-a-secrets-sur-france-3-les-temps-forts-a-la-television-du-10-au-16-octobre-2026/657107",
       "checked_at": "2026-10-08T06:55:47.403Z",
-      "status": "partial",
+      "status": "reconciled",
       "scope": "Temps forts TNT du 10 au 16 octobre, annonce publiée avant les grilles détaillées ; comparaison de présence, pas certification des horaires ni critique.",
       "days": [
         {
           "date": "2026-10-10",
           "announced_entries_compared": 8,
           "present_in_inventory": 8,
-          "unresolved": []
+          "unresolved": [],
+          "resolved": []
         },
         {
           "date": "2026-10-11",
           "announced_entries_compared": 14,
           "present_in_inventory": 11,
-          "unresolved": [
-            {
-              "channel": "T18",
-              "title": "Les pouvoirs extraordinaires du corps humain",
-              "note": "Rapprochement et identité encore à vérifier."
-            },
-            {
-              "channel": "RMC Découverte",
-              "title": "Faites entrer l'accusé",
-              "note": "Rapprochement et identité encore à vérifier."
-            }
-          ],
+          "unresolved": [],
           "resolved": [
             {
               "channel": "M6",
@@ -15252,6 +15557,20 @@
               "note": "Annonce 11:20 en conflit avec la grille M6 lue : Turbo 11:00 puis 11:25 ; vérifier une source officielle.",
               "resolved_at": "2026-10-08T09:28:04.631Z",
               "resolution": "W9 11 octobre 11:20, Hoshi (page 6 officielle), ancienne attribution M6 erronée."
+            },
+            {
+              "channel": "T18",
+              "title": "Les pouvoirs extraordinaires du corps humain",
+              "note": "Rapprochement et identité encore à vérifier.",
+              "resolved_at": "2026-10-09T19:28:48.693Z",
+              "resolution": "Deux épisodes sont désormais nommés dans l’inventaire T18 à 20:55 et 22:55 ; format magazine scientifique conservé, sans le convertir en documentaire recommandé."
+            },
+            {
+              "channel": "RMC Découverte",
+              "title": "Faites entrer l'accusé",
+              "note": "Rapprochement et identité encore à vérifier.",
+              "resolved_at": "2026-10-09T19:28:48.693Z",
+              "resolution": "Deux épisodes sont désormais nommés à 21:10 et 22:35 ; SCREEN+ concorde sur titres et heures, mais son indépendance reste non établie au niveau 2."
             }
           ]
         },
@@ -15259,16 +15578,21 @@
           "date": "2026-10-12",
           "announced_entries_compared": 13,
           "present_in_inventory": 11,
-          "unresolved": [
+          "unresolved": [],
+          "resolved": [
             {
               "channel": "TFX",
               "title": "Appels d'urgence",
-              "note": "Rapprochement et identité encore à vérifier."
+              "note": "Rapprochement et identité encore à vérifier.",
+              "resolved_at": "2026-10-09T19:28:48.693Z",
+              "resolution": "Trois épisodes TFX sont nommés à 21:10, 22:25 et 23:30 ; le rappel est rapproché sans jugement artistique ni certification d’indépendance."
             },
             {
               "channel": "France 3",
               "title": "La Ligne bleue - Barrage de Malpasset, la mémoire engloutie",
-              "note": "Rapprochement et identité encore à vérifier."
+              "note": "Rapprochement et identité encore à vérifier.",
+              "resolved_at": "2026-10-09T19:28:48.693Z",
+              "resolution": "Le titre est rapproché de Barrage de Malpasset, la mémoire engloutie, France 3 à 23:00 ; l’entrée reste une observation de grille et non une carte."
             }
           ]
         },
@@ -15276,21 +15600,28 @@
           "date": "2026-10-13",
           "announced_entries_compared": 13,
           "present_in_inventory": 10,
-          "unresolved": [
-            {
-              "channel": "France 2",
-              "title": "400 ans de la Marine Nationale, au coeur de la Task force",
-              "note": "Rapprochement et identité encore à vérifier."
-            },
+          "unresolved": [],
+          "resolved": [
             {
               "channel": "TMC",
               "title": "90' Enquêtes",
-              "note": "Rapprochement et identité encore à vérifier."
+              "note": "Rapprochement et identité encore à vérifier.",
+              "resolved_at": "2026-10-09T19:28:48.693Z",
+              "resolution": "Deux sujets TMC sont nommés à 21:25 et 22:55 ; le rappel est rapproché sans traiter le magazine comme un signal de qualité."
             },
             {
               "channel": "T18",
               "title": "Non élucidé",
-              "note": "Rapprochement et identité encore à vérifier."
+              "note": "Rapprochement et identité encore à vérifier.",
+              "resolved_at": "2026-10-09T19:28:48.693Z",
+              "resolution": "Huit affaires T18 sont nommées dans l’inventaire du mardi, dont la soirée de 20:55 ; le rappel générique est rapproché."
+            },
+            {
+              "channel": "France 2",
+              "title": "400 ans de la Marine Nationale, au coeur de la Task force",
+              "note": "Rapprochement et identité encore à vérifier.",
+              "resolved_at": "2026-10-09T19:30:04.161Z",
+              "resolution": "Rapproché à la grille officielle France 2 du 13 octobre à 21:10 et au dossier FranceTvPro. Les durées 90/93/95 min restent un blocage du dossier si la piste est reconsidérée, pas une omission du rappel."
             }
           ]
         },
@@ -15298,13 +15629,7 @@
           "date": "2026-10-14",
           "announced_entries_compared": 12,
           "present_in_inventory": 10,
-          "unresolved": [
-            {
-              "channel": "TFX",
-              "title": "Cleaners les experts du ménage",
-              "note": "Téléréalité explicitement typée dans la grille, écartée du périmètre films/documentaires."
-            }
-          ],
+          "unresolved": [],
           "resolved": [
             {
               "channel": "W9",
@@ -15312,6 +15637,13 @@
               "note": "Rapprochement et identité encore à vérifier.",
               "resolved_at": "2026-10-08T09:28:04.631Z",
               "resolution": "Sujets et parties concordent avec dossier officiel S42 pages 20–23 ou 33–34 ; qualité critique reste à examiner."
+            },
+            {
+              "channel": "TFX",
+              "title": "Cleaners les experts du ménage",
+              "note": "Téléréalité explicitement typée dans la grille, écartée du périmètre films/documentaires.",
+              "resolved_at": "2026-10-09T19:28:48.693Z",
+              "resolution": "Exclusion motivée : la grille type explicitement le programme comme téléréalité, hors périmètre films/documentaires ; aucune lacune de couverture créée."
             }
           ]
         },
@@ -15319,16 +15651,21 @@
           "date": "2026-10-15",
           "announced_entries_compared": 11,
           "present_in_inventory": 9,
-          "unresolved": [
+          "unresolved": [],
+          "resolved": [
             {
               "channel": "France 2",
               "title": "Envoyé spécial",
-              "note": "Sujet de l'épisode non fourni par la grille ; ne pas considérer comme documentaire identifié."
+              "note": "Sujet de l'épisode non fourni par la grille ; ne pas considérer comme documentaire identifié.",
+              "resolved_at": "2026-10-09T19:30:04.161Z",
+              "resolution": "Présence confirmée par la grille officielle France 2 à 21:10. Sujet non annoncé : magazine générique exclu des recommandations, sans inventer d’identité d’œuvre."
             },
             {
               "channel": "CStar",
               "title": "Au cœur de l'enquête",
-              "note": "Sujet de l'épisode non fourni par la grille ; ne pas considérer comme documentaire identifié."
+              "note": "Sujet de l'épisode non fourni par la grille ; ne pas considérer comme documentaire identifié.",
+              "resolved_at": "2026-10-09T19:34:05.000Z",
+              "resolution": "Trois diffusions CSTAR rapprochées par le guide daté (épisodes 4, 3 et 2 à 21:10, 22:58 et 00:46). Sujet non annoncé : magazine exclu des recommandations, sans inventer d’identité d’œuvre."
             }
           ]
         },
@@ -15353,9 +15690,11 @@
         "Deux variantes de titre éditoriales (Infaillibles et Dr. No) rapprochées avec prudence ; film et suite Comme des bêtes distingués.",
         "Programmes génériques de magazines ne sont pas automatiquement des documentaires recommandables ; examen des épisodes encore partiel.",
         "Titre de la soirée Marine différent entre grille officielle et communiqué ; équivalence du montage à établir avant emploi de la critique.",
-        "30 entrées de magazines à sujet explicite conservées à partir des grilles déjà consultées ; réception et périmètre documentaire à examiner. Cleaners est une téléréalité dans la grille, non un film documentaire. Les lancements/débats Enquête de santé ne sont pas des œuvres documentaires distinctes."
+        "30 entrées de magazines à sujet explicite conservées à partir des grilles déjà consultées ; réception et périmètre documentaire à examiner. Cleaners est une téléréalité dans la grille, non un film documentaire. Les lancements/débats Enquête de santé ne sont pas des œuvres documentaires distinctes.",
+        "Réconciliation du 9 octobre : sept éléments génériques sont rapprochés ou exclus sur les preuves sauvegardées. Restent ouverts la version exacte de la soirée Marine du 13 octobre, le sujet d’Envoyé spécial du 15 et celui d’Au cœur de l’enquête du 15.",
+        "Réconciliation finale du rappel principal : trois derniers éléments rapprochés ; les magazines sans sujet restent hors recommandations et le conflit de version Marine reste dans son dossier propre."
       ],
-      "followup_at": "2026-10-08T07:03:10.807Z"
+      "followup_at": "2026-10-09T19:34:05.000Z"
     },
     {
       "source_urls": [
@@ -18619,5 +18958,51 @@
       "status": "date_time_agree_channel_pending",
       "note": "CANAL+ primaire concorde avec date/heure du créneau Festival ; chaîne non incluse dans l'événement. expires=fin de diffusion, pas fin de replay."
     }
-  ]
+  ],
+  "level2_review_summary": {
+    "checked_at": "2026-10-09T19:27:54.655Z",
+    "status": "incomplete",
+    "days_reviewed": [
+      "2026-10-10",
+      "2026-10-11",
+      "2026-10-12",
+      "2026-10-13",
+      "2026-10-14",
+      "2026-10-15",
+      "2026-10-16"
+    ],
+    "confirmed": "Les objets de comparaison sauvegardés ont été relus pour les sept dates ; les concordances sont conservées sans être surcertifiées.",
+    "unresolved_feed_groups": [
+      "TCM Cinéma",
+      "TV5MONDE FBS",
+      "RMC Story / RMC Découverte",
+      "Ciné+ et attribution de chaîne"
+    ],
+    "fresh_routes_checked": [
+      {
+        "url": "https://www.tv5monde.com/tv/programmes",
+        "result": "guide officiel trouvé mais flux FBS/date cible non paramétrable de manière vérifiable dans la consultation ; non utilisé comme seconde source"
+      },
+      {
+        "url": "https://europe.tv5monde.com/fr/guide-tv",
+        "result": "grille officielle Europe disponible, mais flux différent de TV5MONDE FBS ; non transposée"
+      },
+      {
+        "url": "https://www.rmcbfmplay.com/chaine/rmc-story?subMenuId=RefMenuItem%3A%3Armcgo_home_rmcstory",
+        "result": "catalogue et direct officiels accessibles, sans archive de grille datée 10–16 octobre exploitable"
+      },
+      {
+        "url": "https://boutique.canalplus.com/experience-canal-plus/chaines/canal-plus-grand-ecran/",
+        "result": "présence des œuvres sur la chaîne et grille du jour courant, sans horaire daté cible pour arbitrer les conflits S42"
+      }
+    ]
+  },
+  "reminder_review_summary": {
+    "checked_at": "2026-10-09T19:34:05.000Z",
+    "primary_pass_index": 0,
+    "previously_unresolved": 10,
+    "resolved_or_excluded": 10,
+    "remaining": [],
+    "certification": "Passe TNT principale réconciliée ; aucune certification implicite des autres passes de rappel."
+  }
 }
