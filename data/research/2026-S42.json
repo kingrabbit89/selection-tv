@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T13:36:23.015Z",
+  "updated_at": "2026-10-09T13:40:16.708Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -985,6 +985,16 @@
         "data/links.json",
         "data/manifest.json",
         "data/weeks/2026-S42.json",
+        "data/radar-reserves/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "complete-radar-hd-cross-page-reserves-2026-10-09",
+      "completed_at": "2026-10-09T13:40:16.708Z",
+      "scope": "radar-1,radar-2:reserves",
+      "summary": "Chaque page Radar 1080p conserve ses cinq cartes visibles et reçoit trois remplaçants complets déjà vérifiés depuis l’autre page ; hd1 et hd2 atteignent huit candidats sans nouvelle consultation fictive.",
+      "deliverables": [
         "data/radar-reserves/2026-S42.json",
         "data/research/2026-S42.json"
       ]
@@ -26251,7 +26261,8 @@
       "completed_batches": [
         "complete-falaise-replace-ghost-friday-card-2026-10-09",
         "complete-radar-hd-ten-cards-2026-10-09",
-        "complete-popularity-radar-public-scan-reserves-2026-10-09"
+        "complete-popularity-radar-public-scan-reserves-2026-10-09",
+        "complete-radar-hd-cross-page-reserves-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -26268,7 +26279,8 @@
         "sommaire et fichier de réserves radar HD générés",
         "radar-torrent : cinq cartes publiques complètes",
         "radar-torrent-sillonnage : cinq cartes complètes",
-        "popular_deep : cinq réserves complètes issues de dossiers déjà vérifiés"
+        "popular_deep : cinq réserves complètes issues de dossiers déjà vérifiés",
+        "hd1 et hd2 : huit candidats complets chacun, dont trois remplaçants croisés"
       ],
       "complete_cards": 74,
       "draft_cards": 0,
@@ -26281,10 +26293,11 @@
         "radar HD : réserves structurées hd1/hd2 et entrée de sommaire présentes",
         "radar popularité courant : cinq cartes publiques et entrée de sommaire présentes",
         "radar popularité sillonnage : cinq cartes complètes présentes",
-        "radar popularité : cinq réserves profondes complètes structurées"
+        "radar popularité : cinq réserves profondes complètes structurées",
+        "radar HD : réserve minimale de huit candidats complets atteinte pour hd1 et hd2"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter les réserves quotidiennes déficitaires, en privilégiant les dossiers card_complete réutilisables ; les réserves HD hd1/hd2 restent elles aussi à approfondir.",
+      "next_useful_batch": "Compléter les réserves quotidiennes déficitaires à partir de dossiers proches d’une carte ; ensuite reprendre la certification indépendante de couverture.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -26372,18 +26385,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T13:38:39.959Z",
+          "elapsed_seconds": 2103.752,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "a660a4e7ba7ac15f76debb8d5cc7424c91ca95b7",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers les plus avancés.",
+            "Produire les deux radars et leur fichier de réserves à partir de signaux récents vérifiés.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T13:03:36.207Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T14:23:44.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T13:31:30.550Z",
-        "elapsed_seconds": 1674.343,
+        "observed_at": "2026-10-09T13:38:39.959Z",
+        "elapsed_seconds": 2103.752,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "b029ccd90a55667f1e98259d39fa57ec98908a83",
+        "source_sha": "a660a4e7ba7ac15f76debb8d5cc7424c91ca95b7",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers les plus avancés.",
           "Produire les deux radars et leur fichier de réserves à partir de signaux récents vérifiés.",
