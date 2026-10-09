@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T21:41:31.970Z",
+  "updated_at": "2026-10-09T21:43:52.736Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -12,7 +12,6 @@
     "Produire les autres livrables et rubriques, revue factuelle et éditoriale, contrôles CI, puis seulement sceller la revue.",
     "France 5 : Pompéi satisfait le niveau 3 et Foucault reste une observation non retenue. Les quatre créneaux officiels génériques La p'tite librairie (11/10 00:10 et 09:15, 13/10 10:00, 14/10 00:00) sont conservés sans identité d'épisode et n'apparaissent dans aucune carte ; leur revue d'omission est close. Restent les fins de nuit non couvertes par les grilles officielles et la passe documentaire/offres France 5.",
     "T18 14 octobre : neuf épisodes/sujets et horaires concordent largement entre LeZapp, TV-Programme et ProgrammeTVCeSoir, sans base positive d'acquisition indépendante. Fait nouveau : Télé 7 Jours attribue au créneau 00:20 Sur la scène du crime l'épisode « Jogging fatal - affaire Nelly Crémel », tandis que LeZapp et ProgrammeTVCeSoir donnent « Meurtre en sous-sol - affaire Manteau » ; résoudre ce conflit exact ou exclure ce créneau. Face à face reste identifié comme fiction policière, hors rappel documentaire.",
-    "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
     "TF1 Séries Films : neuf diffusions recoupées et nuits consultées ; blocs nocturnes génériques non détaillés, réception et cartes à terminer. CSTAR 16 octobre : Un mariage à Noël concorde à 21:10 ; Noël à la carte 22:49/22:45 et identité des quatre Douanes à départager ; indépendance et nuits restent à certifier.",
     "Rappel TNT principal réconcilié : les dix éléments génériques sont rapprochés ou exclus, dont Envoyé spécial et Au cœur de l’enquête sans sujet identifié. Les autres passes partielles (cinéma payant, TV5MONDE FBS, RMC, Ciné+) et le conflit de version Marine restent ouverts dans leurs dossiers propres.",
     "Cinéma payant : huit premières diffusions recoupées officiellement ; poursuivre les autres chaînes et rediffusions, droits/offres/expirations et critique indépendante avant sélection.",
@@ -1378,7 +1377,8 @@
     "france5-four-generic-interstitial-omission-review-2026-10-09",
     "france4-rachelle-hakim-unselected-scope-review-2026-10-09",
     "t18-new-independent-route-and-episode-conflict-2026-10-09",
-    "t18-conflict-retry-gate-review-2026-10-09"
+    "t18-conflict-retry-gate-review-2026-10-09",
+    "francetv-four-unselected-dossiers-scope-review-2026-10-09"
   ],
   "blockers": [
     {
@@ -26820,6 +26820,26 @@
       },
       "evidence_note": "Trois guides soutiennent Manteau ; Télé 7 Jours donne Nelly Crémel. Les domaines multiples ne prouvent ni indépendance ni majorité probante ; conflit conservé.",
       "status": "conflict"
+    },
+    {
+      "id": "run22-four-francetv-dossiers-rendered-scope-review",
+      "work_id": null,
+      "fields": [
+        "selection_scope",
+        "rendered_occurrence",
+        "level_3_dependency"
+      ],
+      "urls": [],
+      "checked_at": "2026-10-09T21:43:52.736Z",
+      "stability": "candidate-specific",
+      "applies_to": [
+        "Replica",
+        "Influence mortelle, la face cachée de TikTok",
+        "Lâche ton tel",
+        "Sommes-nous tous accros aux écrans ?"
+      ],
+      "evidence_note": "All four saved dossiers are absent from the rendered week; no offer, version, rating, image or availability was inferred.",
+      "status": "reviewed_unselected_deferred"
     }
   ],
   "run_metrics": [
@@ -32925,7 +32945,8 @@
         "france5-four-generic-interstitial-omission-review-2026-10-09",
         "france4-rachelle-hakim-unselected-scope-review-2026-10-09",
         "t18-new-independent-route-and-episode-conflict-2026-10-09",
-        "t18-conflict-retry-gate-review-2026-10-09"
+        "t18-conflict-retry-gate-review-2026-10-09",
+        "francetv-four-unselected-dossiers-scope-review-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -32935,9 +32956,9 @@
       "cards_integrated_this_run": 0,
       "draft_cards": 0,
       "partial_dossiers": 5,
-      "requirements_resolved": 15,
+      "requirements_resolved": 16,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
+      "next_useful_batch": "Poursuivre les défauts précis de couverture hors impasses annotées ; priorité à une source officielle nouvelle ou à un livrable rendu.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -33516,30 +33537,62 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T21:42:09.086Z",
+          "elapsed_seconds": 2757.438,
+          "prompt_revision": "production-proof-policy-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "c477369daf1df01f94e38df66316761632d246a9",
+          "next_actions": [
+            "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
+            "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
+          ],
+          "remaining_count": 19,
+          "next_actions_total": 15,
+          "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 24,
+          "waiting_actions_count": 9,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T20:56:11.648Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T22:17:47.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T21:40:58.194Z",
-        "elapsed_seconds": 2686.546,
+        "observed_at": "2026-10-09T21:42:09.086Z",
+        "elapsed_seconds": 2757.438,
         "prompt_revision": "production-proof-policy-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "2f6e3272a0a60dadc1e7c4f349c3a1105202b0e6",
+        "source_sha": "c477369daf1df01f94e38df66316761632d246a9",
         "next_actions": [
-          "Résoudre ou exclure précisément le créneau T18 du 14/10 à 00:20 (Manteau contre Nelly Crémel) avec une source officielle exacte ou une base positive d’acquisition distincte ; ne pas revoter entre guides inconnus.",
+          "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
           "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
           "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
           "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
         ],
         "remaining_count": 19,
-        "next_actions_total": 16,
-        "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "next_actions_total": 15,
+        "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
         "all_actions_total": 24,
-        "waiting_actions_count": 8,
+        "waiting_actions_count": 9,
         "research_review_warnings": [],
         "observations": {
           "started_at": "2026-10-09T20:56:11.648Z",
@@ -33697,6 +33750,13 @@
           "ended_at": "2026-10-09T21:41:31.970Z",
           "overlap": false,
           "note": "Revue de reprise T18 : condition de nouvelle preuve enregistrée après recherche officielle et voies alternatives contradictoires."
+        },
+        {
+          "kind": "review",
+          "started_at": "2026-10-09T21:42:09.086Z",
+          "ended_at": "2026-10-09T21:43:52.736Z",
+          "overlap": false,
+          "note": "Revue de portée de quatre dossiers france.tv non retenus et comparaison exacte avec la semaine rendue."
         }
       ],
       "requirements_resolved_details": [
@@ -33707,7 +33767,8 @@
         "Deux suivis TCM obsolètes sont clos : La falaise mystérieuse, Regrouping et Burning an Illusion satisfont le niveau 3 dans la portée de leurs preuves, sans inventer de master technique ni de replay ; quatre pistes non retenues restent différées. Les exigences de niveau 2 TCM restent ouvertes.",
         "Le suivi France 4 documentaire ciblé est clos : la carte Wachowski satisfait le niveau 3 avec durées bornées ; On ne va pas se défiler est différé hors sélection. Le rappel France 4 et Hakim Jemili restent ouverts séparément.",
         "Le suivi Arte préhistoire ciblé est clos : Chauvet, Thorin et Sulawesi satisfont le niveau 3, avec durées et limites d’offre séparées. Le rappel documentaire global et les contrôles préflight restent ouverts.",
-        "Le suivi Public Sénat ciblé est clos : les deux cartes linéaires Silence dans les rangs sont vérifiées avec minutes attribuées à chaque source ; aucun replay indisponible n’est présenté comme une offre."
+        "Le suivi Public Sénat ciblé est clos : les deux cartes linéaires Silence dans les rangs sont vérifiées avec minutes attribuées à chaque source ; aucun replay indisponible n’est présenté comme une offre.",
+        "Le suivi ciblé de quatre dossiers france.tv non retenus est clos par portée : aucun n’est rendu et aucune disponibilité n’est déduite ; la passe documentaire officielle globale reste ouverte."
       ]
     }
   ],
@@ -41512,6 +41573,20 @@
       "evidence": "Saved France 4 official/guide observations and rendered-week comparison on 05bd88c.",
       "reason": "Les deux programmes sont absents des livrables et n’exigent pas de niveau 3. La contradiction d’identité Hakim reste visible et n’est pas résolue par proximité de titre. Les véritables exigences France 4 restent séparément ouvertes.",
       "coverage_effect": "preserves France 4 documentary offers, generic episodes and recall gaps"
+    },
+    {
+      "action_text": "Prospection France 2/3/4/TV5 : quatre dossiers documentaires approfondis, tous à vérifier (versions, offres, notes, affiches, critique complémentaire). france.tv catalogue/offres bloqués en lecture Web ; aucune disponibilité déduite de l'annonce.",
+      "decided_at": "2026-10-09T21:43:52.736Z",
+      "decision": "four_unselected_francetv_dossiers_deferred_targeted_requirement_closed",
+      "applies_to": [
+        "Replica",
+        "Influence mortelle, la face cachée de TikTok",
+        "Lâche ton tel",
+        "Sommes-nous tous accros aux écrans ?"
+      ],
+      "evidence": "Saved documentary discovery dossiers and exact mechanical comparison with data/weeks/2026-S42.json on candidate c477369; none of the four titles is rendered.",
+      "reason": "Ces quatre pistes conservent leurs annonces, critiques et limites sans disponibilité déduite. Aucune carte, réserve ou ligne rendue n’en dépend, donc leur enrichissement de niveau 3 n’est pas requis. La passe documentaire officielle et les offres/expirations restent ouvertes globalement.",
+      "coverage_effect": "closes only the targeted level-3 follow-up for four unselected dossiers; global official documentary discovery remains open"
     }
   ]
 }
