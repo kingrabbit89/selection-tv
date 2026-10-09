@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "week": "2026-S42",
-  "base_sha": "670d7888e2ba07474a6ed09d1b2aa822bcd2b3ec",
+  "base_sha": "7225864642ce437f2e55dc3a7e0ed85d80ae8bda",
   "stage": "ready",
   "updated_at": "2026-10-09T23:31:23.084786Z",
   "remaining": [],
@@ -35608,8 +35608,8 @@
   ],
   "editorial_review": {
     "completed": true,
-    "reviewed_at": "2026-10-09T23:31:23.084786Z",
-    "basis": "technical_repair_reviews[-1] and unchanged previous reviewed fields; exact remote S42 CI required before merge"
+    "reviewed_at": "2026-10-09T23:39:40.113243Z",
+    "basis": "technical_repair_reviews[-1] with prior unchanged factual review; exact new S42 CI is required"
   },
   "ci_evidence": [
     {
@@ -36032,10 +36032,12 @@
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
     "checkpoint_parent_sha": "704d1fdc4c056c7d1a8e140bd13e038b5cfbffe0",
-    "main_sha": "670d7888e2ba07474a6ed09d1b2aa822bcd2b3ec",
+    "main_sha": "7225864642ce437f2e55dc3a7e0ed85d80ae8bda",
     "first_incomplete_stage": "exact_candidate_ci",
     "next_actions": [
-      "Lire les contrôles complets du nouveau SHA/base exact de S42 ; corriger tout défaut avant fusion et publication protégées. Ne pas rouvrir les trois réparations sans un échec nouveau."
+      "Read the exact new S42 candidate CI results on this main base, including full browser/Jellyfin and 90 remote images.",
+      "If any exact-head gate fails, inspect and fix its concrete cause under an owned lease; do not reuse earlier results or restart completed editorial research.",
+      "After all exact-head gates are green, continue the normal protected candidate merge and publication promotion; manifest.latest remains S41 until valid promotion."
     ],
     "publisher": {
       "checked_at": "2026-10-08T14:40:33.431Z",
@@ -44209,9 +44211,33 @@
       ],
       "remote_checks_required": "La nouvelle tête doit passer le rendu réel S42, les 90 visuels et Jellyfin dans sa CI exacte avant fusion/publication. Le navigateur vert de la PR59 porte sur S41.",
       "automatically_published": false
+    },
+    {
+      "id": "manual-pagination-gate-and-inline-posters-2026-10-10",
+      "reviewed_at": "2026-10-09T23:39:40.113243Z",
+      "source_candidate_sha": "e6f5b9b157b4a9e548e48625273633539d914480",
+      "previous_failed_run": 38004973759,
+      "code_pr": 60,
+      "code_patch_sha": "29ed6b50d234645fdbc84b60d24efd1fbd82f015",
+      "changed_scope": [
+        "section-reserve browser inspection includes exact live pagination continuations and moved summaries",
+        "two weekly-pool and one radar-reserve poster references aligned with already verified official catalogue images"
+      ],
+      "retained_review": "Unchanged editorial choices, ranks, identity, broadcast facts, texts and recorded ratings reuse the existing completed review; no new factual claims or threshold changes.",
+      "changed_field_review": "Reviewed page-layout continuation marking and live-node moves against validator scope. All existing target/replacement/type assertions and visibility filters remain. Reviewed the three exact inline image URL substitutions against the visually inspected and HTTP-tested official posters already recorded in the previous repair.",
+      "local_checks": [
+        "4 actual-callback section-reserve behavioral tests",
+        "S42 reserve readiness 70/70 and 49/49",
+        "exact-link validation",
+        "asset cache version check",
+        "JSON structure and old broken poster reference elimination"
+      ],
+      "remote_checks_required": "Exact new S42 head must pass all data, 90 image checks, Chromium layout, actual 5 rendezvous and 2 physical release refills, and Jellyfin bridge before merge/publication. PR60 public S41 regression alone cannot certify S42.",
+      "automatically_published": false,
+      "code_main_sha": "7225864642ce437f2e55dc3a7e0ed85d80ae8bda"
     }
   ],
-  "reviewed_at": "2026-10-09T23:31:23.574Z",
+  "reviewed_at": "2026-10-09T23:40:07.878Z",
   "reviewed_files": {
     "data/works.json": "12b9f75e95e01f5cc910a3374cb0e399de9c4c9e1ab8dba0455b4f42b80dae1c",
     "data/links.json": "f278dcd1af7f09a3c64b2186ad9df023398e062f6ed7d95d121df4aa125a6050",
@@ -44219,8 +44245,8 @@
     "data/manifest.json": "71620e6a68aedad00f623f7fcf8c5bf9d8746420f0e8d486f359ebfdba943892",
     "data/inventory/2026-S42.json": "8635db484bf90e10cc3312a6bec5698438dcd84ef4504567412b9ca67f287291",
     "data/coverage/2026-S42.json": "05381ca8dd96738f0fb5ea38fb1b8a3603d3081556f0eab1bc577c24abc34bfa",
-    "data/weeks/2026-S42.json": "b71f6b70454e065f2de2470d822e9f4e10f89dc67c632fc476a3db354d73741c",
-    "data/radar-reserves/2026-S42.json": "546f86edac974e3e9cf4a9baf450874423d93c768f08bbe15f47ce37abc83e37",
+    "data/weeks/2026-S42.json": "09c16e02799eea81eaa4abebb94724a01c00837245eeceb8eb42802522d40797",
+    "data/radar-reserves/2026-S42.json": "53ba7d44f6407a4cf9dd0a375b65d042810058ff38e95f8ee463b5b60c708ae9",
     "semaines/2026-S42/index.html": "67f73b0c527353ec432fe0bf6dcb2fbdb7d1fcb5a36b09c866517b0a6614f221"
   }
 }
