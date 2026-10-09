@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "primary_complete_crosscheck_pending",
-  "updated_at": "2026-10-09T21:12:19.284Z",
+  "updated_at": "2026-10-09T21:13:17.327Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -19764,16 +19764,35 @@
     },
     {
       "subject": "Love on Trial — 2026-10-12 20:50 Ciné+ Festival",
-      "checked_at": "2026-10-09T21:12:19.284Z",
-      "conclusion": "selected_card_requires_additional_broadcast_evidence",
-      "current_evidence": "La carte lundi-selection rang 5 et rendezvous-2 rang 6 est matérialisée. Deux grilles datées concordent sur le titre, la date, l’heure et Ciné+ Festival, mais leur provenance amont distincte n’est pas établie et aucun événement officiel exact n’est sauvegardé pour ce créneau.",
-      "missing_precisely": "Événement officiel exact titre+date+heure, ou base positive d’acquisition distincte pour une seconde grille nommant Ciné+ Festival.",
-      "scope": "niveau 3 de cette carte uniquement ; la revue ne rouvre pas les champs stables déjà sourcés et ne certifie pas le niveau 2 hebdomadaire",
+      "checked_at": "2026-10-09T21:13:17.327Z",
+      "conclusion": "verified_by_complementary_evidence",
+      "scope": "niveau 3 de Love on Trial le 12 octobre ; aucune exhaustivité de la grille cinéma payante ni indépendance des guides n’est déduite",
       "source_urls": [
+        "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026",
+        "https://www.canalplus.com/fr/cinema/love-on-trial/h/31616648_50002",
         "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
-        "https://television.telerama.fr/programme-tv-lundi/cine-club",
-        "https://www.canalplus.com/fr/cinema/love-on-trial/h/31616648_50002"
-      ]
+        "https://television.telerama.fr/programme-tv-lundi/cine-club"
+      ],
+      "linkage": "L’annonce éditoriale officielle CANAL+ nomme Love on Trial, décrit exactement le film et fixe sa disponibilité au 12 octobre sur Ciné+ OCS avec CANAL+. Les deux grilles datées sauvegardées placent le même titre le 12 octobre à 20:50 sur Ciné+ Festival. Le lien titre+date et la fiche CANAL+ exacte établissent l’identité ; la chaîne et l’heure proviennent des grilles, sans prétendre que l’annonce mensuelle est une grille ni que les deux guides ont des acquisitions indépendantes.",
+      "field_scope": {
+        "official_canal_editorial": [
+          "title",
+          "work_identity",
+          "availability_date",
+          "offering_family"
+        ],
+        "dated_channel_grids": [
+          "channel",
+          "title",
+          "date",
+          "start"
+        ],
+        "not_proven": [
+          "guide_upstream_independence",
+          "replay_expiration",
+          "technical_master_identifier"
+        ]
+      }
     }
   ]
 }
