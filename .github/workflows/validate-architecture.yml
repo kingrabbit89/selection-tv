@@ -49,12 +49,16 @@ jobs:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: node scripts/verify-promotion-attestation.mjs "${GITHUB_HEAD_REF#promote/}" "$BASE_SHA"
       - run: node --test scripts/test-promotion-transition.mjs scripts/test-editorial-contracts.mjs scripts/test-week-calendar.mjs scripts/test-weekly-watchdog.mjs scripts/test-hybrid-workflow.mjs scripts/test-recover-promotion.mjs scripts/test-editorial-lease.mjs scripts/test-validation-context.mjs scripts/test-editorial-work-packet.mjs scripts/test-preparation-regressions.mjs scripts/editorial-draft.test.mjs scripts/test-html-text.mjs scripts/test-publication-trigger-context.mjs scripts/test-promotion-attestation.mjs
+      - name: Test optional paper-source extraction
+        env:
+          PYTHONDONTWRITEBYTECODE: 1
+        run: python3 scripts/test-editorial-telerama-pdf.py
       - run: node scripts/validate-automation.mjs
       - run: node scripts/validate-canonical-identities.mjs
       - run: node scripts/sync-asset-versions.mjs --check
       - run: node scripts/validate-architecture.mjs
       - run: node --test scripts/test-editorial-progress.mjs scripts/test-editorial-continuation.mjs scripts/test-editorial-large-checkpoint.mjs
-      - run: node --test scripts/test-editorial-source-collector.mjs scripts/test-editorial-source-import.mjs scripts/test-editorial-production-plan.mjs scripts/test-editorial-production-flow.mjs
+      - run: node --test scripts/test-editorial-source-collector.mjs scripts/test-editorial-source-import.mjs scripts/test-editorial-production-plan.mjs scripts/test-editorial-production-flow.mjs scripts/test-editorial-telerama-import.mjs
       - run: node scripts/validate-publication-candidate.mjs
       - run: node scripts/validate-editorial.mjs
       - run: node scripts/validate-links.mjs
