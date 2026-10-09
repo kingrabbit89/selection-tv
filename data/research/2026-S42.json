@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T14:43:11.507Z",
+  "updated_at": "2026-10-09T14:44:46.079Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1107,6 +1107,16 @@
       "completed_at": "2026-10-09T14:43:11.507Z",
       "scope": "coverage:2026-10-16:France 3",
       "summary": "Les cinq candidats France 3 du vendredi sont recoupés titre/horaire entre la grille officielle FranceTvPro et TV-Programme. Le résultat est borné à cette chaîne et ne ferme aucun flag global de journée.",
+      "deliverables": [
+        "data/coverage/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "crosscheck-friday-france4-candidates-2026-10-09",
+      "completed_at": "2026-10-09T14:44:46.079Z",
+      "scope": "coverage:2026-10-16:France 4",
+      "summary": "Les sept candidats France 4 du vendredi sont recoupés titre/horaire entre FranceTvPro et TV-Programme, avec alias typographiques conservés. Aucun flag global de journée n’est certifié par ce lot borné.",
       "deliverables": [
         "data/coverage/2026-S42.json",
         "data/research/2026-S42.json"
@@ -24202,6 +24212,26 @@
       },
       "evidence_note": "Cinq candidats inventoriés comparés ; cinq concordances titre/horaire, aucune contradiction observée. Portée limitée à France 3.",
       "status": "verified_channel_crosscheck"
+    },
+    {
+      "work_id": null,
+      "fields": [
+        "coverage.friday.france4.candidate_titles",
+        "coverage.friday.france4.candidate_starts"
+      ],
+      "source_urls": [
+        "https://ftvpro.francetv.fr/grille/france-4/10-10-2026/16-10-2026",
+        "https://tv-programme.com/france-4/vendredi-16-octobre-2026/"
+      ],
+      "checked_at": "2026-10-09T14:44:46.079Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "channel": "France 4"
+      },
+      "evidence_note": "Sept candidats inventoriés comparés ; sept concordances d’horaire et d’identité, avec trois variantes de libellé explicites.",
+      "status": "verified_channel_crosscheck"
     }
   ],
   "run_metrics": [
@@ -27252,7 +27282,8 @@
         "complete-saturday-un-crime-dans-la-tete-reserve-2026-10-09",
         "complete-wednesday-competition-officielle-reserve-2026-10-09",
         "refine-friday-malcolm-x-hard-eight-2026-10-09",
-        "crosscheck-friday-france3-candidates-2026-10-09"
+        "crosscheck-friday-france3-candidates-2026-10-09",
+        "crosscheck-friday-france4-candidates-2026-10-09"
       ],
       "deliverables_changed": [
         "data/coverage/2026-S42.json",
@@ -27284,10 +27315,11 @@
         "mercredi : réserve quotidienne portée de quatre à cinq cartes complètes",
         "vendredi : Hard Eight retiré de la présélection après contrôle de fraîcheur S41",
         "vendredi : Malcolm X cadré comme dossier partiel avec conflit de version explicite",
-        "vendredi France 3 : cinq candidats recoupés entre source officielle et grille indépendante, sans extrapolation aux autres chaînes"
+        "vendredi France 3 : cinq candidats recoupés entre source officielle et grille indépendante, sans extrapolation aux autres chaînes",
+        "vendredi France 4 : sept candidats recoupés entre source officielle et grille indépendante, variantes de titre conservées"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre le recoupement officiel et indépendant d’une autre chaîne du vendredi ou terminer un dossier quotidien non bloqué.",
+      "next_useful_batch": "Poursuivre un autre recoupement de chaîne du vendredi ou terminer un dossier quotidien non bloqué.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -27549,18 +27581,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T14:44:08.046Z",
+          "elapsed_seconds": 2510.191,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "19779844a72fcb22cca1202dfa2310407f2207e4",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T14:02:17.855Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T15:42:45.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T14:41:54.448Z",
-        "elapsed_seconds": 2376.593,
+        "observed_at": "2026-10-09T14:44:08.046Z",
+        "elapsed_seconds": 2510.191,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "be4c21a4671975135b27cf048f6d2e6cd09c0b73",
+        "source_sha": "19779844a72fcb22cca1202dfa2310407f2207e4",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
@@ -27574,7 +27635,7 @@
         "observations": {
           "started_at": "2026-10-09T14:02:17.855Z",
           "lease_owned": "yes",
-          "lease_until": "2026-10-09T15:22:30.000Z",
+          "lease_until": "2026-10-09T15:42:45.000Z",
           "external_stop": null,
           "accessible_task_checks": [],
           "ready_handoff": null
@@ -27594,8 +27655,8 @@
           "ended_at": "2026-10-09T14:40:52.320Z"
         },
         "controles": {
-          "started_at": "2026-10-09T14:41:54.448Z",
-          "ended_at": "2026-10-09T14:43:11.507Z"
+          "started_at": "2026-10-09T14:44:08.046Z",
+          "ended_at": "2026-10-09T14:44:46.079Z"
         },
         "sauvegarde": null,
         "attente": null,
