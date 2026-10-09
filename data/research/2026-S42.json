@@ -29330,7 +29330,8 @@
         "integrate-three-distinct-hd2-reserves-2026-10-09",
         "append-three-cross-day-reserves-2026-10-09",
         "append-two-reviewed-saturday-reserves-2026-10-09",
-        "append-two-reviewed-friday-reserves-2026-10-09"
+        "append-two-reviewed-friday-reserves-2026-10-09",
+        "append-one-reviewed-sunday-reserve-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -29340,14 +29341,14 @@
         "data/research/2026-S42.json",
         "data/weeks/2026-S42.json"
       ],
-      "complete_cards": 105,
-      "cards_integrated_this_run": 10,
+      "complete_cards": 106,
+      "cards_integrated_this_run": 11,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "measurements": {
         "complete_cards": {
-          "value": 105,
-          "scope": "stock après checkpoint : 95 positions héritées, trois nouvelles réserves HD et sept placements quotidiens ajoutés pendant ce passage"
+          "value": 106,
+          "scope": "stock après checkpoint : 95 positions héritées, trois nouvelles réserves HD et huit placements quotidiens ajoutés pendant ce passage"
         },
         "new_works": {
           "value": 3,
@@ -29358,20 +29359,20 @@
           "scope": "les six positions ajoutées pendant ce passage sont des réserves cachées ; aucune carte visible n’a été créée"
         },
         "additional_reserve_placements": {
-          "value": 10,
-          "scope": "trois réserves HD nouvelles et sept réserves quotidiennes ajoutées pendant ce passage"
+          "value": 11,
+          "scope": "trois réserves HD nouvelles et huit réserves quotidiennes ajoutées pendant ce passage"
         },
         "additional_distinct_reserve_work_ids": {
           "value": 3,
           "scope": "trois work_id distincts nouveaux dans l’union des réserves HD, hors des dix choix visibles"
         },
         "stable_reuses": {
-          "value": 10,
-          "scope": "trois dossiers HD ont réutilisé des acquis stables avant complétion ; sept positions quotidiennes reprennent des œuvres déjà matérialisées avec vérification séparée de leur diffusion"
+          "value": 11,
+          "scope": "trois dossiers HD ont réutilisé des acquis stables avant complétion ; huit positions quotidiennes reprennent des œuvres déjà matérialisées avec vérification séparée de leur diffusion"
         },
         "additional_daily_reserve_placements": {
-          "value": 7,
-          "scope": "un rang ajouté au mardi, quatre au vendredi et deux au samedi"
+          "value": 8,
+          "scope": "un rang ajouté au mardi, quatre au vendredi, deux au samedi et un au dimanche"
         },
         "additional_daily_distinct_work_ids": {
           "value": 0,
@@ -29384,7 +29385,7 @@
         "vendredi-selection : minimum de dix cartes complètes atteint avec deux rediffusions supplémentaires revues, sans pénurie déclarée"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter les jours encore sous dix cartes — dimanche manque trois positions, mardi quatre, mercredi quatre et jeudi quatre — puis remplacer les cinq doublons de popular_deep.",
+      "next_useful_batch": "Compléter les jours encore sous dix cartes — dimanche manque deux positions, mardi quatre, mercredi quatre et jeudi quatre — puis remplacer les cinq doublons de popular_deep.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -29501,28 +29502,57 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T16:37:10.815Z",
+          "elapsed_seconds": 2163.401,
+          "prompt_revision": "production-dataflow-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "45e445d21260f0dd73ab67fd27550d6c74d12002",
+          "next_actions": [
+            "Compléter dimanche, encore à trois cartes du minimum, depuis des dossiers complets ou des réutilisations dont le nouveau créneau est vérifié.",
+            "Compléter ensuite mardi, mercredi et jeudi, chacun à quatre cartes du minimum.",
+            "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 39,
+          "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T16:01:07.414Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T17:23:00.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T16:33:53.764Z",
-        "elapsed_seconds": 1966.35,
+        "observed_at": "2026-10-09T16:37:10.815Z",
+        "elapsed_seconds": 2163.401,
         "prompt_revision": "production-dataflow-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "4263abe5f64628e8b270431c8b131e0872028c42",
+        "source_sha": "45e445d21260f0dd73ab67fd27550d6c74d12002",
         "next_actions": [
-          "Compléter les jours encore sous dix cartes, en priorité vendredi et dimanche, depuis des dossiers complets ou des réutilisations dont le nouveau créneau est vérifié.",
+          "Compléter dimanche, encore à trois cartes du minimum, depuis des dossiers complets ou des réutilisations dont le nouveau créneau est vérifié.",
+          "Compléter ensuite mardi, mercredi et jeudi, chacun à quatre cartes du minimum.",
           "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
-          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
-          "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits."
         ],
         "remaining_count": 35,
-        "next_actions_total": 38,
-        "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "next_actions_total": 39,
+        "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
         "observations": {
           "started_at": "2026-10-09T16:01:07.414Z",
           "lease_owned": "yes",
@@ -29574,6 +29604,11 @@
           "started_at": "2026-10-09T16:33:53.764Z",
           "ended_at": "2026-10-09T16:36:06.589Z",
           "note": "Recalcul de la chaîne de données, croisement des œuvres déjà matérialisées avec la grille du vendredi, vérification ciblée de deux rediffusions, plan append_days et import mécanique."
+        },
+        "sunday_reserve_batch": {
+          "started_at": "2026-10-09T16:37:10.815Z",
+          "ended_at": "2026-10-09T16:45:30.000Z",
+          "note": "Recalcul de la chaîne de données, séparation du remake 2004 et du film 1962, revue ciblée de réutilisations historiques et ajout contrôlé du Gouffre aux chimères ; une seule carte a satisfait les preuves disponibles."
         }
       },
       "control_notes": [
@@ -29599,7 +29634,9 @@
         "La chaîne de données recalculée au SHA 4263abe confirme le samedi à dix et le vendredi à huit avant le lot ; son ordre n’est pas traité comme un classement artistique.",
         "append_days contrôlé : vendredi passe de huit à dix cartes avec Le Silence des agneaux à 01:43 et La Gueule ouverte à 02:51, sans régénérer les pages ou cartes existantes.",
         "Les deux horaires concordent entre TV-Programme et TV Digital3D ; l’indépendance de leurs flux n’est pas affirmée et reste couverte par les exigences globales de niveau 2.",
-        "Contrôles ciblés : 55 positions quotidiennes sur 55 sont complètes et la fraîcheur reste conforme ; dimanche, mardi, mercredi et jeudi restent sous le minimum."
+        "Contrôles ciblés : 55 positions quotidiennes sur 55 sont complètes et la fraîcheur reste conforme ; dimanche, mardi, mercredi et jeudi restent sous le minimum.",
+        "append_days contrôlé : dimanche passe de sept à huit cartes avec Le Gouffre aux chimères à 00:47 ; trois guides concordent, sans certification d’indépendance de leurs flux.",
+        "La fausse correspondance Un crime dans la tête a été rejetée : le créneau du dimanche concerne Demme 2004, non la carte Frankenheimer 1962."
       ]
     }
   ],
@@ -30257,11 +30294,11 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "4263abe5f64628e8b270431c8b131e0872028c42",
+    "checkpoint_parent_sha": "45e445d21260f0dd73ab67fd27550d6c74d12002",
     "main_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Compléter dimanche, encore à trois cartes du minimum, depuis des dossiers complets ou des réutilisations dont le nouveau créneau est vérifié.",
+      "Compléter dimanche, encore à deux cartes du minimum, avec des œuvres distinctes dont l’identité, la version et le créneau sont vérifiés.",
       "Compléter ensuite mardi, mercredi et jeudi, chacun à quatre cartes du minimum.",
       "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
       "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes."
@@ -30748,6 +30785,26 @@
       "blocking": true,
       "status": "two_routes_no_new_exact_event",
       "resume_when": "Une grille primaire ou une source indépendante fraîche nomme la chaîne, l’horaire et la version du 11 octobre."
+    },
+    {
+      "id": "run18-sunday-manchurian-version-separation-2026-10-09",
+      "object": {
+        "title": "Un crime dans la tête",
+        "candidate_work_id": "un-crime-dans-la-tete-2004",
+        "rejected_saved_work_id": "un-crime-dans-la-tete-1962",
+        "broadcast": "2026-10-11 21:04 Canal+ Grand Écran"
+      },
+      "question": "La carte sauvegardée du film de 1962 peut-elle être réutilisée pour le créneau du dimanche ?",
+      "attempted_at": "2026-10-09T16:37:10.815Z",
+      "source_urls": [
+        "https://tv-programme.com/un-crime-dans-la-tete-film/un-crime-dans-la-tete-e175053",
+        "https://www.canalplus.com/cinema/un-crime-dans-la-tete/h/422172_50662/streaming/"
+      ],
+      "result": "Non. Le créneau du dimanche correspond au film de Jonathan Demme (2004), tandis que la carte disponible décrit le film de John Frankenheimer (1962). La correspondance de titre a été rejetée et aucune carte n’a été ajoutée.",
+      "blocking_scope": "réserve du dimanche pour cette piste uniquement",
+      "blocking": true,
+      "status": "identity_version_mismatch_rejected",
+      "resume_when": "Créer un dossier et une carte complets propres au film de 2004, avec diffusion actuelle, version, réception, image et liens exacts vérifiés."
     }
   ],
   "shortlist": {
