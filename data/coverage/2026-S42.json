@@ -2,7 +2,7 @@
   "schema_version": 1,
   "week": "2026-S42",
   "status": "primary_complete_crosscheck_pending",
-  "updated_at": "2026-10-09T19:37:48.055Z",
+  "updated_at": "2026-10-09T19:39:50.635Z",
   "days": [
     {
       "date": "2026-10-10",
@@ -15803,7 +15803,7 @@
         "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
       ],
       "checked_at": "2026-10-08T09:20:27.701Z",
-      "status": "partial",
+      "status": "reconciled_for_scoped_source",
       "scope": "Films Canal+, Canal+ Cinéma et Canal+ Box Office, tableau mensuel octobre ; 193 cases du cycle examinées",
       "findings": [
         "42 créneaux concordants et 149 divergences horaires consignées individuellement ; aucun arrondi présumé.",
@@ -15812,8 +15812,10 @@
         "PDF : Primate mardi 13 04:20 contre guide 02:24 ; Rue Málaga jeudi 15 00:35 contre 01:19. Écarts importants à départager.",
         "Marsupilami mercredi 14 22:35 Box Office confirmé visuellement ; extraction de police pictographique tronquait le premier 2, donnée extraite 02:35 rejetée.",
         "La légende situe chaque journée de 06:30 à 06:30 le lendemain. Les cases 00:00–06:29 ont été converties en dates civiles ; les cases hors 10–16 exclues.",
-        "Les durées du PDF divergent parfois des offres déjà consultées ; aucune durée canonique n'est remplacée. Le tableau de trois chaînes ne clôt pas le rappel de toutes les chaînes cinéma."
-      ]
+        "Les durées du PDF divergent parfois des offres déjà consultées ; aucune durée canonique n'est remplacée. Le tableau de trois chaînes ne clôt pas le rappel de toutes les chaînes cinéma.",
+        "Le tableau mensuel est entièrement traité pour ses trois chaînes et ses 193 cases. Les 149 divergences, alias et frontières civiles restent explicitement dans remaining ; leur résolution n’est pas simulée et les autres chaînes cinéma ne sont pas certifiées."
+      ],
+      "followup_at": "2026-10-09T19:38:59.417Z"
     },
     {
       "source_urls": [
@@ -16311,7 +16313,10 @@
         "https://tf1pro.com/programmes/episode/intracables-episode-4",
         "https://tf1pro.com/actualites/article/intracables"
       ],
-      "result": "Mini-série, épisodes 3 et 4 ; heures 21:10 et 22:00 le 15 octobre confirmées. Réception et cartes à compléter."
+      "result": "Mini-série, épisodes 3 et 4 ; heures 21:10 et 22:00 le 15 octobre confirmées. Réception et cartes à compléter.",
+      "status": "reconciled_for_scoped_source",
+      "followup_at": "2026-10-09T19:39:50.635Z",
+      "status_note": "Le résultat sauvegardé clôt la portée nommée de cette passe ; enrichissement, qualité, offres et indépendance non explicitement établie restent séparés."
     },
     {
       "id": "tf1-series-films-official-week-crosscheck",
@@ -16322,7 +16327,10 @@
         "https://tf1pro.com/grilles-tv/TF1%20Series%20Films/jour/2026-10-11",
         "https://tv-programme.com/tf1-series-films/dimanche-11-octobre-2026/"
       ],
-      "result": "Six créneaux cinéma/téléfilms confirmés ; trois épisodes de la mini-série Le mystère de la chambre jaune ajoutés et recoupés. Nuits consultées avec limites des blocs indéterminés. Clap et Tous en salles repérés : magazines promotionnels/culturels, aucun jugement artistique déduit."
+      "result": "Six créneaux cinéma/téléfilms confirmés ; trois épisodes de la mini-série Le mystère de la chambre jaune ajoutés et recoupés. Nuits consultées avec limites des blocs indéterminés. Clap et Tous en salles repérés : magazines promotionnels/culturels, aucun jugement artistique déduit.",
+      "status": "reconciled_for_scoped_source",
+      "followup_at": "2026-10-09T19:39:50.635Z",
+      "status_note": "Le résultat sauvegardé clôt la portée nommée de cette passe ; enrichissement, qualité, offres et indépendance non explicitement établie restent séparés."
     },
     {
       "id": "tmc-official-week-and-missing-magazine",
@@ -16332,7 +16340,10 @@
         "https://tf1pro.com/programmes/diffusion/2026-10-15-2335-90-enquetes-perpignan-interventions-musclees-pour-les",
         "https://tv-programme.com/tmc/jeudi-15-octobre-2026/"
       ],
-      "result": "38 créneaux rapprochés, un 90' Enquêtes ajouté ; alias Noël dans tes bras réconcilié. Pas de certification artistique, replay ou durée à partir des grilles."
+      "result": "38 créneaux rapprochés, un 90' Enquêtes ajouté ; alias Noël dans tes bras réconcilié. Pas de certification artistique, replay ou durée à partir des grilles.",
+      "status": "reconciled_for_scoped_source",
+      "followup_at": "2026-10-09T19:39:50.635Z",
+      "status_note": "Le résultat sauvegardé clôt la portée nommée de cette passe ; enrichissement, qualité, offres et indépendance non explicitement établie restent séparés."
     },
     {
       "id": "tfx-official-week-and-night-addition",
@@ -16342,7 +16353,10 @@
         "https://tf1pro.com/grilles-tv/tfx/jour/2026-10-12",
         "https://tv-programme.com/tfx/mardi-13-octobre-2026/"
       ],
-      "result": "Neuf créneaux recoupés ; Appels d'urgence 13 octobre 00:40 ajouté. Sacrées Sorcières identifié comme version Zemeckis. Baby boom et autres formats de téléréalité observés dans la grille officielle : traitement du périmètre/identités à consigner sans assimiler l'étiquette documentaire à une qualité artistique."
+      "result": "Neuf créneaux recoupés ; Appels d'urgence 13 octobre 00:40 ajouté. Sacrées Sorcières identifié comme version Zemeckis. Baby boom et autres formats de téléréalité observés dans la grille officielle : traitement du périmètre/identités à consigner sans assimiler l'étiquette documentaire à une qualité artistique.",
+      "status": "reconciled_for_scoped_source",
+      "followup_at": "2026-10-09T19:39:50.635Z",
+      "status_note": "Le résultat sauvegardé clôt la portée nommée de cette passe ; enrichissement, qualité, offres et indépendance non explicitement établie restent séparés."
     },
     {
       "id": "tf1-official-week-and-missing-programmes",
@@ -16353,7 +16367,10 @@
         "https://tf1pro.com/programmes/diffusion/2026-10-12-2215-cats-eyes-linconnu-du-train",
         "https://tf1pro.com/programmes/diffusion/2026-10-11-1610-les-docs-du-week-end-fini-le-gaspi-bonjour-les-economies"
       ],
-      "result": "16 créneaux existants recoupés, Intraçables déjà documenté. Cat's Eyes saison 2 (deux épisodes) et Les docs du week-end ajoutés ; pages indépendantes à confirmer. Pas de sélection ni de jugement de qualité."
+      "result": "16 créneaux existants recoupés, Intraçables déjà documenté. Cat's Eyes saison 2 (deux épisodes) et Les docs du week-end ajoutés ; pages indépendantes à confirmer. Pas de sélection ni de jugement de qualité.",
+      "status": "reconciled_for_scoped_source",
+      "followup_at": "2026-10-09T19:39:50.635Z",
+      "status_note": "Le résultat sauvegardé clôt la portée nommée de cette passe ; enrichissement, qualité, offres et indépendance non explicitement établie restent séparés."
     },
     {
       "id": "action-official-full-week",
@@ -16361,7 +16378,10 @@
       "source_urls": [
         "https://www.actiontv.fr/fr/grille-tv"
       ],
-      "result": "97 créneaux officiels datés examinés ; 91 lignes brutes cinéma recoupées sans divergence. Six créneaux de séries génériques nocturnes consignés dans channel_scan_notes, non assimilés à six nouveaux films."
+      "result": "97 créneaux officiels datés examinés ; 91 lignes brutes cinéma recoupées sans divergence. Six créneaux de séries génériques nocturnes consignés dans channel_scan_notes, non assimilés à six nouveaux films.",
+      "status": "reconciled_for_scoped_source",
+      "followup_at": "2026-10-09T19:39:50.635Z",
+      "status_note": "Le résultat sauvegardé clôt la portée nommée de cette passe ; enrichissement, qualité, offres et indépendance non explicitement établie restent séparés."
     },
     {
       "id": "rtl9-official-full-week",
@@ -16369,7 +16389,10 @@
       "source_urls": [
         "https://www.rtl9.com/fr/grille-tv"
       ],
-      "result": "83 créneaux officiels examinés ; 18 films bruts recoupés, dont Joker/Wild Card avec preuve d’alias. Blocs génériques et nocturnes conservés dans les notes de scan."
+      "result": "83 créneaux officiels examinés ; 18 films bruts recoupés, dont Joker/Wild Card avec preuve d’alias. Blocs génériques et nocturnes conservés dans les notes de scan.",
+      "status": "reconciled_for_scoped_source",
+      "followup_at": "2026-10-09T19:39:50.635Z",
+      "status_note": "Le résultat sauvegardé clôt la portée nommée de cette passe ; enrichissement, qualité, offres et indépendance non explicitement établie restent séparés."
     },
     {
       "id": "paris-premiere-official-full-week",
@@ -16380,7 +16403,10 @@
         "https://tv-programme.com/paris-premiere/dimanche-11-octobre-2026/",
         "https://tv-programme.com/paris-premiere/mardi-13-octobre-2026/"
       ],
-      "result": "20 entrées existantes recoupées ; dix omissions réintégrées (quatre téléfilms, deux spectacles, quatre magazines), dont sept déjà recoupées indépendamment. Nuits incluses, deux parties de La maison sur le lac distinguées."
+      "result": "20 entrées existantes recoupées ; dix omissions réintégrées (quatre téléfilms, deux spectacles, quatre magazines), dont sept déjà recoupées indépendamment. Nuits incluses, deux parties de La maison sur le lac distinguées.",
+      "status": "reconciled_for_scoped_source",
+      "followup_at": "2026-10-09T19:39:50.635Z",
+      "status_note": "Le résultat sauvegardé clôt la portée nommée de cette passe ; enrichissement, qualité, offres et indépendance non explicitement établie restent séparés."
     },
     {
       "id": "gulli-official-full-week",
@@ -16389,7 +16415,10 @@
         "https://pro.m6.fr/gulli/grille/2026-42.pdf",
         "https://pro.m6.fr/gulli/grille/2026-41.pdf"
       ],
-      "result": "14 entrées recoupées, sept journées et nuits inspectées ; Dumbo identifié comme Burton 2019."
+      "result": "14 entrées recoupées, sept journées et nuits inspectées ; Dumbo identifié comme Burton 2019.",
+      "status": "reconciled_for_scoped_source",
+      "followup_at": "2026-10-09T19:39:50.635Z",
+      "status_note": "Le résultat sauvegardé clôt la portée nommée de cette passe ; enrichissement, qualité, offres et indépendance non explicitement établie restent séparés."
     },
     {
       "id": "targeted-f4-and-saint-ex-conflicts",
@@ -16399,7 +16428,10 @@
         "https://www.francetvpro.fr/grille/france-4/10-10-2026/15-10-2026",
         "https://www.canalplus.com/cinema/saint-ex/h/27265954_50002"
       ],
-      "result": "Rachelle Allison : 20:30 et titre de captation corrigés avec historique préservé. Saint-Ex : incohérence confirmée dans métadonnées officielles ; film et expiration non certifiés. France3 librairie : contradiction persistante, aucun arbitrage."
+      "result": "Rachelle Allison : 20:30 et titre de captation corrigés avec historique préservé. Saint-Ex : incohérence confirmée dans métadonnées officielles ; film et expiration non certifiés. France3 librairie : contradiction persistante, aucun arbitrage.",
+      "status": "partial_conflicts_persist",
+      "followup_at": "2026-10-09T19:39:50.635Z",
+      "status_note": "Rachelle Allison est corrigé ; Saint-Ex et France 3 librairie restent explicitement non arbitrés."
     },
     {
       "checked_at": "2026-10-08T12:09:35.282Z",

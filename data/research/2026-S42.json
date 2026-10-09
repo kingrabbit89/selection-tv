@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T19:37:48.055Z",
+  "updated_at": "2026-10-09T19:39:50.635Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -25976,6 +25976,113 @@
       },
       "evidence_note": "Omission et Collatéral sont deux épisodes de Face à face, fiction policière ; le rappel corrige l’identité sans transformer le titre en documentaire politique.",
       "status": "verified_for_reminder_pass_only"
+    },
+    {
+      "fields": [
+        "reminder.canal_monthly_table",
+        "conflict_preservation"
+      ],
+      "source_urls": [
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
+      ],
+      "checked_at": "2026-10-09T19:38:59.417Z",
+      "stability": "cycle",
+      "applies_to": {
+        "week": "2026-S42",
+        "coverage_level": 2,
+        "channels": [
+          "Canal+",
+          "Canal+ Cinéma",
+          "Canal+ Box Office"
+        ]
+      },
+      "evidence_note": "Les 193 cases du tableau ont été examinées ; 42 concordances et 149 divergences sont conservées. Le statut de la passe source est séparé de la résolution factuelle des conflits et du rappel des autres chaînes.",
+      "status": "verified_for_scoped_reminder_source"
+    },
+    {
+      "fields": [
+        "identity",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "broadcast_copy_version"
+      ],
+      "source_urls": [
+        "https://programmetv.ouest-france.fr/film/western/la-prisonniere-du-desert-c52633/",
+        "https://www.programme-tv.com/television/1254054907/la-prisonniere-du-desert.html",
+        "https://programmetv.ouest-france.fr/film/comedie-dramatique/la-vieille-dame-indigne-c5720643/",
+        "https://www.programme.tv/programme/la-vieille-dame-indigne-2216195/",
+        "https://www.programme-television.org/tv/chaines/tcm-cinema/mardi",
+        "https://static.tcm.com/2026-09/NPN_OCT26_PrimetimeSchedule_Final2.pdf"
+      ],
+      "checked_at": "2026-10-09T19:39:30.350Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "mardi",
+        "work_ids": [
+          "la-prisonniere-du-desert-1956",
+          "la-vieille-dame-indigne-1965"
+        ]
+      },
+      "evidence_note": "Identités et départs recoupés par plusieurs guides ; fenêtres 115/90 min conservées séparément des durées canoniques 119/94 min. La copie de diffusion reste non certifiée.",
+      "status": "partially_verified_version_blocking"
+    },
+    {
+      "fields": [
+        "reminder.explicit_status",
+        "scope_separation"
+      ],
+      "source_urls": [
+        "https://tf1pro.com/programmes/episode/intracables-episode-3",
+        "https://tf1pro.com/programmes/episode/intracables-episode-4",
+        "https://tf1pro.com/actualites/article/intracables",
+        "https://tf1pro.com/grilles-tv/TF1%20Series%20Films/2026-10-10",
+        "https://tf1pro.com/grilles-tv/TF1%20Series%20Films/jour/2026-10-09",
+        "https://tf1pro.com/grilles-tv/TF1%20Series%20Films/jour/2026-10-11",
+        "https://tv-programme.com/tf1-series-films/dimanche-11-octobre-2026/",
+        "https://tf1pro.com/grilles-tv/TMC/2026-10-10",
+        "https://tf1pro.com/programmes/diffusion/2026-10-15-2335-90-enquetes-perpignan-interventions-musclees-pour-les",
+        "https://tv-programme.com/tmc/jeudi-15-octobre-2026/",
+        "https://tf1pro.com/grilles-tv/TFX/2026-10-10",
+        "https://tf1pro.com/grilles-tv/tfx/jour/2026-10-12",
+        "https://tv-programme.com/tfx/mardi-13-octobre-2026/",
+        "https://tf1pro.com/grilles-tv/TF1/2026-10-10",
+        "https://tf1pro.com/programmes/diffusion/2026-10-12-2110-cats-eyes-un-nouvel-espoir",
+        "https://tf1pro.com/programmes/diffusion/2026-10-12-2215-cats-eyes-linconnu-du-train",
+        "https://tf1pro.com/programmes/diffusion/2026-10-11-1610-les-docs-du-week-end-fini-le-gaspi-bonjour-les-economies",
+        "https://www.actiontv.fr/fr/grille-tv",
+        "https://www.rtl9.com/fr/grille-tv",
+        "https://pro.m6.fr/paris-premiere/grille/2026-42.pdf",
+        "https://pro.m6.fr/paris-premiere/grille/2026-41.pdf",
+        "https://tv-programme.com/paris-premiere/dimanche-11-octobre-2026/",
+        "https://tv-programme.com/paris-premiere/mardi-13-octobre-2026/",
+        "https://pro.m6.fr/gulli/grille/2026-42.pdf",
+        "https://pro.m6.fr/gulli/grille/2026-41.pdf",
+        "https://www.programme-tv.com/chaine/jeudi/321/programme-television-france-4.html",
+        "https://www.francetvpro.fr/grille/france-4/10-10-2026/15-10-2026",
+        "https://www.canalplus.com/cinema/saint-ex/h/27265954_50002"
+      ],
+      "checked_at": "2026-10-09T19:39:50.635Z",
+      "stability": "cycle",
+      "applies_to": {
+        "week": "2026-S42",
+        "coverage_level": 2,
+        "pass_ids": [
+          "intracables-official-episode-reconciliation",
+          "tf1-series-films-official-week-crosscheck",
+          "tmc-official-week-and-missing-magazine",
+          "tfx-official-week-and-night-addition",
+          "tf1-official-week-and-missing-programmes",
+          "action-official-full-week",
+          "rtl9-official-full-week",
+          "paris-premiere-official-full-week",
+          "gulli-official-full-week",
+          "targeted-f4-and-saint-ex-conflicts"
+        ]
+      },
+      "evidence_note": "Neuf résultats déjà sauvegardés reçoivent un statut explicite limité à leur source/portée ; la passe ciblée F4/Saint-Ex reste partielle pour ses conflits. Aucun drapeau journalier n’est modifié.",
+      "status": "verified_for_status_reconciliation"
     }
   ],
   "run_metrics": [
@@ -30836,7 +30943,10 @@
         "narrow-saint-ex-short-feature-conflict-2026-10-09",
         "triage-arte-complementary-reminder-2026-10-09",
         "reconcile-m6-and-recent-reminder-subsets-2026-10-09",
-        "reconcile-t18-prime-identity-reminder-2026-10-09"
+        "reconcile-t18-prime-identity-reminder-2026-10-09",
+        "reconcile-canal-three-channel-monthly-source-2026-10-09",
+        "document-tuesday-classics-version-impasse-2026-10-09",
+        "normalize-ten-saved-reminder-pass-statuses-2026-10-09"
       ],
       "deliverables_changed": [
         "data/radar-reserves/2026-S42.json",
@@ -30886,7 +30996,7 @@
         "rappel TNT principal : dix éléments génériques rapprochés ou exclus ; trois créneaux CSTAR ajoutés sans sélectionner les magazines sans sujet"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Achever les autres passes de rappel partielles et reprendre les groupes d’indépendance seulement sur source nouvelle ; arbitrer les conflits bruts restants sans confondre créneau et version.",
+      "next_useful_batch": "Achever les passes de rappel encore réellement partielles ; reprendre les versions des deux classiques mardi uniquement sur source technique française nouvelle.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -31114,18 +31224,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T19:38:30.819Z",
+          "elapsed_seconds": 2441.695,
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "9fa447a350ce6c995d9d2aa5b481c68fb8288621",
+          "next_actions": [
+            "Achever les autres passes de rappel partielles, en commençant par cinéma payant, TV5MONDE FBS, RMC et Ciné+.",
+            "Niveau 2 : reprendre seulement sur source nouvelle les quatre groupes de flux non indépendants consignés.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Réconcilier les horaires et conflits résiduels : Canal+ Grand Écran Le dahlia noir 22:58/22:59 reste sans événement officiel S42 ; pour Saint-Ex, le guide Ouest-France distingue un élément court à 03:50 (9 min) du long métrage à 03:59, mais l’écart 03:50/03:53 et 9/6 min du court reste à arbitrer. Ne pas assimiler le court à la copie du film."
+          ],
+          "remaining_count": 34,
+          "next_actions_total": 36,
+          "truncated_notice": "31 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T18:57:49.124Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T20:18:19.665Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T19:36:51.712Z",
-        "elapsed_seconds": 2342.588,
+        "observed_at": "2026-10-09T19:38:30.819Z",
+        "elapsed_seconds": 2441.695,
         "prompt_revision": "production-closure-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "e4bfbce59e4011fd1499c38049abd744560937b6",
+        "source_sha": "9fa447a350ce6c995d9d2aa5b481c68fb8288621",
         "next_actions": [
           "Achever les autres passes de rappel partielles, en commençant par cinéma payant, TV5MONDE FBS, RMC et Ciné+.",
           "Niveau 2 : reprendre seulement sur source nouvelle les quatre groupes de flux non indépendants consignés.",
@@ -31200,6 +31339,21 @@
           "started_at": "2026-10-09T19:37:31.507Z",
           "ended_at": "2026-10-09T19:37:48.055Z",
           "note": "Relecture de la correction T18 déjà sourcée ; deux épisodes de fiction identifiés et écartés du périmètre documentaire."
+        },
+        "canal_table_reminder": {
+          "started_at": "2026-10-09T19:38:30.819Z",
+          "ended_at": "2026-10-09T19:38:59.417Z",
+          "note": "Séparation entre traitement exhaustif du tableau mensuel trois chaînes et résolution encore ouverte de ses 149 divergences."
+        },
+        "tuesday_classics_version_attempt": {
+          "started_at": "2026-10-09T19:38:59.417Z",
+          "ended_at": "2026-10-09T19:39:30.350Z",
+          "note": "Recherche groupée de grilles indépendantes et route TCM officielle ; le PDF officiel trouvé concerne le flux américain et a été écarté."
+        },
+        "saved_reminder_status_review": {
+          "started_at": "2026-10-09T19:39:30.350Z",
+          "ended_at": "2026-10-09T19:39:50.635Z",
+          "note": "Relecture de dix résultats de rappel déjà sauvegardés ; neuf portées closes explicitement, une passe conservée partielle pour conflits non arbitrés."
         }
       },
       "control_notes": [
@@ -32494,6 +32648,34 @@
       "blocking": true,
       "status": "short_and_feature_separated_short_slot_still_conflicted",
       "resume_when": "Une grille technique Ciné+ OCS datée ou un événement officiel distingue le type exact du court et son horaire/durée."
+    },
+    {
+      "id": "run20-tuesday-classics-broadcast-version-2026-10-09",
+      "object": {
+        "titles": [
+          "La Prisonnière du désert",
+          "La Vieille Dame indigne"
+        ],
+        "broadcasts": [
+          "2026-10-13 20:50 Ciné+ Classic",
+          "2026-10-13 10:50 TCM Cinéma"
+        ]
+      },
+      "question": "Les guides indépendants et une route officielle permettent-ils de certifier la copie exacte malgré les écarts entre durée canonique et durée de grille ?",
+      "attempted_at": "2026-10-09T19:39:30.350Z",
+      "source_urls": [
+        "https://programmetv.ouest-france.fr/film/western/la-prisonniere-du-desert-c52633/",
+        "https://www.programme-tv.com/television/1254054907/la-prisonniere-du-desert.html",
+        "https://programmetv.ouest-france.fr/film/comedie-dramatique/la-vieille-dame-indigne-c5720643/",
+        "https://www.programme.tv/programme/la-vieille-dame-indigne-2216195/",
+        "https://www.programme-television.org/tv/chaines/tcm-cinema/mardi",
+        "https://static.tcm.com/2026-09/NPN_OCT26_PrimetimeSchedule_Final2.pdf"
+      ],
+      "result": "Les guides indépendants concordent sur les identités, chaînes et départs ; ils affichent 115 min pour La Prisonnière et 90 min pour La Vieille Dame. Le PDF TCM trouvé est la grille américaine, non le flux français, donc inutilisable. Aucune grille technique française ni indication de montage/coupe ne permet de transformer ces fenêtres en versions certifiées.",
+      "blocking_scope": "niveau 3 des deux cartes de réserve mardi : copie/version exacte",
+      "blocking": true,
+      "status": "identity_and_start_corroborated_exact_broadcast_copy_unresolved",
+      "resume_when": "Une grille technique du flux français, un identifiant de master ou une durée de copie explicitement fournie par Ciné+ Classic/TCM France devient accessible."
     }
   ],
   "shortlist": {
