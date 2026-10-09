@@ -1131,6 +1131,19 @@
         "data/coverage/2026-S42.json",
         "data/research/2026-S42.json"
       ]
+    },
+    {
+      "id": "complete-daily-reserves-matrix-orient-adam-2026-10-09",
+      "completed_at": "2026-10-09T15:17:57.846Z",
+      "scope": "daily-reserves:dimanche,mercredi,jeudi",
+      "summary": "Trois réserves complètes supplémentaires sont intégrées depuis des preuves ciblées : Matrix Generation (dimanche), Orient-Express, le voyage d’une légende (mercredi) et L’Intérêt d’Adam (jeudi). Les divergences de versions 82/83 min et 74/78 min restent explicites ; aucun minimum quotidien n’est déclaré atteint.",
+      "deliverables": [
+        "data/works.json",
+        "data/links.json",
+        "data/manifest.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
     }
   ],
   "blockers": [
@@ -24281,6 +24294,140 @@
       },
       "evidence_note": "Fiche exacte Compétition officielle (2021), Mariano Cohn/Gastón Duprat, moyenne 6,6/10 ; lien 45227355 et note intégrés dans works, links et carte mercredi.",
       "status": "integrated"
+    },
+    {
+      "work_id": "matrix-generation-2023",
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "duration",
+        "image",
+        "links",
+        "ratings",
+        "critical_reception"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/108953-000-A/matrix-generation/",
+        "https://www.film-documentaire.fr/4DACTION/w_fiche_film/73096_0",
+        "https://www.senscritique.com/film/matrix_generation/98136359",
+        "https://www.telerama.fr/television/matrix-generation-notre-critique_cri-7034091.php"
+      ],
+      "checked_at": "2026-10-09T15:17:57.846Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "start": "23:10",
+        "channel": "Arte",
+        "version": "copie ARTE 53 min"
+      },
+      "evidence_note": "Identité, copie, réception, note, visuel et liens vérifiés ; durée de créneau exclue.",
+      "status": "verified"
+    },
+    {
+      "work_id": "matrix-generation-2023",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "offer.available_until"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/108953-000-A/matrix-generation/",
+        "https://tv-programme.com/arte/dimanche-11-octobre-2026/"
+      ],
+      "checked_at": "2026-10-09T15:17:57.846Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "start": "23:10",
+        "channel": "Arte",
+        "available_until": "2027-02-08"
+      },
+      "evidence_note": "Page directe ARTE et grille datée concordantes.",
+      "status": "verified"
+    },
+    {
+      "work_id": "orient-express-le-voyage-d-une-legende",
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "duration",
+        "image",
+        "links",
+        "critical_reception",
+        "ratings_unavailable_reason"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/077320-000-A/orient-express-le-voyage-d-une-legende/",
+        "https://www.film-documentaire.fr/4DACTION/w_fiche_film/55852",
+        "https://www.nouvelobs.com/teleobs/20250517.OBS104014/orient-express-le-voyage-d-une-legende-un-train-pas-comme-les-autres.html",
+        "https://programmetv.ouest-france.fr/actualites/orient-express-le-voyage-dune-legende-sur-arte-la-mysterieuse-histoire-dune-machine-a-reves-c9f54528-323b-11f0-b184-9fce0c190a12"
+      ],
+      "checked_at": "2026-10-09T15:17:57.846Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "version": "copie ARTE 83 min ; fiche 82 min distincte"
+      },
+      "evidence_note": "Identité, versions distinctes, réception, absence motivée de moyenne, visuel et liens vérifiés.",
+      "status": "verified"
+    },
+    {
+      "work_id": "orient-express-le-voyage-d-une-legende",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "offer.available_until"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/077320-000-A/orient-express-le-voyage-d-une-legende/",
+        "https://tv-programme.com/arte/mercredi-14-octobre-2026/"
+      ],
+      "checked_at": "2026-10-09T15:17:57.846Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-14",
+        "start": "09:55",
+        "channel": "Arte",
+        "available_until": "2026-11-12"
+      },
+      "evidence_note": "Page directe ARTE et grille datée concordantes.",
+      "status": "verified"
+    },
+    {
+      "work_id": "l-interet-d-adam-2025",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "duration.version"
+      ],
+      "source_urls": [
+        "https://www.memento.eu/linteret-dadam/",
+        "https://www.canalplus.com/fr/cinema/l-interet-d-adam/h/30267479_50001",
+        "https://tv-programme.com/canal-plus-cinema/jeudi-15-octobre-2026/",
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
+      ],
+      "checked_at": "2026-10-09T15:17:57.846Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-15",
+        "start": "21:00",
+        "channel": "Canal+ Cinéma",
+        "version": "CANAL+ 74 min ; master Memento 78 min"
+      },
+      "evidence_note": "Diffusion recoupée ; les deux durées sont conservées comme observations distinctes.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -27857,37 +28004,50 @@
       "duration_basis": "Passage en cours ; started_at observé à l’entrée, ended_at non encore connu.",
       "completed_batches": [
         "sync-main-9aae312-2026-10-09",
-        "integrate-competition-officielle-senscritique-2026-10-09"
+        "integrate-competition-officielle-senscritique-2026-10-09",
+        "complete-daily-reserves-matrix-orient-adam-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
         "data/links.json",
         "data/weeks/2026-S42.json",
-        "data/research/2026-S42.json"
+        "data/research/2026-S42.json",
+        "data/manifest.json"
       ],
-      "complete_cards": 84,
-      "cards_integrated_this_run": 0,
+      "complete_cards": 87,
+      "cards_integrated_this_run": 3,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "measurements": {
         "complete_cards": {
-          "value": 84,
-          "scope": "stock final hérité après le lot ; aucune nouvelle carte créée dans ce lot"
+          "value": 87,
+          "scope": "stock final au checkpoint ; 84 héritées au début du passage et 3 nouvelles réserves complètes"
         },
         "new_works": {
+          "value": 1,
+          "scope": "Matrix Generation ajouté entre tête de départ 4f121b2 et ce checkpoint ; Orient-Express existait comme entrée d’archive et L’Intérêt d’Adam existait déjà"
+        },
+        "visible_cards": {
           "value": 0,
-          "scope": "différence entre tête de départ 4f121b2 et checkpoint"
+          "scope": "les trois cartes ajoutées sont des réserves de rang 6, hors des trois choix visibles de chaque jour"
         },
         "additional_distinct_reserves": {
-          "value": 0,
-          "scope": "aucune réserve supplémentaire ; correction de preuve sur une réserve existante"
+          "value": 3,
+          "scope": "trois work_id distincts, chacun hors des choix visibles de son jour"
+        },
+        "stable_reuses": {
+          "value": 1,
+          "scope": "L’Intérêt d’Adam réutilise le dossier et la justification de rubrique ; la diffusion quotidienne reste vérifiée séparément"
         }
       },
       "requirements_resolved": [
-        "mercredi : note SensCritique reconnue et lien exact corrigé pour Compétition officielle"
+        "mercredi : note SensCritique reconnue et lien exact corrigé pour Compétition officielle",
+        "dimanche : réserve complète rang 6 matérialisée pour Matrix Generation",
+        "mercredi : réserve complète rang 6 matérialisée pour Orient-Express, le voyage d’une légende",
+        "jeudi : réserve complète rang 6 matérialisée pour L’Intérêt d’Adam"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter les réserves quotidiennes sous dix cartes à partir des dossiers sauvegardés et des recherches déléguées en lecture seule.",
+      "next_useful_batch": "Compléter les réserves des jours encore sous dix cartes, en priorité vendredi (4) puis samedi/dimanche/mardi/mercredi/jeudi, depuis des dossiers à version et diffusion exactes.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -27917,18 +28077,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T15:12:43.131Z",
+          "elapsed_seconds": 446.043,
+          "prompt_revision": "production-integrity-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "4b0c9503eb4fc93b9948c20f6e5af697f7c91430",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T15:05:17.088Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T16:05:32.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T15:08:43.101Z",
-        "elapsed_seconds": 206.013,
+        "observed_at": "2026-10-09T15:12:43.131Z",
+        "elapsed_seconds": 446.043,
         "prompt_revision": "production-integrity-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "4b92d3fe785b7cd0b20b18818b6216628726676d",
+        "source_sha": "4b0c9503eb4fc93b9948c20f6e5af697f7c91430",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
@@ -27958,11 +28147,21 @@
         "controles": null,
         "sauvegarde": null,
         "attente": null,
-        "note": "La fusion de main et l’extraction se chevauchent avec les lectures de contrats ; aucune somme séquentielle n’est déduite."
+        "note": "La fusion de main et l’extraction se chevauchent avec les lectures de contrats ; aucune somme séquentielle n’est déduite.",
+        "recherche_et_redaction": {
+          "started_at": "2026-10-09T15:13:54.868Z",
+          "ended_at": "2026-10-09T15:17:57.846Z",
+          "overlap": true,
+          "note": "Recherche ciblée, revue des preuves et rendu du handoff se chevauchent ; aucune somme séquentielle n’est calculée."
+        }
       },
       "control_notes": [
         "Candidate synchronisée normalement avec main 9aae312 ; seul AUTOMATION.md avait changé parmi les six contrats obligatoires.",
-        "Compétition officielle : preuve SensCritique déjà sauvegardée au passage précédent, intégrée sans nouvelle consultation fictive."
+        "Compétition officielle : preuve SensCritique déjà sauvegardée au passage précédent, intégrée sans nouvelle consultation fictive.",
+        "Handoff multi-œuvres contrôlé : trois jours remplacés avec conservation intégrale des pools existants ; trois réserves de rang 6 ajoutées.",
+        "Matrix Generation : identité/copie ARTE 53 min, diffusion, expiration, réception, note, visuel, liens et textes contrôlés.",
+        "Orient-Express : copie ARTE 83 min distinguée de la fiche 82 min ; diffusion, expiration, réception, visuel, liens et textes contrôlés.",
+        "L’Intérêt d’Adam : master 78 min et version CANAL+ 74 min conservés séparément ; diffusion et réception déjà sauvegardées réutilisées avec contrôle du créneau."
       ]
     }
   ],
@@ -31359,6 +31558,60 @@
           "sl-vendredi-malcolm-x",
           "sl-vendredi-falaise"
         ]
+      },
+      {
+        "id": "sl-dimanche-matrix-generation-reserve",
+        "title": "Matrix Generation",
+        "work_id": "matrix-generation-2023",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "diffusion_officielle_et_reception_argumentee",
+            "note": "ARTE annonce le 11 octobre à 23:10 une copie de 53 min ; Télérama et Le Point étayent l’angle culturel et politique.",
+            "source_url": "https://www.arte.tv/fr/videos/108953-000-A/matrix-generation/"
+          }
+        ],
+        "decision_note": "Réserve complète rang 6 ; durée de l’œuvre 53 min distinguée du créneau.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-mercredi-orient-express-reserve",
+        "title": "Orient-Express, le voyage d’une légende",
+        "work_id": "orient-express-le-voyage-d-une-legende",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "diffusion_officielle_et_reception_argumentee",
+            "note": "ARTE annonce le 14 octobre à 09:55 une copie de 83 min ; Le Nouvel Obs et Ouest-France étayent l’intérêt documentaire.",
+            "source_url": "https://www.arte.tv/fr/videos/077320-000-A/orient-express-le-voyage-d-une-legende/"
+          }
+        ],
+        "decision_note": "Réserve complète rang 6 ; copie ARTE 83 min distincte de la fiche Film-documentaire 82 min.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-jeudi-l-interet-d-adam-reserve",
+        "title": "L’Intérêt d’Adam",
+        "work_id": "l-interet-d-adam-2025",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "diffusion_officielle_et_reception_argumentee",
+            "note": "Diffusion du 15 octobre à 21:00 recoupée avec le PDF officiel CANAL+ ; Le Monde et Critikat fournissent une réception contradictoire.",
+            "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
+          }
+        ],
+        "decision_note": "Réserve complète rang 6 ; version CANAL+ 74 min et master Memento 78 min conservés séparément.",
+        "alternatives": []
       }
     ]
   },
@@ -33024,7 +33277,7 @@
     {
       "title": "L’Intérêt d’Adam",
       "work_id": "l-interet-d-adam-2025",
-      "decision": "carte complète plateformes-abonnement",
+      "decision": "réserve complète jeudi rang 6",
       "identity_research": {
         "director": "Laura Wandel",
         "year": 2025,
@@ -33037,20 +33290,21 @@
           },
           {
             "duration": "74 min",
-            "version": "page CANAL+ de la première",
+            "version": "version affichée par CANAL+",
             "source_url": "https://www.canalplus.com/fr/cinema/l-interet-d-adam/h/30267479_50001"
           }
         ],
-        "checked_at": "2026-10-09T11:32:33.132Z"
+        "checked_at": "2026-10-09T15:17:57.846Z"
       },
       "availability_research": {
         "status": "verified_cycle_premiere_only",
-        "checked_at": "2026-10-09T11:32:33.132Z",
+        "checked_at": "2026-10-09T15:17:57.846Z",
         "source_urls": [
           "https://www.canalplus.com/fr/cinema/l-interet-d-adam/h/30267479_50001",
-          "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026"
+          "https://tv-programme.com/canal-plus-cinema/jeudi-15-octobre-2026/",
+          "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
         ],
-        "note": "Première CANAL+ Cinéma(s) du 15 octobre ; aucune disponibilité à la demande durable ni expiration certifiée."
+        "note": "Diffusion du 15 octobre à 21:00 recoupée ; aucune persistance à la demande ni expiration inférée."
       },
       "critical_evidence": [
         {
@@ -33078,7 +33332,7 @@
         "source_page": "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000005217.html",
         "image_url": "https://fr.web.img5.acsta.net/c_310_420/img/5b/f4/5bf478e33f90cf46cd4502f16c8a6728.jpg"
       },
-      "reason": "Carte de rubrique complète ; conflit de durée 74/78 min et portée limitée de la preuve d’offre explicitement conservés."
+      "reason": "Dossier de rubrique réutilisé ; diffusion quotidienne ajoutée sans fusionner les observations de durée 74/78 min."
     },
     {
       "title": "Annihilation",
@@ -33734,6 +33988,117 @@
       },
       "dossier_completeness": "partial",
       "reason": "Identité et réception étayées ; version exacte, diffusion indépendante, visuel et liens finaux restent à résoudre avant toute carte."
+    },
+    {
+      "title": "Matrix Generation",
+      "work_id": "matrix-generation-2023",
+      "decision": "réserve complète dimanche rang 6",
+      "identity_research": {
+        "director": "Benjamin Clavel / Jérôme Dittmar",
+        "year": 2023,
+        "country": "France",
+        "duration_observations": [
+          {
+            "duration": "53 min",
+            "version": "copie ARTE et fiche Film-documentaire",
+            "source_url": "https://www.arte.tv/fr/videos/108953-000-A/matrix-generation/"
+          }
+        ],
+        "checked_at": "2026-10-09T15:17:57.846Z"
+      },
+      "availability_research": {
+        "status": "verified_cycle_broadcast_and_offer",
+        "checked_at": "2026-10-09T15:17:57.846Z",
+        "source_urls": [
+          "https://www.arte.tv/fr/videos/108953-000-A/matrix-generation/",
+          "https://tv-programme.com/arte/dimanche-11-octobre-2026/"
+        ],
+        "note": "Diffusion ARTE le 11 octobre à 23:10 ; disponible jusqu’au 8 février 2027. Durée de créneau non utilisée comme durée d’œuvre."
+      },
+      "critical_evidence": [
+        {
+          "source": "Télérama",
+          "source_url": "https://www.telerama.fr/television/matrix-generation-notre-critique_cri-7034091.php",
+          "assessment": "Critique argumentée du documentaire et de son angle culturel."
+        },
+        {
+          "source": "Le Point",
+          "source_url": "https://www.lepoint.fr/pop-culture/matrix-generation-le-documentaire-d-arte-qui-decode-la-saga-revolutionnaire-28-08-2024-2568790_2920.php",
+          "assessment": "Contexte éditorial indépendant sur le décodage de la saga."
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic",
+        "checked_at": "2026-10-09T15:17:57.846Z",
+        "source_urls": [
+          "https://www.senscritique.com/film/matrix_generation/98136359"
+        ],
+        "note": "SensCritique 6,8/10."
+      },
+      "image_research": {
+        "status": "exact_visual_checked_ci_pending",
+        "checked_at": "2026-10-09T15:17:57.846Z",
+        "source_page": "https://www.senscritique.com/film/matrix_generation/98136359",
+        "image_url": "https://media.senscritique.com/media/000022308214/0/matrix_generation.png"
+      },
+      "reason": "Identité, copie, diffusion, disponibilité, réception, note, visuel et textes revus ; contrôles distants encore requis."
+    },
+    {
+      "title": "Orient-Express, le voyage d’une légende",
+      "work_id": "orient-express-le-voyage-d-une-legende",
+      "decision": "réserve complète mercredi rang 6",
+      "identity_research": {
+        "director": "Louis-Pascal Couvelaire",
+        "year": 2018,
+        "country": "France",
+        "duration_observations": [
+          {
+            "duration": "83 min",
+            "version": "copie ARTE",
+            "source_url": "https://www.arte.tv/fr/videos/077320-000-A/orient-express-le-voyage-d-une-legende/"
+          },
+          {
+            "duration": "82 min",
+            "version": "fiche Film-documentaire",
+            "source_url": "https://www.film-documentaire.fr/4DACTION/w_fiche_film/55852"
+          }
+        ],
+        "checked_at": "2026-10-09T15:17:57.846Z"
+      },
+      "availability_research": {
+        "status": "verified_cycle_broadcast_and_offer",
+        "checked_at": "2026-10-09T15:17:57.846Z",
+        "source_urls": [
+          "https://www.arte.tv/fr/videos/077320-000-A/orient-express-le-voyage-d-une-legende/",
+          "https://tv-programme.com/arte/mercredi-14-octobre-2026/"
+        ],
+        "note": "Diffusion ARTE le 14 octobre à 09:55 ; disponible jusqu’au 12 novembre 2026. La copie ARTE 83 min reste distincte de la fiche 82 min."
+      },
+      "critical_evidence": [
+        {
+          "source": "Le Nouvel Obs",
+          "source_url": "https://www.nouvelobs.com/teleobs/20250517.OBS104014/orient-express-le-voyage-d-une-legende-un-train-pas-comme-les-autres.html",
+          "assessment": "Appréciation favorable, documentaire qualifié de passionnant et attentif à l’épopée technique et politique."
+        },
+        {
+          "source": "Ouest-France",
+          "source_url": "https://programmetv.ouest-france.fr/actualites/orient-express-le-voyage-dune-legende-sur-arte-la-mysterieuse-histoire-dune-machine-a-reves-c9f54528-323b-11f0-b184-9fce0c190a12",
+          "assessment": "Met en avant décors, explications et immersion ; la voix off poétique reste un parti pris visible."
+        }
+      ],
+      "ratings_research": {
+        "status": "unavailable_with_specific_reason",
+        "checked_at": "2026-10-09T15:17:57.846Z",
+        "source_urls": [],
+        "note": "Aucune moyenne agrégée suffisamment attribuée et datée n’est retenue ; deux critiques identifiées fondent la réception."
+      },
+      "image_research": {
+        "status": "historical_exact_visual_reused_ci_pending",
+        "checked_at": "2026-09-24",
+        "source_page": "https://www.senscritique.com/film/orient_express_le_voyage_d_une_legende/38766083",
+        "image_url": "https://media.senscritique.com/media/000020388758/0/orient_express_le_voyage_d_une_legende.jpg"
+      },
+      "reason": "Copie ARTE ciblée, divergence 82/83 min conservée et réception indépendante étayée."
     }
   ]
 }
