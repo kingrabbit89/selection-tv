@@ -1,8 +1,11 @@
 import fs from 'node:fs';
 import {spawnSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
-import {addDays, calendarTarget} from './week-calendar.mjs';
+import {addDays, calendarTarget, parisToday} from './week-calendar.mjs';
 import {days, lastRunGaps, shortlistSummary} from './editorial-progress.mjs';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+import {buildTaskBoard, taskBoardMarkdown} from './editorial-task-board.mjs';
 
 // Informative and non-certifying: runs the existing candidate validators on a
 // preparation and lists what still separates it from `ready`. It never fails
@@ -10,6 +13,31 @@ import {days, lastRunGaps, shortlistSummary} from './editorial-progress.mjs';
 export const validators = ['validate-publication-candidate', 'validate-editorial', 'validate-links',
   'validate-freshness', 'validate-reserves'];
 export const notice = 'INFORMATIF, NON CERTIFIANT : un écart absent ne vaut ni vérification ni autorisation de publier ; la barrière --require-ready et tous les contrôles complets restent obligatoires.';
+
+// Bind any reusable report to the actual validator inputs and CI execution.
+// Reusing an older report for a newer candidate would hide current defects.
+export function inputSnapshot(week, {root = '.', env = process.env} = {}) {
+  const files = [];
+  const collect = relative => {
+    const absolute = path.join(root, relative);
+    if (!fs.existsSync(absolute)) return;
+    const stat = fs.lstatSync(absolute);
+    if (stat.isDirectory()) for (const name of fs.readdirSync(absolute).sort()) collect(path.posix.join(relative, name));
+    else if (stat.isFile()) files.push(relative);
+  };
+  collect('data'); collect('scripts'); collect('assets'); collect(`semaines/${week}`);
+  const hash = createHash('sha256');
+  for (const file of files.sort()) hash.update(file + '\0').update(fs.readFileSync(path.join(root, file))).update('\0');
+  return {week, sha256: hash.digest('hex'), run_id: env.GITHUB_RUN_ID || null,
+    run_attempt: env.GITHUB_RUN_ATTEMPT || null, checkout_sha: env.GITHUB_SHA || null,
+    head_ref: env.GITHUB_HEAD_REF || null, validation_date: env.SELECTION_TV_TODAY || parisToday()};
+}
+
+export function matchingReport(report, snapshot) {
+  return Boolean(report && !report.error && report.week === snapshot.week && report.input_snapshot &&
+    ['week', 'sha256', 'run_id', 'run_attempt', 'checkout_sha', 'head_ref', 'validation_date'].every(key => report.input_snapshot[key] === snapshot[key]) &&
+    Array.isArray(report.gaps) && Array.isArray(report.validator_results));
+}
 
 export function classify(message, {from, sections = []}) {
   const dates = Object.fromEntries(days.map((day, i) => [addDays(from, i), day]));
@@ -30,11 +58,20 @@ export function parseProblems(output) {
     .map(line => ({severity: line.startsWith('✗') ? 'blocking' : 'warning', message: line.replace(/^[✗!]\s*/, '')}));
 }
 
-export function buildReport({week, from, sections, results, progress}) {
+export function buildReport({week, from, sections, results, progress, snapshot = null}) {
   const gaps = [];
-  for (const {validator, output, status} of results) {
+  let complete = true;
+  for (const {validator, output, status, execution_error} of results) {
+    if (execution_error) complete = false;
     const problems = parseProblems(output);
-    if (status !== 0 && !problems.length) problems.push({severity: 'blocking', message: `${validator} exited ${status} without a parsable problem line`});
+    const announced = [...String(output).matchAll(/(?:gate failed:\s*(\d+)\s*problem|Reserve readiness:\s*(\d+)\s*problème)/gi)]
+      .map(match => Number(match[1] || match[2]));
+    if (announced.some(total => total > problems.filter(problem => problem.severity === 'blocking').length) ||
+        validator === 'validate-reserves' && problems.filter(problem => problem.severity === 'warning').length >= 80) complete = false;
+    if (status !== 0 && !problems.length) {
+      complete = false;
+      problems.push({severity: 'blocking', message: `${validator} exited ${status} without a parsable problem line`});
+    }
     for (const problem of problems) gaps.push({validator, ...problem, scope: classify(problem.message, {from, sections})});
   }
   const byScope = {};
@@ -42,7 +79,11 @@ export function buildReport({week, from, sections, results, progress}) {
     const key = gap.scope.kind + (gap.scope.value ? ':' + gap.scope.value : '');
     byScope[key] = (byScope[key] || 0) + 1;
   }
-  return {week, generated_at: new Date().toISOString(), notice, gap_count: gaps.filter(g => g.severity === 'blocking').length,
+  return {week, generated_at: new Date().toISOString(), notice, input_snapshot: snapshot,
+    validator_results: results.map(({validator, status, execution_error}) => ({validator, status, ...(execution_error ? {execution_error} : {})})),
+    task_board: buildTaskBoard({gaps, progress, observationsAvailable: results.length > 0,
+      observationsComplete: complete && validators.every(name => results.some(result => result.validator === name))}),
+    gap_count: gaps.filter(g => g.severity === 'blocking').length,
     warnings: gaps.filter(g => g.severity === 'warning').length, by_scope: byScope, gaps,
     process: {last_run_gaps: progress ? lastRunGaps(progress) : ['research checkpoint unreadable'],
       shortlist: progress ? shortlistSummary(progress) : null,
@@ -56,6 +97,7 @@ export function markdown(report) {
     ...Object.entries(report.by_scope).sort().map(([key, count]) => `| ${key} | ${count} |`), ''];
   for (const gap of report.gaps.slice(0, 120)) lines.push(`- [${gap.scope.kind}${gap.scope.value ? ':' + gap.scope.value : ''}] ${gap.validator} : ${gap.message}`);
   if (report.gaps.length > 120) lines.push(`- … ${report.gaps.length - 120} autres dans l'artefact JSON.`);
+  if (report.task_board) lines.push('', taskBoardMarkdown(report.task_board));
   lines.push('', '### Suivi de production');
   for (const gap of report.process.last_run_gaps) lines.push('- ' + gap);
   lines.push(`- Présélection : ${report.process.shortlist?.entries ?? 0} piste(s) ; remaining_items ${report.process.structured_remaining ? 'présent' : 'absent'}.`);
@@ -78,13 +120,18 @@ function main() {
       ...days.flatMap(day => [day + '-selection', day + '-grille'])];
     const env = {...process.env, SELECTION_TV_VALIDATE_WEEK: week, SELECTION_TV_CANDIDATE: '1'};
     delete env.SELECTION_TV_PREPARATION_WEEK;
+    const snapshot = inputSnapshot(week);
     const results = validators.map(validator => {
       const run = spawnSync(process.execPath, [`scripts/${validator}.mjs`], {env, encoding: 'utf8', timeout: 180000, maxBuffer: 32 * 1024 * 1024});
-      return {validator, status: run.status ?? 1, output: (run.stdout || '') + '\n' + (run.stderr || '') + (run.error ? '\n✗ ' + run.error.message : '')};
+      return {validator, status: run.status ?? 1, execution_error: run.error?.message || run.signal || null,
+        output: (run.stdout || '') + '\n' + (run.stderr || '') + (run.error ? '\n✗ ' + run.error.message : '')};
     });
-    report = buildReport({week, from, sections, results, progress: read(`data/research/${week}.json`)});
+    const inputsUnchanged = matchingReport({week, input_snapshot: snapshot, gaps: [], validator_results: []}, inputSnapshot(week));
+    report = buildReport({week, from, sections, results, progress: read(`data/research/${week}.json`), snapshot: inputsUnchanged ? snapshot : null});
+    if (!inputsUnchanged) report.task_board.calculated.status = 'partial';
   } catch (error) {
     report = {week, notice, error: 'Gap report unavailable: ' + error.message, gaps: [], by_scope: {}, gap_count: null, warnings: null,
+      task_board: buildTaskBoard({observationsAvailable: false}),
       process: {last_run_gaps: [], shortlist: null, structured_remaining: false}};
   }
   if (jsonPath) fs.writeFileSync(jsonPath, JSON.stringify(report, null, 2) + '\n');
