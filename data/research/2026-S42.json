@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "018433005ec07f2d8900af044f82dede06d49a28",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T08:48:34.038Z",
+  "updated_at": "2026-10-09T08:52:28.000Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -503,7 +503,12 @@
       "items": 1
     },
     "complete-monday-les-maries-de-l-an-ii-second-choice-2026-10-09",
-    "complete-monday-restore-point-third-choice-2026-10-09"
+    "complete-monday-restore-point-third-choice-2026-10-09",
+    {
+      "id": "complete-wednesday-cadet-broadcast-crosscheck-2026-10-09",
+      "completed_at": "2026-10-09T08:52:28.000Z",
+      "description": "Recoupement de chaîne du Cadet d’eau douce fermé pour la carte sélectionnée avec Télé 7 Jours et Molotov ; divergence Programme-TV.com conservée."
+    }
   ],
   "blockers": [
     {
@@ -20262,6 +20267,28 @@
       "applies_to": "note et visuel de la carte S42",
       "evidence_note": "IMDb 6,1 ; affiche XYZ Films inspectée, santé distante encore soumise au CI.",
       "status": "verified"
+    },
+    {
+      "work_id": "cadet-d-eau-douce-1928",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/cadet-d-eau-douce/h/30347560_50002",
+        "https://www.programme-television.org/tv/chaines/cine-classic/mercredi-prochain",
+        "https://www.molotov.tv/fr_fr/p/279963/cadet-d-eau-douce",
+        "https://www.programme-tv.com/television/1254054915/cadet-deau-douce.html"
+      ],
+      "checked_at": "2026-10-09T08:52:28.000Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-14 12:06 Ciné+ Classic"
+      },
+      "evidence_note": "Télé 7 Jours et Molotov concordent avec l’événement CANAL+ sur 12:06 et nomment Ciné+ Classic. Programme-TV.com affiche 12:20 : divergence conservée et source non retenue.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -21267,7 +21294,8 @@
         "synchronize-main-eadfd023",
         "complete-thursday-the-host-third-choice-2026-10-09",
         "complete-monday-les-maries-de-l-an-ii-second-choice-2026-10-09",
-        "complete-monday-restore-point-third-choice-2026-10-09"
+        "complete-monday-restore-point-third-choice-2026-10-09",
+        "complete-wednesday-cadet-broadcast-crosscheck-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -21276,7 +21304,7 @@
         "data/coverage/2026-S42.json",
         "data/research/2026-S42.json"
       ],
-      "complete_cards": 3,
+      "complete_cards": 4,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "deliverables_advanced": [
@@ -21290,7 +21318,8 @@
       "requirements_resolved": [
         "jeudi : troisième choix développé complet matérialisé",
         "lundi : deuxième choix développé complet matérialisé",
-        "lundi : exactement trois choix développés complets matérialisés"
+        "lundi : exactement trois choix développés complets matérialisés",
+        "Recoupement de diffusion complet de Cadet d’eau douce pour la carte du mercredi"
       ],
       "remaining": {
         "stage": "enrichment",
@@ -21381,31 +21410,59 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T08:52:04.628Z",
+          "elapsed_seconds": 1414.964,
+          "budget_seconds": 2100,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "f74dd8a7a51202f846a04ec548ea6c1c7fcdc07f",
+          "next_actions": [
+            "Achever deux choix développés du mercredi depuis la shortlist et les dossiers proches d’une carte.",
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi.",
+            "Produire les rubriques indépendantes encore absentes et consolider les recoupements/rappels ; préserver toutes les exigences ouvertes jusqu’à résolution effective.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T08:28:29.664Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T09:50:06.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T08:44:53.702Z",
-        "elapsed_seconds": 984.038,
+        "observed_at": "2026-10-09T08:52:04.628Z",
+        "elapsed_seconds": 1414.964,
         "budget_seconds": 2100,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "018433005ec07f2d8900af044f82dede06d49a28",
+        "source_sha": "f74dd8a7a51202f846a04ec548ea6c1c7fcdc07f",
         "next_actions": [
-          "Achever le troisième choix développé du lundi depuis une piste dont diffusion, version, réception, visuel et fraîcheur peuvent être complètement vérifiés.",
           "Achever deux choix développés du mercredi depuis la shortlist et les dossiers proches d’une carte.",
-          "Construire les réserves complètes des jours à trois choix, sans nouvelle collecte générale.",
+          "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi.",
           "Produire les rubriques indépendantes encore absentes et consolider les recoupements/rappels ; préserver toutes les exigences ouvertes jusqu’à résolution effective.",
-          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits."
+          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+          "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
         ],
         "remaining_count": 35,
-        "next_actions_total": 39,
-        "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "next_actions_total": 38,
+        "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
         "observations": {
           "started_at": "2026-10-09T08:28:29.664Z",
           "lease_owned": "yes",
-          "lease_until": "2026-10-09T09:29:26.000Z",
+          "lease_until": "2026-10-09T09:50:06.000Z",
           "external_stop": null,
           "accessible_task_checks": [],
           "ready_handoff": null
@@ -21413,7 +21470,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Achever une carte du mercredi depuis Cadet d’eau douce ou une autre piste dont le recoupement peut être fermé."
+      "next_useful_batch": "Achever deux autres choix développés du mercredi depuis la shortlist et les dossiers proches d’une carte."
     }
   ],
   "source_issues": [
@@ -22105,8 +22162,8 @@
     "promising_candidates": [
       {
         "title": "Cadet d'eau douce",
-        "status": "carte draft créée ; dossier presque complet",
-        "remaining": "Consolider l’indépendance du recoupement de chaîne, puis compléter choix/réserves du mercredi et préflight."
+        "status": "card_complete",
+        "remaining": "Préflight de fraîcheur de la diffusion, de la note et du visuel ; compléter les deux autres choix et les réserves du mercredi."
       },
       {
         "title": "Point limite",
@@ -22554,17 +22611,23 @@
         "scope": {
           "day": "mercredi"
         },
-        "status": "card_drafted",
+        "status": "card_complete",
         "signals": [
           {
             "kind": "critique",
             "note": "Critikat étaye la précision burlesque et la mise en scène ; l’indépendance du recoupement de chaîne reste ouverte.",
             "source_url": "https://www.critikat.com/actualite-cine/critique/cadet-deau-douce/"
+          },
+          {
+            "kind": "diffusion",
+            "note": "Télé 7 Jours et Molotov nomment Ciné+ Classic le 14 octobre à 12:06, en accord avec l’événement CANAL+.",
+            "source_url": "https://www.programme-television.org/tv/chaines/cine-classic/mercredi-prochain"
           }
         ],
         "alternatives": [
           "sl-mercredi-burning"
-        ]
+        ],
+        "decision_note": "Carte complète au checkpoint : événement CANAL+ à 12:06, chaîne et date recoupées par Télé 7 Jours et Molotov ; divergence Programme-TV.com 12:20 conservée comme source écartée."
       },
       {
         "id": "sl-mercredi-burning",
@@ -22964,7 +23027,7 @@
           "checked_at": "2026-10-08",
           "identity_version": "Film muet 1928 ; version CANAL+ 66 min ciblée, durées cinéma 70/71 min et crédits de réalisation divergents conservés.",
           "canonical_fields": "Identité, liens, SC 7,8 et affiche exacte contrôlés.",
-          "current_broadcast": "Heure 12:06 officielle ; attribution Ciné+ Classic issue de la grille, indépendance à consolider.",
+          "current_broadcast": "CANAL+ 12:06 ; Télé 7 Jours et Molotov nomment Ciné+ Classic le mercredi 14 octobre à 12:06. Divergence Programme-TV.com 12:20 conservée.",
           "editorial_copy": "Textes originaux revus depuis Critikat, MUBI et L’Œil sur l’écran, avec réserve explicite sur le début plus conventionnel.",
           "evidence_urls": [
             "https://www.canalplus.com/cinema/cadet-d-eau-douce/h/30347560_50002",
@@ -22975,7 +23038,9 @@
             "https://mubi.com/fr/films/steamboat-bill-jr/critics-reviews",
             "https://www.critikat.com/actualite-cine/critique/cadet-deau-douce/",
             "https://films.oeil-ecran.com/2009/12/24/cadet-eau-douce/",
-            "https://www.allocine.fr/film/fichefilm-1609/photos/"
+            "https://www.allocine.fr/film/fichefilm-1609/photos/",
+            "https://www.programme-television.org/tv/chaines/cine-classic/mercredi-prochain",
+            "https://www.molotov.tv/fr_fr/p/279963/cadet-d-eau-douce"
           ]
         }
       },
