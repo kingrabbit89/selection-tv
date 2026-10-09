@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "018433005ec07f2d8900af044f82dede06d49a28",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T10:44:28.569Z",
+  "updated_at": "2026-10-09T11:08:00.000Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -664,6 +664,18 @@
       "deliverables": [
         "data/research/2026-S42.json",
         "data/coverage/2026-S42.json"
+      ]
+    },
+    {
+      "id": "advance-monday-reserve-pool-seven-cards-2026-10-09",
+      "completed_at": "2026-10-09T11:08:00.000Z",
+      "scope": "lundi",
+      "summary": "Pool du lundi porté de quatre à sept cartes complètes : trois choix développés et quatre réserves. Love on Trial, La reconquista et Les Revenants ont été ajoutés après contrôle d’identité, versions, diffusion, réception, notes et visuels ; le seuil final de dix reste ouvert.",
+      "deliverables": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
       ]
     }
   ],
@@ -21013,6 +21025,162 @@
       },
       "evidence_note": "Trois éditeurs distincts recoupent le créneau 22:20–00:00 ; la durée de créneau 100 min reste distincte de la version vidéo 99 min.",
       "status": "verified"
+    },
+    {
+      "work_id": "love-on-trial-2025",
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "identity_version",
+        "image",
+        "links"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/love-on-trial/h/31616648_50002",
+        "https://www.imdb.com/title/tt17499010/",
+        "https://www.screendaily.com/reviews/love-on-trial-review-koji-fukadas-drama-reveals-the-dark-side-of-the-j-pop-phenomenon/5204838.article",
+        "https://www.rottentomatoes.com/m/love_on_trial_2025"
+      ],
+      "checked_at": "2026-10-09T11:08:00.000Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "version": "version CANAL+"
+      },
+      "evidence_note": "Identité, version, réception, liens et affiche contrôlés pour Love on Trial; divergences conservées dans le dossier.",
+      "status": "verified"
+    },
+    {
+      "work_id": "love-on-trial-2025",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "ratings"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/love-on-trial/h/31616648_50002",
+        "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
+        "https://www.programme-television.org/tv/bouquets/canal/lundi",
+        "https://television.telerama.fr/programme-tv-lundi/cine-club",
+        "https://www.imdb.com/title/tt17499010/",
+        "https://www.rottentomatoes.com/m/love_on_trial_2025"
+      ],
+      "checked_at": "2026-10-09T11:08:00.000Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-12 20:50 Ciné+ Festival"
+      },
+      "evidence_note": "Diffusion et notes datées contrôlées pour Love on Trial; aucune disponibilité replay n’est déduite du créneau linéaire.",
+      "status": "verified"
+    },
+    {
+      "work_id": "la-reconquista-2016",
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "identity_version",
+        "image",
+        "links"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/la-reconquista/h/17600088_40099/resume-casting/",
+        "https://www.imdb.com/title/tt5900208/",
+        "https://cineuropa.org/fr/newsdetail/317955/fr/freviews/",
+        "https://www.telerama.fr/cinema/la-reconquista-de-jonas-trueba-une-comedie-sentimentale-qui-croise-divinement-passe-present-et-futur-4357_cri-7042540.php"
+      ],
+      "checked_at": "2026-10-09T11:08:00.000Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "version": "version CANAL+"
+      },
+      "evidence_note": "Identité, version, réception, liens et affiche contrôlés pour La reconquista; divergences conservées dans le dossier.",
+      "status": "verified"
+    },
+    {
+      "work_id": "la-reconquista-2016",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "ratings"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-lundi/cine-club",
+        "https://www.imdb.com/title/tt5900208/",
+        "https://www.allocine.fr/film/fichefilm-244490/critiques/presse/"
+      ],
+      "checked_at": "2026-10-09T11:08:00.000Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-12 16:53 Ciné+ Festival"
+      },
+      "evidence_note": "Diffusion et notes datées contrôlées pour La reconquista; aucune disponibilité replay n’est déduite du créneau linéaire.",
+      "status": "verified"
+    },
+    {
+      "work_id": "les-revenants-2004",
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "identity_version",
+        "image",
+        "links"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/les-revenants/h/344123_40099/resume-casting/",
+        "https://posterhubstudio.com/it/products/l-ecole-du-bout-du-monde-2019-film-bhoutanais-cinema-humaniste-contemplatif-oscar-nomination-meilleur-film-etranger-voyage-transmission-poster-hub-studio-retro-hq-copie",
+        "https://www.lemonde.fr/archives/article/2004/10/26/les-revenants-quand-les-morts-reviennent-le-social-se-defend_384535_1819218.html",
+        "https://www.screendaily.com/they-came-back-les-revenants/4019958.article"
+      ],
+      "checked_at": "2026-10-09T11:08:00.000Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "version": "version CANAL+"
+      },
+      "evidence_note": "Identité, version, réception, liens et affiche contrôlés pour Les Revenants; divergences conservées dans le dossier.",
+      "status": "verified"
+    },
+    {
+      "work_id": "les-revenants-2004",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "ratings"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
+        "https://programmetv.ouest-france.fr/film/fantastique/",
+        "https://www.programmetvcesoir.net/emission/les-revenants-3dc8774747",
+        "https://www.imdb.com/title/tt0378661/",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=53374.html"
+      ],
+      "checked_at": "2026-10-09T11:08:00.000Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-12 22:50 Ciné+ Festival"
+      },
+      "evidence_note": "Diffusion et notes datées contrôlées pour Les Revenants; aucune disponibilité replay n’est déduite du créneau linéaire.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -22890,6 +23058,104 @@
       "run_state": "stopped",
       "stop_reason": "budget_reserve_reached",
       "next_useful_batch": "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés."
+    },
+    {
+      "date": "2026-10-09T11:08:00.000Z",
+      "started_at": "2026-10-09T11:00:32.109Z",
+      "ended_at": null,
+      "owner": "242b436f-e4f5-4018-b208-fca5b20fa9ec",
+      "execution_kind": "scheduled_efficiency_production",
+      "prompt_revision": "production-efficiency-2026-10-09",
+      "stage": "enrichment",
+      "elapsed_seconds": null,
+      "duration_basis": "Passage en cours ; durée terminale non encore observée.",
+      "completed_batches": [
+        "advance-monday-reserve-pool-seven-cards-2026-10-09"
+      ],
+      "deliverables_changed": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "complete_cards": 20,
+      "draft_cards": 1,
+      "partial_dossiers": 2,
+      "deliverables_advanced": [
+        "lundi : pool avancé à sept cartes complètes sur dix requises",
+        "catalogue canonique",
+        "liens directs",
+        "lundi-grille"
+      ],
+      "requirements_resolved": [],
+      "remaining": {
+        "stage": "enrichment",
+        "count": 35,
+        "reference": "remaining"
+      },
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T11:01:58.204Z",
+          "elapsed_seconds": 86.095,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "ea4efe37f5a6bfa190b27def66724092ee4afd3c",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T11:00:32.109Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T12:01:23.619Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-09T11:01:58.204Z",
+        "elapsed_seconds": 86.095,
+        "prompt_revision": "production-efficiency-2026-10-09",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S42",
+        "source_sha": "ea4efe37f5a6bfa190b27def66724092ee4afd3c",
+        "next_actions": [
+          "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+          "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+          "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+          "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+        ],
+        "remaining_count": 35,
+        "next_actions_total": 38,
+        "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "observations": {
+          "started_at": "2026-10-09T11:00:32.109Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-09T12:01:23.619Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
+        }
+      },
+      "run_state": "running",
+      "stop_reason": null,
+      "next_useful_batch": "Construire les réserves complètes du jeudi à partir des dossiers déjà avancés, puis produire une rubrique indépendante absente."
     }
   ],
   "source_issues": [
@@ -24683,6 +24949,60 @@
         "alternatives": [
           "sl-jeudi-crime-tete"
         ]
+      },
+      {
+        "id": "sl-lundi-love-on-trial",
+        "title": "Love on Trial",
+        "work_id": "love-on-trial-2025",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique_et_diffusion",
+            "note": "La page CANAL+ et les grilles datées recoupent le film le 12 octobre à 20:50 sur Ciné+ Festival.",
+            "source_url": "https://www.canalplus.com/fr/cinema/love-on-trial/h/31616648_50002"
+          }
+        ],
+        "decision_note": "Réserve complète rang 5 ; réception critique partagée explicitement conservée.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-lundi-la-reconquista",
+        "title": "La reconquista",
+        "work_id": "la-reconquista-2016",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique_et_diffusion",
+            "note": "CinEuropa, Télérama et la presse AlloCiné étayent la délicatesse du film et sa lenteur assumée.",
+            "source_url": "https://cineuropa.org/fr/newsdetail/317955/fr/freviews/"
+          }
+        ],
+        "decision_note": "Réserve complète rang 6 ; version CANAL+ 108 min distinguée de la sortie française 118 min.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-lundi-les-revenants",
+        "title": "Les Revenants",
+        "work_id": "les-revenants-2004",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique_et_diffusion",
+            "note": "Le Monde et Screen Daily étayent la force sociale et l’atmosphère du film, avec une réserve sur sa dramaturgie étouffée.",
+            "source_url": "https://www.screendaily.com/they-came-back-les-revenants/4019958.article"
+          }
+        ],
+        "decision_note": "Réserve complète rang 7 ; film 2004 distingué de la série homonyme et durées divergentes conservées.",
+        "alternatives": []
       }
     ]
   },
@@ -24695,8 +25015,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "4452a4ee91c5ecac230cfd383d66c3c0c7901420",
-    "produced_at": "2026-10-09T08:35:36.949Z",
+    "source_candidate_sha": "ea4efe37f5a6bfa190b27def66724092ee4afd3c",
+    "produced_at": "2026-10-09T11:08:00.000Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -25174,6 +25494,96 @@
             "https://www.xyzfilms.com/films/"
           ]
         }
+      },
+      {
+        "work_id": "becoming-hitchcock-the-legacy-of-blackmail-2024",
+        "date": "2026-10-12",
+        "rank_provisional": 4,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "identity_version": "Documentaire de Laurent Bouzereau produit en 2024. La diffusion vise la version CANAL+ de 68 minutes ; les fiches VOD et IMDb à 72 minutes restent une version distincte.",
+          "canonical_fields": "Identité, métadonnées, liens directs, note IMDb 7,2/10 pour 371 votes et affiche Prime Video exacte contrôlés dans la candidate.",
+          "current_broadcast": "Diffusion du lundi 12 octobre à 12:02 sur Ciné+ Classic recoupée par l’événement CANAL+, TV-Programme et Programme-Télévision. L’expiration replay n’est pas déduite de l’événement linéaire.",
+          "editorial_copy": "Synopsis et justification relus depuis les critiques Eye for Film et Filmuforia, avec les limites de méthode explicitement conservées.",
+          "evidence_urls": [
+            "https://www.canalplus.com/cinema/becoming-hitchcock-the-legacy-of-blackmail/h/27531750_50002",
+            "https://tv-programme.com/cine-plus-classic/lundi-12-octobre-2026/",
+            "https://www.programme-television.org/tv/chaines/cine-classic/lundi",
+            "https://www.eyeforfilm.co.uk/review/becoming-hitchcock-the-legacy-of-blackmail-2024-film-review-by-amber-wilkinson",
+            "https://filmuforia.com/becoming-hitchcock-the-legacy-of-blackmail-2024/",
+            "https://www.imdb.com/title/tt33583006/"
+          ]
+        }
+      },
+      {
+        "work_id": "love-on-trial-2025",
+        "date": "2026-10-12",
+        "rank_provisional": 5,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "identity_version": "Film de Kōji Fukada présenté en 2025, coproduction Japon-France. La carte vise la version CANAL+ de 119 minutes ; IMDb annonce 124 minutes et cette divergence demeure explicite.",
+          "canonical_fields": "Titre, réalisateur, année, pays, genre, version CANAL+, liens exacts, affiche IMDb et notes IMDb/Rotten Tomatoes datées contrôlés.",
+          "current_broadcast": "Lundi 12 octobre à 20:50 sur Ciné+ Festival, concordance entre la page officielle CANAL+, TV-Programme, Télé 7 Jours et le guide courant de Télérama.",
+          "editorial_copy": "Synopsis original et justification relus à partir de Screen Daily, South China Morning Post et de la réception agrégée, sans transformer les avis partagés en consensus.",
+          "evidence_urls": [
+            "https://www.canalplus.com/fr/cinema/love-on-trial/h/31616648_50002",
+            "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
+            "https://www.programme-television.org/tv/bouquets/canal/lundi",
+            "https://television.telerama.fr/programme-tv-lundi/cine-club",
+            "https://www.screendaily.com/reviews/love-on-trial-review-koji-fukadas-drama-reveals-the-dark-side-of-the-j-pop-phenomenon/5204838.article",
+            "https://www.scmp.com/lifestyle/entertainment/article/3311299/cannes-2025-love-trial-movie-review-koji-fukada-explores-dark-side-japanese-pop",
+            "https://www.rottentomatoes.com/m/love_on_trial_2025",
+            "https://www.imdb.com/title/tt17499010/"
+          ]
+        }
+      },
+      {
+        "work_id": "la-reconquista-2016",
+        "date": "2026-10-12",
+        "rank_provisional": 6,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "identity_version": "Film de Jonás Trueba sorti en 2016. La diffusion vise la version CANAL+ de 108 minutes ; AlloCiné annonce 118 minutes pour la sortie française, divergence conservée.",
+          "canonical_fields": "Identité, version de diffusion, liens directs, affiche IMDb, note IMDb 6,6 et moyenne presse AlloCiné 4,4/5 datées contrôlés.",
+          "current_broadcast": "Diffusion du lundi 12 octobre à 16:53 sur Ciné+ Festival recoupée par TV-Programme et le guide courant de Télérama, avec fiche CANAL+ exacte pour l’identité et la version.",
+          "editorial_copy": "Synopsis original et justification relus depuis CinEuropa, Télérama et le corpus de critiques presse AlloCiné ; la lenteur demeure une réserve explicite.",
+          "evidence_urls": [
+            "https://www.canalplus.com/cinema/la-reconquista/h/17600088_40099/resume-casting/",
+            "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
+            "https://television.telerama.fr/programme-tv-lundi/cine-club",
+            "https://cineuropa.org/fr/newsdetail/317955/fr/freviews/",
+            "https://www.telerama.fr/cinema/la-reconquista-de-jonas-trueba-une-comedie-sentimentale-qui-croise-divinement-passe-present-et-futur-4357_cri-7042540.php",
+            "https://www.allocine.fr/film/fichefilm-244490/critiques/presse/",
+            "https://www.imdb.com/title/tt5900208/"
+          ]
+        }
+      },
+      {
+        "work_id": "les-revenants-2004",
+        "date": "2026-10-12",
+        "rank_provisional": 7,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "identity_version": "Premier long métrage de Robin Campillo, sorti en 2004, distinct de la série homonyme. La diffusion vise la version CANAL+ de 102 minutes ; les fiches cinéma à 105 ou 106 minutes restent divergentes.",
+          "canonical_fields": "Titre et alias international, réalisateur, année, pays, genre, version CANAL+, liens, affiche exacte et notes IMDb/AlloCiné datées contrôlés.",
+          "current_broadcast": "Lundi 12 octobre à 22:50 sur Ciné+ Festival, concordance entre TV-Programme, Ouest-France et Programme TV ce soir ; la fiche CANAL+ exacte établit l’identité et la version.",
+          "editorial_copy": "Synopsis original et justification relus depuis Le Monde, Screen Daily et Avoir-Alire, avec la réserve sur la dramaturgie sourde conservée.",
+          "evidence_urls": [
+            "https://www.canalplus.com/cinema/les-revenants/h/344123_40099/resume-casting/",
+            "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
+            "https://programmetv.ouest-france.fr/film/fantastique/",
+            "https://www.programmetvcesoir.net/emission/les-revenants-3dc8774747",
+            "https://www.lemonde.fr/archives/article/2004/10/26/les-revenants-quand-les-morts-reviennent-le-social-se-defend_384535_1819218.html",
+            "https://www.screendaily.com/they-came-back-les-revenants/4019958.article",
+            "https://www.avoir-alire.com/les-revenants-robin-campillo-critique",
+            "https://www.imdb.com/title/tt0378661/",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=53374.html"
+          ]
+        }
       }
     ],
     "publication_ready": false,
@@ -25182,16 +25592,16 @@
   },
   "contract_reads": {
     "main_sha": "e42a29ef84e3fc73b47818bd6c9dc012009d49ab",
-    "checked_at": "2026-10-09T09:58:50.000Z",
+    "checked_at": "2026-10-09T11:01:10.000Z",
     "documents": {
-      "AUTOMATION.md": "398efe8017d920d4665e279c5f6cf2579268d67a",
+      "AUTOMATION.md": "398efe679818d849689cff03ac593697c7f2656d",
       "docs/HYBRID-WORKFLOW.md": "95cad0792febab1bc7edf076300bd38ced9c84ba",
       "ARCHITECTURE.md": "7c6e72b0729e4f915bc5a90f084c40e1cc363e8a",
       "data/automation-config.json": "e55d9a247fc0299ce6effc6c3e97eea9018f0dc3",
       "data/editorial-config.json": "e491aa84dac6b34ca4ec4b8b4cb1e88737a0b385",
       "data/personalization-config.json": "ad5716e95db25894de7ca58c874154783b1766a8"
     },
-    "note": "AUTOMATION.md a été relu car son blob a changé ; les cinq autres contrats gardent les blobs de la lecture attestée précédente. docs/EDITORIAL-DRAFTS.md a aussi été relu pour le helper de cartes courant."
+    "note": "AUTOMATION.md a été relu car son blob a changé ; les cinq autres contrats gardent les blobs identiques de la lecture attestée précédente. docs/EDITORIAL-DRAFTS.md a aussi été relu avant le rendu du lot."
   },
   "research_dossiers": [
     {
@@ -25395,6 +25805,197 @@
         "visually_checked": true,
         "note": "Affiche exacte inspectée, titre anglais lisible ; contrôle distant CI encore requis."
       }
+    },
+    {
+      "title": "Love on Trial",
+      "work_id": "love-on-trial-2025",
+      "date": "2026-10-12",
+      "start": "20:50",
+      "channel": "Ciné+ Festival",
+      "decision": "réserve complète lundi",
+      "identity_research": {
+        "director": "Kōji Fukada",
+        "year": 2025,
+        "country": "Japon / France",
+        "duration_observations": [
+          {
+            "duration": "119 min",
+            "version": "version CANAL+",
+            "source_url": "https://www.canalplus.com/fr/cinema/love-on-trial/h/31616648_50002"
+          },
+          {
+            "duration": "124 min",
+            "version": "fiche IMDb",
+            "source_url": "https://www.imdb.com/title/tt17499010/"
+          }
+        ],
+        "checked_at": "2026-10-09T11:08:00.000Z"
+      },
+      "broadcast_research": {
+        "status": "verified_for_candidate",
+        "checked_at": "2026-10-09T11:08:00.000Z",
+        "source_urls": [
+          "https://www.canalplus.com/fr/cinema/love-on-trial/h/31616648_50002",
+          "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
+          "https://www.programme-television.org/tv/bouquets/canal/lundi",
+          "https://television.telerama.fr/programme-tv-lundi/cine-club"
+        ]
+      },
+      "critical_evidence": [
+        {
+          "source": "Screen Daily",
+          "source_url": "https://www.screendaily.com/reviews/love-on-trial-review-koji-fukadas-drama-reveals-the-dark-side-of-the-j-pop-phenomenon/5204838.article",
+          "assessment": "La critique retient l’examen de l’industrie des idoles."
+        },
+        {
+          "source": "Rotten Tomatoes",
+          "source_url": "https://www.rottentomatoes.com/m/love_on_trial_2025",
+          "assessment": "58 % sur douze critiques, réception partagée et non transformée en consensus."
+        }
+      ],
+      "ratings_research": {
+        "checked_at": "2026-10-09T11:08:00.000Z",
+        "status": "verified_dynamic",
+        "source_urls": [
+          "https://www.imdb.com/title/tt17499010/",
+          "https://www.rottentomatoes.com/m/love_on_trial_2025"
+        ],
+        "note": "IMDb 6,3/10 (269) ; Rotten Tomatoes 58 % (12 critiques)."
+      },
+      "image_research": {
+        "checked_at": "2026-10-09T11:08:00.000Z",
+        "status": "poster_visually_verified_ci_pending",
+        "source_page": "https://www.imdb.com/title/tt17499010/",
+        "image_url": "https://m.media-amazon.com/images/M/MV5BMWVhY2VhMzAtOWQ5OC00YTNiLWI2NDQtZTBjNzg5NWJjYTczXkEyXkFqcGc%40._V1_.jpg"
+      },
+      "reason": "Carte complète ajoutée au pool du lundi en rang 5 ; divergence 119/124 min et réception partagée conservées."
+    },
+    {
+      "title": "La reconquista",
+      "work_id": "la-reconquista-2016",
+      "date": "2026-10-12",
+      "start": "16:53",
+      "channel": "Ciné+ Festival",
+      "decision": "réserve complète lundi",
+      "identity_research": {
+        "director": "Jonás Trueba",
+        "year": 2016,
+        "country": "Espagne",
+        "duration_observations": [
+          {
+            "duration": "108 min",
+            "version": "version CANAL+",
+            "source_url": "https://www.canalplus.com/cinema/la-reconquista/h/17600088_40099/resume-casting/"
+          },
+          {
+            "duration": "118 min",
+            "version": "sortie française AlloCiné",
+            "source_url": "https://www.allocine.fr/film/fichefilm_gen_cfilm=244490.html"
+          }
+        ],
+        "checked_at": "2026-10-09T11:08:00.000Z"
+      },
+      "broadcast_research": {
+        "status": "verified_for_candidate",
+        "checked_at": "2026-10-09T11:08:00.000Z",
+        "source_urls": [
+          "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
+          "https://television.telerama.fr/programme-tv-lundi/cine-club"
+        ]
+      },
+      "critical_evidence": [
+        {
+          "source": "CinEuropa",
+          "source_url": "https://cineuropa.org/fr/newsdetail/317955/fr/freviews/",
+          "assessment": "La critique étaye la délicatesse de la construction autour de la mémoire et du temps."
+        },
+        {
+          "source": "Télérama",
+          "source_url": "https://www.telerama.fr/cinema/la-reconquista-de-jonas-trueba-une-comedie-sentimentale-qui-croise-divinement-passe-present-et-futur-4357_cri-7042540.php",
+          "assessment": "La critique souligne le croisement du passé, du présent et du futur."
+        }
+      ],
+      "ratings_research": {
+        "checked_at": "2026-10-09T11:08:00.000Z",
+        "status": "verified_dynamic",
+        "source_urls": [
+          "https://www.imdb.com/title/tt5900208/",
+          "https://www.allocine.fr/film/fichefilm-244490/critiques/presse/"
+        ],
+        "note": "IMDb 6,6/10 (1,1 k) ; presse AlloCiné 4,4/5 (17 critiques)."
+      },
+      "image_research": {
+        "checked_at": "2026-10-09T11:08:00.000Z",
+        "status": "poster_visually_verified_ci_pending",
+        "source_page": "https://www.imdb.com/title/tt5900208/",
+        "image_url": "https://m.media-amazon.com/images/M/MV5BZWM3NjUxMjEtZGU5OS00NDUwLTg4ZjUtMGVmM2JjYWIxZDcwXkEyXkFqcGc%40._V1_.jpg"
+      },
+      "reason": "Carte complète ajoutée au pool du lundi en rang 6 ; lenteur explicitée et version de diffusion distinguée."
+    },
+    {
+      "title": "Les Revenants",
+      "work_id": "les-revenants-2004",
+      "date": "2026-10-12",
+      "start": "22:50",
+      "channel": "Ciné+ Festival",
+      "decision": "réserve complète lundi",
+      "identity_research": {
+        "director": "Robin Campillo",
+        "year": 2004,
+        "country": "France",
+        "duration_observations": [
+          {
+            "duration": "102 min",
+            "version": "version CANAL+",
+            "source_url": "https://www.canalplus.com/cinema/les-revenants/h/344123_40099/resume-casting/"
+          },
+          {
+            "duration": "105/106 min",
+            "version": "fiches cinéma",
+            "source_url": "https://www.allocine.fr/film/fichefilm_gen_cfilm=53374.html"
+          }
+        ],
+        "checked_at": "2026-10-09T11:08:00.000Z",
+        "note": "Film 2004 distinct de la série homonyme."
+      },
+      "broadcast_research": {
+        "status": "verified_for_candidate",
+        "checked_at": "2026-10-09T11:08:00.000Z",
+        "source_urls": [
+          "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
+          "https://programmetv.ouest-france.fr/film/fantastique/",
+          "https://www.programmetvcesoir.net/emission/les-revenants-3dc8774747"
+        ]
+      },
+      "critical_evidence": [
+        {
+          "source": "Le Monde",
+          "source_url": "https://www.lemonde.fr/archives/article/2004/10/26/les-revenants-quand-les-morts-reviennent-le-social-se-defend_384535_1819218.html",
+          "assessment": "La critique éclaire la réponse sociale au retour des morts."
+        },
+        {
+          "source": "Screen Daily",
+          "source_url": "https://www.screendaily.com/they-came-back-les-revenants/4019958.article",
+          "assessment": "Idée jugée intrigante, avec réserve sur une dramaturgie volontairement étouffée."
+        }
+      ],
+      "ratings_research": {
+        "checked_at": "2026-10-09T11:08:00.000Z",
+        "status": "verified_dynamic",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0378661/",
+          "https://www.allocine.fr/film/fichefilm_gen_cfilm=53374.html"
+        ],
+        "note": "IMDb 5,8/10 (3,1 k) ; presse AlloCiné 3,5/5 (24 critiques)."
+      },
+      "image_research": {
+        "checked_at": "2026-10-09T11:08:00.000Z",
+        "status": "poster_visually_verified_ci_pending",
+        "source_page": "https://posterhubstudio.com/it/products/l-ecole-du-bout-du-monde-2019-film-bhoutanais-cinema-humaniste-contemplatif-oscar-nomination-meilleur-film-etranger-voyage-transmission-poster-hub-studio-retro-hq-copie",
+        "image_url": "https://posterhubstudio.com/cdn/shop/files/LESREVENANTS.jpg?v=1769624857&width=1946",
+        "note": "Affiche exacte inspectée ; slug commercial incohérent conservé comme limite de provenance."
+      },
+      "reason": "Carte complète ajoutée au pool du lundi en rang 7 ; film et série séparés, version CANAL+ ciblée."
     }
   ]
 }
