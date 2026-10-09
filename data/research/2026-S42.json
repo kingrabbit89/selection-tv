@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T21:40:10.870Z",
+  "updated_at": "2026-10-09T21:41:31.970Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1377,7 +1377,8 @@
     "france5-pompei-level3-and-foucault-scope-review-2026-10-09",
     "france5-four-generic-interstitial-omission-review-2026-10-09",
     "france4-rachelle-hakim-unselected-scope-review-2026-10-09",
-    "t18-new-independent-route-and-episode-conflict-2026-10-09"
+    "t18-new-independent-route-and-episode-conflict-2026-10-09",
+    "t18-conflict-retry-gate-review-2026-10-09"
   ],
   "blockers": [
     {
@@ -32923,7 +32924,8 @@
         "france5-pompei-level3-and-foucault-scope-review-2026-10-09",
         "france5-four-generic-interstitial-omission-review-2026-10-09",
         "france4-rachelle-hakim-unselected-scope-review-2026-10-09",
-        "t18-new-independent-route-and-episode-conflict-2026-10-09"
+        "t18-new-independent-route-and-episode-conflict-2026-10-09",
+        "t18-conflict-retry-gate-review-2026-10-09"
       ],
       "deliverables_changed": [
         "data/research/2026-S42.json",
@@ -32935,7 +32937,7 @@
       "partial_dossiers": 5,
       "requirements_resolved": 15,
       "stop_reason": null,
-      "next_useful_batch": "Résoudre ou exclure précisément le créneau T18 du 14/10 à 00:20 (Manteau contre Nelly Crémel) avec une source officielle exacte ou une base positive d’acquisition distincte ; ne pas revoter entre guides inconnus.",
+      "next_useful_batch": "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -33482,20 +33484,52 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T21:40:58.194Z",
+          "elapsed_seconds": 2686.546,
+          "prompt_revision": "production-proof-policy-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "2f6e3272a0a60dadc1e7c4f349c3a1105202b0e6",
+          "next_actions": [
+            "Résoudre ou exclure précisément le créneau T18 du 14/10 à 00:20 (Manteau contre Nelly Crémel) avec une source officielle exacte ou une base positive d’acquisition distincte ; ne pas revoter entre guides inconnus.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
+            "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
+          ],
+          "remaining_count": 19,
+          "next_actions_total": 16,
+          "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 24,
+          "waiting_actions_count": 8,
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-09T20:56:11.648Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T22:17:47.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T21:38:42.225Z",
-        "elapsed_seconds": 2550.577,
+        "observed_at": "2026-10-09T21:40:58.194Z",
+        "elapsed_seconds": 2686.546,
         "prompt_revision": "production-proof-policy-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "79288c618a6f1b93d08840d0298c9bc9dfbf569a",
+        "source_sha": "2f6e3272a0a60dadc1e7c4f349c3a1105202b0e6",
         "next_actions": [
-          "Traiter les défauts de niveau 3 des cartes déjà rendues en priorité ; conserver séparément les rappels France 4 et France 5 encore ouverts.",
+          "Résoudre ou exclure précisément le créneau T18 du 14/10 à 00:20 (Manteau contre Nelly Crémel) avec une source officielle exacte ou une base positive d’acquisition distincte ; ne pas revoter entre guides inconnus.",
           "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
           "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
@@ -33656,6 +33690,13 @@
           "ended_at": "2026-10-09T21:40:10.870Z",
           "overlap": false,
           "note": "Recherche ciblée T18 : deux routes supplémentaires, conflit d’épisode 00:20 découvert et conservé."
+        },
+        {
+          "kind": "review",
+          "started_at": "2026-10-09T21:40:58.194Z",
+          "ended_at": "2026-10-09T21:41:31.970Z",
+          "overlap": false,
+          "note": "Revue de reprise T18 : condition de nouvelle preuve enregistrée après recherche officielle et voies alternatives contradictoires."
         }
       ],
       "requirements_resolved_details": [
@@ -34340,7 +34381,7 @@
     "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Résoudre ou exclure précisément le créneau T18 du 14/10 à 00:20 (Manteau contre Nelly Crémel) avec une source officielle exacte ou une base positive d’acquisition distincte ; ne pas revoter entre guides inconnus.",
+      "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
       "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
       "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
       "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
@@ -35285,8 +35326,18 @@
       "result": "ProgrammeTVCeSoir recoupe LeZapp sur Meurtre en sous-sol - affaire Manteau à 00:20 et sur les autres sujets. Télé 7 Jours recoupe les autres horaires mais donne Jogging fatal - affaire Nelly Crémel à 00:20. SCREEN+ expose la date sans publier de provenance d'acquisition. Aucune source officielle T18 exacte n'a été trouvée ; l'indépendance reste inconnue et le conflit d'épisode est nouveau.",
       "blocking_scope": "niveau 2 T18 du 14 octobre ; aucune carte rendue dépend actuellement du créneau 00:20",
       "blocking": true,
-      "status": "new_episode_conflict_requires_exact_resolution_or_exclusion",
-      "resume_when": "Une source officielle exacte ou une preuve positive d'acquisition distincte tranche le créneau 00:20, ou une décision d'exclusion motivée établit qu'il n'affecte ni omission ni proposition."
+      "status": "waiting_for_official_episode_resolution_or_positive_acquisition_basis",
+      "resume_when": "Une source officielle exacte ou une preuve positive d'acquisition distincte tranche le créneau 00:20, ou une décision d'exclusion motivée établit qu'il n'affecte ni omission ni proposition.",
+      "retry_gate": {
+        "state": "waiting_for_new_evidence",
+        "action_texts": [
+          "T18 14 octobre : neuf épisodes/sujets et horaires concordent largement entre LeZapp, TV-Programme et ProgrammeTVCeSoir, sans base positive d'acquisition indépendante. Fait nouveau : Télé 7 Jours attribue au créneau 00:20 Sur la scène du crime l'épisode « Jogging fatal - affaire Nelly Crémel », tandis que LeZapp et ProgrammeTVCeSoir donnent « Meurtre en sous-sol - affaire Manteau » ; résoudre ce conflit exact ou exclure ce créneau. Face à face reste identifié comme fiction policière, hors rappel documentaire."
+        ],
+        "reason": "Une recherche officielle ciblée puis trois voies alternatives datées ont confirmé la grille générale sans fournir de provenance positive et ont révélé deux épisodes incompatibles à 00:20 ; répéter ces mêmes guides ne peut pas trancher.",
+        "resume_when": "Une archive officielle T18 exacte, une preuve positive d’acquisition distincte ou une décision d’exclusion motivée couvre le créneau du 14 octobre à 00:20.",
+        "observed_at": "2026-10-09T21:41:31.970Z",
+        "evidence": "research_attempts run22-t18-14-october-independent-route-and-episode-conflict ; LeZapp, TV-Programme, ProgrammeTVCeSoir, Télé 7 Jours et SCREEN+ sauvegardés."
+      }
     }
   ],
   "shortlist": {
