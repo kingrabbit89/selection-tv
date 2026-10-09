@@ -489,6 +489,12 @@
       "completed_at": "2026-10-09T07:19:27.285Z",
       "description": "La diffusion mardi de Sulawesi a réutilisé son dossier vérifié sans nouvelle consultation fictive ; Regrouping a reçu identité canonique, image Criterion, liens exacts, motif d’absence de note et carte développée. Les limites de provenance TCM et la comparaison finale restent ouvertes.",
       "items": 2
+    },
+    {
+      "id": "complete-thursday-tonkin-developed-card-2026-10-09",
+      "completed_at": "2026-10-09T08:08:53.174Z",
+      "description": "Les fantômes du Tonkin a reçu une identité canonique, une version 60 min distincte du créneau, une diffusion France 5 officiellement recoupée, un visuel France Télévisions, un motif d’absence de moyenne et une deuxième carte développée du jeudi. Le troisième choix reste ouvert.",
+      "items": 1
     }
   ],
   "blockers": [
@@ -19921,6 +19927,99 @@
       "reused_in": [
         "mardi-selection"
       ]
+    },
+    {
+      "work_id": "les-fantomes-du-tonkin-2024",
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "version.duration"
+      ],
+      "source_urls": [
+        "https://www.ecpad.fr/nos-realisations/les-fantomes-du-tonkin/",
+        "https://www.figra.fr/les-fantomes-du-tonkin/",
+        "https://www.francetvpro.fr/contenu-de-presse/66245794"
+      ],
+      "checked_at": "2026-10-09",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "section": "jeudi-selection",
+        "version": "œuvre ECPAD/FIGRA 60 min"
+      },
+      "evidence_note": "Documentaire français de Patrick Jeudy daté 2024 et durée d’œuvre 60 min établis ; créneau France 5 de 66 min et fiche Télérama à 62 min conservés comme observations distinctes.",
+      "status": "verified"
+    },
+    {
+      "work_id": "les-fantomes-du-tonkin-2024",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/15-10-2026",
+        "https://tv-programme.com/france-5/jeudi-15-octobre-2026/"
+      ],
+      "checked_at": "2026-10-09",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "section": "jeudi-selection",
+        "date": "2026-10-15",
+        "start": "11:50",
+        "channel": "France 5"
+      },
+      "evidence_note": "Titre, date, heure et chaîne concordent entre la grille officielle France Télévisions et la grille datée indépendante.",
+      "status": "verified"
+    },
+    {
+      "work_id": "les-fantomes-du-tonkin-2024",
+      "fields": [
+        "critical_reception",
+        "critical_reservations"
+      ],
+      "source_urls": [
+        "https://www.lemonde.fr/culture/article/2024/05/06/les-fantomes-du-tonkin-sur-france-3-un-deuil-sans-fin-pour-les-familles-des-soldats-de-dien-bien-phu_6231941_3246.html",
+        "https://www.telerama.fr/television/les-fantomes-du-tonkin-de-patrick-jeudy-notre-critique_cri-7032467.php"
+      ],
+      "checked_at": "2026-10-08T06:47:37.268Z",
+      "reused_in": [
+        "jeudi-selection"
+      ],
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "section": "jeudi-selection",
+        "title": "Les fantômes du Tonkin"
+      },
+      "evidence_note": "Deux lectures attribuées sauvegardées ; l’angle du deuil est valorisé et la réserve sur le romantisme colonial n’est pas gommée. Aucun consensus inventé.",
+      "status": "verified"
+    },
+    {
+      "work_id": "les-fantomes-du-tonkin-2024",
+      "fields": [
+        "image",
+        "image_provenance",
+        "image_visual_review",
+        "ratings_unavailable_reason",
+        "daily_card"
+      ],
+      "source_urls": [
+        "https://www.francetelevisions.fr/et-vous/notre-tele/a-ne-pas-manquer/les-fantomes-de-tonkin-28902",
+        "https://static.francetelevisions.fr/styles/scale_728/public/inline-images/LESFANTC394MESDUTONKIN_preview_2300.jpg?itok=QbdRyA-Z"
+      ],
+      "checked_at": "2026-10-09",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "section": "jeudi-selection",
+        "date": "2026-10-15"
+      },
+      "evidence_note": "Photogramme officiel exact ouvert et inspecté. Recherches ciblées par titre/réalisateur sans fiche IMDb ou SensCritique exacte ; note Télérama payante non transposée, aucune absence générale de votes inférée.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -20871,6 +20970,46 @@
       },
       "stop_reason": "two_coherent_daily_batches_rendered_checked_and_ready_for_remote_save_before_active_work_limit",
       "next_useful_batch": "Construire les réserves complètes des jours à trois choix, puis achever deux choix développés de lundi, mercredi ou jeudi depuis la shortlist."
+    },
+    {
+      "date": "2026-10-09T08:10:57.000Z",
+      "started_at": "2026-10-09T08:02:02.000Z",
+      "ended_at": "2026-10-09T08:10:57.000Z",
+      "owner": "6a3a1412-e096-48fb-8c69-2ec83af13d12",
+      "execution_kind": "scheduled_scoped_production_batch",
+      "prompt_revision": "production-shortlist-2026-10-08",
+      "stage": "enrichment",
+      "elapsed_seconds": 536,
+      "duration_basis": "started_at et ended_at proviennent de cette reprise ; la durée inclut extraction ciblée, contrôles de sources, rendu et checkpoint local, hors attente CI après sauvegarde.",
+      "completed_batches": [
+        "complete-thursday-tonkin-developed-card-2026-10-09"
+      ],
+      "deliverables_changed": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/coverage/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "complete_cards": 1,
+      "draft_cards": 0,
+      "partial_dossiers": 0,
+      "deliverables_advanced": [
+        "jeudi-selection",
+        "jeudi-grille",
+        "catalogue canonique",
+        "liens directs"
+      ],
+      "requirements_resolved": [
+        "jeudi : deuxième choix développé complet matérialisé"
+      ],
+      "remaining": {
+        "stage": "enrichment",
+        "count": 35,
+        "reference": "remaining"
+      },
+      "stop_reason": "one_complete_card_rendered_and_checkpointed; no_second_candidate_with_fully_verified_cycle_broadcast_finalizable_inside_this_active_window",
+      "next_useful_batch": "Finaliser le troisième choix du jeudi avec diffusion propre au cycle entièrement recoupée, puis poursuivre lundi ou mercredi."
     }
   ],
   "source_issues": [
@@ -21469,14 +21608,14 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "dd047e8cc03661796e4ad9cdf834df9087182cb0",
+    "checkpoint_parent_sha": "be84c7360a93df9dfc60fcd887a5c9493c6359da",
     "main_sha": "3111c849101f085ebc90f781460f57879c13786b",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Samedi, dimanche, mardi et vendredi disposent de trois choix développés draft. Construire leurs réserves complètes depuis les pistes vérifiées, sans nouvelle collecte générale.",
-      "Achever deux choix développés pour lundi, mercredi et jeudi à partir de la shortlist et des dossiers proches d’une carte ; préserver les limites de diffusion/version déjà consignées.",
-      "Produire les rubriques indépendantes encore absentes (abonnements, sorties, replay, radars) avec des faits d’offre propres à chaque rubrique.",
-      "Consolider les recoupements, rappels et conflits de couverture sur preuves réelles ; préserver les 35 exigences restantes jusqu’à leur résolution effective."
+      "Achever un troisième choix développé du jeudi depuis une piste dont la diffusion actuelle peut être entièrement recoupée ; ne pas retenir Un crime dans la tête sans preuve propre au créneau visé.",
+      "Achever deux choix développés pour lundi et mercredi à partir de la shortlist et de dossiers proches d’une carte ; préserver les limites de diffusion/version déjà consignées.",
+      "Construire les réserves complètes des jours à trois choix puis du jeudi, sans nouvelle collecte générale.",
+      "Produire les rubriques indépendantes encore absentes et consolider les recoupements/rappels ; préserver les 35 exigences jusqu’à résolution effective."
     ],
     "publisher": {
       "checked_at": "2026-10-08T14:40:33.431Z",
@@ -21487,10 +21626,10 @@
       "note": "Pas de progression active à dupliquer."
     },
     "last_ci_observation": {
-      "checked_at": "2026-10-09T07:02:51.000Z",
-      "head_sha": "7288f7d79d40faec7a004ba3b03f91bdc236aa9d",
+      "checked_at": "2026-10-09T08:02:02.000Z",
+      "head_sha": "be84c7360a93df9dfc60fcd887a5c9493c6359da",
       "base_sha": "3111c849101f085ebc90f781460f57879c13786b",
-      "run_id": 37893306537,
+      "run_id": 37898501299,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
@@ -21498,17 +21637,17 @@
       "reusable_only_for_exact_sha": true
     },
     "latest_candidate_ci": {
-      "checked_at": "2026-10-09T07:02:51.000Z",
-      "head_sha": "7288f7d79d40faec7a004ba3b03f91bdc236aa9d",
+      "checked_at": "2026-10-09T08:02:02.000Z",
+      "head_sha": "be84c7360a93df9dfc60fcd887a5c9493c6359da",
       "base_sha": "3111c849101f085ebc90f781460f57879c13786b",
-      "run_id": 37893306537,
+      "run_id": 37898501299,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
       "cause": "Tous les contrôles applicables ont réussi sauf Require a complete candidate before merging, attendu avec stage enrichment et remaining non vide.",
       "reusable_only_for_exact_sha": true
     },
-    "ci_note": "Les observations conservées concernent leurs anciens SHA. Ce nouveau lot attend ses propres contrôles ; aucune ancienne réussite ne certifie ce checkpoint ni S42. Stage enrichment et remaining non vide."
+    "ci_note": "Le SHA parent be84c736 a passé tous les contrôles applicables sauf la barrière volontaire d’incomplétude. Ce nouveau lot attend ses propres contrôles ; aucune réussite antérieure ne le certifie."
   },
   "structure_check": {
     "checked_at": "2026-10-08T13:51:18.611Z",
@@ -22067,18 +22206,20 @@
         "scope": {
           "day": "jeudi"
         },
-        "status": "researching",
+        "status": "card_complete",
         "signals": [
           {
             "kind": "critique",
-            "note": "Le Monde valorise le déplacement de la bataille vers le deuil ; la réserve Télérama sur une vision romantique reste conservée.",
-            "source_url": "https://www.lemonde.fr/televisions-radio/article/2024/05/11/les-replays-du-week-end-nuclear-now-les-fantomes-du-tonkin-belmondo-l-italie-en-heritage_6232590_1655027.html"
+            "note": "Le Monde valorise le déplacement de la bataille vers le deuil ; la réserve Télérama sur une vision romantique reste conservée. Identité, version, visuel et diffusion France 5 sont désormais contrôlés.",
+            "source_url": "https://www.lemonde.fr/culture/article/2024/05/06/les-fantomes-du-tonkin-sur-france-3-un-deuil-sans-fin-pour-les-familles-des-soldats-de-dien-bien-phu_6231941_3246.html"
           }
         ],
         "alternatives": [
           "sl-jeudi-point-limite",
           "sl-jeudi-crime-tete"
-        ]
+        ],
+        "work_id": "les-fantomes-du-tonkin-2024",
+        "decision_note": "Deuxième carte développée du jeudi rendue avec identité, durée d’œuvre, diffusion officielle recoupée, visuel et réception vérifiés ; troisième choix, comparaison hebdomadaire et préflight restent ouverts."
       },
       {
         "id": "sl-jeudi-crime-tete",
@@ -22242,8 +22383,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "dd047e8cc03661796e4ad9cdf834df9087182cb0",
-    "produced_at": "2026-10-09T07:19:27.285Z",
+    "source_candidate_sha": "be84c7360a93df9dfc60fcd887a5c9493c6359da",
+    "produced_at": "2026-10-09T08:08:53.174Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -22626,6 +22767,29 @@
             "https://www.arte.tv/fr/videos/118245-000-A/sulawesi-l-ile-des-premieres-images/",
             "https://www.telerama.fr/television/sulawesi-l-ile-des-premieres-images-sur-arte-tv-une-renversante-lecon-d-art-prehistorique-dans-les-grottes-d-indonesie_cri-7042482.php",
             "https://www.lejournaldesarts.fr/medias/la-prehistoire-des-images-184458"
+          ]
+        }
+      },
+      {
+        "work_id": "les-fantomes-du-tonkin-2024",
+        "date": "2026-10-15",
+        "rank_provisional": 2,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "identity_version": "Documentaire de Patrick Jeudy, France, 2024 ; œuvre de 60 minutes attestée par l’ECPAD et le FIGRA, distincte du créneau France 5 de 66 minutes et de la fiche Télérama à 62 minutes.",
+          "canonical_fields": "Identité, durée de l’œuvre, liens directs, visuel officiel, réception attribuée et motif précis d’absence de moyenne contrôlés.",
+          "current_broadcast": "Jeudi 15 octobre à 11:50 sur France 5, recoupé par la grille officielle FranceTvPro et la grille datée TV-Programme sauvegardée.",
+          "editorial_copy": "Synopsis et justification originaux rédigés depuis le rapport présenté par le diffuseur et deux lectures critiques attribuées, avec réserve coloniale conservée.",
+          "evidence_urls": [
+            "https://www.francetvpro.fr/grille/france-5/10-10-2026/15-10-2026",
+            "https://tv-programme.com/france-5/jeudi-15-octobre-2026/",
+            "https://www.ecpad.fr/nos-realisations/les-fantomes-du-tonkin/",
+            "https://www.figra.fr/les-fantomes-du-tonkin/",
+            "https://www.francetvpro.fr/contenu-de-presse/66245794",
+            "https://www.lemonde.fr/culture/article/2024/05/06/les-fantomes-du-tonkin-sur-france-3-un-deuil-sans-fin-pour-les-familles-des-soldats-de-dien-bien-phu_6231941_3246.html",
+            "https://www.telerama.fr/television/les-fantomes-du-tonkin-de-patrick-jeudy-notre-critique_cri-7032467.php",
+            "https://www.francetelevisions.fr/et-vous/notre-tele/a-ne-pas-manquer/les-fantomes-de-tonkin-28902"
           ]
         }
       }
