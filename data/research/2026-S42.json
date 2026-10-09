@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T13:53:50.528Z",
+  "updated_at": "2026-10-09T14:11:28.710Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1014,6 +1014,16 @@
       "scope": "dimanche:Violences sexuelles à l’école : silence dans les rangs",
       "summary": "Relecture fraîche des sources officielles et d'un guide : 21:00/21:02 et 09:34/09:35 restent distincts ; le conflit et sa condition de reprise sont conservés sans déclarer la carte complète.",
       "deliverables": [
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "complete-tuesday-two-rerun-reserves-2026-10-09",
+      "completed_at": "2026-10-09T14:10:26.848Z",
+      "scope": "mardi-selection:reserves",
+      "summary": "Deux réserves complètes sont ajoutées au mardi depuis des dossiers déjà achevés : Grotte Chauvet à 09:55 sur Arte et Restore Point à 11:25 sur Canal+ Box Office. Les trois choix développés et leur grille sont conservés intégralement.",
+      "deliverables": [
+        "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
     }
@@ -23549,6 +23559,60 @@
       },
       "evidence_note": "L’événement CANAL+ confirme exactement 01:04 et la version affichée de 83 min sans nommer la chaîne. TV-Programme, ProgrammeTVCeSoir et Sudinfo nomment Ciné+ Festival et concordent à 01:04, mais leurs fournisseurs de grille ne sont pas documentés ; ils ne sont donc pas promus en seconde lecture réellement indépendante. Le créneau de 1 h 41 reste distinct du master 83 min.",
       "status": "needs_check"
+    },
+    {
+      "work_id": "grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-2024",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "daily_reserve_card"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/guide/20261013/",
+        "https://tv-programme.com/arte/mardi-13-octobre-2026/",
+        "https://www.arte.tv/fr/videos/112849-000-A/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire/",
+        "https://www.programme-television.org/type/documentaires/autres/civilisation/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-343398134"
+      ],
+      "checked_at": "2026-10-09T14:10:26.848Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "start": "09:55",
+        "channel": "Arte",
+        "section": "mardi-selection",
+        "rank": 4
+      },
+      "evidence_note": "Diffusion du mardi recoupée par le guide officiel ARTE et une grille datée, avec contrôles courants complémentaires. Le dossier stable et le texte déjà vérifiés sont réutilisés ; carte de réserve uniquement, sans seconde exposition développée.",
+      "status": "verified_reuse"
+    },
+    {
+      "work_id": "restore-point",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "daily_reserve_card"
+      ],
+      "source_urls": [
+        "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf",
+        "https://tv-programme.com/canal-plus-box-office/mardi-13-octobre-2026/",
+        "https://www.canalplus.com/cinema/restore-point/h/28871937_50001/resume-casting/",
+        "https://www.kviff.com/en/programme/film/63/40704-restore-point"
+      ],
+      "checked_at": "2026-10-09T14:10:26.848Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-13",
+        "start": "11:25",
+        "channel": "Canal+ Box Office",
+        "section": "mardi-selection",
+        "rank": 5
+      },
+      "evidence_note": "Rediffusion du mardi rapprochée du tableau mensuel officiel CANAL+ et de grilles datées. Version CANAL+ 109 min, identité, réception, note, affiche et liens repris du dossier complet sans antidater les preuves stables.",
+      "status": "verified_reuse"
     }
   ],
   "run_metrics": [
@@ -26579,6 +26643,119 @@
           "ready_handoff": null
         }
       }
+    },
+    {
+      "date": "2026-10-09T14:02:17.855Z",
+      "owner": "5f2430ad-1647-4c90-93e9-08d6dc96fba3",
+      "execution_kind": "scheduled_efficiency_production",
+      "prompt_revision": "production-efficiency-2026-10-09",
+      "stage": "enrichment",
+      "run_state": "running",
+      "started_at": "2026-10-09T14:02:17.855Z",
+      "ended_at": null,
+      "duration_basis": "Passage en cours ; started_at observé à l’entrée, ended_at non encore connu.",
+      "completed_batches": [
+        "complete-tuesday-two-rerun-reserves-2026-10-09"
+      ],
+      "deliverables_changed": [
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "deliverables_advanced": [
+        "mardi : Grotte Chauvet complète en réserve rang 4",
+        "mardi : Restore Point complet en réserve rang 5"
+      ],
+      "complete_cards": 76,
+      "cards_integrated_this_run": 2,
+      "draft_cards": 0,
+      "partial_dossiers": 0,
+      "requirements_resolved": [
+        "mardi : réserve quotidienne portée de trois à cinq cartes complètes"
+      ],
+      "stop_reason": null,
+      "next_useful_batch": "Vérifier puis intégrer d’autres rediffusions de dossiers complets dans les jours déficitaires, en priorité avec preuve officielle de la date et de l’horaire.",
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T14:04:44.081Z",
+          "elapsed_seconds": 146.226,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "ba1ce44ed66be4d2aa0a2d6314655089652ee369",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers les plus avancés.",
+            "Produire les deux radars et leur fichier de réserves à partir de signaux récents vérifiés.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T14:02:17.855Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T15:03:07.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-09T14:04:44.081Z",
+        "elapsed_seconds": 146.226,
+        "prompt_revision": "production-efficiency-2026-10-09",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S42",
+        "source_sha": "ba1ce44ed66be4d2aa0a2d6314655089652ee369",
+        "next_actions": [
+          "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers les plus avancés.",
+          "Produire les deux radars et leur fichier de réserves à partir de signaux récents vérifiés.",
+          "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+          "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+        ],
+        "remaining_count": 35,
+        "next_actions_total": 38,
+        "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "observations": {
+          "started_at": "2026-10-09T14:02:17.855Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-09T15:03:07.000Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
+        }
+      },
+      "intervals": {
+        "reprise_extraction": {
+          "started_at": "2026-10-09T14:02:17.855Z",
+          "ended_at": "2026-10-09T14:07:54.264Z"
+        },
+        "redaction_rendu": {
+          "started_at": "2026-10-09T14:07:54.264Z",
+          "ended_at": "2026-10-09T14:10:26.848Z"
+        },
+        "recherche": null,
+        "controles": {
+          "started_at": "2026-10-09T14:10:26.848Z",
+          "ended_at": "2026-10-09T14:11:28.710Z"
+        },
+        "sauvegarde": null,
+        "attente": null
+      },
+      "control_notes": [
+        "Identités canoniques, politique éditoriale, liens exacts et diff JSON contrôlés localement.",
+        "Le rapport preparation-gaps confirme cinq cartes complètes le mardi ; seuil de dix encore ouvert.",
+        "Le contrôle navigateur local n’a pas pu démarrer faute de binaire Chromium installé ; aucune réussite de présentation n’est revendiquée pour cette tête et la CI distante reste requise."
+      ]
     }
   ],
   "source_issues": [
@@ -27204,9 +27381,9 @@
     "main_sha": "eadfd023669970da304879f587cba4125908a655",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers les plus avancés.",
-      "Produire les deux radars et leur fichier de réserves à partir de signaux récents vérifiés.",
-      "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes."
+      "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers déjà avancés et de rediffusions exactement recoupées.",
+      "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+      "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte."
     ],
     "publisher": {
       "checked_at": "2026-10-08T14:40:33.431Z",
@@ -29685,6 +29862,44 @@
           "sl-radar-popularity-the-end-of-oak-street-2026"
         ],
         "status": "card_complete"
+      },
+      {
+        "id": "sl-mardi-grotte-chauvet-reserve",
+        "title": "Grotte Chauvet : Dans les pas des artistes de la Préhistoire",
+        "work_id": "grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire-2024",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "diffusion_officielle_et_dossier_complet",
+            "note": "Le guide ARTE du 13 octobre à 09:55 et la grille datée concordent ; identité, version, réception, visuel et offre ont déjà été vérifiés pour le même film.",
+            "source_url": "https://www.arte.tv/fr/guide/20261013/"
+          }
+        ],
+        "decision_note": "Réserve complète rang 4 ; la répétition avec le choix développé du samedi est limitée à une réserve et ne crée pas une seconde carte publique.",
+        "alternatives": [
+          "sl-mardi-sulawesi"
+        ]
+      },
+      {
+        "id": "sl-mardi-restore-point-reserve",
+        "title": "Restore Point",
+        "work_id": "restore-point",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "diffusion_officielle_et_dossier_complet",
+            "note": "Le PDF mensuel officiel CANAL+ et des grilles datées soutiennent la rediffusion du 13 octobre à 11:25 ; le dossier complet de la version CANAL+ 109 min est réutilisé.",
+            "source_url": "https://bran-media.canalplus.pro/file/6abbbf242e8c0/uploads/media/CanalPlus_A_Z_Octobre_2026.pdf"
+          }
+        ],
+        "decision_note": "Réserve complète rang 5 ; la carte déjà rédigée et ses réserves critiques sont conservées sans nouvelle consultation fictive.",
+        "alternatives": []
       }
     ]
   },
