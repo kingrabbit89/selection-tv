@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T12:09:38.337Z",
+  "updated_at": "2026-10-09T12:41:03.438Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -909,6 +909,15 @@
       "completed_at": "2026-10-09T12:38:27.957Z",
       "scope": "jeudi:Hiver à Sokcho",
       "summary": "Recherche ciblée terminée sans carte : les durées de master, d’asset et de créneau sont séparées, mais l’heure officielle et la relation exacte du master diffusé restent contradictoires.",
+      "deliverables": [
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "complete-kotelnitch-card-2026-10-09",
+      "completed_at": "2026-10-09T12:41:03.438Z",
+      "scope": "dimanche:Retour à Kotelnitch",
+      "summary": "La carte déjà rédigée est déclarée complète après recoupement indépendant de Ciné+ Festival et 02:45 par Ouest-France, concordant avec l’événement CANAL+ daté.",
       "deliverables": [
         "data/research/2026-S42.json"
       ]
@@ -22680,6 +22689,29 @@
       },
       "evidence_note": "Documentaire de Laurent Bouzereau produit en 2024. La diffusion vise la version CANAL+ de 68 minutes ; les fiches VOD et IMDb à 72 minutes restent une version distincte. Diffusion du lundi 12 octobre à 12:02 sur Ciné+ Classic recoupée par l’événement CANAL+, TV-Programme et Programme-Télévision. L’expiration replay n’est pas déduite de l’événement linéaire. Preuves stables et périssables conservées avec leur date d’origine.",
       "status": "verified_reuse"
+    },
+    {
+      "work_id": "retour-a-kotelnitch-2003",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.end",
+        "broadcast.channel",
+        "version.runtime"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/cinema/retour-a-kotelnitch/h/437731_50002",
+        "https://programmetv.ouest-france.fr/film/documentaire/"
+      ],
+      "checked_at": "2026-10-09T12:41:03.438Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-11",
+        "section": "dimanche-selection"
+      },
+      "evidence_note": "CANAL+ fixe 02:45–04:32 et 106 min ; Ouest-France nomme indépendamment Ciné+ Festival, dimanche 11 octobre à 02:45. Le créneau 107 min reste distinct de la durée de version.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -24993,7 +25025,8 @@
         "complete-thorin-expiring-card-2026-10-09",
         "resolve-machine-tv-version-attempt-2026-10-09",
         "complete-rendezvous-reserves-2026-10-09",
-        "resolve-hiver-version-attempt-2026-10-09"
+        "resolve-hiver-version-attempt-2026-10-09",
+        "complete-kotelnitch-card-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -25002,9 +25035,9 @@
         "data/research/2026-S42.json",
         "data/manifest.json"
       ],
-      "complete_cards": 52,
-      "draft_cards": 1,
-      "partial_dossiers": 4,
+      "complete_cards": 53,
+      "draft_cards": 0,
+      "partial_dossiers": 3,
       "deliverables_advanced": [
         "sorties-physiques : deux choix et deux réserves complètes",
         "présélection streaming : toutes les alternatives référencent des identifiants existants",
@@ -25013,7 +25046,8 @@
         "avant-disparition : une carte complète avec expiration ARTE",
         "La machine à écrire : conflit de version documenté après contrôles officiel et indépendant",
         "rendezvous-1 et rendezvous-2 : cinq choix visibles et cinq réserves complètes chacun",
-        "Hiver à Sokcho : versions 100/104/106 min séparées et conflit 11:47/11:48 documenté"
+        "Hiver à Sokcho : versions 100/104/106 min séparées et conflit 11:47/11:48 documenté",
+        "dimanche : Retour à Kotelnitch passé de carte draft à carte complète"
       ],
       "requirements_resolved": [
         "sorties-physiques : profondeur de réserve minimale atteinte",
@@ -25022,7 +25056,8 @@
         "plateformes-abonnement : seuil de neuf cartes atteint",
         "avant-disparition : seuil d’une carte atteint",
         "rendezvous-1 : profondeur de réserve minimale atteinte",
-        "rendezvous-2 : profondeur de réserve minimale atteinte"
+        "rendezvous-2 : profondeur de réserve minimale atteinte",
+        "Retour à Kotelnitch : chaîne et horaire indépendamment recoupés"
       ],
       "remaining": {
         "stage": "enrichment",
@@ -25203,18 +25238,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T12:39:17.447Z",
+          "elapsed_seconds": 2098.287,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "2e17676752c5e3b63b7d2cd6739aa1f33dc0f5ae",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T12:04:19.160Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T13:24:36.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T12:34:54.851Z",
-        "elapsed_seconds": 1835.691,
+        "observed_at": "2026-10-09T12:39:17.447Z",
+        "elapsed_seconds": 2098.287,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "010a1aa57d04e8dac96bad87357fab7f97ea7623",
+        "source_sha": "2e17676752c5e3b63b7d2cd6739aa1f33dc0f5ae",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -25236,7 +25300,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Évaluer le retour ciblé sur Bird ; si la version reste non certifiée, consigner l’impasse puis produire une autre rubrique ou carte accessible.",
+      "next_useful_batch": "Évaluer le retour ciblé sur Bird ; si la version reste non certifiée, consigner l’impasse puis approfondir une autre piste proche d’une carte complète.",
       "new_leads": 0
     }
   ],
@@ -26410,11 +26474,11 @@
         "scope": {
           "day": "dimanche"
         },
-        "status": "card_drafted",
+        "status": "card_complete",
         "signals": [
           {
             "kind": "critique",
-            "note": "Deux critiques indépendantes, l’identité, l’affiche et la note IMDb sont sauvegardées ; la carte conserve la limite de provenance de chaîne.",
+          "note": "Deux critiques indépendantes, l’identité, l’affiche et la note IMDb sont sauvegardées ; la chaîne et l’horaire sont désormais recoupés indépendamment.",
             "source_url": "https://www.critikat.com/actualite-cine/critique/retour-a-kotelnitch/"
           }
         ],
@@ -26423,7 +26487,7 @@
           "sl-dimanche-silence-rangs"
         ],
         "work_id": "retour-a-kotelnitch-2003",
-        "decision_note": "Carte draft développée et catalogue canonique créés ; attribution de chaîne issue des grilles et comparaison hebdomadaire restent ouvertes."
+        "decision_note": "Carte complète : l’événement CANAL+ fixe 02:45–04:32 et 106 min ; Ouest-France recoupe indépendamment Ciné+ Festival, le dimanche 11 octobre à 02:45. Les durées historiques 105/106 min restent distinguées du créneau 107 min."
       },
       {
         "id": "sl-dimanche-silence-rangs",
@@ -28217,18 +28281,19 @@
         "work_id": "retour-a-kotelnitch-2003",
         "date": "2026-10-11",
         "rank_provisional": 2,
-        "selection_finalized": false,
+        "selection_finalized": true,
         "review": {
           "checked_at": "2026-10-09",
           "identity_version": "Documentaire français d’Emmanuel Carrère, 2003, distinct du reportage Le Soldat perdu ; version linéaire annoncée à 106 minutes.",
           "canonical_fields": "Identité et réception stable réutilisées depuis les preuves du 8 octobre ; affiche exacte et note IMDb 7,1/10 contrôlées le 9 octobre.",
-          "current_broadcast": "Événement CANAL+ du 11 octobre à 02:45–04:32 concordant avec la grille Ciné+ Festival ; le nom de chaîne reste issu de la grille sauvegardée.",
+          "current_broadcast": "Événement CANAL+ du 11 octobre à 02:45–04:32 et version 106 min, recoupés par Ouest-France qui nomme Ciné+ Festival et 02:45 ; le créneau de 107 min n’est pas assimilé à la durée de l’œuvre.",
           "editorial_copy": "Synopsis et justification originaux relus depuis les deux critiques indépendantes, avec réserves explicites.",
           "evidence_urls": [
             "https://www.canalplus.com/cinema/retour-a-kotelnitch/h/437731_50002",
             "https://www.imdb.com/title/tt0348732/",
             "https://www.critikat.com/actualite-cine/critique/retour-a-kotelnitch/",
-            "https://www.chronicart.com/cinema/retour-a-kotelnitch/"
+            "https://www.chronicart.com/cinema/retour-a-kotelnitch/",
+            "https://programmetv.ouest-france.fr/film/documentaire/"
           ]
         }
       },
