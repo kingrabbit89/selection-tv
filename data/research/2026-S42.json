@@ -850,6 +850,18 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
+    },
+    {
+      "id": "complete-sacrifice-streaming-card-2026-10-09",
+      "completed_at": "2026-10-09T12:16:02.313Z",
+      "scope": "sorties-streaming",
+      "summary": "Sacrifice intégré comme troisième arrivée streaming complète à partir de la page Netflix France directe, de TIFF et d’une réception indépendante contradictoire ; la rubrique atteint trois cartes.",
+      "deliverables": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
     }
   ],
   "blockers": [
@@ -21981,6 +21993,41 @@
       },
       "evidence_note": "Les preuves stables sauvegardées à 11:45 sont réutilisées avec leur date. Film at Lincoln Center a été consulté à 12:09 pour confirmer pays et durée ; la carte distingue le montage intégral des versions Creepers raccourcies.",
       "status": "verified"
+    },
+    {
+      "work_id": "sacrifice-2025",
+      "fields": [
+        "title",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "image",
+        "links",
+        "ratings",
+        "critical_reception",
+        "streaming_offer.date"
+      ],
+      "source_urls": [
+        "https://about.netflix.com/fr/news/line-up-mensuel",
+        "https://www.netflix.com/fr/title/81947357",
+        "https://tiff.net/films/sacrifice",
+        "https://www.imdb.com/title/tt32268992/",
+        "https://www.rottentomatoes.com/m/sacrifice_2025",
+        "https://deadline.com/2025/09/sacrifice-review-romain-gavras-anya-taylor-joy-chris-evans-1236530838/",
+        "https://www.theguardian.com/film/2025/sep/08/sacrifice-review-starry-satire-pokes-fun-at-celebrity-before-falling-into-a-volcano"
+      ],
+      "checked_at": "2026-10-09T12:16:02.313Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "section": "sorties-streaming",
+        "arrival_date": "2026-10-16",
+        "netflix_id": "81947357"
+      },
+      "evidence_note": "TIFF date le film de 2025 tandis que Netflix l’étiquette 2026 ; les deux portées sont conservées. Réception divisée, sans consensus inventé.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -24288,7 +24335,8 @@
       "duration_basis": "Passage en cours ; durée terminale non encore observée.",
       "completed_batches": [
         "complete-phenomena-physical-reserve-card-2026-10-09",
-        "fix-kursk-shortlist-alternative-identifiers-2026-10-09"
+        "fix-kursk-shortlist-alternative-identifiers-2026-10-09",
+        "complete-sacrifice-streaming-card-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -24296,16 +24344,18 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ],
-      "complete_cards": 34,
+      "complete_cards": 35,
       "draft_cards": 1,
       "partial_dossiers": 4,
       "deliverables_advanced": [
         "sorties-physiques : deux choix et deux réserves complètes",
-        "présélection streaming : toutes les alternatives référencent des identifiants existants"
+        "présélection streaming : toutes les alternatives référencent des identifiants existants",
+        "sorties-streaming : trois arrivées complètes avec pages directes"
       ],
       "requirements_resolved": [
         "sorties-physiques : profondeur de réserve minimale atteinte",
-        "CI validation-context : dernière alternative textuelle de présélection remplacée"
+        "CI validation-context : dernière alternative textuelle de présélection remplacée",
+        "sorties-streaming : troisième carte complète et page directe exacte"
       ],
       "remaining": {
         "stage": "enrichment",
@@ -24341,18 +24391,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T12:12:09.682Z",
+          "elapsed_seconds": 470.522,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "d873511433ef7b4f903e39c9d70c6aaa3f19aee6",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T12:04:19.160Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T13:05:53.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T12:07:11.694Z",
-        "elapsed_seconds": 172.534,
+        "observed_at": "2026-10-09T12:12:09.682Z",
+        "elapsed_seconds": 470.522,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "a78e935efa9ba00cda92054acf650012e0f35433",
+        "source_sha": "d873511433ef7b4f903e39c9d70c6aaa3f19aee6",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -24374,7 +24453,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Résoudre la troisième arrivée streaming depuis une page directe exacte ou avancer les pools déficitaires jeudi/samedi, puis sauvegarder.",
+      "next_useful_batch": "Avancer les cartes plateformes par abonnement déjà étayées ou les réserves quotidiennes déficitaires, puis sauvegarder.",
       "new_leads": 0
     }
   ],
@@ -25393,7 +25472,7 @@
     }
   ],
   "shortlist": {
-    "updated_at": "2026-10-09T11:46:33.801Z",
+    "updated_at": "2026-10-09T12:16:02.313Z",
     "note": "Présélection révisable par jour et rubrique ; premières cartes plateformes gratuites intégrées depuis les dossiers acquis. Aucun statut ne certifie la sélection finale du numéro.",
     "entries": [
       {
@@ -26664,6 +26743,32 @@
         ],
         "decision_note": "Carte complète de réserve physique : édition, version, identité, visuel, notes, réception contradictoire et avertissement de violence revus.",
         "alternatives": []
+      },
+      {
+        "id": "sl-sorties-streaming-sacrifice-2025",
+        "title": "Sacrifice",
+        "work_id": "sacrifice-2025",
+        "scope": {
+          "rubrique": "sorties-streaming"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "arrivee_netflix_france_directe",
+            "note": "Le line-up officiel annonce le 16 octobre 2026 et la page Netflix française directe 81947357 confirme le titre et l’offre.",
+            "source_url": "https://www.netflix.com/fr/title/81947357"
+          },
+          {
+            "kind": "reception_independante_contradictoire",
+            "note": "Deadline défend l’énergie satirique ; The Guardian juge le film s’effondrer dans son dernier mouvement. Rotten Tomatoes affiche 36 % sur 36 critiques.",
+            "source_url": "https://www.rottentomatoes.com/m/sacrifice_2025"
+          }
+        ],
+        "decision_note": "Carte complète retenue comme curiosité clivante : page Netflix France directe, arrivée datée, identité TIFF/IMDb, visuel exact et réception contradictoire explicite.",
+        "alternatives": [
+          "sl-sorties-streaming-kursk-2018",
+          "sl-sorties-streaming-adieu-monsieur-haffmann-2022"
+        ]
       }
     ]
   },
@@ -28715,6 +28820,64 @@
         "note": "URL exacte exposée par le lien image de la fiche produit ; récupération du binaire en erreur transitoire, à contrôler en CI."
       },
       "reason": "Carte rendue et revue ; le contrôle réseau CI du visuel demeure obligatoire."
+    },
+    {
+      "title": "Sacrifice",
+      "work_id": "sacrifice-2025",
+      "decision": "carte complète sorties-streaming",
+      "identity_research": {
+        "director": "Romain Gavras",
+        "year": 2025,
+        "countries": [
+          "Royaume-Uni",
+          "Grèce"
+        ],
+        "duration": "103 min",
+        "imdb_id": "tt32268992",
+        "source_urls": [
+          "https://tiff.net/films/sacrifice",
+          "https://www.imdb.com/title/tt32268992/"
+        ],
+        "checked_at": "2026-10-09T12:16:02.313Z",
+        "note": "TIFF établit la première 2025, les pays et la durée ; Netflix étiquette sa page française 2026, sans que cette date de plateforme ne remplace l’année du film."
+      },
+      "availability_research": {
+        "status": "verified_streaming_arrival_france",
+        "checked_at": "2026-10-09T12:16:02.313Z",
+        "source_urls": [
+          "https://about.netflix.com/fr/news/line-up-mensuel",
+          "https://www.netflix.com/fr/title/81947357"
+        ],
+        "note": "Le line-up officiel France annonce Sacrifice le 16 octobre 2026 et la page Netflix française directe 81947357 expose le titre, le synopsis et la distribution."
+      },
+      "critical_evidence": [
+        {
+          "source": "Deadline",
+          "source_url": "https://deadline.com/2025/09/sacrifice-review-romain-gavras-anya-taylor-joy-chris-evans-1236530838/",
+          "assessment": "Lecture favorable, centrée sur l’énergie satirique et la mise en scène de Romain Gavras."
+        },
+        {
+          "source": "The Guardian",
+          "source_url": "https://www.theguardian.com/film/2025/sep/08/sacrifice-review-starry-satire-pokes-fun-at-celebrity-before-falling-into-a-volcano",
+          "assessment": "Lecture négative : la satire de la célébrité est jugée s’effondrer dans son dernier mouvement."
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic",
+        "checked_at": "2026-10-09T12:16:02.313Z",
+        "source_urls": [
+          "https://www.rottentomatoes.com/m/sacrifice_2025"
+        ],
+        "note": "Rotten Tomatoes affiche 36 % sur 36 critiques au contrôle ; valeur dynamique et réception divisée, sans consensus favorable déduit."
+      },
+      "image_research": {
+        "status": "exact_title_image_verified_ci_pending",
+        "checked_at": "2026-10-09T12:16:02.313Z",
+        "source_page": "https://www.netflix.com/fr/title/81947357",
+        "image_url": "https://occ-0-7977-1348.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABQdQIT-h4h5_Zw8I8ZtU6Bf_V9munpXzb7KdN4suolEiu5Pj0lDRAdQFQXdpUmJNyTQttiQn5eB-hdKUAk9SyZ2QkoGoy2b1iN_a.jpg?r=242",
+        "note": "Visuel ouvert depuis la page Netflix française directe du titre ; disponibilité réseau à contrôler en CI."
+      },
+      "reason": "Troisième arrivée streaming complète, retenue comme curiosité clivante et non comme consensus critique."
     }
   ]
 }
