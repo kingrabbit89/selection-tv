@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T21:46:36.958Z",
+  "updated_at": "2026-10-09T22:23:01.733Z",
   "remaining": [
     "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -33859,6 +33859,114 @@
         "preparation-gaps sur 2d01e3b : seul coverage-full-week reste une action structurelle bloquante ; les sept jours satisfont le minimum de dix candidats et restent sous la cible éditoriale non bloquante de quinze.",
         "CI GitHub 37995246714 sur 2d01e3b observée en cours ; aucun succès n’est revendiqué pour cette tête."
       ]
+    },
+    {
+      "date": "2026-10-09T22:19:23.163Z",
+      "owner": "a8866989-9e88-47f8-bed7-81596fd35b0f",
+      "execution_kind": "scheduled_editorial_web_evidence_production",
+      "prompt_revision": "production-web-evidence-2026-10-09",
+      "stage": "enrichment",
+      "run_state": "running",
+      "started_at": "2026-10-09T22:19:23.163Z",
+      "ended_at": null,
+      "duration_basis": "Passage en cours ; début réel capturé à l’entrée, fin inconnue.",
+      "completed_batches": [
+        "sync-main-web-evidence-contracts-2026-10-09",
+        "initial-preparation-gaps-saved-flow-and-triage-2026-10-09"
+      ],
+      "deliverables_changed": [
+        "data/research/2026-S42.json"
+      ],
+      "complete_cards": 125,
+      "cards_integrated_this_run": 0,
+      "draft_cards": 0,
+      "partial_dossiers": 0,
+      "requirements_resolved": 0,
+      "stop_reason": null,
+      "next_useful_batch": "Réconcilier les anciennes attentes qui portaient seulement sur la provenance technique avec la règle web_schedule_evidence, en commençant par la réserve rendue Un crime dans la tête ; conserver tout conflit factuel.",
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T22:22:32.123Z",
+          "elapsed_seconds": 188.96,
+          "prompt_revision": "production-web-evidence-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "eadc0522907700183f657a3a3ad13952ccccbeb6",
+          "next_actions": [
+            "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
+            "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+            "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
+            "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
+          ],
+          "remaining_count": 18,
+          "next_actions_total": 14,
+          "truncated_notice": "9 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 23,
+          "waiting_actions_count": 9,
+          "research_review_warnings": [
+            "Current run batch needs_review: caller startedAt has no unique exact run match; remaining and resume preserved"
+          ],
+          "observations": {
+            "started_at": "2026-10-09T22:19:23.163Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T23:19:39.374Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-09T22:22:32.123Z",
+        "elapsed_seconds": 188.96,
+        "prompt_revision": "production-web-evidence-2026-10-09",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S42",
+        "source_sha": "eadc0522907700183f657a3a3ad13952ccccbeb6",
+        "next_actions": [
+          "Poursuivre une action de couverture accessible hors T18 et hors impasses déjà annotées ; priorité aux défauts précis des livrables rendus ou à une source officielle nouvelle.",
+          "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
+          "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
+          "Compléter passe documentaire officielle : Arte, France 5, France 2/3/4, france.tv, TV5MONDE ; replay, avant-premières, exclusivités, expirations et réception critique.",
+          "Après inventaire des 7 jours : dédupliquer les identités, consulter works/links et historique, enrichir les candidats prometteurs et réserves au niveau Web/Fire TV."
+        ],
+        "remaining_count": 18,
+        "next_actions_total": 14,
+        "truncated_notice": "9 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "all_actions_total": 23,
+        "waiting_actions_count": 9,
+        "research_review_warnings": [
+          "Current run batch needs_review: caller startedAt has no unique exact run match; remaining and resume preserved"
+        ],
+        "observations": {
+          "started_at": "2026-10-09T22:19:23.163Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-09T23:19:39.374Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
+        }
+      },
+      "intervals": [
+        {
+          "kind": "resume_extraction",
+          "started_at": "2026-10-09T22:19:23.163Z",
+          "ended_at": "2026-10-09T22:23:01.733Z",
+          "overlap": false,
+          "note": "Bail acquis, candidate synchronisée normalement avec main, quatre contrats changés relus, cible S42 confirmée, écarts, flow sauvegardé et triage calculés sur eadc052."
+        }
+      ],
+      "requirements_resolved_details": [],
+      "control_notes": [
+        "preparation-gaps sur eadc052 : seul coverage-full-week reste bloquant structurellement ; les sept jours ont dix cartes matérialisées et l’objectif de quinze reste un avertissement non bloquant."
+      ]
     }
   ],
   "source_issues": [
@@ -39276,18 +39384,18 @@
     "remaining_reference": "remaining"
   },
   "contract_reads": {
-    "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
-    "checked_at": "2026-10-09T20:59:42.000Z",
+    "main_sha": "a1d9bb3cdca37c8b8451052b8c5839a8f89e6fa9",
+    "checked_at": "2026-10-09T22:23:01.733Z",
     "documents": {
-      "AUTOMATION.md": "c28c68f18acbc42057db9f188b7c6df5389c92f6",
-      "docs/HYBRID-WORKFLOW.md": "95cad0792febab1bc7edf076300bd38ced9c84ba",
+      "AUTOMATION.md": "0fa19d862795c1a9159edce2cc95bb097f979eae",
+      "docs/HYBRID-WORKFLOW.md": "e9b45b4bd16939f3ae5ea1c3767eace9835db0d5",
       "ARCHITECTURE.md": "7c6e72b0729e4f915bc5a90f084c40e1cc363e8a",
       "data/automation-config.json": "e55d9a247fc0299ce6effc6c3e97eea9018f0dc3",
-      "data/editorial-config.json": "6d7f39d0b91b518ca547e8d44f1bf1c18e89179b",
+      "data/editorial-config.json": "a27cb03406b26bc24da996fde82609483cf3defb",
       "data/personalization-config.json": "ad5716e95db25894de7ca58c874154783b1766a8",
-      "docs/EDITORIAL-CLOSURE-POLICY.md": "fb1b8cdd765f7220eef03369da1bbcc1ae017627"
+      "docs/EDITORIAL-CLOSURE-POLICY.md": "79a8b57b020c9471ee9b800ada8ff681052cb902"
     },
-    "note": "AUTOMATION.md, data/editorial-config.json et docs/EDITORIAL-CLOSURE-POLICY.md ont été relus sur main ; les quatre autres contrats sont repris depuis leur lecture attestée car leurs blobs sont inchangés."
+    "note": "AUTOMATION.md, docs/HYBRID-WORKFLOW.md, data/editorial-config.json et docs/EDITORIAL-CLOSURE-POLICY.md relus après synchronisation de main ; les trois autres contrats sont repris depuis leur lecture attestée car leurs blobs sont inchangés."
   },
   "research_dossiers": [
     {
