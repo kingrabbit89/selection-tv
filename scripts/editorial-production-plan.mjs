@@ -9,6 +9,7 @@ import {htmlText} from './html-text.mjs';
 import {normalizedTitle} from './editorial-work-packet.mjs';
 import {addDays, weekForSaturday} from './week-calendar.mjs';
 import {dailyReserveCandidates, sectionPageMatches} from './editorial-contracts.mjs';
+import {validateTeleramaReport,teleramaExtractionContent} from './editorial-telerama-import.mjs';
 
 const days = ['samedi','dimanche','lundi','mardi','mercredi','jeudi','vendredi'];
 const array = value => Array.isArray(value) ? value : [];
@@ -231,6 +232,29 @@ export function buildProductionPlan(context, options={}) {
   const supplied = options.observations || options.collectedObservations || context.collectedObservations || context.collected_observations || [];
   const suppliedSource = options.observations_provenance || context.observations_provenance || {};
   array(supplied).forEach((item,i)=>add(item,provenance(suppliedSource.source_sha,suppliedSource.path,`/observations/${i}`,'supplied_observations')));
+  const paperSources=[],paperExtractions=new Map();
+  const addPaperReport=(report,source)=>{
+    validateTeleramaReport(report,week,range.from);
+    const fingerprint=report.source.sha256,extraction=teleramaExtractionContent(report);
+    if(paperExtractions.has(fingerprint)) {
+      assert.deepEqual(paperExtractions.get(fingerprint),extraction,
+        'this PDF has a different extraction; review the existing supplement before replacing it');
+      return;
+    }
+    paperExtractions.set(fingerprint,extraction);
+    report.observations.forEach((item,index)=>add(item,{...source,
+      json_pointer:(source.json_pointer || '')+`/observations/${index}`,origin:'supplementary_pdf'}));
+    paperSources.push({sha256:report.source.sha256,filename:report.source.filename,observations:report.observations.length,
+      publication_date:report.source.publication_date || null,provenance:source,coverage_certified:false});
+  };
+  array(options.useTelerama===false?[]:context.research?.supplementary_sources).forEach((entry,index)=>{
+    if(entry.kind==='telerama_pdf') addPaperReport(entry.report,
+      provenance(sha,`data/research/${week}.json`,`/supplementary_sources/${index}/report`));
+  });
+  if(options.useTelerama!==false && context.prepared_telerama_report)
+    addPaperReport(context.prepared_telerama_report,provenance(sha,`data/editorial-inputs/${week}/telerama.json`,''));
+  array(options.useTelerama===false?[]:options.supplementaryReports).forEach(({report,provenance:source})=>addPaperReport(report,
+    {source_sha:null,path:null,json_pointer:'',...source}));
   // Editorial intentions orient a scope. Null slots are deliberate, never
   // inferred broadcast times or evidence of an offer.
   array(context.research?.shortlist?.entries).forEach((entry,i)=>{
@@ -248,6 +272,13 @@ export function buildProductionPlan(context, options={}) {
       source_type:observation.source_type || null,source_id:observation.source_id || null,
       evidence_origin:observation.evidence_origin || null,evidence_pointer:observation.evidence_pointer || null,
       page_date:observation.page_date || null,provenance:observation.provenance});
+    if(observation.source_type==='telerama_pdf') Object.assign(slot.origins.at(-1),{
+      source_ref:observation.source_ref,pdf_page:observation.pdf_page,printed_page:observation.printed_page ?? null,
+      bbox:observation.bbox,printed_date:observation.printed_date || null,date_basis:observation.date_basis || null,
+      grid_date:observation.grid_date || null,overnight:observation.overnight ?? null,
+      channel_printed:observation.channel_printed || observation.channel,genre_hint:observation.genre_hint || null,
+      requires_title_review:observation.requires_title_review ?? true,
+      broadcast_freshness_verified:false});
     if (observation.version) slot.versions.push(observation.version);
     if (observation.work_id) slot.ids.push(observation.work_id);
     slot.identity_hints.push(identityFor(observation,index));
@@ -429,6 +460,7 @@ export function buildProductionPlan(context, options={}) {
       source_sha:report.source_sha || null,source_results:sourceResults,
       sources:array(report.sources),availability:report.availability || null,coverage_certified:false},warnings,
     freshness_policy:{...freshness,historical_weeks:history.prior.map(item=>item.entry.week),note:'Historical exposure is information, not automatic eligibility or disqualification.'},
+    ...(paperSources.length?{supplementary_sources:paperSources}:{}),
     queue_order:'Preparation before raw-title triage; production deficits, explicitly saved shortlist, supplied observations, then day/title; materialized/paused last; no artistic ranking.',
     queue:selected.slice(offset,offset+limit),queue_total:selected.length,next_offset:offset+limit<selected.length?offset+limit:null};
 }
@@ -452,7 +484,8 @@ export function productionContextFromGit(week,ref,cwd=process.cwd(),runGit) {
     .map(entry=>({entry,issue:read(`data/weeks/${entry.week}.json`)})).filter(item=>item.issue);
   return {week,sha,manifest,personalization_config,editorial_config:read('data/editorial-config.json'),historicalissues,
     inventory:read(`data/inventory/${week}.json`),inventory_source_content:raw(`data/inventory/${week}.json`),
-    coverage:read(`data/coverage/${week}.json`),research:read(`data/research/${week}.json`),
+    coverage:read(`data/coverage/${week}.json`),research:read(`data/research/${week}.json`),research_source_content:raw(`data/research/${week}.json`),
+    prepared_telerama_report:read(`data/editorial-inputs/${week}/telerama.json`),
     currentissue:read(`data/weeks/${week}.json`),works:read('data/works.json'),links:read('data/links.json')};
 }
 
