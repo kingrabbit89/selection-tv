@@ -103,7 +103,7 @@ function main() {
     : ctx.mode === 'candidate' ? `SELECTION_TV_VALIDATE_WEEK=${ctx.week}\nSELECTION_TV_CANDIDATE=1\n` : '';
   if (process.env.GITHUB_ENV) fs.appendFileSync(process.env.GITHUB_ENV,env);
   const message = ctx.mode === 'preparation'
-    ? `Preparation ${ctx.week} (${ctx.stage}): ${ctx.remaining.length} remaining tasks. Published issue regression tests run; candidate merge remains blocked.\n${ctx.remaining.map(x => '- '+x).join('\n')}`
+    ? `Preparation ${ctx.week} (${ctx.stage}): ${ctx.remaining.length} declared requirement paragraphs to reconcile, not a count of active tasks. Published issue regression tests run; candidate merge remains blocked.\n${ctx.remaining.map(x => '- '+x).join('\n')}`
     : ctx.mode === 'candidate' ? `Complete candidate ${ctx.week}: all publication/editorial/browser gates required.` : 'Published issue validation.';
   console.log(message);
   if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,message+'\n');

@@ -1,4 +1,6 @@
 import fs from 'node:fs';
+import {inputSnapshot, matchingReport, validators} from './preparation-gaps.mjs';
+import {buildTaskBoard, editorialReviewState, taskBoardMarkdown} from './editorial-task-board.mjs';
 
 const manifest=JSON.parse(fs.readFileSync('data/manifest.json','utf8'));
 const target=process.env.SELECTION_TV_PREPARATION_WEEK||process.env.SELECTION_TV_VALIDATE_WEEK||manifest.latest;
@@ -19,13 +21,22 @@ lines.push('- manifest.latest : '+manifest.latest);
 const progress=safe('data/research/'+target+'.json');
 if(progress){
   lines.push('- Étape de recherche : '+progress.stage);
-  lines.push('- Revue éditoriale achevée : '+(progress.editorial_review_completed===true?'oui':'non'));
-  lines.push('- Travaux restants : '+(progress.remaining?.length??'?'));
+  lines.push('- Revue éditoriale déclarée achevée : '+(editorialReviewState(progress).declared_completed?'oui':'non')+' (ce rapport ne la certifie pas)');
+  lines.push('- Suivi éditorial déclaré : '+(progress.remaining?.length??'?')+' paragraphes à réconcilier avec les preuves ; ce nombre ne mesure pas les tâches actives');
   if(process.env.SELECTION_TV_PREPARATION_WEEK)lines.push('- Préparation en cours : les tests navigateur portent sur le numéro publié ; la fusion reste bloquée.');
   for(const task of progress.remaining||[])lines.push('  - '+task);
 }
 lines.push('- Pages : '+(week?.pages?.length||0));
 lines.push('');
+const gapReport=safe('preparation-gaps.json');
+let accepted=false;
+try {accepted=matchingReport(gapReport,inputSnapshot(target));} catch {}
+const taskBoard=buildTaskBoard({progress,
+  gaps:accepted?gapReport.gaps:[],observationsAvailable:accepted&&gapReport.validator_results.length>0,
+  observationsComplete:accepted&&validators.every(name=>gapReport.validator_results.some(result=>result.validator===name))&&
+    !gapReport.validator_results.some(result=>result.execution_error)&&gapReport.task_board?.calculated.status!=='partial'});
+lines.push(taskBoardMarkdown(taskBoard));
+if(!accepted)lines.push('Rapport de contrôles absent, illisible ou issu d’autres entrées/exécution : les paragraphes déclarés ne permettent pas de calculer les blocages actuels.','');
 
 lines.push('## Inventaire','');
 lines.push('| Date | Lignes brutes | Sources | Chaînes | Nuit 00–05 |');
