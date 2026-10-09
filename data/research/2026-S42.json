@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T11:29:45.931Z",
+  "updated_at": "2026-10-09T11:32:33.132Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -718,6 +718,19 @@
       "scope": "samedi",
       "summary": "Pool du samedi porté à quatre cartes complètes par réutilisation revue du dossier Sulawesi et des preuves propres à sa diffusion du samedi ; aucune nouvelle consultation fictive.",
       "deliverables": [
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "draft-platform-subscription-page-one-2026-10-09",
+      "completed_at": "2026-10-09T11:32:33.132Z",
+      "scope": "plateformes-abonnement",
+      "summary": "Première page plateformes avec abonnement rendue avec trois cartes revues : Exit 8, Love on Trial et L’Intérêt d’Adam. Les pages officielles établissent les premières du cycle mais pas une disponibilité à la demande durable ni une expiration.",
+      "deliverables": [
+        "data/works.json",
+        "data/links.json",
+        "data/manifest.json",
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
@@ -21506,6 +21519,101 @@
       "reused_in": [
         "samedi-selection"
       ]
+    },
+    {
+      "work_id": "l-interet-d-adam-2025",
+      "fields": [
+        "title",
+        "aliases",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "image",
+        "links",
+        "critical_reception",
+        "ratings"
+      ],
+      "source_urls": [
+        "https://www.memento.eu/linteret-dadam/",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000005217.html",
+        "https://www.lemonde.fr/cinema/article/2025/09/17/les-films-a-l-affiche-la-tour-de-glace-oui-l-interet-d-adam-dalloway_6641456_3476.html",
+        "https://www.critikat.com/actualite-cine/critique/linteret-dadam-2/",
+        "https://splitscreen-review.fr/2025/09/17/critiques/linteret-dadam/"
+      ],
+      "checked_at": "2026-10-09T11:32:33.132Z",
+      "stability": "stable",
+      "applies_to": {
+        "week": "2026-S42",
+        "section": "plateformes-abonnement",
+        "version": "Memento 78 min ; CANAL+ 74 min conflict"
+      },
+      "evidence_note": "Identité, version distributeur, réception contradictoire, affiche, liens et notes AlloCiné vérifiés ; divergence CANAL+ conservée.",
+      "status": "verified"
+    },
+    {
+      "work_id": "l-interet-d-adam-2025",
+      "fields": [
+        "offer.service",
+        "offer.url",
+        "offer.arrival_date"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/l-interet-d-adam/h/30267479_50001",
+        "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026"
+      ],
+      "checked_at": "2026-10-09T11:32:33.132Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "section": "plateformes-abonnement",
+        "arrival_date": "2026-10-15"
+      },
+      "evidence_note": "Première CANAL+ Cinéma(s) du cycle établie ; aucune persistance à la demande ni expiration inférée.",
+      "status": "verified"
+    },
+    {
+      "work_id": "exit-8-2025",
+      "fields": [
+        "offer.service",
+        "offer.url",
+        "offer.arrival_date"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/exit-8/h/30486943_50001",
+        "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026"
+      ],
+      "checked_at": "2026-10-09T11:32:33.132Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "section": "plateformes-abonnement",
+        "arrival_date": "2026-10-10"
+      },
+      "evidence_note": "Première CANAL+ Cinéma(s) du cycle établie ; dossier stable réutilisé, divergence 91/95 min conservée.",
+      "status": "verified"
+    },
+    {
+      "work_id": "love-on-trial-2025",
+      "fields": [
+        "offer.service",
+        "offer.url",
+        "offer.arrival_date"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/love-on-trial/h/31616648_50002",
+        "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026"
+      ],
+      "checked_at": "2026-10-09T11:32:33.132Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "section": "plateformes-abonnement",
+        "arrival_date": "2026-10-12"
+      },
+      "evidence_note": "Première Ciné+ Festival avec CANAL+ du cycle établie ; dossier stable réutilisé, divergence 119/123/124 min conservée.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -23385,7 +23493,7 @@
       "next_useful_batch": "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés."
     },
     {
-      "date": "2026-10-09T11:29:45.931Z",
+      "date": "2026-10-09T11:32:33.132Z",
       "started_at": "2026-10-09T11:00:32.109Z",
       "ended_at": null,
       "owner": "242b436f-e4f5-4018-b208-fca5b20fa9ec",
@@ -23399,15 +23507,17 @@
         "sync-main-validator-fix-2026-10-09",
         "complete-monday-reserve-pool-ten-cards-2026-10-09",
         "advance-thursday-reserve-pool-four-cards-2026-10-09",
-        "advance-saturday-reserve-pool-four-cards-2026-10-09"
+        "advance-saturday-reserve-pool-four-cards-2026-10-09",
+        "draft-platform-subscription-page-one-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
         "data/links.json",
         "data/weeks/2026-S42.json",
-        "data/research/2026-S42.json"
+        "data/research/2026-S42.json",
+        "data/manifest.json"
       ],
-      "complete_cards": 25,
+      "complete_cards": 28,
       "draft_cards": 1,
       "partial_dossiers": 4,
       "deliverables_advanced": [
@@ -23417,7 +23527,8 @@
         "lundi-grille",
         "lundi : pool complet de dix cartes",
         "jeudi : pool avancé à quatre cartes complètes",
-        "samedi : pool avancé à quatre cartes complètes"
+        "samedi : pool avancé à quatre cartes complètes",
+        "plateformes-abonnement : première page de trois cartes complètes"
       ],
       "requirements_resolved": [
         "lundi : seuil minimal de dix cartes complètes atteint"
@@ -23572,18 +23683,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T11:30:50.888Z",
+          "elapsed_seconds": 1818.779,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "c9c617b90db184f1c3ae9052ba0524b1cdd48990",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T11:00:32.109Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T12:21:30.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T11:28:10.800Z",
-        "elapsed_seconds": 1658.691,
+        "observed_at": "2026-10-09T11:30:50.888Z",
+        "elapsed_seconds": 1818.779,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "7808cd59f2699f4897036dcd2a6297786967ca35",
+        "source_sha": "c9c617b90db184f1c3ae9052ba0524b1cdd48990",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -23605,7 +23745,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Produire une rubrique indépendante étayée par des preuves officielles France ou poursuivre un jour déficitaire avec un dossier sans conflit."
+      "next_useful_batch": "Compléter les six cartes d’abonnement restantes ou produire la rubrique sorties physiques/streaming à partir des preuves officielles du cycle."
     }
   ],
   "source_issues": [
@@ -24578,7 +24718,7 @@
     }
   ],
   "shortlist": {
-    "updated_at": "2026-10-09T11:29:45.931Z",
+    "updated_at": "2026-10-09T11:32:33.132Z",
     "note": "Présélection révisable par jour et rubrique ; premières cartes plateformes gratuites intégrées depuis les dossiers acquis. Aucun statut ne certifie la sélection finale du numéro.",
     "entries": [
       {
@@ -25640,6 +25780,60 @@
         "alternatives": [
           "sl-jeudi-lady-vengeance-2005"
         ]
+      },
+      {
+        "id": "sl-plateformes-abonnement-exit-8-2025",
+        "title": "Exit 8",
+        "work_id": "exit-8-2025",
+        "scope": {
+          "rubrique": "plateformes-abonnement"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "premiere_abonnement_et_reception",
+            "note": "Première CANAL+ Cinéma(s) du 10 octobre attestée par le calendrier officiel et la page directe. Ces pages ne prouvent ni disponibilité à la demande persistante ni expiration.",
+            "source_url": "https://www.canalplus.com/fr/cinema/exit-8/h/30486943_50001"
+          }
+        ],
+        "decision_note": "Carte complète de rubrique ; première du cycle vérifiée, sans prétendre à une offre à la demande persistante ni à une expiration.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-plateformes-abonnement-love-on-trial-2025",
+        "title": "Love on Trial",
+        "work_id": "love-on-trial-2025",
+        "scope": {
+          "rubrique": "plateformes-abonnement"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "premiere_abonnement_et_reception",
+            "note": "Première Ciné+ Festival avec CANAL+ du 12 octobre attestée par la page directe et le calendrier officiel. Aucune durée de disponibilité à la demande n’est déduite.",
+            "source_url": "https://www.canalplus.com/fr/cinema/love-on-trial/h/31616648_50002"
+          }
+        ],
+        "decision_note": "Carte complète de rubrique ; première du cycle vérifiée, sans prétendre à une offre à la demande persistante ni à une expiration.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-plateformes-abonnement-l-interet-d-adam-2025",
+        "title": "L’Intérêt d’Adam",
+        "work_id": "l-interet-d-adam-2025",
+        "scope": {
+          "rubrique": "plateformes-abonnement"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "premiere_abonnement_et_reception",
+            "note": "Première CANAL+ Cinéma(s) du 15 octobre attestée par la page directe et le calendrier officiel. La page ne certifie ni offre à la demande durable ni expiration.",
+            "source_url": "https://www.canalplus.com/fr/cinema/l-interet-d-adam/h/30267479_50001"
+          }
+        ],
+        "decision_note": "Carte complète de rubrique ; première du cycle vérifiée, sans prétendre à une offre à la demande persistante ni à une expiration.",
+        "alternatives": []
       }
     ]
   },
@@ -25652,8 +25846,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "7808cd59f2699f4897036dcd2a6297786967ca35",
-    "produced_at": "2026-10-09T11:29:45.931Z",
+    "source_candidate_sha": "c9c617b90db184f1c3ae9052ba0524b1cdd48990",
+    "produced_at": "2026-10-09T11:32:33.132Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -26344,6 +26538,70 @@
             "https://www.telerama.fr/television/sulawesi-l-ile-des-premieres-images-sur-arte-tv-une-renversante-lecon-d-art-prehistorique-dans-les-grottes-d-indonesie_cri-7042482.php",
             "https://www.lejournaldesarts.fr/medias/la-prehistoire-des-images-184458"
           ]
+        }
+      },
+      {
+        "work_id": "exit-8-2025",
+        "section": "plateformes-abonnement",
+        "rank_provisional": 1,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "evidence_urls": [
+            "https://www.canalplus.com/fr/cinema/exit-8/h/30486943_50001",
+            "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026",
+            "https://www.arpselection.com/film/exit-8/",
+            "https://www.festival-cannes.com/f/exit-8/",
+            "https://www.lemonde.fr/culture/article/2025/09/03/exit-8-un-cruel-jeu-des-sept-erreurs-dans-le-metro_6638722_3246.html",
+            "https://www.critikat.com/actualite-cine/critique/exit-8-2/"
+          ],
+          "identity_version": "Long métrage japonais de Genki Kawamura, 2025. ARP et Cannes annoncent 95 minutes ; la page CANAL+ affiche 91 minutes et cette divergence de version demeure explicite.",
+          "canonical_fields": "Identité, liens, affiche et note déjà vérifiés pour la carte du samedi ; dossier stable réutilisé avec ses dates.",
+          "current_broadcast": "Première CANAL+ Cinéma(s) du 10 octobre attestée par le calendrier officiel et la page directe. Ces pages ne prouvent ni disponibilité à la demande persistante ni expiration.",
+          "editorial_copy": "Synopsis et justification de la carte quotidienne réutilisés après revue ; réception favorable mais réserve sur la mécanique répétitive conservée."
+        }
+      },
+      {
+        "work_id": "love-on-trial-2025",
+        "section": "plateformes-abonnement",
+        "rank_provisional": 2,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "evidence_urls": [
+            "https://www.canalplus.com/fr/cinema/love-on-trial/h/31616648_50002",
+            "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026",
+            "https://www.festival-cannes.com/en/f/renai-saiban/",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000019853.html",
+            "https://www.lemonde.fr/culture/article/2026/03/25/dans-love-on-trial-le-phenomene-des-idols-japonais-sous-pression_6674192_3246.html",
+            "https://www.premiere.fr/film/Love-on-trial"
+          ],
+          "identity_version": "Film de Kōji Fukada présenté en 2025, coproduction Japon-France. CANAL+ affiche 119 minutes, AlloCiné 123 et Cannes 124 ; aucune équivalence de versions n’est inventée.",
+          "canonical_fields": "Identité, liens, visuel, notes et réception déjà vérifiés pour la réserve du lundi ; preuves stables réutilisées.",
+          "current_broadcast": "Première Ciné+ Festival avec CANAL+ du 12 octobre attestée par la page directe et le calendrier officiel. Aucune durée de disponibilité à la demande n’est déduite.",
+          "editorial_copy": "Synopsis et justification déjà relus depuis des avis contrastés ; le film reste présenté comme une étude du système des idoles, sans consensus forcé."
+        }
+      },
+      {
+        "work_id": "l-interet-d-adam-2025",
+        "section": "plateformes-abonnement",
+        "rank_provisional": 3,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "evidence_urls": [
+            "https://www.canalplus.com/fr/cinema/l-interet-d-adam/h/30267479_50001",
+            "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026",
+            "https://www.memento.eu/linteret-dadam/",
+            "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000005217.html",
+            "https://www.lemonde.fr/cinema/article/2025/09/17/les-films-a-l-affiche-la-tour-de-glace-oui-l-interet-d-adam-dalloway_6641456_3476.html",
+            "https://www.critikat.com/actualite-cine/critique/linteret-dadam-2/",
+            "https://splitscreen-review.fr/2025/09/17/critiques/linteret-dadam/"
+          ],
+          "identity_version": "Deuxième long métrage de Laura Wandel, Belgique-France, 2025. Memento et AlloCiné annoncent 78 minutes ; CANAL+ affiche 74 minutes, conflit de version conservé.",
+          "canonical_fields": "Titre et alias, réalisatrice, année, pays, genre, durée distributeur, liens directs, affiche exacte et deux moyennes AlloCiné datées contrôlés.",
+          "current_broadcast": "Première CANAL+ Cinéma(s) du 15 octobre attestée par la page directe et le calendrier officiel. La page ne certifie ni offre à la demande durable ni expiration.",
+          "editorial_copy": "Synopsis original resserré depuis la présentation Memento ; justification revue depuis Le Monde, Critikat et Split Screen avec une réserve explicite sur le dispositif immersif."
         }
       }
     ],
@@ -27125,6 +27383,65 @@
         "image_url": "https://diaphana.fr/wp-content/uploads/2024/08/hiverasokcho_doc120_web_bd-600x815.jpg"
       },
       "reason": "Identité, réception et visuel étayés, mais horaire et version diffusée conflictuels ; aucune carte publiée."
+    },
+    {
+      "title": "L’Intérêt d’Adam",
+      "work_id": "l-interet-d-adam-2025",
+      "decision": "carte complète plateformes-abonnement",
+      "identity_research": {
+        "director": "Laura Wandel",
+        "year": 2025,
+        "country": "Belgique / France",
+        "duration_observations": [
+          {
+            "duration": "78 min",
+            "version": "master distributeur Memento",
+            "source_url": "https://www.memento.eu/linteret-dadam/"
+          },
+          {
+            "duration": "74 min",
+            "version": "page CANAL+ de la première",
+            "source_url": "https://www.canalplus.com/fr/cinema/l-interet-d-adam/h/30267479_50001"
+          }
+        ],
+        "checked_at": "2026-10-09T11:32:33.132Z"
+      },
+      "availability_research": {
+        "status": "verified_cycle_premiere_only",
+        "checked_at": "2026-10-09T11:32:33.132Z",
+        "source_urls": [
+          "https://www.canalplus.com/fr/cinema/l-interet-d-adam/h/30267479_50001",
+          "https://www.canalplus.com/articles/cinema/calendrier-des-sorties-films-septembre-2026"
+        ],
+        "note": "Première CANAL+ Cinéma(s) du 15 octobre ; aucune disponibilité à la demande durable ni expiration certifiée."
+      },
+      "critical_evidence": [
+        {
+          "source": "Le Monde",
+          "source_url": "https://www.lemonde.fr/cinema/article/2025/09/17/les-films-a-l-affiche-la-tour-de-glace-oui-l-interet-d-adam-dalloway_6641456_3476.html",
+          "assessment": "Lecture favorable de l’immersion et de la tension éthique."
+        },
+        {
+          "source": "Critikat",
+          "source_url": "https://www.critikat.com/actualite-cine/critique/linteret-dadam-2/",
+          "assessment": "Réserve sur le formatage systématique en immersion sous tension."
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic",
+        "checked_at": "2026-10-09T11:32:33.132Z",
+        "source_urls": [
+          "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000005217.html"
+        ],
+        "note": "AlloCiné presse 3,8/5 sur 36 critiques ; spectateurs 3,3/5 sur 1 224 notes."
+      },
+      "image_research": {
+        "status": "poster_visually_verified_ci_pending",
+        "checked_at": "2026-10-09T11:32:33.132Z",
+        "source_page": "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000005217.html",
+        "image_url": "https://fr.web.img5.acsta.net/c_310_420/img/5b/f4/5bf478e33f90cf46cd4502f16c8a6728.jpg"
+      },
+      "reason": "Carte de rubrique complète ; conflit de durée 74/78 min et portée limitée de la preuve d’offre explicitement conservés."
     }
   ]
 }
