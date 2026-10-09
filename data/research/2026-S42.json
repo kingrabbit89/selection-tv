@@ -523,6 +523,17 @@
       "id": "advance-wednesday-burning-poster-2026-10-09",
       "completed_at": "2026-10-09T08:57:22.000Z",
       "description": "Affiche exacte Burning an Illusion inspectée via Rotten Tomatoes/Flixster ; faible résolution et CI distant restent à contrôler."
+    },
+    {
+      "id": "synchronize-main-e42a29ef",
+      "completed_at": "2026-10-09T09:59:40.000Z",
+      "description": "Candidate synchronisée sans force avec main e42a29ef ; recherches éditoriales préservées et helpers de production-efficiency intégrés."
+    },
+    {
+      "id": "draft-wednesday-burning-an-illusion-2026-10-09",
+      "completed_at": "2026-10-09T10:04:02.793Z",
+      "description": "Burning an Illusion a reçu une identité canonique, des liens directs, une affiche non réduite, une note datée et une deuxième carte du mercredi ; le conflit de versions et la copie TCM non identifiée restent explicites.",
+      "items": 1
     }
   ],
   "blockers": [
@@ -16677,7 +16688,7 @@
       "status": "conflict"
     },
     {
-      "work_id": null,
+      "work_id": "burning-an-illusion-1981",
       "fields": [
         "director",
         "year",
@@ -16698,7 +16709,7 @@
       "status": "verified"
     },
     {
-      "work_id": null,
+      "work_id": "burning-an-illusion-1981",
       "fields": [
         "duration.version"
       ],
@@ -16716,7 +16727,7 @@
       "status": "needs_check"
     },
     {
-      "work_id": null,
+      "work_id": "burning-an-illusion-1981",
       "fields": [
         "critical_reception"
       ],
@@ -16735,7 +16746,7 @@
       "status": "verified"
     },
     {
-      "work_id": null,
+      "work_id": "burning-an-illusion-1981",
       "fields": [
         "ratings"
       ],
@@ -20306,7 +20317,7 @@
       "status": "verified"
     },
     {
-      "work_id": null,
+      "work_id": "burning-an-illusion-1981",
       "fields": [
         "broadcast.date",
         "broadcast.start",
@@ -20330,7 +20341,7 @@
       "status": "verified"
     },
     {
-      "work_id": null,
+      "work_id": "burning-an-illusion-1981",
       "fields": [
         "version.duration_observations",
         "availability.france",
@@ -20352,7 +20363,7 @@
       "status": "conflict"
     },
     {
-      "work_id": null,
+      "work_id": "burning-an-illusion-1981",
       "fields": [
         "image",
         "image_type",
@@ -20370,6 +20381,36 @@
         "title": "Burning an Illusion"
       },
       "evidence_note": "Affiche exacte 1981 inspectée visuellement ; URL Flixster 68x102, santé distante et qualité finale à contrôler.",
+      "status": "verified"
+    },
+    {
+      "work_id": "burning-an-illusion-1981",
+      "fields": [
+        "links.official",
+        "links.imdb",
+        "links.sc",
+        "links.rottentomatoes",
+        "image",
+        "image_type",
+        "image_provenance",
+        "image_visual_review",
+        "editorial_copy"
+      ],
+      "source_urls": [
+        "https://www.bfi.org.uk/film/9f414225-7cf9-5883-8980-76d5078ffcf1/burning-an-illusion",
+        "https://www.imdb.com/title/tt0082117/",
+        "https://www.senscritique.com/film/burning_an_illusion/46276907",
+        "https://www.rottentomatoes.com/m/burning_an_illusion",
+        "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak%3D/v3/t/assets/p174382_p_v11_aa.jpg"
+      ],
+      "checked_at": "2026-10-09T10:04:02.793Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "title": "Burning an Illusion",
+        "broadcast": "2026-10-14 11:15 TCM Cinéma"
+      },
+      "evidence_note": "Liens canoniques directs enregistrés. Affiche exacte ouverte via l’asset Flixster non réduit. Carte du mercredi rédigée et relue ; durée canonique BFI 105 min, sans prétendre identifier la copie TCM parmi les versions divergentes.",
       "status": "verified"
     }
   ],
@@ -21640,6 +21681,107 @@
       "run_state": "stopped",
       "stop_reason": "budget_reserve_reached",
       "next_useful_batch": "Achever Burning an Illusion : liens canoniques, décision de version sans assimiler la copie TCM, visuel haute définition si disponible et rédaction de la deuxième carte du mercredi ; puis sélectionner une troisième piste mercredi."
+    },
+    {
+      "date": "2026-10-09T10:04:02.793Z",
+      "started_at": "2026-10-09T09:57:30.672Z",
+      "ended_at": null,
+      "owner": "bb995f58-8797-409f-8b42-879769f7c8a7",
+      "execution_kind": "scheduled_efficiency_production",
+      "prompt_revision": "production-efficiency-2026-10-09",
+      "stage": "enrichment",
+      "elapsed_seconds": null,
+      "duration_basis": "Passage en cours ; started_at observé à l’entrée, ended_at sera fixé au bilan terminal.",
+      "completed_batches": [
+        "synchronize-main-e42a29ef",
+        "draft-wednesday-burning-an-illusion-2026-10-09"
+      ],
+      "deliverables_changed": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "complete_cards": 0,
+      "draft_cards": 1,
+      "partial_dossiers": 0,
+      "deliverables_advanced": [
+        "mercredi-selection",
+        "mercredi-grille",
+        "catalogue canonique",
+        "liens directs"
+      ],
+      "requirements_resolved": [
+        "Burning an Illusion : deuxième carte du mercredi matérialisée sans masquer le conflit de versions"
+      ],
+      "remaining": {
+        "stage": "enrichment",
+        "count": 35,
+        "reference": "remaining"
+      },
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T09:59:56.390Z",
+          "elapsed_seconds": 145.718,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "e33620eb0431149a89530cf8c883376c4e19fec2",
+          "next_actions": [
+            "Achever Burning an Illusion : liens canoniques, décision de version sans assimiler la copie TCM, visuel haute définition si disponible et rédaction de la deuxième carte du mercredi ; puis sélectionner une troisième piste mercredi.",
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi.",
+            "Produire les rubriques indépendantes encore absentes et poursuivre les recoupements/rappels sans fermer les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T09:57:30.672Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T10:58:23.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-09T09:59:56.390Z",
+        "elapsed_seconds": 145.718,
+        "prompt_revision": "production-efficiency-2026-10-09",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S42",
+        "source_sha": "e33620eb0431149a89530cf8c883376c4e19fec2",
+        "next_actions": [
+          "Achever Burning an Illusion : liens canoniques, décision de version sans assimiler la copie TCM, visuel haute définition si disponible et rédaction de la deuxième carte du mercredi ; puis sélectionner une troisième piste mercredi.",
+          "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi.",
+          "Produire les rubriques indépendantes encore absentes et poursuivre les recoupements/rappels sans fermer les exigences ouvertes.",
+          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+          "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+        ],
+        "remaining_count": 35,
+        "next_actions_total": 38,
+        "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "observations": {
+          "started_at": "2026-10-09T09:57:30.672Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-09T10:58:23.000Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
+        }
+      },
+      "run_state": "running",
+      "stop_reason": null,
+      "next_useful_batch": "Achever un troisième choix développé du mercredi depuis une piste officiellement recoupée, puis poursuivre les réserves ou une rubrique indépendante."
     }
   ],
   "source_issues": [
@@ -22242,7 +22384,7 @@
     "main_sha": "eadfd023669970da304879f587cba4125908a655",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Achever Burning an Illusion : liens canoniques, décision de version sans assimiler la copie TCM, visuel haute définition si disponible et rédaction de la deuxième carte du mercredi ; puis sélectionner une troisième piste mercredi.",
+      "Achever un troisième choix développé du mercredi depuis la présélection, avec diffusion propre au cycle, version, réception, liens et visuel entièrement revus.",
       "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi.",
       "Produire les rubriques indépendantes encore absentes et poursuivre les recoupements/rappels sans fermer les exigences ouvertes."
     ],
@@ -22804,7 +22946,7 @@
         "scope": {
           "day": "mercredi"
         },
-        "status": "researching",
+        "status": "card_drafted",
         "signals": [
           {
             "kind": "critique",
@@ -22820,7 +22962,7 @@
         "alternatives": [
           "sl-mercredi-cadet"
         ],
-        "decision_note": "Diffusion, note IMDb et affiche exacte vérifiées. Versions BFI 105 min, Player 102 min et RT 101 min distinguées ; copie TCM et droits France non établis. Liens canoniques et carte restent à terminer."
+        "decision_note": "Deuxième carte du mercredi matérialisée avec diffusion, note IMDb, liens et affiche revus. Durée canonique BFI 105 min affichée ; versions 101/102/107 min et copie TCM non identifiée restent conservées, donc la piste n’est pas déclarée card_complete."
       },
       {
         "id": "sl-jeudi-point-limite",
@@ -23579,16 +23721,16 @@
     "remaining_reference": "remaining"
   },
   "contract_reads": {
-    "main_sha": "eadfd023669970da304879f587cba4125908a655",
-    "checked_at": "2026-10-09T08:30:00.000Z",
+    "main_sha": "e42a29ef84e3fc73b47818bd6c9dc012009d49ab",
+    "checked_at": "2026-10-09T09:58:50.000Z",
     "documents": {
-      "AUTOMATION.md": "bac66f407543c77ddd237f47916b33001657cece",
+      "AUTOMATION.md": "398efe8017d920d4665e279c5f6cf2579268d67a",
       "docs/HYBRID-WORKFLOW.md": "95cad0792febab1bc7edf076300bd38ced9c84ba",
       "ARCHITECTURE.md": "7c6e72b0729e4f915bc5a90f084c40e1cc363e8a",
       "data/automation-config.json": "e55d9a247fc0299ce6effc6c3e97eea9018f0dc3",
       "data/editorial-config.json": "e491aa84dac6b34ca4ec4b8b4cb1e88737a0b385",
       "data/personalization-config.json": "ad5716e95db25894de7ca58c874154783b1766a8"
     },
-    "note": "AUTOMATION.md a été relu car son blob a changé ; les cinq autres blobs correspondent à la lecture attestée précédente."
+    "note": "AUTOMATION.md a été relu car son blob a changé ; les cinq autres contrats gardent les blobs de la lecture attestée précédente. docs/EDITORIAL-DRAFTS.md a aussi été relu pour le helper de cartes courant."
   }
 }
