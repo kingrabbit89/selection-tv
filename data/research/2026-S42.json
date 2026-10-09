@@ -25278,6 +25278,38 @@
       },
       "evidence_note": "FranceTvPro confirme le créneau de 102 min ; Tandem, CNC, Unifrance et IMDb séparent l’identité et le master 105/106 min. Le photogramme Tandem a été ouvert. Télérama et la revue de presse AlloCiné étayent une réception argumentée avec limites ; aucune note n’est convertie.",
       "status": "verified_for_card"
+    },
+    {
+      "work_id": "la-maison-des-femmes-2025",
+      "fields": [
+        "identity",
+        "version",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "duration",
+        "image",
+        "ratings",
+        "editorial_reception"
+      ],
+      "source_urls": [
+        "https://www.canalplus.com/fr/cinema/la-maison-des-femmes/h/31495467_50001",
+        "https://www.canalplus.com/cinema/la-maison-des-femmes/h/31495467_40099/resume-casting/",
+        "https://en.unifrance.org/movie/60209/a-place-for-her",
+        "https://www.imdb.com/title/tt35455708/",
+        "https://www.allocine.fr/film/fichefilm-1000012019/critiques/presse/",
+        "https://cineuropa.org/en/newsdetail/488732/"
+      ],
+      "checked_at": "2026-10-09T17:10:00.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "mardi",
+        "rank": 7,
+        "broadcast": "2026-10-13 21:10 Canal+"
+      },
+      "evidence_note": "Canal+ et la grille sauvegardée confirment la diffusion ; Unifrance, Canal+, IMDb et Cineuropa recoupent l’identité. Le visuel Unifrance crédité Marie Rouge a été ouvert. IMDb et la revue de presse AlloCiné ont été relus le 9 octobre ; les réserves critiques attribuées sont conservées sans consensus inventé.",
+      "status": "verified_for_card"
     }
   ],
   "run_metrics": [
@@ -29783,7 +29815,8 @@
       "completed_batches": [
         "sync-main-cd97e36-telerama-inputs-2026-10-09",
         "run-dataflow-with-saved-telerama-2026-10-09",
-        "append-reviewed-sunday-vermines-reserve-2026-10-09"
+        "append-reviewed-sunday-vermines-reserve-2026-10-09",
+        "append-reviewed-tuesday-la-maison-des-femmes-reserve-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -29791,30 +29824,30 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ],
-      "complete_cards": 108,
-      "cards_integrated_this_run": 1,
+      "complete_cards": 109,
+      "cards_integrated_this_run": 2,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "measurements": {
         "complete_cards": {
-          "value": 108,
-          "scope": "stock après checkpoint : 107 positions héritées et une réserve dominicale complète ajoutée pendant ce passage"
+          "value": 109,
+          "scope": "stock après checkpoint : 107 positions héritées et deux réserves complètes ajoutées pendant ce passage"
         },
         "new_works": {
-          "value": 1,
-          "scope": "Vermines (2023) ajouté au catalogue canonique pendant ce passage"
+          "value": 2,
+          "scope": "Vermines (2023) et La Maison des femmes (production 2025) ajoutés au catalogue canonique pendant ce passage"
         },
         "visible_cards": {
           "value": 0,
           "scope": "la position ajoutée est une réserve cachée, sans changement des trois choix visibles"
         },
         "additional_reserve_placements": {
-          "value": 1,
-          "scope": "une réserve quotidienne distincte ajoutée au dimanche"
+          "value": 2,
+          "scope": "une réserve quotidienne distincte ajoutée au dimanche et une au mardi"
         },
         "additional_distinct_reserve_work_ids": {
-          "value": 1,
-          "scope": "vermines-2023, absent de la tête de départ du passage"
+          "value": 2,
+          "scope": "vermines-2023 et la-maison-des-femmes-2025, absents de la tête de départ du passage"
         },
         "stable_reuses": {
           "value": 0,
@@ -29825,7 +29858,7 @@
         "dimanche-selection : minimum de dix cartes complètes atteint avec Vermines, diffusion France 2, identité, version, visuel, réception et avertissement -12 contrôlés sans déclarer de pénurie"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter mardi, mercredi et jeudi, chacun à quatre cartes du minimum, puis remplacer les cinq doublons popular_deep.",
+      "next_useful_batch": "Compléter encore trois réserves mardi et quatre mercredi/jeudi, puis remplacer les cinq doublons popular_deep.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -29855,34 +29888,51 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T17:07:54.885Z",
+          "prompt_revision": "production-telerama-editorial-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "6d2da993e74d147873e304b0aa77fe715f3aaac4",
+          "next_actions": [
+            "Compléter mardi, mercredi et jeudi avec quatre cartes chacun depuis les dossiers avancés et les signaux Télérama.",
+            "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes."
+          ],
+          "remaining_count": 35,
+          "observations": {
+            "started_at": "2026-10-09T16:55:57.497Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T17:56:59.951Z",
+            "external_stop": null,
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T17:00:28.093Z",
-        "elapsed_seconds": 270.596,
+        "observed_at": "2026-10-09T17:07:54.885Z",
         "prompt_revision": "production-telerama-editorial-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "27d985348e3e0c67459cd8c4a4e54afdfb92108a",
+        "source_sha": "6d2da993e74d147873e304b0aa77fe715f3aaac4",
         "next_actions": [
-          "Compléter dimanche, encore à une carte du minimum, avec une œuvre distincte dont l’identité, la version et le créneau sont vérifiés.",
-          "Compléter ensuite mardi, mercredi et jeudi, chacun à quatre cartes du minimum.",
+          "Compléter mardi, mercredi et jeudi avec quatre cartes chacun depuis les dossiers avancés et les signaux Télérama.",
           "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
-          "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
-          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits."
+          "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes."
         ],
         "remaining_count": 35,
-        "next_actions_total": 39,
-        "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
         "observations": {
           "started_at": "2026-10-09T16:55:57.497Z",
           "lease_owned": "yes",
           "lease_until": "2026-10-09T17:56:59.951Z",
           "external_stop": null,
-          "accessible_task_checks": [],
           "ready_handoff": null
         }
       },
@@ -29896,12 +29946,18 @@
           "started_at": "2026-10-09T17:00:28.093Z",
           "ended_at": "2026-10-09T17:05:17.894Z",
           "note": "Toba écarté après contrôle de fraîcheur à 79 %, puis Vermines complété et validé à 83 % de fraîcheur des réserves."
+        },
+        "tuesday_reserve_batch_1": {
+          "started_at": "2026-10-09T17:07:54.885Z",
+          "ended_at": "2026-10-09T17:11:51.046Z",
+          "note": "Flow relu au SHA sauvegardé, dossier La Maison des femmes complété depuis les preuves Canal+, Unifrance, IMDb, AlloCiné, Cineuropa et le signal Télérama préparé ; carte de réserve mardi contrôlée."
         }
       },
       "control_notes": [
         "Le supplément Télérama sauvegardé expose 1 333 observations et 41 critiques relues, dont 30 rapprochées exactement ; il reste un signal éditorial et ne certifie pas les diffusions.",
         "Toba n’a pas été sauvegardé en carte : son ajout aurait abaissé la fraîcheur des réserves à 79 %, sous le seuil contractuel de 80 %.",
-        "Vermines porte la durée de copie 105/106 min séparément du créneau France 2 de 102 min ; aucune contradiction n’a été résolue par simple proximité."
+        "Vermines porte la durée de copie 105/106 min séparément du créneau France 2 de 102 min ; aucune contradiction n’a été résolue par simple proximité.",
+        "La Maison des femmes conserve séparément la production 2025, la sortie France 2026 et la divergence de métadonnée Canal+ 105/110 min ; la carte retient la durée canonique Unifrance de 110 min sans assimiler la proximité du créneau à une version."
       ]
     }
   ],
@@ -30559,11 +30615,11 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "27d985348e3e0c67459cd8c4a4e54afdfb92108a",
+    "checkpoint_parent_sha": "6d2da993e74d147873e304b0aa77fe715f3aaac4",
     "main_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Compléter mardi, mercredi et jeudi, chacun à quatre cartes du minimum, depuis les dossiers avancés et les signaux Télérama rapprochés.",
+      "Compléter encore trois réserves mardi et quatre mercredi/jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
       "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
       "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes."
     ],
@@ -31093,7 +31149,7 @@
     }
   ],
   "shortlist": {
-    "updated_at": "2026-10-09T17:05:17.894Z",
+    "updated_at": "2026-10-09T17:11:51.046Z",
     "note": "Présélection révisable par jour et rubrique ; premières cartes plateformes gratuites intégrées depuis les dossiers acquis. Aucun statut ne certifie la sélection finale du numéro.",
     "entries": [
       {
@@ -33768,6 +33824,24 @@
           "sl-dimanche-shutter-island-reserve",
           "sl-dimanche-matrix-generation-reserve"
         ]
+      },
+      {
+        "id": "sl-mardi-la-maison-des-femmes-reserve",
+        "title": "La Maison des femmes",
+        "work_id": "la-maison-des-femmes-2025",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique_et_diffusion",
+            "note": "La critique Télérama préparée salue l’énergie collective et les interprètes ; la page exacte Canal+ et la grille datée sauvegardée concordent sur mardi 13 octobre à 21:10.",
+            "source_url": "https://www.canalplus.com/cinema/la-maison-des-femmes/h/31495467_40099/resume-casting/"
+          }
+        ],
+        "decision_note": "Réserve complète rang 7 ; production 2025 et sortie 2026 distinguées, durée canonique Unifrance 110 min retenue et ancienne métadonnée Canal+ 105 min conservée comme divergence.",
+        "alternatives": []
       }
     ]
   },
