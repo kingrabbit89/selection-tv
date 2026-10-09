@@ -95,6 +95,21 @@ dans le nouveau plan : l'outil refuse de supprimer implicitement des décisions
 existantes. `shortage_reasons` peut contenir des justifications structurées déjà
 recherchées ; il ne doit jamais servir à transformer un lot provisoire en pénurie.
 
+Pour un simple ajout de réserves quotidiennes, `append_days: ["mardi", ...]`
+accepte seulement les **nouvelles** cartes revues. Le jour doit déjà avoir une
+page développée, un pool ordinaire avec cible trois et ses trois primaires ;
+les rangs existants et nouveaux doivent être explicites, uniques et contigus.
+Les nouveaux rangs suivent le dernier rang sauvegardé. Aucun remplacement d'ID
+existant n'est permis. Les anciennes cartes, leurs preuves, pages, sommaire,
+ordre et pied de page sont conservés sans réaffirmation de revue.
+
+Ce mode ne se combine pas avec `replace_days`, rubriques, couverture, méthode,
+sommaire ou pénuries. Un `grid_reason` nouveau exige une grille existante à
+tableau unique ayant encore la capacité prévue ; aucune page supplémentaire
+n'est créée. Une grille pleine, une recomposition des primaires ou un changement
+de pagination exige le mode de remplacement avec le pool complet. Les nouvelles
+cartes restent soumises à tous les contrôles ordinaires de preuves et de qualité.
+
 L'outil exige des champs canoniques exploitables, un vrai visuel avec provenance,
 une note datée ou une raison d'absence spécifique, un lien d'identité fort et une
 revue explicite. Ces contrôles ne certifient ni la vérité des preuves ni l'état
