@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "week": "2026-S42",
-  "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
+  "base_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T15:55:24.754Z",
+  "updated_at": "2026-10-09T16:05:29.888Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1216,6 +1216,15 @@
       "completed_at": "2026-10-09T15:52:44.238Z",
       "scope": "radar-hd:next-alternatives",
       "summary": "Trois alternatives HD distinctes supplémentaires sont identifiées depuis la collection officielle Criterion de septembre : Days and Nights in the Forest, The Secret Agent et Nouvelle Vague. Dates, identités, durées et signaux 4K sont sauvegardés ; réception indépendante, visuels, liens et textes restent ouverts.",
+      "deliverables": [
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "sync-main-1272ed3-2026-10-09",
+      "completed_at": "2026-10-09T16:05:29.888Z",
+      "scope": "workflow:main-sync",
+      "summary": "La candidate est synchronisée normalement avec main 1272ed3. La nouvelle chaîne de données et ses contrats sont disponibles ; aucun livrable éditorial hérité n’a été réécrit.",
       "deliverables": [
         "data/research/2026-S42.json"
       ]
@@ -28965,6 +28974,76 @@
         "Réception HD lot 2 : une lecture indépendante argumentée sauvegardée pour chacun des trois candidats ; les dossiers restent partiels faute de visuels, liens, notes et textes complets.",
         "Carte finale informative sur cette tête locale : 24 écarts bloquants et un avertissement ; le lot HD a clos trois doublons mais remaining, couverture et profondeurs quotidiennes restent ouverts."
       ]
+    },
+    {
+      "date": "2026-10-09T16:01:07.414Z",
+      "owner": "07052a89-176f-4686-8d37-631113abc84f",
+      "execution_kind": "scheduled_dataflow_production",
+      "prompt_revision": "production-dataflow-2026-10-09",
+      "stage": "enrichment",
+      "run_state": "running",
+      "started_at": "2026-10-09T16:01:07.414Z",
+      "ended_at": null,
+      "duration_basis": "started_at observé à l’entrée ; ended_at reste inconnu pendant le passage.",
+      "completed_batches": [
+        "sync-main-1272ed3-2026-10-09"
+      ],
+      "deliverables_changed": [
+        "data/research/2026-S42.json"
+      ],
+      "complete_cards": 95,
+      "cards_integrated_this_run": 0,
+      "draft_cards": 0,
+      "partial_dossiers": 3,
+      "measurements": {
+        "complete_cards": {
+          "value": 95,
+          "scope": "stock hérité au début du passage ; aucune création attribuée à cette exécution"
+        },
+        "new_works": {
+          "value": 0,
+          "scope": "différence depuis la tête de départ de ce passage"
+        },
+        "visible_cards": {
+          "value": 0,
+          "scope": "différence depuis la tête de départ de ce passage"
+        },
+        "additional_reserve_placements": {
+          "value": 0,
+          "scope": "différence depuis la tête de départ de ce passage"
+        },
+        "additional_distinct_reserve_work_ids": {
+          "value": 0,
+          "scope": "différence depuis la tête de départ de ce passage"
+        },
+        "stable_reuses": {
+          "value": 0,
+          "scope": "aucune réutilisation éditoriale intégrée à ce checkpoint"
+        }
+      },
+      "requirements_resolved": [],
+      "stop_reason": null,
+      "next_useful_batch": "Exécuter editorial-production-flow sur cette tête, puis ajouter un lot de réserves quotidiennes aux jours sous dix cartes depuis les dossiers les plus avancés ; poursuivre avec les trois alternatives HD distinctes déjà documentées.",
+      "continuation_decisions": [],
+      "continuation_decision": null,
+      "intervals": {
+        "reprise_extraction": {
+          "started_at": "2026-10-09T16:01:07.414Z",
+          "ended_at": "2026-10-09T16:05:29.888Z",
+          "note": "Vérification de cible et de bail, lecture différentielle des contrats, synchronisation de main et carte informative des écarts."
+        },
+        "recherche": null,
+        "redaction_rendu": null,
+        "controles": null,
+        "sauvegarde": null,
+        "attente": null,
+        "note": "Les lectures de contrats et la synchronisation se chevauchent ; aucune durée séquentielle n’est déduite."
+      },
+      "control_notes": [
+        "Candidate synchronisée normalement avec main 1272ed3 ; seul AUTOMATION.md avait changé parmi les six contrats obligatoires.",
+        "La carte informative des écarts sur la tête synchronisée signale 24 blocages et un avertissement ; elle ne certifie aucune exigence.",
+        "Le stock de 95 positions complètes est hérité et n’est pas compté comme production de ce passage."
+      ]
     }
   ],
   "source_issues": [
@@ -29621,13 +29700,13 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "4452a4ee91c5ecac230cfd383d66c3c0c7901420",
-    "main_sha": "eadfd023669970da304879f587cba4125908a655",
+    "checkpoint_parent_sha": "05bfa7b774203995b6ebd7ff405a635a4dc11016",
+    "main_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
-      "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
-      "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte."
+      "Exécuter la chaîne de données sur la tête synchronisée et traiter en priorité un lot de réserves quotidiennes pour les jours sous dix cartes.",
+      "Compléter ensuite les trois alternatives HD distinctes déjà avancées, sans régénérer leurs acquis sauvegardés.",
+      "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes."
     ],
     "publisher": {
       "checked_at": "2026-10-08T14:40:33.431Z",
@@ -33530,17 +33609,19 @@
     "remaining_reference": "remaining"
   },
   "contract_reads": {
-    "main_sha": "9aae312f9c087d34430f13cfb2fe74d7dd08d88e",
-    "checked_at": "2026-10-09T15:11:00.904Z",
+    "main_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
+    "checked_at": "2026-10-09T16:05:29.888Z",
     "documents": {
-      "AUTOMATION.md": "7c682ddc503d4b9770edbe09d0fc4ef71ef46658",
+      "AUTOMATION.md": "c43b30caa1e263e4c1b0cdeee5aa52d4eb574f87",
       "docs/HYBRID-WORKFLOW.md": "95cad0792febab1bc7edf076300bd38ced9c84ba",
       "ARCHITECTURE.md": "7c6e72b0729e4f915bc5a90f084c40e1cc363e8a",
       "data/automation-config.json": "e55d9a247fc0299ce6effc6c3e97eea9018f0dc3",
       "data/editorial-config.json": "e491aa84dac6b34ca4ec4b8b4cb1e88737a0b385",
-      "data/personalization-config.json": "ad5716e95db25894de7ca58c874154783b1766a8"
+      "data/personalization-config.json": "ad5716e95db25894de7ca58c874154783b1766a8",
+      "docs/EDITORIAL-DATAFLOW.md": "74b284b95a2e280553804c5e175f610f6fec93fd",
+      "docs/EDITORIAL-DRAFTS.md": "761eab2ebba2748559dbc53dfe8b83cab17faa9f"
     },
-    "note": "Lecture attestée antérieurement pour cinq blobs inchangés ; AUTOMATION.md relu intégralement après changement de blob sur main."
+    "note": "Lecture attestée antérieurement pour cinq contrats obligatoires dont le blob est inchangé ; AUTOMATION.md relu intégralement après changement. Les nouveaux contrats de chaîne de données et de brouillons ont aussi été lus sur main."
   },
   "research_dossiers": [
     {

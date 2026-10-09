@@ -91,6 +91,38 @@ function reviewedCandidate(entry, catalogue, centralLinks, from) {
   return {candidate, work, exactLinks, review, day:days[offset], date:entry.date, grid_reason:entry.grid_reason};
 }
 
+// Incremental reserve decisions do not require the editor to resubmit the
+// already saved primaries, copy or evidence. Preserve those objects verbatim;
+// only the newly reviewed decisions are recorded in the report.
+function appendDailyReserves(day, selected, pools, pages, gridPageSize) {
+  const id = day+'-selection', pool = pools[id];
+  assert(pool && pool.page_id === id && pool.card_type === 'feature' && pool.target === 3,
+    'append_days requires an existing standard daily pool: '+day);
+  assert(pages.has(id), 'append_days requires the existing primary page: '+day);
+  assert(Array.isArray(pool.candidates) && pool.candidates.length >= pool.target,
+    'append_days cannot create or replace daily primaries: '+day);
+  assert(pool.candidates.every((candidate,index) => candidate.rank === index+1 && typeof candidate.work_id === 'string' && candidate.work_id),
+    'existing daily ranks and work IDs must be explicit and contiguous: '+day);
+  const existingIds = new Set(pool.candidates.map(candidate => candidate.work_id));
+  assert.equal(existingIds.size,pool.candidates.length,'duplicate saved work within daily pool: '+day);
+  assert(selected.every(card => !existingIds.has(card.candidate.work_id)), 'append_days cannot replace an existing candidate: '+day);
+  assert(selected.every((card,index) => card.candidate.rank === pool.candidates.length+index+1),
+    'appended daily ranks must explicitly continue the existing tail: '+day);
+  const grid = selected.filter(card => card.grid_reason);
+  if (grid.length) {
+    const gridId = pages.has(day+'-grille-2') ? day+'-grille-2' : day+'-grille';
+    const page = pages.get(gridId);
+    assert(page, 'append_days grid reasons require an existing grid page; author new pages with replace_days: '+day);
+    const bodies = [...page.html.matchAll(/<tbody>([\s\S]*?)<\/tbody>/g)];
+    assert.equal(bodies.length,1,'append_days requires one existing grid tbody: '+day);
+    const rows = (bodies[0][1].match(/<tr(?:\s|>)/g) || []).length;
+    assert(rows+grid.length <= gridPageSize,'appended grid exceeds existing page capacity; author pagination with replace_days: '+day);
+    page.html = page.html.replace(/<tbody>([\s\S]*?)<\/tbody>/,
+      (_all,body) => '<tbody>'+body+grid.map(card => renderGridRow(card.candidate,card.grid_reason)).join('')+'</tbody>');
+  }
+  pool.candidates.push(...selected.map(card => card.candidate));
+}
+
 // Non-daily rubriques reuse the S40/S41 page templates. Every card is an
 // explicit, reviewed decision: identity, offer/release/signal facts, rank and
 // authored copy are supplied by the producer and only rendered here.
@@ -318,6 +350,19 @@ export function buildDraftBundle(context, plan) {
   assert(cardsPlan.length > 0 || plan.sections?.length || plan.cover || plan.methode || plan.render_toc, 'explicit card decisions required');
   assert(Array.isArray(plan.remaining) && plan.remaining.length > 0 && plan.remaining.every(value => typeof value === 'string' && value.trim()), 'unfinished work must remain explicit');
   const rendered = cardsPlan.map(entry => reviewedCandidate(entry, works.works, links.links, plan.from));
+  const appendOnly = plan.append_days !== undefined;
+  if (appendOnly) {
+    assert(Array.isArray(plan.append_days) && plan.append_days.length > 0 &&
+      plan.append_days.every(day => days.includes(day)) && new Set(plan.append_days).size === plan.append_days.length,
+      'append_days must contain distinct supported day names');
+    assert(issue, 'append_days requires an existing draft');
+    assert(!plan.replace_days?.length && !plan.sections?.length && plan.cover === undefined && plan.methode === undefined &&
+      !plan.render_toc && !Object.keys(plan.section_shortages || {}).length && !Object.keys(plan.shortage_reasons || {}).length,
+      'append_days cannot be mixed with replacement or page-authoring operations');
+    assert(rendered.every(card => plan.append_days.includes(card.day)) &&
+      plan.append_days.every(day => rendered.some(card => card.day === day)),
+      'append_days must match exactly the days of the new card decisions');
+  }
   const short = plan.week.slice(5), to = addDays(plan.from,6);
   const range = plan.range || `${plan.from} — ${to}`;
   const nextIssue = issue ? structuredClone(issue) : {schema_version:1,week:plan.week,short,range,from:plan.from,to,
@@ -334,6 +379,10 @@ export function buildDraftBundle(context, plan) {
     const selected = rendered.filter(card => card.day === day).sort((a,b) => a.candidate.rank-b.candidate.rank);
     if (!selected.length) continue;
     assert.equal(new Set(selected.map(card => card.candidate.work_id)).size,selected.length,'duplicate work within a daily pool');
+    if (appendOnly) {
+      appendDailyReserves(day, selected, pools, pages, gridPageSize);
+      continue;
+    }
     assert(selected.every((card,index) => card.candidate.rank === index+1), 'daily ranks must be contiguous starting at 1');
     const id = day+'-selection';
     assert(!pools[id] || plan.replace_days?.includes(day), 'existing daily pool requires explicit replace_days authorization: '+day);
@@ -381,20 +430,24 @@ export function buildDraftBundle(context, plan) {
   }
   if (plan.cover !== undefined) applyCover(plan, {issue: nextIssue, pages, pools, catalogue: nextWorks.works, short, range});
   // The sommaire is mechanical navigation: (re)built from the actual pages.
-  if (plan.render_toc || pages.has('sommaire')) pages.set('sommaire', {id:'sommaire', className:'page', html:''});
+  if (!appendOnly && (plan.render_toc || pages.has('sommaire'))) pages.set('sommaire', {id:'sommaire', className:'page', html:''});
   // Canonical magazine order; pages unknown to this helper keep their relative place at the end.
   const position = id => {const index = pageOrder.indexOf(id); return index < 0 ? pageOrder.length : index;};
   const originalOrder = new Map(nextIssue.pages.map((page,index) => [page.id,index]));
-  nextIssue.pages = [...pages.values()].sort((a,b) => position(a.id)-position(b.id) || (originalOrder.get(a.id) ?? 1e6)-(originalOrder.get(b.id) ?? 1e6));
-  if (pages.has('sommaire')) pages.get('sommaire').html = renderToc(nextIssue.pages, {short, range, from: plan.from});
+  if (!appendOnly) nextIssue.pages = [...pages.values()].sort((a,b) => position(a.id)-position(b.id) || (originalOrder.get(a.id) ?? 1e6)-(originalOrder.get(b.id) ?? 1e6));
+  if (!appendOnly && pages.has('sommaire')) pages.get('sommaire').html = renderToc(nextIssue.pages, {short, range, from: plan.from});
   applySectionShortages(plan, {pages, issue: nextIssue});
-  nextIssue.pages.forEach((page,index) => {page.html = page.html.replace(/(<div class="footer">[\s\S]*?<span>)\d+(<\/span><\/div>\s*)$/,(_all,before,after) => before+(index+1)+after);});
-  nextIssue.page_count = nextIssue.pages.length;
+  if (!appendOnly) {
+    nextIssue.pages.forEach((page,index) => {page.html = page.html.replace(/(<div class="footer">[\s\S]*?<span>)\d+(<\/span><\/div>\s*)$/,(_all,before,after) => before+(index+1)+after);});
+    nextIssue.page_count = nextIssue.pages.length;
+  }
   const nextManifest = structuredClone(manifest);
   const entry = {week:plan.week,short,range,from:plan.from,to,path:nextIssue.path,theme:nextIssue.theme,
     page_count:nextIssue.page_count,hero_image:nextIssue.hero_image,hero_title:nextIssue.hero_title,hero_meta:nextIssue.hero_meta,status:'draft'};
   const entryIndex = nextManifest.weeks.findIndex(value => value.week === plan.week);
-  if (entryIndex >= 0) nextManifest.weeks[entryIndex] = {...nextManifest.weeks[entryIndex],...entry}; else nextManifest.weeks.unshift(entry);
+  if (!appendOnly) {
+    if (entryIndex >= 0) nextManifest.weeks[entryIndex] = {...nextManifest.weeks[entryIndex],...entry}; else nextManifest.weeks.unshift(entry);
+  }
   const entries = [['data/works.json',nextWorks],['data/links.json',nextLinks],['data/manifest.json',nextManifest],[`data/weeks/${plan.week}.json`,nextIssue]];
   if (radar.size) {
     const nextRadar = radar_reserves ? structuredClone(radar_reserves) : {schema_version:1, week:plan.week};
@@ -411,7 +464,7 @@ export function buildDraftBundle(context, plan) {
   return {bundle,report:{publication_ready:false,selection_finalized:false,review_sealed:false,source_sha:sha,
     authored_cards:allDecisions.length,public_daily_cards:rendered.filter(card => card.candidate.rank <= 3).length,
     section_pages:[...new Set(sectionDecisions.map(card => card.section))],radar_reserve_keys:[...radar.keys()],
-    toc_rendered:pages.has('sommaire'),cover_rendered:plan.cover !== undefined,
+    toc_rendered:!appendOnly && pages.has('sommaire'),cover_rendered:plan.cover !== undefined,
     reviews:allDecisions.map(card => ({work_id:card.work.id,date:card.date || null,section:card.section || card.day+'-selection',...card.review})),
     notice:'Mechanical draft only. Reconcile the handoff under the editorial lease, record evidence/checkpoints, and run all full candidate/editorial/image/browser gates before publication.'}};
 }
