@@ -52,13 +52,15 @@ jobs:
       - name: Test optional paper-source extraction
         env:
           PYTHONDONTWRITEBYTECODE: 1
-        run: python3 scripts/test-editorial-telerama-pdf.py
+        run: |
+          python3 scripts/test-editorial-telerama-pdf.py
+          python3 scripts/test-editorial-telerama-editorial.py
       - run: node scripts/validate-automation.mjs
       - run: node scripts/validate-canonical-identities.mjs
       - run: node scripts/sync-asset-versions.mjs --check
       - run: node scripts/validate-architecture.mjs
       - run: node --test scripts/test-editorial-progress.mjs scripts/test-editorial-continuation.mjs scripts/test-editorial-large-checkpoint.mjs
-      - run: node --test scripts/test-editorial-source-collector.mjs scripts/test-editorial-source-import.mjs scripts/test-editorial-production-plan.mjs scripts/test-editorial-production-flow.mjs scripts/test-editorial-telerama-import.mjs
+      - run: node --test scripts/test-editorial-source-collector.mjs scripts/test-editorial-source-import.mjs scripts/test-editorial-production-plan.mjs scripts/test-editorial-production-flow.mjs scripts/test-editorial-telerama-import.mjs scripts/test-editorial-telerama-signals.mjs
       - run: node scripts/validate-publication-candidate.mjs
       - run: node scripts/validate-editorial.mjs
       - run: node scripts/validate-links.mjs

@@ -44,6 +44,8 @@ class TeleramaTests(unittest.TestCase):
     def test_week_matches_next_iso_monday_and_cover(self):
         self.assertEqual(MODULE.issue_range("2026-S42"), (dt.date(2026, 10, 10), dt.date(2026, 10, 16)))
         self.assertEqual(MODULE.cover_range("Nº 4004 Du 10 au 16 / 10 / 2026"), MODULE.issue_range("2026-S42"))
+        self.assertEqual(MODULE.cover_range("Du 31 au 6 / 11 / 2026"), MODULE.issue_range("2026-S45"))
+        self.assertEqual(MODULE.cover_range("Du 26 au 1 / 1 / 2027"), MODULE.issue_range("2026-S53"))
         for value in ["S42", "2026-S00", "2026-S99"]:
             with self.assertRaises(ValueError):
                 MODULE.issue_range(value)

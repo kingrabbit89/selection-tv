@@ -60,7 +60,10 @@ def cover_range(text):
     if not match:
         raise ValueError("the cover has no supported, readable seven-day date range")
     first, last, month, year = map(int, match.groups())
-    start, end = dt.date(year, month, first), dt.date(year, month, last)
+    end = dt.date(year, month, last)
+    start_month = month - 1 if first > last else month
+    start_year = year - 1 if start_month == 0 else year
+    start = dt.date(start_year, start_month or 12, first)
     if (end - start).days != 6 or start.weekday() != 5:
         raise ValueError("the cover is not a Saturday-to-Friday issue")
     return start, end
