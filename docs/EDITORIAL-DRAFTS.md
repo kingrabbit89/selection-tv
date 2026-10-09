@@ -107,3 +107,9 @@ ne scelle aucune revue et ne publie rien. Les validations complètes de données
 images, liens et navigateur restent obligatoires avant toute publication.
 
 Test ciblé : `node --test scripts/editorial-draft.test.mjs`.
+
+## Vérifier la profondeur réelle
+
+Pour les deux pages HD, le minimum configuré porte sur les œuvres distinctes : un primaire de l’autre page ne devient pas une réserve. Les réserves de popularité doivent être distinctes des choix principaux et des cartes de sillonnage. Contrôler les ensembles de `work_id` avant la sauvegarde. Les cartes de réserve gardent toutes les exigences de preuves et de qualité.
+
+Transférer les fichiers du handoff complets par le chemin mécanique, sans copier leur contenu depuis une sortie de consultation. Vérifier le JSON réellement transporté et les empreintes des blobs créés avant toute mise à jour de la référence distante.
