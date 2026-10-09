@@ -873,6 +873,26 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
+    },
+    {
+      "id": "complete-thorin-expiring-card-2026-10-09",
+      "completed_at": "2026-10-09T12:27:55.196Z",
+      "scope": "avant-disparition",
+      "summary": "Thorin intégré comme carte complète avant disparition, copie ARTE 54 min disponible jusqu’au 14 novembre 2026, sans inventer de moyenne critique ni test de lecture.",
+      "deliverables": [
+        "data/manifest.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "resolve-machine-tv-version-attempt-2026-10-09",
+      "completed_at": "2026-10-09T12:27:55.196Z",
+      "scope": "jeudi-selection",
+      "summary": "La diffusion de La machine à écrire est recoupée, mais la version reste bloquée par le conflit 65/69/70/72/73 min après contrôle officiel et indépendant ; condition de reprise précisée.",
+      "deliverables": [
+        "data/research/2026-S42.json"
+      ]
     }
   ],
   "blockers": [
@@ -22215,6 +22235,69 @@
       },
       "evidence_note": "Événement CANAL+ et grille Ciné+ Classic déjà recoupés ; la carte n’affirme aucune offre replay.",
       "status": "verified_reuse"
+    },
+    {
+      "work_id": "thorin-le-dernier-neandertalien-2024",
+      "fields": [
+        "identity",
+        "version",
+        "offer.service",
+        "offer.url",
+        "offer.last_day",
+        "critical_reception",
+        "rating_absence_justification",
+        "image"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/videos/083910-000-A/thorin-le-dernier-neandertalien/",
+        "https://www.senscritique.com/film/thorin_le_dernier_neandertalien/101841222",
+        "https://www.senscritique.com/film/thorin_le_dernier_neandertalien/critique/326486055",
+        "https://www.hominides.com/le-festival-objectif-prehistoire-a-pech-merle-palmares-2024/",
+        "https://pariscience.fr/palmares-2024/"
+      ],
+      "checked_at": "2026-10-08T18:10:48.782Z",
+      "reused_in": [
+        "2026-S42:avant-disparition"
+      ],
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "section": "avant-disparition",
+        "version": "ARTE 54 min",
+        "last_day": "2026-11-14"
+      },
+      "evidence_note": "Preuves sauvegardées réutilisées sans les redater. Lecture effective non testée ; expiration et visuel à recontrôler au préflight.",
+      "status": "verified_reuse"
+    },
+    {
+      "work_id": "la-machine-a-ecrire-et-autres-sources-de-tracas-2024",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "work.duration",
+        "tv_metadata.duration",
+        "broadcast_slot.duration",
+        "version_conflict"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/grille/france-2/09-10-2026/14-10-2026",
+        "https://www.francetvpro.fr/grille-xml/france-2/10-10-2026",
+        "https://www.programme-tv.com/television/1254230058/la-machine-a-ecrire-et-autres-sources-de-tracas.html",
+        "https://tv-programme.com/france-2/jeudi-15-octobre-2026/",
+        "https://filmsdulosange.com/film/la-machine-a-ecrire-et-autres-sources-de-tracas/",
+        "https://www.cnc.fr/professionnels/visas-et-classification/161390",
+        "https://boutique.arte.tv/detail/la-machine-a-ecrire-et-autres-sources-de-tracas",
+        "https://www.cinematheque.fr/film/154765.html"
+      ],
+      "checked_at": "2026-10-09T12:24:56.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "broadcast": "2026-10-15 02:25 France 2"
+      },
+      "evidence_note": "Œuvre 72/73 min, VOD 69 min, métadonnée FranceTVPro 70 min, créneau officiel et indépendant 65 min. La version TV reste inconnue ; aucune carte complète.",
+      "status": "conflict"
     }
   ],
   "run_metrics": [
@@ -24524,7 +24607,9 @@
         "complete-phenomena-physical-reserve-card-2026-10-09",
         "fix-kursk-shortlist-alternative-identifiers-2026-10-09",
         "complete-sacrifice-streaming-card-2026-10-09",
-        "complete-platform-subscription-nine-cards-2026-10-09"
+        "complete-platform-subscription-nine-cards-2026-10-09",
+        "complete-thorin-expiring-card-2026-10-09",
+        "resolve-machine-tv-version-attempt-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -24533,20 +24618,23 @@
         "data/research/2026-S42.json",
         "data/manifest.json"
       ],
-      "complete_cards": 41,
+      "complete_cards": 42,
       "draft_cards": 1,
       "partial_dossiers": 4,
       "deliverables_advanced": [
         "sorties-physiques : deux choix et deux réserves complètes",
         "présélection streaming : toutes les alternatives référencent des identifiants existants",
         "sorties-streaming : trois arrivées complètes avec pages directes",
-        "plateformes-abonnement : neuf cartes complètes sur trois pages"
+        "plateformes-abonnement : neuf cartes complètes sur trois pages",
+        "avant-disparition : une carte complète avec expiration ARTE",
+        "La machine à écrire : conflit de version documenté après contrôles officiel et indépendant"
       ],
       "requirements_resolved": [
         "sorties-physiques : profondeur de réserve minimale atteinte",
         "CI validation-context : dernière alternative textuelle de présélection remplacée",
         "sorties-streaming : troisième carte complète et page directe exacte",
-        "plateformes-abonnement : seuil de neuf cartes atteint"
+        "plateformes-abonnement : seuil de neuf cartes atteint",
+        "avant-disparition : seuil d’une carte atteint"
       ],
       "remaining": {
         "stage": "enrichment",
@@ -24640,18 +24728,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T12:23:25.698Z",
+          "elapsed_seconds": 1146.538,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "6f9607aca12f2bc760c6bff49ccce54bc5d11a87",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T12:04:19.160Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T13:05:53.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T12:18:29.989Z",
-        "elapsed_seconds": 850.829,
+        "observed_at": "2026-10-09T12:23:25.698Z",
+        "elapsed_seconds": 1146.538,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "a1069189d5c1eb9bfce2ae83c519790a7f144a5d",
+        "source_sha": "6f9607aca12f2bc760c6bff49ccce54bc5d11a87",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -24673,7 +24790,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Construire les réserves complètes des jours déficitaires à partir des dossiers les plus avancés, en commençant par lundi ou jeudi.",
+      "next_useful_batch": "Évaluer le retour ciblé sur Bird ; si la version reste contradictoire, passer à Hiver à Sokcho ou à une autre rubrique indépendante accessible.",
       "new_leads": 0
     }
   ],
@@ -25190,6 +25307,18 @@
       "logs_read": true,
       "cause": "validation-context bloqué avant les autres contrôles par une alternative de présélection Kursk encore en texte libre. Référence remplacée localement par deux identifiants existants ; nouveau CI requis sur le prochain SHA.",
       "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-09T12:27:55.196Z",
+      "head_sha": "6f9607aca12f2bc760c6bff49ccce54bc5d11a87",
+      "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
+      "run_id": 37929652526,
+      "data_and_policy": "failure",
+      "browser_presentation": "success",
+      "logs_read": false,
+      "steps_read": true,
+      "cause": "Les étapes données, identités, liens, fraîcheur, réserves, images et navigateur passent sur ce SHA ; seul Require a complete candidate before merging échoue, conformément au checkpoint enrichment encore incomplet. Aucun succès navigateur n’est interprété comme publication S42.",
+      "reusable_only_for_exact_sha": true
     }
   ],
   "catalogue_reuse": {
@@ -25577,16 +25706,21 @@
       "question": "Quelle version et quelle durée exacte France 2 diffusera-t-elle ?",
       "attempted_at": "2026-10-09T10:31:30.336Z",
       "source_urls": [
-        "https://www.francetvpro.fr/grille/france-2/10-10-2026/14-10-2026",
+        "https://www.francetvpro.fr/grille/france-2/09-10-2026/14-10-2026",
+        "https://www.francetvpro.fr/grille-xml/france-2/10-10-2026",
         "https://www.programme-tv.com/television/1254230058/la-machine-a-ecrire-et-autres-sources-de-tracas.html",
-        "https://www.nicolasphilibert.fr/films/la-machine-a-ecrire-et-autres-sources-de-tracas/",
-        "https://www.france.tv/"
+        "https://tv-programme.com/france-2/jeudi-15-octobre-2026/",
+        "https://filmsdulosange.com/film/la-machine-a-ecrire-et-autres-sources-de-tracas/",
+        "https://www.cnc.fr/professionnels/visas-et-classification/161390",
+        "https://boutique.arte.tv/detail/la-machine-a-ecrire-et-autres-sources-de-tracas",
+        "https://www.cinematheque.fr/film/154765.html"
       ],
-      "result": "Le créneau est confirmé mais les durées 70 min (grille FranceTVPro), 65 min (guide exact) et 72 min (version cinéma) ne permettent pas d’identifier la version TV. france.tv est bloqué par robots et aucune offre exacte n’a été obtenue.",
-      "blocking_scope": "reserve jeudi et toute carte de diffusion de cette œuvre",
+      "result": "France 2 et deux guides recoupent le 15 octobre à 02:25. FranceTVPro déclare 70 min mais place Météo outremer à 03:30, soit un créneau de 65 min confirmé par les guides. L’œuvre existe en 72 min (distributeur/Cinémathèque), 73 min administrative (CNC) et 69 min VOD ARTE ; aucune source ne nomme explicitement une version TV 65 min.",
+      "blocking_scope": "réserve jeudi et toute carte de diffusion de cette œuvre",
       "blocking": true,
-      "status": "needs_new_source",
-      "resume_when": "Une page programme France Télévisions exacte, une offre france.tv exploitable ou des métadonnées de flux indiquent la durée/version diffusée."
+      "status": "conflict_persisting_after_official_and_independent_checks",
+      "resume_when": "France Télévisions confirme le minutage réellement diffusé, identifie une version raccourcie ou corrige le chevauchement 02:25 + 70 min / programme suivant 03:30.",
+      "updated_at": "2026-10-09T12:24:56.000Z"
     },
     {
       "id": "la-gueule-ouverte-channel-conflict-2026-10-09",
@@ -25692,7 +25826,7 @@
     }
   ],
   "shortlist": {
-    "updated_at": "2026-10-09T12:21:46.023Z",
+    "updated_at": "2026-10-09T12:27:55.196Z",
     "note": "Présélection révisable par jour et rubrique ; premières cartes plateformes gratuites intégrées depuis les dossiers acquis. Aucun statut ne certifie la sélection finale du numéro.",
     "entries": [
       {
@@ -26559,7 +26693,7 @@
             "source_url": "https://www.avoir-alire.com/la-machine-a-ecrire-et-autres-sources-de-tracas-nicolas-philibert-critique"
           }
         ],
-        "decision_note": "Dossier presque complet ; ne pas ajouter à la sélection ni aux réserves avant résolution de la version TV 65/70/72 min.",
+        "decision_note": "Diffusion France 2 du 15 octobre à 02:25 recoupée, mais version TV non résolue : 70 min dans la métadonnée officielle, créneau 65 min, œuvre 72/73 min et VOD 69 min. Maintenir hors cartes jusqu’à correction ou confirmation diffuseur.",
         "alternatives": [
           "sl-jeudi-crime-tete"
         ]
@@ -27096,6 +27230,29 @@
           }
         ],
         "decision_note": "Événement CANAL+ et grille Ciné+ Classic déjà recoupés ; la carte n’affirme aucune offre replay. Réutilisation éditoriale inter-rubrique sans nouvelle consultation fictive.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-avant-disparition-thorin-2024",
+        "title": "Thorin, le dernier Néandertalien",
+        "work_id": "thorin-le-dernier-neandertalien-2024",
+        "scope": {
+          "rubrique": "avant-disparition"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "expiration_arte_datee",
+            "note": "La page ARTE française sauvegardée affiche la copie 54 min et une disponibilité jusqu’au 14 novembre 2026.",
+            "source_url": "https://www.arte.tv/fr/videos/083910-000-A/thorin-le-dernier-neandertalien/"
+          },
+          {
+            "kind": "distinctions_precises",
+            "note": "Prix de la médiation scientifique Objectif Préhistoire 2024 et prix UPSIDE Pariscience, sans les transformer en consensus critique.",
+            "source_url": "https://www.hominides.com/le-festival-objectif-prehistoire-a-pech-merle-palmares-2024/"
+          }
+        ],
+        "decision_note": "Carte complète de la copie ARTE 54 min, expiration du 14 novembre, fallback exact et absence de moyenne justifiée ; contrôle de fraîcheur requis au préflight.",
         "alternatives": []
       }
     ]
