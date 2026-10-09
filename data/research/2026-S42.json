@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T11:46:53.972Z",
+  "updated_at": "2026-10-09T12:09:38.337Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -836,6 +836,18 @@
       "scope": "shortlist",
       "summary": "Les alternatives textuelles des pistes streaming ont été remplacées par les identifiants exacts de la présélection. validation-context ne signale plus d’alternative inconnue ; la candidate reste volontairement incomplète.",
       "deliverables": [
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "complete-phenomena-physical-reserve-card-2026-10-09",
+      "completed_at": "2026-10-09T12:09:38.337Z",
+      "scope": "sorties-physiques",
+      "summary": "Phenomena intégré comme seconde réserve physique complète. La rubrique compte deux choix visibles et deux réserves complètes ; les montages raccourcis Creepers restent distingués du montage intégral 116 min.",
+      "deliverables": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
     }
@@ -21932,6 +21944,43 @@
       },
       "evidence_note": "Dossier complet ; divergence 86/87 min conservée et visuel à contrôler en CI.",
       "status": "verified"
+    },
+    {
+      "work_id": "phenomena-1985",
+      "fields": [
+        "title",
+        "aliases",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "physical_release.date",
+        "physical_release.ean",
+        "physical_release.format",
+        "physical_release.editor",
+        "image",
+        "ratings.imdb",
+        "critical_reception"
+      ],
+      "source_urls": [
+        "https://www.fnac.com/a23469757/Phenomena-Edition-Collector-Blu-ray-4K-Ultra-HD-Jennifer-Connelly-Blu-ray-4K",
+        "https://static.fnac-static.com/multimedia/Images/FR/NR/ca/ad/3b/20688330/1540-1/tsp20260804171126/Phenomena-Edition-Collector-Blu-ray-4K-Ultra-HD.jpg",
+        "https://www.imdb.com/title/tt0087909/",
+        "https://www.filmlinc.org/films/phenomena/",
+        "https://www.comingsoon.net/movies/features/884125-phenomena-blu-ray-review",
+        "https://cinemasentries.com/phenomena-1985-blu-ray-review-argento-at-his-most-bewildering/"
+      ],
+      "checked_at": "2026-10-09T12:09:38.337Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "section": "sorties-physiques",
+        "version": "integral cut 116 min",
+        "release_date": "2026-10-14"
+      },
+      "evidence_note": "Les preuves stables sauvegardées à 11:45 sont réutilisées avec leur date. Film at Lincoln Center a été consulté à 12:09 pour confirmer pays et durée ; la carte distingue le montage intégral des versions Creepers raccourcies.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -24226,6 +24275,107 @@
       "stop_reason": "budget_reserve_reached",
       "next_useful_batch": "Rédiger et revoir Phenomena comme seconde réserve physique complète, puis résoudre la troisième sortie streaming et les jours déficitaires.",
       "new_leads": 2
+    },
+    {
+      "date": "2026-10-09T12:09:38.337Z",
+      "started_at": "2026-10-09T12:04:19.160Z",
+      "ended_at": null,
+      "owner": "4fc18faa-2d51-4bc6-aef3-a45e28032f2e",
+      "execution_kind": "scheduled_efficiency_production",
+      "prompt_revision": "production-efficiency-2026-10-09",
+      "stage": "enrichment",
+      "elapsed_seconds": null,
+      "duration_basis": "Passage en cours ; durée terminale non encore observée.",
+      "completed_batches": [
+        "complete-phenomena-physical-reserve-card-2026-10-09",
+        "fix-kursk-shortlist-alternative-identifiers-2026-10-09"
+      ],
+      "deliverables_changed": [
+        "data/works.json",
+        "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ],
+      "complete_cards": 34,
+      "draft_cards": 1,
+      "partial_dossiers": 4,
+      "deliverables_advanced": [
+        "sorties-physiques : deux choix et deux réserves complètes",
+        "présélection streaming : toutes les alternatives référencent des identifiants existants"
+      ],
+      "requirements_resolved": [
+        "sorties-physiques : profondeur de réserve minimale atteinte",
+        "CI validation-context : dernière alternative textuelle de présélection remplacée"
+      ],
+      "remaining": {
+        "stage": "enrichment",
+        "count": 35,
+        "reference": "remaining"
+      },
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T12:07:11.694Z",
+          "elapsed_seconds": 172.534,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "a78e935efa9ba00cda92054acf650012e0f35433",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T12:04:19.160Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T13:05:53.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-09T12:07:11.694Z",
+        "elapsed_seconds": 172.534,
+        "prompt_revision": "production-efficiency-2026-10-09",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S42",
+        "source_sha": "a78e935efa9ba00cda92054acf650012e0f35433",
+        "next_actions": [
+          "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+          "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+          "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+          "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+          "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+        ],
+        "remaining_count": 35,
+        "next_actions_total": 38,
+        "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "observations": {
+          "started_at": "2026-10-09T12:04:19.160Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-09T13:05:53.000Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
+        }
+      },
+      "run_state": "running",
+      "stop_reason": null,
+      "next_useful_batch": "Résoudre la troisième arrivée streaming depuis une page directe exacte ou avancer les pools déficitaires jeudi/samedi, puis sauvegarder.",
+      "new_leads": 0
     }
   ],
   "source_issues": [
@@ -24729,6 +24879,17 @@
       "browser_presentation": "success",
       "logs_read": false,
       "cause": "Seul échec : Require a complete candidate before merging ; checkpoint inventory/enrichment volontairement incomplet (38 tâches). Les tests navigateur couvrent le numéro public S41, pas la candidate S42.",
+      "reusable_only_for_exact_sha": true
+    },
+    {
+      "checked_at": "2026-10-09T12:09:38.337Z",
+      "head_sha": "a78e935efa9ba00cda92054acf650012e0f35433",
+      "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
+      "run_id": 37926385345,
+      "data_and_policy": "failure",
+      "browser_presentation": "failure",
+      "logs_read": true,
+      "cause": "validation-context bloqué avant les autres contrôles par une alternative de présélection Kursk encore en texte libre. Référence remplacée localement par deux identifiants existants ; nouveau CI requis sur le prochain SHA.",
       "reusable_only_for_exact_sha": true
     }
   ],
@@ -26423,7 +26584,8 @@
         ],
         "decision_note": "Carte complète de rubrique ; alias The Command et indisponibilité avant arrivée explicitement conservés.",
         "alternatives": [
-          "Troisième arrivée à identifier avec page directe exacte"
+          "sl-sorties-streaming-maestros-2022",
+          "sl-sorties-streaming-adieu-monsieur-haffmann-2022"
         ]
       },
       {
@@ -26455,11 +26617,11 @@
       {
         "id": "sl-sorties-physiques-phenomena-1985",
         "title": "Phenomena",
-        "work_id": null,
+        "work_id": "phenomena-1985",
         "scope": {
           "rubrique": "sorties-physiques"
         },
-        "status": "dossier_complete",
+        "status": "card_complete",
         "signals": [
           {
             "kind": "edition_physique_datee",
@@ -26472,7 +26634,7 @@
             "source_url": "https://www.imdb.com/title/tt0087909/ratings/"
           }
         ],
-        "decision_note": "Dossier complet : montage intégral 116 min, édition, visuel, note et réception indépendante de cette version vérifiés ; carte à rédiger.",
+        "decision_note": "Seconde réserve physique complète : édition collector française du 14 octobre, montage intégral 116 min, identité, visuel, note et réception indépendante vérifiés.",
         "alternatives": []
       },
       {
@@ -28442,8 +28604,8 @@
     },
     {
       "title": "Phenomena",
-      "work_id": null,
-      "decision": "dossier complet sorties-physiques, carte à rédiger",
+      "work_id": "phenomena-1985",
+      "decision": "carte complète de réserve sorties-physiques",
       "identity_research": {
         "director": "Dario Argento",
         "year": 1985,
@@ -28491,7 +28653,7 @@
         "image_url": "https://static.fnac-static.com/multimedia/Images/FR/NR/ca/ad/3b/20688330/1540-1/tsp20260804171126/Phenomena-Edition-Collector-Blu-ray-4K-Ultra-HD.jpg",
         "note": "Jaquette exacte de l’édition collector, ouverte depuis la fiche produit EAN 3770024050295."
       },
-      "reason": "Dossier complet : édition, version intégrale, visuel, note et réception indépendante de la bonne version sont réunis ; carte à rédiger et contrôler."
+      "reason": "Carte complète : édition, version intégrale, visuel, note, identité canonique et réception indépendante de la bonne version sont réunis."
     },
     {
       "title": "L’Au-delà",
