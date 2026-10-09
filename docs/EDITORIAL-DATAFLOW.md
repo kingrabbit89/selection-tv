@@ -105,3 +105,37 @@ contrôles navigateur et revue finale restent du travail éditorial obligatoire.
 ## Source papier facultative
 
 Un PDF Télérama peut compléter les lots selon [EDITORIAL-TELERAMA.md](EDITORIAL-TELERAMA.md), avec page et empreinte d’origine. Sans PDF ni supplément sauvegardé, le parcours actuel est inchangé. `--without-telerama` permet de préparer un lot depuis les seules sources courantes.
+
+## Clôture depuis les défauts actuels
+
+```sh
+node scripts/preparation-gaps.mjs YYYY-Sxx --json preparation-gaps.json
+```
+
+Le tableau `task_board.calculated` regroupe les messages connus qui demandent
+la même action (audit de couverture, profondeur des réserves d'un jour,
+chevauchements du radar). Tous les diagnostics d'origine restent présents.
+Les défauts inconnus restent séparés, les avertissements distincts des blocages
+et un contrôle interrompu laisse une observation partielle. Le rapport de
+génération n'utilise ce tableau que si semaine, empreintes de ses entrées et
+exécution CI correspondent encore. Les paragraphes `remaining` sont un suivi
+éditorial déclaré à réconcilier sur preuves, jamais un compte de tâches actives.
+
+## Réconcilier les réserves du radar
+
+```sh
+# Remplacer ID_PASSAGE et ID_PREVIEW ; choisir un fichier qui n'existe pas.
+node scripts/editorial-radar-reconcile.mjs YYYY-Sxx --json /tmp/radar-plan-ID_PASSAGE-ID_PREVIEW.json
+# Après lecture du plan, sur la même base et sous bail valide :
+node scripts/editorial-radar-reconcile.mjs YYYY-Sxx --apply-plan /tmp/radar-plan-ID_PASSAGE-ID_PREVIEW.json
+```
+
+Le premier appel prépare un plan local. Le second retire uniquement les
+doublons d'identités canoniques certaines, après vérification du HEAD et des
+empreintes des entrées. Les cartes principales, rangs et preuves hérités sont
+conservés ; chaque carte retirée et son motif restent dans le plan. Une identité
+ou une version ambiguë demande une décision explicite. Les déficits qui restent
+sont calculés avec les minima existants : il faut produire des alternatives
+distinctes revues, sans inventer un candidat ou une pénurie. L'application refuse
+main/master, un numéro publié ou une revue déjà scellée. La sauvegarde distante
+reste soumise au bail et aux contrôles normaux de la candidate.
