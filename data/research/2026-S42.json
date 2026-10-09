@@ -30991,10 +30991,10 @@
       "execution_kind": "scheduled_editorial_closure_production",
       "prompt_revision": "production-closure-2026-10-09",
       "stage": "enrichment",
-      "run_state": "running",
+      "run_state": "stopped",
       "started_at": "2026-10-09T18:57:49.124Z",
-      "ended_at": null,
-      "duration_basis": "started_at observé à l’entrée ; passage encore en cours au checkpoint.",
+      "ended_at": "2026-10-09T19:48:04.671Z",
+      "duration_basis": "Intervalle observé de 2026-10-09T18:57:49.124Z à 2026-10-09T19:48:04.671Z; arrêt décidé par editorial-continuation --finish pour réserver la sauvegarde finale et la libération du bail.",
       "completed_batches": [
         "sync-main-955eaea-closure-tooling-2026-10-09",
         "replace-five-duplicate-popular-deep-reserves-2026-10-09",
@@ -31012,7 +31012,8 @@
         "document-tuesday-classics-version-impasse-2026-10-09",
         "normalize-ten-saved-reminder-pass-statuses-2026-10-09",
         "map-six-open-reminder-causes-2026-10-09",
-        "observe-exact-sha-ci-and-reconcile-resume-2026-10-09"
+        "observe-exact-sha-ci-and-reconcile-resume-2026-10-09",
+        "final-controls-and-observed-stop-2026-10-09"
       ],
       "deliverables_changed": [
         "data/radar-reserves/2026-S42.json",
@@ -31061,8 +31062,8 @@
         "rappel TNT initial : sept éléments génériques rapprochés ou exclus ; déficit ramené de dix à trois sans certifier les autres passes",
         "rappel TNT principal : dix éléments génériques rapprochés ou exclus ; trois créneaux CSTAR ajoutés sans sélectionner les magazines sans sujet"
       ],
-      "stop_reason": null,
-      "next_useful_batch": "Reprendre TV5MONDE FBS, RMC, Ciné+ Festival et la nuit W9 seulement sur source nouvelle correspondant au bon flux ; arbitrer séparément les deux copies mardi.",
+      "stop_reason": "budget_reserve_reached",
+      "next_useful_batch": "Reprendre d’abord TV5MONDE FBS et RMC uniquement sur une source nouvelle du bon flux, puis Ciné+ Festival, la nuit W9 et les deux copies mardi.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -31377,28 +31378,86 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T19:44:17.504Z",
+          "elapsed_seconds": 2788.38,
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "86d4beb41053fb3247a7bc130b279867b6d07072",
+          "next_actions": [
+            "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
+            "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
+            "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
+            "Mardi : certifier les copies exactes de La Prisonnière du désert et La Vieille Dame indigne, ou les remplacer par des alternatives entièrement vérifiées.",
+            "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet."
+          ],
+          "remaining_count": 34,
+          "next_actions_total": 39,
+          "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T18:57:49.124Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T20:18:19.665Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        },
+        {
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-09T19:47:58.155Z",
+          "elapsed_seconds": 3009.031,
+          "prompt_revision": "production-closure-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "86d4beb41053fb3247a7bc130b279867b6d07072",
+          "next_actions": [
+            "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
+            "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
+            "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
+            "Mardi : certifier les copies exactes de La Prisonnière du désert et La Vieille Dame indigne, ou les remplacer par des alternatives entièrement vérifiées.",
+            "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet."
+          ],
+          "remaining_count": 34,
+          "next_actions_total": 39,
+          "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T18:57:49.124Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T20:18:19.665Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T19:42:07.026Z",
-        "elapsed_seconds": 2657.902,
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-09T19:47:58.155Z",
+        "elapsed_seconds": 3009.031,
         "prompt_revision": "production-closure-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "d8ecdf7d53bce152a354dccd212166b90e228bc9",
+        "source_sha": "86d4beb41053fb3247a7bc130b279867b6d07072",
         "next_actions": [
-          "Achever les autres passes de rappel partielles, en commençant par cinéma payant, TV5MONDE FBS, RMC et Ciné+.",
-          "Niveau 2 : reprendre seulement sur source nouvelle les quatre groupes de flux non indépendants consignés.",
-          "Inventaire primaire des sept jours certifié sur les preuves sauvegardées ; achever les recoupements indépendants, rappels éditoriaux et résolution des conflits avant toute attestation hebdomadaire.",
-          "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
-          "Réconcilier les horaires et conflits résiduels : Canal+ Grand Écran Le dahlia noir 22:58/22:59 reste sans événement officiel S42 ; pour Saint-Ex, le guide Ouest-France distingue un élément court à 03:50 (9 min) du long métrage à 03:59, mais l’écart 03:50/03:53 et 9/6 min du court reste à arbitrer. Ne pas assimiler le court à la copie du film."
+          "TV5MONDE FBS : reprendre uniquement avec une archive ou un guide indépendant du même flux France-Belgique-Suisse.",
+          "RMC Story et RMC Découverte : reprendre uniquement avec un guide indépendant du flux SCREEN+ ou une archive RMC+ datée S42.",
+          "Ciné+ Festival et la nuit W9 : établir respectivement l’attribution exacte de chaîne et une seconde source réellement indépendante.",
+          "Mardi : certifier les copies exactes de La Prisonnière du désert et La Vieille Dame indigne, ou les remplacer par des alternatives entièrement vérifiées.",
+          "Cinéma payant : compléter la source mensuelle non exhaustive sans convertir une annonce éditoriale en inventaire complet."
         ],
         "remaining_count": 34,
-        "next_actions_total": 36,
-        "truncated_notice": "31 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "next_actions_total": 39,
+        "truncated_notice": "34 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
         "observations": {
           "started_at": "2026-10-09T18:57:49.124Z",
           "lease_owned": "yes",
@@ -31488,6 +31547,11 @@
           "started_at": "2026-10-09T19:42:07.026Z",
           "ended_at": "2026-10-09T19:43:08.000Z",
           "note": "Résultats GitHub relus sur le SHA exact : tous les contrôles data applicables sont verts, seule la barrière volontaire d’incomplétude échoue ; le navigateur reste en cours. Les prochaines actions sont resserrées sur les six causes réellement ouvertes."
+        },
+        "final_controls_and_save": {
+          "started_at": "2026-10-09T19:44:17.504Z",
+          "ended_at": "2026-10-09T19:48:04.671Z",
+          "note": "Décision de poursuite conservée, état du CI exact relu, rapport preparation-gaps actualisé, puis décision --finish observée avant la dernière sauvegarde et la libération."
         }
       },
       "control_notes": [
@@ -31499,7 +31563,8 @@
         "Le niveau 2 reste faux : les concordances TCM, TV5MONDE FBS, RMC et Ciné+ ne sont pas converties en indépendance. Trois impasses ciblées indiquent les conditions concrètes de reprise.",
         "La passe de rappel principale conserve seulement trois défauts précis, mais les sept editorial_reminder_complete restent false car d’autres passes sauvegardées sont encore partielles.",
         "La passe TNT principale est réconciliée, mais les sept editorial_reminder_complete restent false : cinéma payant, TV5MONDE FBS, RMC et Ciné+ demeurent des passes partielles.",
-        "Sur d8ecdf7d, tous les contrôles data applicables sont verts ; la seule erreur data est la barrière volontaire d’incomplétude. Le navigateur reste en cours à 19:43:08Z et ne certifie pas une tête ultérieure."
+        "Sur d8ecdf7d, tous les contrôles data applicables sont verts ; la seule erreur data est la barrière volontaire d’incomplétude. Le navigateur reste en cours à 19:43:08Z et ne certifie pas une tête ultérieure.",
+        "Contrôle navigateur du SHA 86d4beb4 observé avant la sauvegarde finale : statut completed, conclusion success."
       ]
     }
   ],
@@ -32176,28 +32241,28 @@
       "note": "Pas de progression active à dupliquer."
     },
     "last_ci_observation": {
-      "checked_at": "2026-10-09T14:27:13.059Z",
-      "head_sha": "c6292acedfc3fdaa60e2598c9881d908c3a20a8a",
-      "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
-      "run_id": 37943650026,
+      "checked_at": "2026-10-09T19:48:04.671Z",
+      "head_sha": "86d4beb41053fb3247a7bc130b279867b6d07072",
+      "base_sha": "955eaea2880806c91c7d8350775980b182b86da9",
+      "run_id": 37982221079,
       "data_and_policy": "failure",
       "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Tous les contrôles applicables ont réussi, y compris images distantes et présentation navigateur ; seule Require a complete candidate before merging échoue volontairement parce que 2026-S42 reste en préparation.",
+      "cause": "Tous les contrôles data applicables ont réussi ; seule Require a complete candidate before merging a échoué volontairement car les exigences éditoriales restent ouvertes. Le statut navigateur consigné est celui observé avant la sauvegarde finale.",
       "reusable_only_for_exact_sha": true
     },
     "latest_candidate_ci": {
-      "checked_at": "2026-10-09T19:43:08.000Z",
-      "head_sha": "d8ecdf7d53bce152a354dccd212166b90e228bc9",
-      "base_sha": "955eaea7a977a67e9f3aa993b79d940dc6f4d0cb",
-      "run_id": 37981980246,
+      "checked_at": "2026-10-09T19:48:04.671Z",
+      "head_sha": "86d4beb41053fb3247a7bc130b279867b6d07072",
+      "base_sha": "955eaea2880806c91c7d8350775980b182b86da9",
+      "run_id": 37982221079,
       "data_and_policy": "failure",
-      "browser_presentation": "in_progress",
+      "browser_presentation": "success",
       "logs_read": true,
-      "cause": "Tous les contrôles data applicables, les images distantes et le rapport d’écarts ont réussi ; seule Require a complete candidate before merging échoue volontairement parce que les exigences de niveau 2 et 3 restent ouvertes. Le job navigateur est encore en cours.",
+      "cause": "Tous les contrôles data applicables ont réussi ; seule Require a complete candidate before merging a échoué volontairement car les exigences éditoriales restent ouvertes. Le statut navigateur consigné est celui observé avant la sauvegarde finale.",
       "reusable_only_for_exact_sha": true
     },
-    "ci_note": "Le SHA d8ecdf7d a passé tous les contrôles data applicables sauf la barrière volontaire d’incomplétude ; le navigateur est encore en cours et ce résultat ne certifie aucune tête ultérieure."
+    "ci_note": "Le SHA 86d4beb4 a passé tous les contrôles applicables sauf la barrière volontaire d’incomplétude ; navigateur : success. Ce résultat ne certifie aucune tête ultérieure."
   },
   "structure_check": {
     "checked_at": "2026-10-08T13:51:18.611Z",
@@ -32814,6 +32879,36 @@
       "blocking": true,
       "status": "identity_and_start_corroborated_exact_broadcast_copy_unresolved",
       "resume_when": "Une grille technique du flux français, un identifiant de master ou une durée de copie explicitement fournie par Ciné+ Classic/TCM France devient accessible."
+    },
+    {
+      "id": "run20-final-new-source-check-2026-10-09",
+      "object": {
+        "channels": [
+          "TV5MONDE FBS",
+          "RMC Story",
+          "RMC Découverte",
+          "Ciné+ Festival"
+        ],
+        "dates": [
+          "2026-10-10",
+          "2026-10-12"
+        ]
+      },
+      "question": "Une recherche fraîche fait-elle apparaître une source du bon flux, réellement indépendante ou officielle, pour les quatre reprises prioritaires ?",
+      "attempted_at": "2026-10-09T19:45:55.000Z",
+      "source_urls": [
+        "https://europe.tv5monde.com/en/tv-guide?day=2026-10-10",
+        "https://www.programmetv.ch/tv/programme-rmc-story",
+        "https://www.programmetvcesoir.net/chaine/rmc-story/2026-10-10",
+        "https://tv-programme.com/cine-plus-festival/lundi-12-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-lundi/cine-club",
+        "https://screenplus.fr/programmestv/fr/cine-festival/"
+      ],
+      "result": "La recherche fraîche renvoie TV5MONDE Europe ou d’autres flux étrangers, pas FBS ; pour RMC et Ciné+ elle renvoie les mêmes familles de guides déjà rapprochées, sans preuve nouvelle d’indépendance ni attribution officielle de chaîne. Aucun flag n’est modifié.",
+      "blocking_scope": "niveau 2 TV5MONDE FBS, RMC Story/RMC Découverte et attribution Ciné+ Festival",
+      "blocking": true,
+      "status": "no_new_independent_or_same_feed_source",
+      "resume_when": "Une archive du flux FBS, un fournisseur RMC explicitement indépendant, ou un événement CANAL+ nommant Ciné+ Festival devient accessible."
     }
   ],
   "shortlist": {
