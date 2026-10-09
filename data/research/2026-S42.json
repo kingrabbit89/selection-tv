@@ -1,14 +1,10 @@
 {
   "schema_version": 1,
   "week": "2026-S42",
-  "base_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
-  "stage": "enrichment",
-  "updated_at": "2026-10-09T23:11:05.200Z",
-  "remaining": [
-    "Corriger l’hydratation des notes de la grille Android TV pour Shutter Island, puis relancer validate-layout sur la tête candidate exacte.",
-    "Remplacer ou compléter la source d’image de La Maison des femmes : l’URL Unifrance sauvegardée renvoie 403 sans Referer dans le contrôle distant.",
-    "Remplacer ou compléter la source d’image de Project Hail Mary : l’URL Filmitena sauvegardée renvoie 403 sans Referer dans le contrôle distant."
-  ],
+  "base_sha": "670d7888e2ba07474a6ed09d1b2aa822bcd2b3ec",
+  "stage": "ready",
+  "updated_at": "2026-10-09T23:31:23.084786Z",
+  "remaining": [],
   "completed_batches": [
     {
       "id": "inventory-2026-10-10-primary",
@@ -27638,6 +27634,62 @@
       },
       "evidence_note": "Le CI propre à la tête scellée révèle trois défauts précis : notes Android TV absentes pour Shutter Island et deux sources d’images 403 sans Referer. La revue est rouverte ; aucun ancien vert n’est réutilisé.",
       "status": "failed_requires_correction"
+    },
+    {
+      "work_id": "la-maison-des-femmes-2025",
+      "fields": [
+        "image",
+        "image_source_url",
+        "image_health"
+      ],
+      "urls": [
+        "https://www.francetelevisions.fr/groupe/cinema/france-2/nos-productions/la-maison-des-femmes-53537",
+        "https://static.francetelevisions.fr/styles/scale_576/public/2026-03/la-maison-des-femmes.jpg?itok=XZjK6wgD"
+      ],
+      "checked_at": "2026-10-09T23:25:02.468542Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42"
+      },
+      "evidence_note": "Affiche française officielle du film de Mélisa Godet inspectée visuellement. JPEG 576 × 781, HTTP 200 sans Referer, empreinte e4322f573739fe5339ba82a89c1bb9e8eb3e7489c46e3578599a26ac05e6d413.",
+      "status": "verified"
+    },
+    {
+      "work_id": "project-hail-mary-2026",
+      "fields": [
+        "image",
+        "image_source_url",
+        "image_health"
+      ],
+      "urls": [
+        "https://www.sonypictures.fr/film/projet-derniere-chance",
+        "https://www.sonypictures.fr/sites/france2/files/2026-02/PROJET-DERNIERE-CHANCE-affiche-2_0.jpg"
+      ],
+      "checked_at": "2026-10-09T23:25:05.263737Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42"
+      },
+      "evidence_note": "Affiche française officielle Sony Pictures du film de Phil Lord et Christopher Miller inspectée visuellement. JPEG 450 × 600, HTTP 200 sans Referer, empreinte 53336af6a8ec74b65f627bf10dbcf6313f5b09c5912fe7a7ca9061b28b6cc0ba.",
+      "status": "verified"
+    },
+    {
+      "work_id": "shutter-island-2010",
+      "fields": [
+        "android_tv_ratings",
+        "reserve_ratings"
+      ],
+      "urls": [
+        "https://github.com/kingrabbit89/selection-tv/pull/59"
+      ],
+      "checked_at": "2026-10-09T23:31:23.084786Z",
+      "stability": "code_specific",
+      "applies_to": {
+        "week": "2026-S42",
+        "main_sha": "670d7888e2ba07474a6ed09d1b2aa822bcd2b3ec"
+      },
+      "evidence_note": "Les tests exécutent le vrai formatter et les modèles de grille/réserve avec Rotten Tomatoes 69 % (262 critiques) et AlloCiné presse 3,8/5 (31 titres). Aucun score inventé ni échelle convertie. Le rendu Chromium S42 exact reste requis en CI.",
+      "status": "code_verified_browser_pending"
     }
   ],
   "run_metrics": [
@@ -35555,7 +35607,9 @@
     }
   ],
   "editorial_review": {
-    "completed": false
+    "completed": true,
+    "reviewed_at": "2026-10-09T23:31:23.084786Z",
+    "basis": "technical_repair_reviews[-1] and unchanged previous reviewed fields; exact remote S42 CI required before merge"
   },
   "ci_evidence": [
     {
@@ -35973,17 +36027,15 @@
     }
   },
   "documentary_research_queue": [],
-  "status": "checkpoint",
+  "status": "ready_for_exact_ci",
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
     "checkpoint_parent_sha": "704d1fdc4c056c7d1a8e140bd13e038b5cfbffe0",
-    "main_sha": "8671c3491fed5fb61fd25d8895bbf0fc78abda90",
-    "first_incomplete_stage": "enrichment",
+    "main_sha": "670d7888e2ba07474a6ed09d1b2aa822bcd2b3ec",
+    "first_incomplete_stage": "exact_candidate_ci",
     "next_actions": [
-      "Corriger l’hydratation des notes de la grille Android TV pour Shutter Island, puis relancer validate-layout sur la tête candidate exacte.",
-      "Remplacer ou compléter la source d’image de La Maison des femmes : l’URL Unifrance sauvegardée renvoie 403 sans Referer dans le contrôle distant.",
-      "Remplacer ou compléter la source d’image de Project Hail Mary : l’URL Filmitena sauvegardée renvoie 403 sans Referer dans le contrôle distant."
+      "Lire les contrôles complets du nouveau SHA/base exact de S42 ; corriger tout défaut avant fusion et publication protégées. Ne pas rouvrir les trois réparations sans un échec nouveau."
     ],
     "publisher": {
       "checked_at": "2026-10-08T14:40:33.431Z",
@@ -44130,5 +44182,45 @@
       }
     }
   ],
-  "editorial_review_completed": false
+  "editorial_review_completed": true,
+  "technical_repair_reviews": [
+    {
+      "id": "manual-three-technical-ci-defects-2026-10-10",
+      "reviewed_at": "2026-10-09T23:31:23.084786Z",
+      "source_candidate_sha": "5c86ba593adc6ace2ff24fe73b9e59ee13d6aa68",
+      "previous_ready_sha": "cd6012f538c0038330a946c583ee83f6ce88a00b",
+      "previous_failed_run": 38002889624,
+      "code_pr": 59,
+      "code_main_sha": "670d7888e2ba07474a6ed09d1b2aa822bcd2b3ec",
+      "changed_scope": [
+        "Android TV rating labels and reserve models",
+        "two verified official poster sources",
+        "asset cache versions"
+      ],
+      "retained_review": "La revue éditoriale et factuelle déjà enregistrée sur cd6012f est réutilisée uniquement pour les livrables et champs inchangés. Les choix, grilles, textes, identités, notes enregistrées et seuils sont conservés.",
+      "changed_field_review": "Le rendu reprend les notes attribuées réellement enregistrées sans conversion de leurs échelles. Les deux affiches officielles ont été inspectées visuellement et leur GET sans Referer retourne 200 ; anciens crédits photographiques retirés du champ image_strategy.",
+      "local_checks": [
+        "286 Node tests including 7 Android TV rating regression tests",
+        "candidate S42",
+        "exact links",
+        "freshness",
+        "reserves",
+        "editorial validation"
+      ],
+      "remote_checks_required": "La nouvelle tête doit passer le rendu réel S42, les 90 visuels et Jellyfin dans sa CI exacte avant fusion/publication. Le navigateur vert de la PR59 porte sur S41.",
+      "automatically_published": false
+    }
+  ],
+  "reviewed_at": "2026-10-09T23:31:23.574Z",
+  "reviewed_files": {
+    "data/works.json": "12b9f75e95e01f5cc910a3374cb0e399de9c4c9e1ab8dba0455b4f42b80dae1c",
+    "data/links.json": "f278dcd1af7f09a3c64b2186ad9df023398e062f6ed7d95d121df4aa125a6050",
+    "data/releases.json": "2e929c74ff4eb54c68015cd14010ef7da66a24c5cad40cbcc62c254515b8d148",
+    "data/manifest.json": "71620e6a68aedad00f623f7fcf8c5bf9d8746420f0e8d486f359ebfdba943892",
+    "data/inventory/2026-S42.json": "8635db484bf90e10cc3312a6bec5698438dcd84ef4504567412b9ca67f287291",
+    "data/coverage/2026-S42.json": "05381ca8dd96738f0fb5ea38fb1b8a3603d3081556f0eab1bc577c24abc34bfa",
+    "data/weeks/2026-S42.json": "b71f6b70454e065f2de2470d822e9f4e10f89dc67c632fc476a3db354d73741c",
+    "data/radar-reserves/2026-S42.json": "546f86edac974e3e9cf4a9baf450874423d93c768f08bbe15f47ce37abc83e37",
+    "semaines/2026-S42/index.html": "67f73b0c527353ec432fe0bf6dcb2fbdb7d1fcb5a36b09c866517b0a6614f221"
+  }
 }
