@@ -143,8 +143,9 @@ checkpoint immuable et ne modifie aucun fichier de candidate. Il conserve
 `review_warnings`. Sans annotation valide, une question reste à examiner.
 
 Les révisions `production-proof-policy-2026-10-09` et
-`production-telerama-authority-2026-10-09` du contrôleur privilégient le
-prochain lot du passage courant et propose les actions accessibles. Les
+`production-telerama-authority-2026-10-09` et
+`production-telerama-first-suggestions-2026-10-09` du contrôleur privilégient le
+prochain lot du passage courant et proposent les actions accessibles. Les
 attentes demeurent visibles et les exigences demeurent dans `remaining`.
 Leur suspension ne vaut ni résolution, ni attestation de couverture, ni
 autorisation de publier. Les révisions historiques gardent leur comportement.

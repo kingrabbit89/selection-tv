@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
-import {auditRecordedRun, CONTINUATION_REVISION, PROOF_CONTINUATION_REVISION, CLOSURE_CONTINUATION_REVISION, TELERAMA_EDITORIAL_CONTINUATION_REVISION, PREVIOUS_CONTINUATION_REVISION, DATAFLOW_CONTINUATION_REVISION, INTEGRITY_CONTINUATION_REVISION, EFFICIENCY_CONTINUATION_REVISION, LEGACY_CONTINUATION_REVISION, decideContinuation, nextActions, parseCli} from './editorial-continuation.mjs';
+import {auditRecordedRun, CONTINUATION_REVISION, TELERAMA_AUTHORITY_CONTINUATION_REVISION, PROOF_CONTINUATION_REVISION, CLOSURE_CONTINUATION_REVISION, TELERAMA_EDITORIAL_CONTINUATION_REVISION, PREVIOUS_CONTINUATION_REVISION, DATAFLOW_CONTINUATION_REVISION, INTEGRITY_CONTINUATION_REVISION, EFFICIENCY_CONTINUATION_REVISION, LEGACY_CONTINUATION_REVISION, decideContinuation, nextActions, parseCli} from './editorial-continuation.mjs';
 
 const started_at = '2026-10-09T07:02:51.000Z';
 const now = '2026-10-09T07:19:27.285Z';
@@ -209,7 +209,7 @@ test('unknown revisions never select a budget implicitly, and the new revision s
 });
 
 test('optional paper input and earlier 55-minute revisions preserve the observed work threshold', () => {
-  for (const revision of [CONTINUATION_REVISION, PROOF_CONTINUATION_REVISION, CLOSURE_CONTINUATION_REVISION, TELERAMA_EDITORIAL_CONTINUATION_REVISION, PREVIOUS_CONTINUATION_REVISION, DATAFLOW_CONTINUATION_REVISION, INTEGRITY_CONTINUATION_REVISION, EFFICIENCY_CONTINUATION_REVISION]) {
+  for (const revision of [CONTINUATION_REVISION, TELERAMA_AUTHORITY_CONTINUATION_REVISION, PROOF_CONTINUATION_REVISION, CLOSURE_CONTINUATION_REVISION, TELERAMA_EDITORIAL_CONTINUATION_REVISION, PREVIOUS_CONTINUATION_REVISION, DATAFLOW_CONTINUATION_REVISION, INTEGRITY_CONTINUATION_REVISION, EFFICIENCY_CONTINUATION_REVISION]) {
     const before = decideContinuation(input({now:'2026-10-09T07:52:50.000Z',prompt_revision:revision}));
     const after = decideContinuation(input({now:'2026-10-09T07:52:51.000Z',prompt_revision:revision}));
     assert.equal(before.action,'continue');
@@ -462,13 +462,15 @@ test('an unknown decision before new evidence replays as waiting after the gate 
 });
 
 
-test('the preceding proof revision retains its current-batch and waiting behavior after the authority revision', () => {
+test('earlier authority and proof revisions retain their current-batch and waiting behavior', () => {
+ for (const revision of [TELERAMA_AUTHORITY_CONTINUATION_REVISION,PROOF_CONTINUATION_REVISION]) {
   const checkpoint=proofProgress();
-  const historical=decideContinuation(input({progress:checkpoint,prompt_revision:PROOF_CONTINUATION_REVISION}));
-  assert.equal(historical.prompt_revision,PROOF_CONTINUATION_REVISION);
+  const historical=decideContinuation(input({progress:checkpoint,prompt_revision:revision}));
+  assert.equal(historical.prompt_revision,revision);
   assert.deepEqual(historical.next_actions,[currentBatch,replacementTask]);
   assert.equal(historical.waiting_actions[0].action_text,sourceTask);
   assert.equal(historical.budget_seconds,55*60);
-  const run={started_at,prompt_revision:PROOF_CONTINUATION_REVISION,run_state:'running',continuation_decision:historical};
+  const run={started_at,prompt_revision:revision,run_state:'running',continuation_decision:historical};
   assert.deepEqual(auditRecordedRun(run,checkpoint),[]);
+ }
 });

@@ -10,7 +10,7 @@ import {normalizedTitle} from './editorial-work-packet.mjs';
 import {addDays, weekForSaturday} from './week-calendar.mjs';
 import {dailyReserveCandidates, sectionPageMatches} from './editorial-contracts.mjs';
 import {validateTeleramaReport,teleramaExtractionContent} from './editorial-telerama-import.mjs';
-import {joinTeleramaEditorial} from './editorial-telerama-signals.mjs';
+import {joinTeleramaEditorial,prepareInitialTeleramaSuggestions} from './editorial-telerama-signals.mjs';
 import {teleramaAuthorityPolicy,reviewTeleramaGrid,authoritativeTitleConflictAction} from './editorial-telerama-authority.mjs';
 
 const days = ['samedi','dimanche','lundi','mardi','mercredi','jeudi','vendredi'];
@@ -454,6 +454,9 @@ export function buildProductionPlan(context, options={}) {
     return inactive(a)-inactive(b) || triage(a)-triage(b) || deficit(b)-deficit(a) || declared(b)-declared(a) || supplied(b)-supplied(a) || days.indexOf(a.scope)-days.indexOf(b.scope) || a.title.localeCompare(b.title);
   });
   const editorial=joinTeleramaEditorial(queue,context,options,range);
+  Object.assign(editorial,prepareInitialTeleramaSuggestions(queue,context,options,editorial.editorial_review_candidates));
+  if(editorial.initial_editorial_suggestions_summary?.queue_prioritized)editorial.editorial_review_summary.ordering=
+    'Editorial review candidates retain civil-day/native-appreciation order; actionable initial queue seeds use Bravo, Très bien, Bien before other new investigations. No automatic editorial choice.';
   const selected = options.scope ? queue.filter(item=>item.scope===options.scope) : queue;
   const byClassification = Object.fromEntries(['already_materialized','reusable_needs_broadcast_review','new_identity','conflicted','paused_scoped']
     .map(kind=>[kind,queue.filter(item=>item.classification===kind).length]));
@@ -480,7 +483,9 @@ export function buildProductionPlan(context, options={}) {
       groups_with_printed_references:queue.filter(row=>row.schedule_authority).length,
       coverage_certified:false,automatic_certification:false}}:{}),
     ...editorial,
-    queue_order:'Preparation before raw-title triage; production deficits, explicitly saved shortlist, supplied observations, then day/title; materialized/paused last; no artistic ranking.',
+    queue_order:(editorial.initial_editorial_suggestions_summary?.queue_prioritized?
+      'Initial Télérama seeds first: Bravo, Très bien, Bien; exact actionable matches only, saved decisions and ambiguous/paused/materialized groups preserved. ':'')+
+      'Preparation before raw-title triage; production deficits, explicitly saved shortlist, supplied observations, then day/title; materialized/paused last; no artistic ranking.',
     queue:selected.slice(offset,offset+limit),queue_total:selected.length,next_offset:offset+limit<selected.length?offset+limit:null};
 }
 

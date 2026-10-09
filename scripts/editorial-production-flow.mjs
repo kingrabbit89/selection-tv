@@ -122,6 +122,8 @@ export async function prepareProductionFlow({week, ref, outDir, sourcePlan = nul
     handoff:inventoryImport.bundle.files.length ? path.join(outDir,'inventory-handoff.json') : null};
   if(plan.supplementary_sources?.length)summary.supplementary_sources=plan.supplementary_sources;
   if(plan.editorial_review_summary)summary.editorial_review=plan.editorial_review_summary;
+  if(plan.initial_editorial_suggestions_summary)summary.initial_editorial_suggestions={...plan.initial_editorial_suggestions_summary,
+    suggestions_path:path.join(outDir,'work-batch.json'),suggestions_field:'initial_editorial_suggestions'};
   if(paperImport)summary.telerama_import={added:paperImport.added,observations:paperReport.observations.length,
     sha256:paperReport.source.sha256,coverage_certified:false,
     handoff:paperImport.bundle.files.length?path.join(outDir,'telerama-handoff.json'):null};

@@ -1,6 +1,7 @@
 # Import facultatif d'un magazine Télérama
 
-Le magazine fourni complète la découverte et la présélection. Sur décision de
+Le magazine fourni complète la découverte et, à partir de S43, constitue le
+point de départ des premières suggestions de la présélection. Sur décision de
 l’utilisateur, sa grille est la référence des titres imprimés, chaînes, jours
 et heures pour la cible après revue de transcription. Le parcours courant
 continue sans PDF. L’import seul ne sélectionne aucune œuvre, ne coche aucun
@@ -189,11 +190,47 @@ Le producteur lit automatiquement l'entrée préparée `telerama-editorial.json`
 au même SHA exact que les autres données. Le lot expose les critiques par
 jour/appréciation comme aide au tri, leurs résumés relus, auteurs et pointeurs.
 Il joint `editorial_signals` seulement sur titre et créneau civil exacts ; les
-autres critiques restent explicitement à rapprocher. L'ordre normal de la
-file, les décisions de sélection et le catalogue ne sont pas réécrits.
+autres critiques restent explicitement à rapprocher. Les décisions enregistrées
+et le catalogue ne sont pas réécrits.
 
 Ces avis servent à orienter les choix avec les autres critères éditoriaux.
 Ils ne deviennent ni notes IMDb/SensCritique, ni consensus, ni preuves de
 diffusion actuelle, ni cartes complètes. Un résumé relu n'est pas une nouvelle
 consultation du diffuseur. Une seule rédaction reste une seule source.
 `--without-telerama` ignore aussi ce complément éditorial.
+
+## Premières suggestions à partir de S43
+
+La politique `initial_suggestions` donne aux appréciations positives du
+magazine fourni pour la bonne semaine la priorité pour amorcer la sélection :
+Bravo (TTTT), Très bien (TTT), puis Bien (TT). Lire
+`initial_editorial_suggestions` en entier, avec les auteurs, les paraphrases
+relues et les pointeurs de page/empreinte. Avant toute shortlist enregistrée,
+les avis rapprochés orientent réellement l’ordre initial de la file. Les avis
+non rapprochés restent des pistes à investiguer (`investigate_title_and_civil_slot`),
+sans transmettre leur critique à un homonyme. Une critique sans résumé reste
+à lire ; Bof et Hélas restent des réserves attribuées, sans veto automatique.
+
+Les autres sources complètent les jours, rubriques et découvertes peu couverts,
+et permettent de remplacer une piste non adaptée. Les critères éditoriaux,
+la passe documentaire et les contrôles des cartes restent applicables. La
+présélection définitive est révisable ; les appréciations ne deviennent ni
+notes IMDb/SensCritique ni consensus. Télérama ne décide pas automatiquement
+du contenu publié.
+
+Après enregistrement d’une shortlist, poursuivre les dossiers choisis et les
+lacunes du numéro ; ne pas repartir de zéro ni rouvrir les rejets, reports ou
+impasses sur le seul fait qu’un avis est bien noté. S42 conserve sa présélection
+en cours. Sans entrée éditoriale valide ou avec `--without-telerama`, le plan
+existant est inchangé.
+
+L’amorce issue d’une entrée Git fournit `shortlist_signal`, prêt à reprendre
+dans `shortlist.entries[].signals` après revue, avec
+`kind`, `note`, `publisher: "Télérama"`, `source_ref: "sha256:EMPREINTE_PDF"`,
+`pdf_page`, `bbox` et `provenance` : `source_sha` Git exact, chemin
+`data/editorial-inputs/YYYY-Sxx/telerama-editorial.json` et pointeur
+`/reviews/INDEX`. Reprendre les valeurs de l’avis réellement importé, puis
+vérifier leur concordance. Aucune URL Web n’est nécessaire pour cette preuve
+papier. Une extraction locale doit être importée avant de recevoir une
+provenance Git ; la seule conformité du signal ne certifie ni sa lecture, ni
+une identité, ni la qualité finale d’une carte.
