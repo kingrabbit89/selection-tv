@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T11:27:04.976Z",
+  "updated_at": "2026-10-09T11:29:45.931Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -708,6 +708,16 @@
       "deliverables": [
         "data/works.json",
         "data/links.json",
+        "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "advance-saturday-reserve-pool-four-cards-2026-10-09",
+      "completed_at": "2026-10-09T11:29:45.931Z",
+      "scope": "samedi",
+      "summary": "Pool du samedi porté à quatre cartes complètes par réutilisation revue du dossier Sulawesi et des preuves propres à sa diffusion du samedi ; aucune nouvelle consultation fictive.",
+      "deliverables": [
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ]
@@ -21468,6 +21478,34 @@
       },
       "evidence_note": "Durées 100/104/106 min et horaires 11:47/11:48 divergents ; aucune carte produite.",
       "status": "conflict"
+    },
+    {
+      "work_id": "sulawesi-l-ile-des-premieres-images-2025",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "daily_card"
+      ],
+      "source_urls": [
+        "https://www.arte.tv/fr/guide/20261010/",
+        "https://tv-programme.com/arte/samedi-10-octobre-2026/",
+        "https://www.arte.tv/fr/videos/118245-000-A/sulawesi-l-ile-des-premieres-images/"
+      ],
+      "checked_at": "2026-10-08T09:23:39.837Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-10",
+        "start": "22:25",
+        "channel": "Arte",
+        "section": "samedi-selection"
+      },
+      "evidence_note": "Diffusion du samedi recoupée dans les preuves sauvegardées entre le guide officiel ARTE et TV-Programme ; dossier stable réutilisé sans prétendre à une consultation nouvelle.",
+      "status": "verified",
+      "reused_in": [
+        "samedi-selection"
+      ]
     }
   ],
   "run_metrics": [
@@ -23347,7 +23385,7 @@
       "next_useful_batch": "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés."
     },
     {
-      "date": "2026-10-09T11:27:04.976Z",
+      "date": "2026-10-09T11:29:45.931Z",
       "started_at": "2026-10-09T11:00:32.109Z",
       "ended_at": null,
       "owner": "242b436f-e4f5-4018-b208-fca5b20fa9ec",
@@ -23360,7 +23398,8 @@
         "advance-monday-reserve-pool-seven-cards-2026-10-09",
         "sync-main-validator-fix-2026-10-09",
         "complete-monday-reserve-pool-ten-cards-2026-10-09",
-        "advance-thursday-reserve-pool-four-cards-2026-10-09"
+        "advance-thursday-reserve-pool-four-cards-2026-10-09",
+        "advance-saturday-reserve-pool-four-cards-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -23368,7 +23407,7 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ],
-      "complete_cards": 24,
+      "complete_cards": 25,
       "draft_cards": 1,
       "partial_dossiers": 4,
       "deliverables_advanced": [
@@ -23377,7 +23416,8 @@
         "liens directs",
         "lundi-grille",
         "lundi : pool complet de dix cartes",
-        "jeudi : pool avancé à quatre cartes complètes"
+        "jeudi : pool avancé à quatre cartes complètes",
+        "samedi : pool avancé à quatre cartes complètes"
       ],
       "requirements_resolved": [
         "lundi : seuil minimal de dix cartes complètes atteint"
@@ -23503,18 +23543,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T11:28:10.800Z",
+          "elapsed_seconds": 1658.691,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "7808cd59f2699f4897036dcd2a6297786967ca35",
+          "next_actions": [
+            "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
+            "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T11:00:32.109Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T12:21:30.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T11:19:27.956Z",
-        "elapsed_seconds": 1135.847,
+        "observed_at": "2026-10-09T11:28:10.800Z",
+        "elapsed_seconds": 1658.691,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "7a10bbb3ed301554cfff5c359d6149f4c88e2ff6",
+        "source_sha": "7808cd59f2699f4897036dcd2a6297786967ca35",
         "next_actions": [
           "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
           "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
@@ -23528,7 +23597,7 @@
         "observations": {
           "started_at": "2026-10-09T11:00:32.109Z",
           "lease_owned": "yes",
-          "lease_until": "2026-10-09T12:01:23.619Z",
+          "lease_until": "2026-10-09T12:21:30.000Z",
           "external_stop": null,
           "accessible_task_checks": [],
           "ready_handoff": null
@@ -23536,7 +23605,7 @@
       },
       "run_state": "running",
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre les réserves du jeudi avec les dossiers sans conflit de version, ou produire une rubrique indépendante encore absente."
+      "next_useful_batch": "Produire une rubrique indépendante étayée par des preuves officielles France ou poursuivre un jour déficitaire avec un dossier sans conflit."
     }
   ],
   "source_issues": [
@@ -24509,7 +24578,7 @@
     }
   ],
   "shortlist": {
-    "updated_at": "2026-10-09T11:27:04.976Z",
+    "updated_at": "2026-10-09T11:29:45.931Z",
     "note": "Présélection révisable par jour et rubrique ; premières cartes plateformes gratuites intégrées depuis les dossiers acquis. Aucun statut ne certifie la sélection finale du numéro.",
     "entries": [
       {
@@ -24573,17 +24642,19 @@
       {
         "id": "sl-samedi-sulawesi",
         "title": "Sulawesi, l'île des premières images",
+        "work_id": "sulawesi-l-ile-des-premieres-images-2025",
         "scope": {
           "day": "samedi"
         },
-        "status": "researching",
+        "status": "card_complete",
         "signals": [
           {
-            "kind": "critique",
-            "note": "Le Journal des Arts apporte une lecture indépendante de la mise en perspective des images préhistoriques ; dossier canonique encore incomplet.",
-            "source_url": "https://www.lejournaldesarts.fr/medias/la-prehistoire-des-images-184458"
+            "kind": "offre_critique_diffusion",
+            "note": "Le dossier stable et la réception étaient déjà vérifiés ; le guide officiel ARTE et la grille datée établissent la diffusion du samedi.",
+            "source_url": "https://www.arte.tv/fr/guide/20261010/"
           }
         ],
+        "decision_note": "Réserve complète rang 4 par réutilisation du dossier ; preuve de diffusion propre au samedi et dates d’origine conservées.",
         "alternatives": [
           "sl-samedi-grotte-chauvet",
           "sl-samedi-burning"
@@ -25581,8 +25652,8 @@
     "outcome": "Dossier complété pour comparaison éditoriale. La carte publique n'est pas encore créée et aucun choix final n'est déclaré."
   },
   "draft_production": {
-    "source_candidate_sha": "7a10bbb3ed301554cfff5c359d6149f4c88e2ff6",
-    "produced_at": "2026-10-09T11:27:04.976Z",
+    "source_candidate_sha": "7808cd59f2699f4897036dcd2a6297786967ca35",
+    "produced_at": "2026-10-09T11:29:45.931Z",
     "cards": [
       {
         "work_id": "exit-8-2025",
@@ -26251,6 +26322,27 @@
             "https://www.metacritic.com/movie/lady-vengeance/",
             "https://www.allocine.fr/film/fichefilm_gen_cfilm=61182.html",
             "https://metrofilms.com/film/lady-vengeance/"
+          ]
+        }
+      },
+      {
+        "work_id": "sulawesi-l-ile-des-premieres-images-2025",
+        "date": "2026-10-10",
+        "rank_provisional": 4,
+        "selection_finalized": false,
+        "review": {
+          "checked_at": "2026-10-09",
+          "identity_version": "Documentaire de Pascal Goblot et Denis van Waerebeke, France, 2025. La version numérique officielle ARTE dure 55 min 05 s et est affichée 56 min ; le créneau linéaire de 55 minutes reste distingué.",
+          "canonical_fields": "Identité, liens directs, visuel officiel, durée d’offre, motif documenté d’absence de moyenne et textes déjà contrôlés pour la carte du mardi.",
+          "current_broadcast": "Diffusion du samedi 10 octobre à 22:25 sur Arte recoupée entre le guide officiel ARTE daté et la grille TV-Programme. L’offre gratuite France demeure annoncée jusqu’au 19 janvier 2027.",
+          "editorial_copy": "Synopsis et justification de la carte du mardi réutilisés après revue, sans nouvelle consultation fictive ; lectures attribuées de Télérama et L’ŒIL conservées avec leurs limites d’accès.",
+          "evidence_urls": [
+            "https://www.arte.tv/fr/guide/20261010/",
+            "https://tv-programme.com/arte/samedi-10-octobre-2026/",
+            "https://www.arte.tv/fr/videos/118245-000-A/sulawesi-l-ile-des-premieres-images/",
+            "https://api.arte.tv/api/player/v2/config/fr/118245-000-A",
+            "https://www.telerama.fr/television/sulawesi-l-ile-des-premieres-images-sur-arte-tv-une-renversante-lecon-d-art-prehistorique-dans-les-grottes-d-indonesie_cri-7042482.php",
+            "https://www.lejournaldesarts.fr/medias/la-prehistoire-des-images-184458"
           ]
         }
       }
