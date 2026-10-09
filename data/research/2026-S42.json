@@ -25343,6 +25343,37 @@
       },
       "evidence_note": "Arte confirme le créneau, la version de 3 302 secondes et les droits ; Filmdienst, Letterboxd et IMDbPro recoupent Disciples et la version cinéma 81 min. Le photogramme officiel a été téléchargé et inspecté. Guardian et Télérama apportent des appréciations attribuées ; aucune note homonyme n’est reprise.",
       "status": "verified_for_card"
+    },
+    {
+      "work_id": "le-grand-puzzle-de-pompei-2026",
+      "fields": [
+        "identity",
+        "version",
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "duration",
+        "image",
+        "ratings_unavailability",
+        "editorial_reception"
+      ],
+      "source_urls": [
+        "https://www.francetvpro.fr/contenu-de-presse/78500341",
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/15-10-2026",
+        "https://www.film-documentaire.fr/4DACTION/w_fiche_film/82309",
+        "https://prixroberval.utc.fr/les-oeuvres/le-grand-puzzle-de-pompei/",
+        "https://www.canalplus.com/decouverte/le-grand-puzzle-de-pompei/h/32283359_50074/resume-casting/"
+      ],
+      "checked_at": "2026-10-09T17:20:00.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "day": "jeudi",
+        "rank": 7,
+        "broadcast": "2026-10-15 21:07 France 5"
+      },
+      "evidence_note": "FranceTvPro confirme identité, auteurs et master 90 min ; sa grille distingue Science grand format à 21:05 du film à 21:07 pendant 87 min. Le photogramme Elephant Doc a été ouvert. Les recherches de notes exactes sont restées sans résultat exploitable ; l’appréciation Télérama est attribuée.",
+      "status": "verified_for_card"
     }
   ],
   "run_metrics": [
@@ -29850,7 +29881,8 @@
         "run-dataflow-with-saved-telerama-2026-10-09",
         "append-reviewed-sunday-vermines-reserve-2026-10-09",
         "append-reviewed-tuesday-la-maison-des-femmes-reserve-2026-10-09",
-        "append-reviewed-wednesday-inde-enfance-reserve-2026-10-09"
+        "append-reviewed-wednesday-inde-enfance-reserve-2026-10-09",
+        "append-reviewed-thursday-grand-puzzle-pompei-reserve-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
@@ -29858,30 +29890,30 @@
         "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ],
-      "complete_cards": 110,
-      "cards_integrated_this_run": 3,
+      "complete_cards": 111,
+      "cards_integrated_this_run": 4,
       "draft_cards": 0,
       "partial_dossiers": 0,
       "measurements": {
         "complete_cards": {
-          "value": 110,
-          "scope": "stock après checkpoint : 107 positions héritées et trois réserves complètes ajoutées pendant ce passage"
+          "value": 111,
+          "scope": "stock après checkpoint : 107 positions héritées et quatre réserves complètes ajoutées pendant ce passage"
         },
         "new_works": {
-          "value": 3,
-          "scope": "Vermines (2023), La Maison des femmes (production 2025) et Disciples (2026) ajoutés au catalogue canonique pendant ce passage"
+          "value": 4,
+          "scope": "Vermines, La Maison des femmes, Disciples et Le grand puzzle de Pompéi ajoutés au catalogue canonique pendant ce passage"
         },
         "visible_cards": {
           "value": 0,
           "scope": "la position ajoutée est une réserve cachée, sans changement des trois choix visibles"
         },
         "additional_reserve_placements": {
-          "value": 3,
-          "scope": "une réserve quotidienne distincte ajoutée au dimanche, une au mardi et une au mercredi"
+          "value": 4,
+          "scope": "une réserve ajoutée au dimanche, une au mardi, une au mercredi et une au jeudi"
         },
         "additional_distinct_reserve_work_ids": {
-          "value": 3,
-          "scope": "vermines-2023, la-maison-des-femmes-2025 et disciples-2026, absents de la tête de départ du passage"
+          "value": 4,
+          "scope": "quatre nouveaux work_id distincts absents de la tête de départ du passage"
         },
         "stable_reuses": {
           "value": 0,
@@ -29892,7 +29924,7 @@
         "dimanche-selection : minimum de dix cartes complètes atteint avec Vermines, diffusion France 2, identité, version, visuel, réception et avertissement -12 contrôlés sans déclarer de pénurie"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter encore trois réserves mardi et trois mercredi, quatre jeudi, puis remplacer les cinq doublons popular_deep.",
+      "next_useful_batch": "Compléter encore trois réserves mardi, trois mercredi et trois jeudi, puis remplacer les cinq doublons popular_deep.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -29975,20 +30007,49 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T17:19:03.025Z",
+          "elapsed_seconds": 1385.528,
+          "prompt_revision": "production-telerama-editorial-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "bfa7a6f4e653e6e1af2ae8c9242204ceb0021dc2",
+          "next_actions": [
+            "Compléter encore trois réserves mardi et trois mercredi, puis quatre jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
+            "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T16:55:57.497Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T18:16:43.836Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T17:13:59.540Z",
-        "elapsed_seconds": 1082.043,
+        "observed_at": "2026-10-09T17:19:03.025Z",
+        "elapsed_seconds": 1385.528,
         "prompt_revision": "production-telerama-editorial-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "6737d9463309d0ba4f48672ff062e6c29f5e63ef",
+        "source_sha": "bfa7a6f4e653e6e1af2ae8c9242204ceb0021dc2",
         "next_actions": [
-          "Compléter encore trois réserves mardi et quatre mercredi/jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
+          "Compléter encore trois réserves mardi et trois mercredi, puis quatre jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
           "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes.",
           "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
@@ -30000,7 +30061,7 @@
         "observations": {
           "started_at": "2026-10-09T16:55:57.497Z",
           "lease_owned": "yes",
-          "lease_until": "2026-10-09T17:56:59.951Z",
+          "lease_until": "2026-10-09T18:16:43.836Z",
           "external_stop": null,
           "accessible_task_checks": [],
           "ready_handoff": null
@@ -30026,6 +30087,11 @@
           "started_at": "2026-10-09T17:13:59.540Z",
           "ended_at": "2026-10-09T17:17:44.762Z",
           "note": "Dossier Disciples/Inde, une enfance sous influence complété depuis Arte, son API lecteur, Filmdienst, IMDbPro, Letterboxd, Guardian et le signal Télérama préparé ; version Arte 56 min séparée du montage cinéma 81 min."
+        },
+        "thursday_reserve_batch_1": {
+          "started_at": "2026-10-09T17:19:03.025Z",
+          "ended_at": "2026-10-09T17:20:56.754Z",
+          "note": "Le grand puzzle de Pompéi achevé depuis FranceTvPro, sa grille officielle, Film-documentaire, Prix Roberval et le signal Télérama ; présentation 21:05 et film 21:07 séparés, master 90 min et diffusion 87 min conservés."
         }
       },
       "control_notes": [
@@ -30033,7 +30099,8 @@
         "Toba n’a pas été sauvegardé en carte : son ajout aurait abaissé la fraîcheur des réserves à 79 %, sous le seuil contractuel de 80 %.",
         "Vermines porte la durée de copie 105/106 min séparément du créneau France 2 de 102 min ; aucune contradiction n’a été résolue par simple proximité.",
         "La Maison des femmes conserve séparément la production 2025, la sortie France 2026 et la divergence de métadonnée Canal+ 105/110 min ; la carte retient la durée canonique Unifrance de 110 min sans assimiler la proximité du créneau à une version.",
-        "Inde, une enfance sous influence utilise le photogramme exact renvoyé par l’API Arte et conserve distincts le flux Arte de 3 302 secondes et la version cinéma de 81 minutes."
+        "Inde, une enfance sous influence utilise le photogramme exact renvoyé par l’API Arte et conserve distincts le flux Arte de 3 302 secondes et la version cinéma de 81 minutes.",
+        "Le grand puzzle de Pompéi conserve séparément le master 90 min, la diffusion France 5 de 87 min et la valeur guide de 88 min ; l’inscription au Prix Roberval n’est pas transformée en récompense."
       ]
     }
   ],
@@ -30691,11 +30758,11 @@
   "resume": {
     "candidate_branch": "auto/2026-S42",
     "pr_number": 33,
-    "checkpoint_parent_sha": "6737d9463309d0ba4f48672ff062e6c29f5e63ef",
+    "checkpoint_parent_sha": "bfa7a6f4e653e6e1af2ae8c9242204ceb0021dc2",
     "main_sha": "1272ed349fd8f7681c5530643957f9ab4f2d0109",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Compléter encore trois réserves mardi et trois mercredi, puis quatre jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
+      "Compléter encore trois réserves mardi, trois mercredi et trois jeudi depuis les dossiers avancés et les signaux Télérama rapprochés.",
       "Remplacer les cinq doublons de popular_deep par des œuvres distinctes des choix principaux et des cartes popular_scan.",
       "Poursuivre les recoupements indépendants et rappels éditoriaux sans retirer les exigences ouvertes."
     ],
@@ -31225,7 +31292,7 @@
     }
   ],
   "shortlist": {
-    "updated_at": "2026-10-09T17:17:44.762Z",
+    "updated_at": "2026-10-09T17:20:56.754Z",
     "note": "Présélection révisable par jour et rubrique ; premières cartes plateformes gratuites intégrées depuis les dossiers acquis. Aucun statut ne certifie la sélection finale du numéro.",
     "entries": [
       {
@@ -33935,6 +34002,24 @@
           }
         ],
         "decision_note": "Réserve complète rang 7 ; version Arte 56 min distinguée du montage cinéma Disciples de 81 min, sans note homonyme reprise.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-jeudi-grand-puzzle-pompei-reserve",
+        "title": "Le grand puzzle de Pompéi",
+        "work_id": "le-grand-puzzle-de-pompei-2026",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "critique_et_diffusion",
+            "note": "Télérama apprécie la présentation enthousiaste mais prudente du projet ; France 5 distingue la présentation à 21:05 du film à 21:07.",
+            "source_url": "https://www.francetvpro.fr/contenu-de-presse/78500341"
+          }
+        ],
+        "decision_note": "Réserve complète rang 7 ; version de diffusion 87 min distinguée du master 90 min et de la valeur guide 88 min.",
         "alternatives": []
       }
     ]
