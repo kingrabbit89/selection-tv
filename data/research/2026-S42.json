@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T14:35:47.026Z",
+  "updated_at": "2026-10-09T14:40:52.320Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -1090,6 +1090,15 @@
         "data/works.json",
         "data/links.json",
         "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "refine-friday-malcolm-x-hard-eight-2026-10-09",
+      "completed_at": "2026-10-09T14:40:52.320Z",
+      "scope": "vendredi-selection:shortlist",
+      "summary": "Le lot vendredi est resserré sans forcer de carte : Hard Eight est écarté car déjà public et réserve en S41 ; Malcolm X passe en recherche avec identité et réception étayées, mais reste hors pool tant que la copie/diffusion de 17:06 et la divergence 193/195/202 min ne sont pas résolues.",
+      "deliverables": [
         "data/research/2026-S42.json"
       ]
     }
@@ -24115,6 +24124,54 @@
       },
       "evidence_note": "Réception datée et affiche exacte inspectée.",
       "status": "verified"
+    },
+    {
+      "work_id": "malcolm-x-1992",
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "duration.observations",
+        "critical_reception",
+        "ratings.rottentomatoes"
+      ],
+      "source_urls": [
+        "https://www.imdb.com/title/tt0104797/",
+        "https://www.rottentomatoes.com/m/1042135-malcolm_x",
+        "https://www.rogerebert.com/reviews/malcolm-x-1992",
+        "https://www.newyorker.com/magazine/1992/11/30/still-life"
+      ],
+      "checked_at": "2026-10-09T14:40:52.320Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "section": "vendredi-selection"
+      },
+      "evidence_note": "Identité et réception vérifiées ; divergences de durée conservées, aucune version de diffusion déduite.",
+      "status": "verified_partial"
+    },
+    {
+      "work_id": "malcolm-x-1992",
+      "fields": [
+        "broadcast.date",
+        "broadcast.start",
+        "broadcast.channel",
+        "broadcast.version"
+      ],
+      "source_urls": [
+        "https://tv-programme.com/cine-plus-festival/vendredi-16-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-vendredi-prochain/cine-club"
+      ],
+      "checked_at": "2026-10-09T14:40:52.320Z",
+      "stability": "dynamic",
+      "applies_to": {
+        "week": "2026-S42",
+        "date": "2026-10-16",
+        "start": "17:06",
+        "channel": "Ciné+ Festival"
+      },
+      "evidence_note": "Horaire concordant dans deux guides de provenance non indépendante ; créneau 193 min incompatible avec une certification de la copie 195/202 min.",
+      "status": "blocked_pending_independent_version_evidence"
     }
   ],
   "run_metrics": [
@@ -27163,12 +27220,10 @@
         "complete-sunday-hotel-du-nord-reserve-2026-10-09",
         "complete-saturday-les-revenants-reserve-2026-10-09",
         "complete-saturday-un-crime-dans-la-tete-reserve-2026-10-09",
-        "complete-wednesday-competition-officielle-reserve-2026-10-09"
+        "complete-wednesday-competition-officielle-reserve-2026-10-09",
+        "refine-friday-malcolm-x-hard-eight-2026-10-09"
       ],
       "deliverables_changed": [
-        "data/works.json",
-        "data/links.json",
-        "data/weeks/2026-S42.json",
         "data/research/2026-S42.json"
       ],
       "deliverables_advanced": [
@@ -27186,7 +27241,7 @@
       "complete_cards": 84,
       "cards_integrated_this_run": 10,
       "draft_cards": 0,
-      "partial_dossiers": 0,
+      "partial_dossiers": 1,
       "requirements_resolved": [
         "mardi : réserve quotidienne portée de trois à cinq cartes complètes",
         "mercredi, jeudi et vendredi : un dossier complet supplémentaire intégré à chaque pool quotidien",
@@ -27194,10 +27249,12 @@
         "dimanche : réserve quotidienne portée de quatre à cinq cartes complètes",
         "samedi : réserve quotidienne portée de quatre à cinq cartes complètes",
         "samedi : réserve quotidienne portée de cinq à six cartes complètes",
-        "mercredi : réserve quotidienne portée de quatre à cinq cartes complètes"
+        "mercredi : réserve quotidienne portée de quatre à cinq cartes complètes",
+        "vendredi : Hard Eight retiré de la présélection après contrôle de fraîcheur S41",
+        "vendredi : Malcolm X cadré comme dossier partiel avec conflit de version explicite"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Terminer un dossier proche d’une carte complète pour vendredi ou poursuivre les recoupements de couverture accessibles.",
+      "next_useful_batch": "Résoudre Malcolm X seulement avec une preuve indépendante de la copie diffusée ; sinon terminer un autre dossier vendredi ou un recoupement de couverture accessible.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -27401,18 +27458,47 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T14:37:36.156Z",
+          "elapsed_seconds": 2118.301,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "d3da66f86663fd7e1dc735e46ba55e16a38363f5",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Traiter un dossier bloqué seulement avec une preuve nouvelle ou une voie alternative distincte.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T14:02:17.855Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T15:22:30.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T14:34:03.645Z",
-        "elapsed_seconds": 1905.79,
+        "observed_at": "2026-10-09T14:37:36.156Z",
+        "elapsed_seconds": 2118.301,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "9f622886aa51995c0215892820b8264a4671c2dd",
+        "source_sha": "d3da66f86663fd7e1dc735e46ba55e16a38363f5",
         "next_actions": [
           "Compléter les réserves quotidiennes des jours encore sous dix cartes, en priorité samedi, dimanche et mercredi, depuis des dossiers complets et des diffusions exactement recoupées.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
@@ -27442,15 +27528,19 @@
           "ended_at": "2026-10-09T14:35:47.026Z"
         },
         "recherche": {
-          "started_at": "2026-10-09T14:34:03.645Z",
-          "ended_at": "2026-10-09T14:35:47.026Z"
+          "started_at": "2026-10-09T14:39:24.629Z",
+          "ended_at": "2026-10-09T14:40:52.320Z"
         },
         "controles": {
           "started_at": "2026-10-09T14:34:40.000Z",
           "ended_at": "2026-10-09T14:35:47.026Z"
         },
         "sauvegarde": null,
-        "attente": null
+        "attente": null,
+        "extraction_reprise": {
+          "started_at": "2026-10-09T14:37:36.156Z",
+          "ended_at": "2026-10-09T14:39:24.629Z"
+        }
       },
       "control_notes": [
         "Identités canoniques, politique éditoriale, liens exacts et diff JSON contrôlés localement.",
@@ -30785,6 +30875,53 @@
         ],
         "decision_note": "Réserve complète rang 5 ; copie ARTE 109 min distinguée des fiches cinéma 114/115 min.",
         "alternatives": []
+      },
+      {
+        "id": "sl-vendredi-malcolm-x",
+        "title": "Malcolm X",
+        "work_id": "malcolm-x-1992",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "researching",
+        "signals": [
+          {
+            "kind": "critique",
+            "note": "Roger Ebert défend une biographie explicative et adressée à tous les publics ; la réserve du New Yorker sur une approche révérencieuse et réductrice est conservée.",
+            "source_url": "https://www.rogerebert.com/reviews/malcolm-x-1992"
+          },
+          {
+            "kind": "grille_a_resoudre",
+            "note": "La grille sauvegardée donne vendredi 16 octobre à 17:06 sur Ciné+ Festival, mais le créneau de 193 min ne concorde pas avec les durées cinéma de 195/202 min et le second guide n’est pas indépendant.",
+            "source_url": "https://tv-programme.com/cine-plus-festival/vendredi-16-octobre-2026/"
+          }
+        ],
+        "decision_note": "Dossier partiel seulement : identité et réception sont suffisamment étayées pour la présélection, mais la copie diffusée et le recoupement réellement indépendant restent bloquants.",
+        "alternatives": [
+          "sl-vendredi-la-proie-nue",
+          "sl-vendredi-falaise"
+        ]
+      },
+      {
+        "id": "sl-vendredi-hard-eight",
+        "title": "Hard Eight",
+        "work_id": "hard-eight",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "rejected",
+        "signals": [
+          {
+            "kind": "fraicheur",
+            "note": "Le paquet éditorial retrouve une exposition publique et en réserve dès S41 ; la rediffusion S42 ne fournit pas d’exception de fraîcheur structurée.",
+            "source_url": "https://www.imdb.com/title/tt0119256/"
+          }
+        ],
+        "decision_note": "Écarté de la présélection S42 au titre de la fraîcheur : apparition publique et en réserve dans le numéro immédiatement précédent, sans contexte nouveau admissible.",
+        "alternatives": [
+          "sl-vendredi-malcolm-x",
+          "sl-vendredi-falaise"
+        ]
       }
     ]
   },
@@ -33104,6 +33241,61 @@
       },
       "dossier_completeness": "complete",
       "reason": "Identité/version, diffusion, réception, notes, visuel, liens et textes complets et revus."
+    },
+    {
+      "title": "Malcolm X",
+      "work_id": "malcolm-x-1992",
+      "decision": "dossier partiel de présélection vendredi-selection",
+      "identity_research": {
+        "director": "Spike Lee",
+        "year": 1992,
+        "country": "États-Unis",
+        "duration_observations": [
+          {
+            "duration": "195 min",
+            "version": "fiche IMDb exposée au contrôle",
+            "source_url": "https://www.imdb.com/title/tt0104797/"
+          },
+          {
+            "duration": "202 min",
+            "version": "durée cinéma couramment référencée, à réconcilier avec la copie diffusée",
+            "source_url": "https://www.rottentomatoes.com/m/1042135-malcolm_x"
+          }
+        ],
+        "imdb_id": "tt0104797",
+        "checked_at": "2026-10-09T14:40:52.320Z"
+      },
+      "availability_research": {
+        "status": "observed_grid_not_independently_certified",
+        "checked_at": "2026-10-09T14:40:52.320Z",
+        "source_urls": [
+          "https://tv-programme.com/cine-plus-festival/vendredi-16-octobre-2026/",
+          "https://television.telerama.fr/programme-tv-vendredi-prochain/cine-club"
+        ],
+        "note": "17:06 sur Ciné+ Festival observé dans deux guides dont l’indépendance de flux n’est pas établie ; créneau 193 min distinct des durées cinéma 195/202 min."
+      },
+      "critical_evidence": [
+        {
+          "source": "Roger Ebert",
+          "source_url": "https://www.rogerebert.com/reviews/malcolm-x-1992",
+          "assessment": "Défend la portée explicative, inclusive et historique de la biographie."
+        },
+        {
+          "source": "The New Yorker",
+          "source_url": "https://www.newyorker.com/magazine/1992/11/30/still-life",
+          "assessment": "Réserve indépendante : film jugé révérencieux, statique et réducteur face à la complexité intellectuelle de Malcolm X."
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic_partial",
+        "checked_at": "2026-10-09T14:40:52.320Z",
+        "source_urls": [
+          "https://www.rottentomatoes.com/m/1042135-malcolm_x"
+        ],
+        "note": "Rotten Tomatoes 89 % sur 79 critiques dans la fiche consultée ; valeur dynamique."
+      },
+      "dossier_completeness": "partial",
+      "reason": "Identité et réception étayées ; version exacte, diffusion indépendante, visuel et liens finaux restent à résoudre avant toute carte."
     }
   ]
 }
