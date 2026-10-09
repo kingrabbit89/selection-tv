@@ -3,7 +3,7 @@
   "week": "2026-S42",
   "base_sha": "42e0201304e3bfddb879c24d5045b451a4189de0",
   "stage": "enrichment",
-  "updated_at": "2026-10-09T13:13:12.048Z",
+  "updated_at": "2026-10-09T13:28:09.084Z",
   "remaining": [
     "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
     "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas.",
@@ -958,6 +958,20 @@
         "data/works.json",
         "data/links.json",
         "data/weeks/2026-S42.json",
+        "data/research/2026-S42.json"
+      ]
+    },
+    {
+      "id": "complete-radar-hd-ten-cards-2026-10-09",
+      "completed_at": "2026-10-09T13:28:09.084Z",
+      "scope": "radar-1,radar-2",
+      "summary": "Deux pages Radar 1080p de cinq cartes complètes sont produites à partir de signaux Criterion et Arrow datés, avec identités, formats, notes, visuels exacts et textes revus ; le fichier de réserves HD et le sommaire sont générés.",
+      "deliverables": [
+        "data/works.json",
+        "data/links.json",
+        "data/manifest.json",
+        "data/weeks/2026-S42.json",
+        "data/radar-reserves/2026-S42.json",
         "data/research/2026-S42.json"
       ]
     }
@@ -22841,6 +22855,305 @@
       },
       "evidence_note": "Le visuel exact relié à Criterion a répondu HTTP 200 ; fichier JPEG valide de 223204 octets, 1288×1600, content-type image/jpeg. L’inspection locale confirme une affiche verticale de l’œuvre.",
       "status": "verified"
+    },
+    {
+      "work_id": "welcome-ii-the-terrordome-1995",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings.imdb",
+        "edition.signal",
+        "edition.date",
+        "edition.format",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://www.criterion.com/films/31102-welcome-ii-the-terrordome",
+        "https://www.imdb.com/title/tt0111681/",
+        "https://www.imdb.com/title/tt0111681/ratings/"
+      ],
+      "checked_at": "2026-10-09T13:20:48.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubrique": "radar-1",
+        "title": "Welcome II the Terrordome"
+      },
+      "evidence_note": "Criterion date le film de 1995 et annonce une nouvelle restauration 2K supervisée et approuvée par Alwin H. Küchler ; IMDb titre 1994, divergence d’année conservée. Signal d’édition connu le 9 octobre 2026 : Sortie Blu-ray Criterion · 6 octobre · restauration 2K. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite. Synopsis et justification originaux rédigés après lecture de la description et des caractéristiques techniques de l’éditeur ; la restauration n’est pas utilisée seule comme preuve de qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": "the-shout-1978",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings.imdb",
+        "edition.signal",
+        "edition.date",
+        "edition.format",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://www.criterion.com/films/27993-the-shout",
+        "https://www.imdb.com/title/tt0078259/",
+        "https://www.imdb.com/title/tt0078259/ratings/"
+      ],
+      "checked_at": "2026-10-09T13:20:48.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubrique": "radar-1",
+        "title": "The Shout"
+      },
+      "evidence_note": "Criterion annonce une restauration 2K approuvée par Jerzy Skolimowski et Mike Molloy, en précommande pour le 13 octobre. Signal d’édition connu le 9 octobre 2026 : Précommande Blu-ray Criterion · 13 octobre · restauration 2K. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite. Synopsis et justification originaux rédigés après lecture de la description et des caractéristiques techniques de l’éditeur ; la restauration n’est pas utilisée seule comme preuve de qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": "christiane-f-1981",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings.imdb",
+        "edition.signal",
+        "edition.date",
+        "edition.format",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://www.criterion.com/films/28912-christiane-f",
+        "https://www.imdb.com/title/tt0082176/",
+        "https://www.imdb.com/title/tt0082176/ratings/"
+      ],
+      "checked_at": "2026-10-09T13:20:48.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubrique": "radar-1",
+        "title": "Christiane F."
+      },
+      "evidence_note": "Criterion annonce une nouvelle restauration 4K approuvée par Uli Edel, en précommande pour le 20 octobre. Signal d’édition connu le 9 octobre 2026 : Précommande 4K Criterion · 20 octobre · nouvelle restauration 4K. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite. Synopsis et justification originaux rédigés après lecture de la description et des caractéristiques techniques de l’éditeur ; la restauration n’est pas utilisée seule comme preuve de qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": "the-silence-of-the-lambs-1991",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings.imdb",
+        "edition.signal",
+        "edition.date",
+        "edition.format",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://www.criterion.com/films/528-the-silence-of-the-lambs",
+        "https://www.imdb.com/title/tt0102926/",
+        "https://www.imdb.com/title/tt0102926/ratings/"
+      ],
+      "checked_at": "2026-10-09T13:20:48.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubrique": "radar-1",
+        "title": "The Silence of the Lambs"
+      },
+      "evidence_note": "Criterion annonce une présentation Dolby Vision de la restauration 4K supervisée par Tak Fujimoto, en précommande pour le 20 octobre. Signal d’édition connu le 9 octobre 2026 : Précommande 4K Criterion · 20 octobre · restauration supervisée. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite. Synopsis et justification originaux rédigés après lecture de la description et des caractéristiques techniques de l’éditeur ; la restauration n’est pas utilisée seule comme preuve de qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": "the-long-good-friday-1980",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings.imdb",
+        "edition.signal",
+        "edition.date",
+        "edition.format",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://www.arrowfilms.com/p/4k/the-long-good-friday-4k-uhd/18022598/",
+        "https://www.imdb.com/title/tt0081070/",
+        "https://www.imdb.com/title/tt0081070/ratings/"
+      ],
+      "checked_at": "2026-10-09T13:20:48.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubrique": "radar-1",
+        "title": "The Long Good Friday"
+      },
+      "evidence_note": "Arrow annonce une édition 4K UHD Dolby Vision datée du 12 octobre. Signal d’édition connu le 9 octobre 2026 : Précommande 4K Arrow · 12 octobre · Dolby Vision. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite. Synopsis et justification originaux rédigés après lecture de la description et des caractéristiques techniques de l’éditeur ; la restauration n’est pas utilisée seule comme preuve de qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": "the-last-boy-scout-1991",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings.imdb",
+        "edition.signal",
+        "edition.date",
+        "edition.format",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://www.arrowfilms.com/p/the-last-boy-scout-limited-edition-4k-uhd/17977994/",
+        "https://www.imdb.com/title/tt0102266/",
+        "https://www.imdb.com/title/tt0102266/ratings/"
+      ],
+      "checked_at": "2026-10-09T13:20:48.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubrique": "radar-2",
+        "title": "The Last Boy Scout"
+      },
+      "evidence_note": "Arrow annonce une restauration 4K issue d’un nouveau scan du négatif 35 mm, approuvée par Ward Russell, datée du 12 octobre. Signal d’édition connu le 9 octobre 2026 : Précommande 4K Arrow · 12 octobre · nouveau scan du négatif 35 mm. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite. Synopsis et justification originaux rédigés après lecture de la description et des caractéristiques techniques de l’éditeur ; la restauration n’est pas utilisée seule comme preuve de qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": "creepshow-2-1987",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings.imdb",
+        "edition.signal",
+        "edition.date",
+        "edition.format",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://www.arrowfilms.com/p/4k/creepshow-2-4k-uhd/18022597/",
+        "https://www.imdb.com/title/tt0092796/",
+        "https://www.imdb.com/title/tt0092796/ratings/"
+      ],
+      "checked_at": "2026-10-09T13:20:48.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubrique": "radar-2",
+        "title": "Creepshow 2"
+      },
+      "evidence_note": "Arrow annonce une nouvelle restauration 4K du négatif original, datée du 12 octobre. Signal d’édition connu le 9 octobre 2026 : Précommande 4K Arrow · 12 octobre · nouvelle restauration du négatif original. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite. Synopsis et justification originaux rédigés après lecture de la description et des caractéristiques techniques de l’éditeur ; la restauration n’est pas utilisée seule comme preuve de qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": "the-monster-squad-1987",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings.imdb",
+        "edition.signal",
+        "edition.date",
+        "edition.format",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://www.arrowfilms.com/p/the-monster-squad-limited-edition-4k-uhd/17977982/",
+        "https://www.imdb.com/title/tt0093560/",
+        "https://www.imdb.com/title/tt0093560/ratings/"
+      ],
+      "checked_at": "2026-10-09T13:20:48.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubrique": "radar-2",
+        "title": "The Monster Squad"
+      },
+      "evidence_note": "Arrow annonce une édition limitée 4K UHD deux disques, datée du 12 octobre. Signal d’édition connu le 9 octobre 2026 : Précommande 4K Arrow · 12 octobre · édition limitée deux disques. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite. Synopsis et justification originaux rédigés après lecture de la description et des caractéristiques techniques de l’éditeur ; la restauration n’est pas utilisée seule comme preuve de qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": "cujo-1983",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings.imdb",
+        "edition.signal",
+        "edition.date",
+        "edition.format",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://www.arrowfilms.com/p/cujo-limited-edition-4k-uhd/17977990/",
+        "https://www.imdb.com/title/tt0085382/",
+        "https://www.imdb.com/title/tt0085382/ratings/"
+      ],
+      "checked_at": "2026-10-09T13:20:48.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubrique": "radar-2",
+        "title": "Cujo"
+      },
+      "evidence_note": "Arrow distingue le montage cinéma de 93 min en 4K et le montage international de 91 min en 1080p, édition datée du 12 octobre. Signal d’édition connu le 9 octobre 2026 : Précommande 4K Arrow · 12 octobre · deux montages. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite. Synopsis et justification originaux rédigés après lecture de la description et des caractéristiques techniques de l’éditeur ; la restauration n’est pas utilisée seule comme preuve de qualité.",
+      "status": "verified"
+    },
+    {
+      "work_id": "futureworld-1976",
+      "fields": [
+        "identity.title",
+        "identity.director",
+        "identity.year",
+        "identity.runtime",
+        "ratings.imdb",
+        "edition.signal",
+        "edition.date",
+        "edition.format",
+        "image.url",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "source_urls": [
+        "https://www.arrowfilms.com/p/futureworld-limited-edition-4k-uhd/17977987/",
+        "https://www.imdb.com/title/tt0074559/"
+      ],
+      "checked_at": "2026-10-09T13:20:48.000Z",
+      "stability": "mixed",
+      "applies_to": {
+        "week": "2026-S42",
+        "rubrique": "radar-2",
+        "title": "Futureworld"
+      },
+      "evidence_note": "Arrow annonce une édition 4K UHD Dolby Vision datée du 19 octobre. Signal d’édition connu le 9 octobre 2026 : Précommande 4K Arrow · 19 octobre · Dolby Vision. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite. Synopsis et justification originaux rédigés après lecture de la description et des caractéristiques techniques de l’éditeur ; la restauration n’est pas utilisée seule comme preuve de qualité.",
+      "status": "verified"
     }
   ],
   "run_metrics": [
@@ -25594,26 +25907,35 @@
       "ended_at": null,
       "duration_basis": "Passage en cours ; started_at observé à l’entrée, ended_at sera fixé au bilan terminal.",
       "completed_batches": [
-        "complete-falaise-replace-ghost-friday-card-2026-10-09"
+        "complete-falaise-replace-ghost-friday-card-2026-10-09",
+        "complete-radar-hd-ten-cards-2026-10-09"
       ],
       "deliverables_changed": [
         "data/works.json",
         "data/links.json",
         "data/weeks/2026-S42.json",
-        "data/research/2026-S42.json"
+        "data/research/2026-S42.json",
+        "data/manifest.json",
+        "data/radar-reserves/2026-S42.json"
       ],
       "deliverables_advanced": [
-        "vendredi : La falaise mystérieuse complète remplace A Ghost Story non résolu"
+        "vendredi : La falaise mystérieuse complète remplace A Ghost Story non résolu",
+        "radar-1 : cinq cartes HD complètes",
+        "radar-2 : cinq cartes HD complètes",
+        "sommaire et fichier de réserves radar HD générés"
       ],
-      "complete_cards": 54,
+      "complete_cards": 64,
       "draft_cards": 0,
       "partial_dossiers": 2,
       "requirements_resolved": [
         "vendredi : aucune carte rendue ne conserve le conflit de version A Ghost Story 90/92 min",
-        "La falaise mystérieuse : version TCM 99 min et santé du visuel vérifiées"
+        "La falaise mystérieuse : version TCM 99 min et santé du visuel vérifiées",
+        "radar-1 : cinq cartes complètes avec signal éditeur daté et identité vérifiée",
+        "radar-2 : cinq cartes complètes avec signal éditeur daté et identité vérifiée",
+        "radar HD : réserves structurées hd1/hd2 et entrée de sommaire présentes"
       ],
       "stop_reason": null,
-      "next_useful_batch": "Compléter un lot de réserves quotidiennes à partir des dossiers déjà card_complete, puis traiter les radars manquants sans relancer les contrôles déjà verts.",
+      "next_useful_batch": "Produire le radar popularité courant et ses réserves à partir du signal TorrentFreak du 5 octobre déjà vérifié, puis reprendre les réserves quotidiennes déficitaires.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -25643,21 +25965,50 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-09T13:17:22.080Z",
+          "elapsed_seconds": 825.873,
+          "prompt_revision": "production-efficiency-2026-10-09",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S42",
+          "source_sha": "5f0e490a5a1e89309ede6813e22360ba1ba27fee",
+          "next_actions": [
+            "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers les plus avancés.",
+            "Produire les deux radars et leur fichier de réserves à partir de signaux récents vérifiés.",
+            "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
+            "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
+            "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
+          ],
+          "remaining_count": 35,
+          "next_actions_total": 38,
+          "truncated_notice": "33 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-09T13:03:36.207Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-09T14:04:16.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-09T13:04:42.153Z",
-        "elapsed_seconds": 65.946,
+        "observed_at": "2026-10-09T13:17:22.080Z",
+        "elapsed_seconds": 825.873,
         "prompt_revision": "production-efficiency-2026-10-09",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S42",
-        "source_sha": "2f1fe4a438e1d2ab0f01d35d39412c69642b6f3f",
+        "source_sha": "5f0e490a5a1e89309ede6813e22360ba1ba27fee",
         "next_actions": [
-          "Construire les réserves complètes des jours à trois choix, en commençant par lundi et jeudi à partir des dossiers déjà avancés.",
-          "Produire les rubriques indépendantes encore absentes sans attendre la certification finale des grilles.",
+          "Compléter les réserves quotidiennes des jours encore sous dix cartes à partir des dossiers les plus avancés.",
+          "Produire les deux radars et leur fichier de réserves à partir de signaux récents vérifiés.",
           "Poursuivre les recoupements indépendants et rappels éditoriaux en conservant toutes les exigences ouvertes.",
           "Relevé primaire des sept jours enregistré ; certifier les 7 inventaires après recoupements indépendants, rappel éditorial et résolution des conflits.",
           "Compléter les recoupements réellement indépendants et rappels éditoriaux des journées relevées ; les pages Télérama périmées ne comptent pas."
@@ -28335,6 +28686,206 @@
         ],
         "decision_note": "Identité, version, diffusion, réception, visuel et liens repris du dossier complet sauvegardé ; rang 10, hors des cinq cartes visibles.",
         "alternatives": []
+      },
+      {
+        "id": "sl-radar-1-welcome-ii-the-terrordome-1995",
+        "title": "Welcome II the Terrordome",
+        "work_id": "welcome-ii-the-terrordome-1995",
+        "scope": {
+          "rubrique": "radar-1"
+        },
+        "signals": [
+          {
+            "kind": "edition_hd",
+            "note": "Signal d’édition connu le 9 octobre 2026 : Sortie Blu-ray Criterion · 6 octobre · restauration 2K. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite.",
+            "source_url": "https://www.criterion.com/films/31102-welcome-ii-the-terrordome"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-1-the-shout-1978",
+          "sl-radar-1-christiane-f-1981"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-1-the-shout-1978",
+        "title": "The Shout",
+        "work_id": "the-shout-1978",
+        "scope": {
+          "rubrique": "radar-1"
+        },
+        "signals": [
+          {
+            "kind": "edition_hd",
+            "note": "Signal d’édition connu le 9 octobre 2026 : Précommande Blu-ray Criterion · 13 octobre · restauration 2K. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite.",
+            "source_url": "https://www.criterion.com/films/27993-the-shout"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-1-welcome-ii-the-terrordome-1995",
+          "sl-radar-1-christiane-f-1981"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-1-christiane-f-1981",
+        "title": "Christiane F.",
+        "work_id": "christiane-f-1981",
+        "scope": {
+          "rubrique": "radar-1"
+        },
+        "signals": [
+          {
+            "kind": "edition_hd",
+            "note": "Signal d’édition connu le 9 octobre 2026 : Précommande 4K Criterion · 20 octobre · nouvelle restauration 4K. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite.",
+            "source_url": "https://www.criterion.com/films/28912-christiane-f"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-1-welcome-ii-the-terrordome-1995",
+          "sl-radar-1-the-shout-1978"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-1-the-silence-of-the-lambs-1991",
+        "title": "The Silence of the Lambs",
+        "work_id": "the-silence-of-the-lambs-1991",
+        "scope": {
+          "rubrique": "radar-1"
+        },
+        "signals": [
+          {
+            "kind": "edition_hd",
+            "note": "Signal d’édition connu le 9 octobre 2026 : Précommande 4K Criterion · 20 octobre · restauration supervisée. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite.",
+            "source_url": "https://www.criterion.com/films/528-the-silence-of-the-lambs"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-1-welcome-ii-the-terrordome-1995",
+          "sl-radar-1-the-shout-1978"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-1-the-long-good-friday-1980",
+        "title": "The Long Good Friday",
+        "work_id": "the-long-good-friday-1980",
+        "scope": {
+          "rubrique": "radar-1"
+        },
+        "signals": [
+          {
+            "kind": "edition_hd",
+            "note": "Signal d’édition connu le 9 octobre 2026 : Précommande 4K Arrow · 12 octobre · Dolby Vision. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite.",
+            "source_url": "https://www.arrowfilms.com/p/4k/the-long-good-friday-4k-uhd/18022598/"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-1-welcome-ii-the-terrordome-1995",
+          "sl-radar-1-the-shout-1978"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-2-the-last-boy-scout-1991",
+        "title": "The Last Boy Scout",
+        "work_id": "the-last-boy-scout-1991",
+        "scope": {
+          "rubrique": "radar-2"
+        },
+        "signals": [
+          {
+            "kind": "edition_hd",
+            "note": "Signal d’édition connu le 9 octobre 2026 : Précommande 4K Arrow · 12 octobre · nouveau scan du négatif 35 mm. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite.",
+            "source_url": "https://www.arrowfilms.com/p/the-last-boy-scout-limited-edition-4k-uhd/17977994/"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-2-creepshow-2-1987",
+          "sl-radar-2-the-monster-squad-1987"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-2-creepshow-2-1987",
+        "title": "Creepshow 2",
+        "work_id": "creepshow-2-1987",
+        "scope": {
+          "rubrique": "radar-2"
+        },
+        "signals": [
+          {
+            "kind": "edition_hd",
+            "note": "Signal d’édition connu le 9 octobre 2026 : Précommande 4K Arrow · 12 octobre · nouvelle restauration du négatif original. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite.",
+            "source_url": "https://www.arrowfilms.com/p/4k/creepshow-2-4k-uhd/18022597/"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-2-the-last-boy-scout-1991",
+          "sl-radar-2-the-monster-squad-1987"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-2-the-monster-squad-1987",
+        "title": "The Monster Squad",
+        "work_id": "the-monster-squad-1987",
+        "scope": {
+          "rubrique": "radar-2"
+        },
+        "signals": [
+          {
+            "kind": "edition_hd",
+            "note": "Signal d’édition connu le 9 octobre 2026 : Précommande 4K Arrow · 12 octobre · édition limitée deux disques. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite.",
+            "source_url": "https://www.arrowfilms.com/p/the-monster-squad-limited-edition-4k-uhd/17977982/"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-2-the-last-boy-scout-1991",
+          "sl-radar-2-creepshow-2-1987"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-2-cujo-1983",
+        "title": "Cujo",
+        "work_id": "cujo-1983",
+        "scope": {
+          "rubrique": "radar-2"
+        },
+        "signals": [
+          {
+            "kind": "edition_hd",
+            "note": "Signal d’édition connu le 9 octobre 2026 : Précommande 4K Arrow · 12 octobre · deux montages. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite.",
+            "source_url": "https://www.arrowfilms.com/p/cujo-limited-edition-4k-uhd/17977990/"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-2-the-last-boy-scout-1991",
+          "sl-radar-2-creepshow-2-1987"
+        ],
+        "status": "card_complete"
+      },
+      {
+        "id": "sl-radar-2-futureworld-1976",
+        "title": "Futureworld",
+        "work_id": "futureworld-1976",
+        "scope": {
+          "rubrique": "radar-2"
+        },
+        "signals": [
+          {
+            "kind": "edition_hd",
+            "note": "Signal d’édition connu le 9 octobre 2026 : Précommande 4K Arrow · 19 octobre · Dolby Vision. Il ne s’agit pas d’une diffusion TV ni d’une disponibilité française implicite.",
+            "source_url": "https://www.arrowfilms.com/p/futureworld-limited-edition-4k-uhd/17977987/"
+          }
+        ],
+        "alternatives": [
+          "sl-radar-2-the-last-boy-scout-1991",
+          "sl-radar-2-creepshow-2-1987"
+        ],
+        "status": "card_complete"
       }
     ]
   },
