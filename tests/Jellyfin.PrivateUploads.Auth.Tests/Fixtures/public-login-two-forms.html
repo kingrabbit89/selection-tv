@@ -1,0 +1,16 @@
+<!-- Public login form structure observed by unauthenticated GET at
+     https://kebekmac.forum-canada.com/login on 2026-10-10.
+     Only form markup is retained; no private session or account data. -->
+<form action="/login" method="post" name="form_login">
+  <input type="text" tabindex="1" name="username" id="username" size="25" maxlength="40" value="" class="inputbox autowidth" />
+  <input type="password" tabindex="2" id="password" name="password" size="25" maxlength="64" class="inputbox autowidth" />
+  <input type="checkbox" name="autologin" id="autologin" tabindex="4" checked="checked" class="radio" />
+  <input type="hidden" name="redirect" value="" />
+  <input type="hidden" name="query" value="" />
+  <input type="submit" name="login" tabindex="6" value="Connexion" class="button1" />
+</form>
+<form action="/login" method="post">
+  <input class="inputbox" type="email" id="magic_email" name="email" required autocomplete="email" />
+  <input type="hidden" name="magic_request" value="1" />
+  <input type="submit" class="button1" value="Obtenir le lien" />
+</form>

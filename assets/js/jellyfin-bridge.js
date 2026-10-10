@@ -456,7 +456,9 @@
       renderStatus('loading',payload.pending?'Le serveur continue de préparer le flux privé. Cette actualisation prend plus de temps que prévu.':'Connexion au flux privé des dernières 24 heures…');return;
     }
     if(payload.state==='error'){
-      renderStatus('error','Le flux privé est momentanément indisponible. Réessayez ou actualisez la page Jellyfin.');return;
+      renderStatus('error',payload.errorCode==='forum_authentication_failed'
+        ?'Connexion au forum refusée. Vérifiez la configuration et l’accès du compte Forumactif, puis réessayez.'
+        :'Le flux privé est momentanément indisponible. Réessayez ou actualisez la page Jellyfin.');return;
     }
     const hours=Math.max(1,Math.min(168,Number(payload.windowHours)||24));
     const cutoff=Date.now()-hours*60*60*1000;

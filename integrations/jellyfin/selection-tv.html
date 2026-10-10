@@ -1210,6 +1210,23 @@
     }
   }
 
+  async function privateFeedErrorCode(error){
+    // Jellyfin ApiClient.ajax rejects HTTP failures with the native Response.
+    // Keep the problem body inside the private parent: only an allowlisted
+    // diagnostic code may be sent to the magazine iframe.
+    if(!error||Number(error.status)!==503)return '';
+    try{
+      var problem=error.responseJSON;
+      if(!problem&&typeof error.json==='function')problem=await (typeof error.clone==='function'?error.clone():error).json();
+      if(!problem&&typeof error.responseText==='string')problem=JSON.parse(error.responseText);
+      if(problem&&problem.title==='Selection TV private uploads unavailable'&&
+        (problem.code==='forum_authentication_failed'||problem.detail==='Connexion Forumactif refus\u00e9e ou session non authentifi\u00e9e.')){
+        return 'forum_authentication_failed';
+      }
+    }catch(e){}
+    return '';
+  }
+
   async function loadPrivateUploads(){
     if(!privateSessionCurrent())return;
     if(privateBusy||!hostActive())return;
@@ -1338,9 +1355,12 @@
         status.textContent=base+' · uploads '+items.length;
       }
     }catch(err){
+      clearTimeout(feedTimer);
+      var errorCode=await privateFeedErrorCode(err);
+      if(!privateSessionCurrent())return;
       console.warn('Selection TV private uploads unavailable',err);
-      sendPrivate({type:'selection-tv:jellyfin-private-uploads',version:5,state:'error',items:[]});
-      if(status){status.textContent='Vos Uploads indisponible · réessai automatique';status.className='selectionTvBridgeStatus err'}
+      sendPrivate({type:'selection-tv:jellyfin-private-uploads',version:5,state:'error',errorCode:errorCode,items:[]});
+      if(status){status.textContent=errorCode==='forum_authentication_failed'?'Vos Uploads indisponible · connexion au forum refusée':'Vos Uploads indisponible · réessai automatique';status.className='selectionTvBridgeStatus err'}
     }finally{
       clearTimeout(feedTimer);privateBusy=false;
     }
@@ -1380,7 +1400,7 @@
   }
   window.addEventListener('focus',loadPrivateUploads);
   document.addEventListener('visibilitychange',function(){if(document.visibilityState!=='hidden')loadPrivateUploads()});
-  setTimeout(loadPrivateUploads,3200);
+  setTimeout(function(){return lastPrivatePayload?sendPrivate():loadPrivateUploads()},3200);
   schedule();
 })();
 </script>
