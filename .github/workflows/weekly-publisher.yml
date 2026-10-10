@@ -50,4 +50,5 @@ jobs:
         if: steps.trigger.outputs.allowed == 'true'
         env:
           GH_TOKEN: ${{ secrets.WEEKLY_PUBLISH_TOKEN || github.token }}
+          HAS_DEDICATED_TOKEN: ${{ secrets.WEEKLY_PUBLISH_TOKEN != '' }}
         run: node scripts/weekly-publisher.mjs

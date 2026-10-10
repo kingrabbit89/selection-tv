@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
 import {recoverPromotion} from './recover-promotion.mjs';
+import {synchronizePromotion} from './synchronize-promotion.mjs';
 import {calendarTarget} from './week-calendar.mjs';
 import {allowedPaths,digest} from './editorial-handoff.mjs';
 import {github,readContent,commitFiles,branchSha,openPR} from './github-weekly-api.mjs';
@@ -52,7 +53,19 @@ export async function runPublisher(){
     const head=pr.head.sha;
     assert.equal(pr.base.ref,'main');assert.equal(pr.head.repo.full_name,repo);
     main=branchSha(api,'main');
-    assert(['ahead','identical'].includes(api(`compare/${main}...${head}`).status),'branch behind/diverged from main; normal synchronization required');
+    const relation=api(`compare/${main}...${head}`);
+    if(isPromotion&&['behind','diverged'].includes(relation.status)){
+      if(process.env.HAS_DEDICATED_TOKEN!=='true')
+        log('Promotion synchronization uses the built-in token: new PR checks may require explicit approval. The watchdog retains publication-pending; autonomy without approval is not established.');
+      const synced=synchronizePromotion(api,repo,week,main,head,{prNumber:pr.number,
+        verifyAttestation:(target,base)=>{
+          execFileSync(process.execPath,['scripts/verify-promotion-attestation.mjs',target,base],{stdio:'pipe'});
+          return true;
+        }});
+      log(`Synchronized exact promotion PR #${pr.number} at ${synced.sha}; new checks must pass before any merge.`);
+      return;
+    }
+    assert(['ahead','identical'].includes(relation.status),'branch behind/diverged from main; normal synchronization required');
     const files=api(`pulls/${pr.number}/files?per_page=100`);assert(files.length<100,'too many files for safe automatic review');
     if(!isPromotion){
       reviewedCandidate(week,JSON.parse(readContent(api,head,`data/research/${week}.json`)),p=>readContent(api,head,p),files.map(f=>f.filename));
