@@ -57,6 +57,39 @@ test('a legacy parent discards a private response after the account changes',asy
   assert(!h.sent.some(payload=>payload.items?.length));
 });
 
+test('private handshake resumes a late legacy parent with bounded backoff and stops on a response',()=>{
+  const bridge=read('assets/js/jellyfin-bridge.js');
+  const messages=[],timers=[],statuses=[];
+  const ctx=vm.createContext({PARENT:{postMessage:payload=>messages.push(payload)},TARGET_ORIGIN:'https://jellyfin.local',
+    renderStatus:(state,message)=>statuses.push({state,message}),
+    setTimeout:(fn,delay)=>{const timer={fn,delay};timers.push(timer);return timer},clearTimeout:timer=>{timer.cancelled=true},window:{}});
+  const handshake=bridge.slice(bridge.indexOf('  let renderVersion=0;'),bridge.indexOf('  const retryControl='));
+  vm.runInContext(handshake+'\nwindow.handshake={startPrivateHandshake,stopPrivateHandshake};',ctx);
+  ctx.window.handshake.startPrivateHandshake();
+  assert.equal(messages.length,1);
+  timers.find(timer=>timer.delay===8000).fn();
+  assert.equal(messages.length,2,'the old installed parent gets another chance after its startup windows');
+  assert.match(statuses.at(-1).message,/toujours en attente/);
+  assert.doesNotMatch(statuses.at(-1).message,/n.a pas.*transmis/);
+  ctx.window.handshake.stopPrivateHandshake();
+  timers.forEach(timer=>timer.fn());
+  assert.equal(messages.length,2,'even an already queued callback is invalidated after a trusted payload');
+  assert(timers.every(timer=>timer.cancelled));
+});
+
+test('manual private retry invalidates the old handshake and starts an independent response wait',()=>{
+  const bridge=read('assets/js/jellyfin-bridge.js'),messages=[],timers=[];
+  const ctx=vm.createContext({PARENT:{postMessage:payload=>messages.push(payload)},TARGET_ORIGIN:'https://jellyfin.local',renderStatus(){},
+    setTimeout:(fn,delay)=>{const timer={fn,delay};timers.push(timer);return timer},clearTimeout(){},window:{}});
+  const handshake=bridge.slice(bridge.indexOf('  let renderVersion=0;'),bridge.indexOf('  const retryControl='));
+  vm.runInContext(handshake+'\nwindow.handshake={startPrivateHandshake,stopPrivateHandshake};',ctx);
+  ctx.window.handshake.startPrivateHandshake();const oldTimers=timers.slice();
+  ctx.window.handshake.stopPrivateHandshake();ctx.window.handshake.startPrivateHandshake(true);
+  assert.deepEqual(messages.map(message=>message.type),['selection-tv:jellyfin-private-ready','selection-tv:jellyfin-private-retry','selection-tv:jellyfin-private-ready']);
+  oldTimers.forEach(timer=>timer.fn());assert.equal(messages.length,3);
+  timers.findLast(timer=>timer.delay===8000).fn();assert.equal(messages.length,4);
+});
+
 test('latest progressive snapshot retains every changed card while optional catalogue loading supersedes updates',async()=>{
   const bridge=read('assets/js/jellyfin-bridge.js');
   let settleCatalog;const catalogPromise=new Promise(resolve=>settleCatalog=resolve);
@@ -71,7 +104,7 @@ test('latest progressive snapshot retains every changed card while optional cata
   };
   const ctx=vm.createContext({catalogPromise,formatterReady:Promise.resolve(),document,makeCard,
     hydrateFromCatalog:item=>item,clearTimeout(){},setTimeout:()=>0,
-    CustomEvent:class{},window:{}});
+    CustomEvent:class{},window:{},stopPrivateHandshake(){}});
   const dependencies=bridge.slice(bridge.indexOf('  let privateDataSettled='),bridge.indexOf('  const ratingBox='));
   const renderer=bridge.slice(bridge.indexOf('  const patchPrivate='),bridge.indexOf("  window.addEventListener('message'",bridge.indexOf('  const renderPrivate=')));
   vm.runInContext(dependencies+'\nlet renderVersion=0,privatePayloadReceived=false,waitingTimer;\n'+renderer+'\nwindow.render=renderPrivate;',ctx);
