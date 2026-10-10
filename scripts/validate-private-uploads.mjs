@@ -1,5 +1,6 @@
 import {createRequire} from 'node:module';
 import {createServer} from 'node:http';
+import {createHash} from 'node:crypto';
 import {readFile} from 'node:fs/promises';
 import {resolve, extname} from 'node:path';
 import assert from 'node:assert/strict';
@@ -12,6 +13,12 @@ const privateSelector = '.jellyfin-private-uploads-page';
 const cardSelector = '.jellyfin-private-upload';
 const image = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a/PcAAAAASUVORK5CYII=', 'base64');
 const types = {'.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.html': 'text/html'};
+// Exact installed wrapper from 77c7f838, before S42. This is deliberately not
+// the maintained parent with one helper deleted: deployed Jellyfin copies do
+// not acquire our new visibility hooks or status messages when Pages updates.
+const historicalParent = await readFile(resolve(root, 'scripts/fixtures/jellyfin-selection-tv-pre-s42.html'));
+assert.equal(createHash('sha256').update(historicalParent).digest('hex'),
+  'fd7efb94261aed4c5c5f981a5640143cd18f0cd8c41bf37bd1e417485f7b245b', 'historical installed wrapper must remain frozen');
 const server = createServer(async (req, res) => {
   const url = new URL(req.url, 'http://localhost');
   const file = resolve(root, '.' + decodeURIComponent(url.pathname).replace(/\/$/, '/index.html'));
@@ -22,18 +29,18 @@ const server = createServer(async (req, res) => {
 await new Promise(done => server.listen(0, '127.0.0.1', done));
 const origin = 'http://127.0.0.1:' + server.address().port;
 
-async function mount(browser, week, {hidden = false, standalone = false} = {}) {
+async function mount(browser, week, {hidden = false, standalone = false, historical = false, apiDelay = 0, feedDelay = 0} = {}) {
   const page = await browser.newPage({viewport: {width: 1280, height: 800}});
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
-  await page.addInitScript(({hidden}) => {
+  await page.addInitScript(({apiDelay, feedDelay}) => {
     if (window.top !== window) return;
-    window.__privateFixture = {mode: 'items', delay: 0, calls: 0};
+    window.__privateFixture = {mode: 'items', delay: feedDelay, calls: 0};
     const item = {Id: 'jf-private-paris-texas', Name: 'Paris, Texas', OriginalTitle: 'Paris, Texas',
       ProductionYear: 1984, ProviderIds: {Imdb: 'tt0087884', Tmdb: '655'}, Type: 'Movie',
       UserData: {Played: false}, MediaSources: [{Width: 1920, Height: 1080}],
       Genres: ['Drame'], People: [{Type: 'Director', Name: 'Wim Wenders'}], CommunityRating: 8.1};
-    window.ApiClient = {
+    const fixtureApi = {
       serverId: () => 'private-fixture-server', serverAddress: () => 'http://jellyfin.local',
       getCurrentUserId: () => 'private-fixture-user',
       getImageUrl: () => 'https://images.example.test/private-poster.png',
@@ -43,7 +50,8 @@ async function mount(browser, week, {hidden = false, standalone = false} = {}) {
       ajax: async options => {
         if (String(options.url).includes('SelectionTv/Uploads')) {
           const {mode, delay} = window.__privateFixture; window.__privateFixture.calls++;
-          if (delay) await new Promise(done => setTimeout(done, delay));
+          if (delay > 0) await new Promise(done => setTimeout(done, delay));
+          if (delay < 0) await new Promise(done => {window.__privateFixture.releaseFeed = done;});
           if (mode === 'error') throw Error('Fixture private feed unavailable');
           return {Items: mode === 'empty' ? [] : [{TopicTitle: 'Paris Texas 1984 1080p',
             TitleGuess: 'Paris, Texas', TopicUrl: 'https://forum.example.test/private-paris-texas',
@@ -53,12 +61,18 @@ async function mount(browser, week, {hidden = false, standalone = false} = {}) {
         return [];
       }
     };
-  }, {hidden});
+    if (apiDelay) setTimeout(() => {window.ApiClient = fixtureApi;}, apiDelay);
+    else window.ApiClient = fixtureApi;
+  }, {apiDelay, feedDelay});
   const weeklyUrl = `https://kingrabbit89.github.io/selection-tv/semaines/${week}/`;
   await page.route('**/*', async route => {
     const url = new URL(route.request().url());
     if (url.origin === origin) {
-      if (standalone && url.pathname === '/private-fixture.html') {
+      if (historical && url.pathname === '/integrations/jellyfin/selection-tv.html') {
+        let body = historicalParent.toString('utf8');
+        if (hidden) body = body.replace('id="selectionTvFrame"', 'id="selectionTvFrame" style="display:none"');
+        await route.fulfill({status: 200, contentType: 'text/html', body});
+      } else if (standalone && url.pathname === '/private-fixture.html') {
         await route.fulfill({status: 200, contentType: 'text/html', body: `<!doctype html><meta charset="utf-8">
           <style>#selectionTvFrame{width:100%;height:750px;border:0}</style><div id="selectionTvBridgeStatus"></div>
           <iframe id="selectionTvFrame" src="${weeklyUrl}"></iframe><script src="/assets/js/jellyfin-private-uploads.js"><\/script>`});
@@ -118,10 +132,56 @@ async function retry(page, child, mode, delay = 0) {
   }
 }
 
+async function checkHistoricalParent(browser, name, scenario) {
+  const options = {historical: true,
+    ...(scenario === 'hidden' ? {hidden: true} : {}),
+    ...(scenario === 'late-api' ? {apiDelay: 5200} : {}),
+    ...(scenario === 'slow' ? {feedDelay: -1} : {})};
+  const week = scenario === 'fast' ? '2026-S42' : '2026-S41';
+  const {page, child, errors} = await mount(browser, week, options);
+  try {
+    if (scenario === 'hidden') {
+      await page.waitForTimeout(4200);
+      assert.equal(await page.evaluate(() => window.__privateFixture.calls), 0, 'historical hidden parent must not fetch before it is visible');
+      await page.locator('#selectionTvFrame').evaluate(frame => {frame.style.display = 'block';});
+      // Deliberately dispatch no focus/visibility event: the old installed
+      // parent has neither new handler, and the user is already in this tab.
+      await child.locator(cardSelector).first().waitFor({state: 'attached', timeout: 5000});
+    } else if (scenario === 'late-api') {
+      await child.locator(cardSelector).first().waitFor({state: 'attached', timeout: 8500});
+    } else if (scenario === 'slow') {
+      await page.waitForFunction(() => window.__privateFixture.calls === 1);
+      await page.waitForTimeout(9500);
+      assert.equal(await child.locator(cardSelector).count(), 0, 'the historical slow feed must still be pending');
+      assert.notEqual(await child.locator(privateSelector).first().getAttribute('data-private-state'), 'error',
+        'absence of legacy status messages must not falsely declare a broken private transport at eight seconds');
+      assert.doesNotMatch(await child.locator(privateSelector).first().textContent(), /n.a pas encore transmis|n.a pas pu être affiché/i,
+        'a pending historical API call must retain an honest loading state');
+      await child.evaluate(() => {
+        parent.postMessage({type: 'selection-tv:jellyfin-private-retry', version: 1}, '*');
+        parent.postMessage({type: 'selection-tv:jellyfin-private-ready', version: 1}, '*');
+      });
+      assert.equal(await page.evaluate(() => window.__privateFixture.calls), 1, 'legacy ready/retry must not duplicate an unfinished API call');
+      await page.evaluate(() => window.__privateFixture.releaseFeed());
+      await child.locator(cardSelector).first().waitFor({state: 'attached', timeout: 6000});
+    } else await child.locator(cardSelector).first().waitFor({state: 'attached', timeout: 10000});
+    await page.waitForTimeout(300);
+    assert.equal(await page.evaluate(() => window.__privateFixture.calls), 1, 'repeated legacy handshakes must not refetch the same successful feed');
+    assert.deepEqual(errors, [], `${name} frozen parent ${scenario} errors`);
+    console.log(`✓ ${name}: exact pre-S42 installed parent (${scenario}), current ${week} reader, one private API call`);
+  } finally {await page.close();}
+}
+
+// Targeted reproduction aid; the required CI invocation has no selector and
+// therefore runs every maintained-parent and frozen-parent scenario.
+const historicalOnly = process.argv.includes('--historical-only');
+const selectedHistorical = process.argv.find(arg => arg.startsWith('--historical-case='))?.split('=')[1];
+if (selectedHistorical) assert(['fast', 'hidden', 'late-api', 'slow'].includes(selectedHistorical), 'unknown historical scenario');
 let browser;
 try {
   for (const [name, engine] of [['chromium', chromium], ['firefox', firefox]]) {
     browser = await engine.launch({headless: true});
+    if (!historicalOnly && !selectedHistorical) {
     for (const week of weeks) {
       const {page, child, errors} = await mount(browser, week);
       try {
@@ -165,6 +225,10 @@ try {
       assert.deepEqual(old.errors, [], `${name} standalone parent page errors`);
       console.log(`✓ ${name}: standalone legacy parent without session helper retains its private uploads`);
     } finally {await old.page.close();}
+    }
+    for (const scenario of selectedHistorical ? [selectedHistorical] : ['fast', 'hidden', 'late-api', 'slow']) {
+      await checkHistoricalParent(browser, name, scenario);
+    }
     await browser.close(); browser = null;
   }
 } finally {await browser?.close(); await new Promise(done => server.close(done));}

@@ -26,7 +26,7 @@ La complexité réelle existe : identité/version, diffusion de la bonne semaine
 
 ## Inventaire des incidents
 
-Les PR34–63 citées sont fusionnées ou leurs réparations éditoriales ont été enregistrées dans S42. PR64 est fusionnée et sa correction de lecture est vérifiée sur le site public ; PR65 est fusionnée et la consigne active relue. Le nouveau défaut « Vos Uploads » reste en réparation. Une preuve locale ou un test synthétique ne devient ni un déploiement ni une preuve d’autonomie générale.
+Les PR34–63 citées sont fusionnées ou leurs réparations éditoriales ont été enregistrées dans S42. PR64 est fusionnée et sa correction de lecture est vérifiée sur le site public ; PR65 est fusionnée et la consigne active relue. PR66 est fusionnée sur `37b52775393cd1fb3476bad7165c46fcfb5832b1`, sa CI exacte et son déploiement Pages sont verts. Le signalement suivant montre toutefois « Vos Uploads » sans cartes dans S41 : la présence de la rubrique ne prouve pas la restauration du flux réel. Une preuve locale ou un test synthétique ne devient ni un déploiement ni une preuve d’autonomie générale.
 
 | Incident et effet constaté | Correction et état réel | Preuve et portée | Prévention ou limite restante |
 |---|---|---|---|
@@ -81,6 +81,16 @@ L’attestation sur le vrai état publié, la synchronisation sûre des promotio
 Cette révision corrige également « Vos Uploads », avec des contrôles spécifiques des transitions et des anciens chargements dans les deux navigateurs. Le succès du défilement ou de la publication ne remplace pas ces vérifications. Le fonctionnement du flux privé réel doit encore être distingué des tests : les nouveaux états permettent de constater une réponse vide, une attente ou un service indisponible au lieu de perdre toute la rubrique.
 
 Il reste nécessaire de mesurer S43 avec le nouveau flux. Le succès des tests S42/S41 prouve les cas exécutés ; il ne démontre pas encore une durée de production hebdomadaire ni l’autonomie de toutes les opérations GitHub avec le jeton réellement disponible. Le bilan futur doit distinguer ajouts, stocks, corrections, contrôles et attente, plutôt que compter les commits ou les paragraphes ouverts.
+
+## Complément après les captures du 10 octobre à 03 h 19
+
+Les captures montrent S41 dans Jellyfin Web, le badge du cache de bibliothèque à 17 354 œuvres, puis « Actualisation du flux privé… » et un message affirmant que le lecteur n'a pas transmis le flux. Le badge concerne la bibliothèque, pas la réussite de `SelectionTv/Uploads`. Le message était trop catégorique : il était déclenché par un délai local de huit secondes, sans constater une erreur serveur. Une ancienne intégration ne transmet aucun état pendant sa requête privée ; le service peut encore scanner le forum. Le délai serveur de trente secondes est par requête HTTP, pas pour tout ce travail.
+
+La couverture de PR66 avait une lacune : elle retirait le formateur d'un chargeur ancien, mais utilisait la nouvelle intégration parente pour ses scénarios de montage tardif. Elle n'exécutait pas le HTML réellement fourni avant S42. Une copie intégrale immuable du parent publié en `77c7f838`, également identique à `a650fe4`, est désormais conservée comme fixture avec contrôle SHA-256. Ses premiers essais expirent après quelques secondes et le prochain passage périodique vient dix minutes plus tard. Le rejeu du parent historique montre zéro appel privé si la page reste cachée ou si l'API apparaît après ces essais ; une nouvelle demande de connexion à huit secondes suffit à déclencher un seul appel.
+
+Le lecteur partagé relance désormais le message de connexion original avec un délai progressif borné, et lors du retour au lecteur. Tout message privé provenant du parent autorisé — y compris chargement, vide ou erreur — annule cette reprise. Une reprise manuelle invalide les anciennes temporisations. Les intégrations historiques conservent leur garde contre les appels simultanés ; le magazine public ne contacte jamais directement l'API Jellyfin et ne reçoit aucun identifiant. Le message à huit secondes décrit une attente et ne prétend plus identifier un défaut de transmission.
+
+Cette compatibilité est appliquée dans le lecteur hébergé : elle peut fonctionner après actualisation du magazine sans remplacer le HTML local pour ces scénarios précis. Les tests obligatoires couvrent le parent historique complet avec S41/S42, le montage tardif, l'API tardive et une réponse privée volontairement suspendue, puis livrée, sous Chromium et Firefox. Ils conservent aussi les scénarios du parent actuel. La cause exacte et la réponse du serveur privé de François restent non observées ; le succès de ces tests ne certifie pas ses données réelles.
 
 ## Épreuve réelle du prochain cycle
 

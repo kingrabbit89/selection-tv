@@ -365,17 +365,37 @@
     a.innerHTML='<span class="toc-label">Vos Uploads<span class="toc-sub">24 dernières heures · privé Jellyfin</span></span><span class="toc-page">Jellyfin</span>';
     group.append(a);
   };
-  let privatePayloadReceived=false,renderVersion=0,waitingTimer;
+  let renderVersion=0;
+  let awaitingPrivate=false,handshakeVersion=0,handshakeTimers=[];
+  const stopPrivateHandshake=()=>{
+    awaitingPrivate=false;handshakeVersion++;
+    handshakeTimers.forEach(clearTimeout);handshakeTimers=[];
+  };
+  const requestPrivateReady=()=>{
+    if(awaitingPrivate)PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},TARGET_ORIGIN);
+  };
+  const startPrivateHandshake=(retry=false)=>{
+    stopPrivateHandshake();awaitingPrivate=true;
+    const version=handshakeVersion;
+    if(retry)PARENT.postMessage({type:'selection-tv:jellyfin-private-retry',version:1},TARGET_ORIGIN);
+    requestPrivateReady();
+    // Installed shells predating S42 have only the original ready message.
+    // Their view/API may become usable after every old startup timer expired.
+    // Retry that handshake with bounded backoff, without fetching private data
+    // from this public iframe or duplicating the parent's in-flight request.
+    [500,1800,8000,20000,45000,90000].forEach(delay=>{
+      handshakeTimers.push(setTimeout(()=>{
+        if(version!==handshakeVersion||!awaitingPrivate)return;
+        if(delay===8000)renderStatus('waiting','Le flux privé est toujours en attente. Le serveur peut encore le préparer. Vous pouvez réessayer si l’attente persiste.');
+        requestPrivateReady();
+      },delay));
+    });
+  };
   const retryControl=()=>{
     const retry=document.createElement('button');retry.type='button';retry.className='private-retry';retry.textContent='Réessayer';
       retry.onclick=()=>{
         renderStatus('loading','Actualisation du flux privé des dernières 24 heures…');
-        PARENT.postMessage({type:'selection-tv:jellyfin-private-retry',version:1},TARGET_ORIGIN);
-        // Legacy wrappers know only the original ready handshake.
-        PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},TARGET_ORIGIN);
-        clearTimeout(waitingTimer);waitingTimer=setTimeout(()=>{
-          if(document.querySelector('[data-private-state="loading"]'))renderStatus('waiting','Le lecteur Jellyfin n’a pas transmis le flux privé. Actualisez la page Jellyfin pour relancer la connexion.');
-        },8000);
+        startPrivateHandshake(true);
       };return retry;
   };
   const renderStatus=(state,message)=>{
@@ -431,7 +451,7 @@
   };
 
   const renderPrivate=async payload=>{
-    const version=++renderVersion;privatePayloadReceived=true;clearTimeout(waitingTimer);
+    const version=++renderVersion;stopPrivateHandshake();
     if(payload.state==='loading'){
       renderStatus('loading',payload.pending?'Le serveur continue de préparer le flux privé. Cette actualisation prend plus de temps que prévu.':'Connexion au flux privé des dernières 24 heures…');return;
     }
@@ -498,17 +518,17 @@
       const pending=renderPrivate(e.data),version=renderVersion;
       pending.catch(()=>{if(version===renderVersion)renderStatus('error','Le flux privé n’a pas pu être affiché. Réessayez ou actualisez la page Jellyfin.')});
     }
-    if(e.data.type==='selection-tv:jellyfin-ready'&&!privatePayloadReceived)PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},TARGET_ORIGIN);
+    if(e.data.type==='selection-tv:jellyfin-ready')requestPrivateReady();
   });
+
+  window.addEventListener('focus',requestPrivateReady);
+  document.addEventListener('visibilitychange',()=>{if(document.visibilityState!=='hidden')requestPrivateReady()});
 
   // Explicit handshake: Plugin Pages may finish its own script before or
   // after this iframe bridge. Tell the parent exactly when private payloads
   // can safely be delivered.
   try{
     renderStatus('loading','Connexion au flux privé des dernières 24 heures…');
-    waitingTimer=setTimeout(()=>{if(!privatePayloadReceived)renderStatus('waiting','Le lecteur Jellyfin n’a pas encore transmis le flux privé. Réessayez ou actualisez la page Jellyfin.');},8000);
-    PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},TARGET_ORIGIN);
-    setTimeout(()=>PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},TARGET_ORIGIN),500);
-    setTimeout(()=>PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},TARGET_ORIGIN),1800);
+    startPrivateHandshake();
   }catch{}
 })();
