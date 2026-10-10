@@ -359,7 +359,7 @@ function updateToggle(){
  b.onclick=()=>{setHide(!hideSeen());apply()};
 }
 function apply(){
- window.SelectionTVLayout?.restore();
+ const update=()=>{
  migrateLegacy();
  const h=hideSeen();
  for(const el of candidates()){
@@ -373,7 +373,12 @@ function apply(){
  }
  applyPools();applyGridGroups();syncRadar1080pSummary();updateSimpleSummaries();updateToggle();
  const c=document.getElementById('savedCount');if(c)c.textContent=Object.values(loadStore()).filter(x=>(x.status||'a-recuperer')==='a-recuperer').length;
- setTimeout(()=>{try{window.dispatchEvent(new Event('resize'))}catch(e){}},20);
+ };
+ if(window.SelectionTVLayout?.mutate)window.SelectionTVLayout.mutate(update);
+ else{
+   window.SelectionTVLayout?.restore();update();
+   setTimeout(()=>{try{window.dispatchEvent(new Event('resize'))}catch(e){}},20);
+ }
 }
 window.addEventListener('storage',e=>{if(e.key===null||[STORE,SEEN,PREF].includes(e.key))apply()});
 document.addEventListener('selectiontv:seenchange',()=>setTimeout(apply,0));

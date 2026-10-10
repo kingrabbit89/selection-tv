@@ -8,11 +8,17 @@
    // Private upload cards are progressively enriched one by one. Their
    // replacement must not trigger a full reflow of a very long issue, which
    // otherwise fights native scroll anchoring near the end of the magazine.
-   const onlyPrivateInternal=records.length&&records.every(r=>{
+   const changesPageGeometry=records.some(r=>{
      const target=r.target instanceof Element?r.target:r.target?.parentElement;
-     return !!target?.closest?.('.jellyfin-private-uploads-page');
+     if(target?.closest?.('.jellyfin-private-uploads-page,.visual,.canonical-image-fallback,.radar-reserve-fallback,.release-fallback'))return false;
+     // These posters and their fallback boxes have the same explicit CSS
+     // dimensions. A late failed request changes the visual, not pagination.
+     const nodes=[...r.addedNodes,...r.removedNodes];
+     const fixedPosterCard=target?.matches?.('article.week-card,article.radar-card,article.torrent-card,article.list-card,article.platform,article.release-card,article.expire-card');
+     if(fixedPosterCard&&nodes.length&&nodes.every(n=>n instanceof Element&&n.matches('img,.canonical-image-fallback,.radar-reserve-fallback,.release-fallback')))return false;
+     return true;
    });
-   if(!onlyPrivateInternal)schedule();
+   if(changesPageGeometry)schedule();
  });
  const observe=()=>observer.observe(document.querySelector('.book'),{childList:true,subtree:true});
  function rememberMove(node,parent,before=null){
@@ -139,7 +145,13 @@
    }
  }
  function schedule(){if(running)return;clearTimeout(timer);timer=setTimeout(layout,60)}
- window.SelectionTVLayout={restore,schedule,layout};
+ function mutate(update){
+   restore();
+   // Complete personal-selection changes in the same turn. Leaving a shorter
+   // document visible for a timer interval also races wheel and TOC navigation.
+   try{return update()}finally{layout()}
+ }
+ window.SelectionTVLayout={restore,schedule,layout,mutate};
  window.addEventListener('resize',schedule);window.addEventListener('beforeprint',layout);window.addEventListener('afterprint',schedule);
  // Images in magazine layouts have explicit CSS geometry. Re-running the
  // whole 40-page pagination on every lazy image load/error causes scroll
