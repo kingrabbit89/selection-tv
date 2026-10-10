@@ -193,9 +193,36 @@ try{
     await route.abort();
   });
   await page.evaluate(()=>{localStorage.clear();sessionStorage.clear()});
-  await page.addInitScript(()=>{
-    window.fixtureOverride={Id:'jf-samourai',Name:'Le Samouraï',ProductionYear:1967,ProviderIds:{Imdb:'tt0062229'},Type:'Movie',UserData:{Played:true},MediaSources:[{Width:1920}]};
-  });
+  const actualWeek=JSON.parse(await readFile(resolve(root,'data/weeks',manifest.latest+'.json'),'utf8'));
+  const saturday=actualWeek.pages.find(section=>section.id==='samedi-selection');
+  assert(saturday?.html,`${manifest.latest} must provide the Saturday selection for the real Jellyfin scenario`);
+  const actualPrimary=await page.evaluate(html=>{
+    const template=document.createElement('template');
+    template.innerHTML=html;
+    const card=template.content.querySelector('article.feature');
+    return card?{workId:card.dataset.workId||'',title:card.dataset.title||card.querySelector('h3')?.textContent||''}:null;
+  },saturday.html);
+  assert(actualPrimary?.title,`${manifest.latest} must provide a first Saturday recommendation`);
+  const normalize=value=>String(value||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+  const actualWork=JSON.parse(worksSource).works.find(work=>actualPrimary.workId?
+    work.id===actualPrimary.workId:normalize(work.title)===normalize(actualPrimary.title));
+  assert(actualWork,`${manifest.latest} Saturday recommendation must resolve to a canonical work`);
+  assert(Number.isInteger(Number(actualWork.year))&&Number(actualWork.year)>0,'real Jellyfin fixture must retain the canonical production year');
+  const actualLinks=Object.entries(JSON.parse(linksSource).links).find(([title])=>normalize(title)===normalize(actualWork.title))?.[1]||{};
+  const actualItem={
+    Id:'jf-'+actualWork.id,
+    Name:actualWork.title,
+    OriginalTitle:actualWork.title,
+    ProductionYear:Number(actualWork.year),
+    ProviderIds:Object.fromEntries([
+      ['Imdb',actualLinks.imdb?.match(/\/title\/(tt\d+)/i)?.[1]],
+      ['Tmdb',actualLinks.tmdb?.match(/\/movie\/(\d+)/i)?.[1]]
+    ].filter(([,value])=>value)),
+    Type:'Movie',UserData:{Played:true},MediaSources:[{Width:1920,Height:1080}]
+  };
+  await page.addInitScript(({fixture})=>{
+    if(window.top===window)window.fixtureOverride=fixture;
+  },{fixture:actualItem});
   await page.goto(origin+'/integrations/jellyfin/selection-tv.html',{waitUntil:'domcontentloaded'});
   let fullChild;
   for(let attempt=0;attempt<100;attempt++){
@@ -204,10 +231,15 @@ try{
     await page.waitForTimeout(100);
   }
   assert(fullChild,`actual latest.html did not resolve ${manifest.latest}`);
-  await fullChild.locator('#samedi-selection article.feature').first().scrollIntoViewIfNeeded();
-  await fullChild.locator('#samedi-selection .jellyfin-open').first().waitFor({state:'attached'});
+  const actualCard=fullChild.locator('#samedi-selection article.feature').first();
+  assert.equal(await actualCard.getAttribute('data-title'),actualPrimary.title,'real Jellyfin scenario must exercise the current first Saturday recommendation');
+  await actualCard.scrollIntoViewIfNeeded();
+  await actualCard.locator('.jellyfin-open').waitFor({state:'attached'});
+  assert.equal(await actualCard.locator('.jellyfin-open').textContent(),'Ouvrir dans Jellyfin');
   await fullChild.locator('.jellyfin-private-uploads-page').first().waitFor({state:'attached'});
   assert(await fullChild.locator('.book>.page').count()>=26,`real ${manifest.latest} content was not rendered`);
+  await actualCard.locator('.jellyfin-open').click();
+  await page.waitForFunction(id=>location.hash.includes('details?id='+id),actualItem.Id);
   console.log(`✓ Actual latest.html → full ${manifest.latest} → Jellyfin buttons and Vos Uploads (API fixture)`);
 
   // A different logged-in account must invalidate the entire in-memory bridge.
