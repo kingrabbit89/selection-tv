@@ -42,6 +42,29 @@ test('real API rejection sends an error status and retry is limited to the trust
   h.retry();await Promise.resolve();await Promise.resolve();
   assert.equal(h.state.calls,2);
 });
+test('native HTTP 503 problem response becomes an allowlisted forum diagnostic without copying its body',async()=>{
+  const problem={title:'Selection TV private uploads unavailable',status:503,
+    detail:'Connexion Forumactif refusée ou session non authentifiée.',traceId:'private-trace'};
+  const response=new Response(JSON.stringify(problem),{status:503,headers:{'Content-Type':'application/problem+json'}});
+  const h=host(async()=>{throw response});await h.start();
+  assert.equal(h.sent.at(-1).state,'error');
+  assert.equal(h.sent.at(-1).errorCode,'forum_authentication_failed');
+  assert.doesNotMatch(JSON.stringify(h.sent),/private-trace|session non authentifiée/);
+  assert.equal(response.bodyUsed,false,'classification must not consume the original ApiClient Response');
+  await h.start();assert.equal(h.state.calls,1,'the final startup timer must resend a settled failure rather than repeat the login');
+});
+test('unrecognised or malformed HTTP failures remain generic and cannot expose private details',async()=>{
+  for(const response of [
+    new Response(JSON.stringify({title:'Selection TV private uploads unavailable',detail:'private-password-or-path'}),{status:503}),
+    new Response(JSON.stringify({title:'Other service',code:'forum_authentication_failed'}),{status:503}),
+    new Response('not JSON',{status:503}),
+    new Response(JSON.stringify({title:'Selection TV private uploads unavailable',code:'forum_authentication_failed'}),{status:500})
+  ]){
+    const h=host(async()=>{throw response});await h.start();
+    assert.equal(h.sent.at(-1).state,'error');assert.equal(h.sent.at(-1).errorCode,'');
+    assert.doesNotMatch(JSON.stringify(h.sent),/private-password-or-path|not JSON/);
+  }
+});
 test('slow requests stay pending and repeated retry does not duplicate an unfinished request',async()=>{
   let finish;const h=host(()=>new Promise(resolve=>finish=resolve));const request=h.start();
   h.timers.find(timer=>timer.delay===15000).fn();

@@ -282,7 +282,9 @@ public sealed class ForumUploadsService
     private static async Task LoginAsync(HttpClient client, PrivateUploadsConfig cfg, CancellationToken cancellationToken)
     {
         var loginPage = await client.GetStringAsync("login", cancellationToken).ConfigureAwait(false);
-        var form = ExtractHiddenInputs(loginPage);
+        // Forumactif also renders a passwordless email form on this page. Its
+        // magic_request flag must never leak into the username/password POST.
+        var form = ExtractHiddenInputs(ExtractPasswordLoginForm(loginPage));
         form["username"] = cfg.Username;
         form["password"] = cfg.Password;
         form["autologin"] = "on";
@@ -292,6 +294,36 @@ public sealed class ForumUploadsService
         using var content = new FormUrlEncodedContent(form);
         var response = await client.PostAsync("login", content, cancellationToken).ConfigureAwait(false);
         response.EnsureSuccessStatusCode();
+    }
+
+    private static string ExtractPasswordLoginForm(string html)
+    {
+        foreach (Match form in Regex.Matches(
+            html,
+            @"<form\b(?<attrs>[^>]*)>(?<body>.*?)</form\s*>",
+            RegexOptions.IgnoreCase | RegexOptions.Singleline))
+        {
+            if (!string.Equals(Attribute(form.Groups["attrs"].Value, "method"), "post", StringComparison.OrdinalIgnoreCase))
+            {
+                continue;
+            }
+
+            var inputs = Regex.Matches(form.Groups["body"].Value, @"<input\b[^>]*>", RegexOptions.IgnoreCase | RegexOptions.Singleline)
+                .Cast<Match>()
+                .Select(input => input.Value)
+                .ToList();
+            var hasUsername = inputs.Any(input => string.Equals(Attribute(input, "name"), "username", StringComparison.OrdinalIgnoreCase));
+            var hasPassword = inputs.Any(input =>
+                string.Equals(Attribute(input, "name"), "password", StringComparison.OrdinalIgnoreCase)
+                && string.Equals(Attribute(input, "type"), "password", StringComparison.OrdinalIgnoreCase));
+
+            if (hasUsername && hasPassword)
+            {
+                return form.Groups["body"].Value;
+            }
+        }
+
+        throw new InvalidOperationException("Formulaire de connexion Forumactif par mot de passe introuvable.");
     }
 
     private static Dictionary<string, string> ExtractHiddenInputs(string html)

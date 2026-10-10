@@ -7,6 +7,7 @@ on:
       - main
     paths:
       - "integrations/jellyfin/private-uploads/**"
+      - "tests/Jellyfin.PrivateUploads.Auth.Tests/**"
       - "assets/js/jellyfin-private-uploads.js"
       - "assets/js/jellyfin-bridge.js"
       - "integrations/jellyfin/selection-tv.html"
@@ -14,6 +15,7 @@ on:
   push:
     paths:
       - "integrations/jellyfin/private-uploads/**"
+      - "tests/Jellyfin.PrivateUploads.Auth.Tests/**"
       - "assets/js/jellyfin-private-uploads.js"
       - "assets/js/jellyfin-bridge.js"
       - "integrations/jellyfin/selection-tv.html"
@@ -58,6 +60,9 @@ jobs:
 
       - name: Build
         run: dotnet build integrations/jellyfin/private-uploads/Jellyfin.Plugin.SelectionTvPrivate.csproj -c Release --no-restore
+
+      - name: Test Forumactif password login isolation
+        run: dotnet run --project tests/Jellyfin.PrivateUploads.Auth.Tests/Jellyfin.PrivateUploads.Auth.Tests.csproj -c Release
 
       - name: Stage plugin
         run: |

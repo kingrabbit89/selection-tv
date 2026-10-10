@@ -21,6 +21,13 @@ assert.equal(createHash('sha256').update(historicalParent).digest('hex'),
   'fd7efb94261aed4c5c5f981a5640143cd18f0cd8c41bf37bd1e417485f7b245b', 'historical installed wrapper must remain frozen');
 const server = createServer(async (req, res) => {
   const url = new URL(req.url, 'http://localhost');
+  if (url.pathname === '/SelectionTv/Uploads') {
+    res.writeHead(503, {'Content-Type': 'application/problem+json'});
+    res.end(JSON.stringify({title: 'Selection TV private uploads unavailable', status: 503,
+      detail: url.searchParams.get('fixture') === 'private-error'
+        ? 'PRIVATE_DIAGNOSTIC_DO_NOT_FORWARD' : 'Connexion Forumactif refusée ou session non authentifiée.'}));
+    return;
+  }
   const file = resolve(root, '.' + decodeURIComponent(url.pathname).replace(/\/$/, '/index.html'));
   if (!file.startsWith(root + '/')) {res.writeHead(403); res.end(); return;}
   try {res.setHeader('Content-Type', types[extname(file)] || 'application/octet-stream'); res.end(await readFile(file));}
@@ -29,13 +36,16 @@ const server = createServer(async (req, res) => {
 await new Promise(done => server.listen(0, '127.0.0.1', done));
 const origin = 'http://127.0.0.1:' + server.address().port;
 
-async function mount(browser, week, {hidden = false, standalone = false, historical = false, apiDelay = 0, feedDelay = 0} = {}) {
+async function mount(browser, week, {hidden = false, standalone = false, historical = false, apiDelay = 0, feedDelay = 0, feedMode = 'items'} = {}) {
   const page = await browser.newPage({viewport: {width: 1280, height: 800}});
-  const errors = [];
+  const errors = [], httpFailures = [];
   page.on('pageerror', error => errors.push(error.message));
-  await page.addInitScript(({apiDelay, feedDelay}) => {
+  page.on('response', response => {
+    if (new URL(response.url()).pathname === '/SelectionTv/Uploads') httpFailures.push(response);
+  });
+  await page.addInitScript(({apiDelay, feedDelay, feedMode}) => {
     if (window.top !== window) return;
-    window.__privateFixture = {mode: 'items', delay: feedDelay, calls: 0};
+    window.__privateFixture = {mode: feedMode, delay: feedDelay, calls: 0};
     const item = {Id: 'jf-private-paris-texas', Name: 'Paris, Texas', OriginalTitle: 'Paris, Texas',
       ProductionYear: 1984, ProviderIds: {Imdb: 'tt0087884', Tmdb: '655'}, Type: 'Movie',
       UserData: {Played: false}, MediaSources: [{Width: 1920, Height: 1080}],
@@ -53,6 +63,14 @@ async function mount(browser, week, {hidden = false, standalone = false, histori
           if (delay > 0) await new Promise(done => setTimeout(done, delay));
           if (delay < 0) await new Promise(done => {window.__privateFixture.releaseFeed = done;});
           if (mode === 'error') throw Error('Fixture private feed unavailable');
+          if (mode === 'auth-error' || mode === 'private-error') {
+            // Official jellyfin-apiclient v1.11.0 (used by Web 10.11.11)
+            // ajax() rejects a failed fetch with its unconsumed native Response.
+            // Exercise a real HTTP 503 body instead of a generic Error mock.
+            const response = await fetch(options.url + '?fixture=' + mode);
+            if (response.status >= 400) throw response;
+            return response.json();
+          }
           return {Items: mode === 'empty' ? [] : [{TopicTitle: 'Paris Texas 1984 1080p',
             TitleGuess: 'Paris, Texas', TopicUrl: 'https://forum.example.test/private-paris-texas',
             ActivityAt: new Date().toISOString(), Year: 1984}], WindowHours: 24, GeneratedAt: new Date().toISOString()};
@@ -63,7 +81,7 @@ async function mount(browser, week, {hidden = false, standalone = false, histori
     };
     if (apiDelay) setTimeout(() => {window.ApiClient = fixtureApi;}, apiDelay);
     else window.ApiClient = fixtureApi;
-  }, {apiDelay, feedDelay});
+  }, {apiDelay, feedDelay, feedMode});
   const weeklyUrl = `https://kingrabbit89.github.io/selection-tv/semaines/${week}/`;
   await page.route('**/*', async route => {
     const url = new URL(route.request().url());
@@ -115,7 +133,7 @@ async function mount(browser, week, {hidden = false, standalone = false, histori
   }
   assert(child, `private fixture failed to reach ${week}`);
   await child.locator('.book').waitFor({state: 'attached'});
-  return {page, child, errors};
+  return {page, child, errors, httpFailures};
 }
 
 async function retry(page, child, mode, delay = 0) {
@@ -172,6 +190,39 @@ async function checkHistoricalParent(browser, name, scenario) {
   } finally {await page.close();}
 }
 
+async function checkForumAuthenticationError(browser, name, week) {
+  const {page, child, errors, httpFailures} = await mount(browser, week, {feedMode: 'auth-error'});
+  try {
+    await child.waitForFunction(() => document.querySelector('.jellyfin-private-uploads-page')?.dataset.privateState === 'error');
+    assert.equal(httpFailures.length, 1, 'the diagnostic must come from a real HTTP response');
+    assert.equal(httpFailures[0].status(), 503);
+    assert.match((await httpFailures[0].json()).detail, /Connexion Forumactif refusée/);
+    assert.match(await child.locator(privateSelector).first().textContent(), /Connexion au forum refusée/);
+    assert.doesNotMatch(await child.locator(privateSelector).first().textContent(), /Actualisation|Connexion au flux privé/,
+      'a rejected login must leave the loading state immediately');
+    assert.equal(await child.locator('.private-retry').count(), 1);
+    await child.evaluate(() => parent.postMessage({type: 'selection-tv:jellyfin-private-ready', version: 1}, '*'));
+    await page.waitForTimeout(200);
+    assert.equal(await page.evaluate(() => window.__privateFixture.calls), 1,
+      'a repeated handshake must resend the settled error instead of retrying the failed login');
+    await retry(page, child, 'private-error');
+    await child.waitForFunction(() => /momentanément indisponible/.test(document.querySelector('.jellyfin-private-uploads-page')?.textContent || ''));
+    assert.doesNotMatch(await child.locator(privateSelector).first().textContent(), /PRIVATE_DIAGNOSTIC_DO_NOT_FORWARD/,
+      'unrecognised private response details must stay inside the parent');
+    await page.evaluate(() => Object.assign(window.__privateFixture, {mode: 'items'}));
+    await child.locator('.private-retry').click();
+    await child.locator(cardSelector).first().waitFor({state: 'attached'});
+    const title = await child.locator(cardSelector + ' h3').first().textContent();
+    await retry(page, child, 'auth-error');
+    await child.waitForFunction(() => document.querySelector('.jellyfin-private-uploads-page')?.dataset.privateState === 'error');
+    assert.equal(await child.locator(cardSelector + ' h3').first().textContent(), title,
+      'authentication failures must retain the last received private cards');
+    assert.match(await child.locator(privateSelector).first().textContent(), /Connexion au forum refusée/);
+    assert.deepEqual(errors, [], `${name} ${week} actual HTTP 503 page errors`);
+    console.log(`✓ ${name} ${week}: actual HTTP 503 gives a private-safe login diagnostic, clears loading and preserves previous cards`);
+  } finally {await page.close();}
+}
+
 // Targeted reproduction aid; the required CI invocation has no selector and
 // therefore runs every maintained-parent and frozen-parent scenario.
 const historicalOnly = process.argv.includes('--historical-only');
@@ -182,6 +233,7 @@ try {
   for (const [name, engine] of [['chromium', chromium], ['firefox', firefox]]) {
     browser = await engine.launch({headless: true});
     if (!historicalOnly && !selectedHistorical) {
+    for (const week of weeks) await checkForumAuthenticationError(browser, name, week);
     for (const week of weeks) {
       const {page, child, errors} = await mount(browser, week);
       try {
