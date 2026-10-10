@@ -5,12 +5,13 @@ import vm from 'node:vm';
 
 // Execute the production formatter, grid hydration and pool model builder in
 // their actual closure. Native search/navigation stays outside this harness.
+const formatter=fs.readFileSync(new URL('../assets/js/rating-format.js',import.meta.url),'utf8');
 const source=fs.readFileSync(new URL('../assets/js/android-tv-mode.js',import.meta.url),'utf8');
 const prefix=source.slice(0,source.indexOf('  const posterCandidatesOf='));
 const pool=source.slice(source.indexOf('    const poolModel='),source.indexOf('    // The desktop reserve engine'));
 function runtime(catalogue=[],published={}){
   const window={SelectionTVRatings:published};
-  vm.runInNewContext(prefix+`
+  vm.runInNewContext(formatter+prefix+`
     const idsFor=()=>({imdbId:'',tmdbId:''});
     const cacheKeyFor=(title,year)=>norm(title)+'|'+year;
     const loadCachedState=()=>{};
