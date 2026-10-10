@@ -59,7 +59,7 @@ jobs:
       - run: node scripts/validate-canonical-identities.mjs
       - run: node scripts/sync-asset-versions.mjs --check
       - run: node scripts/validate-architecture.mjs
-      - run: node --test scripts/test-editorial-progress.mjs scripts/test-editorial-continuation.mjs scripts/test-editorial-large-checkpoint.mjs scripts/test-editorial-task-board.mjs scripts/test-editorial-radar-reconcile.mjs scripts/test-editorial-research-triage.mjs scripts/test-android-tv-ratings.mjs scripts/test-layout-section-reserves.mjs scripts/test-web-presentation.mjs
+      - run: node --test scripts/test-editorial-progress.mjs scripts/test-editorial-continuation.mjs scripts/test-editorial-large-checkpoint.mjs scripts/test-editorial-task-board.mjs scripts/test-editorial-radar-reconcile.mjs scripts/test-editorial-research-triage.mjs scripts/test-android-tv-ratings.mjs scripts/test-layout-section-reserves.mjs scripts/test-web-presentation.mjs scripts/test-private-uploads.mjs
       - run: node --test scripts/test-editorial-source-collector.mjs scripts/test-editorial-source-import.mjs scripts/test-editorial-production-plan.mjs scripts/test-editorial-production-flow.mjs scripts/test-editorial-telerama-import.mjs scripts/test-editorial-telerama-authority.mjs scripts/test-editorial-telerama-signals.mjs
       - run: node scripts/validate-publication-candidate.mjs
       - run: node scripts/validate-editorial.mjs
@@ -134,3 +134,6 @@ jobs:
       - name: Preserve web reading position with delayed images in Chromium and Firefox
         if: steps.regressions.outputs.reused != 'true'
         run: node scripts/validate-scroll.mjs
+      - name: Preserve Jellyfin private uploads across legacy loaders and feed transitions
+        if: steps.regressions.outputs.reused != 'true'
+        run: node scripts/validate-private-uploads.mjs

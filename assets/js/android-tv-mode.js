@@ -1,4 +1,18 @@
-(()=>{
+(async()=>{
+ const formatterScript=document.currentScript?.src||location.href;
+ if(!window.SelectionTVRatingFormat){
+   await (window.SelectionTVRatingFormatReady||=new Promise(resolve=>{
+     const script=document.createElement('script');
+     script.src=new URL('rating-format.js'+new URL(formatterScript).search,formatterScript).href;
+     script.onload=script.onerror=resolve;document.head.append(script);setTimeout(resolve,4000);
+   }));
+   if(!window.SelectionTVRatingFormat){
+     // Preserve the recorded values when optional formatting cannot load.
+     const entries=ratings=>Object.entries(ratings||{}).filter(([,v])=>['string','number'].includes(typeof v)&&String(v).trim()).map(([key,value])=>({label:({imdb:'IMDb',sc:'SensCritique',senscritique:'SensCritique'}[key]||key)+' '+value}));
+     window.SelectionTVRatingFormat={entries,labels:ratings=>entries(ratings).map(x=>x.label),appendTo(box,ratings){for(const {label} of entries(ratings)){const pill=document.createElement('span');pill.className='rating-pill';pill.textContent=label;box.append(pill)}return box}};
+   }
+ }
+
   if(new URLSearchParams(location.search).get('tv')!=='1')return;
 
   const REQUIRED_ANDROID_PROTOCOL=4;

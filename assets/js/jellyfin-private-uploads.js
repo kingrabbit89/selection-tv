@@ -6,17 +6,29 @@
   var privateBusy=false;
   var lastPrivatePayload=null;
   var localSearchCache=new Map();
-  var PRIVATE_CACHE_KEY='selectionTv_private_enriched_v1';
+  var PRIVATE_CACHE_KEY='selectionTv_private_enriched_v2';
+  function privateCacheKey(){var a=api();return PRIVATE_CACHE_KEY+'|'+String(a&&a.serverAddress&&a.serverAddress()||location.origin)+'|'+String(a&&a.getCurrentUserId&&a.getCurrentUserId()||'')}
+  var privateSessionIdentity=null,privateSessionReloading=false;
+  function privateSessionCurrent(){
+    if(typeof window.SelectionTvSessionCurrent==='function')return window.SelectionTvSessionCurrent();
+    if(privateSessionReloading)return false;
+    var a=api();if(!a||!a.getCurrentUserId||!a.getCurrentUserId())return false;
+    var identity=privateCacheKey();
+    if(privateSessionIdentity===null)privateSessionIdentity=identity;
+    if(privateSessionIdentity===identity)return true;
+    privateSessionReloading=true;frame.style.visibility='hidden';window.location.reload();return false;
+  }
+
 
   function loadEnrichedCache(){
     try{
-      var parsed=JSON.parse(sessionStorage.getItem(PRIVATE_CACHE_KEY)||'{}');
+      var parsed=JSON.parse(sessionStorage.getItem(privateCacheKey())||'{}');
       return parsed&&typeof parsed==='object'?parsed:{};
     }catch(e){return {}}
   }
 
   function saveEnrichedCache(cache){
-    try{sessionStorage.setItem(PRIVATE_CACHE_KEY,JSON.stringify(cache))}catch(e){}
+    try{sessionStorage.setItem(privateCacheKey(),JSON.stringify(cache))}catch(e){}
   }
 
   function uploadCacheKey(upload){
@@ -100,6 +112,13 @@
     if(localSearchCache.has(cacheKey))return localSearchCache.get(cacheKey);
 
     var promise=(async function(){
+      if(typeof window.SelectionTvFindLibraryItem==='function'){
+        try{
+          var indexed=await window.SelectionTvFindLibraryItem({title:title,year:year});
+          if(indexed)return indexed;
+        }catch(e){}
+      }
+
       var all=[];
       for(var ci=0;ci<candidates.length;ci++){
         try{
@@ -399,6 +418,7 @@
   }
 
   function sendPrivate(payload){
+    if(!privateSessionCurrent())return;
     if(payload)lastPrivatePayload=payload;
     if(frame.contentWindow&&lastPrivatePayload){
       frame.contentWindow.postMessage(lastPrivatePayload,CHILD_ORIGIN);
@@ -406,17 +426,25 @@
   }
 
   async function loadPrivateUploads(){
+    if(!privateSessionCurrent())return;
     if(privateBusy||!hostActive())return;
     var a=api();
     if(!a)return;
     privateBusy=true;
+    var feedTimer;
+    sendPrivate({type:'selection-tv:jellyfin-private-uploads',version:5,state:'loading',items:[]});
     try{
+      // A cold forum scan can legitimately exceed fifteen seconds. Report
+      // pending work without rejecting it or starting duplicate API requests.
+      feedTimer=setTimeout(function(){sendPrivate({type:'selection-tv:jellyfin-private-uploads',version:5,state:'loading',pending:true,items:[]})},15000);
       var feed=await a.ajax({
         type:'GET',
         url:a.getUrl('SelectionTv/Uploads',{hours:24}),
         dataType:'json'
       });
-      var sourceItems=arr(feed.Items||feed.items);
+      clearTimeout(feedTimer);
+      if(!privateSessionCurrent())return;
+      var sourceItems=arr(feed&&feed.Items||feed&&feed.items);
 
       // Show the private section immediately. Exact metadata enrichment can
       // take time for obscure films and must never hide the whole section.
@@ -493,6 +521,7 @@
           var i=pending[p];
           try{
             items[i]=await enrichOne(sourceItems[i]);
+            if(!privateSessionCurrent())return;
             cache[uploadCacheKey(sourceItems[i])]=items[i];
             saveEnrichedCache(cache);
           }catch(e){
@@ -525,8 +554,10 @@
       }
     }catch(err){
       console.warn('Selection TV private uploads unavailable',err);
+      sendPrivate({type:'selection-tv:jellyfin-private-uploads',version:5,state:'error',items:[]});
+      if(status){status.textContent='Vos Uploads indisponible · réessai automatique';status.className='selectionTvBridgeStatus err'}
     }finally{
-      privateBusy=false;
+      clearTimeout(feedTimer);privateBusy=false;
     }
   }
 
@@ -536,7 +567,11 @@
   }
 
   window.addEventListener('message',function(e){
-    if(e.source!==frame.contentWindow||!e.data)return;
+    if(e.source!==frame.contentWindow||e.origin!==CHILD_ORIGIN||!e.data)return;
+    if(e.data.type==='selection-tv:jellyfin-private-retry'){
+      if(privateBusy){sendPrivate();return}
+      lastPrivatePayload=null;loadPrivateUploads();
+    }
     if(e.data.type==='selection-tv:jellyfin-private-ready'){
       if(lastPrivatePayload)sendPrivate();
       else loadPrivateUploads();
@@ -553,6 +588,13 @@
     schedule();
   });
 
+  // Plugin Pages may keep the iframe hidden while mounting its view.
+  // Resume when it becomes visible instead of waiting for the ten-minute timer.
+  if('IntersectionObserver'in window){
+    new IntersectionObserver(function(entries){if(entries.some(function(entry){return entry.isIntersecting}))loadPrivateUploads()}).observe(frame);
+  }
+  window.addEventListener('focus',loadPrivateUploads);
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState!=='hidden')loadPrivateUploads()});
   setTimeout(loadPrivateUploads,3200);
   schedule();
 })();

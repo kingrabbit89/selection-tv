@@ -89,7 +89,7 @@ jobs:
       - name: Install browser test runtime
         run: |
           npm install --no-save playwright
-          npx playwright install --with-deps chromium
+          npx playwright install --with-deps chromium firefox
 
       - name: Revalidate candidate browser and Fire TV model
         id: browser
@@ -114,6 +114,7 @@ jobs:
           # Exercise latest.html with the newly published manifest, not the
           # preceding public issue. The isolated S41 fixture remains in this test.
           node scripts/validate-jellyfin-web.mjs
+          node scripts/validate-private-uploads.mjs
           git diff --check
 
           EXPECTED="$(printf 'data/manifest.json\ndata/weeks/%s.json\n' "$PROMOTION_WEEK" | sort)"
