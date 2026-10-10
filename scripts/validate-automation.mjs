@@ -89,6 +89,24 @@ if(fs.existsSync('.github/workflows/promote-validated-week.yml')){
   for(const token of ['validate-image-sources.mjs','validate-layout.mjs','validate-jellyfin-web.mjs','promote-week.mjs','Promotion ready']){
     if(!wf.includes(token))bad('post-merge promotion validation workflow missing '+token);
   }
+  // A draft candidate leaves manifest.latest on the previous public issue.
+  // The real latest.html/Jellyfin scenario must run on the simulated published
+  // state before an attestation can certify that transaction.
+  const simulationAt=wf.search(/^[ \t]+run: node scripts\/promote-week\.mjs\b/m);
+  const attestationAt=wf.indexOf('      - name: Attest the validated base commit');
+  const publishedJellyfin=[...wf.matchAll(/^[ \t]+node scripts\/validate-jellyfin-web\.mjs[ \t]*$/gm)]
+    .find(match=>match.index>simulationAt&&match.index<attestationAt);
+  if(simulationAt<0||attestationAt<0||!publishedJellyfin){
+    bad('promotion attestation must validate real Jellyfin latest after simulated publication');
+  }else{
+    const stepStart=wf.lastIndexOf('\n      - ',publishedJellyfin.index);
+    const stepBeforeJellyfin=wf.slice(stepStart,publishedJellyfin.index);
+    for(const name of ['SELECTION_TV_VALIDATE_WEEK','SELECTION_TV_CANDIDATE']){
+      if(!new RegExp('^[ \\t]+unset '+name+'[ \\t]*$','m').test(stepBeforeJellyfin)){
+        bad('simulated published Jellyfin validation must unset '+name);
+      }
+    }
+  }
   if(wf.includes('git push origin HEAD:main'))bad('post-merge validation workflow must not push directly to protected main');
 }
 if(fs.existsSync('.github/workflows/guard-direct-publication.yml')){

@@ -91,13 +91,12 @@ jobs:
           npm install --no-save playwright
           npx playwright install --with-deps chromium
 
-      - name: Revalidate browser, Jellyfin Web and Fire TV model
+      - name: Revalidate candidate browser and Fire TV model
         id: browser
         run: |
           node scripts/validate-layout.mjs
-          node scripts/validate-jellyfin-web.mjs
 
-      - name: Simulate promotion after all checks pass
+      - name: Simulate promotion after candidate checks pass
         run: node scripts/promote-week.mjs "$SELECTION_TV_VALIDATE_WEEK"
 
       - name: Validate simulated promoted state
@@ -112,6 +111,9 @@ jobs:
           node scripts/validate-links.mjs
           node scripts/validate-freshness.mjs
           node scripts/validate-reserves.mjs
+          # Exercise latest.html with the newly published manifest, not the
+          # preceding public issue. The isolated S41 fixture remains in this test.
+          node scripts/validate-jellyfin-web.mjs
           git diff --check
 
           EXPECTED="$(printf 'data/manifest.json\ndata/weeks/%s.json\n' "$PROMOTION_WEEK" | sort)"
