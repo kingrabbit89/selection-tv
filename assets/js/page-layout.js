@@ -2,7 +2,7 @@
    then restore their exact positions before the personal selection engine runs. */
 (()=>{
  const gridSelector='.week-grid,.radar-grid,.torrent-grid,.feature-columns,.hero-grid,.list-2,.platform-grid,.release-grid,.expire-grid,.cards5,.radargrid,.list2,.indexcols';
- let moves=[],styles=new Map(),labels=new Map(),continuations=[],timer,running=false;
+ let moves=[],styles=new Map(),labels=new Map(),continuations=[],timer,running=false,readingPosition=null;
  const originalPages=[...document.querySelectorAll('.book>.page:not(.jellyfin-private-uploads-page)')];
  const observer=new MutationObserver(records=>{
    // Private upload cards are progressively enriched one by one. Their
@@ -20,6 +20,10 @@
    parent.insertBefore(node,before);
  }
  function restore(){
+   // The personal-selection engine also restores before changing live cards.
+   // Keep the position from BEFORE continuation pages are removed: browsers
+   // can clamp scrollY as soon as that temporary, shorter document is measured.
+   if(!running&&!readingPosition)readingPosition=captureReadingPosition();
    observer.disconnect();clearTimeout(timer);
    for(const {node,marker} of moves)if(marker.parentNode)marker.replaceWith(node);
    moves=[];
@@ -28,6 +32,25 @@
    continuations.forEach(p=>p.remove());continuations=[];
  }
  const visible=el=>el.getClientRects().length&&getComputedStyle(el).display!=='none';
+ function captureReadingPosition(){
+   if(matchMedia('print').matches||new URLSearchParams(location.search).get('tv')==='1')return null;
+   const position={x:scrollX,y:scrollY};
+   if(!position.y)return position;
+   const toolbar=document.querySelector('.toolbar');
+   const top=Math.max(0,toolbar?.getBoundingClientRect().bottom||0);
+   // Articles and rows are moved as live nodes, unlike continuation headers.
+   // Anchor to what is being read, including a card on a continuation page.
+   const inView=el=>{const r=el.getBoundingClientRect();return visible(el)&&r.bottom>top&&r.top<innerHeight};
+   const node=[...document.querySelectorAll('.book article,.book tbody tr')].find(inView)
+     ||originalPages.find(inView);
+   return node?{...position,node,top:node.getBoundingClientRect().top}:position;
+ }
+ function restoreReadingPosition(position){
+   if(!position)return;
+   const y=position.node?.isConnected&&visible(position.node)
+     ?scrollY+position.node.getBoundingClientRect().top-position.top:position.y;
+   window.scrollTo({left:position.x,top:y,behavior:'instant'});
+ }
  const furniture='.topbar,.footer,.back-toc,.back,.page-atmosphere';
  function limit(p){const back=p.querySelector('.back-toc,.back');const f=back&&visible(back)?back:p.querySelector('.footer');return f.getBoundingClientRect().top-9}
  function bottom(p){return Math.max(...[...p.querySelectorAll('*')].filter(el=>visible(el)&&!el.closest(furniture)).map(el=>el.getBoundingClientRect().bottom))}
@@ -102,11 +125,18 @@
    }
  }
  function layout(){
-   if(running)return;running=true;restore();
-   const fixed=matchMedia('print').matches||(!matchMedia('(max-width:1160px)').matches&&!document.body.classList.contains('compact-mode'));
-   if(fixed){for(const p of originalPages)split(p);renumber()}
-   document.body.dataset.layoutOverflow=originalPages.concat(continuations).filter(p=>visible(p)&&fixed&&over(p)).map(p=>p.id).join(' ');
-   running=false;observe();
+   if(running)return;
+   const position=readingPosition||captureReadingPosition();readingPosition=null;
+   running=true;
+   try{
+     restore();
+     const fixed=matchMedia('print').matches||(!matchMedia('(max-width:1160px)').matches&&!document.body.classList.contains('compact-mode'));
+     if(fixed){for(const p of originalPages)split(p);renumber()}
+     document.body.dataset.layoutOverflow=originalPages.concat(continuations).filter(p=>visible(p)&&fixed&&over(p)).map(p=>p.id).join(' ');
+   }finally{
+     restoreReadingPosition(position);
+     running=false;observe();
+   }
  }
  function schedule(){if(running)return;clearTimeout(timer);timer=setTimeout(layout,60)}
  window.SelectionTVLayout={restore,schedule,layout};

@@ -6,6 +6,7 @@ import assert from 'node:assert/strict';
 
 const {chromium}=createRequire(import.meta.url)('playwright');
 const root=resolve(import.meta.dirname,'..');
+const formatterSource=await readFile(resolve(root,'assets/js/rating-format.js'),'utf8');
 const bridgeSource=await readFile(resolve(root,'assets/js/jellyfin-bridge.js'),'utf8');
 const worksSource=await readFile(resolve(root,'data/works.json'),'utf8');
 const linksSource=await readFile(resolve(root,'data/links.json'),'utf8');
@@ -102,6 +103,7 @@ try{
       </section>
       <section id="methode"></section>
     </div>
+    <script src="https://kingrabbit89.github.io/selection-tv/assets/js/rating-format.js"><\/script>
     <script src="https://kingrabbit89.github.io/selection-tv/assets/js/jellyfin-bridge.js"><\/script>`;
 
   const fixtureWeeklyUrl='https://kingrabbit89.github.io/selection-tv/semaines/2026-S41/';
@@ -114,6 +116,9 @@ try{
   );
   await page.route(fixtureWeeklyUrl,route=>
     route.fulfill({status:200,contentType:'text/html; charset=utf-8',body:childHtml})
+  );
+  await page.route('https://kingrabbit89.github.io/selection-tv/assets/js/rating-format.js',route=>
+    route.fulfill({status:200,contentType:'text/javascript; charset=utf-8',body:formatterSource})
   );
   await page.route('https://kingrabbit89.github.io/selection-tv/assets/js/jellyfin-bridge.js',route=>
     route.fulfill({status:200,contentType:'text/javascript; charset=utf-8',body:bridgeSource})

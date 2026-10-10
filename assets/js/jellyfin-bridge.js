@@ -208,18 +208,9 @@
   })).catch(()=>({links:new Map(),works:new Map()}));
 
   const ratingBox=(ratings,links)=>{
-    const r=ratings||{};
-    if(!r.imdb&&!r.senscritique&&!r.sc)return null;
+    if(!window.SelectionTVRatingFormat.entries(ratings).length)return null;
     const box=document.createElement('div');box.className='ratings';
-    if(r.imdb){
-      const a=links?.imdb?makeLink('IMDb '+r.imdb+'/10',links.imdb,'rating-pill imdb'):null;
-      if(a)box.append(a);else{const s=document.createElement('span');s.className='rating-pill imdb';s.textContent='IMDb '+r.imdb+'/10';box.append(s)}
-    }
-    const sc=r.senscritique||r.sc;
-    if(sc){
-      const a=links?.sc?makeLink('SensCritique '+sc+'/10',links.sc,'rating-pill sc'):null;
-      if(a)box.append(a);else{const s=document.createElement('span');s.className='rating-pill sc';s.textContent='SensCritique '+sc+'/10';box.append(s)}
-    }
+    window.SelectionTVRatingFormat.appendTo(box,ratings,links);
     if(box.children.length){
       const d=document.createElement('span');d.className='rating-date';d.textContent='relevé automatiquement';box.append(d);
       return box;

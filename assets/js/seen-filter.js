@@ -113,19 +113,7 @@ function addReserveRatings(el,c){
  const r=c.ratings||window.SelectionTVRatings?.[c.title];if(!r||el.querySelector('.ratings'))return;
  const box=document.createElement('div');box.className='ratings';
  const L=mergedLinks(c);
- if(r.imdb){
-   const x=L.imdb?document.createElement('a'):document.createElement('span');
-   x.className='rating-pill imdb';x.textContent='IMDb '+r.imdb+'/10';
-   if(L.imdb){x.href=L.imdb;x.target='_blank';x.rel='noopener'}
-   box.append(x);
- }
- const sc=r.sc||r.senscritique;
- if(sc){
-   const x=L.sc?document.createElement('a'):document.createElement('span');
-   x.className='rating-pill sc';x.textContent='SensCritique '+sc+'/10';
-   if(L.sc){x.href=L.sc;x.target='_blank';x.rel='noopener'}
-   box.append(x);
- }
+ window.SelectionTVRatingFormat.appendTo(box,r,L);
  const d=document.createElement('span');d.className='rating-date';d.textContent=c.canonical_metadata?.ratings_checked?'relevé '+c.canonical_metadata.ratings_checked:'date de relevé non renseignée';box.append(d);
  if(el.matches('tr'))el.querySelector('.prog')?.append(box);
  else{

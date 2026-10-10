@@ -34,7 +34,9 @@ button{cursor:pointer}
 .search-results a{display:block;padding:12px;border-bottom:var(--hairline);text-decoration:none;font-size:13px}
 .search-results a small{display:block;color:var(--muted);font-size:11px;margin-top:4px}
 /* Paper and furniture. Topbar/footer are intentionally absolute, never masked. */
-.book{padding:28px 0 44px}
+/* Pagination preserves the live reading node itself. Native anchoring must not
+   compensate a second time while continuation sheets are rebuilt. */
+.book{padding:28px 0 44px;overflow-anchor:none}
 .page{--section:var(--accent);--section-soft:#efe1df;position:relative;width:297mm;height:210mm;margin:0 auto 24px;padding:15mm 15mm 18mm;background:var(--paper);box-shadow:0 12px 36px #0005;overflow:hidden;break-after:page}
 .topbar{position:absolute;left:15mm;right:15mm;top:5mm;height:6mm;border-bottom:.45mm solid var(--section);color:var(--navy);font-size:8pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding-bottom:2mm}
 .issue{float:right;font-size:7pt;letter-spacing:.015em;text-transform:none;font-weight:400}

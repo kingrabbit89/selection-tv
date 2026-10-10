@@ -151,8 +151,8 @@ const titleOf=el=>{
 const add=el=>{
  const title=titleOf(el), r=RATINGS[title]; if(!r||el.querySelector('.ratings')) return;
  const box=document.createElement('div'); box.className='ratings';
- const L=window.SELECTION_TV_VERIFIED_LINKS?.[norm(title)]||{}; if(r.imdb){const a=L.imdb?document.createElement('a'):document.createElement('span');a.className='rating-pill imdb';if(L.imdb){a.target='_blank';a.rel='noopener';a.href=L.imdb}a.textContent='IMDb '+r.imdb+'/10';box.append(a);}
- if(r.sc){const a=L.sc?document.createElement('a'):document.createElement('span');a.className='rating-pill sc';if(L.sc){a.target='_blank';a.rel='noopener';a.href=L.sc}a.textContent='SensCritique '+r.sc+'/10';box.append(a);}
+ const L=window.SELECTION_TV_VERIFIED_LINKS?.[norm(title)]||{}; if(r.imdb){const a=L.imdb?document.createElement('a'):document.createElement('span');a.className='rating-pill imdb';if(L.imdb){a.target='_blank';a.rel='noopener';a.href=L.imdb}a.textContent=window.SelectionTVRatingFormat.labels({imdb:r.imdb})[0];box.append(a);}
+ if(r.sc){const a=L.sc?document.createElement('a'):document.createElement('span');a.className='rating-pill sc';if(L.sc){a.target='_blank';a.rel='noopener';a.href=L.sc}a.textContent=window.SelectionTVRatingFormat.labels({sc:r.sc})[0];box.append(a);}
  const d=document.createElement('span');d.className='rating-date';d.textContent='relevé 24/09/2026';box.append(d);
  const meta=el.querySelector('.work-meta');
  if(meta) meta.insertAdjacentElement('afterend',box);
@@ -315,7 +315,7 @@ const addRatings=(el,d)=>{
    const meta=el.querySelector(".work-meta"); if(meta)meta.insertAdjacentElement("afterend",box); else el.querySelector("h3")?.insertAdjacentElement("afterend",box);
  }else box.innerHTML="";
  (d.ratings||[]).forEach(([name,val,url])=>{
-   const a=document.createElement("a");a.className="rating-pill "+(name==="IMDb"?"imdb":"sc");a.href=url;a.target="_blank";a.rel="noopener";a.textContent=name+" "+val+"/10";box.append(a);
+   const a=document.createElement("a");a.className="rating-pill "+(name==="IMDb"?"imdb":"sc");a.href=url;a.target="_blank";a.rel="noopener";a.textContent=window.SelectionTVRatingFormat.labels({[name==="IMDb"?"imdb":"sc"]:val})[0];box.append(a);
  });
  (d.ratingText||[]).forEach(txt=>{const s=document.createElement("span");s.className="rating-pill imdb";s.textContent=txt;box.append(s)});
  if((d.ratings||[]).length||(d.ratingText||[]).length){const s=document.createElement("span");s.className="rating-date";s.textContent="relevé 24/09/2026";box.append(s)}
@@ -443,13 +443,8 @@ Promise.all([
        if(el.matches('tr')) el.querySelector('.prog')?.append(ratings);
        else {const wm=el.querySelector('.work-meta')||el.querySelector('.meta')||el.querySelector('h3');wm?.insertAdjacentElement('afterend',ratings)}
      }
-     for(const [name,value,url,cls] of [['IMDb',W.ratings.imdb,L.imdb,'imdb'],['SensCritique',W.ratings.senscritique||W.ratings.sc,L.sc,'sc']]){
-       if(!value)continue;
-       [...ratings.children].filter(x=>x.textContent.startsWith(name)).forEach(x=>x.remove());
-       const pill=document.createElement(url?'a':'span');pill.className='rating-pill '+cls;
-       if(url){pill.href=url;pill.target='_blank';pill.rel='noopener'}
-       pill.textContent=name+' '+value+'/10';ratings.append(pill);
-     }
+     ratings.querySelectorAll('.rating-pill').forEach(pill=>pill.remove());
+     window.SelectionTVRatingFormat.appendTo(ratings,W.ratings,L);
      ratings.querySelectorAll('.rating-date').forEach(x=>x.remove());
      if(W.ratings_checked){const date=document.createElement('span');date.className='rating-date';date.textContent='relevé '+W.ratings_checked;ratings.append(date)}
    }
