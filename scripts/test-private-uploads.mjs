@@ -56,3 +56,34 @@ test('a legacy parent discards a private response after the account changes',asy
   assert.equal(h.state.reloads,1);assert.equal(h.frame.style.visibility,'hidden');
   assert(!h.sent.some(payload=>payload.items?.length));
 });
+
+test('latest progressive snapshot retains every changed card while optional catalogue loading supersedes updates',async()=>{
+  const bridge=read('assets/js/jellyfin-bridge.js');
+  let settleCatalog;const catalogPromise=new Promise(resolve=>settleCatalog=resolve);
+  const rendered=[],cards=[];
+  const makeCard=(item,index)=>({index,director:item.director,querySelector:()=>null,
+    replaceWith(replacement){cards[index]=replacement;rendered.push(index)}});
+  cards.push(makeCard({director:'Old director 0'},0),makeCard({director:'Old director 1'},1));
+  const document={
+    querySelectorAll:selector=>selector.includes('data-private-index')?cards:[],
+    querySelector:selector=>cards[Number(selector.match(/data-private-index="(\d+)"/)?.[1])],
+    dispatchEvent(){}
+  };
+  const ctx=vm.createContext({catalogPromise,formatterReady:Promise.resolve(),document,makeCard,
+    hydrateFromCatalog:item=>item,clearTimeout(){},setTimeout:()=>0,
+    CustomEvent:class{},window:{}});
+  const dependencies=bridge.slice(bridge.indexOf('  let privateDataSettled='),bridge.indexOf('  const ratingBox='));
+  const renderer=bridge.slice(bridge.indexOf('  const patchPrivate='),bridge.indexOf("  window.addEventListener('message'",bridge.indexOf('  const renderPrivate=')));
+  vm.runInContext(dependencies+'\nlet renderVersion=0,privatePayloadReceived=false,waitingTimer;\n'+renderer+'\nwindow.render=renderPrivate;',ctx);
+  const first=[{title:'Fixture 0',director:'New director 0',activityAt:new Date().toISOString()},
+    {title:'Fixture 1',director:'Old director 1',activityAt:new Date().toISOString()}];
+  const latest=[first[0],{...first[1],director:'New director 1'}];
+  const old=ctx.window.render({phase:'progress',changedIndex:0,items:first});
+  const fresh=ctx.window.render({phase:'progress',changedIndex:1,items:latest});
+  settleCatalog({links:new Map(),works:new Map()});await Promise.all([old,fresh]);
+  assert.deepEqual(cards.map(card=>card.director),['New director 0','New director 1']);
+  assert.deepEqual(rendered,[0,1],'the latest complete snapshot repairs both superseded indexes');
+  rendered.length=0;
+  await ctx.window.render({phase:'progress',changedIndex:1,items:[latest[0],{...latest[1],director:'Newest director 1'}]});
+  assert.deepEqual(rendered,[1],'after dependencies settle, a normal update keeps its incremental render');
+});

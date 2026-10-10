@@ -219,6 +219,15 @@
       setTimeout(resolve,4000);
     }));
 
+  // Bound optional catalogue waiting once for this frame, rather than once
+  // per progress payload. A progress update carries the complete snapshot;
+  // if updates were superseded while dependencies loaded, patch all entries.
+  let privateDataSettled=false;
+  const privateDataReady=Promise.all([
+    Promise.race([catalogPromise,new Promise(resolve=>setTimeout(()=>resolve({links:new Map(),works:new Map()}),4000))]),
+    formatterReady
+  ]).then(([catalog])=>{privateDataSettled=true;return catalog});
+
   const ratingBox=(ratings,links)=>{
     if(!window.SelectionTVRatingFormat?.entries(ratings).length)return null;
     const box=document.createElement('div');box.className='ratings';
@@ -445,13 +454,13 @@
       document.dispatchEvent(new CustomEvent('selectiontv:privateuploadsrendered',{detail:{count:0,phase:payload.phase||''}}));
       return;
     }
-    const catalog=await Promise.race([catalogPromise,new Promise(resolve=>setTimeout(()=>resolve({links:new Map(),works:new Map()}),4000))]);
-    await formatterReady;if(version!==renderVersion)return;
+    const patchAll=!privateDataSettled;
+    const catalog=await privateDataReady;if(version!==renderVersion)return;
     const items=raw.map(x=>hydrateFromCatalog(x,catalog));
     document.querySelectorAll('.private-load-status,.private-retry').forEach(note=>note.remove());
     document.querySelectorAll('.jellyfin-private-uploads-page').forEach(page=>page.dataset.privateState='ready');
 
-    if(payload.phase!=='provisional' && patchPrivate(items,Number.isInteger(payload.changedIndex)?payload.changedIndex:null)){
+    if(payload.phase!=='provisional' && patchPrivate(items,!patchAll&&Number.isInteger(payload.changedIndex)?payload.changedIndex:null)){
       document.dispatchEvent(new CustomEvent('selectiontv:privateuploadsrendered',{detail:{count:items.length,phase:payload.phase||''}}));
       return;
     }
