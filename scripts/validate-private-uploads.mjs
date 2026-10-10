@@ -12,7 +12,7 @@ const weeks = [...new Set([manifest.latest, '2026-S42', '2026-S41'])];
 const privateSelector = '.jellyfin-private-uploads-page';
 const cardSelector = '.jellyfin-private-upload';
 const image = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a/PcAAAAASUVORK5CYII=', 'base64');
-const types = {'.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.html': 'text/html'};
+const types = {'.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.html': 'text/html; charset=utf-8'};
 // Exact installed wrapper from 77c7f838, before S42. This is deliberately not
 // the maintained parent with one helper deleted: deployed Jellyfin copies do
 // not acquire our new visibility hooks or status messages when Pages updates.
@@ -89,21 +89,21 @@ async function mount(browser, week, {hidden = false, standalone = false, histori
       if (historical && url.pathname === '/integrations/jellyfin/selection-tv.html') {
         let body = historicalParent.toString('utf8');
         if (hidden) body = body.replace('id="selectionTvFrame"', 'id="selectionTvFrame" style="display:none"');
-        await route.fulfill({status: 200, contentType: 'text/html', body});
+        await route.fulfill({status: 200, contentType: 'text/html; charset=utf-8', body});
       } else if (standalone && url.pathname === '/private-fixture.html') {
-        await route.fulfill({status: 200, contentType: 'text/html', body: `<!doctype html><meta charset="utf-8">
+        await route.fulfill({status: 200, contentType: 'text/html; charset=utf-8', body: `<!doctype html><meta charset="utf-8">
           <style>#selectionTvFrame{width:100%;height:750px;border:0}</style><div id="selectionTvBridgeStatus"></div>
           <iframe id="selectionTvFrame" src="${weeklyUrl}"></iframe><script src="/assets/js/jellyfin-private-uploads.js"><\/script>`});
       } else if (hidden && url.pathname === '/integrations/jellyfin/selection-tv.html') {
         const body = (await readFile(resolve(root, 'integrations/jellyfin/selection-tv.html'), 'utf8'))
           .replace('id="selectionTvFrame"', 'id="selectionTvFrame" style="display:none"');
-        await route.fulfill({status: 200, contentType: 'text/html', body});
+        await route.fulfill({status: 200, contentType: 'text/html; charset=utf-8', body});
       } else await route.continue();
       return;
     }
     if (url.origin === 'https://kingrabbit89.github.io' && url.pathname.startsWith('/selection-tv/')) {
       if (url.pathname === '/selection-tv/latest.html') {
-        await route.fulfill({status: 200, contentType: 'text/html', body: '<!doctype html><script>location.replace(' + JSON.stringify(weeklyUrl) + ')<\/script>'});
+        await route.fulfill({status: 200, contentType: 'text/html; charset=utf-8', body: '<!doctype html><script>location.replace(' + JSON.stringify(weeklyUrl) + ')<\/script>'});
         return;
       }
       const file = resolve(root, '.' + url.pathname.slice('/selection-tv'.length).replace(/\/$/, '/index.html'));
@@ -193,6 +193,7 @@ async function checkHistoricalParent(browser, name, scenario) {
 async function checkForumAuthenticationError(browser, name, week) {
   const {page, child, errors, httpFailures} = await mount(browser, week, {feedMode: 'auth-error'});
   try {
+    assert.equal(await page.evaluate(() => document.characterSet), 'UTF-8', 'the parent fixture must use the Jellyfin Web document encoding');
     await child.waitForFunction(() => document.querySelector('.jellyfin-private-uploads-page')?.dataset.privateState === 'error');
     assert.equal(httpFailures.length, 1, 'the diagnostic must come from a real HTTP response');
     assert.equal(httpFailures[0].status(), 503);

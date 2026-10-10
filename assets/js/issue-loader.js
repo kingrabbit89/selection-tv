@@ -32,7 +32,7 @@ fetch(jsonUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.st
  }
  if(!androidTv){
    try{
-     const lr=await fetch(root+'data/links.json?v=54808c60d56458e2',{cache:'no-store'});
+     const lr=await fetch(root+'data/links.json?v=5066afeba808eecc',{cache:'no-store'});
      const ld=lr.ok?await lr.json():{links:{}};
      const nk=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
      window.SELECTION_TV_VERIFIED_LINKS=Object.fromEntries(Object.entries(ld.links||{}).map(([k,v])=>[nk(k),v]));
@@ -40,7 +40,7 @@ fetch(jsonUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.st
  }
  document.title=d.title||('Sélection TV — '+week);
  if(d.bodyClass)document.body.className=d.bodyClass;
- await addCss(root+'assets/css/'+(d.theme==='magazine'?'magazine.css?v=54808c60d56458e2':'archive.css?v=54808c60d56458e2'));
+ await addCss(root+'assets/css/'+(d.theme==='magazine'?'magazine.css?v=5066afeba808eecc':'archive.css?v=5066afeba808eecc'));
  const rich=d.theme==='magazine';
  const toolbar=androidTv?'':(rich
  ? '<div class="toolbar"><b>SÉLECTION TV · '+esc(d.short||week)+'</b><span>Films · documentaires · replay · plateformes · radar 1080p</span><a class="navlink" href="../../">Accueil</a><a class="navlink" href="../../recherche.html">Recherche</a><a class="navlink" href="../../catalogue.html">Catalogue</a><a class="navlink" href="../../calendrier.html">Calendrier</a><a class="navlink" href="../../a-recuperer.html">À récupérer <span class="saved-count" id="savedCount">0</span></a><div class="issue-search"><input id="issueSearch" type="search" placeholder="Rechercher un film, réalisateur…"><div class="search-results" id="searchResults"></div></div><button class="seen-toggle" id="seenToggle" type="button">Afficher les vus</button><button class="compact-toggle" id="compactToggle" type="button">Mode compact</button><button onclick="window.print()">Imprimer / enregistrer en PDF</button></div>'
@@ -53,18 +53,18 @@ fetch(jsonUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.st
  window.imgFail=img=>img.closest('.visual')?.classList.add('broken');
  document.body.innerHTML=toolbar+book;
  hydrateMethodStatus(d);
- await addScript(root+'assets/js/rating-format.js?v=54808c60d56458e2');
+ await addScript(root+'assets/js/rating-format.js?v=5066afeba808eecc');
  if(androidTv){
    // TV gets its metadata directly from works.json/links.json. Skip the browser
    // magazine enhancers, image hydrator, analytics and layout engine: on Fire TV
    // those scripts only mutated a hidden DOM and decoded images we never display.
-   await addScript(root+'assets/js/android-tv-mode.js?v=54808c60d56458e2');
+   await addScript(root+'assets/js/android-tv-mode.js?v=5066afeba808eecc');
    return;
  }
- await addScript(root+'assets/js/analytics.js?v=54808c60d56458e2');
- await addScript(root+'assets/js/jellyfin-bridge.js?v=54808c60d56458e2');
- await addScript(root+'assets/js/'+(d.theme==='magazine'?'magazine-week.js?v=54808c60d56458e2':'archive-week.js?v=54808c60d56458e2'));
- await addScript(root+'assets/js/image-resolver.js?v=54808c60d56458e2');
+ await addScript(root+'assets/js/analytics.js?v=5066afeba808eecc');
+ await addScript(root+'assets/js/jellyfin-bridge.js?v=5066afeba808eecc');
+ await addScript(root+'assets/js/'+(d.theme==='magazine'?'magazine-week.js?v=5066afeba808eecc':'archive-week.js?v=5066afeba808eecc'));
+ await addScript(root+'assets/js/image-resolver.js?v=5066afeba808eecc');
  if(window.SelectionTVImagesReady)await window.SelectionTVImagesReady;
  if(d.theme==='magazine'){
    const hydrateCandidates=()=>{
@@ -107,8 +107,8 @@ fetch(jsonUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.st
        hydrateCandidates();
      }
    }catch(e){}
-   await addScript(root+'assets/js/seen-filter.js?v=54808c60d56458e2');
+   await addScript(root+'assets/js/seen-filter.js?v=5066afeba808eecc');
  }
- await addScript(root+'assets/js/page-layout.js?v=54808c60d56458e2');
+ await addScript(root+'assets/js/page-layout.js?v=5066afeba808eecc');
 }).catch(err=>{document.body.innerHTML='<div style="padding:3rem;font-family:Arial;color:white;background:#171c23;min-height:100vh"><h1>Impossible de charger ce numéro</h1><p>'+esc(err.message)+'</p><p><a style="color:white" href="../../">Retour à l’accueil</a></p></div>'});
 })();

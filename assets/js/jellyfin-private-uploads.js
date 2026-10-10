@@ -435,7 +435,7 @@
       if(!problem&&typeof error.json==='function')problem=await (typeof error.clone==='function'?error.clone():error).json();
       if(!problem&&typeof error.responseText==='string')problem=JSON.parse(error.responseText);
       if(problem&&problem.title==='Selection TV private uploads unavailable'&&
-        (problem.code==='forum_authentication_failed'||problem.detail==='Connexion Forumactif refusée ou session non authentifiée.')){
+        (problem.code==='forum_authentication_failed'||problem.detail==='Connexion Forumactif refus\u00e9e ou session non authentifi\u00e9e.')){
         return 'forum_authentication_failed';
       }
     }catch(e){}
