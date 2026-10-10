@@ -207,8 +207,20 @@
     works:new Map((wd.works||[]).map(w=>[norm(w.title),w]))
   })).catch(()=>({links:new Map(),works:new Map()}));
 
+  // Older Plugin Pages shells can load this bridge without the new issue
+  // loader. Bootstrap the shared formatter here too; missing optional ratings
+  // must never prevent the private cards themselves from being displayed.
+  const formatterReady=window.SelectionTVRatingFormat?Promise.resolve():
+    (window.SelectionTVRatingFormatReady||=new Promise(resolve=>{
+      const script=document.createElement('script');
+      const current=document.currentScript?.src||location.href;
+      script.src=new URL('rating-format.js'+new URL(current).search,current).href;
+      script.onload=script.onerror=resolve;document.head.append(script);
+      setTimeout(resolve,4000);
+    }));
+
   const ratingBox=(ratings,links)=>{
-    if(!window.SelectionTVRatingFormat.entries(ratings).length)return null;
+    if(!window.SelectionTVRatingFormat?.entries(ratings).length)return null;
     const box=document.createElement('div');box.className='ratings';
     window.SelectionTVRatingFormat.appendTo(box,ratings,links);
     if(box.children.length){
@@ -344,6 +356,43 @@
     a.innerHTML='<span class="toc-label">Vos Uploads<span class="toc-sub">24 dernières heures · privé Jellyfin</span></span><span class="toc-page">Jellyfin</span>';
     group.append(a);
   };
+  let privatePayloadReceived=false,renderVersion=0,waitingTimer;
+  const retryControl=()=>{
+    const retry=document.createElement('button');retry.type='button';retry.className='private-retry';retry.textContent='Réessayer';
+      retry.onclick=()=>{
+        renderStatus('loading','Actualisation du flux privé des dernières 24 heures…');
+        PARENT.postMessage({type:'selection-tv:jellyfin-private-retry',version:1},TARGET_ORIGIN);
+        // Legacy wrappers know only the original ready handshake.
+        PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},TARGET_ORIGIN);
+        clearTimeout(waitingTimer);waitingTimer=setTimeout(()=>{
+          if(document.querySelector('[data-private-state="loading"]'))renderStatus('waiting','Le lecteur Jellyfin n’a pas transmis le flux privé. Actualisez la page Jellyfin pour relancer la connexion.');
+        },8000);
+      };return retry;
+  };
+  const renderStatus=(state,message)=>{
+    const existing=[...document.querySelectorAll('.jellyfin-private-uploads-page')].find(page=>page.querySelector('.jellyfin-private-upload'));
+    if(existing&&['loading','error','waiting'].includes(state)){
+      existing.dataset.privateState=state;
+      let note=existing.querySelector('.private-load-status');
+      if(!note){note=document.createElement('p');note.className='jellyfin-private-note private-load-status';note.setAttribute('role','status');existing.querySelector('.platform-grid')?.before(note)}
+      note.textContent=message+' Le dernier flux reçu reste affiché.';
+      if(state==='loading')existing.querySelector('.private-retry')?.remove();
+      else if(!existing.querySelector('.private-retry'))existing.querySelector('.footer')?.before(retryControl());
+      return;
+    }
+    removeOld();ensureStyle();addToc();
+    const book=document.querySelector('.book');if(!book)return;
+    const page=document.createElement('section');page.className='page jellyfin-private-uploads-page';
+    page.id='jellyfin-uploads-1';page.dataset.privateState=state;
+    const top=document.createElement('div');top.className='topbar';top.innerHTML='Vos Uploads<span class="issue">Rubrique privée Jellyfin</span>';page.append(top);
+    const title=document.createElement('div');title.className='h1';title.textContent='Vos Uploads';page.append(title);
+    const note=document.createElement('p');note.className='jellyfin-private-note';note.textContent=message;note.setAttribute('role','status');page.append(note);
+    if(state!=='loading'){
+      page.append(retryControl());
+    }
+    const footer=document.createElement('div');footer.className='footer';footer.innerHTML='<span>Flux privé · actualisation Jellyfin</span><span>J</span>';page.append(footer);
+    const method=book.querySelector('#methode');method?book.insertBefore(page,method):book.append(page);
+  };
   const patchPrivate=(items,changedIndex)=>{
     const cards=[...document.querySelectorAll('.jellyfin-private-upload[data-private-index]')];
     if(cards.length!==items.length)return false;
@@ -373,6 +422,13 @@
   };
 
   const renderPrivate=async payload=>{
+    const version=++renderVersion;privatePayloadReceived=true;clearTimeout(waitingTimer);
+    if(payload.state==='loading'){
+      renderStatus('loading',payload.pending?'Le serveur continue de préparer le flux privé. Cette actualisation prend plus de temps que prévu.':'Connexion au flux privé des dernières 24 heures…');return;
+    }
+    if(payload.state==='error'){
+      renderStatus('error','Le flux privé est momentanément indisponible. Réessayez ou actualisez la page Jellyfin.');return;
+    }
     const hours=Math.max(1,Math.min(168,Number(payload.windowHours)||24));
     const cutoff=Date.now()-hours*60*60*1000;
     const futureGrace=Date.now()+10*60*1000;
@@ -383,12 +439,17 @@
       return Number.isFinite(at)&&at>=cutoff&&at<=futureGrace;
     });
     if(!raw.length){
-      removeOld();
+      renderStatus('empty',(payload.items||[]).length?
+        'Le flux a été reçu, mais aucune entrée datée ne peut être retenue dans les dernières 24 heures.':
+        'Aucun upload des dernières 24 heures n’a été transmis par Jellyfin.');
       document.dispatchEvent(new CustomEvent('selectiontv:privateuploadsrendered',{detail:{count:0,phase:payload.phase||''}}));
       return;
     }
-    const catalog=await catalogPromise;
+    const catalog=await Promise.race([catalogPromise,new Promise(resolve=>setTimeout(()=>resolve({links:new Map(),works:new Map()}),4000))]);
+    await formatterReady;if(version!==renderVersion)return;
     const items=raw.map(x=>hydrateFromCatalog(x,catalog));
+    document.querySelectorAll('.private-load-status,.private-retry').forEach(note=>note.remove());
+    document.querySelectorAll('.jellyfin-private-uploads-page').forEach(page=>page.dataset.privateState='ready');
 
     if(payload.phase!=='provisional' && patchPrivate(items,Number.isInteger(payload.changedIndex)?payload.changedIndex:null)){
       document.dispatchEvent(new CustomEvent('selectiontv:privateuploadsrendered',{detail:{count:items.length,phase:payload.phase||''}}));
@@ -402,7 +463,7 @@
     const perPage=4;
     for(let start=0,pageNo=1;start<items.length;start+=perPage,pageNo++){
       const page=document.createElement('section');
-      page.className='page jellyfin-private-uploads-page';
+      page.className='page jellyfin-private-uploads-page';page.dataset.privateState='ready';
       page.id='jellyfin-uploads-'+pageNo;
       const top=document.createElement('div');top.className='topbar';top.innerHTML='Vos Uploads<span class="issue">Rubrique privée Jellyfin</span>';page.append(top);
       const kicker=document.createElement('div');kicker.className='kicker';kicker.textContent='Disponibilités récentes';page.append(kicker);
@@ -424,13 +485,19 @@
   };
   window.addEventListener('message',e=>{
     if(e.source!==PARENT||(PARENT_ORIGIN&&e.origin!==PARENT_ORIGIN)||!e.data)return;
-    if(e.data.type==='selection-tv:jellyfin-private-uploads')renderPrivate(e.data);
+    if(e.data.type==='selection-tv:jellyfin-private-uploads'){
+      const pending=renderPrivate(e.data),version=renderVersion;
+      pending.catch(()=>{if(version===renderVersion)renderStatus('error','Le flux privé n’a pas pu être affiché. Réessayez ou actualisez la page Jellyfin.')});
+    }
+    if(e.data.type==='selection-tv:jellyfin-ready'&&!privatePayloadReceived)PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},TARGET_ORIGIN);
   });
 
   // Explicit handshake: Plugin Pages may finish its own script before or
   // after this iframe bridge. Tell the parent exactly when private payloads
   // can safely be delivered.
   try{
+    renderStatus('loading','Connexion au flux privé des dernières 24 heures…');
+    waitingTimer=setTimeout(()=>{if(!privatePayloadReceived)renderStatus('waiting','Le lecteur Jellyfin n’a pas encore transmis le flux privé. Réessayez ou actualisez la page Jellyfin.');},8000);
     PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},TARGET_ORIGIN);
     setTimeout(()=>PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},TARGET_ORIGIN),500);
     setTimeout(()=>PARENT.postMessage({type:'selection-tv:jellyfin-private-ready',version:1},TARGET_ORIGIN),1800);

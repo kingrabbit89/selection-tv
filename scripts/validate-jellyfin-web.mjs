@@ -103,7 +103,6 @@ try{
       </section>
       <section id="methode"></section>
     </div>
-    <script src="https://kingrabbit89.github.io/selection-tv/assets/js/rating-format.js"><\/script>
     <script src="https://kingrabbit89.github.io/selection-tv/assets/js/jellyfin-bridge.js"><\/script>`;
 
   const fixtureWeeklyUrl='https://kingrabbit89.github.io/selection-tv/semaines/2026-S41/';
