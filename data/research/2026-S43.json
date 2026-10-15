@@ -139,7 +139,8 @@
     "2026-10-15T18:23:40.455Z — Paris Première sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 125/125 départs concordants, aucune omission ni divergence horaire, alias Gordon Ramsay documenté, labels S/E non réaffirmés lorsque absents et correction officielle du vendredi 22:55 réconciliée.",
     "2026-10-15T18:27:56.559Z — Canal+ sur les sept jours : seconde lecture jour+nuit achevée sur 180 départs sauvegardés ; contradictions de composition, d’identité et d’horaires conservées sur chaque date, dont vingt décalages et un remplacement jeudi. Aucun inventaire n’est corrigé sans collecte/handoff dédié ; Bird reste fermé par son retry_gate.",
     "2026-10-15T18:35:23.900Z — RMC Story sur les sept jours : seconde lecture jour+nuit achevée ; 171/171 départs concordants, aucune omission ni divergence horaire, avec seulement les alias Pause/Fin des programmes et les limites de versions/labels S/E non réaffirmés.",
-    "2026-10-15T18:38:31.480Z — Action sur les sept jours : seconde lecture jour+nuit achevée sur 103 départs sauvegardés ; dimanche, mercredi et vendredi concordent sous limites de placeholders, tandis que samedi nuit, lundi journée et mardi gardent des écarts, et jeudi révèle une vraie omission hors antenne à 05:52. Aucun retry_gate n’est rouvert."
+    "2026-10-15T18:38:31.480Z — Action sur les sept jours : seconde lecture jour+nuit achevée sur 103 départs sauvegardés ; dimanche, mercredi et vendredi concordent sous limites de placeholders, tandis que samedi nuit, lundi journée et mardi gardent des écarts, et jeudi révèle une vraie omission hors antenne à 05:52. Aucun retry_gate n’est rouvert.",
+    "2026-10-15T18:41:59.191Z — RMC Découverte sur les sept jours : seconde lecture jour+nuit achevée sur 138 départs sauvegardés ; six journées sans omission interne, mais le report sortant du mercredi et toute la séquence nocturne du jeudi sont contradictoires et restent ouverts. Aucune correction automatique."
   ],
   "blockers": [],
   "research_attempts": [
@@ -6202,7 +6203,7 @@
     "first_incomplete_stage": "enrichment",
     "next_actions": [
       "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
-      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les trois chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les deux chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
       "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
       "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
       "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
@@ -16288,7 +16289,8 @@
         "2026-10-15T18:23:40.455Z — Paris Première sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 125/125 départs concordants, aucune omission ni divergence horaire, alias Gordon Ramsay documenté, labels S/E non réaffirmés lorsque absents et correction officielle du vendredi 22:55 réconciliée.",
         "2026-10-15T18:27:56.559Z — Canal+ sur les sept jours : seconde lecture jour+nuit achevée sur 180 départs sauvegardés ; contradictions de composition, d’identité et d’horaires conservées sur chaque date, dont vingt décalages et un remplacement jeudi. Aucun inventaire n’est corrigé sans collecte/handoff dédié ; Bird reste fermé par son retry_gate.",
         "2026-10-15T18:35:23.900Z — RMC Story sur les sept jours : seconde lecture jour+nuit achevée ; 171/171 départs concordants, aucune omission ni divergence horaire, avec seulement les alias Pause/Fin des programmes et les limites de versions/labels S/E non réaffirmés.",
-        "2026-10-15T18:38:31.480Z — Action sur les sept jours : seconde lecture jour+nuit achevée sur 103 départs sauvegardés ; dimanche, mercredi et vendredi concordent sous limites de placeholders, tandis que samedi nuit, lundi journée et mardi gardent des écarts, et jeudi révèle une vraie omission hors antenne à 05:52. Aucun retry_gate n’est rouvert."
+        "2026-10-15T18:38:31.480Z — Action sur les sept jours : seconde lecture jour+nuit achevée sur 103 départs sauvegardés ; dimanche, mercredi et vendredi concordent sous limites de placeholders, tandis que samedi nuit, lundi journée et mardi gardent des écarts, et jeudi révèle une vraie omission hors antenne à 05:52. Aucun retry_gate n’est rouvert.",
+        "2026-10-15T18:41:59.191Z — RMC Découverte sur les sept jours : seconde lecture jour+nuit achevée sur 138 départs sauvegardés ; six journées sans omission interne, mais le report sortant du mercredi et toute la séquence nocturne du jeudi sont contradictoires et restent ouverts. Aucune correction automatique."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json"
@@ -16300,14 +16302,14 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre la seconde lecture de RMC Découverte sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
+      "next_useful_batch": "Poursuivre la seconde lecture de RTL9 sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
         "distinct_reserves_added": 0,
         "reused_existing_cards": 0,
         "raw_inventory_observations_added": 0,
-        "scope": "Comparaison avec 89789660bbb7a235484219e61e437557da01df1d : synchronisation Télérama et revues hebdomadaires TMC, TFX, 6ter, Paris Première, Canal+, Action et RMC Story ; aucun ajout de carte, réserve, œuvre ou observation brute."
+        "scope": "Comparaison avec 89789660bbb7a235484219e61e437557da01df1d : synchronisation Télérama et revues hebdomadaires TMC, TFX, 6ter, Paris Première, Canal+, Action, RMC Story et RMC Découverte ; aucun ajout de carte, réserve, œuvre ou observation brute."
       },
       "intervals": [
         {
@@ -16364,6 +16366,13 @@
           "ended_at": "2026-10-15T18:38:31.480Z",
           "overlap": true,
           "note": "Trois revues Action et trois revues RMC Story ont été menées en parallèle ; leurs intervalles se chevauchent et ne sont pas additionnés au temps séquentiel."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": "2026-10-15T18:41:06.000Z",
+          "ended_at": "2026-10-15T18:41:59.191Z",
+          "overlap": true,
+          "note": "Trois revues RMC Découverte ont été menées en parallèle ; les intervalles se chevauchent et ne sont pas additionnés au temps séquentiel."
         }
       ],
       "continuation_decisions": [
@@ -16498,22 +16507,44 @@
           "next_actions_total": 18,
           "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
           "all_actions_total": 30
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T18:40:43.847Z",
+          "elapsed_seconds": 2272.338,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "72e031a4bd7b4c987fb46d477c9d789045dc940a",
+          "next_actions": [
+            "Poursuivre la seconde lecture de RMC Découverte sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
+            "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les trois chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+            "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 18,
+          "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 30
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T18:30:40.794Z",
-        "elapsed_seconds": 1669.285,
+        "observed_at": "2026-10-15T18:40:43.847Z",
+        "elapsed_seconds": 2272.338,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "d05c18c17b36859b8a4e1db62c9b8de594194c53",
+        "source_sha": "72e031a4bd7b4c987fb46d477c9d789045dc940a",
         "next_actions": [
-          "Poursuivre la seconde lecture d’Action sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
+          "Poursuivre la seconde lecture de RMC Découverte sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
           "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
-          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les cinq chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les trois chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
           "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
           "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
         ],
@@ -26694,6 +26725,292 @@
           "L’URL datée L’Internaute peut rediriger vers un slug de jour de semaine ; le contenu et la navigation lus correspondent à la date ciblée."
         ],
         "status": "reread_complete_no_omissions_version_labels_limited"
+      },
+      {
+        "date": "2026-10-17",
+        "channels": [
+          "RMC Découverte"
+        ],
+        "flow": "RMC Découverte",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:41:37.000Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 22 départs RMC Découverte sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rmc-decouverte/samedi-17-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rmc-decouverte-samedi-17-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 22,
+          "source_rows_reviewed": 22,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit a été menée sur les 22 départs sauvegardés ; les contradictions listées restent ouvertes lorsqu’elles existent.",
+          "Aucune correction n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "La plage hors antenne est nommée Fin des programmes ou Pause selon la source ; mêmes bornes lorsqu’aucune autre contradiction n’est listée.",
+          "Les numéros SxxExx et versions des intitulés génériques ne sont pas réaffirmés lorsqu’ils ne sont pas exposés par le second guide.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les URL datées L’Internaute peuvent rediriger vers un slug de jour de semaine ; contenu et navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions_placeholder_alias"
+      },
+      {
+        "date": "2026-10-18",
+        "channels": [
+          "RMC Découverte"
+        ],
+        "flow": "RMC Découverte",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:41:37.000Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 18 départs RMC Découverte sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rmc-decouverte/dimanche-18-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rmc-decouverte-dimanche-18-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 18,
+          "source_rows_reviewed": 18,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit a été menée sur les 18 départs sauvegardés ; les contradictions listées restent ouvertes lorsqu’elles existent.",
+          "Aucune correction n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "La plage hors antenne est nommée Fin des programmes ou Pause selon la source ; mêmes bornes lorsqu’aucune autre contradiction n’est listée.",
+          "Les numéros SxxExx et versions des intitulés génériques ne sont pas réaffirmés lorsqu’ils ne sont pas exposés par le second guide.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les URL datées L’Internaute peuvent rediriger vers un slug de jour de semaine ; contenu et navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions_placeholder_alias"
+      },
+      {
+        "date": "2026-10-19",
+        "channels": [
+          "RMC Découverte"
+        ],
+        "flow": "RMC Découverte",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:41:37.000Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 19 départs RMC Découverte sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rmc-decouverte/lundi-19-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rmc-decouverte-lundi-19-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 19,
+          "source_rows_reviewed": 19,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit a été menée sur les 19 départs sauvegardés ; les contradictions listées restent ouvertes lorsqu’elles existent.",
+          "Aucune correction n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "La plage hors antenne est nommée Fin des programmes ou Pause selon la source ; mêmes bornes lorsqu’aucune autre contradiction n’est listée.",
+          "Les numéros SxxExx et versions des intitulés génériques ne sont pas réaffirmés lorsqu’ils ne sont pas exposés par le second guide.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les URL datées L’Internaute peuvent rediriger vers un slug de jour de semaine ; contenu et navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions_placeholder_alias"
+      },
+      {
+        "date": "2026-10-20",
+        "channels": [
+          "RMC Découverte"
+        ],
+        "flow": "RMC Découverte",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:41:59.191Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 19 départs RMC Découverte sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rmc-decouverte/mardi-20-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rmc-decouverte-mardi-20-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 19,
+          "source_rows_reviewed": 19,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit a été menée sur les 19 départs sauvegardés ; les contradictions listées restent ouvertes lorsqu’elles existent.",
+          "Aucune correction n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "La plage hors antenne est nommée Fin des programmes ou Pause selon la source ; mêmes bornes lorsqu’aucune autre contradiction n’est listée.",
+          "Les numéros SxxExx et versions des intitulés génériques ne sont pas réaffirmés lorsqu’ils ne sont pas exposés par le second guide.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les URL datées L’Internaute peuvent rediriger vers un slug de jour de semaine ; contenu et navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions_placeholder_alias"
+      },
+      {
+        "date": "2026-10-21",
+        "channels": [
+          "RMC Découverte"
+        ],
+        "flow": "RMC Découverte",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:41:59.191Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 20 départs RMC Découverte sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rmc-decouverte/mercredi-21-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rmc-decouverte-mercredi-21-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 20,
+          "source_rows_reviewed": 20,
+          "omissions": [],
+          "schedule_contradictions": [
+            "Le report sortant Flic story — Gendarmes des autoroutes d’Alsace : épisode 2 commence à 23:45 et court jusqu’au jeudi 01:15 dans le second guide, en contradiction avec les départs sauvegardés du début jeudi."
+          ],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit a été menée sur les 20 départs sauvegardés ; les contradictions listées restent ouvertes lorsqu’elles existent.",
+          "Aucune correction n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "La plage hors antenne est nommée Fin des programmes ou Pause selon la source ; mêmes bornes lorsqu’aucune autre contradiction n’est listée.",
+          "Les numéros SxxExx et versions des intitulés génériques ne sont pas réaffirmés lorsqu’ils ne sont pas exposés par le second guide.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les URL datées L’Internaute peuvent rediriger vers un slug de jour de semaine ; contenu et navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_departures_concordant_outgoing_report_conflict"
+      },
+      {
+        "date": "2026-10-22",
+        "channels": [
+          "RMC Découverte"
+        ],
+        "flow": "RMC Découverte",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:41:39.370Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 20 départs RMC Découverte sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rmc-decouverte/jeudi-22-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rmc-decouverte-jeudi-22-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 20,
+          "source_rows_reviewed": 19,
+          "omissions": [
+            "Le report de veille Flic story jusqu’à 01:15 n’est pas représenté comme tel dans l’inventaire jeudi ; le second guide porte ensuite Police de Paris 01:15 et Pause 02:22, absents de la séquence sauvegardée."
+          ],
+          "schedule_contradictions": [
+            "L’inventaire porte à la place Arche d’alliance à 00:00, Gendarmerie de Valence à 01:00 et Pause à 02:07 ; les trois identités/créneaux nocturnes sont contradictoires."
+          ],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit a été menée sur les 20 départs sauvegardés ; les contradictions listées restent ouvertes lorsqu’elles existent.",
+          "Aucune correction n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "La plage hors antenne est nommée Fin des programmes ou Pause selon la source ; mêmes bornes lorsqu’aucune autre contradiction n’est listée.",
+          "Les numéros SxxExx et versions des intitulés génériques ne sont pas réaffirmés lorsqu’ils ne sont pas exposés par le second guide.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les URL datées L’Internaute peuvent rediriger vers un slug de jour de semaine ; contenu et navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_night_sequence_conflict"
+      },
+      {
+        "date": "2026-10-23",
+        "channels": [
+          "RMC Découverte"
+        ],
+        "flow": "RMC Découverte",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:41:39.370Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 20 départs RMC Découverte sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rmc-decouverte/vendredi-23-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rmc-decouverte-vendredi-23-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 20,
+          "source_rows_reviewed": 20,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit a été menée sur les 20 départs sauvegardés ; les contradictions listées restent ouvertes lorsqu’elles existent.",
+          "Aucune correction n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "La plage hors antenne est nommée Fin des programmes ou Pause selon la source ; mêmes bornes lorsqu’aucune autre contradiction n’est listée.",
+          "Les numéros SxxExx et versions des intitulés génériques ne sont pas réaffirmés lorsqu’ils ne sont pas exposés par le second guide.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les URL datées L’Internaute peuvent rediriger vers un slug de jour de semaine ; contenu et navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions"
       }
     ],
     "independent_crosscheck_complete": false,
