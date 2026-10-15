@@ -93,7 +93,8 @@
     "Mercredi enrichi de trois réserves complètes réutilisant des dossiers déjà revus : Baccalauréat, Interstellar et Peau d’âne ; leurs diffusions du 21 octobre ont été recoupées séparément.",
     "Jeudi enrichi d’une réserve complète : Le pont de la rivière Kwaï, dossier déjà revu dont la nouvelle diffusion du 22 octobre a été recoupée séparément.",
     "2026-10-15T13:39:02.051Z — première réserve du vendredi matérialisée : La Nuit du chasseur à 17:54, après concordance nouvelle d’OrangeTV, Télérama et de la grille TV-programme actuelle ; l’observation initiale à 17:51 et la réapparition S40 restent visibles.",
-    "2026-10-15T13:46:30.000Z — deuxième réserve du vendredi matérialisée : Que Dios nos perdone à 18:47, après concordance de la grille officielle Action et du guide daté TV-programme ; fréquence des rediffusions et limites de durée conservées."
+    "2026-10-15T13:46:30.000Z — deuxième réserve du vendredi matérialisée : Que Dios nos perdone à 18:47, après concordance de la grille officielle Action et du guide daté TV-programme ; fréquence des rediffusions et limites de durée conservées.",
+    "2026-10-15T13:59:44.420Z — réserve complète du samedi ajoutée : Left-Handed Girl à 11:06, depuis un dossier déjà revu et deux guides datés concordants ; provenance amont inconnue et durées distinctes conservées."
   ],
   "blockers": [],
   "research_attempts": [
@@ -3371,6 +3372,32 @@
       "applies_to": "réserve draft Que Dios nos perdone — vendredi 2026-10-23 rang 5",
       "evidence_note": "La grille officielle Action et le guide daté concordent à 18:47 ; identité, notes, visuel et textes stables réutilisés, divergences de durée et fréquence des rediffusions conservées.",
       "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "work_id": "left-handed-girl-2025",
+      "fields": [
+        "identity",
+        "duration_limits",
+        "ratings",
+        "professional_criticism",
+        "current_broadcast",
+        "image",
+        "freshness",
+        "draft_reserve"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-festival/samedi-17-octobre-2026/",
+        "https://www.programmetvcesoir.net/chaine/cine-festival/2026-10-17",
+        "https://le-pacte.com/france/film/left-handed-girl-2",
+        "https://www.senscritique.com/film/left_handed_girl/67453767",
+        "https://www.rottentomatoes.com/m/left_handed_girl",
+        "https://www.theguardian.com/film/2025/nov/13/left-handed-girl-review-sean-baker-shih-ching-tsou"
+      ],
+      "checked_at": "2026-10-15T13:59:44.420Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "applies_to": "réserve draft Left-Handed Girl — samedi 2026-10-17 rang 5",
+      "evidence_note": "Deux guides datés concordent à 11:06 ; identité, notes, visuel et textes stables réutilisés. Amont technique inconnu et durées distinctes conservés sans inférence.",
+      "status": "verified_for_draft_card_ci_pending"
     }
   ],
   "source_issues": [
@@ -4481,6 +4508,27 @@
         "alternatives": [
           "sl-vendredi-la-nuit-du-chasseur-1955",
           "sl-vendredi-bird-2024"
+        ]
+      },
+      {
+        "id": "sl-samedi-left-handed-girl",
+        "title": "Left-Handed Girl",
+        "work_id": "left-handed-girl-2025",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "The Guardian salue l’alliance de l’humour, de la tendresse et de la douleur dans cette chronique familiale tournée à hauteur d’enfant.",
+            "source_url": "https://www.theguardian.com/film/2025/nov/13/left-handed-girl-review-sean-baker-shih-ching-tsou"
+          }
+        ],
+        "decision_note": "Réserve draft samedi rang 5 : identité certaine et textes déjà relus ; diffusion du 17 octobre à 11:06 concordante sur deux guides actuels d’éditeurs distincts, amont technique inconnu.",
+        "alternatives": [
+          "sl-samedi-raccrochez-erreur",
+          "sl-samedi-max-et-les-ferrailleurs"
         ]
       }
     ]
@@ -9000,9 +9048,113 @@
           "ready_handoff": null
         }
       }
+    },
+    {
+      "prompt_revision": "production-weekly-continuity-2026-10-10",
+      "started_at": "2026-10-15T13:55:18.147Z",
+      "ended_at": null,
+      "duration_basis": "Passage en cours ; heure de début UTC observée à l’entrée. La durée terminale sera inscrite au bilan.",
+      "run_state": "running",
+      "completed_batches": [
+        "Réserve complète du samedi ajoutée : Left-Handed Girl à 11:06, depuis un dossier déjà revu et une diffusion recoupée sur deux guides datés."
+      ],
+      "deliverables_changed": [
+        "data/research/2026-S43.json",
+        "data/weeks/2026-S43.json",
+        "preparation-gaps.json"
+      ],
+      "complete_cards_added": 0,
+      "draft_cards_added": 0,
+      "draft_reserves_added": 1,
+      "partial_dossiers_added": 0,
+      "requirements_resolved": 0,
+      "stop_reason": null,
+      "next_useful_batch": "Ajouter une réserve complète au dimanche ou au lundi depuis un dossier déjà avancé, sans reprendre les pistes placées en attente de fait nouveau.",
+      "additions": {
+        "new_works": 0,
+        "visible_draft_cards": 0,
+        "distinct_reserves_added": 1,
+        "reused_existing_cards": 1,
+        "scope": "comparaison avec 38586fd1d25a92adae5fabbc68d52b0bd20baf31"
+      },
+      "intervals": [
+        {
+          "kind": "reprise_extraction",
+          "started_at": "2026-10-15T13:55:18.147Z",
+          "ended_at": "2026-10-15T13:58:37.418Z"
+        },
+        {
+          "kind": "redaction_rendu",
+          "started_at": "2026-10-15T13:58:37.418Z",
+          "ended_at": "2026-10-15T13:59:44.420Z",
+          "note": "Plan, rendu mécanique et réconciliation du dossier déjà sauvegardé."
+        }
+      ],
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T13:58:37.418Z",
+          "elapsed_seconds": 199.271,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "38586fd1d25a92adae5fabbc68d52b0bd20baf31",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T14:56:16.610Z",
+          "remaining_count": 12,
+          "next_actions_total": 13,
+          "all_actions_total": 18,
+          "evaluated_by": "scripts/editorial-continuation.mjs",
+          "next_actions": [
+            "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi, du mercredi, du jeudi et du vendredi pour progresser vers le minimum de dix candidats complets par jour, sans défaire les choix développés.",
+            "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés.",
+            "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T13:55:18.147Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T14:56:16.610Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-15T13:58:37.418Z",
+        "elapsed_seconds": 199.271,
+        "prompt_revision": "production-weekly-continuity-2026-10-10",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S43",
+        "source_sha": "38586fd1d25a92adae5fabbc68d52b0bd20baf31",
+        "lease_owned": "yes",
+        "lease_until": "2026-10-15T14:56:16.610Z",
+        "remaining_count": 12,
+        "next_actions_total": 13,
+        "all_actions_total": 18,
+        "evaluated_by": "scripts/editorial-continuation.mjs",
+        "next_actions": [
+          "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi, du mercredi, du jeudi et du vendredi pour progresser vers le minimum de dix candidats complets par jour, sans défaire les choix développés.",
+          "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés.",
+          "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
+        ],
+        "observations": {
+          "started_at": "2026-10-15T13:55:18.147Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T14:56:16.610Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
+        }
+      }
     }
   ],
-  "updated_at": "2026-10-15T13:32:50.832Z",
+  "updated_at": "2026-10-15T13:59:44.420Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -10262,6 +10414,18 @@
           "checked_at": "2026-10-15T13:21:37.183Z",
           "status": "corrected_by_new_current_concordance",
           "note": "Le relevé sauvegardé à 19:04 est remplacé sur la carte par la concordance actuelle à 18:55 ; historique conservé."
+        },
+        {
+          "date": "2026-10-17",
+          "start": "11:06",
+          "channel": "Ciné+ Festival",
+          "source_urls": [
+            "https://tv-programme.com/cine-plus-festival/samedi-17-octobre-2026/",
+            "https://www.programmetvcesoir.net/chaine/cine-festival/2026-10-17"
+          ],
+          "checked_at": "2026-10-15T13:59:44.420Z",
+          "status": "verified_by_two_current_guides_distinct_publishers_upstream_unknown",
+          "note": "Les deux guides datés concordent sur les quatre faits de grille. Leur amont technique reste inconnu ; aucune indépendance n’est affirmée."
         }
       ]
     },

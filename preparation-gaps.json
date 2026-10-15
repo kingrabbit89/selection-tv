@@ -1,10 +1,10 @@
 {
   "week": "2026-S43",
-  "generated_at": "2026-10-15T13:49:06.991Z",
+  "generated_at": "2026-10-15T14:00:25.827Z",
   "notice": "INFORMATIF, NON CERTIFIANT : un écart absent ne vaut ni vérification ni autorisation de publier ; la barrière --require-ready et tous les contrôles complets restent obligatoires.",
   "input_snapshot": {
     "week": "2026-S43",
-    "sha256": "2b2a04d14a1b3e3b80ceb8d95e9ffe63caefc5aa93001ff84461b26e94a3a755",
+    "sha256": "5f4f4038235b9f4f7893e859270ce238a557bfb0996b59d90a48be4e6133019a",
     "run_id": null,
     "run_attempt": null,
     "checkout_sha": null,
@@ -450,7 +450,7 @@
             {
               "validator": "validate-reserves",
               "severity": "blocking",
-              "message": "samedi-selection: 4 candidats (< 10) et shortage_reason non structuré",
+              "message": "samedi-selection: 5 candidats (< 10) et shortage_reason non structuré",
               "scope": {
                 "kind": "day",
                 "value": "samedi"
@@ -2622,7 +2622,7 @@
     {
       "validator": "validate-reserves",
       "severity": "blocking",
-      "message": "samedi-selection: 4 candidats (< 10) et shortage_reason non structuré",
+      "message": "samedi-selection: 5 candidats (< 10) et shortage_reason non structuré",
       "scope": {
         "kind": "day",
         "value": "samedi"
@@ -2704,13 +2704,13 @@
   "process": {
     "last_run_gaps": [],
     "shortlist": {
-      "entries": 50,
+      "entries": 51,
       "by_scope": {
         "samedi": {
           "to_research": 0,
           "researching": 0,
           "dossier_complete": 0,
-          "card_drafted": 4,
+          "card_drafted": 5,
           "card_complete": 0,
           "rejected": 0,
           "deferred": 5
