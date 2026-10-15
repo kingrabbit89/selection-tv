@@ -41,7 +41,8 @@
     "Lecture complète des grilles Web datées du lundi 19 octobre pour TFX, 6ter, Gulli et Paris Première : 81 observations civiles ajoutées, nuits 00:00–05:59 incluses, sans seconde lecture ni certification de proposition.",
     "Lecture complète des grilles Web datées du mardi 20 octobre pour TFX, 6ter, Gulli et Paris Première : 82 observations civiles ajoutées, nuits 00:00–05:59 incluses, sans seconde lecture ni certification de proposition.",
     "Lecture complète des grilles Web datées du mercredi 21 octobre pour TFX, 6ter, Gulli et Paris Première : 79 observations civiles ajoutées, nuits 00:00–05:59 incluses, sans seconde lecture ni certification de proposition.",
-    "Lecture complète des grilles Web datées du jeudi 22 octobre pour TFX, 6ter, Gulli et Paris Première : 83 observations civiles ajoutées, nuits 00:00–05:59 incluses, sans seconde lecture ni certification de proposition."
+    "Lecture complète des grilles Web datées du jeudi 22 octobre pour TFX, 6ter, Gulli et Paris Première : 83 observations civiles ajoutées, nuits 00:00–05:59 incluses, sans seconde lecture ni certification de proposition.",
+    "Lecture complète des grilles Web datées du vendredi 23 octobre pour TFX, 6ter, Gulli et Paris Première : 82 observations civiles ajoutées, nuits 00:00–05:59 incluses, sans seconde lecture ni certification de proposition."
   ],
   "blockers": [],
   "research_attempts": [],
@@ -558,6 +559,28 @@
       "applies_to": "Inventaire primaire du jeudi 22 octobre 2026 pour TFX, 6ter, Gulli et Paris Première uniquement.",
       "evidence_note": "Chaque page portait explicitement le nom de la chaîne et la date du jeudi 22 octobre 2026. Les lignes de fin de soirée du mercredi encore affichées en tête ont été exclues ; les créneaux commençant le 22, y compris 00:00–05:59, ont été conservés. Ce lot ne prouve ni le vendredi, ni la seconde lecture, ni l’indépendance, ni la qualité éditoriale.",
       "status": "partial"
+    },
+    {
+      "id": "web-grids-friday-tfx-6ter-gulli-paris-premiere-20261015T072855Z",
+      "work_id": null,
+      "fields": [
+        "inventory.title",
+        "inventory.channel",
+        "inventory.date",
+        "inventory.start",
+        "inventory.source_url"
+      ],
+      "urls": [
+        "https://tv-programme.com/tfx/vendredi-23-octobre-2026/",
+        "https://tv-programme.com/6ter/vendredi-23-octobre-2026/",
+        "https://tv-programme.com/gulli/vendredi-23-octobre-2026/",
+        "https://tv-programme.com/paris-premiere/vendredi-23-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T07:28:55Z",
+      "stability": "cycle_specific",
+      "applies_to": "Inventaire primaire du vendredi 23 octobre 2026 pour TFX, 6ter, Gulli et Paris Première uniquement.",
+      "evidence_note": "Chaque page portait explicitement le nom de la chaîne et la date du vendredi 23 octobre 2026. Les lignes de fin de soirée du jeudi encore affichées en tête ont été exclues ; les créneaux commençant le 23, y compris 00:00–05:59, ont été conservés. Ce lot achève ce sous-périmètre sur les sept dates, mais ne prouve ni les autres chaînes, ni la seconde lecture, ni l’indépendance, ni la qualité éditoriale.",
+      "status": "partial"
     }
   ],
   "source_issues": [
@@ -599,6 +622,7 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
+      "Poursuivre les chaînes obligatoires encore absentes des sept jours, sans refaire le sous-périmètre TFX/6ter/Gulli/Paris Première désormais relevé.",
       "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
       "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
       "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte."
@@ -1253,7 +1277,8 @@
         "Ajout de 81 observations du 19 octobre depuis quatre grilles Web complètes et datées : TFX, 6ter, Gulli et Paris Première.",
         "Ajout de 82 observations du 20 octobre depuis quatre grilles Web complètes et datées : TFX, 6ter, Gulli et Paris Première.",
         "Ajout de 79 observations du 21 octobre depuis quatre grilles Web complètes et datées : TFX, 6ter, Gulli et Paris Première.",
-        "Ajout de 83 observations du 22 octobre depuis quatre grilles Web complètes et datées : TFX, 6ter, Gulli et Paris Première."
+        "Ajout de 83 observations du 22 octobre depuis quatre grilles Web complètes et datées : TFX, 6ter, Gulli et Paris Première.",
+        "Ajout de 82 observations du 23 octobre depuis quatre grilles Web complètes et datées : TFX, 6ter, Gulli et Paris Première."
       ],
       "deliverables_changed": [
         "data/inventory/2026-S43.json",
@@ -1264,7 +1289,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Compléter TFX, 6ter, Gulli et Paris Première le 23 octobre.",
+      "next_useful_batch": "Poursuivre les chaînes obligatoires encore absentes des sept jours, sans refaire les sous-périmètres déjà relevés.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -1597,20 +1622,53 @@
             "ready_handoff": null
           },
           "evaluated_by": "scripts/editorial-continuation.mjs"
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T07:27:56.554Z",
+          "elapsed_seconds": 1947.554,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "c4d18b285b7faa9c31ebdbe4afcccaf461e5fc33",
+          "next_actions": [
+            "Compléter TFX, 6ter, Gulli et Paris Première le 23 octobre.",
+            "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
+            "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
+            "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte.",
+            "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés."
+          ],
+          "remaining_count": 12,
+          "next_actions_total": 16,
+          "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 16,
+          "waiting_actions": [],
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-15T06:55:29Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T08:16:27.424Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "evaluated_by": "scripts/editorial-continuation.mjs"
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T07:24:59.181Z",
-        "elapsed_seconds": 1770.181,
+        "observed_at": "2026-10-15T07:27:56.554Z",
+        "elapsed_seconds": 1947.554,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "53efc660f8993397d1c088b90fba661907fdf082",
+        "source_sha": "c4d18b285b7faa9c31ebdbe4afcccaf461e5fc33",
         "next_actions": [
-          "Poursuivre TFX, 6ter, Gulli et Paris Première les 22 et 23 octobre.",
+          "Compléter TFX, 6ter, Gulli et Paris Première le 23 octobre.",
           "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
           "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
           "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte.",
@@ -1698,9 +1756,15 @@
           "started_at": "2026-10-15T07:25:02Z",
           "ended_at": "2026-10-15T07:26:20Z",
           "note": "Lecture groupée de quatre grilles Web datées du jeudi et transcription mécanique des lignes civiles ; aucune seconde lecture ni qualification éditoriale."
+        },
+        {
+          "kind": "research",
+          "started_at": "2026-10-15T07:27:59Z",
+          "ended_at": "2026-10-15T07:28:55Z",
+          "note": "Lecture groupée de quatre grilles Web datées du vendredi et transcription mécanique des lignes civiles ; aucune seconde lecture ni qualification éditoriale."
         }
       ]
     }
   ],
-  "updated_at": "2026-10-15T07:26:20Z"
+  "updated_at": "2026-10-15T07:28:55Z"
 }
