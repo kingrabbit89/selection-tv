@@ -16299,9 +16299,9 @@
     {
       "prompt_revision": "production-weekly-continuity-2026-10-10",
       "started_at": "2026-10-15T18:02:51.509Z",
-      "ended_at": null,
+      "ended_at": "2026-10-15T18:53:00.695Z",
       "duration_basis": "Temps UTC observé depuis le début réel ; les revues déléguées sont parallèles et ne sont pas additionnées au temps séquentiel.",
-      "run_state": "running",
+      "run_state": "stopped",
       "completed_batches": [
         "2026-10-15T18:04:37.000Z — candidate S43 synchronisée normalement avec main : import des deux compléments Télérama au SHA exact, sans modification ni écrasement des recherches existantes.",
         "2026-10-15T18:08:33.729Z — TMC du 18 au 23 octobre : secondes lectures jour+nuit achevées sur deux grilles Web datées d’éditeurs distincts ; 112/112 départs présents, aucune omission ni contradiction de programme, numéros d’épisode non réaffirmés et indépendance amont inconnue. Avec la revue du 17 déjà sauvegardée, les sept dates TMC sont désormais relues.",
@@ -16324,7 +16324,7 @@
       "dossiers_completed": 0,
       "partial_dossiers_added": 1,
       "requirements_resolved": 0,
-      "stop_reason": null,
+      "stop_reason": "budget_reserve_reached — le contrôleur --finish a réservé les cinq dernières minutes après 3009,186 s écoulées ; le numéro reste incomplet et la prochaine action utile est conservée.",
       "next_useful_batch": "Reprendre À pied d’œuvre seulement pour les contrôles encore listés dans son dossier partiel, ou terminer une rubrique accessible ; conserver le retry_gate TV5MONDE fermé tant que le flux régional n’est pas relié.",
       "additions": {
         "new_works": 0,
@@ -16410,6 +16410,20 @@
           "ended_at": "2026-10-15T18:49:00.000Z",
           "overlap": false,
           "note": "Triage sur la tête exacte, production-flow sauvegardé et vérification directe de la fiche officielle CANAL+ pour le dossier partiel À pied d’œuvre."
+        },
+        {
+          "kind": "controls",
+          "started_at": "2026-10-15T18:50:44.140Z",
+          "ended_at": "2026-10-15T18:53:00.695Z",
+          "overlap": false,
+          "note": "Observation de la CI exacte encore en cours, actualisation informative de preparation-gaps, puis décision finale --finish."
+        },
+        {
+          "kind": "save_release",
+          "started_at": "2026-10-15T18:53:00.695Z",
+          "ended_at": null,
+          "overlap": false,
+          "note": "Fin connue après sauvegarde terminale et libération du bail ; intervalle final non clos au moment de l’écriture de ce checkpoint."
         }
       ],
       "continuation_decisions": [
@@ -16610,20 +16624,64 @@
           "next_actions_total": 18,
           "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
           "all_actions_total": 30
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T18:50:44.140Z",
+          "elapsed_seconds": 2872.631,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "afc6e80a2f916e6ad2a2facebc6f67061e9d86cd",
+          "next_actions": [
+            "Reprendre À pied d’œuvre seulement pour les contrôles encore listés dans son dossier partiel, ou terminer une rubrique accessible ; conserver le retry_gate TV5MONDE fermé tant que le flux régional n’est pas relié.",
+            "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur la seule chaîne encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+            "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 18,
+          "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 30
+        },
+        {
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-15T18:53:00.695Z",
+          "elapsed_seconds": 3009.186,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "afc6e80a2f916e6ad2a2facebc6f67061e9d86cd",
+          "next_actions": [
+            "Reprendre À pied d’œuvre seulement pour les contrôles encore listés dans son dossier partiel, ou terminer une rubrique accessible ; conserver le retry_gate TV5MONDE fermé tant que le flux régional n’est pas relié.",
+            "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur la seule chaîne encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+            "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 18,
+          "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 30
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T18:47:20.802Z",
-        "elapsed_seconds": 2669.293,
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-15T18:53:00.695Z",
+        "elapsed_seconds": 3009.186,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "bb8de2c24cae39dea8e59acf7caafd1f149ef40f",
+        "source_sha": "afc6e80a2f916e6ad2a2facebc6f67061e9d86cd",
         "next_actions": [
-          "Actualiser le triage sur la tête exacte puis terminer un dossier déjà proche d’une carte ou une rubrique accessible ; ne pas reprendre TV5MONDE tant que son retry_gate de flux régional n’est pas satisfait.",
+          "Reprendre À pied d’œuvre seulement pour les contrôles encore listés dans son dossier partiel, ou terminer une rubrique accessible ; conserver le retry_gate TV5MONDE fermé tant que le flux régional n’est pas relié.",
           "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
           "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur la seule chaîne encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
           "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
@@ -16636,7 +16694,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-15T18:49:00.000Z",
+  "updated_at": "2026-10-15T18:53:00.695Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
