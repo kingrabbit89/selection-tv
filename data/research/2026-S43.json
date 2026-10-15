@@ -4091,6 +4091,21 @@
       "applies_to": "Ciné+ Classic — samedi 17 et dimanche 18 octobre 2026, jours civils 00:00–23:59",
       "evidence_note": "Secondes lectures : 16/16 identités chaque jour, aucune omission ; deux horaires divergent le samedi et restent ouverts, le dimanche concorde intégralement. Une seule grille complète accessible par date.",
       "status": "reread_complete_contradictions_open"
+    },
+    {
+      "fields": [
+        "schedule_identity",
+        "omission_review"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-classic/lundi-19-octobre-2026/",
+        "https://tv-programme.com/cine-plus-classic/mardi-20-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T15:46:26.682Z",
+      "stability": "cycle_specific",
+      "applies_to": "Ciné+ Classic — lundi 19 et mardi 20 octobre 2026, jours civils 00:00–23:59",
+      "evidence_note": "Secondes lectures distinctes : 15/15 puis 20/20 départs concordants, nuits incluses, aucune omission ; une seule grille complète accessible par date.",
+      "status": "reread_complete_single_editor_limit"
     }
   ],
   "source_issues": [
@@ -11241,7 +11256,8 @@
         "2026-10-15T15:41:11.000Z — secondes lectures Ciné+ Frisson des 22 et 23 octobre : 14/14 départs concordants chaque jour, nuits et reports de veille traités, aucune omission ; limite d’un seul éditeur conservée.",
         "2026-10-15T15:42:02.000Z — secondes lectures Ciné+ Frisson des 17 et 18 octobre : 14/14 puis 13/13 départs concordants, nuits et reports de veille traités, aucune omission ; limite mono-éditeur conservée.",
         "2026-10-15T15:42:50.000Z — secondes lectures Ciné+ Frisson des 19 et 20 octobre : 18/18 puis 15/15 identités, aucune omission ; six puis dix décalages horaires laissés ouverts. Les sept dates de la chaîne disposent désormais d’une revue de niveau 2 réellement sauvegardée.",
-        "Seconde lecture Ciné+ Classic des 17 et 18 octobre : 16/16 identités chaque jour, aucune omission ; deux décalages horaires conservés le samedi, dimanche concordant."
+        "Seconde lecture Ciné+ Classic des 17 et 18 octobre : 16/16 identités chaque jour, aucune omission ; deux décalages horaires conservés le samedi, dimanche concordant.",
+        "Seconde lecture Ciné+ Classic des 19 et 20 octobre : 15/15 puis 20/20 départs concordants, aucune omission ; limite mono-éditeur conservée."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -11254,7 +11270,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre les secondes lectures Ciné+ Classic des 19 au 23 octobre ; conserver les deux horaires contradictoires du samedi faute de seconde source.",
+      "next_useful_batch": "Terminer les secondes lectures Ciné+ Classic des 21 au 23 octobre ; conserver les contradictions déjà ouvertes.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -12039,26 +12055,56 @@
             ],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T15:46:26.682Z",
+          "elapsed_seconds": 2578,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "105e4cec8eaef8b9856ac33544acf7b8bd18eac3",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T16:34:27.059Z",
+          "remaining_count": 11,
+          "next_actions_total": 4,
+          "evaluated_by": "manual_fallback",
+          "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les trois dates Classic encore accessibles.",
+          "next_actions": [
+            "Terminer les secondes lectures Ciné+ Classic des 21 au 23 octobre ; conserver les contradictions déjà ouvertes."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T15:03:29.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T16:34:27.059Z",
+            "external_stop": null,
+            "accessible_task_checks": [
+              "Trois dates Ciné+ Classic restent sans seconde lecture sauvegardée."
+            ],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T15:45:23.643Z",
-        "elapsed_seconds": 2515,
+        "observed_at": "2026-10-15T15:46:26.682Z",
+        "elapsed_seconds": 2578,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "e043b1960d920d5e2ed376f43369d6ea25c6ca90",
+        "source_sha": "105e4cec8eaef8b9856ac33544acf7b8bd18eac3",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T16:34:27.059Z",
         "remaining_count": 11,
         "next_actions_total": 4,
         "evaluated_by": "manual_fallback",
-        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les chaînes de niveau 2 restant à traiter.",
+        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les trois dates Classic encore accessibles.",
         "next_actions": [
-          "Poursuivre les secondes lectures Ciné+ Classic des 19 au 23 octobre ; conserver les deux horaires contradictoires du samedi faute de seconde source."
+          "Terminer les secondes lectures Ciné+ Classic des 21 au 23 octobre ; conserver les contradictions déjà ouvertes."
         ],
         "observations": {
           "started_at": "2026-10-15T15:03:29.000Z",
@@ -12066,7 +12112,7 @@
           "lease_until": "2026-10-15T16:34:27.059Z",
           "external_stop": null,
           "accessible_task_checks": [
-            "Cinq autres dates Ciné+ Classic restent sans seconde lecture sauvegardée."
+            "Trois dates Ciné+ Classic restent sans seconde lecture sauvegardée."
           ],
           "ready_handoff": null
         }
@@ -16638,6 +16684,72 @@
         },
         "decisions": [
           "16/16 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Ciné+ Classic"
+        ],
+        "flow": "Ciné+ Classic",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:46:26.682Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-19",
+        "urls": [
+          "https://tv-programme.com/cine-plus-classic/lundi-19-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 15,
+          "source_rows_reviewed": 15,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Hatari ! commencé la veille à 22:55 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "15/15 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Ciné+ Classic"
+        ],
+        "flow": "Ciné+ Classic",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:46:26.682Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-20",
+        "urls": [
+          "https://tv-programme.com/cine-plus-classic/mardi-20-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 20,
+          "source_rows_reviewed": 20,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Les demoiselles de Rochefort commencé la veille à 22:18 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "20/20 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée."
         ],
         "limits": [
           "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
