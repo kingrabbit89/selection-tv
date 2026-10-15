@@ -137,7 +137,9 @@
     "2026-10-15T18:13:52.319Z — TFX sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 146/146 départs concordants, aucune omission ni contradiction d’horaire, labels S/E non réaffirmés et divergence de synopsis Super Nanny du 21 conservée hors certification de niveau 3.",
     "2026-10-15T18:18:09.764Z — 6ter sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 168/168 départs concordants, aucune omission ni divergence horaire, alias Une vie rêvée/Erkenci Kus conservés selon leur niveau de preuve, numéros d’épisode non réaffirmés et indépendance amont inconnue.",
     "2026-10-15T18:23:40.455Z — Paris Première sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 125/125 départs concordants, aucune omission ni divergence horaire, alias Gordon Ramsay documenté, labels S/E non réaffirmés lorsque absents et correction officielle du vendredi 22:55 réconciliée.",
-    "2026-10-15T18:27:56.559Z — Canal+ sur les sept jours : seconde lecture jour+nuit achevée sur 180 départs sauvegardés ; contradictions de composition, d’identité et d’horaires conservées sur chaque date, dont vingt décalages et un remplacement jeudi. Aucun inventaire n’est corrigé sans collecte/handoff dédié ; Bird reste fermé par son retry_gate."
+    "2026-10-15T18:27:56.559Z — Canal+ sur les sept jours : seconde lecture jour+nuit achevée sur 180 départs sauvegardés ; contradictions de composition, d’identité et d’horaires conservées sur chaque date, dont vingt décalages et un remplacement jeudi. Aucun inventaire n’est corrigé sans collecte/handoff dédié ; Bird reste fermé par son retry_gate.",
+    "2026-10-15T18:35:23.900Z — RMC Story sur les sept jours : seconde lecture jour+nuit achevée ; 171/171 départs concordants, aucune omission ni divergence horaire, avec seulement les alias Pause/Fin des programmes et les limites de versions/labels S/E non réaffirmés.",
+    "2026-10-15T18:38:31.480Z — Action sur les sept jours : seconde lecture jour+nuit achevée sur 103 départs sauvegardés ; dimanche, mercredi et vendredi concordent sous limites de placeholders, tandis que samedi nuit, lundi journée et mardi gardent des écarts, et jeudi révèle une vraie omission hors antenne à 05:52. Aucun retry_gate n’est rouvert."
   ],
   "blockers": [],
   "research_attempts": [
@@ -6200,7 +6202,7 @@
     "first_incomplete_stage": "enrichment",
     "next_actions": [
       "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
-      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les cinq chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les trois chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
       "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
       "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
       "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
@@ -16284,7 +16286,9 @@
         "2026-10-15T18:13:52.319Z — TFX sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 146/146 départs concordants, aucune omission ni contradiction d’horaire, labels S/E non réaffirmés et divergence de synopsis Super Nanny du 21 conservée hors certification de niveau 3.",
         "2026-10-15T18:18:09.764Z — 6ter sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 168/168 départs concordants, aucune omission ni divergence horaire, alias Une vie rêvée/Erkenci Kus conservés selon leur niveau de preuve, numéros d’épisode non réaffirmés et indépendance amont inconnue.",
         "2026-10-15T18:23:40.455Z — Paris Première sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 125/125 départs concordants, aucune omission ni divergence horaire, alias Gordon Ramsay documenté, labels S/E non réaffirmés lorsque absents et correction officielle du vendredi 22:55 réconciliée.",
-        "2026-10-15T18:27:56.559Z — Canal+ sur les sept jours : seconde lecture jour+nuit achevée sur 180 départs sauvegardés ; contradictions de composition, d’identité et d’horaires conservées sur chaque date, dont vingt décalages et un remplacement jeudi. Aucun inventaire n’est corrigé sans collecte/handoff dédié ; Bird reste fermé par son retry_gate."
+        "2026-10-15T18:27:56.559Z — Canal+ sur les sept jours : seconde lecture jour+nuit achevée sur 180 départs sauvegardés ; contradictions de composition, d’identité et d’horaires conservées sur chaque date, dont vingt décalages et un remplacement jeudi. Aucun inventaire n’est corrigé sans collecte/handoff dédié ; Bird reste fermé par son retry_gate.",
+        "2026-10-15T18:35:23.900Z — RMC Story sur les sept jours : seconde lecture jour+nuit achevée ; 171/171 départs concordants, aucune omission ni divergence horaire, avec seulement les alias Pause/Fin des programmes et les limites de versions/labels S/E non réaffirmés.",
+        "2026-10-15T18:38:31.480Z — Action sur les sept jours : seconde lecture jour+nuit achevée sur 103 départs sauvegardés ; dimanche, mercredi et vendredi concordent sous limites de placeholders, tandis que samedi nuit, lundi journée et mardi gardent des écarts, et jeudi révèle une vraie omission hors antenne à 05:52. Aucun retry_gate n’est rouvert."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json"
@@ -16296,14 +16300,14 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre la seconde lecture d’Action sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
+      "next_useful_batch": "Poursuivre la seconde lecture de RMC Découverte sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
         "distinct_reserves_added": 0,
         "reused_existing_cards": 0,
         "raw_inventory_observations_added": 0,
-        "scope": "Comparaison avec 89789660bbb7a235484219e61e437557da01df1d : synchronisation des entrées Télérama et revues hebdomadaires TMC, TFX, 6ter, Paris Première et Canal+ ; aucun ajout de carte, réserve, œuvre ou observation brute."
+        "scope": "Comparaison avec 89789660bbb7a235484219e61e437557da01df1d : synchronisation Télérama et revues hebdomadaires TMC, TFX, 6ter, Paris Première, Canal+, Action et RMC Story ; aucun ajout de carte, réserve, œuvre ou observation brute."
       },
       "intervals": [
         {
@@ -16353,6 +16357,13 @@
           "ended_at": "2026-10-15T18:27:56.559Z",
           "overlap": true,
           "note": "Trois comparaisons Canal+ en lecture seule ont été menées en parallèle ; les intervalles se chevauchent et ne sont pas additionnés au temps séquentiel."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": "2026-10-15T18:31:07.645Z",
+          "ended_at": "2026-10-15T18:38:31.480Z",
+          "overlap": true,
+          "note": "Trois revues Action et trois revues RMC Story ont été menées en parallèle ; leurs intervalles se chevauchent et ne sont pas additionnés au temps séquentiel."
         }
       ],
       "continuation_decisions": [
@@ -16465,22 +16476,44 @@
           "next_actions_total": 18,
           "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
           "all_actions_total": 30
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T18:30:40.794Z",
+          "elapsed_seconds": 1669.285,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "d05c18c17b36859b8a4e1db62c9b8de594194c53",
+          "next_actions": [
+            "Poursuivre la seconde lecture d’Action sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
+            "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les cinq chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+            "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 18,
+          "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 30
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T18:25:49.755Z",
-        "elapsed_seconds": 1378.246,
+        "observed_at": "2026-10-15T18:30:40.794Z",
+        "elapsed_seconds": 1669.285,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "87b358e4eda9e0d1279d990327d825f26ceb2207",
+        "source_sha": "d05c18c17b36859b8a4e1db62c9b8de594194c53",
         "next_actions": [
-          "Poursuivre la seconde lecture de Canal+ sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
+          "Poursuivre la seconde lecture d’Action sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
           "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
-          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les six chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les cinq chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
           "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
           "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
         ],
@@ -26091,6 +26124,576 @@
           "Le retry gate de Bird, qui concerne Ciné+ Festival, reste fermé : cette revue n’apporte ni preuve officielle datée ni second guide distinct concordant exactement à 06:34."
         ],
         "status": "reread_complete_with_single_time_conflict"
+      },
+      {
+        "date": "2026-10-17",
+        "channels": [
+          "Action"
+        ],
+        "flow": "Action",
+        "publisher": "Guides Web datés d’éditeurs distincts, détaillés dans urls",
+        "checked_at": "2026-10-15T18:31:33.064Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de la grille Action sauvegardée (15 départs) avec une seconde grille Web datée, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/action/samedi-17-octobre-2026/",
+          "https://www.programmetvcesoir.net/chaine/action/2026-10-17"
+        ],
+        "comparison": {
+          "saved_observations": 15,
+          "source_rows_reviewed": 15,
+          "omissions": [],
+          "schedule_contradictions": [
+            "Une vierge chez les morts vivants 01:30/01:31, La fille de Dracula 03:02/03:03 et Crimes en série — Le disciple 04:22/05:00 divergent ; les durées de plage 03:02–06:37 sont incompatibles."
+          ],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit a été menée sur les 15 départs sauvegardés ; les omissions ou contradictions listées restent ouvertes lorsqu’elles existent.",
+          "Aucune correction n’est importée sans collecte/handoff dédié et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs publics distincts ont été réellement lus, mais leur amont/acquisition EPG n’est pas documenté ; indépendance inconnue.",
+          "Les fenêtres EPG ne permettent pas de déduire un montage, une copie ou une durée technique.",
+          "Aucun retry_gate existant n’est rouvert par cette revue.",
+          "Le segment technique Fin des programmes/Pause à 06:37 est un alias de représentation."
+        ],
+        "status": "reread_complete_night_time_and_duration_conflicts"
+      },
+      {
+        "date": "2026-10-18",
+        "channels": [
+          "Action"
+        ],
+        "flow": "Action",
+        "publisher": "Guides Web datés d’éditeurs distincts, détaillés dans urls",
+        "checked_at": "2026-10-15T18:31:33.064Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de la grille Action sauvegardée (16 départs) avec une seconde grille Web datée, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/action/dimanche-18-octobre-2026/",
+          "https://www.programmetvcesoir.net/chaine/action/2026-10-18"
+        ],
+        "comparison": {
+          "saved_observations": 16,
+          "source_rows_reviewed": 16,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit a été menée sur les 16 départs sauvegardés ; les omissions ou contradictions listées restent ouvertes lorsqu’elles existent.",
+          "Aucune correction n’est importée sans collecte/handoff dédié et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs publics distincts ont été réellement lus, mais leur amont/acquisition EPG n’est pas documenté ; indépendance inconnue.",
+          "Les fenêtres EPG ne permettent pas de déduire un montage, une copie ou une durée technique.",
+          "Aucun retry_gate existant n’est rouvert par cette revue.",
+          "Le segment 06:20–07:10 est nommé Fin des programmes dans l’inventaire et Pause dans le second guide ; même plage hors antenne."
+        ],
+        "status": "reread_complete_no_omissions_placeholder_alias"
+      },
+      {
+        "date": "2026-10-19",
+        "channels": [
+          "Action"
+        ],
+        "flow": "Action",
+        "publisher": "Guides Web datés d’éditeurs distincts, détaillés dans urls",
+        "checked_at": "2026-10-15T18:31:33.064Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de la grille Action sauvegardée (14 départs) avec une seconde grille Web datée, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/action/lundi-19-octobre-2026/",
+          "https://www.programmetvcesoir.net/chaine/action/2026-10-19"
+        ],
+        "comparison": {
+          "saved_observations": 14,
+          "source_rows_reviewed": 14,
+          "omissions": [],
+          "schedule_contradictions": [
+            "Après la pause de 05:50, huit départs de 07:26 à 19:00 sont décalés de quinze minutes par rapport aux départs sauvegardés de 07:41 à 19:15 ; les grilles rejoignent à 20:50."
+          ],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit a été menée sur les 14 départs sauvegardés ; les omissions ou contradictions listées restent ouvertes lorsqu’elles existent.",
+          "Aucune correction n’est importée sans collecte/handoff dédié et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs publics distincts ont été réellement lus, mais leur amont/acquisition EPG n’est pas documenté ; indépendance inconnue.",
+          "Les fenêtres EPG ne permettent pas de déduire un montage, une copie ou une durée technique.",
+          "Aucun retry_gate existant n’est rouvert par cette revue.",
+          "Le segment 05:50 est nommé Fin des programmes/Pause selon la source."
+        ],
+        "status": "reread_complete_daytime_fifteen_minute_conflict"
+      },
+      {
+        "date": "2026-10-20",
+        "channels": [
+          "Action"
+        ],
+        "flow": "Action",
+        "publisher": "Guides Web datés d’éditeurs distincts, détaillés dans urls",
+        "checked_at": "2026-10-15T18:34:04.014Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de la grille Action sauvegardée (15 départs) avec une seconde grille Web datée, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/action/mardi-20-octobre-2026/",
+          "https://lezapptv.fr/chaine/action/2026-10-20"
+        ],
+        "comparison": {
+          "saved_observations": 15,
+          "source_rows_reviewed": 14,
+          "omissions": [
+            "Le départ sauvegardé Fin des programmes à 06:42 n’est pas matérialisé par le second guide, qui enchaîne le contenu de 05:50 à 07:29 ; différence de représentation hors antenne, pas émission éditoriale manquante."
+          ],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit a été menée sur les 15 départs sauvegardés ; les omissions ou contradictions listées restent ouvertes lorsqu’elles existent.",
+          "Aucune correction n’est importée sans collecte/handoff dédié et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs publics distincts ont été réellement lus, mais leur amont/acquisition EPG n’est pas documenté ; indépendance inconnue.",
+          "Les fenêtres EPG ne permettent pas de déduire un montage, une copie ou une durée technique.",
+          "Aucun retry_gate existant n’est rouvert par cette revue.",
+          "Les quatorze départs de contenu concordent exactement ; ponctuation seule pour Chouans !."
+        ],
+        "status": "reread_complete_content_no_omissions_placeholder_unrepresented"
+      },
+      {
+        "date": "2026-10-21",
+        "channels": [
+          "Action"
+        ],
+        "flow": "Action",
+        "publisher": "Guides Web datés d’éditeurs distincts, détaillés dans urls",
+        "checked_at": "2026-10-15T18:34:04.014Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de la grille Action sauvegardée (15 départs) avec une seconde grille Web datée, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/action/mercredi-21-octobre-2026/",
+          "https://www.programmetvcesoir.net/chaine/action/2026-10-21"
+        ],
+        "comparison": {
+          "saved_observations": 15,
+          "source_rows_reviewed": 15,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit a été menée sur les 15 départs sauvegardés ; les omissions ou contradictions listées restent ouvertes lorsqu’elles existent.",
+          "Aucune correction n’est importée sans collecte/handoff dédié et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs publics distincts ont été réellement lus, mais leur amont/acquisition EPG n’est pas documenté ; indépendance inconnue.",
+          "Les fenêtres EPG ne permettent pas de déduire un montage, une copie ou une durée technique.",
+          "Aucun retry_gate existant n’est rouvert par cette revue.",
+          "La précision S01E06 Le disciple apportée pour Crimes en série reste informative au niveau 2 et ne certifie aucune fiche."
+        ],
+        "status": "reread_complete_no_omissions"
+      },
+      {
+        "date": "2026-10-22",
+        "channels": [
+          "Action"
+        ],
+        "flow": "Action",
+        "publisher": "Guides Web datés d’éditeurs distincts, détaillés dans urls",
+        "checked_at": "2026-10-15T18:38:31.480Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de la grille Action sauvegardée (14 départs) avec une seconde grille Web datée, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://lezapptv.fr/chaine/action/2026-10-22",
+          "https://tv-programme.com/action/jeudi-22-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 14,
+          "source_rows_reviewed": 15,
+          "omissions": [
+            "Le second guide porte à 05:52 une case Fin des programmes de seize minutes, entre Manipulations à 05:00 et Le triomphe de Michel Strogoff à 06:08 ; cette ligne manque dans l’inventaire sauvegardé."
+          ],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit a été menée sur les 14 départs sauvegardés ; les omissions ou contradictions listées restent ouvertes lorsqu’elles existent.",
+          "Aucune correction n’est importée sans collecte/handoff dédié et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs publics distincts ont été réellement lus, mais leur amont/acquisition EPG n’est pas documenté ; indépendance inconnue.",
+          "Les fenêtres EPG ne permettent pas de déduire un montage, une copie ou une durée technique.",
+          "Aucun retry_gate existant n’est rouvert par cette revue.",
+          "Les quatorze autres titres et horaires sauvegardés concordent exactement après normalisation de Manipulations S01E01."
+        ],
+        "status": "reread_complete_one_off_air_omission_open"
+      },
+      {
+        "date": "2026-10-23",
+        "channels": [
+          "Action"
+        ],
+        "flow": "Action",
+        "publisher": "Guides Web datés d’éditeurs distincts, détaillés dans urls",
+        "checked_at": "2026-10-15T18:38:31.480Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de la grille Action sauvegardée (14 départs) avec une seconde grille Web datée, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/action/vendredi-23-octobre-2026/",
+          "https://programmestv.sudinfo.be/programme-tv/chaine/action/385/vendrediprochain/h15",
+          "https://programmestv.sudinfo.be/programme-tv/chaine/action/385/jeudiprochain/h15",
+          "https://www.programme-television.org/tv/chaines/action/vendredi-prochain"
+        ],
+        "comparison": {
+          "saved_observations": 14,
+          "source_rows_reviewed": 14,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit a été menée sur les 14 départs sauvegardés ; les omissions ou contradictions listées restent ouvertes lorsqu’elles existent.",
+          "Aucune correction n’est importée sans collecte/handoff dédié et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs publics distincts ont été réellement lus, mais leur amont/acquisition EPG n’est pas documenté ; indépendance inconnue.",
+          "Les fenêtres EPG ne permettent pas de déduire un montage, une copie ou une durée technique.",
+          "Aucun retry_gate existant n’est rouvert par cette revue.",
+          "À 05:00, la même fenêtre 05:00–06:30 est nommée Fin des programmes dans l’inventaire et Pause dans Sudinfo/Télé 7 Jours ; le libellé générique n’est pas fusionné automatiquement."
+        ],
+        "status": "reread_complete_no_omissions_placeholder_alias"
+      },
+      {
+        "date": "2026-10-17",
+        "channels": [
+          "RMC Story"
+        ],
+        "flow": "RMC Story",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:34:38.000Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 32 départs RMC Story sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rmc-story/samedi-17-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rmc-story-samedi-17-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 32,
+          "source_rows_reviewed": 32,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 32 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "La plage hors antenne est nommée Fin des programmes dans l’inventaire et Pause dans le second guide ; mêmes bornes, alias technique seulement.",
+          "Les numéros SxxExx et versions des intitulés génériques répétés ne sont pas réaffirmés lorsqu’ils ne sont pas exposés par le second guide.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "L’URL datée L’Internaute peut rediriger vers un slug de jour de semaine ; le contenu et la navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions_version_labels_limited"
+      },
+      {
+        "date": "2026-10-18",
+        "channels": [
+          "RMC Story"
+        ],
+        "flow": "RMC Story",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:34:38.000Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 23 départs RMC Story sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rmc-story/dimanche-18-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rmc-story-dimanche-18-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 23,
+          "source_rows_reviewed": 23,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 23 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "La plage hors antenne est nommée Fin des programmes dans l’inventaire et Pause dans le second guide ; mêmes bornes, alias technique seulement.",
+          "Les numéros SxxExx et versions des intitulés génériques répétés ne sont pas réaffirmés lorsqu’ils ne sont pas exposés par le second guide.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "L’URL datée L’Internaute peut rediriger vers un slug de jour de semaine ; le contenu et la navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions_version_labels_limited"
+      },
+      {
+        "date": "2026-10-19",
+        "channels": [
+          "RMC Story"
+        ],
+        "flow": "RMC Story",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:34:38.000Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 24 départs RMC Story sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rmc-story/lundi-19-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rmc-story-lundi-19-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 24,
+          "source_rows_reviewed": 24,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 24 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "La plage hors antenne est nommée Fin des programmes dans l’inventaire et Pause dans le second guide ; mêmes bornes, alias technique seulement.",
+          "Les numéros SxxExx et versions des intitulés génériques répétés ne sont pas réaffirmés lorsqu’ils ne sont pas exposés par le second guide.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "L’URL datée L’Internaute peut rediriger vers un slug de jour de semaine ; le contenu et la navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions_version_labels_limited"
+      },
+      {
+        "date": "2026-10-20",
+        "channels": [
+          "RMC Story"
+        ],
+        "flow": "RMC Story",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:35:23.900Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 22 départs RMC Story sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rmc-story/mardi-20-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rmc-story-mardi-20-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 22,
+          "source_rows_reviewed": 22,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 22 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "La plage hors antenne est nommée Fin des programmes dans l’inventaire et Pause dans le second guide ; mêmes bornes, alias technique seulement.",
+          "Les numéros SxxExx et versions des intitulés génériques répétés ne sont pas réaffirmés lorsqu’ils ne sont pas exposés par le second guide.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "L’URL datée L’Internaute peut rediriger vers un slug de jour de semaine ; le contenu et la navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions_version_labels_limited"
+      },
+      {
+        "date": "2026-10-21",
+        "channels": [
+          "RMC Story"
+        ],
+        "flow": "RMC Story",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:35:23.900Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 25 départs RMC Story sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rmc-story/mercredi-21-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rmc-story-mercredi-21-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 25,
+          "source_rows_reviewed": 25,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 25 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "La plage hors antenne est nommée Fin des programmes dans l’inventaire et Pause dans le second guide ; mêmes bornes, alias technique seulement.",
+          "Les numéros SxxExx et versions des intitulés génériques répétés ne sont pas réaffirmés lorsqu’ils ne sont pas exposés par le second guide.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "L’URL datée L’Internaute peut rediriger vers un slug de jour de semaine ; le contenu et la navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions_version_labels_limited"
+      },
+      {
+        "date": "2026-10-22",
+        "channels": [
+          "RMC Story"
+        ],
+        "flow": "RMC Story",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:35:03.482Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 22 départs RMC Story sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rmc-story/jeudi-22-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rmc-story-jeudi-22-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 22,
+          "source_rows_reviewed": 22,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 22 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "La plage hors antenne est nommée Fin des programmes dans l’inventaire et Pause dans le second guide ; mêmes bornes, alias technique seulement.",
+          "Les numéros SxxExx et versions des intitulés génériques répétés ne sont pas réaffirmés lorsqu’ils ne sont pas exposés par le second guide.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "L’URL datée L’Internaute peut rediriger vers un slug de jour de semaine ; le contenu et la navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions_version_labels_limited"
+      },
+      {
+        "date": "2026-10-23",
+        "channels": [
+          "RMC Story"
+        ],
+        "flow": "RMC Story",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:35:03.482Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 23 départs RMC Story sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rmc-story/vendredi-23-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rmc-story-vendredi-23-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 23,
+          "source_rows_reviewed": 23,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 23 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "La plage hors antenne est nommée Fin des programmes dans l’inventaire et Pause dans le second guide ; mêmes bornes, alias technique seulement.",
+          "Les numéros SxxExx et versions des intitulés génériques répétés ne sont pas réaffirmés lorsqu’ils ne sont pas exposés par le second guide.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "L’URL datée L’Internaute peut rediriger vers un slug de jour de semaine ; le contenu et la navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions_version_labels_limited"
       }
     ],
     "independent_crosscheck_complete": false,
