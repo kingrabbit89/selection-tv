@@ -134,7 +134,8 @@
     "2026-10-15T17:44:11.091Z — TMC samedi 17 octobre : seconde lecture jour+nuit, 18/18 départs présents dans deux grilles Web datées d’éditeurs distincts ; aucune omission de programme, labels d’épisode du bloc New York Unité Spéciale non exposés par le second guide et indépendance amont inconnue.",
     "2026-10-15T18:04:37.000Z — candidate S43 synchronisée normalement avec main : import des deux compléments Télérama au SHA exact, sans modification ni écrasement des recherches existantes.",
     "2026-10-15T18:08:33.729Z — TMC du 18 au 23 octobre : secondes lectures jour+nuit achevées sur deux grilles Web datées d’éditeurs distincts ; 112/112 départs présents, aucune omission ni contradiction de programme, numéros d’épisode non réaffirmés et indépendance amont inconnue. Avec la revue du 17 déjà sauvegardée, les sept dates TMC sont désormais relues.",
-    "2026-10-15T18:13:52.319Z — TFX sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 146/146 départs concordants, aucune omission ni contradiction d’horaire, labels S/E non réaffirmés et divergence de synopsis Super Nanny du 21 conservée hors certification de niveau 3."
+    "2026-10-15T18:13:52.319Z — TFX sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 146/146 départs concordants, aucune omission ni contradiction d’horaire, labels S/E non réaffirmés et divergence de synopsis Super Nanny du 21 conservée hors certification de niveau 3.",
+    "2026-10-15T18:18:09.764Z — 6ter sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 168/168 départs concordants, aucune omission ni divergence horaire, alias Une vie rêvée/Erkenci Kus conservés selon leur niveau de preuve, numéros d’épisode non réaffirmés et indépendance amont inconnue."
   ],
   "blockers": [],
   "research_attempts": [
@@ -6197,7 +6198,7 @@
     "first_incomplete_stage": "enrichment",
     "next_actions": [
       "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
-      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les huit chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les sept chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
       "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
       "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
       "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
@@ -16278,7 +16279,8 @@
       "completed_batches": [
         "2026-10-15T18:04:37.000Z — candidate S43 synchronisée normalement avec main : import des deux compléments Télérama au SHA exact, sans modification ni écrasement des recherches existantes.",
         "2026-10-15T18:08:33.729Z — TMC du 18 au 23 octobre : secondes lectures jour+nuit achevées sur deux grilles Web datées d’éditeurs distincts ; 112/112 départs présents, aucune omission ni contradiction de programme, numéros d’épisode non réaffirmés et indépendance amont inconnue. Avec la revue du 17 déjà sauvegardée, les sept dates TMC sont désormais relues.",
-        "2026-10-15T18:13:52.319Z — TFX sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 146/146 départs concordants, aucune omission ni contradiction d’horaire, labels S/E non réaffirmés et divergence de synopsis Super Nanny du 21 conservée hors certification de niveau 3."
+        "2026-10-15T18:13:52.319Z — TFX sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 146/146 départs concordants, aucune omission ni contradiction d’horaire, labels S/E non réaffirmés et divergence de synopsis Super Nanny du 21 conservée hors certification de niveau 3.",
+        "2026-10-15T18:18:09.764Z — 6ter sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 168/168 départs concordants, aucune omission ni divergence horaire, alias Une vie rêvée/Erkenci Kus conservés selon leur niveau de preuve, numéros d’épisode non réaffirmés et indépendance amont inconnue."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json"
@@ -16290,14 +16292,14 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre la seconde lecture de 6ter sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation ou d’identité.",
+      "next_useful_batch": "Poursuivre la seconde lecture de Paris Première sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation ou d’identité.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
         "distinct_reserves_added": 0,
         "reused_existing_cards": 0,
         "raw_inventory_observations_added": 0,
-        "scope": "Comparaison avec 89789660bbb7a235484219e61e437557da01df1d : synchronisation des entrées Télérama et six revues TMC ; aucun ajout de carte, réserve, œuvre ou observation brute."
+        "scope": "Comparaison avec 89789660bbb7a235484219e61e437557da01df1d : synchronisation des entrées Télérama et revues hebdomadaires TMC, TFX et 6ter ; aucun ajout de carte, réserve, œuvre ou observation brute."
       },
       "intervals": [
         {
@@ -16326,6 +16328,13 @@
           "ended_at": "2026-10-15T18:13:52.319Z",
           "overlap": true,
           "note": "Trois comparaisons TFX en lecture seule ont chevauché la surveillance CI ; débuts de deux délégations inconnus, intervalle borné par le premier début observé et la réconciliation finale."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": "2026-10-15T18:16:19.679Z",
+          "ended_at": "2026-10-15T18:18:09.764Z",
+          "overlap": true,
+          "note": "Trois comparaisons 6ter en lecture seule ont été menées en parallèle ; les intervalles se chevauchent et ne sont pas additionnés au temps séquentiel."
         }
       ],
       "continuation_decisions": [
@@ -16372,22 +16381,44 @@
           "next_actions_total": 18,
           "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
           "all_actions_total": 30
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T18:15:40.755Z",
+          "elapsed_seconds": 769.246,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "998374e90b09cb8aa06dcdd327ff5973a4ce4a3e",
+          "next_actions": [
+            "Poursuivre la seconde lecture de 6ter sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation ou d’identité.",
+            "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les huit chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+            "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 18,
+          "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 30
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T18:11:12.381Z",
-        "elapsed_seconds": 500.872,
+        "observed_at": "2026-10-15T18:15:40.755Z",
+        "elapsed_seconds": 769.246,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "544f9d291fbb2ba6179ed2efca046bb90b13ccf1",
+        "source_sha": "998374e90b09cb8aa06dcdd327ff5973a4ce4a3e",
         "next_actions": [
-          "Poursuivre la seconde lecture de TFX sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, sans confondre éditeurs distincts et indépendance amont.",
+          "Poursuivre la seconde lecture de 6ter sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation ou d’identité.",
           "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
-          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les neuf chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les huit chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
           "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
           "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
         ],
@@ -25128,6 +25159,289 @@
           "Le second guide expose les intitulés et sous-titres mais pas systématiquement les numéros de saison/épisode présents dans le relevé primaire ; ces numéros ne sont pas réaffirmés par cette seconde lecture.",
           "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
           "L’URL exacte datée redirige actuellement vers un slug de jour de semaine dont le contenu et la navigation affichés correspondent à la date civile ciblée ; cette canonicalisation est conservée comme limite."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-17",
+        "channels": [
+          "6ter"
+        ],
+        "flow": "6ter",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:17:29.771Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 22 lignes 6ter de l’inventaire sauvegardé, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/6ter/samedi-17-octobre-2026/",
+          "https://www.linternaute.com/television/programme-6ter-samedi-17-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 22,
+          "source_rows_reviewed": 22,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 22 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Les continuités nocturnes et reports de veille adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les numéros d’épisode ne sont pas exposés de façon homogène par les deux grilles, notamment pour les cases répétées d’Une saison au zoo ; ces numéros ne sont pas réaffirmés par cette seconde lecture.",
+          "Les intitulés génériques répétés sont concordants pour la recherche d’omissions mais ne constituent pas une certification d’identité de niveau 3.",
+          "L’URL datée L’Internaute redirige actuellement vers un slug de jour de semaine dont le contenu affiché correspond à la date civile ciblée ; cette canonicalisation est conservée comme limite."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-18",
+        "channels": [
+          "6ter"
+        ],
+        "flow": "6ter",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:17:29.771Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 16 lignes 6ter de l’inventaire sauvegardé, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/6ter/dimanche-18-octobre-2026/",
+          "https://www.linternaute.com/television/programme-6ter-dimanche-18-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 16,
+          "source_rows_reviewed": 16,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 16 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Les continuités nocturnes et reports de veille adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les numéros d’épisode ne sont pas exposés de façon homogène par les deux grilles, notamment pour les cases répétées d’Une saison au zoo ; ces numéros ne sont pas réaffirmés par cette seconde lecture.",
+          "Les intitulés génériques répétés sont concordants pour la recherche d’omissions mais ne constituent pas une certification d’identité de niveau 3.",
+          "L’URL datée L’Internaute redirige actuellement vers un slug de jour de semaine dont le contenu affiché correspond à la date civile ciblée ; cette canonicalisation est conservée comme limite."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-19",
+        "channels": [
+          "6ter"
+        ],
+        "flow": "6ter",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:17:29.771Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 25 lignes 6ter de l’inventaire sauvegardé, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/6ter/lundi-19-octobre-2026/",
+          "https://www.linternaute.com/television/programme-6ter-lundi-19-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 25,
+          "source_rows_reviewed": 25,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 25 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Les continuités nocturnes et reports de veille adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les numéros d’épisode ne sont pas exposés de façon homogène par les deux grilles, notamment pour les cases répétées d’Une saison au zoo ; ces numéros ne sont pas réaffirmés par cette seconde lecture.",
+          "Les intitulés génériques répétés sont concordants pour la recherche d’omissions mais ne constituent pas une certification d’identité de niveau 3.",
+          "L’URL datée L’Internaute redirige actuellement vers un slug de jour de semaine dont le contenu affiché correspond à la date civile ciblée ; cette canonicalisation est conservée comme limite.",
+          "saved `Une vie rêvée S01E62` / second guide `Erkenci Kus` at 06:30; the alias/version relation was not independently proven during this reread."
+        ],
+        "status": "reread_complete_no_omissions_title_alias_unresolved"
+      },
+      {
+        "date": "2026-10-20",
+        "channels": [
+          "6ter"
+        ],
+        "flow": "6ter",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:17:23.000Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 26 lignes 6ter de l’inventaire sauvegardé, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/6ter/mardi-20-octobre-2026/",
+          "https://www.linternaute.com/television/programme-6ter-mardi-20-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 26,
+          "source_rows_reviewed": 26,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 26 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Les continuités nocturnes et reports de veille adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les numéros d’épisode ne sont pas exposés de façon homogène par les deux grilles, notamment pour les cases répétées d’Une saison au zoo ; ces numéros ne sont pas réaffirmés par cette seconde lecture.",
+          "Les intitulés génériques répétés sont concordants pour la recherche d’omissions mais ne constituent pas une certification d’identité de niveau 3.",
+          "L’URL datée L’Internaute redirige actuellement vers un slug de jour de semaine dont le contenu affiché correspond à la date civile ciblée ; cette canonicalisation est conservée comme limite.",
+          "saved `Une vie rêvée S01E63` / second guide `Erkenci Kus` at 06:30; descriptions align but the alias/version relation was not independently proven during this reread."
+        ],
+        "status": "reread_complete_no_omissions_title_alias_unresolved"
+      },
+      {
+        "date": "2026-10-21",
+        "channels": [
+          "6ter"
+        ],
+        "flow": "6ter",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:17:23.000Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 23 lignes 6ter de l’inventaire sauvegardé, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/6ter/mercredi-21-octobre-2026/",
+          "https://www.linternaute.com/television/programme-6ter-mercredi-21-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 23,
+          "source_rows_reviewed": 23,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 23 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Les continuités nocturnes et reports de veille adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les numéros d’épisode ne sont pas exposés de façon homogène par les deux grilles, notamment pour les cases répétées d’Une saison au zoo ; ces numéros ne sont pas réaffirmés par cette seconde lecture.",
+          "Les intitulés génériques répétés sont concordants pour la recherche d’omissions mais ne constituent pas une certification d’identité de niveau 3.",
+          "saved `Une vie rêvée S01E64` / second guide `Erkenci Kus` at 06:30; descriptions align but the alias/version relation was not independently proven during this reread."
+        ],
+        "status": "reread_complete_no_omissions_title_alias_unresolved"
+      },
+      {
+        "date": "2026-10-22",
+        "channels": [
+          "6ter"
+        ],
+        "flow": "6ter",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:18:09.764Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 28 lignes 6ter de l’inventaire sauvegardé, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/6ter/jeudi-22-octobre-2026/",
+          "https://www.linternaute.com/television/programme-6ter-jeudi-22-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 28,
+          "source_rows_reviewed": 28,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 28 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Les continuités nocturnes et reports de veille adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les numéros d’épisode ne sont pas exposés de façon homogène par les deux grilles, notamment pour les cases répétées d’Une saison au zoo ; ces numéros ne sont pas réaffirmés par cette seconde lecture.",
+          "Les intitulés génériques répétés sont concordants pour la recherche d’omissions mais ne constituent pas une certification d’identité de niveau 3.",
+          "L’URL datée L’Internaute redirige actuellement vers un slug de jour de semaine dont le contenu affiché correspond à la date civile ciblée ; cette canonicalisation est conservée comme limite.",
+          "saved `Une vie rêvée S01E65` / second guide `Erkenci Kus` at 06:30; the linked L’Internaute episode page confirms the same slot and S01E65, so this is retained as a title alias rather than a different programme."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-23",
+        "channels": [
+          "6ter"
+        ],
+        "flow": "6ter",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:18:09.764Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 28 lignes 6ter de l’inventaire sauvegardé, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/6ter/vendredi-23-octobre-2026/",
+          "https://www.linternaute.com/television/programme-6ter-vendredi-23-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 28,
+          "source_rows_reviewed": 28,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 28 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Les continuités nocturnes et reports de veille adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les numéros d’épisode ne sont pas exposés de façon homogène par les deux grilles, notamment pour les cases répétées d’Une saison au zoo ; ces numéros ne sont pas réaffirmés par cette seconde lecture.",
+          "Les intitulés génériques répétés sont concordants pour la recherche d’omissions mais ne constituent pas une certification d’identité de niveau 3.",
+          "saved `Une vie rêvée S01E66` / second guide `Erkenci Kus` at 06:30; the linked L’Internaute episode page confirms the same slot and S01E66, so this is retained as a title alias rather than a different programme."
         ],
         "status": "reread_complete_no_omissions_episode_labels_limited"
       }
