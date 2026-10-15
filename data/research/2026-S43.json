@@ -100,7 +100,8 @@
     "2026-10-15T14:22:57.874Z — réserve complète du jeudi ajoutée : Partir un jour à 11:41, depuis le dossier déjà revu et deux grilles actuelles concordantes ; le conflit d’identité de La Prisonnière du désert à 13:30 est conservé et la piste écartée du lot.",
     "Réserve complète ajoutée au dimanche : Nos années sauvages à 14:44, depuis le dossier déjà revu du vendredi, avec divergence 14:43/14:44 explicitement conservée.",
     "Piste Midsommar du jeudi revue puis différée sans carte : les grilles françaises actuelles se contredisent, et le flux belge accessible ne les arbitre pas.",
-    "CI de la tête exacte lue : échec mécanique sur preparation-gaps.json, artefact informatif interdit dans la candidate ; fichier retiré de la branche et rapport courant conservé hors candidate."
+    "CI de la tête exacte lue : échec mécanique sur preparation-gaps.json, artefact informatif interdit dans la candidate ; fichier retiré de la branche et rapport courant conservé hors candidate.",
+    "CI de la tête corrigée a632afd observée : résolution de préparation réussie ; une exécution distante du groupe de tests a échoué sur test-editorial-task-board, tandis que les 101 mêmes tests passent localement sur la tête exacte. Divergence conservée pour réobservation, sans baisse de critères."
   ],
   "blockers": [],
   "research_attempts": [
@@ -4899,6 +4900,7 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
+      "Réobserver la CI exacte de la prochaine tête, puis ajouter une réserve complète à un jour déficitaire depuis un dossier sauvegardé et une diffusion concordante ; ne reprendre aucune piste en attente sans fait nouveau.",
       "Observer la CI de la tête corrigée tout en poursuivant une tâche éditoriale indépendante accessible ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
       "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé et une diffusion concordante, sans reprendre Midsommar jeudi ni les autres pistes en attente sans fait nouveau.",
       "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé, sans rouvrir les pistes placées en attente.",
@@ -9402,9 +9404,9 @@
     {
       "prompt_revision": "production-weekly-continuity-2026-10-10",
       "started_at": "2026-10-15T13:55:18.147Z",
-      "ended_at": null,
-      "duration_basis": "Passage en cours ; heure de début UTC observée à l’entrée. La durée terminale sera inscrite au bilan.",
-      "run_state": "running",
+      "ended_at": "2026-10-15T14:45:39.133Z",
+      "duration_basis": "Temps UTC réellement observé de 2026-10-15T13:55:18.147Z à 2026-10-15T14:45:39.133Z ; le contrôleur a réservé la fenêtre terminale après 50 minutes.",
+      "run_state": "stopped",
       "completed_batches": [
         "Réserve complète du samedi ajoutée : Left-Handed Girl à 11:06, depuis un dossier déjà revu et une diffusion recoupée sur deux guides datés.",
         "Deux réserves complètes ajoutées au dimanche : Gens de Dublin à 22:35 et Freaks à 14:05, depuis des dossiers déjà revus et des diffusions recoupées.",
@@ -9412,7 +9414,8 @@
         "Réserve complète ajoutée au jeudi : Partir un jour à 11:41, avec identité 2025 et diffusion recoupées ; La Prisonnière du désert écartée du lot sur contradiction de grille.",
         "Réserve complète ajoutée au dimanche : Nos années sauvages à 14:44, depuis le dossier déjà revu du vendredi, avec divergence 14:43/14:44 explicitement conservée.",
         "Piste Midsommar du jeudi revue puis différée sans carte : les grilles françaises actuelles se contredisent, et le flux belge accessible ne les arbitre pas.",
-        "CI de la tête exacte lue : échec mécanique sur preparation-gaps.json, artefact informatif interdit dans la candidate ; fichier retiré de la branche et rapport courant conservé hors candidate."
+        "CI de la tête exacte lue : échec mécanique sur preparation-gaps.json, artefact informatif interdit dans la candidate ; fichier retiré de la branche et rapport courant conservé hors candidate.",
+        "CI de la tête corrigée a632afd observée : résolution de préparation réussie ; une exécution distante du groupe de tests a échoué sur test-editorial-task-board, tandis que les 101 mêmes tests passent localement sur la tête exacte. Divergence conservée pour réobservation, sans baisse de critères."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -9424,8 +9427,8 @@
       "draft_reserves_added": 7,
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
-      "stop_reason": null,
-      "next_useful_batch": "Observer la CI de la tête corrigée tout en poursuivant une tâche éditoriale indépendante accessible ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+      "stop_reason": "budget_reserve_reached — seuil de 50 minutes observées atteint ; les cinq dernières minutes sont réservées à la sauvegarde terminale et à la libération du bail.",
+      "next_useful_batch": "Réobserver la CI exacte de la prochaine tête, puis ajouter une réserve complète à un jour déficitaire depuis un dossier sauvegardé et une diffusion concordante ; ne reprendre aucune piste en attente sans fait nouveau.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -9504,6 +9507,18 @@
           "started_at": "2026-10-15T14:38:03.261Z",
           "ended_at": "2026-10-15T14:39:12.088Z",
           "note": "Lecture du workflow exact 38753121156 et de ses journaux : rejet causé par la présence de preparation-gaps.json dans la candidate, pas par un défaut éditorial nouvellement certifié."
+        },
+        {
+          "kind": "controles",
+          "started_at": "2026-10-15T14:41:22.171Z",
+          "ended_at": "2026-10-15T14:45:28.293Z",
+          "note": "Réconciliation des identifiants d’alternatives, lecture de la CI exacte, reproduction locale réussie des 101 tests du groupe distant et décision terminale du contrôleur."
+        },
+        {
+          "kind": "sauvegarde",
+          "started_at": "2026-10-15T14:45:28.293Z",
+          "ended_at": "2026-10-15T14:45:39.133Z",
+          "note": "Préparation du bilan terminal ; sauvegarde distante et libération du bail suivent ce point observé."
         }
       ],
       "continuation_decisions": [
@@ -10276,29 +10291,313 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T14:43:52.383Z",
+          "elapsed_seconds": 2914.236,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "a632afd69a29c214c83c4b151faaa7e64aced775",
+          "next_actions": [
+            "Observer la CI de la tête corrigée tout en poursuivant une tâche éditoriale indépendante accessible ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+            "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé et une diffusion concordante, sans reprendre Midsommar jeudi ni les autres pistes en attente sans fait nouveau.",
+            "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé, sans rouvrir les pistes placées en attente.",
+            "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi, du mercredi, du jeudi et du vendredi pour progresser vers le minimum de dix candidats complets par jour, sans défaire les choix développés.",
+            "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés."
+          ],
+          "remaining_count": 12,
+          "next_actions_total": 16,
+          "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 21,
+          "waiting_actions": [
+            {
+              "action_text": "Reprendre Bird seulement si une preuve officielle datée relie la diffusion du vendredi 23 octobre 2026 à une durée/version exacte, ou si un recoupement admissible résout 06:33/06:34.",
+              "gates": [
+                {
+                  "attempt_index": 11,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre Bird seulement si une preuve officielle datée relie la diffusion du vendredi 23 octobre 2026 à une durée/version exacte, ou si un recoupement admissible résout 06:33/06:34."
+                    ],
+                    "reason": "Minute contradictoire et aucune liaison événementielle officielle de la durée/version.",
+                    "resume_when": "Correction officielle datée, BroadcastEvent CANAL+ exact ou nouveau recoupement admissible résolvant la minute et la version/durée.",
+                    "observed_at": "2026-10-15T12:49:03Z",
+                    "evidence": "TV-programme 06:34–08:30 ; Télérama 06:33 ; CANAL+ asset 114 min, Cannes/VOD 119 min, Ad Vitam 118 min sans lien événementiel daté."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés.",
+              "gates": [
+                {
+                  "attempt_index": 0,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
+                    ],
+                    "reason": "Les voies directe et alternative réellement ouvertes ne fournissent pas une grille complète de la date cible.",
+                    "resume_when": "Nouvelle grille datée exacte accessible ou changement observé sur l’une des pages.",
+                    "observed_at": "2026-10-15T08:41:23.322Z",
+                    "evidence": "403 sur les deux URLs TV-programme.com ; pages Télérama ouvertes mais dates rendues hors cible."
+                  }
+                },
+                {
+                  "attempt_index": 1,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
+                    ],
+                    "reason": "La source directe est inaccessible et les alternatives lues n’exposent pas les lignes de grille.",
+                    "resume_when": "Nouvelle grille datée exacte accessible ou changement observé sur l’une des pages.",
+                    "observed_at": "2026-10-15T08:41:23.322Z",
+                    "evidence": "403 sur les deux URLs TV-programme.com ; Vualatele annonce 0 programme ; SCREEN+ n’expose que le calendrier dans le résultat lu."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre Quand la ville dort seulement si une preuve permet d’attribuer une durée exacte à la copie du dimanche 18 octobre 2026.",
+              "gates": [
+                {
+                  "attempt_index": 8,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre Quand la ville dort seulement si une preuve permet d’attribuer une durée exacte à la copie du dimanche 18 octobre 2026."
+                    ],
+                    "reason": "Deux voies distinctes ne permettent pas d’attribuer une durée exacte à la copie.",
+                    "resume_when": "Preuve officielle ou source précise de la durée de la copie du 18 octobre.",
+                    "observed_at": "2026-10-15T12:22:43.453Z",
+                    "evidence": "Durées 107/108/109/112 min de portées différentes ; la fenêtre EPG ne certifie pas la copie."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre Memories of Murder seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:44/10:45 du lundi 19 octobre 2026.",
+              "gates": [
+                {
+                  "attempt_index": 9,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre Memories of Murder seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:44/10:45 du lundi 19 octobre 2026."
+                    ],
+                    "reason": "Deux clusters de guides actuels divergent d’une minute.",
+                    "resume_when": "Correction officielle datée ou nouveau recoupement qui résout la contradiction.",
+                    "observed_at": "2026-10-15T12:25:00.000Z",
+                    "evidence": "10:45 chez Programme-TV, Ouest-France, ProgrammeTVCeSoir et Digital3D ; 10:44 chez TV-programme et Télérama."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre Bienvenue à Gattaca seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:07/10:11 du mardi 20 octobre 2026.",
+              "gates": [
+                {
+                  "attempt_index": 10,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre Bienvenue à Gattaca seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:07/10:11 du mardi 20 octobre 2026."
+                    ],
+                    "reason": "Deux clusters actuels divergent de quatre minutes.",
+                    "resume_when": "Correction officielle datée ou nouveau recoupement qui résout la contradiction.",
+                    "observed_at": "2026-10-15T12:22:22.000Z",
+                    "evidence": "Concordances 10:07 et contradiction persistante 10:11."
+                  }
+                }
+              ]
+            }
+          ],
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-15T13:55:18.147Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T15:15:30.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        },
+        {
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-15T14:45:28.293Z",
+          "elapsed_seconds": 3010.146,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "a632afd69a29c214c83c4b151faaa7e64aced775",
+          "next_actions": [
+            "Observer la CI de la tête corrigée tout en poursuivant une tâche éditoriale indépendante accessible ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+            "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé et une diffusion concordante, sans reprendre Midsommar jeudi ni les autres pistes en attente sans fait nouveau.",
+            "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé, sans rouvrir les pistes placées en attente.",
+            "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi, du mercredi, du jeudi et du vendredi pour progresser vers le minimum de dix candidats complets par jour, sans défaire les choix développés.",
+            "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés."
+          ],
+          "remaining_count": 12,
+          "next_actions_total": 16,
+          "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 21,
+          "waiting_actions": [
+            {
+              "action_text": "Reprendre Bird seulement si une preuve officielle datée relie la diffusion du vendredi 23 octobre 2026 à une durée/version exacte, ou si un recoupement admissible résout 06:33/06:34.",
+              "gates": [
+                {
+                  "attempt_index": 11,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre Bird seulement si une preuve officielle datée relie la diffusion du vendredi 23 octobre 2026 à une durée/version exacte, ou si un recoupement admissible résout 06:33/06:34."
+                    ],
+                    "reason": "Minute contradictoire et aucune liaison événementielle officielle de la durée/version.",
+                    "resume_when": "Correction officielle datée, BroadcastEvent CANAL+ exact ou nouveau recoupement admissible résolvant la minute et la version/durée.",
+                    "observed_at": "2026-10-15T12:49:03Z",
+                    "evidence": "TV-programme 06:34–08:30 ; Télérama 06:33 ; CANAL+ asset 114 min, Cannes/VOD 119 min, Ad Vitam 118 min sans lien événementiel daté."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés.",
+              "gates": [
+                {
+                  "attempt_index": 0,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
+                    ],
+                    "reason": "Les voies directe et alternative réellement ouvertes ne fournissent pas une grille complète de la date cible.",
+                    "resume_when": "Nouvelle grille datée exacte accessible ou changement observé sur l’une des pages.",
+                    "observed_at": "2026-10-15T08:41:23.322Z",
+                    "evidence": "403 sur les deux URLs TV-programme.com ; pages Télérama ouvertes mais dates rendues hors cible."
+                  }
+                },
+                {
+                  "attempt_index": 1,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
+                    ],
+                    "reason": "La source directe est inaccessible et les alternatives lues n’exposent pas les lignes de grille.",
+                    "resume_when": "Nouvelle grille datée exacte accessible ou changement observé sur l’une des pages.",
+                    "observed_at": "2026-10-15T08:41:23.322Z",
+                    "evidence": "403 sur les deux URLs TV-programme.com ; Vualatele annonce 0 programme ; SCREEN+ n’expose que le calendrier dans le résultat lu."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre Quand la ville dort seulement si une preuve permet d’attribuer une durée exacte à la copie du dimanche 18 octobre 2026.",
+              "gates": [
+                {
+                  "attempt_index": 8,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre Quand la ville dort seulement si une preuve permet d’attribuer une durée exacte à la copie du dimanche 18 octobre 2026."
+                    ],
+                    "reason": "Deux voies distinctes ne permettent pas d’attribuer une durée exacte à la copie.",
+                    "resume_when": "Preuve officielle ou source précise de la durée de la copie du 18 octobre.",
+                    "observed_at": "2026-10-15T12:22:43.453Z",
+                    "evidence": "Durées 107/108/109/112 min de portées différentes ; la fenêtre EPG ne certifie pas la copie."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre Memories of Murder seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:44/10:45 du lundi 19 octobre 2026.",
+              "gates": [
+                {
+                  "attempt_index": 9,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre Memories of Murder seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:44/10:45 du lundi 19 octobre 2026."
+                    ],
+                    "reason": "Deux clusters de guides actuels divergent d’une minute.",
+                    "resume_when": "Correction officielle datée ou nouveau recoupement qui résout la contradiction.",
+                    "observed_at": "2026-10-15T12:25:00.000Z",
+                    "evidence": "10:45 chez Programme-TV, Ouest-France, ProgrammeTVCeSoir et Digital3D ; 10:44 chez TV-programme et Télérama."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre Bienvenue à Gattaca seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:07/10:11 du mardi 20 octobre 2026.",
+              "gates": [
+                {
+                  "attempt_index": 10,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre Bienvenue à Gattaca seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:07/10:11 du mardi 20 octobre 2026."
+                    ],
+                    "reason": "Deux clusters actuels divergent de quatre minutes.",
+                    "resume_when": "Correction officielle datée ou nouveau recoupement qui résout la contradiction.",
+                    "observed_at": "2026-10-15T12:22:22.000Z",
+                    "evidence": "Concordances 10:07 et contradiction persistante 10:11."
+                  }
+                }
+              ]
+            }
+          ],
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-15T13:55:18.147Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T15:15:30.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T14:38:03.261Z",
-        "elapsed_seconds": 2565.114,
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-15T14:45:28.293Z",
+        "elapsed_seconds": 3010.146,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "8b04fddb2f63e5b8318a85b0f641e3ab7fa7f07f",
+        "source_sha": "a632afd69a29c214c83c4b151faaa7e64aced775",
         "next_actions": [
+          "Observer la CI de la tête corrigée tout en poursuivant une tâche éditoriale indépendante accessible ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
           "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé et une diffusion concordante, sans reprendre Midsommar jeudi ni les autres pistes en attente sans fait nouveau.",
           "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé, sans rouvrir les pistes placées en attente.",
           "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi, du mercredi, du jeudi et du vendredi pour progresser vers le minimum de dix candidats complets par jour, sans défaire les choix développés.",
-          "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés.",
-          "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
+          "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés."
         ],
         "remaining_count": 12,
-        "next_actions_total": 15,
-        "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
-        "all_actions_total": 20,
+        "next_actions_total": 16,
+        "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "all_actions_total": 21,
         "waiting_actions": [
           {
             "action_text": "Reprendre Bird seulement si une preuve officielle datée relie la diffusion du vendredi 23 octobre 2026 à une durée/version exacte, ou si un recoupement admissible résout 06:33/06:34.",
@@ -10422,7 +10721,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-15T14:41:49.705Z",
+  "updated_at": "2026-10-15T14:45:39.133Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
