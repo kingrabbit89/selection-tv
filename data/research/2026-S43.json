@@ -150,7 +150,8 @@
     "2026-10-15T19:33:32.923Z — deux occurrences supplémentaires réutilisées sans rouvrir leurs dossiers stables : La Voix de Hind Rajab lundi rang 9 à 08:42, recoupée par trois guides actuels, et Bugonia vendredi rang 8 à 00:00, concordante entre Télérama fourni et trois guides actuels.",
     "2026-10-15T19:37:51.411Z — lundi atteint le minimum de dix cartes avec Une jeunesse indienne rang 10 à 20:50 sur Ciné+ Festival ; identité et durée distributeur, note SensCritique, critique Télérama attribuée, affiche officielle inspectée et ligne papier d’autorité relue.",
     "2026-10-15T19:41:57.327Z — vendredi porté à neuf cartes avec SOS fantômes rang 9 à 21:05 sur Gulli ; identité Sony/AFI, durée AFI, absence de note actuelle spécifique, critique Télérama attribuée, affiche Sony inspectée et ligne papier d’autorité relue.",
-    "2026-10-15T19:44:14.966Z — dossier proche de carte préparé pour Les Hommes du président : identité, durée, diffusion vendredi sous autorité Télérama, réception AFI/Télérama, note AlloCiné et photogramme officiel Cannes inspecté ; rédaction et rendu de la carte restent au prochain lot."
+    "2026-10-15T19:44:14.966Z — dossier proche de carte préparé pour Les Hommes du président : identité, durée, diffusion vendredi sous autorité Télérama, réception AFI/Télérama, note AlloCiné et photogramme officiel Cannes inspecté ; rédaction et rendu de la carte restent au prochain lot.",
+    "2026-10-15T20:00:40.004Z — vendredi atteint le minimum de dix cartes avec Les Hommes du président rang 10 à 21:05 sur France 5 ; identité et durée Warner/AFI/Cannes, note AlloCiné, critique Télérama attribuée, photogramme officiel Cannes et ligne papier d’autorité relus."
   ],
   "blockers": [],
   "research_attempts": [
@@ -5261,6 +5262,39 @@
       ],
       "evidence_note": "Identité et durée concordantes, réception Télérama/AFI, note alternative et photogramme officiel inspectés ; pointeur de grille, textes, rendu, fraîcheur mécanique et CI restent ouverts.",
       "status": "partial"
+    },
+    {
+      "work_id": "les-hommes-du-president-1976",
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "alternative_rating",
+        "critical_evidence",
+        "image",
+        "title",
+        "channel",
+        "date",
+        "start",
+        "editorial_copy",
+        "draft_reserve"
+      ],
+      "urls": [
+        "https://www.warnerbros.it/scheda-film/genere-drammatico/tutti-gli-uomini-del-presidente/",
+        "https://catalog.afi.com/Film/53913-ALL-THE-PRESIDENTS-MEN",
+        "https://www.festival-cannes.com/f/all-the-president-s-men/",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=3690.html"
+      ],
+      "checked_at": "2026-10-15T20:00:40.004Z",
+      "stability": "mixed_stable_identity_and_cycle_specific_broadcast",
+      "applies_to": [
+        "vendredi-selection reserve rank 10"
+      ],
+      "evidence_note": "Warner, AFI et Cannes concordent sur l’identité et 138 min ; note AlloCiné relue ; critique Télérama p. 141 /reviews/37 et grille d’autorité p. 140 /observations/1294 relues ; photogramme officiel Cannes inspecté ; CI distant restant.",
+      "status": "verified_for_draft"
     }
   ],
   "source_issues": [
@@ -6912,7 +6946,7 @@
         "scope": {
           "day": "vendredi"
         },
-        "status": "researching",
+        "status": "card_complete",
         "signals": [
           {
             "kind": "provided_magazine_criticism",
@@ -6938,7 +6972,7 @@
             "source_url": "https://catalog.afi.com/Film/53913-ALL-THE-PRESIDENTS-MEN"
           }
         ],
-        "decision_note": "Dossier proche de carte sauvegardé ; ligne Télérama p. 140 /observations/1294 relue à 21:05 sur France 5. Restent les textes, le catalogue, le rendu et les contrôles.",
+        "decision_note": "Réserve vendredi rang 10 matérialisée à 21:05 sur France 5 après revue du dossier stable et de la ligne Télérama p. 140 /observations/1294 ; les trois choix principaux et les neuf cartes antérieures sont conservés.",
         "alternatives": [
           "sl-vendredi-sos-fantomes-1984",
           "sl-vendredi-nos-annees-sauvages-1990"
@@ -6965,7 +6999,7 @@
     "main_sha": "8ab089ee5cc48d43e0bd41f7626d50e5beb5dd2f",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Terminer un autre dossier déjà proche d’une carte ou une rubrique accessible ; ne pas reprendre TV5MONDE tant que son retry_gate de flux régional n’est pas satisfait.",
+      "Compléter mardi, mercredi, dimanche ou samedi avec des dossiers admissibles déjà avancés ; sinon produire une rubrique indépendante.",
       "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
       "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur la seule chaîne encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
       "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
@@ -17766,6 +17800,109 @@
           "external_stop": null
         }
       }
+    },
+    {
+      "prompt_revision": "production-weekly-continuity-2026-10-10",
+      "started_at": "2026-10-15T19:56:09.059Z",
+      "ended_at": null,
+      "duration_basis": "Temps UTC observé depuis le début réel ; passage en cours.",
+      "run_state": "running",
+      "completed_batches": [
+        "2026-10-15T20:00:40.004Z — vendredi atteint le minimum de dix cartes avec Les Hommes du président rang 10 à 21:05 sur France 5 ; identité et durée Warner/AFI/Cannes, note AlloCiné, critique Télérama attribuée, photogramme officiel Cannes et ligne papier d’autorité relus."
+      ],
+      "deliverables_changed": [
+        "data/research/2026-S43.json",
+        "data/weeks/2026-S43.json",
+        "data/works.json",
+        "data/links.json"
+      ],
+      "complete_cards_added": 0,
+      "draft_cards_added": 1,
+      "draft_reserves_added": 1,
+      "dossiers_completed": 1,
+      "partial_dossiers_added": 0,
+      "requirements_resolved": 1,
+      "stop_reason": null,
+      "next_useful_batch": "Compléter un jour encore sous dix depuis les dossiers et cartes sauvegardés, en privilégiant mardi ou mercredi ; sinon avancer une rubrique indépendante.",
+      "additions": {
+        "new_works": 1,
+        "visible_draft_cards": 1,
+        "distinct_reserves_added": 1,
+        "reused_existing_cards": 0,
+        "raw_inventory_observations_added": 0,
+        "scope": "Comparaison avec 70ef46d92570a138b6d26e3436892e11e1338914 : une nouvelle œuvre et une nouvelle réserve quotidienne complète ajoutées ; vendredi passe de neuf à dix cartes."
+      },
+      "intervals": [
+        {
+          "kind": "reprise_extraction",
+          "started_at": "2026-10-15T19:56:09.059Z",
+          "ended_at": "2026-10-15T19:58:07.771Z",
+          "overlap": false
+        },
+        {
+          "kind": "redaction_rendu",
+          "started_at": "2026-10-15T19:58:07.771Z",
+          "ended_at": "2026-10-15T20:00:40.004Z",
+          "overlap": false,
+          "note": "Reprise du dossier partiel, rédaction des textes, plan append_days, rendu mécanique, contrôle du handoff et réconciliation du checkpoint."
+        }
+      ],
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T19:58:07.771Z",
+          "elapsed_seconds": 118.712,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "70ef46d92570a138b6d26e3436892e11e1338914",
+          "next_actions": [
+            "Terminer un autre dossier déjà proche d’une carte ou une rubrique accessible ; ne pas reprendre TV5MONDE tant que son retry_gate de flux régional n’est pas satisfait.",
+            "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur la seule chaîne encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+            "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
+          ],
+          "remaining_count": 11,
+          "observations": {
+            "started_at": "2026-10-15T19:56:09.059Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T20:56:20.428Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-15T19:58:07.771Z",
+        "elapsed_seconds": 118.712,
+        "prompt_revision": "production-weekly-continuity-2026-10-10",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S43",
+        "source_sha": "70ef46d92570a138b6d26e3436892e11e1338914",
+        "next_actions": [
+          "Terminer un autre dossier déjà proche d’une carte ou une rubrique accessible ; ne pas reprendre TV5MONDE tant que son retry_gate de flux régional n’est pas satisfait.",
+          "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
+          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur la seule chaîne encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+          "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+          "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
+        ],
+        "remaining_count": 11,
+        "observations": {
+          "started_at": "2026-10-15T19:56:09.059Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T20:56:20.428Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
+        }
+      }
     }
   ],
   "updated_at": "2026-10-15T19:45:49.505Z",
@@ -21587,13 +21724,10 @@
         "note": "Aucune exposition récente vérifiée dans ce lot ; contrôle mécanique final requis avant carte."
       },
       "missing_fields": [
-        "rédiger et revoir synopsis et justification",
-        "créer work_id et liens dans le catalogue",
-        "rendre la carte vendredi et contrôler le handoff",
-        "contrôle fraîcheur mécanique et CI distant"
+        "contrôles locaux pertinents et CI distant sur la tête exacte"
       ],
-      "decision": "dossier partiel proche de carte — non matérialisé",
-      "reason": "Les faits stables, la réception, l’image et l’événement éditorial sont acquis ; les champs de production et les contrôles finaux restent explicitement ouverts."
+      "decision": "réserve draft matérialisée — contrôles finaux requis",
+      "reason": "Identité, durée, diffusion papier d’autorité, réception attribuée, note alternative, visuel, fraîcheur et textes revus ; carte intégrée au rang 10 vendredi."
     }
   ],
   "coverage": {
