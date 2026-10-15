@@ -116,11 +116,10 @@
     "2026-10-15T16:08:27.719Z — seconde lecture Canal+ Cinéma sur les sept dates : 109/109 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; reports de veille et double ligne La Tour de glace conservés, limite mono-éditeur maintenue.",
     "2026-10-15T16:14:24.321Z — The Big Short : Le Casse du siècle matérialisé mécaniquement comme réserve draft rang 7 du mercredi à 08:31 sur Ciné+ Frisson ; les six cartes et pages existantes sont conservées exactement, le catalogue et les liens directs sont ajoutés, la CI distante reste à observer.",
     "2026-10-15T16:21:23.328Z — seconde lecture Canal+ Box Office sur les sept dates : 107/107 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; sept reports de veille distingués, limite mono-éditeur maintenue.",
-    "2026-10-15T16:24:52.033Z — revues ciblées Bird et La Nuit du chasseur : Bird différé sur 06:30/06:34, ancienne valeur 06:33 déclarée hors portée datée ; La Nuit du chasseur devenue conflictuelle à 17:51/17:54, réserve rang 4 à remplacer ou retirer. Les faits stables sont conservés sans réouvrir durée/master."
+    "2026-10-15T16:24:52.033Z — revues ciblées Bird et La Nuit du chasseur : Bird différé sur 06:30/06:34, ancienne valeur 06:33 déclarée hors portée datée ; La Nuit du chasseur devenue conflictuelle à 17:51/17:54, réserve rang 4 à remplacer ou retirer. Les faits stables sont conservés sans réouvrir durée/master.",
+    "2026-10-15T16:39:00.000Z — réserve vendredi réconciliée : La Nuit du chasseur retirée du pool en raison du conflit 17:51/17:54 et remplacée par Last Stop : Yuma County à 19:27, après deux guides d’éditeurs distincts concordants, revue d’identité, notes, visuel, critique contradictoire et fraîcheur."
   ],
-  "blockers": [
-    "La réserve vendredi rang 4 « La Nuit du chasseur » est matérialisée à 17:54 mais deux guides actuels donnent 17:51 ; remplacement/retrait sous replace_days ou résolution officielle requis."
-  ],
+  "blockers": [],
   "research_attempts": [
     {
       "id": "cine-ocs-21-22-access-2026-10-15T08:41:23.322Z",
@@ -4420,6 +4419,35 @@
       "applies_to": "La Nuit du chasseur — réserve draft vendredi rang 4",
       "evidence_note": "Titre/date/chaîne certains ; 17:54 contre 17:51 non résolu. Carte actuelle à remplacer ou retirer ; durées divergentes conservées sans inférence technique.",
       "status": "draft_card_conflict_requires_replacement"
+    },
+    {
+      "work_id": "last-stop-yuma-county",
+      "fields": [
+        "identity_version",
+        "broadcast_title",
+        "broadcast_channel",
+        "broadcast_date",
+        "broadcast_time",
+        "ratings",
+        "visual",
+        "freshness",
+        "critical_interest"
+      ],
+      "urls": [
+        "https://tv-programme.com/canal-plus-cinema/vendredi-23-octobre-2026/",
+        "https://www.linternaute.com/television/programme-canal-cinema-s-vendredi-23-octobre-2026/",
+        "https://wellgousa.com/films/last-stop-yuma-county",
+        "https://www.canalplus.com/cinema/last-stop-yuma-county/h/29864053_50001",
+        "https://www.imdb.com/title/tt11674730/",
+        "https://www.senscritique.com/film/last_stop_yuma_county/66085730",
+        "https://www.rogerebert.com/reviews/the-last-stop-in-yuma-county-film-review-2024",
+        "https://www.telerama.fr/cinema/last-stop-yuma-county-de-francis-galluppi-notre-critique_cri-7040091.php"
+      ],
+      "checked_at": "2026-10-15T16:33:51.224Z",
+      "stability": "mixed_stable_and_cycle_specific",
+      "applies_to": "Last Stop : Yuma County — réserve vendredi 23 octobre 2026 rang 5",
+      "evidence_note": "Deux guides d’éditeurs distincts concordent sur les quatre faits à 19:27 ; identité, notes, visuel et réception contradictoire relus ; répétition S41 conservée sans franchir le seuil de fraîcheur.",
+      "status": "verified_draft_card_ci_pending"
     }
   ],
   "source_issues": [
@@ -5704,6 +5732,29 @@
           "sl-jeudi-freaks-2018",
           "sl-jeudi-dernier-rivage"
         ]
+      },
+      {
+        "id": "sl-vendredi-last-stop-yuma-county",
+        "title": "Last Stop : Yuma County",
+        "work_id": "last-stop-yuma-county",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_complete",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "RogerEbert.com souligne la montée méthodique de la tension et l’humour noir du huis clos.",
+            "source_url": "https://www.rogerebert.com/reviews/the-last-stop-in-yuma-county-film-review-2024"
+          },
+          {
+            "kind": "professional_counterpoint",
+            "note": "Télérama reconnaît l’efficacité et le casting mais juge l’ensemble trop tributaire de ses modèles.",
+            "source_url": "https://www.telerama.fr/cinema/last-stop-yuma-county-de-francis-galluppi-notre-critique_cri-7040091.php"
+          }
+        ],
+        "decision_note": "Alternative entièrement vérifiée et matérialisée en réserve vendredi rang 5 à 19:27 sur Canal+ Cinéma ; répétition S41 pénalisée mais seuil global de fraîcheur conservé.",
+        "alternatives": []
       }
     ]
   },
@@ -5727,9 +5778,9 @@
     "first_incomplete_stage": "enrichment",
     "next_actions": [
       "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 20 autres chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+      "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
       "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
       "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
-      "Remplacer ou retirer La Nuit du chasseur de la réserve vendredi tant que 17:51/17:54 n’est pas résolu, en conservant le pool complet avec replace_days.",
       "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master.",
       "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent."
     ]
@@ -12736,7 +12787,8 @@
         "2026-10-15T16:08:27.719Z — seconde lecture Canal+ Cinéma sur les sept dates : 109/109 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; reports de veille et double ligne La Tour de glace conservés, limite mono-éditeur maintenue.",
         "2026-10-15T16:14:24.321Z — The Big Short : Le Casse du siècle matérialisé mécaniquement comme réserve draft rang 7 du mercredi à 08:31 sur Ciné+ Frisson ; les six cartes et pages existantes sont conservées exactement, le catalogue et les liens directs sont ajoutés, la CI distante reste à observer.",
         "2026-10-15T16:21:23.328Z — seconde lecture Canal+ Box Office sur les sept dates : 107/107 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; sept reports de veille distingués, limite mono-éditeur maintenue.",
-        "2026-10-15T16:24:52.033Z — revues ciblées Bird et La Nuit du chasseur : Bird différé sur 06:30/06:34, ancienne valeur 06:33 déclarée hors portée datée ; La Nuit du chasseur devenue conflictuelle à 17:51/17:54, réserve rang 4 à remplacer ou retirer. Les faits stables sont conservés sans réouvrir durée/master."
+        "2026-10-15T16:24:52.033Z — revues ciblées Bird et La Nuit du chasseur : Bird différé sur 06:30/06:34, ancienne valeur 06:33 déclarée hors portée datée ; La Nuit du chasseur devenue conflictuelle à 17:51/17:54, réserve rang 4 à remplacer ou retirer. Les faits stables sont conservés sans réouvrir durée/master.",
+        "2026-10-15T16:39:00.000Z — La Nuit du chasseur remplacée dans le pool vendredi par Last Stop : Yuma County, réserve complète à 19:27 ; cinq cartes vendredi conservées, conflit historique et pénalité S41 documentés."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -12744,20 +12796,20 @@
         "data/links.json",
         "data/weeks/2026-S43.json"
       ],
-      "complete_cards_added": 1,
-      "draft_cards_added": 1,
-      "draft_reserves_added": 1,
-      "dossiers_completed": 0,
+      "complete_cards_added": 2,
+      "draft_cards_added": 2,
+      "draft_reserves_added": 2,
+      "dossiers_completed": 1,
       "partial_dossiers_added": 0,
-      "requirements_resolved": 0,
+      "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Remplacer ou retirer La Nuit du chasseur du pool vendredi avec replace_days et une alternative entièrement vérifiée ; poursuivre sinon les secondes lectures niveau 2.",
+      "next_useful_batch": "Poursuivre les secondes lectures niveau 2 sur les vingt chaînes encore ouvertes et observer la CI exacte ; la panne de test-editorial-task-board sur fixture doit être corrigée sur main, hors lot éditorial.",
       "additions": {
         "new_works": 1,
         "visible_draft_cards": 0,
         "distinct_reserves_added": 1,
-        "reused_existing_cards": 0,
-        "scope": "comparaison avec 18454a598fba1e26a6167844274073bfc82dbef3"
+        "reused_existing_cards": 4,
+        "scope": "comparaison avec 18454a598fba1e26a6167844274073bfc82dbef3 ; Last Stop remplace La Nuit, donc aucun gain net de profondeur vendredi"
       },
       "intervals": [
         {
@@ -12805,6 +12857,20 @@
           "ended_at": "2026-10-15T16:24:52.033Z",
           "overlap": true,
           "note": "Début exact non mesuré ; revues Bird et La Nuit du chasseur menées en lecture seule et en parallèle."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": null,
+          "ended_at": "2026-10-15T16:33:51.224Z",
+          "overlap": true,
+          "note": "Début exact non mesuré ; revue Last Stop : Yuma County en lecture seule et en parallèle du suivi CI."
+        },
+        {
+          "kind": "redaction_rendu",
+          "started_at": "2026-10-15T16:34:00.000Z",
+          "ended_at": "2026-10-15T16:39:00.000Z",
+          "overlap": false,
+          "note": "Recomposition mécanique du pool complet vendredi avec replace_days."
         }
       ],
       "continuation_decisions": [
@@ -12971,44 +13037,161 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T16:29:30.453Z",
+          "elapsed_seconds": 1609.453,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "df805e02d17d58fd19fe14b67edbe65545cfd603",
+          "next_actions": [
+            "Remplacer ou retirer La Nuit du chasseur du pool vendredi avec replace_days et une alternative entièrement vérifiée ; poursuivre sinon les secondes lectures niveau 2.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 20 autres chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+            "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
+            "Remplacer ou retirer La Nuit du chasseur de la réserve vendredi tant que 17:51/17:54 n’est pas résolu, en conservant le pool complet avec replace_days."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 16,
+          "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 18,
+          "waiting_actions": [
+            {
+              "action_text": "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master.",
+              "gates": [
+                {
+                  "attempt_index": 11,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master."
+                    ],
+                    "reason": "Heure exacte non recoupée : 06:34 contre 06:30 ; aucune preuve officielle datée.",
+                    "resume_when": "Une preuve officielle datée confirme le créneau du 23 octobre, ou un second guide actuel d’un éditeur distinct concorde exactement avec 06:34.",
+                    "observed_at": "2026-10-15T16:24:23.000Z",
+                    "evidence": "TV-programme 06:34 ; SCREEN+ 06:30 ; CANAL+ sans événement daté ; ancienne lecture Télérama 06:33 hors portée du 23 octobre."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent.",
+              "gates": [
+                {
+                  "attempt_index": 16,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent."
+                    ],
+                    "reason": "Deux paires de guides actuels donnent des heures incompatibles pour le même événement.",
+                    "resume_when": "Une page officielle Ciné+ ou correction officielle datée indique l’heure, ou une modification fraîche des guides fait converger au moins deux éditeurs distincts sans paire contradictoire encore actuelle.",
+                    "observed_at": "2026-10-15T16:24:52.033Z",
+                    "evidence": "Télérama 17:54 ; Digital3D 17:54 ; TV-programme 17:51 ; Molotov 17:51 ; Orange inaccessible."
+                  }
+                }
+              ]
+            }
+          ],
+          "research_review_warnings": [
+            "research_attempts[0].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[1].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[8].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[9].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[10].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[14].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[15].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate"
+          ],
+          "observations": {
+            "started_at": "2026-10-15T16:02:41.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T17:25:58.907Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T16:24:10.254Z",
-        "elapsed_seconds": 1289.254,
+        "observed_at": "2026-10-15T16:29:30.453Z",
+        "elapsed_seconds": 1609.453,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "cda84e6122439402edae7576fdebb156eb999cd0",
+        "source_sha": "df805e02d17d58fd19fe14b67edbe65545cfd603",
         "next_actions": [
-          "Poursuivre les secondes lectures niveau 2 sur les 20 autres chaînes sans revue hebdomadaire complète, en parallèle des dossiers proches d’une réserve.",
+          "Remplacer ou retirer La Nuit du chasseur du pool vendredi avec replace_days et une alternative entièrement vérifiée ; poursuivre sinon les secondes lectures niveau 2.",
           "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 20 autres chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
           "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
           "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
-          "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
+          "Remplacer ou retirer La Nuit du chasseur de la réserve vendredi tant que 17:51/17:54 n’est pas résolu, en conservant le pool complet avec replace_days."
         ],
         "remaining_count": 11,
-        "next_actions_total": 15,
-        "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
-        "all_actions_total": 15,
-        "waiting_actions": [],
+        "next_actions_total": 16,
+        "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "all_actions_total": 18,
+        "waiting_actions": [
+          {
+            "action_text": "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master.",
+            "gates": [
+              {
+                "attempt_index": 11,
+                "effective_state": "waiting_for_new_evidence",
+                "retry_gate": {
+                  "state": "waiting_for_new_evidence",
+                  "action_texts": [
+                    "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master."
+                  ],
+                  "reason": "Heure exacte non recoupée : 06:34 contre 06:30 ; aucune preuve officielle datée.",
+                  "resume_when": "Une preuve officielle datée confirme le créneau du 23 octobre, ou un second guide actuel d’un éditeur distinct concorde exactement avec 06:34.",
+                  "observed_at": "2026-10-15T16:24:23.000Z",
+                  "evidence": "TV-programme 06:34 ; SCREEN+ 06:30 ; CANAL+ sans événement daté ; ancienne lecture Télérama 06:33 hors portée du 23 octobre."
+                }
+              }
+            ]
+          },
+          {
+            "action_text": "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent.",
+            "gates": [
+              {
+                "attempt_index": 16,
+                "effective_state": "waiting_for_new_evidence",
+                "retry_gate": {
+                  "state": "waiting_for_new_evidence",
+                  "action_texts": [
+                    "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent."
+                  ],
+                  "reason": "Deux paires de guides actuels donnent des heures incompatibles pour le même événement.",
+                  "resume_when": "Une page officielle Ciné+ ou correction officielle datée indique l’heure, ou une modification fraîche des guides fait converger au moins deux éditeurs distincts sans paire contradictoire encore actuelle.",
+                  "observed_at": "2026-10-15T16:24:52.033Z",
+                  "evidence": "Télérama 17:54 ; Digital3D 17:54 ; TV-programme 17:51 ; Molotov 17:51 ; Orange inaccessible."
+                }
+              }
+            ]
+          }
+        ],
         "research_review_warnings": [
           "research_attempts[0].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
           "research_attempts[1].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
           "research_attempts[8].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
           "research_attempts[9].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
           "research_attempts[10].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
-          "research_attempts[11].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
           "research_attempts[14].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
           "research_attempts[15].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate"
         ],
         "observations": {
           "started_at": "2026-10-15T16:02:41.000Z",
           "lease_owned": "yes",
-          "lease_until": "2026-10-15T17:05:18.965Z",
+          "lease_until": "2026-10-15T17:25:58.907Z",
           "external_stop": null,
           "accessible_task_checks": [],
           "ready_handoff": null
@@ -13016,7 +13199,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-15T16:24:52.033Z",
+  "updated_at": "2026-10-15T16:39:00.000Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -16014,12 +16197,95 @@
         "note": "Apparitions conservées en S40 et S42 ; aucune exception de fraîcheur enregistrée. L’impact sur les ratios finaux reste à vérifier."
       },
       "missing_fields": [
-        "heure exacte de diffusion résolue par preuve officielle précise ou convergence fraîche non contradictoire",
-        "évaluation finale de fraîcheur après retrait, remplacement ou maintien motivé",
+        "heure exacte seulement, si le dossier doit être repris sur fait nouveau"
+      ],
+      "decision": "retirée du pool vendredi ; dossier différé en attente d’une nouvelle preuve horaire",
+      "reason": "Le conflit 17:51/17:54 demeure ; la carte a été remplacée par une alternative entièrement vérifiée, sans fermer la recherche horaire elle-même."
+    },
+    {
+      "title": "Last Stop : Yuma County",
+      "work_id": "last-stop-yuma-county",
+      "catalogue_match": {
+        "path": "data/works.json",
+        "id": "last-stop-yuma-county",
+        "note": "Identité stable réutilisée depuis le catalogue ; notes, visuel et diffusion S43 ont été relus le 15 octobre 2026."
+      },
+      "identity_research": {
+        "director": "Francis Galluppi",
+        "year": 2023,
+        "country": "États-Unis",
+        "source_urls": [
+          "https://wellgousa.com/films/last-stop-yuma-county",
+          "https://www.canalplus.com/cinema/last-stop-yuma-county/h/29864053_50001",
+          "https://www.imdb.com/title/tt11674730/"
+        ],
+        "checked_at": "2026-10-15T16:33:51.224Z",
+        "note": "The Last Stop in Yuma County / Last Stop : Yuma County ; présentation en 2023 et sorties 2024/2025 de portée distincte, sans version concurrente."
+      },
+      "critical_evidence": [
+        {
+          "source": "RogerEbert.com",
+          "source_url": "https://www.rogerebert.com/reviews/the-last-stop-in-yuma-county-film-review-2024",
+          "assessment": "Matt Zoller Seitz valorise l’escalade méthodique des incidents et le plaisir noir créé par chaque complication.",
+          "kind": "professional_criticism",
+          "checked_at": "2026-10-15T16:33:51.224Z"
+        },
+        {
+          "source": "Télérama",
+          "source_url": "https://www.telerama.fr/cinema/last-stop-yuma-county-de-francis-galluppi-notre-critique_cri-7040091.php",
+          "assessment": "Samuel Douhaire reconnaît l’humour grinçant, les situations absurdes et le casting, mais juge le néopolar trop tributaire de ses modèles.",
+          "kind": "professional_counterpoint",
+          "checked_at": "2026-10-15T16:33:51.224Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_current",
+        "checked_at": "2026-10-15T16:33:51.224Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt11674730/",
+          "https://www.senscritique.com/film/last_stop_yuma_county/66085730",
+          "https://www.metacritic.com/movie/the-last-stop-in-yuma-county/"
+        ],
+        "note": "IMDb 6,9/10 (26 k), SensCritique 6,5/10 et Metacritic 72/100 (11 critiques) relus pour cette décision."
+      },
+      "broadcast_research": {
+        "date": "2026-10-23",
+        "start": "19:27",
+        "channel": "Canal+ Cinéma",
+        "source_urls": [
+          "https://tv-programme.com/canal-plus-cinema/vendredi-23-octobre-2026/",
+          "https://www.linternaute.com/television/programme-canal-cinema-s-vendredi-23-octobre-2026/"
+        ],
+        "checked_at": "2026-10-15T16:33:51.224Z",
+        "status": "verified_two_distinct_editors_upstream_unknown",
+        "note": "TV-programme/Tabom et L’Internaute/CCM Benchmark concordent sur titre, chaîne, date et 19:27 ; leur amont EPG reste inconnu et aucune indépendance technique n’est certifiée."
+      },
+      "image_research": {
+        "image_url": "https://media.senscritique.com/media/000022101781/0/last_stop_yuma_county.jpg",
+        "source_page": "https://www.senscritique.com/film/last_stop_yuma_county/66085730",
+        "checked_at": "2026-10-15T16:33:51.224Z",
+        "status": "exact_poster_visually_verified_ci_pending",
+        "visually_checked": true,
+        "reused_in": [
+          "2026-S43"
+        ]
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T16:33:51.224Z",
+        "status": "repeat_in_lookback_not_previous_issue",
+        "issues_checked": [
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ],
+        "note": "Réserve rang 10 en S41, aucune présence en S42. Le remplacement de La Nuit du chasseur conserve un seul répétiteur parmi 17 réserves distinctes, soit 94 % de fraîcheur pour un minimum de 80 %."
+      },
+      "missing_fields": [
         "contrôle CI distant du visuel et des liens sur la tête finale"
       ],
-      "decision": "réserve draft rang 4 devenue conflictuelle — remplacement ou retrait requis",
-      "reason": "Deux paires de guides actuels donnent 17:51 et 17:54 pour le même événement ; l’ancienne preuve Orange n’est plus accessible. Les faits stables restent réutilisables, mais la carte actuelle ne satisfait plus le niveau 3."
+      "decision": "réserve draft vendredi rang 5 admissible avec pénalité de fraîcheur",
+      "reason": "Alternative entièrement vérifiée remplaçant une carte dont l’heure restait contradictoire ; la réception partagée et la répétition S41 sont explicitement conservées."
     }
   ],
   "coverage": {
@@ -19044,6 +19310,16 @@
         "data/research/2026-S43.json#/coverage/days : channels_scanned recopiés mécaniquement depuis l’inventaire courant"
       ],
       "note": "Clôture du relevé primaire seulement. Les secondes lectures, l’indépendance et les vérifications de niveau 3 restent ouvertes."
+    },
+    {
+      "requirement": "Corriger la réserve vendredi rang 4 dont l’heure 17:51/17:54 reste contradictoire.",
+      "status": "closed_by_verified_replacement",
+      "decided_at": "2026-10-15T16:39:00.000Z",
+      "evidence": [
+        "data/weeks/2026-S43.json : pool vendredi recomposé sans La Nuit du chasseur",
+        "Last Stop : Yuma County — TV-programme et L’Internaute concordants à 19:27 le 23 octobre sur Canal+ Cinéma"
+      ],
+      "note": "Le dossier La Nuit du chasseur reste différé ; seule l’exigence portant sur une carte retenue défectueuse est close."
     }
   ]
 }
