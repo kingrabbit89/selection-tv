@@ -120,7 +120,8 @@
     "2026-10-15T16:39:00.000Z — réserve vendredi réconciliée : La Nuit du chasseur retirée du pool en raison du conflit 17:51/17:54 et remplacée par Last Stop : Yuma County à 19:27, après deux guides d’éditeurs distincts concordants, revue d’identité, notes, visuel, critique contradictoire et fraîcheur.",
     "2026-10-15T16:44:13.961Z — seconde lecture M6 sur les sept dates : 159/159 départs présents, nuits et reports inclus ; titre du 17 à 10:10 corrigé en « Le mag du samedi Jura », indépendance amont inconnue.",
     "2026-10-15T16:45:02.184Z — seconde lecture TF1 sur les sept dates : 178/178 départs présents, nuits et reports inclus, aucune omission ni contradiction ; indépendance amont inconnue.",
-    "2026-10-15T16:45:08.774Z — seconde lecture France 5 sur les sept dates : 37 omissions et plusieurs décalages conservés, dont En tension le 18 et trois identités Serengeti le 21 ; couverture non close."
+    "2026-10-15T16:45:08.774Z — seconde lecture France 5 sur les sept dates : 37 omissions et plusieurs décalages conservés, dont En tension le 18 et trois identités Serengeti le 21 ; couverture non close.",
+    "2026-10-15T16:50:14.000Z — seconde lecture Arte sur les sept dates : 186 événements comparés, aucune omission ; deux horaires du mardi corrigés de 01:10 à 01:15 et de 04:10 à 04:15 selon l’officiel confirmé, aucune carte visible affectée."
   ],
   "blockers": [],
   "research_attempts": [
@@ -4493,6 +4494,20 @@
       "applies_to": "France 5 — sept jours et nuits 2026-S43",
       "evidence_note": "Seconde lecture complète, 37 omissions et plusieurs contradictions conservées ; couverture non close avant import/réconciliation.",
       "status": "level2_complete_with_blocking_gaps"
+    },
+    {
+      "fields": [
+        "level2_schedule_coverage"
+      ],
+      "urls": [
+        "https://www.arte.tv/fr/guide/20261020/",
+        "https://www.linternaute.com/television/programme-arte-mardi-20-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T16:50:14.000Z",
+      "stability": "cycle_specific",
+      "applies_to": "Arte — sept jours et nuits 2026-S43",
+      "evidence_note": "186 événements comparés, aucune omission ; 01:10→01:15 et 04:10→04:15 corrigés selon ARTE et Linternaute ; indépendance amont inconnue.",
+      "status": "level2_complete"
     }
   ],
   "source_issues": [
@@ -12836,7 +12851,8 @@
         "2026-10-15T16:39:00.000Z — La Nuit du chasseur remplacée dans le pool vendredi par Last Stop : Yuma County, réserve complète à 19:27 ; cinq cartes vendredi conservées, conflit historique et pénalité S41 documentés.",
         "2026-10-15T16:44:13.961Z — seconde lecture M6 sur les sept dates : 159/159 départs présents, nuits et reports inclus ; titre du 17 à 10:10 corrigé en « Le mag du samedi Jura », indépendance amont inconnue.",
         "2026-10-15T16:45:02.184Z — seconde lecture TF1 sur les sept dates : 178/178 départs présents, nuits et reports inclus, aucune omission ni contradiction ; indépendance amont inconnue.",
-        "2026-10-15T16:45:08.774Z — seconde lecture France 5 sur les sept dates : 37 omissions et plusieurs décalages conservés, dont En tension le 18 et trois identités Serengeti le 21 ; couverture non close."
+        "2026-10-15T16:45:08.774Z — seconde lecture France 5 sur les sept dates : 37 omissions et plusieurs décalages conservés, dont En tension le 18 et trois identités Serengeti le 21 ; couverture non close.",
+        "2026-10-15T16:50:14.000Z — seconde lecture Arte sur les sept dates : 186 événements comparés, aucune omission ; deux horaires du mardi corrigés de 01:10 à 01:15 et de 04:10 à 04:15 selon l’officiel confirmé, aucune carte visible affectée."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -12852,7 +12868,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Importer et réconcilier les 37 omissions France 5 et les conflits En tension/Serengeti, puis poursuivre les secondes lectures sur les dix-huit chaînes encore ouvertes ; traiter la panne CI de fixture sur main, hors lot éditorial.",
+      "next_useful_batch": "Importer et réconcilier les 37 omissions France 5 et les conflits En tension/Serengeti, puis poursuivre les secondes lectures sur les dix-sept chaînes encore ouvertes ; traiter la panne CI de fixture sur main, hors lot éditorial.",
       "additions": {
         "new_works": 1,
         "visible_draft_cards": 0,
@@ -12941,6 +12957,13 @@
           "ended_at": "2026-10-15T16:45:08.774Z",
           "overlap": true,
           "note": "Début exact non mesuré ; seconde lecture France 5 en lecture seule et parallèle."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": null,
+          "ended_at": "2026-10-15T16:50:14.000Z",
+          "overlap": true,
+          "note": "Début exact non mesuré ; seconde lecture Arte en lecture seule et parallèle."
         }
       ],
       "continuation_decisions": [
@@ -20208,6 +20231,74 @@
           "Provenance amont du guide inconnue ; indépendance non certifiée. Les lignes Imprévus restent des omissions factuelles. Aucun niveau 3 certifié."
         ],
         "status": "second_reading_complete_with_gaps"
+      },
+      {
+        "channels": [
+          "Arte"
+        ],
+        "flow": "Arte",
+        "publisher": "ARTE + CCM Benchmark / Linternaute",
+        "checked_at": "2026-10-15T16:50:14.000Z",
+        "dates": [
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23"
+        ],
+        "segments_reviewed": [
+          "00:00–05:59",
+          "05:00–23:59"
+        ],
+        "review_method": "seconde lecture exhaustive des grilles officielles ARTE, rattachement civil des reports de veille et contrelecture complète quotidienne Linternaute",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://www.arte.tv/fr/guide/20261016/",
+          "https://www.arte.tv/fr/guide/20261017/",
+          "https://www.arte.tv/fr/guide/20261018/",
+          "https://www.arte.tv/fr/guide/20261019/",
+          "https://www.arte.tv/fr/guide/20261020/",
+          "https://www.arte.tv/fr/guide/20261021/",
+          "https://www.arte.tv/fr/guide/20261022/",
+          "https://www.arte.tv/fr/guide/20261023/",
+          "https://www.linternaute.com/television/programme-arte-mardi-20-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 186,
+          "source_rows_reviewed": 186,
+          "omissions": [],
+          "schedule_contradictions": [
+            {
+              "date": "2026-10-20",
+              "title": "Monstres gentils",
+              "saved_start": "01:10",
+              "official_start": "01:15",
+              "crosscheck_start": "01:15",
+              "resolution": "inventaire corrigé selon ARTE et Linternaute actuels"
+            },
+            {
+              "date": "2026-10-20",
+              "title": "ARTE Regards — Îles Lofoten : surtourisme dans l’Arctique",
+              "saved_start": "04:10",
+              "official_start": "04:15",
+              "crosscheck_start": "04:15",
+              "resolution": "inventaire corrigé selon ARTE et Linternaute actuels"
+            }
+          ],
+          "normalizations": [
+            "Linternaute le 19 comporte deux lignes Pause et un doublon 05:05/05:10 ; la grille officielle tranche à 05:10.",
+            "TV-programme conserve les anciennes valeurs 01:10/04:10 le 20 ; ARTE et Linternaute actuels concordent à 01:15/04:15."
+          ]
+        },
+        "decisions": [
+          "Aucune omission ; deux horaires obsolètes du mardi corrigés selon la grille officielle actuelle, confirmée par un second éditeur. Aucune carte visible affectée."
+        ],
+        "limits": [
+          "Empreintes de captures locales transitoires non sauvegardées en Git. Indépendance amont inconnue ; aucun niveau 3 certifié."
+        ],
+        "status": "reread_complete_with_inventory_corrections"
       }
     ],
     "independent_crosscheck_complete": false,
