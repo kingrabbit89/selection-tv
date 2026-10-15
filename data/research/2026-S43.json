@@ -102,7 +102,8 @@
     "Piste Midsommar du jeudi revue puis différée sans carte : les grilles françaises actuelles se contredisent, et le flux belge accessible ne les arbitre pas.",
     "CI de la tête exacte lue : échec mécanique sur preparation-gaps.json, artefact informatif interdit dans la candidate ; fichier retiré de la branche et rapport courant conservé hors candidate.",
     "CI de la tête corrigée a632afd observée : résolution de préparation réussie ; une exécution distante du groupe de tests a échoué sur test-editorial-task-board, tandis que les 101 mêmes tests passent localement sur la tête exacte. Divergence conservée pour réobservation, sans baisse de critères.",
-    "2026-10-15T15:08:39.575Z — dossier The Big Short complété : deux guides actuels concordent désormais à 08:31 sur Ciné+ Frisson le 21 octobre ; la contradiction historique 08:30/08:31 est conservée, aucune carte n’est affirmée sans rendu mécanique."
+    "2026-10-15T15:08:39.575Z — dossier The Big Short complété : deux guides actuels concordent désormais à 08:31 sur Ciné+ Frisson le 21 octobre ; la contradiction historique 08:30/08:31 est conservée, aucune carte n’est affirmée sans rendu mécanique.",
+    "2026-10-15T15:11:01.172Z — impasses de grille révisées pour U Are the Universe et La Mer au loin : deux voies actuelles par dossier restent contradictoires ; retry_gates exacts sauvegardés, aucune carte ni clôture de couverture inventée."
   ],
   "blockers": [],
   "research_attempts": [
@@ -392,6 +393,64 @@
       "result": "TV-programme annonce Midsommar à 02:08 sur Ciné+ Frisson France. Télé 7 Jours publie pour la même chaîne et la même date une grille différente, avec Novocaïne à 02:09 et aucune occurrence de Midsommar. La grille Sudinfo accessible concerne explicitement le flux belge et ne peut pas arbitrer le flux français.",
       "blocking_scope": "Aucun blocage du pool jeudi : la piste optionnelle n’est pas ajoutée ; les six cartes existantes restent inchangées.",
       "resume_when": "Correction officielle datée du flux français ou deux guides actuels admissibles concordant sur le même événement."
+    },
+    {
+      "id": "u-are-the-universe-slot-conflict-2026-10-15T15_11_01Z",
+      "object": "U Are the Universe (Pavlo Ostrikov, 2024)",
+      "version": "diffusion Ciné+ Frisson du 20 octobre 2026",
+      "broadcast": "Ciné+ Frisson, mardi 20 octobre 2026",
+      "question": "Arbitrer la minute exacte entre 08:30 et 08:33 et relier sans inférence les durées observées.",
+      "urls": [
+        "https://tv-programme.com/cine-plus-frisson/mardi-20-octobre-2026/",
+        "https://www.programmetvcesoir.net/chaine/cine-frisson/2026-10-20",
+        "https://tv.digital3d.com/detail/cineplus-frisson-47?date=2026-10-20&time=08:30",
+        "https://television.telerama.fr/programme-tv-mardi/cine-frisson",
+        "https://tiff.net/events/u-are-the-universe",
+        "https://www.rottentomatoes.com/m/u_are_the_universe"
+      ],
+      "checked_at": "2026-10-15T15:11:01.172Z",
+      "result": "TV-programme et ProgrammeTVCeSoir concordent à 08:30 ; Digital3D indique 08:33 et la grille Télérama consultée conserve ce cluster. Les sources d’identité confirment 101 min mais aucune preuve officielle ne relie une copie exacte à l’événement.",
+      "blocking_scope": "Carte mardi non matérialisée ; les réserves existantes restent inchangées.",
+      "resume_condition": "Correction officielle datée ou nouveau recoupement admissible résolvant 08:30/08:33.",
+      "retry_gate": {
+        "state": "waiting_for_new_evidence",
+        "action_texts": [
+          "Reprendre U Are the Universe seulement si une correction officielle datée ou un nouveau recoupement admissible résout la contradiction 08:30/08:33 du mardi 20 octobre 2026."
+        ],
+        "reason": "Deux clusters actuels d’horaires restent contradictoires et aucune preuve officielle événementielle n’arbitre la minute.",
+        "resume_when": "Correction officielle datée ou nouveau recoupement admissible résolvant la contradiction.",
+        "observed_at": "2026-10-15T15:11:01.172Z",
+        "evidence": "TV-programme + ProgrammeTVCeSoir : 08:30 ; Digital3D + Télérama : 08:33 ; durée œuvre 101 min séparée des fenêtres EPG."
+      }
+    },
+    {
+      "id": "la-mer-au-loin-slot-conflict-2026-10-15T15_11_01Z",
+      "object": "La Mer au loin (Saïd Hamich Benlarbi, 2024)",
+      "version": "diffusion Ciné+ Festival du 20 octobre 2026",
+      "broadcast": "Ciné+ Festival, mardi 20 octobre 2026",
+      "question": "Arbitrer la minute exacte entre 16:59 et 17:01 sans vote majoritaire.",
+      "urls": [
+        "https://www.programmetvcesoir.net/chaine/cine-festival/2026-10-20",
+        "https://lezapptv.fr/chaine/cine-festival/2026-10-20",
+        "https://tv-programme.com/cine-plus-festival/mardi-20-octobre-2026/",
+        "https://www.tv5mondeplus.com/en/films/drame/la-mer-au-loin",
+        "https://www.unifrance.org/film/58069/la-mer-au-loin",
+        "https://www.thejokersfilms.com/films/la-mer-au-loin/"
+      ],
+      "checked_at": "2026-10-15T15:11:01.172Z",
+      "result": "ProgrammeTVCeSoir et Le Zapp TV concordent à 17:01 ; TV-programme indique 16:59 et une séquence amont différente. Les sources officielles de l’œuvre confirment l’identité mais n’arbitrent pas l’événement Ciné+.",
+      "blocking_scope": "Carte mardi non matérialisée ; les réserves existantes restent inchangées.",
+      "resume_condition": "Correction officielle datée ou nouveau recoupement admissible résolvant 16:59/17:01.",
+      "retry_gate": {
+        "state": "waiting_for_new_evidence",
+        "action_texts": [
+          "Reprendre La Mer au loin seulement si une correction officielle datée ou un nouveau recoupement admissible résout la contradiction 16:59/17:01 du mardi 20 octobre 2026."
+        ],
+        "reason": "Deux clusters actuels restent contradictoires ; l’identité de l’œuvre est certaine mais ne tranche pas l’heure de diffusion.",
+        "resume_when": "Correction officielle datée ou nouveau recoupement admissible résolvant la contradiction.",
+        "observed_at": "2026-10-15T15:11:01.172Z",
+        "evidence": "ProgrammeTVCeSoir + Le Zapp TV : 17:01 ; TV-programme : 16:59 ; aucune pièce officielle événementielle."
+      }
     }
   ],
   "verification_records": [
@@ -4175,7 +4234,7 @@
             "source_url": "https://www.rogerebert.com/festivals/fantastic-fest-2024-u-are-the-universe-planet-b-the-rule-of-jenny-pen"
           }
         ],
-        "decision_note": "Piste fraîche et éditorialement solide, différée : TV-programme donne 08:30 et Télérama 08:33 sur Ciné+ Frisson ; aucune carte tant que les quatre faits de grille ne concordent pas.",
+        "decision_note": "Nouvelle revue ciblée : deux guides à 08:30 et deux à 08:33 ; attente de fait nouveau, aucune carte.",
         "alternatives": [
           "sl-mardi-left-handed-girl",
           "sl-mardi-partir-un-jour"
@@ -4196,7 +4255,7 @@
             "source_url": "https://www.lemonde.fr/culture/article/2025/02/05/la-mer-au-loin-une-vie-prisonniere-du-dechirement-de-l-exil_6532776_3246.html"
           }
         ],
-        "decision_note": "Piste fraîche et solide, différée : deux guides donnent 17:01 mais TV-programme affiche désormais 16:59, contredisant aussi sa capture d’inventaire antérieure ; aucune carte par vote majoritaire.",
+        "decision_note": "Nouvelle revue ciblée : deux guides à 17:01 et un guide contradictoire à 16:59 ; attente de fait nouveau, aucune carte.",
         "alternatives": [
           "sl-mardi-left-handed-girl",
           "sl-mardi-partir-un-jour"
@@ -4934,7 +4993,9 @@
       "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés.",
       "Reprendre Quand la ville dort seulement si une preuve permet d’attribuer une durée exacte à la copie du dimanche 18 octobre 2026.",
       "Reprendre Memories of Murder seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:44/10:45 du lundi 19 octobre 2026.",
-      "Reprendre Bienvenue à Gattaca seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:07/10:11 du mardi 20 octobre 2026."
+      "Reprendre Bienvenue à Gattaca seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:07/10:11 du mardi 20 octobre 2026.",
+      "Reprendre U Are the Universe seulement si une correction officielle datée ou un nouveau recoupement admissible résout la contradiction 08:30/08:33 du mardi 20 octobre 2026.",
+      "Reprendre La Mer au loin seulement si une correction officielle datée ou un nouveau recoupement admissible résout la contradiction 16:59/17:01 du mardi 20 octobre 2026."
     ]
   },
   "run_metrics": [
@@ -10752,7 +10813,8 @@
       "duration_basis": "Temps UTC observé depuis 2026-10-15T15:03:29.000Z ; checkpoint à 2026-10-15T15:08:39.575Z.",
       "run_state": "running",
       "completed_batches": [
-        "2026-10-15T15:08:39.575Z — dossier The Big Short complété : deux guides actuels concordent désormais à 08:31 sur Ciné+ Frisson le 21 octobre ; la contradiction historique 08:30/08:31 est conservée, aucune carte n’est affirmée sans rendu mécanique."
+        "2026-10-15T15:08:39.575Z — dossier The Big Short complété : deux guides actuels concordent désormais à 08:31 sur Ciné+ Frisson le 21 octobre ; la contradiction historique 08:30/08:31 est conservée, aucune carte n’est affirmée sans rendu mécanique.",
+        "2026-10-15T15:11:01.172Z — impasses de grille révisées pour U Are the Universe et La Mer au loin : deux voies actuelles par dossier restent contradictoires ; retry_gates exacts sauvegardés, aucune carte ni clôture de couverture inventée."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json"
@@ -10764,7 +10826,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
+      "next_useful_batch": "Matérialiser The Big Short comme réserve draft du mercredi dès qu’un clone exécutable permet le helper ; sinon avancer une autre revue de couverture accessible sans rouvrir les deux impasses annotées.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -10807,24 +10869,58 @@
             ],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T15:11:01.172Z",
+          "elapsed_seconds": 452.172,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "5c5a6b3d5bf6f6b0de478e2019dff03f4468b808",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T16:05:44.714Z",
+          "remaining_count": 12,
+          "next_actions_total": 12,
+          "evaluated_by": "manual_fallback",
+          "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision fondée sur l’horloge, le bail relu et les actions accessibles du checkpoint.",
+          "next_actions": [
+            "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
+            "Observer la CI de la tête corrigée tout en poursuivant une tâche éditoriale indépendante accessible ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+            "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé et une diffusion concordante, sans reprendre Midsommar jeudi ni les autres pistes en attente sans fait nouveau.",
+            "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé, sans rouvrir les pistes placées en attente.",
+            "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi, du mercredi, du jeudi et du vendredi pour progresser vers le minimum de dix candidats complets par jour, sans défaire les choix développés."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T15:03:29.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T16:05:44.714Z",
+            "external_stop": null,
+            "accessible_task_checks": [
+              "The Big Short draft rendering blocked only by unavailable clone; other coverage reviews remain accessible"
+            ],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T15:08:39.575Z",
-        "elapsed_seconds": 310.575,
+        "observed_at": "2026-10-15T15:11:01.172Z",
+        "elapsed_seconds": 452.172,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "6b2f013a2c60c6dd839ade05022c71129f4d0ebc",
+        "source_sha": "5c5a6b3d5bf6f6b0de478e2019dff03f4468b808",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T16:05:44.714Z",
         "remaining_count": 12,
-        "next_actions_total": 10,
+        "next_actions_total": 12,
         "evaluated_by": "manual_fallback",
-        "evaluation_note": "Le clone et les helpers locaux sont indisponibles à cause de l’échec d’initialisation exec-server ; décision appliquée depuis l’horloge observée, le bail relu et le checkpoint immuable.",
+        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision fondée sur l’horloge, le bail relu et les actions accessibles du checkpoint.",
         "next_actions": [
           "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
           "Observer la CI de la tête corrigée tout en poursuivant une tâche éditoriale indépendante accessible ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
@@ -10838,14 +10934,14 @@
           "lease_until": "2026-10-15T16:05:44.714Z",
           "external_stop": null,
           "accessible_task_checks": [
-            "The Big Short dossier complete; draft rendering awaits executable clone"
+            "The Big Short draft rendering blocked only by unavailable clone; other coverage reviews remain accessible"
           ],
           "ready_handoff": null
         }
       }
     }
   ],
-  "updated_at": "2026-10-15T15:08:39.575Z",
+  "updated_at": "2026-10-15T15:11:01.172Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -12355,8 +12451,8 @@
         "version/durée de diffusion",
         "visuel de résolution suffisante"
       ],
-      "decision": "différé — carte non matérialisée",
-      "reason": "Contradiction factuelle sur l’heure entre deux éditeurs actuels."
+      "decision": "différé — attente de fait nouveau, carte non matérialisée",
+      "reason": "Nouvelle revue ciblée : deux guides à 08:30 et deux à 08:33 ; attente de fait nouveau, aucune carte."
     },
     {
       "title": "La Mer au loin",
@@ -12400,8 +12496,8 @@
         "horaire exact arbitré",
         "version/durée de diffusion"
       ],
-      "decision": "différé — carte non matérialisée",
-      "reason": "Deux guides donnent 17:01 mais un guide courant donne 16:59 ; pas d’arbitrage par majorité."
+      "decision": "différé — attente de fait nouveau, carte non matérialisée",
+      "reason": "Nouvelle revue ciblée : deux guides à 17:01 et un guide contradictoire à 16:59 ; attente de fait nouveau, aucune carte."
     },
     {
       "title": "A Ghost Story",
