@@ -92,7 +92,8 @@
     "Mardi réconcilié sur la nouvelle concordance horaire de Left-Handed Girl et enrichi de deux réserves complètes : Freaks et Raccrochez, c’est une erreur.",
     "Mercredi enrichi de trois réserves complètes réutilisant des dossiers déjà revus : Baccalauréat, Interstellar et Peau d’âne ; leurs diffusions du 21 octobre ont été recoupées séparément.",
     "Jeudi enrichi d’une réserve complète : Le pont de la rivière Kwaï, dossier déjà revu dont la nouvelle diffusion du 22 octobre a été recoupée séparément.",
-    "2026-10-15T13:39:02.051Z — première réserve du vendredi matérialisée : La Nuit du chasseur à 17:54, après concordance nouvelle d’OrangeTV, Télérama et de la grille TV-programme actuelle ; l’observation initiale à 17:51 et la réapparition S40 restent visibles."
+    "2026-10-15T13:39:02.051Z — première réserve du vendredi matérialisée : La Nuit du chasseur à 17:54, après concordance nouvelle d’OrangeTV, Télérama et de la grille TV-programme actuelle ; l’observation initiale à 17:51 et la réapparition S40 restent visibles.",
+    "2026-10-15T13:46:30.000Z — deuxième réserve du vendredi matérialisée : Que Dios nos perdone à 18:47, après concordance de la grille officielle Action et du guide daté TV-programme ; fréquence des rediffusions et limites de durée conservées."
   ],
   "blockers": [],
   "research_attempts": [
@@ -3345,6 +3346,31 @@
       "applies_to": "réserve draft La Nuit du chasseur — vendredi 2026-10-23 rang 4",
       "evidence_note": "Diffusion actuelle corrigée à 17:54 sur trois pages concordantes ; identité et champs stables réutilisés, divergences de durée et réapparition S40 conservées.",
       "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "work_id": "que-dios-nos-perdone-2016",
+      "fields": [
+        "identity",
+        "duration_limits",
+        "ratings",
+        "professional_criticism",
+        "current_broadcast",
+        "image",
+        "freshness",
+        "draft_reserve"
+      ],
+      "urls": [
+        "https://www.actiontv.fr/fr/grille-tv",
+        "https://tv-programme.com/action/vendredi-23-octobre-2026/",
+        "https://www.imdb.com/title/tt4944596/",
+        "https://www.senscritique.com/film/que_dios_nos_perdone/17028357",
+        "https://www.telerama.fr/cinema/films/que-dios-nos-perdone,518623.php"
+      ],
+      "checked_at": "2026-10-15T13:46:30.000Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "applies_to": "réserve draft Que Dios nos perdone — vendredi 2026-10-23 rang 5",
+      "evidence_note": "La grille officielle Action et le guide daté concordent à 18:47 ; identité, notes, visuel et textes stables réutilisés, divergences de durée et fréquence des rediffusions conservées.",
+      "status": "verified_for_draft_card_ci_pending"
     }
   ],
   "source_issues": [
@@ -4412,8 +4438,8 @@
         "decision_note": "Réserve draft jeudi rang 5 ; identité et textes stables réutilisés, diffusion du 22 octobre à 13:35 recoupée séparément.",
         "alternatives": [
           "sl-jeudi-old-boy",
-          "sl-jeudi-le-dernier-rivage",
-          "sl-jeudi-freaks"
+          "sl-jeudi-dernier-rivage",
+          "sl-jeudi-freaks-2018"
         ]
       },
       {
@@ -4433,6 +4459,27 @@
         ],
         "decision_note": "Réserve draft vendredi rang 4 à 17:54 ; l’ancienne observation 17:51 est remplacée par trois pages actuelles concordantes. Réapparition S40 conservée et mesurée par le contrôle de fraîcheur.",
         "alternatives": [
+          "sl-vendredi-bird-2024"
+        ]
+      },
+      {
+        "id": "sl-vendredi-que-dios-nos-perdone-2016",
+        "title": "Que Dios nos perdone",
+        "work_id": "que-dios-nos-perdone-2016",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Télérama fournit une critique favorable et argumentée, avec le contrepoint négatif du Monde conservé dans le dossier.",
+            "source_url": "https://www.telerama.fr/cinema/films/que-dios-nos-perdone,518623.php"
+          }
+        ],
+        "decision_note": "Réserve draft vendredi rang 5 à 18:47 ; identité et textes stables réutilisés, diffusion du vendredi vérifiée séparément. Fréquence des rediffusions Action conservée.",
+        "alternatives": [
+          "sl-vendredi-la-nuit-du-chasseur-1955",
           "sl-vendredi-bird-2024"
         ]
       }
@@ -8565,7 +8612,8 @@
         "Deux réserves complètes ajoutées au mardi et horaire du premier choix réconcilié sur les grilles actuelles.",
         "Trois réserves complètes ajoutées au mercredi depuis des dossiers déjà revus, avec nouvelles diffusions recoupées.",
         "Une réserve complète ajoutée au jeudi depuis un dossier déjà revu, avec nouvelle diffusion recoupée.",
-        "Une réserve complète ajoutée au vendredi après correction documentée du créneau : La Nuit du chasseur à 17:54."
+        "Une réserve complète ajoutée au vendredi après correction documentée du créneau : La Nuit du chasseur à 17:54.",
+        "Deuxième réserve complète ajoutée au vendredi : Que Dios nos perdone à 18:47, diffusion officielle et guide daté concordants."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -8577,16 +8625,16 @@
       ],
       "complete_cards_added": 0,
       "draft_cards_added": 3,
-      "draft_reserves_added": 7,
+      "draft_reserves_added": 8,
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Ajouter une deuxième réserve complète au vendredi ou avancer une rubrique indépendante prête, sans reprendre les pistes dont le retry_gate attend un fait nouveau.",
+      "next_useful_batch": "Ajouter des réserves fraîches et complètes aux jours encore sous le minimum, ou avancer une rubrique indépendante prête, sans reprendre les pistes dont le retry_gate attend un fait nouveau.",
       "additions": {
         "new_works": 3,
         "visible_draft_cards": 3,
-        "distinct_reserves_added": 7,
-        "reused_existing_cards": 7,
+        "distinct_reserves_added": 8,
+        "reused_existing_cards": 8,
         "scope": "comparaison avec bc9f78f1534b222b560b92f9c4040569412c3f5c"
       },
       "intervals": [
@@ -8654,6 +8702,12 @@
           "started_at": "2026-10-15T13:39:02.051Z",
           "ended_at": "2026-10-15T13:41:08.793Z",
           "note": "Contrôle des liens exacts, structure légère, diff, inspection de la grille vendredi et actualisation du rapport preparation-gaps à 102 écarts bloquants ; aucun écart fermé automatiquement."
+        },
+        {
+          "kind": "recherche_rédaction_rendu",
+          "started_at": "2026-10-15T13:43:18.099Z",
+          "ended_at": "2026-10-15T13:46:30.000Z",
+          "note": "Revue de la grille officielle Action et du guide daté, puis réutilisation contrôlée du dossier et rendu mécanique de la réserve vendredi rang 5."
         }
       ],
       "continuation_decisions": [
@@ -8760,25 +8814,65 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T13:43:18.099Z",
+          "elapsed_seconds": 2509.658,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "6d4ecea6cdfcb8a5181ef0cb23026216fb3a18dc",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T14:23:59.757Z",
+          "remaining_count": 12,
+          "next_actions_total": 15,
+          "all_actions_total": 19,
+          "evaluated_by": "scripts/editorial-continuation.mjs",
+          "next_actions": [
+            "Ajouter une deuxième réserve complète au vendredi ou avancer une rubrique indépendante prête, sans reprendre les pistes dont le retry_gate attend un fait nouveau.",
+            "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi, du mercredi, du jeudi et du vendredi pour progresser vers le minimum de dix candidats complets par jour, sans défaire les choix développés.",
+            "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés.",
+            "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés.",
+            "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
+          ],
+          "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-15T13:01:28.441Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T14:23:59.757Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T13:34:07.592Z",
-        "elapsed_seconds": 1959.151,
+        "observed_at": "2026-10-15T13:43:18.099Z",
+        "elapsed_seconds": 2509.658,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "f1a8600c3257601e5ea763ceb4d812e8c63487bd",
+        "source_sha": "6d4ecea6cdfcb8a5181ef0cb23026216fb3a18dc",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T14:23:59.757Z",
         "remaining_count": 12,
+        "next_actions_total": 15,
+        "all_actions_total": 19,
         "evaluated_by": "scripts/editorial-continuation.mjs",
         "next_actions": [
-          "Ajouter des réserves complètes au vendredi ou à un autre jour sous le minimum, ou avancer une rubrique indépendante prête."
+          "Ajouter une deuxième réserve complète au vendredi ou avancer une rubrique indépendante prête, sans reprendre les pistes dont le retry_gate attend un fait nouveau.",
+          "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi, du mercredi, du jeudi et du vendredi pour progresser vers le minimum de dix candidats complets par jour, sans défaire les choix développés.",
+          "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés.",
+          "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés.",
+          "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
         ],
+        "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
         "observations": {
           "started_at": "2026-10-15T13:01:28.441Z",
           "lease_owned": "yes",
@@ -10189,7 +10283,21 @@
         "contrôle CI distant du visuel et des liens sur la tête exacte"
       ],
       "decision": "carte draft matérialisée avec limite éditoriale — CI final requis",
-      "reason": "Diffusion, identité, réception, notes, visuel, fraîcheur publique et textes revus ; fréquence des rediffusions explicitement conservée."
+      "reason": "Diffusion, identité, réception, notes, visuel, fraîcheur publique et textes revus ; fréquence des rediffusions explicitement conservée.",
+      "additional_broadcasts": [
+        {
+          "date": "2026-10-23",
+          "start": "18:47",
+          "channel": "Action",
+          "source_urls": [
+            "https://www.actiontv.fr/fr/grille-tv",
+            "https://tv-programme.com/action/vendredi-23-octobre-2026/"
+          ],
+          "checked_at": "2026-10-15T13:46:30.000Z",
+          "status": "verified_by_official_schedule_and_current_dated_guide",
+          "note": "La grille officielle Action et le guide daté concordent sur les quatre faits de diffusion ; aucune indépendance amont n’est affirmée."
+        }
+      ]
     },
     {
       "title": "U Are the Universe",
