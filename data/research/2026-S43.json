@@ -71,7 +71,8 @@
     "2026-10-15T09:31:43.614Z — Action : relevé partiel du 23 octobre remplacé par la grille complète et datée (14 observations), jour civil et nuit inclus ; seconde lecture non attestée.",
     "2026-10-15T09:38:19.393Z — première présélection du samedi enregistrée : trois pistes actives et trois pistes reportées, six signaux sourcés, aucune carte certifiée.",
     "2026-10-15T09:41:10.739Z — dossier partiel La Prisonnière du désert : identité AFI, signal BFI et diffusion du 17 octobre recoupée par deux guides ; notes, visuel, fraîcheur et textes restent ouverts.",
-    "2026-10-15T09:43:20.786Z — dossier partiel L’Homme de la rue : identité et versions AFI, réception attribuée TCM et diffusion du 17 octobre recoupée ; version exacte, notes, visuel, fraîcheur et textes restent ouverts."
+    "2026-10-15T09:43:20.786Z — dossier partiel L’Homme de la rue : identité et versions AFI, réception attribuée TCM et diffusion du 17 octobre recoupée ; version exacte, notes, visuel, fraîcheur et textes restent ouverts.",
+    "2026-10-15T09:45:19.161Z — dossier partiel L’Emploi du temps : identité Miramax, critique Guardian, IMDb actuel et diffusion du 17 octobre recoupée ; version, seconde note, visuel, fraîcheur et textes restent ouverts."
   ],
   "blockers": [],
   "research_attempts": [
@@ -1900,6 +1901,33 @@
       "applies_to": "dossier L’Homme de la rue — samedi 2026-10-17",
       "evidence_note": "AFI établit Meet John Doe (1941), Frank Capra, et plusieurs durées/fins. TCM conserve des lectures attribuées opposées. Deux guides actuels concordent sur les quatre faits de diffusion ; amont et indépendance inconnus.",
       "status": "verified_for_partial_dossier"
+    },
+    {
+      "work_id": "l-emploi-du-temps-2001",
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "cast",
+        "audience_rating",
+        "broadcast_title",
+        "broadcast_channel",
+        "broadcast_date",
+        "broadcast_time",
+        "editorial_signal"
+      ],
+      "urls": [
+        "https://www.miramax.com/movie/l-emploi-du-temps-time-out/",
+        "https://www.theguardian.com/film/2024/apr/25/laurent-cantet-peter-bradshaw-appreciation-high-minded-progressive-and-literate",
+        "https://www.imdb.com/title/tt0279065/",
+        "https://tv-programme.com/cine-plus-festival/samedi-17-octobre-2026/",
+        "https://www.programmetvcesoir.net/chaine/cine-festival/2026-10-17"
+      ],
+      "checked_at": "2026-10-15T09:45:19.161Z",
+      "stability": "mixed_stable_and_cycle_specific",
+      "applies_to": "dossier L’Emploi du temps — samedi 2026-10-17",
+      "evidence_note": "Miramax établit identité et distribution ; Guardian apporte la lecture critique ; IMDb 7,3/10 (5,3 k) ; deux guides concordent sur les quatre faits de diffusion, indépendance inconnue.",
+      "status": "verified_for_partial_dossier"
     }
   ],
   "source_issues": [
@@ -1999,7 +2027,7 @@
         "scope": {
           "day": "samedi"
         },
-        "status": "to_research",
+        "status": "researching",
         "signals": [
           {
             "kind": "reception_saved",
@@ -2007,7 +2035,7 @@
             "source_url": "https://www.imdb.com/title/tt0279065/"
           }
         ],
-        "decision_note": "Piste active avec exposition S41 : confirmer la diffusion du 17 octobre sur Ciné+ Festival, la note datée et la fraîcheur avant toute carte.",
+        "decision_note": "Identité Miramax, critique du Guardian, IMDb actuel et diffusion du 17 octobre à 16:24 sur Ciné+ Festival sont étayés ; version, seconde note, visuel, fraîcheur et textes restent à clore.",
         "alternatives": [
           "sl-samedi-la-prisonniere-du-desert",
           "sl-samedi-l-homme-de-la-rue"
@@ -2096,7 +2124,7 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
-      "Approfondir L’Emploi du temps, puis clore les champs dynamiques, visuels et éditoriaux de La Prisonnière du désert et L’Homme de la rue ; conserver les pistes reportées hors choix sans fait nouveau.",
+      "Clore les champs de version, notes, visuels, fraîcheur et textes des trois dossiers samedi, puis étendre la présélection sourcée aux autres jours.",
       "Compléter Ciné+ OCS les 21 et 22 octobre depuis une grille complète datée accessible.",
       "Compléter Ciné+ Family les 21 et 22 octobre depuis une grille complète datée accessible.",
       "Revoir l’impact des divergences de titres au même créneau conservées par le normaliseur et des deux intitulés contradictoires à 04:17 sur Canal+ le 23 octobre, sans résoudre automatiquement les identités.",
@@ -4274,7 +4302,8 @@
         "2026-10-15T09:31:43.614Z — Action : relevé partiel du 23 octobre remplacé par 14 observations issues de la grille Web complète et datée.",
         "2026-10-15T09:38:19.393Z — première présélection du samedi enregistrée : trois pistes actives et trois pistes reportées, six signaux sourcés, aucune carte certifiée.",
         "2026-10-15T09:41:10.739Z — dossier partiel La Prisonnière du désert : identité AFI, signal BFI et diffusion du 17 octobre recoupée par deux guides ; notes, visuel, fraîcheur et textes restent ouverts.",
-        "2026-10-15T09:43:20.786Z — dossier partiel L’Homme de la rue : identité et versions AFI, réception attribuée TCM et diffusion du 17 octobre recoupée ; version exacte, notes, visuel, fraîcheur et textes restent ouverts."
+        "2026-10-15T09:43:20.786Z — dossier partiel L’Homme de la rue : identité et versions AFI, réception attribuée TCM et diffusion du 17 octobre recoupée ; version exacte, notes, visuel, fraîcheur et textes restent ouverts.",
+        "2026-10-15T09:45:19.161Z — dossier partiel L’Emploi du temps : identité Miramax, critique Guardian, IMDb actuel et diffusion du 17 octobre recoupée ; version, seconde note, visuel, fraîcheur et textes restent ouverts."
       ],
       "deliverables_changed": [
         "data/inventory/2026-S43.json",
@@ -4282,10 +4311,10 @@
       ],
       "complete_cards_added": 0,
       "draft_cards_added": 0,
-      "partial_dossiers_added": 2,
+      "partial_dossiers_added": 3,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Approfondir L’Emploi du temps puis clore les champs dynamiques, visuels et éditoriaux des deux dossiers samedi déjà étayés.",
+      "next_useful_batch": "Clore les champs de version, notes, visuels, fraîcheur et textes des trois dossiers samedi, puis étendre la présélection aux autres jours.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -4884,23 +4913,65 @@
             "ready_handoff": null
           },
           "evaluated_by": "scripts/editorial-continuation.mjs"
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T09:44:10.884Z",
+          "elapsed_seconds": 2421.565,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "d88c82e80f6b36233bddd9fafe8e6af61f2729c7",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T10:23:50.727Z",
+          "next_actions": [
+            "Approfondir L’Emploi du temps puis clore les champs dynamiques, visuels et éditoriaux des deux dossiers samedi déjà étayés.",
+            "Approfondir L’Emploi du temps, puis clore les champs dynamiques, visuels et éditoriaux de La Prisonnière du désert et L’Homme de la rue ; conserver les pistes reportées hors choix sans fait nouveau.",
+            "Revoir l’impact des divergences de titres au même créneau conservées par le normaliseur et des deux intitulés contradictoires à 04:17 sur Canal+ le 23 octobre, sans résoudre automatiquement les identités.",
+            "Étendre la présélection sourcée aux autres jours et rubriques depuis l’inventaire sauvegardé, sans certifier de carte avant les preuves de niveau 3.",
+            "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés."
+          ],
+          "remaining_count": 12,
+          "next_actions_total": 16,
+          "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 18,
+          "waiting_actions": [
+            {
+              "action_text": "Compléter Ciné+ OCS les 21 et 22 octobre depuis une grille complète datée accessible."
+            },
+            {
+              "action_text": "Compléter Ciné+ Family les 21 et 22 octobre depuis une grille complète datée accessible."
+            }
+          ],
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-15T09:03:49.319Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T10:23:50.727Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "evaluated_by": "scripts/editorial-continuation.mjs"
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T09:42:05.961Z",
-        "elapsed_seconds": 2296.642,
+        "observed_at": "2026-10-15T09:44:10.884Z",
+        "elapsed_seconds": 2421.565,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "2203808fa18784b3ddb8af910b5b045c1a6c90d5",
+        "source_sha": "d88c82e80f6b36233bddd9fafe8e6af61f2729c7",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T10:23:50.727Z",
         "next_actions": [
-          "Clore les champs dynamiques et visuels de La Prisonnière du désert, puis approfondir L’Homme de la rue et L’Emploi du temps sans rouvrir les pistes reportées.",
-          "Clore La Prisonnière du désert — notes dynamiques, inspection visuelle, fraîcheur et textes — puis approfondir L’Homme de la rue et L’Emploi du temps ; conserver les trois pistes reportées hors choix sans fait nouveau.",
+          "Approfondir L’Emploi du temps puis clore les champs dynamiques, visuels et éditoriaux des deux dossiers samedi déjà étayés.",
+          "Approfondir L’Emploi du temps, puis clore les champs dynamiques, visuels et éditoriaux de La Prisonnière du désert et L’Homme de la rue ; conserver les pistes reportées hors choix sans fait nouveau.",
           "Revoir l’impact des divergences de titres au même créneau conservées par le normaliseur et des deux intitulés contradictoires à 04:17 sur Canal+ le 23 octobre, sans résoudre automatiquement les identités.",
           "Étendre la présélection sourcée aux autres jours et rubriques depuis l’inventaire sauvegardé, sans certifier de carte avant les preuves de niveau 3.",
           "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés."
@@ -4911,42 +4982,10 @@
         "all_actions_total": 18,
         "waiting_actions": [
           {
-            "action_text": "Compléter Ciné+ OCS les 21 et 22 octobre depuis une grille complète datée accessible.",
-            "gates": [
-              {
-                "attempt_index": 0,
-                "effective_state": "waiting_for_new_evidence",
-                "retry_gate": {
-                  "state": "waiting_for_new_evidence",
-                  "action_texts": [
-                    "Compléter Ciné+ OCS les 21 et 22 octobre depuis une grille complète datée accessible."
-                  ],
-                  "reason": "Les voies directe et alternative réellement ouvertes ne fournissent pas une grille complète de la date cible.",
-                  "resume_when": "Nouvelle grille datée exacte accessible ou changement observé sur l’une des pages.",
-                  "observed_at": "2026-10-15T08:41:23.322Z",
-                  "evidence": "403 sur les deux URLs TV-programme.com ; pages Télérama ouvertes mais dates rendues hors cible."
-                }
-              }
-            ]
+            "action_text": "Compléter Ciné+ OCS les 21 et 22 octobre depuis une grille complète datée accessible."
           },
           {
-            "action_text": "Compléter Ciné+ Family les 21 et 22 octobre depuis une grille complète datée accessible.",
-            "gates": [
-              {
-                "attempt_index": 1,
-                "effective_state": "waiting_for_new_evidence",
-                "retry_gate": {
-                  "state": "waiting_for_new_evidence",
-                  "action_texts": [
-                    "Compléter Ciné+ Family les 21 et 22 octobre depuis une grille complète datée accessible."
-                  ],
-                  "reason": "La source directe est inaccessible et les alternatives lues n’exposent pas les lignes de grille.",
-                  "resume_when": "Nouvelle grille datée exacte accessible ou changement observé sur l’une des pages.",
-                  "observed_at": "2026-10-15T08:41:23.322Z",
-                  "evidence": "403 sur les deux URLs TV-programme.com ; Vualatele annonce 0 programme ; SCREEN+ n’expose que le calendrier dans le résultat lu."
-                }
-              }
-            ]
+            "action_text": "Compléter Ciné+ Family les 21 et 22 octobre depuis une grille complète datée accessible."
           }
         ],
         "research_review_warnings": [],
@@ -5032,6 +5071,12 @@
           "started_at": "2026-10-15T09:42:06Z",
           "ended_at": "2026-10-15T09:43:20.786Z",
           "note": "Recherche ciblée et lecture réelle des sources AFI, TCM, CisanaTV et Programme TV ce soir pour L’Homme de la rue ; les variantes de montage restent explicitement ouvertes."
+        },
+        {
+          "kind": "research",
+          "started_at": "2026-10-15T09:44:11Z",
+          "ended_at": "2026-10-15T09:45:19.161Z",
+          "note": "Recherche ciblée et lecture réelle de Miramax, Guardian, IMDb et Programme TV ce soir, rapprochées de la grille sauvegardée pour L’Emploi du temps."
         }
       ]
     }
@@ -5197,6 +5242,88 @@
       ],
       "decision": "dossier partiel — piste active",
       "reason": "Identité, signal critique et quatre faits de diffusion sont étayés ; version exacte, champs dynamiques, visuel et textes restent ouverts."
+    },
+    {
+      "title": "L'Emploi du temps",
+      "work_id": "l-emploi-du-temps-2001",
+      "catalogue_match": "l-emploi-du-temps-2001",
+      "identity_research": {
+        "director": "Laurent Cantet",
+        "year": 2001,
+        "country": "France / Canada",
+        "cast": [
+          "Aurélien Recoing",
+          "Karin Viard",
+          "Serge Livrozet",
+          "Jean-Pierre Mangeot"
+        ],
+        "source_urls": [
+          "https://www.miramax.com/movie/l-emploi-du-temps-time-out/"
+        ],
+        "checked_at": "2026-10-15T09:45:19.161Z",
+        "duration_observations": [
+          {
+            "duration": "134 min",
+            "version": "durée de la fiche IMDb courante ; dynamique",
+            "source_url": "https://www.imdb.com/title/tt0279065/"
+          },
+          {
+            "duration": "132 min",
+            "version": "créneau TV 16:24–18:36, sans identification automatique de version",
+            "source_url": "https://www.programmetvcesoir.net/chaine/cine-festival/2026-10-17"
+          }
+        ],
+        "note": "Miramax établit le film de Laurent Cantet, sorti en 2001, et sa distribution. L’écart durée/créneau reste une contradiction de version à résoudre sans inférer de coupe."
+      },
+      "critical_evidence": [
+        {
+          "source": "The Guardian",
+          "author": "Peter Bradshaw",
+          "published_at": "2024-04-25",
+          "source_url": "https://www.theguardian.com/film/2024/apr/25/laurent-cantet-peter-bradshaw-appreciation-high-minded-progressive-and-literate",
+          "assessment": "Présente le film comme un drame brillant et hypnotique sur l’effacement d’un cadre devenu fantôme de la machine du travail, tout en soulignant sa compassion réaliste.",
+          "kind": "professional_criticism",
+          "access": "full",
+          "checked_at": "2026-10-15T09:45:19.161Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic_single_source",
+        "checked_at": "2026-10-15T09:45:19.161Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0279065/"
+        ],
+        "note": "IMDb affiche 7,3/10 pour 5,3 k votes ; une seconde note ou un motif documenté d’absence reste requis avant carte."
+      },
+      "broadcast_research": {
+        "date": "2026-10-17",
+        "start": "16:24",
+        "channel": "Ciné+ Festival",
+        "source_urls": [
+          "https://tv-programme.com/cine-plus-festival/samedi-17-octobre-2026/",
+          "https://www.programmetvcesoir.net/chaine/cine-festival/2026-10-17"
+        ],
+        "checked_at": "2026-10-15T09:45:19.161Z",
+        "status": "verified_by_two_current_guides_independence_unknown",
+        "note": "La grille TV-programme déjà sauvegardée et Programme TV ce soir, deux éditeurs distincts, concordent sur le titre, Ciné+ Festival, le samedi 17 octobre 2026 et 16:24. Amont inconnu ; aucune indépendance certifiée."
+      },
+      "image_research": {
+        "checked_at": "2026-09-27",
+        "source_page": "https://www.athinorama.gr/Content/ImagesDatabase/lmnts/events/cinema/1006884/Poster.jpg",
+        "image_url": "https://www.athinorama.gr/Content/ImagesDatabase/lmnts/events/cinema/1006884/Poster.jpg",
+        "status": "saved_visual_recheck_required",
+        "visually_checked": false,
+        "note": "Visuel sauvegardé ; aucune nouvelle inspection visuelle affirmée."
+      },
+      "missing_fields": [
+        "résolution de la durée/version exacte",
+        "seconde note ou motif documenté",
+        "inspection visuelle du poster",
+        "contrôle final de fraîcheur",
+        "rédaction et revue des textes de carte"
+      ],
+      "decision": "dossier partiel — piste active",
+      "reason": "Identité officielle, critique professionnelle et quatre faits de diffusion sont étayés ; version, note secondaire, visuel, fraîcheur et textes restent ouverts."
     }
   ]
 }
