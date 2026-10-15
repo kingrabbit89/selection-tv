@@ -109,7 +109,8 @@
     "2026-10-15T15:16:20.000Z — Ciné+ Family mardi 20 octobre : grille Web complète et datée ajoutée (15 observations, nuit 00:38–05:40 incluse) depuis ProgrammeTVCeSoir ; une seule source accessible, aucune seconde lecture ni indépendance certifiée.",
     "2026-10-15T15:18:14.000Z — Ciné+ Family : grilles Web complètes et datées des 21, 22 et 23 octobre ajoutées (49 observations), jours civils et nuits inclus ; le relevé primaire de la chaîne couvre désormais les sept dates, sans seconde lecture ni indépendance certifiée.",
     "2026-10-15T15:19:54.000Z — Ciné+ OCS : sept grilles Web complètes et datées ajoutées (125 observations), jours civils et nuits reliés ; la matrice primaire atteint 29 chaînes et plus de 30 observations sur chacune des sept dates, sans seconde lecture ni indépendance certifiée.",
-    "2026-10-15T15:22:35.000Z — matrice primaire réconciliée sur preuves sauvegardées : sept dates, 29 chaînes par date et 595–670 observations ; coverage.days[].channels_scanned créé mécaniquement. Première seconde lecture consignée sur Ciné+ OCS le 21 octobre, 19/19 lignes sans omission, avec limite d’un seul éditeur et indépendance inconnue."
+    "2026-10-15T15:22:35.000Z — matrice primaire réconciliée sur preuves sauvegardées : sept dates, 29 chaînes par date et 595–670 observations ; coverage.days[].channels_scanned créé mécaniquement. Première seconde lecture consignée sur Ciné+ OCS le 21 octobre, 19/19 lignes sans omission, avec limite d’un seul éditeur et indépendance inconnue.",
+    "2026-10-15T15:23:32.000Z — seconde lecture Ciné+ Family du 22 octobre : Sudinfo comparé à l’inventaire sur 05:55–23:59, 13/13 lignes concordantes et aucune omission ; nuit 00:00–05:54 laissée ouverte car la page rattache l’après-minuit à la soirée précédente, indépendance amont inconnue."
   ],
   "blockers": [],
   "research_attempts": [
@@ -5229,9 +5230,9 @@
     "first_incomplete_stage": "enrichment",
     "next_actions": [
       "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
+      "Compléter la seconde lecture nocturne de Ciné+ Family le 22 octobre via une lecture civile distincte ; sinon passer à un autre jour/chaîne et conserver explicitement cette limite.",
       "Poursuivre les secondes lectures datées, jour/chaîne/nuit, en priorité sur les chaînes cinéma nouvellement complétées ; sauvegarder comparaisons, omissions et limites dans coverage.web_schedule_reviews.",
-      "Observer la CI de la tête corrigée tout en poursuivant une tâche éditoriale indépendante accessible ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
-      "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé et une diffusion concordante, sans reprendre les pistes en attente sans fait nouveau."
+      "Observer la CI de la tête corrigée sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
     ]
   },
   "run_metrics": [
@@ -11046,7 +11047,7 @@
       "prompt_revision": "production-weekly-continuity-2026-10-10",
       "started_at": "2026-10-15T15:03:29.000Z",
       "ended_at": null,
-      "duration_basis": "Temps UTC observé depuis 2026-10-15T15:03:29.000Z ; checkpoint à 2026-10-15T15:22:35.000Z.",
+      "duration_basis": "Temps UTC observé depuis 2026-10-15T15:03:29.000Z ; checkpoint à 2026-10-15T15:23:32.000Z.",
       "run_state": "running",
       "completed_batches": [
         "2026-10-15T15:08:39.575Z — dossier The Big Short complété : deux guides actuels concordent désormais à 08:31 sur Ciné+ Frisson le 21 octobre ; la contradiction historique 08:30/08:31 est conservée, aucune carte n’est affirmée sans rendu mécanique.",
@@ -11057,7 +11058,8 @@
         "2026-10-15T15:16:20.000Z — Ciné+ Family mardi 20 octobre : grille Web complète et datée ajoutée (15 observations, nuit 00:38–05:40 incluse) depuis ProgrammeTVCeSoir ; une seule source accessible, aucune seconde lecture ni indépendance certifiée.",
         "2026-10-15T15:18:14.000Z — Ciné+ Family : grilles Web complètes et datées des 21, 22 et 23 octobre ajoutées (49 observations), jours civils et nuits inclus ; le relevé primaire de la chaîne couvre désormais les sept dates, sans seconde lecture ni indépendance certifiée.",
         "2026-10-15T15:19:54.000Z — Ciné+ OCS : sept grilles Web complètes et datées ajoutées (125 observations), jours civils et nuits reliés ; la matrice primaire atteint 29 chaînes et plus de 30 observations sur chacune des sept dates, sans seconde lecture ni indépendance certifiée.",
-        "2026-10-15T15:22:35.000Z — matrice primaire réconciliée sur preuves sauvegardées : sept dates, 29 chaînes par date et 595–670 observations ; coverage.days[].channels_scanned créé mécaniquement. Première seconde lecture consignée sur Ciné+ OCS le 21 octobre, 19/19 lignes sans omission, avec limite d’un seul éditeur et indépendance inconnue."
+        "2026-10-15T15:22:35.000Z — matrice primaire réconciliée sur preuves sauvegardées : sept dates, 29 chaînes par date et 595–670 observations ; coverage.days[].channels_scanned créé mécaniquement. Première seconde lecture consignée sur Ciné+ OCS le 21 octobre, 19/19 lignes sans omission, avec limite d’un seul éditeur et indépendance inconnue.",
+        "2026-10-15T15:23:32.000Z — seconde lecture Ciné+ Family du 22 octobre : Sudinfo comparé à l’inventaire sur 05:55–23:59, 13/13 lignes concordantes et aucune omission ; nuit 00:00–05:54 laissée ouverte car la page rattache l’après-minuit à la soirée précédente, indépendance amont inconnue."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -11070,7 +11072,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre une seconde lecture datée distincte sur Ciné+ Family ou Ciné+ OCS, ou matérialiser The Big Short dès retour du clone exécutable.",
+      "next_useful_batch": "Compléter la seconde lecture nocturne de Ciné+ Family le 22 octobre via une lecture civile distincte, ou passer à un autre jour/chaîne si aucune source comparable n’est accessible.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -11381,18 +11383,51 @@
             ],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T15:23:32.000Z",
+          "elapsed_seconds": 1203,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "117cd380c4081915e45b1c1d351cc136f0d6a316",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T16:14:22.427Z",
+          "remaining_count": 11,
+          "next_actions_total": 4,
+          "evaluated_by": "manual_fallback",
+          "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision fondée sur l’horloge observée, le bail relu et le checkpoint immuable.",
+          "next_actions": [
+            "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
+            "Compléter la seconde lecture nocturne de Ciné+ Family le 22 octobre via une lecture civile distincte ; sinon passer à un autre jour/chaîne et conserver explicitement cette limite.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, en priorité sur les chaînes cinéma nouvellement complétées ; sauvegarder comparaisons, omissions et limites dans coverage.web_schedule_reviews.",
+            "Observer la CI de la tête corrigée sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T15:03:29.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T16:14:22.427Z",
+            "external_stop": null,
+            "accessible_task_checks": [
+              "another dated overlap or a distinct civil-night reread remains accessible"
+            ],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T15:22:35.000Z",
-        "elapsed_seconds": 1146,
+        "observed_at": "2026-10-15T15:23:32.000Z",
+        "elapsed_seconds": 1203,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "d8e543ad42df836f0ff05d642f3b2e93c43f1ca6",
+        "source_sha": "117cd380c4081915e45b1c1d351cc136f0d6a316",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T16:14:22.427Z",
         "remaining_count": 11,
@@ -11401,9 +11436,9 @@
         "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision fondée sur l’horloge observée, le bail relu et le checkpoint immuable.",
         "next_actions": [
           "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
+          "Compléter la seconde lecture nocturne de Ciné+ Family le 22 octobre via une lecture civile distincte ; sinon passer à un autre jour/chaîne et conserver explicitement cette limite.",
           "Poursuivre les secondes lectures datées, jour/chaîne/nuit, en priorité sur les chaînes cinéma nouvellement complétées ; sauvegarder comparaisons, omissions et limites dans coverage.web_schedule_reviews.",
-          "Observer la CI de la tête corrigée tout en poursuivant une tâche éditoriale indépendante accessible ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
-          "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé et une diffusion concordante, sans reprendre les pistes en attente sans fait nouveau."
+          "Observer la CI de la tête corrigée sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
         ],
         "observations": {
           "started_at": "2026-10-15T15:03:29.000Z",
@@ -11411,14 +11446,14 @@
           "lease_until": "2026-10-15T16:14:22.427Z",
           "external_stop": null,
           "accessible_task_checks": [
-            "primary inventory requirement closed on 29-channel matrix; level-2 reviews remain accessible"
+            "another dated overlap or a distinct civil-night reread remains accessible"
           ],
           "ready_handoff": null
         }
       }
     }
   ],
-  "updated_at": "2026-10-15T15:22:35.000Z",
+  "updated_at": "2026-10-15T15:23:32.000Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -14697,6 +14732,43 @@
         ],
         "independent_crosscheck_complete": false,
         "status": "second_reading_complete_single_publisher_limit"
+      },
+      {
+        "date": "2026-10-22",
+        "channels": [
+          "Ciné+ Family"
+        ],
+        "flow": "Ciné+ Family",
+        "publisher": "Ciné-Télé-Revue / Sudinfo",
+        "urls": [
+          "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/jeudi/h11"
+        ],
+        "checked_at": "2026-10-15T15:23:32.000Z",
+        "segments_reviewed": [
+          "jour civil 05:55–23:59"
+        ],
+        "comparison": {
+          "saved_observations_in_overlap": 13,
+          "source_rows_reviewed_in_overlap": 13,
+          "omissions": [],
+          "normalized_title_matches": [
+            {
+              "inventory": "3 hommes et un couffin",
+              "review_source": "Trois hommes et un couffin",
+              "start": "22:12"
+            }
+          ]
+        },
+        "decisions": [
+          "Les treize horaires et identités du segment 05:55–23:59 concordent avec l’inventaire sauvegardé.",
+          "Aucune omission détectée dans le segment comparable."
+        ],
+        "limits": [
+          "La page Sudinfo rattache les émissions postérieures à minuit à la soirée précédente ; le segment 00:00–05:54 du jour civil n’est donc pas clos par cette comparaison.",
+          "Éditeur distinct de TV-programme.com, mais provenance amont et indépendance non établies."
+        ],
+        "independent_crosscheck_complete": false,
+        "status": "second_publisher_overlap_complete_night_open"
       }
     ],
     "independent_crosscheck_complete": false,
