@@ -76,7 +76,8 @@
     "2026-10-15T09:47:38.358Z — divergence Canal+ du 23 octobre à 04:17 revue : aucun impact sur la présélection ou les trois dossiers actuels ; conflit La loi de la chair / Surprises conservé ouvert pour la couverture.",
     "2026-10-15T09:50:03.180Z — affiche de La Prisonnière du désert inspectée : JPEG 446×588 exact, empreinte conservée ; contrôle CI distant encore requis.",
     "2026-10-15T09:52:23.632Z — visuels de L’Homme de la rue et L’Emploi du temps inspectés et empreintes conservées ; deux affiches exactes, contrôles CI distants encore requis.",
-    "2026-10-15T10:08:05.703Z — trois dossiers samedi clos : La Prisonnière du désert matérialisée en carte draft après revue complète ; L’Homme de la rue et L’Emploi du temps différés pour fraîcheur après clôture de leurs vérifications."
+    "2026-10-15T10:08:05.703Z — trois dossiers samedi clos : La Prisonnière du désert matérialisée en carte draft après revue complète ; L’Homme de la rue et L’Emploi du temps différés pour fraîcheur après clôture de leurs vérifications.",
+    "2026-10-15T10:20:35.424Z — deux alternatives fraîches vérifiées et matérialisées : Max et les ferrailleurs et Le dernier samaritain complètent le pool de trois cartes draft du samedi ; limites de durée, provenance EPG, critique divisée et présence radar conservées."
   ],
   "blockers": [],
   "research_attempts": [
@@ -147,17 +148,7 @@
       "checked_at": "2026-10-15T10:05:56.542Z",
       "result": "Deux voies distinctes — diffuseur et guide détaillé — n’exposent aucun identifiant de master, montage ou fin. Le créneau de 119 min ne permet aucune déduction technique.",
       "blocking_scope": "Non bloquant après décision de différer la piste pour fraîcheur ; deviendrait à revoir seulement en cas de réouverture comme carte.",
-      "resume_when": "Page diffuseur ou fiche technique nouvelle identifiant explicitement la copie diffusée.",
-      "retry_gate": {
-        "state": "waiting_for_new_evidence",
-        "action_texts": [
-          "Identifier la copie exacte de L’Homme de la rue si la piste est rouverte comme carte S43."
-        ],
-        "reason": "Les deux voies réellement lues ne distinguent aucune des variantes historiques recensées par AFI.",
-        "resume_when": "Nouvelle preuve datée identifiant explicitement le master, le montage ou la fin diffusée.",
-        "observed_at": "2026-10-15T10:05:56.542Z",
-        "evidence": "AFI documente plusieurs durées et fins ; myCANAL, Digital3D et Ouest-France n’exposent aucun identifiant technique."
-      }
+      "resume_when": "Page diffuseur ou fiche technique nouvelle identifiant explicitement la copie diffusée."
     }
   ],
   "verification_records": [
@@ -2086,6 +2077,64 @@
       "applies_to": "dossier L’Emploi du temps — samedi 2026-10-17",
       "evidence_note": "Durée canonique 134 min et deux notes relues ; exposition publique S41 sans contexte nouveau. Piste différée, pas de carte.",
       "status": "reviewed_and_deferred"
+    },
+    {
+      "work_id": "max-et-les-ferrailleurs-1971",
+      "fields": [
+        "identity",
+        "duration_limit",
+        "ratings",
+        "broadcast",
+        "criticism",
+        "image",
+        "freshness",
+        "synopsis",
+        "editorial_justification",
+        "draft_card"
+      ],
+      "urls": [
+        "https://www.cnc.fr/professionnels/visas-et-classification/37319",
+        "https://www.canalplus.com/cinema/max-et-les-ferrailleurs/h/1763192_50002",
+        "https://tv-programme.com/cine-plus-classic/samedi-17-octobre-2026/",
+        "https://www.programmetvcesoir.net/chaine/cine-classic/2026-10-17",
+        "https://www.imdb.com/title/tt0067409/",
+        "https://www.senscritique.com/film/Max_et_les_Ferrailleurs/417496",
+        "https://www.lemonde.fr/cinema/article/2020/05/27/revoir-michel-piccoli-dans-huit-films-et-un-documentaire_6040852_3476.html"
+      ],
+      "checked_at": "2026-10-15T10:18:14.702Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "applies_to": "carte draft Max et les ferrailleurs — samedi 2026-10-17, rang 2",
+      "evidence_note": "Deux guides actuels concordent sur les quatre faits de grille ; identité, critique, notes, affiche et fraîcheur relues. Divergence de durée conservée sans inférence technique ; CI final requis.",
+      "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "work_id": "the-last-boy-scout-1991",
+      "fields": [
+        "identity",
+        "duration",
+        "ratings",
+        "broadcast",
+        "criticism",
+        "image",
+        "freshness",
+        "synopsis",
+        "editorial_justification",
+        "draft_card"
+      ],
+      "urls": [
+        "https://www.arrowfilms.com/p/the-last-boy-scout-limited-edition-4k-uhd/17977994/",
+        "https://tv-programme.com/rtl-9/samedi-17-octobre-2026/",
+        "https://www.programme-tv.com/television/1255494434/le-dernier-samaritain.html",
+        "https://www.rtl9.com/",
+        "https://www.imdb.com/title/tt0102266/",
+        "https://www.senscritique.com/film/le_dernier_samaritain/436799",
+        "https://www.rogerebert.com/reviews/the-last-boy-scout-1991"
+      ],
+      "checked_at": "2026-10-15T10:15:20Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "applies_to": "carte draft Le dernier samaritain — samedi 2026-10-17, rang 3",
+      "evidence_note": "Diffusion actuelle concordante, identité, durée, réception divisée, notes, visuel éditeur et fraîcheur quotidienne relus ; présence radar S42 conservée comme limite. CI final requis.",
+      "status": "verified_for_draft_card_ci_pending"
     }
   ],
   "source_issues": [
@@ -2154,8 +2203,8 @@
         ],
         "decision_note": "Carte draft matérialisée au rang 1 : identité AFI, signal BFI, diffusion recoupée, notes relues, affiche inspectée, fraîcheur contrôlée sur S37–S42 et textes revus ; CI distant du visuel et des liens encore requis.",
         "alternatives": [
-          "sl-samedi-l-homme-de-la-rue",
-          "sl-samedi-l-emploi-du-temps"
+          "sl-samedi-max-et-les-ferrailleurs",
+          "sl-samedi-le-dernier-samaritain"
         ]
       },
       {
@@ -2261,6 +2310,48 @@
           "sl-samedi-la-prisonniere-du-desert",
           "sl-samedi-l-homme-de-la-rue"
         ]
+      },
+      {
+        "id": "sl-samedi-max-et-les-ferrailleurs",
+        "title": "Max et les ferrailleurs",
+        "work_id": "max-et-les-ferrailleurs-1971",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Le Monde décrit un polar d’une grande noirceur, formellement maîtrisé, où la manipulation policière et le rapprochement trouble entre Max et Lily ouvrent sur une impasse sociale.",
+            "source_url": "https://www.lemonde.fr/cinema/article/2020/05/27/revoir-michel-piccoli-dans-huit-films-et-un-documentaire_6040852_3476.html"
+          }
+        ],
+        "decision_note": "Carte draft matérialisée au rang 2 : identité certaine, diffusion concordante par deux guides actuels, notes relues, affiche exacte inspectée, fraîcheur S37–S42 contrôlée et divergence de durée conservée sans inférence de montage ; CI final requis.",
+        "alternatives": [
+          "sl-samedi-la-prisonniere-du-desert",
+          "sl-samedi-le-dernier-samaritain"
+        ]
+      },
+      {
+        "id": "sl-samedi-le-dernier-samaritain",
+        "title": "Le dernier samaritain",
+        "work_id": "the-last-boy-scout-1991",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Roger Ebert salue l’énergie et l’efficacité du thriller tout en relevant explicitement sa misogynie ; ce signal critique argumenté ne constitue pas un consensus.",
+            "source_url": "https://www.rogerebert.com/reviews/the-last-boy-scout-1991"
+          }
+        ],
+        "decision_note": "Carte draft matérialisée au rang 3 : identité et durée d’édition vérifiées, diffusion confirmée, réception divisée exposée, visuel éditeur exact et fraîcheur des cartes quotidiennes S37–S42 contrôlée. Une présence radar en S42 est conservée comme limite ; CI final requis.",
+        "alternatives": [
+          "sl-samedi-la-prisonniere-du-desert",
+          "sl-samedi-max-et-les-ferrailleurs"
+        ]
       }
     ]
   },
@@ -2283,10 +2374,10 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Rechercher et vérifier deux alternatives fraîches pour compléter les trois choix développés du samedi, en commençant par les pistes proches d’une carte dans le flow sauvegardé.",
+      "Ajouter des réserves fraîches et complètes au samedi pour progresser vers le minimum de dix candidats complets, sans modifier les trois choix développés.",
+      "Étendre la présélection sourcée au dimanche et matérialiser le prochain lot de cartes proches de la complétude.",
       "Compléter Ciné+ OCS les 21 et 22 octobre depuis une grille complète datée accessible.",
-      "Compléter Ciné+ Family les 21 et 22 octobre depuis une grille complète datée accessible.",
-      "Étendre la présélection sourcée aux autres jours et rubriques depuis l’inventaire sauvegardé."
+      "Compléter Ciné+ Family les 21 et 22 octobre depuis une grille complète datée accessible."
     ]
   },
   "run_metrics": [
@@ -5474,21 +5565,23 @@
       "duration_basis": "Passage en cours ; horloge UTC observée depuis l’entrée de cette exécution.",
       "run_state": "running",
       "completed_batches": [
-        "2026-10-15T10:08:05.703Z — trois dossiers samedi clos : La Prisonnière du désert matérialisée en carte draft après revue complète ; L’Homme de la rue et L’Emploi du temps différés pour fraîcheur après clôture de leurs vérifications."
+        "2026-10-15T10:08:05.703Z — trois dossiers samedi clos : La Prisonnière du désert matérialisée en carte draft après revue complète ; L’Homme de la rue et L’Emploi du temps différés pour fraîcheur après clôture de leurs vérifications.",
+        "2026-10-15T10:20:35.424Z — deux alternatives fraîches vérifiées et matérialisées : Max et les ferrailleurs et Le dernier samaritain complètent le pool de trois cartes draft du samedi ; limites de durée, provenance EPG, critique divisée et présence radar conservées."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
         "data/works.json",
         "data/manifest.json",
         "data/weeks/2026-S43.json",
-        "semaines/2026-S43/index.html"
+        "semaines/2026-S43/index.html",
+        "data/links.json"
       ],
       "complete_cards_added": 0,
-      "draft_cards_added": 1,
+      "draft_cards_added": 3,
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Rechercher et vérifier deux alternatives fraîches pour compléter les trois choix développés du samedi.",
+      "next_useful_batch": "Ajouter des réserves fraîches au samedi ou commencer le pool complet du dimanche depuis les dossiers les plus avancés.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -5507,22 +5600,40 @@
           ],
           "remaining_count": 12,
           "evaluated_by": "scripts/editorial-continuation.mjs"
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T10:11:18.286Z",
+          "elapsed_seconds": 609.937,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "943458279a9c768f3cde4a8c2a9011404d58a60b",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T11:01:28.028Z",
+          "next_actions": [
+            "Rechercher et vérifier deux alternatives fraîches pour compléter les trois choix développés du samedi."
+          ],
+          "remaining_count": 12,
+          "evaluated_by": "scripts/editorial-continuation.mjs"
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T10:02:54.270Z",
-        "elapsed_seconds": 105.921,
+        "observed_at": "2026-10-15T10:11:18.286Z",
+        "elapsed_seconds": 609.937,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "a3dd1e1c2da32c805e3691dd559cd736379fb1bb",
+        "source_sha": "943458279a9c768f3cde4a8c2a9011404d58a60b",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T11:01:28.028Z",
         "next_actions": [
-          "Clore versions, notes, fraîcheur et textes des trois dossiers samedi ; leurs visuels sont inspectés, CI final encore requis."
+          "Rechercher et vérifier deux alternatives fraîches pour compléter les trois choix développés du samedi."
         ],
         "remaining_count": 12,
         "evaluated_by": "scripts/editorial-continuation.mjs"
@@ -5539,11 +5650,17 @@
           "started_at": "2026-10-15T10:02:55Z",
           "ended_at": "2026-10-15T10:08:05.703Z",
           "note": "Trois vérifications indépendantes en lecture seule, revue centrale, décision de fraîcheur, rédaction et handoff d’une carte ; intervalles parallèles non additionnés séquentiellement."
+        },
+        {
+          "kind": "research_drafting_and_review",
+          "started_at": "2026-10-15T10:11:19.000Z",
+          "ended_at": "2026-10-15T10:20:35.424Z",
+          "note": "Deux recherches indépendantes en lecture seule, revue centrale des identités, diffusions, critiques, fraîcheur, visuels et limites, puis plan unique et handoff contrôlé ; travaux parallèles non additionnés séquentiellement."
         }
       ]
     }
   ],
-  "updated_at": "2026-10-15T10:08:05.703Z",
+  "updated_at": "2026-10-15T10:20:35.424Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -5817,6 +5934,195 @@
         "status": "recent_repeat_deferred",
         "note": "Choix développé et ligne de grille en S41, absence en S42 : répétition dans la fenêtre de quatre numéros, sans fait nouveau justifiant une exception rare-new-broadcast."
       }
+    },
+    {
+      "title": "Max et les ferrailleurs",
+      "work_id": "max-et-les-ferrailleurs-1971",
+      "catalogue_match": "max-et-les-ferrailleurs-1971",
+      "identity_research": {
+        "director": "Claude Sautet",
+        "year": 1971,
+        "country": "France / Italie",
+        "cast": [
+          "Michel Piccoli",
+          "Romy Schneider",
+          "Bernard Fresson"
+        ],
+        "source_urls": [
+          "https://www.canalplus.com/cinema/max-et-les-ferrailleurs/h/1763192_50002",
+          "https://www.cnc.fr/professionnels/visas-et-classification/37319",
+          "https://www.imdb.com/title/tt0067409/"
+        ],
+        "checked_at": "2026-10-15T10:18:14.702Z",
+        "duration_observations": [
+          {
+            "duration": "113 min",
+            "version": "durée CNC de l’œuvre",
+            "source_url": "https://www.cnc.fr/professionnels/visas-et-classification/37319"
+          },
+          {
+            "duration": "112 min",
+            "version": "durée IMDb et SensCritique de l’œuvre",
+            "source_url": "https://www.imdb.com/title/tt0067409/"
+          },
+          {
+            "duration": "106 min",
+            "version": "durée affichée par CANAL+ sans identification de montage",
+            "source_url": "https://www.canalplus.com/cinema/max-et-les-ferrailleurs/h/1763192_50002"
+          },
+          {
+            "duration": "107 min",
+            "version": "créneau EPG 10:50–12:37 ; ne certifie pas une durée de copie",
+            "source_url": "https://tv-programme.com/cine-plus-classic/samedi-17-octobre-2026/"
+          }
+        ],
+        "note": "Identité certaine. La divergence 112–113 min pour l’œuvre, 106 min chez CANAL+ et 107 min de créneau est conservée ; aucune coupe, conversion de cadence ou version technique n’est déduite."
+      },
+      "critical_evidence": [
+        {
+          "source": "Le Monde",
+          "author": "Clarisse Fabre",
+          "source_url": "https://www.lemonde.fr/cinema/article/2020/05/27/revoir-michel-piccoli-dans-huit-films-et-un-documentaire_6040852_3476.html",
+          "assessment": "Décrit un polar très noir et formellement maîtrisé, fondé sur la manipulation de Max, le rapport trouble à Lily et l’arrière-plan social.",
+          "kind": "professional_criticism",
+          "access": "full",
+          "checked_at": "2026-10-15T10:18:14.702Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic_two_sources",
+        "checked_at": "2026-10-15T10:18:14.702Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0067409/",
+          "https://www.senscritique.com/film/Max_et_les_Ferrailleurs/417496"
+        ],
+        "note": "IMDb affiche 7,3/10 pour 3,5 k votes ; SensCritique affiche 7,4/10 sur la fiche exacte."
+      },
+      "broadcast_research": {
+        "date": "2026-10-17",
+        "start": "10:50",
+        "channel": "Ciné+ Classic",
+        "source_urls": [
+          "https://tv-programme.com/cine-plus-classic/samedi-17-octobre-2026/",
+          "https://www.programmetvcesoir.net/chaine/cine-classic/2026-10-17"
+        ],
+        "checked_at": "2026-10-15T10:18:14.702Z",
+        "status": "verified_by_two_current_guides_independence_unknown",
+        "note": "Deux éditeurs distincts concordent sur le titre, la chaîne, le samedi 17 octobre 2026 et 10:50. Leur amont EPG reste inconnu ; aucune indépendance n’est certifiée."
+      },
+      "image_research": {
+        "checked_at": "2026-10-15T10:18:14.702Z",
+        "source_page": "https://www.senscritique.com/film/Max_et_les_Ferrailleurs/417496",
+        "image_url": "https://media.senscritique.com/media/000016215040/0/max_et_les_ferrailleurs.jpg",
+        "status": "poster_visually_verified_ci_pending",
+        "visually_checked": true,
+        "note": "Affiche exacte de Max et les ferrailleurs inspectée visuellement ; contrôle CI distant encore requis."
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T10:18:14.702Z",
+        "status": "fresh_within_available_history",
+        "issues_checked": [
+          "2026-S37",
+          "2026-S38",
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ],
+        "note": "Aucune carte ou réserve matérialisée dans les six éditions sauvegardées ; les occurrences S42 sont de recherche et de couverture, pas des expositions éditoriales."
+      },
+      "missing_fields": [
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
+      ],
+      "decision": "carte draft matérialisée — CI final requis",
+      "reason": "Identité, diffusion, critique, notes, visuel, fraîcheur et textes sont revus ; la divergence de durée reste explicitement limitée."
+    },
+    {
+      "title": "Le dernier samaritain",
+      "work_id": "the-last-boy-scout-1991",
+      "catalogue_match": "the-last-boy-scout-1991",
+      "identity_research": {
+        "original_title": "The Last Boy Scout",
+        "director": "Tony Scott",
+        "year": 1991,
+        "country": "États-Unis",
+        "cast": [
+          "Bruce Willis",
+          "Damon Wayans"
+        ],
+        "source_urls": [
+          "https://www.arrowfilms.com/p/the-last-boy-scout-limited-edition-4k-uhd/17977994/",
+          "https://www.imdb.com/title/tt0102266/"
+        ],
+        "checked_at": "2026-10-15T10:15:20Z",
+        "duration_observations": [
+          {
+            "duration": "105 min",
+            "version": "durée de l’édition 4K Arrow de l’œuvre exacte",
+            "source_url": "https://www.arrowfilms.com/p/the-last-boy-scout-limited-edition-4k-uhd/17977994/"
+          }
+        ],
+        "note": "Identité certaine : The Last Boy Scout / Le dernier samaritain (1991), réalisé par Tony Scott."
+      },
+      "critical_evidence": [
+        {
+          "source": "RogerEbert.com",
+          "author": "Roger Ebert",
+          "source_url": "https://www.rogerebert.com/reviews/the-last-boy-scout-1991",
+          "assessment": "Critique favorable à l’énergie et à l’efficacité du thriller, assortie d’une réserve explicite sur sa misogynie ; aucun consensus n’est inféré.",
+          "kind": "professional_criticism",
+          "access": "full",
+          "checked_at": "2026-10-15T10:15:20Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic_two_sources",
+        "checked_at": "2026-10-15T10:15:20Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0102266/",
+          "https://www.senscritique.com/film/le_dernier_samaritain/436799"
+        ],
+        "note": "IMDb affiche 7,0/10 pour 123 k votes ; SensCritique affiche 6,5/10 sur la fiche exacte."
+      },
+      "broadcast_research": {
+        "date": "2026-10-17",
+        "start": "20:55",
+        "channel": "RTL9",
+        "source_urls": [
+          "https://tv-programme.com/rtl-9/samedi-17-octobre-2026/",
+          "https://www.programme-tv.com/television/1255494434/le-dernier-samaritain.html",
+          "https://www.rtl9.com/"
+        ],
+        "checked_at": "2026-10-15T10:15:20Z",
+        "status": "verified_with_current_guides_and_official_confirmation",
+        "note": "Les guides concordent sur le titre, RTL9, le samedi 17 octobre 2026 et 20:55 ; RTL9 fournit un appui officiel sur la programmation."
+      },
+      "image_research": {
+        "checked_at": "2026-10-15T10:15:20Z",
+        "source_page": "https://www.arrowfilms.com/p/the-last-boy-scout-limited-edition-4k-uhd/17977994/",
+        "image_url": "https://static.thcdn.com/productimg/original/17977994-8295354173958226.jpg",
+        "status": "official_exact_artwork_visually_verified_ci_pending",
+        "visually_checked": true,
+        "note": "Visuel exact de l’édition Arrow, déjà inspecté dans le radar S42 ; contrôle CI distant encore requis."
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T10:15:20Z",
+        "status": "fresh_for_daily_selection_with_recent_radar_limit",
+        "issues_checked": [
+          "2026-S37",
+          "2026-S38",
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ],
+        "note": "Aucune carte quotidienne ou réserve matérialisée S37–S42. Une présence dans le radar HD S42 est conservée comme limite contextuelle, sans compter comme exposition quotidienne dans le contrôle de fraîcheur."
+      },
+      "missing_fields": [
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
+      ],
+      "decision": "carte draft matérialisée — CI final requis",
+      "reason": "Identité, durée, diffusion, critique divisée, notes, visuel, fraîcheur et textes sont revus ; la limite de présence radar S42 demeure visible."
     }
   ]
 }
