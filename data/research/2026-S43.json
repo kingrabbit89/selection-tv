@@ -11062,7 +11062,8 @@
         "2026-10-15T15:23:32.000Z — seconde lecture Ciné+ Family du 22 octobre : Sudinfo comparé à l’inventaire sur 05:55–23:59, 13/13 lignes concordantes et aucune omission ; nuit 00:00–05:54 laissée ouverte car la page rattache l’après-minuit à la soirée précédente, indépendance amont inconnue.",
         "2026-10-15T15:26:02.000Z — seconde lecture nocturne Ciné+ Family du 22 octobre : 3/3 lignes de 00:00–05:54 concordantes avec l’inventaire, aucune omission ; la journée civile est désormais relue sur 00:00–23:59, sans indépendance certifiée.",
         "2026-10-15T15:27:03.000Z — seconde lecture Ciné+ OCS du 22 octobre : 19/19 départs du jour civil concordants et aucune omission ; report Better Man commencé la veille non dupliqué, double segment Le cinéma qui respire conservé, indépendance inconnue.",
-        "2026-10-15T15:27:53.000Z — seconde lecture Ciné+ OCS du 23 octobre : 17/17 départs du jour civil concordants et aucune omission ; report B.R.I S01E06 commencé la veille non dupliqué, double segment Chanson douce conservé, indépendance inconnue."
+        "2026-10-15T15:27:53.000Z — seconde lecture Ciné+ OCS du 23 octobre : 17/17 départs du jour civil concordants et aucune omission ; report B.R.I S01E06 commencé la veille non dupliqué, double segment Chanson douce conservé, indépendance inconnue.",
+        "2026-10-15T15:29:24.000Z — secondes lectures groupées Ciné+ OCS des 17, 18, 19 et 20 octobre : 70/70 départs concordants et aucune omission ; reports de veille et doubles segments conservés, indépendance inconnue."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -11075,7 +11076,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Continuer les secondes lectures datées sur les autres dates Ciné+ OCS ou Ciné+ Family, en consignant reports, doublons de segments, omissions et limites.",
+      "next_useful_batch": "Ciné+ OCS est relu sur les sept dates ; poursuivre les secondes lectures sur Ciné+ Family ou une autre chaîne cinéma complète, sans certifier l’indépendance.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -11518,18 +11519,51 @@
             ],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T15:28:23.344Z",
+          "elapsed_seconds": 1494,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "9eddcd1c3016212d15d27438695c48395fd72898",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T16:14:22.427Z",
+          "remaining_count": 11,
+          "next_actions_total": 4,
+          "evaluated_by": "manual_fallback",
+          "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision fondée sur l’horloge observée, le bail relu et le checkpoint immuable.",
+          "next_actions": [
+            "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
+            "Achever les secondes lectures restantes de Ciné+ OCS puis poursuivre sur Ciné+ Family, en sauvegardant comparaisons, omissions et limites.",
+            "Observer la CI de la tête courante sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+            "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé et une diffusion concordante, sans reprendre les pistes en attente sans fait nouveau."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T15:03:29.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T16:14:22.427Z",
+            "external_stop": null,
+            "accessible_task_checks": [
+              "four additional Cine+ OCS dated grids were accessible for a grouped level-2 reread"
+            ],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T15:27:33.313Z",
-        "elapsed_seconds": 1444,
+        "observed_at": "2026-10-15T15:28:23.344Z",
+        "elapsed_seconds": 1494,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "5ea7abef9f860c926f11bc94cf9ac1fe0865c4e1",
+        "source_sha": "9eddcd1c3016212d15d27438695c48395fd72898",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T16:14:22.427Z",
         "remaining_count": 11,
@@ -11538,7 +11572,7 @@
         "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision fondée sur l’horloge observée, le bail relu et le checkpoint immuable.",
         "next_actions": [
           "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
-          "Achever une autre seconde lecture datée, jour/chaîne/nuit, en priorité sur les chaînes cinéma nouvellement complétées ; sauvegarder comparaisons, omissions et limites dans coverage.web_schedule_reviews.",
+          "Achever les secondes lectures restantes de Ciné+ OCS puis poursuivre sur Ciné+ Family, en sauvegardant comparaisons, omissions et limites.",
           "Observer la CI de la tête courante sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
           "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé et une diffusion concordante, sans reprendre les pistes en attente sans fait nouveau."
         ],
@@ -11548,7 +11582,7 @@
           "lease_until": "2026-10-15T16:14:22.427Z",
           "external_stop": null,
           "accessible_task_checks": [
-            "Friday Cine+ OCS complete dated grid remained accessible for level-2 reread"
+            "four additional Cine+ OCS dated grids were accessible for a grouped level-2 reread"
           ],
           "ready_handoff": null
         }
@@ -14979,6 +15013,146 @@
         "decisions": [
           "Les dix-sept départs du jour civil, horaires et identités concordent avec l’inventaire sauvegardé.",
           "Aucune omission détectée sur 00:00–23:59 après traitement du report commencé la veille."
+        ],
+        "limits": [
+          "Une seule grille complète accessible pour ce périmètre ; seconde lecture distincte de l’extraction primaire, pas un second éditeur.",
+          "Provenance amont et indépendance inconnues."
+        ],
+        "independent_crosscheck_complete": false,
+        "status": "single_publisher_full_day_reread_complete"
+      },
+      {
+        "date": "2026-10-17",
+        "channels": [
+          "Ciné+ OCS"
+        ],
+        "flow": "Ciné+ OCS",
+        "publisher": "TV-programme.com / Tabom",
+        "urls": [
+          "https://tv-programme.com/cine-plus-ocs/samedi-17-octobre-2026/"
+        ],
+        "checked_at": "2026-10-15T15:29:24.000Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "comparison": {
+          "saved_observations": 17,
+          "source_rows_reviewed": 17,
+          "omissions": [],
+          "retained_source_segments": [
+            "La Femme de commencé la veille à 22:34 est un report de continuité et n’est pas dupliqué comme départ du jour civil du 17 octobre.",
+            "La Vie devant moi est affiché à 04:39 puis 04:43 et les deux observations brutes sont conservées."
+          ]
+        },
+        "decisions": [
+          "Les 17 départs du jour civil, horaires et identités concordent avec l’inventaire sauvegardé.",
+          "Aucune omission détectée sur 00:00–23:59 après traitement des reports et segments contigus."
+        ],
+        "limits": [
+          "Une seule grille complète accessible pour ce périmètre ; seconde lecture distincte de l’extraction primaire, pas un second éditeur.",
+          "Provenance amont et indépendance inconnues."
+        ],
+        "independent_crosscheck_complete": false,
+        "status": "single_publisher_full_day_reread_complete"
+      },
+      {
+        "date": "2026-10-18",
+        "channels": [
+          "Ciné+ OCS"
+        ],
+        "flow": "Ciné+ OCS",
+        "publisher": "TV-programme.com / Tabom",
+        "urls": [
+          "https://tv-programme.com/cine-plus-ocs/dimanche-18-octobre-2026/"
+        ],
+        "checked_at": "2026-10-15T15:29:24.000Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "comparison": {
+          "saved_observations": 16,
+          "source_rows_reviewed": 16,
+          "omissions": [],
+          "retained_source_segments": [
+            "La grille commence à 00:00 avec Jane Got a Gun ; aucun report de la veille n’est ajouté au jour civil.",
+            "Eric Lavaine - Juste une mise au point est affiché à 04:56 puis 05:05 et les deux observations brutes sont conservées."
+          ]
+        },
+        "decisions": [
+          "Les 16 départs du jour civil, horaires et identités concordent avec l’inventaire sauvegardé.",
+          "Aucune omission détectée sur 00:00–23:59 après traitement des reports et segments contigus."
+        ],
+        "limits": [
+          "Une seule grille complète accessible pour ce périmètre ; seconde lecture distincte de l’extraction primaire, pas un second éditeur.",
+          "Provenance amont et indépendance inconnues."
+        ],
+        "independent_crosscheck_complete": false,
+        "status": "single_publisher_full_day_reread_complete"
+      },
+      {
+        "date": "2026-10-19",
+        "channels": [
+          "Ciné+ OCS"
+        ],
+        "flow": "Ciné+ OCS",
+        "publisher": "TV-programme.com / Tabom",
+        "urls": [
+          "https://tv-programme.com/cine-plus-ocs/lundi-19-octobre-2026/"
+        ],
+        "checked_at": "2026-10-15T15:29:24.000Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "comparison": {
+          "saved_observations": 19,
+          "source_rows_reviewed": 19,
+          "omissions": [],
+          "retained_source_segments": [
+            "Insaisissables 2 commencé la veille à 22:41 est un report de continuité et n’est pas dupliqué comme départ du jour civil du 19 octobre.",
+            "Adieu Gary est affiché à 04:18 puis 04:25 et les deux observations brutes sont conservées."
+          ]
+        },
+        "decisions": [
+          "Les 19 départs du jour civil, horaires et identités concordent avec l’inventaire sauvegardé.",
+          "Aucune omission détectée sur 00:00–23:59 après traitement des reports et segments contigus."
+        ],
+        "limits": [
+          "Une seule grille complète accessible pour ce périmètre ; seconde lecture distincte de l’extraction primaire, pas un second éditeur.",
+          "Provenance amont et indépendance inconnues."
+        ],
+        "independent_crosscheck_complete": false,
+        "status": "single_publisher_full_day_reread_complete"
+      },
+      {
+        "date": "2026-10-20",
+        "channels": [
+          "Ciné+ OCS"
+        ],
+        "flow": "Ciné+ OCS",
+        "publisher": "TV-programme.com / Tabom",
+        "urls": [
+          "https://tv-programme.com/cine-plus-ocs/mardi-20-octobre-2026/"
+        ],
+        "checked_at": "2026-10-15T15:29:24.000Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "comparison": {
+          "saved_observations": 18,
+          "source_rows_reviewed": 18,
+          "omissions": [],
+          "retained_source_segments": [
+            "Life of Chuck commencé la veille à 22:17 est un report de continuité et n’est pas dupliqué comme départ du jour civil du 20 octobre.",
+            "Le petit lieutenant est affiché à 04:24 puis 04:28 et les deux observations brutes sont conservées."
+          ]
+        },
+        "decisions": [
+          "Les 18 départs du jour civil, horaires et identités concordent avec l’inventaire sauvegardé.",
+          "Aucune omission détectée sur 00:00–23:59 après traitement des reports et segments contigus."
         ],
         "limits": [
           "Une seule grille complète accessible pour ce périmètre ; seconde lecture distincte de l’extraction primaire, pas un second éditeur.",
