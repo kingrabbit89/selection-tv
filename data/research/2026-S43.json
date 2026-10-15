@@ -3923,6 +3923,41 @@
       "applies_to": "inventaire primaire Ciné+ OCS — vendredi 23 octobre",
       "evidence_note": "Grille datée lue sur le jour civil ; 17 lignes importées, nuit 00:45–05:10. Les segments dupliqués affichés par la grille sont conservés comme observations brutes ; la ligne de report avant 00:00 n’est pas réimportée. Une seule grille complète accessible ; seconde lecture et indépendance restent ouvertes.",
       "status": "verified_primary_inventory_import_ci_pending"
+    },
+    {
+      "fields": [
+        "schedule_title",
+        "schedule_channel",
+        "schedule_date",
+        "schedule_time"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
+        "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11"
+      ],
+      "checked_at": "2026-10-15T15:33:25.000Z",
+      "stability": "cycle_specific",
+      "applies_to": "Ciné+ Family — lundi 19 octobre 2026, segment 05:49–22:49",
+      "evidence_note": "Deux guides actuels d’éditeurs distincts concordent sur dix corrections horaires ; trois écarts nocturnes restent ouverts faute de seconde preuve sur 00:00–05:48.",
+      "status": "verified_two_publisher_overlap_partial"
+    },
+    {
+      "fields": [
+        "schedule_title",
+        "schedule_channel",
+        "schedule_date",
+        "schedule_time"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-family/mardi-20-octobre-2026/",
+        "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11",
+        "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/mardi/h11"
+      ],
+      "checked_at": "2026-10-15T15:33:25.000Z",
+      "stability": "cycle_specific",
+      "applies_to": "Ciné+ Family — mardi 20 octobre 2026, jour civil 00:00–23:59",
+      "evidence_note": "Deux guides actuels d’éditeurs distincts concordent sur les quinze identités et horaires ; neuf horaires divergents de l’extraction ont été corrigés. Provenance amont et indépendance inconnues.",
+      "status": "verified_two_publisher_concordance"
     }
   ],
   "source_issues": [
@@ -11065,7 +11100,8 @@
         "2026-10-15T15:27:53.000Z — seconde lecture Ciné+ OCS du 23 octobre : 17/17 départs du jour civil concordants et aucune omission ; report B.R.I S01E06 commencé la veille non dupliqué, double segment Chanson douce conservé, indépendance inconnue.",
         "2026-10-15T15:29:24.000Z — secondes lectures groupées Ciné+ OCS des 17, 18, 19 et 20 octobre : 70/70 départs concordants et aucune omission ; reports de veille et doubles segments conservés, indépendance inconnue.",
         "2026-10-15T15:30:41.000Z — secondes lectures Ciné+ Family des 17, 18 et 19 octobre : dimanche 14/14 sans omission ; samedi deux omissions et treize décalages, lundi treize décalages sans omission, tous conservés sans correction automatique.",
-        "2026-10-15T15:31:37.000Z — secondes lectures Ciné+ Family des 20, 21 et 23 octobre : mercredi 17/17 et vendredi 16/16 sans omission ; mardi quinze identités présentes mais neuf décalages horaires conservés sans correction automatique."
+        "2026-10-15T15:31:37.000Z — secondes lectures Ciné+ Family des 20, 21 et 23 octobre : mercredi 17/17 et vendredi 16/16 sans omission ; mardi quinze identités présentes mais neuf décalages horaires conservés sans correction automatique.",
+        "2026-10-15T15:33:25.000Z — recoupement distinct Ciné+ Family : mardi entièrement réconcilié par deux éditeurs (9 horaires corrigés, 15/15 lignes), lundi réconcilié sur 05:49–22:49 (10 horaires corrigés) ; trois écarts nocturnes du lundi restent ouverts."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -11078,7 +11114,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Ciné+ Family est relu sur les sept dates ; recouper ses deux omissions et ses décalages des 17, 19 et 20 octobre contre une source distincte, puis poursuivre une autre chaîne.",
+      "next_useful_batch": "Recouper les deux omissions et décalages du samedi 17 octobre, puis les trois horaires nocturnes du lundi 19 ; poursuivre une autre chaîne si ces sources restent indisponibles.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -11620,18 +11656,51 @@
             ],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T15:32:02.811Z",
+          "elapsed_seconds": 1714,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "eade4d3ca3519f86985a153a60885f80f973f2cd",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T16:14:22.427Z",
+          "remaining_count": 11,
+          "next_actions_total": 4,
+          "evaluated_by": "manual_fallback",
+          "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision fondée sur l’horloge observée, le bail relu et le checkpoint immuable.",
+          "next_actions": [
+            "Recouper les deux omissions du 17 octobre et les trois horaires nocturnes du 19 octobre sur Ciné+ Family ; ne corriger que sur preuve concordante.",
+            "Poursuivre une autre seconde lecture de chaîne cinéma complète.",
+            "Matérialiser The Big Short comme réserve draft du mercredi avec le helper dès qu’un clone exécutable est disponible.",
+            "Observer la CI de la tête courante sans interrompre les travaux indépendants."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T15:03:29.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T16:14:22.427Z",
+            "external_stop": null,
+            "accessible_task_checks": [
+              "Sudinfo dated Monday and Tuesday grids were accessible for targeted contradiction resolution"
+            ],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T15:31:03.633Z",
-        "elapsed_seconds": 1655,
+        "observed_at": "2026-10-15T15:32:02.811Z",
+        "elapsed_seconds": 1714,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "254d86d577d6ed585e890197feaeaf6919f49b3b",
+        "source_sha": "eade4d3ca3519f86985a153a60885f80f973f2cd",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T16:14:22.427Z",
         "remaining_count": 11,
@@ -11639,8 +11708,8 @@
         "evaluated_by": "manual_fallback",
         "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision fondée sur l’horloge observée, le bail relu et le checkpoint immuable.",
         "next_actions": [
-          "Réconcilier les omissions et décalages horaires détectés sur Ciné+ Family les 17, 19 et 20 octobre contre une source distincte ou une capture datée avant toute correction.",
-          "Poursuivre une autre seconde lecture de chaîne cinéma complète ; Ciné+ Family est désormais relu sur les sept dates mais garde ses contradictions ouvertes.",
+          "Recouper les deux omissions du 17 octobre et les trois horaires nocturnes du 19 octobre sur Ciné+ Family ; ne corriger que sur preuve concordante.",
+          "Poursuivre une autre seconde lecture de chaîne cinéma complète.",
           "Matérialiser The Big Short comme réserve draft du mercredi avec le helper dès qu’un clone exécutable est disponible.",
           "Observer la CI de la tête courante sans interrompre les travaux indépendants."
         ],
@@ -11650,14 +11719,14 @@
           "lease_until": "2026-10-15T16:14:22.427Z",
           "external_stop": null,
           "accessible_task_checks": [
-            "three remaining Cine+ Family dated grids were accessible; Tuesday revealed schedule contradictions"
+            "Sudinfo dated Monday and Tuesday grids were accessible for targeted contradiction resolution"
           ],
           "ready_handoff": null
         }
       }
     }
   ],
-  "updated_at": "2026-10-15T15:23:32.000Z",
+  "updated_at": "2026-10-15T15:33:25.000Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -15379,7 +15448,7 @@
           "Ciné+ Family"
         ],
         "flow": "Ciné+ Family",
-        "publisher": "TV-programme.com / Tabom",
+        "publisher": "TV-programme.com / Tabom + Ciné-Télé-Revue / Sudinfo",
         "checked_at": "2026-10-15T15:30:41.000Z",
         "segments_reviewed": [
           "jour civil et nuit 00:00–23:59"
@@ -15388,7 +15457,8 @@
         "independent_crosscheck_complete": false,
         "date": "2026-10-19",
         "urls": [
-          "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/"
+          "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
+          "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11"
         ],
         "comparison": {
           "saved_observations": 17,
@@ -15409,78 +15479,121 @@
               "saved_start": "04:33",
               "review_start": "04:34",
               "title": "Drôle de prof 2 au camping"
-            },
-            {
-              "saved_start": "07:02",
-              "review_start": "07:04",
-              "title": "L'odyssée de Céleste"
-            },
-            {
-              "saved_start": "08:30",
-              "review_start": "08:29",
-              "title": "Kung Fu Nanny"
-            },
-            {
-              "saved_start": "10:02",
-              "review_start": "10:00",
-              "title": "Adventureland, job d'été à éviter"
-            },
-            {
-              "saved_start": "11:46",
-              "review_start": "11:45",
-              "title": "Diplodocus"
-            },
-            {
-              "saved_start": "13:18",
-              "review_start": "13:17",
-              "title": "Un caillou dans la chaussure"
-            },
-            {
-              "saved_start": "15:13",
-              "review_start": "15:12",
-              "title": "Le grand chemin"
-            },
-            {
-              "saved_start": "16:57",
-              "review_start": "16:55",
-              "title": "Boîte à savon"
-            },
-            {
-              "saved_start": "17:15",
-              "review_start": "17:13",
-              "title": "Jim Bouton : la cité des dragons"
-            },
-            {
-              "saved_start": "19:02",
-              "review_start": "19:01",
-              "title": "La vie scolaire"
-            },
-            {
-              "saved_start": "22:51",
-              "review_start": "22:49",
-              "title": "Sonic 3, le film"
             }
           ],
           "retained_source_segments": [
             "Dieumerci ! commencé la veille à 22:31 est un report de continuité et n’est pas dupliqué comme départ du jour civil du 19 octobre."
+          ],
+          "resolved_schedule_corrections": [
+            {
+              "title": "L'odyssée de Céleste",
+              "saved_start": "07:02",
+              "confirmed_start": "07:04",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11"
+              ]
+            },
+            {
+              "title": "Kung Fu Nanny",
+              "saved_start": "08:30",
+              "confirmed_start": "08:29",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11"
+              ]
+            },
+            {
+              "title": "Adventureland, job d'été à éviter",
+              "saved_start": "10:02",
+              "confirmed_start": "10:00",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11"
+              ]
+            },
+            {
+              "title": "Diplodocus",
+              "saved_start": "11:46",
+              "confirmed_start": "11:45",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11"
+              ]
+            },
+            {
+              "title": "Un caillou dans la chaussure",
+              "saved_start": "13:18",
+              "confirmed_start": "13:17",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11"
+              ]
+            },
+            {
+              "title": "Le grand chemin",
+              "saved_start": "15:13",
+              "confirmed_start": "15:12",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11"
+              ]
+            },
+            {
+              "title": "Boîte à savon",
+              "saved_start": "16:57",
+              "confirmed_start": "16:55",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11"
+              ]
+            },
+            {
+              "title": "Jim Bouton : la cité des dragons",
+              "saved_start": "17:15",
+              "confirmed_start": "17:13",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11"
+              ]
+            },
+            {
+              "title": "La vie scolaire",
+              "saved_start": "19:02",
+              "confirmed_start": "19:01",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11"
+              ]
+            },
+            {
+              "title": "Sonic 3, le film",
+              "saved_start": "22:51",
+              "confirmed_start": "22:49",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11"
+              ]
+            }
           ]
         },
         "decisions": [
-          "Les dix-sept identités sont présentes sans omission, mais treize décalages horaires sont conservés comme contradictions à réconcilier ; aucune correction automatique.",
-          "Les quatre horaires inchangés restent concordants."
+          "Deux guides actuels d’éditeurs distincts concordent sur dix corrections horaires de 07:04 à 22:49 ; ces horaires sont corrigés mécaniquement dans l’inventaire.",
+          "Les trois décalages nocturnes à 00:04, 01:33 et 04:34 restent ouverts : la page Sudinfo de lundi rattache l’après-minuit au mardi et ne couvre pas ce segment civil.",
+          "Aucune omission d’identité détectée."
         ],
         "limits": [
-          "Une seule grille complète accessible pour ce périmètre ; seconde lecture distincte du même éditeur, pas une source indépendante.",
-          "La grille relue diffère de l’extraction sauvegardée ; une nouvelle décision de source est requise avant correction."
+          "Concordance de deux éditeurs sur le segment 05:49–22:49, sans preuve positive d’indépendance amont.",
+          "Le segment 00:00–05:48 ne dispose encore que de la grille TV-programme.com relue ; trois décalages y restent à recouper."
         ],
-        "status": "reread_complete_with_schedule_contradictions"
+        "status": "two_publisher_daytime_concordance_night_contradictions_open"
       },
       {
         "channels": [
           "Ciné+ Family"
         ],
         "flow": "Ciné+ Family",
-        "publisher": "TV-programme.com / Tabom",
+        "publisher": "TV-programme.com / Tabom + Ciné-Télé-Revue / Sudinfo",
         "checked_at": "2026-10-15T15:31:37.000Z",
         "segments_reviewed": [
           "jour civil et nuit 00:00–23:59"
@@ -15489,72 +15602,119 @@
         "independent_crosscheck_complete": false,
         "date": "2026-10-20",
         "urls": [
-          "https://tv-programme.com/cine-plus-family/mardi-20-octobre-2026/"
+          "https://tv-programme.com/cine-plus-family/mardi-20-octobre-2026/",
+          "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11",
+          "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/mardi/h11"
         ],
         "comparison": {
           "saved_observations": 15,
           "source_rows_reviewed": 15,
           "omissions": [],
-          "schedule_contradictions": [
-            {
-              "saved_start": "00:38",
-              "review_start": "00:36",
-              "title": "Scott Pilgrim"
-            },
-            {
-              "saved_start": "05:40",
-              "review_start": "05:41",
-              "title": "Les saisons"
-            },
-            {
-              "saved_start": "10:05",
-              "review_start": "10:03",
-              "title": "Le grand chemin"
-            },
-            {
-              "saved_start": "11:49",
-              "review_start": "11:46",
-              "title": "Tellement proches"
-            },
-            {
-              "saved_start": "14:55",
-              "review_start": "14:53",
-              "title": "Les gorilles"
-            },
-            {
-              "saved_start": "16:14",
-              "review_start": "16:11",
-              "title": "L'étage secret... Bad Gastein"
-            },
-            {
-              "saved_start": "17:47",
-              "review_start": "17:44",
-              "title": "Quand Hitler s'empara du lapin rose"
-            },
-            {
-              "saved_start": "19:43",
-              "review_start": "19:39",
-              "title": "Maya, donne-moi un autre titre"
-            },
-            {
-              "saved_start": "22:33",
-              "review_start": "22:31",
-              "title": "Le loup et le lion"
-            }
-          ],
+          "schedule_contradictions": [],
           "retained_source_segments": [
             "Sonic 3, le film commencé la veille à 22:49 est un report de continuité et n’est pas dupliqué comme départ du jour civil du 20 octobre."
+          ],
+          "resolved_schedule_corrections": [
+            {
+              "title": "Scott Pilgrim",
+              "saved_start": "00:38",
+              "confirmed_start": "00:36",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/mardi-20-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/mardi/h11"
+              ]
+            },
+            {
+              "title": "Les saisons",
+              "saved_start": "05:40",
+              "confirmed_start": "05:41",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/mardi-20-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/mardi/h11"
+              ]
+            },
+            {
+              "title": "Le grand chemin",
+              "saved_start": "10:05",
+              "confirmed_start": "10:03",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/mardi-20-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/mardi/h11"
+              ]
+            },
+            {
+              "title": "Tellement proches",
+              "saved_start": "11:49",
+              "confirmed_start": "11:46",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/mardi-20-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/mardi/h11"
+              ]
+            },
+            {
+              "title": "Les gorilles",
+              "saved_start": "14:55",
+              "confirmed_start": "14:53",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/mardi-20-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/mardi/h11"
+              ]
+            },
+            {
+              "title": "L'étage secret... Bad Gastein",
+              "saved_start": "16:14",
+              "confirmed_start": "16:11",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/mardi-20-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/mardi/h11"
+              ]
+            },
+            {
+              "title": "Quand Hitler s'empara du lapin rose",
+              "saved_start": "17:47",
+              "confirmed_start": "17:44",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/mardi-20-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/mardi/h11"
+              ]
+            },
+            {
+              "title": "Maya, donne-moi un autre titre",
+              "saved_start": "19:43",
+              "confirmed_start": "19:39",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/mardi-20-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/mardi/h11"
+              ]
+            },
+            {
+              "title": "Le loup et le lion",
+              "saved_start": "22:33",
+              "confirmed_start": "22:31",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/mardi-20-octobre-2026/",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11",
+                "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/mardi/h11"
+              ]
+            }
           ]
         },
         "decisions": [
-          "Les quinze identités sont présentes sans omission, mais neuf décalages horaires sont conservés comme contradictions à réconcilier ; aucune correction automatique.",
-          "Les six horaires inchangés restent concordants."
+          "Deux guides actuels d’éditeurs distincts concordent sur les quinze identités et les horaires du jour civil ; les neuf horaires divergents de l’extraction sont corrigés mécaniquement.",
+          "La page Sudinfo de lundi couvre 00:36–04:14 et celle de mardi couvre 05:41–22:31 ; aucune omission ne subsiste."
         ],
         "limits": [
-          "Une seule grille complète accessible pour ce périmètre ; seconde lecture distincte du même éditeur, pas une source indépendante.",
-          "La grille relue diffère de l’extraction sauvegardée ; une nouvelle décision de source est requise avant correction."
+          "Deux éditeurs distincts concordent sur les quatre faits de grille, mais leur provenance amont et leur indépendance restent inconnues."
         ],
-        "status": "reread_complete_with_schedule_contradictions"
+        "status": "two_publisher_full_day_concordance_complete_upstream_unknown"
       },
       {
         "channels": [
