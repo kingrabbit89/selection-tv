@@ -3994,6 +3994,24 @@
       "applies_to": "Le Père Noël est une ordure — Ciné+ Family, lundi 19 octobre 2026 à 00:04",
       "evidence_note": "TV-programme.com et Télé 7 Jours concordent sur le même film, la même chaîne, la date du 19 octobre et l’horaire 00:04 ; provenance amont indépendante non établie.",
       "status": "verified_two_publisher_single_event"
+    },
+    {
+      "fields": [
+        "schedule_title",
+        "schedule_channel",
+        "schedule_date",
+        "schedule_time"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
+        "https://programmetv.ouest-france.fr/film/comedie/les-bodin-s-partent-en-vrille-c350327403/",
+        "https://www.programmetvcesoir.net/chaine/cine-family/2026-10-19"
+      ],
+      "checked_at": "2026-10-15T15:38:03.000Z",
+      "stability": "cycle_specific",
+      "applies_to": "Les Bodin's partent en vrille à 01:32 et Drôle de prof 2 au camping à 04:33 — Ciné+ Family, lundi 19 octobre 2026",
+      "evidence_note": "TV-programme.com rafraîchi concorde avec Ouest-France pour Les Bodin's et avec ProgrammeTVCeSoir pour Drôle de prof 2 ; les anciennes variantes 01:33/04:34 restent tracées historiquement.",
+      "status": "verified_two_publisher_concordance"
     }
   ],
   "source_issues": [
@@ -11118,7 +11136,7 @@
       "prompt_revision": "production-weekly-continuity-2026-10-10",
       "started_at": "2026-10-15T15:03:29.000Z",
       "ended_at": null,
-      "duration_basis": "Temps UTC observé depuis 2026-10-15T15:03:29.000Z ; checkpoint préparé à 2026-10-15T15:35:59.000Z.",
+      "duration_basis": "Temps UTC observé depuis 2026-10-15T15:03:29.000Z ; checkpoint préparé à 2026-10-15T15:38:03.000Z.",
       "run_state": "running",
       "completed_batches": [
         "2026-10-15T15:08:39.575Z — dossier The Big Short complété : deux guides actuels concordent désormais à 08:31 sur Ciné+ Frisson le 21 octobre ; la contradiction historique 08:30/08:31 est conservée, aucune carte n’est affirmée sans rendu mécanique.",
@@ -11138,7 +11156,8 @@
         "2026-10-15T15:30:41.000Z — secondes lectures Ciné+ Family des 17, 18 et 19 octobre : dimanche 14/14 sans omission ; samedi deux omissions et treize décalages, lundi treize décalages sans omission, tous conservés sans correction automatique.",
         "2026-10-15T15:31:37.000Z — secondes lectures Ciné+ Family des 20, 21 et 23 octobre : mercredi 17/17 et vendredi 16/16 sans omission ; mardi quinze identités présentes mais neuf décalages horaires conservés sans correction automatique.",
         "2026-10-15T15:33:25.000Z — recoupement distinct Ciné+ Family : mardi entièrement réconcilié par deux éditeurs (9 horaires corrigés, 15/15 lignes), lundi réconcilié sur 05:49–22:49 (10 horaires corrigés) ; trois écarts nocturnes du lundi restent ouverts.",
-        "2026-10-15T15:35:59.000Z — recoupement Ciné+ Family : Le Père Noël est une ordure corrigé à 00:04 après concordance TV-programme/Télé 7 Jours ; samedi reste en conflit multi-éditeur (deux guides pour la grille révisée, deux pour l’extraction primaire), donc aucune correction ni omission clôturée."
+        "2026-10-15T15:35:59.000Z — recoupement Ciné+ Family : Le Père Noël est une ordure corrigé à 00:04 après concordance TV-programme/Télé 7 Jours ; samedi reste en conflit multi-éditeur (deux guides pour la grille révisée, deux pour l’extraction primaire), donc aucune correction ni omission clôturée.",
+        "2026-10-15T15:38:03.000Z — Ciné+ Family lundi 19 octobre entièrement réconcilié : sources actuelles concordantes sur Les Bodin's à 01:32 et Drôle de prof 2 à 04:33 ; les variations historiques restent tracées, aucune donnée d’inventaire modifiée."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -11151,7 +11170,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Recouper les deux horaires nocturnes encore ouverts du lundi 19 octobre ; poursuivre ensuite la seconde lecture d’une autre chaîne sans répéter le conflit samedi.",
+      "next_useful_batch": "Commencer la seconde lecture complète d’une autre chaîne, en priorité Ciné+ Frisson déjà liée à un dossier avancé, sans revenir sur Family sauf fait nouveau.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -11756,26 +11775,56 @@
             ],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T15:38:03.000Z",
+          "elapsed_seconds": 2074,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "c93b080bece913237170d5fbac2a02acc0e40635",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T16:34:27.059Z",
+          "remaining_count": 11,
+          "next_actions_total": 4,
+          "evaluated_by": "manual_fallback",
+          "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les lacunes de niveau 2 du checkpoint.",
+          "next_actions": [
+            "Commencer la seconde lecture complète d’une autre chaîne, en priorité Ciné+ Frisson déjà liée à un dossier avancé, sans revenir sur Family sauf fait nouveau."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T15:03:29.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T16:34:27.059Z",
+            "external_stop": null,
+            "accessible_task_checks": [
+              "27 chaînes inventoriées n’ont encore aucune seconde lecture complète sauvegardée."
+            ],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T15:35:59.000Z",
-        "elapsed_seconds": 1950,
+        "observed_at": "2026-10-15T15:38:03.000Z",
+        "elapsed_seconds": 2074,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "2d3305e6d81ac553ac8950b21fb59bcd5e67393e",
+        "source_sha": "c93b080bece913237170d5fbac2a02acc0e40635",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T16:34:27.059Z",
         "remaining_count": 11,
         "next_actions_total": 4,
         "evaluated_by": "manual_fallback",
-        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision fondée sur l’horloge observée, le bail relu et les actions accessibles du checkpoint.",
+        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les lacunes de niveau 2 du checkpoint.",
         "next_actions": [
-          "Recouper les deux horaires nocturnes encore ouverts du lundi 19 octobre ; poursuivre ensuite la seconde lecture d’une autre chaîne sans répéter le conflit samedi."
+          "Commencer la seconde lecture complète d’une autre chaîne, en priorité Ciné+ Frisson déjà liée à un dossier avancé, sans revenir sur Family sauf fait nouveau."
         ],
         "observations": {
           "started_at": "2026-10-15T15:03:29.000Z",
@@ -11783,7 +11832,7 @@
           "lease_until": "2026-10-15T16:34:27.059Z",
           "external_stop": null,
           "accessible_task_checks": [
-            "Deux écarts nocturnes Family restent recoupables ; les autres chaînes conservent des secondes lectures accessibles."
+            "27 chaînes inventoriées n’ont encore aucune seconde lecture complète sauvegardée."
           ],
           "ready_handoff": null
         }
@@ -15543,7 +15592,7 @@
         ],
         "flow": "Ciné+ Family",
         "publisher": "TV-programme.com / Tabom + Ciné-Télé-Revue / Sudinfo + Télé 7 Jours",
-        "checked_at": "2026-10-15T15:35:59.000Z",
+        "checked_at": "2026-10-15T15:38:03.000Z",
         "segments_reviewed": [
           "jour civil et nuit 00:00–23:59"
         ],
@@ -15553,24 +15602,15 @@
         "urls": [
           "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
           "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11",
-          "https://www.programme-television.org/type/films/comedies/le-pere-noel-est-une-ordure-53570"
+          "https://www.programme-television.org/type/films/comedies/le-pere-noel-est-une-ordure-53570",
+          "https://www.programmetvcesoir.net/chaine/cine-family/2026-10-19",
+          "https://programmetv.ouest-france.fr/film/comedie/les-bodin-s-partent-en-vrille-c350327403/"
         ],
         "comparison": {
           "saved_observations": 17,
           "source_rows_reviewed": 17,
           "omissions": [],
-          "schedule_contradictions": [
-            {
-              "saved_start": "01:32",
-              "review_start": "01:33",
-              "title": "Les Bodin's partent en vrille"
-            },
-            {
-              "saved_start": "04:33",
-              "review_start": "04:34",
-              "title": "Drôle de prof 2 au camping"
-            }
-          ],
+          "schedule_contradictions": [],
           "retained_source_segments": [
             "Dieumerci ! commencé la veille à 22:31 est un report de continuité et n’est pas dupliqué comme départ du jour civil du 19 octobre."
           ],
@@ -15673,19 +15713,39 @@
                 "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
                 "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11"
               ]
+            },
+            {
+              "title": "Les Bodin's partent en vrille",
+              "saved_start": "01:32",
+              "confirmed_start": "01:32",
+              "resolution": "source_refresh_concordant",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
+                "https://programmetv.ouest-france.fr/film/comedie/les-bodin-s-partent-en-vrille-c350327403/"
+              ]
+            },
+            {
+              "title": "Drôle de prof 2 au camping",
+              "saved_start": "04:33",
+              "confirmed_start": "04:33",
+              "resolution": "source_refresh_concordant",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
+                "https://www.programmetvcesoir.net/chaine/cine-family/2026-10-19"
+              ]
             }
           ]
         },
         "decisions": [
-          "Deux guides actuels d’éditeurs distincts concordent sur Le Père Noël est une ordure à 00:04 le 19 octobre ; cet horaire est corrigé mécaniquement dans l’inventaire.",
-          "Les dix corrections diurnes déjà recoupées restent acquises.",
-          "Les horaires de Les Bodin's partent en vrille (01:32/01:33) et Drôle de prof 2 au camping (04:33/04:34) restent ouverts faute d’une seconde preuve précise."
+          "Le rafraîchissement actuel de TV-programme.com revient à 01:32 pour Les Bodin's partent en vrille et 04:33 pour Drôle de prof 2 au camping, concordant avec les horaires primaires.",
+          "Ouest-France confirme Les Bodin's à 01:32 ; ProgrammeTVCeSoir confirme Drôle de prof 2 à 04:33. Les deux contradictions nocturnes sont closes sans changement d’inventaire.",
+          "Les onze corrections horaires déjà recoupées, dont Le Père Noël est une ordure à 00:04, restent acquises."
         ],
         "limits": [
-          "Concordance de deux éditeurs pour Le Père Noël est une ordure et pour les dix corrections diurnes déjà enregistrées, sans preuve positive d’indépendance amont.",
-          "Deux écarts nocturnes sur 01:32–04:34 ne disposent encore que de la grille TV-programme.com révisée."
+          "Concordance d’éditeurs distincts sur tous les horaires désormais retenus ; provenance amont et indépendance non établies.",
+          "La variation historique de la grille TV-programme.com (01:33/04:34 lors de la lecture précédente) est conservée dans l’historique des checkpoints et n’est pas effacée."
         ],
-        "status": "two_publisher_concordance_two_night_contradictions_open"
+        "status": "two_publisher_concordance_complete"
       },
       {
         "channels": [
