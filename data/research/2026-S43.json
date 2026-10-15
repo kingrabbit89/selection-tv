@@ -149,7 +149,8 @@
     "2026-10-15T19:28:09.437Z — mardi complété à sept cartes avec deux documentaires ARTE : Kibboutz Nir Oz, aux portes de Gaza rang 6 à 22:40 et Yémen, carrefour de toutes les guerres rang 7 à 23:40 ; deux nouveaux dossiers complets, visuels officiels inspectés, absence de notes ciblée, critiques Télérama attribuées et corrections officielles d’horaire conservées.",
     "2026-10-15T19:33:32.923Z — deux occurrences supplémentaires réutilisées sans rouvrir leurs dossiers stables : La Voix de Hind Rajab lundi rang 9 à 08:42, recoupée par trois guides actuels, et Bugonia vendredi rang 8 à 00:00, concordante entre Télérama fourni et trois guides actuels.",
     "2026-10-15T19:37:51.411Z — lundi atteint le minimum de dix cartes avec Une jeunesse indienne rang 10 à 20:50 sur Ciné+ Festival ; identité et durée distributeur, note SensCritique, critique Télérama attribuée, affiche officielle inspectée et ligne papier d’autorité relue.",
-    "2026-10-15T19:41:57.327Z — vendredi porté à neuf cartes avec SOS fantômes rang 9 à 21:05 sur Gulli ; identité Sony/AFI, durée AFI, absence de note actuelle spécifique, critique Télérama attribuée, affiche Sony inspectée et ligne papier d’autorité relue."
+    "2026-10-15T19:41:57.327Z — vendredi porté à neuf cartes avec SOS fantômes rang 9 à 21:05 sur Gulli ; identité Sony/AFI, durée AFI, absence de note actuelle spécifique, critique Télérama attribuée, affiche Sony inspectée et ligne papier d’autorité relue.",
+    "2026-10-15T19:44:14.966Z — dossier proche de carte préparé pour Les Hommes du président : identité, durée, diffusion vendredi sous autorité Télérama, réception AFI/Télérama, note AlloCiné et photogramme officiel Cannes inspecté ; rédaction et rendu de la carte restent au prochain lot."
   ],
   "blockers": [],
   "research_attempts": [
@@ -5234,6 +5235,32 @@
       ],
       "evidence_note": "Sony et AFI relus ; critique Télérama p. 141 /reviews/34 et grille /observations/1297 (sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d) relues ; affiche officielle inspectée ; CI distant restant.",
       "status": "verified_for_draft"
+    },
+    {
+      "work_id": "les-hommes-du-president-1976",
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "country",
+        "duration",
+        "alternative_rating",
+        "critical_evidence",
+        "image"
+      ],
+      "urls": [
+        "https://www.warnerbros.it/scheda-film/genere-drammatico/tutti-gli-uomini-del-presidente/",
+        "https://catalog.afi.com/Film/53913-ALL-THE-PRESIDENTS-MEN",
+        "https://www.festival-cannes.com/f/all-the-president-s-men/",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=3690.html"
+      ],
+      "checked_at": "2026-10-15T19:44:14.966Z",
+      "stability": "stable_identity_partial_cycle_review",
+      "applies_to": [
+        "dossier partiel vendredi — aucune carte matérialisée"
+      ],
+      "evidence_note": "Identité et durée concordantes, réception Télérama/AFI, note alternative et photogramme officiel inspectés ; pointeur de grille, textes, rendu, fraîcheur mécanique et CI restent ouverts.",
+      "status": "partial"
     }
   ],
   "source_issues": [
@@ -6876,6 +6903,45 @@
         "alternatives": [
           "sl-vendredi-nos-annees-sauvages-1990",
           "sl-vendredi-que-dios-nos-perdone-2016"
+        ]
+      },
+      {
+        "id": "sl-vendredi-les-hommes-du-president-1976",
+        "title": "Les Hommes du président",
+        "work_id": "les-hommes-du-president-1976",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "researching",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama juge le film « Très bien » et souligne la force de la mise en scène du travail journalistique.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d",
+            "pdf_page": 141,
+            "bbox": [
+              21.35,
+              399.78,
+              157.55,
+              424.2
+            ],
+            "provenance": {
+              "source_sha": "9a25429c3ef553d4b1684a273f04d148cf597ccd",
+              "path": "data/editorial-inputs/2026-S43/telerama-editorial.json",
+              "json_pointer": "/reviews/37"
+            }
+          },
+          {
+            "kind": "canon_critique",
+            "note": "L’AFI classe le film au rang 77 de sa liste anniversaire des cent plus grands films américains.",
+            "source_url": "https://catalog.afi.com/Film/53913-ALL-THE-PRESIDENTS-MEN"
+          }
+        ],
+        "decision_note": "Dossier proche de carte sauvegardé ; ligne Télérama p. 140 /observations/1294 relue à 21:05 sur France 5. Restent les textes, le catalogue, le rendu et les contrôles.",
+        "alternatives": [
+          "sl-vendredi-sos-fantomes-1984",
+          "sl-vendredi-nos-annees-sauvages-1990"
         ]
       }
     ]
@@ -17373,9 +17439,9 @@
     {
       "prompt_revision": "production-weekly-continuity-2026-10-10",
       "started_at": "2026-10-15T18:55:29.650Z",
-      "ended_at": null,
+      "ended_at": "2026-10-15T19:45:49.505Z",
       "duration_basis": "Temps UTC observé depuis le début réel ; aucun intervalle parallèle ajouté à ce checkpoint.",
-      "run_state": "running",
+      "run_state": "stopped",
       "completed_batches": [
         "2026-10-15T19:01:58.983Z — Last Stop : Yuma County réutilisé comme réserve draft samedi rang 6 à 17:20 selon la ligne Télérama fournie relue (p. 106, /observations/31) ; l’écart Web 17:17 reste visible, les trois primaires et les cinq cartes antérieures sont conservés.",
         "2026-10-15T19:06:44.300Z — cinq réserves réutilisées sous autorité des lignes Télérama fournies et relues : lundi Last Stop : Yuma County rang 7 et Bright Star rang 8, jeudi La Prisonnière du désert rang 7 et Midsommar rang 8, vendredi Raccrochez, c’est une erreur rang 7 ; primaires et cartes antérieures conservés.",
@@ -17383,7 +17449,8 @@
         "2026-10-15T19:28:09.437Z — mardi complété à sept cartes avec deux documentaires ARTE : Kibboutz Nir Oz, aux portes de Gaza rang 6 à 22:40 et Yémen, carrefour de toutes les guerres rang 7 à 23:40 ; deux nouveaux dossiers complets, visuels officiels inspectés, absence de notes ciblée, critiques Télérama attribuées et corrections officielles d’horaire conservées.",
         "2026-10-15T19:33:32.923Z — deux occurrences supplémentaires réutilisées sans rouvrir leurs dossiers stables : La Voix de Hind Rajab lundi rang 9 à 08:42, recoupée par trois guides actuels, et Bugonia vendredi rang 8 à 00:00, concordante entre Télérama fourni et trois guides actuels.",
         "2026-10-15T19:37:51.411Z — lundi atteint le minimum de dix cartes avec Une jeunesse indienne rang 10 à 20:50 sur Ciné+ Festival ; identité et durée distributeur, note SensCritique, critique Télérama attribuée, affiche officielle inspectée et ligne papier d’autorité relue.",
-        "2026-10-15T19:41:57.327Z — vendredi porté à neuf cartes avec SOS fantômes rang 9 à 21:05 sur Gulli ; identité Sony/AFI, durée AFI, absence de note actuelle spécifique, critique Télérama attribuée, affiche Sony inspectée et ligne papier d’autorité relue."
+        "2026-10-15T19:41:57.327Z — vendredi porté à neuf cartes avec SOS fantômes rang 9 à 21:05 sur Gulli ; identité Sony/AFI, durée AFI, absence de note actuelle spécifique, critique Télérama attribuée, affiche Sony inspectée et ligne papier d’autorité relue.",
+        "2026-10-15T19:44:14.966Z — dossier proche de carte préparé pour Les Hommes du président : identité, durée, diffusion vendredi sous autorité Télérama, réception AFI/Télérama, note AlloCiné et photogramme officiel Cannes inspecté ; rédaction et rendu de la carte restent au prochain lot."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -17395,10 +17462,10 @@
       "draft_cards_added": 14,
       "draft_reserves_added": 14,
       "dossiers_completed": 6,
-      "partial_dossiers_added": 0,
+      "partial_dossiers_added": 1,
       "requirements_resolved": 0,
-      "stop_reason": null,
-      "next_useful_batch": "Compléter vendredi, encore à neuf cartes mais avec une ancienne réserve factuellement conflictuelle à remplacer, ou mardi ; sinon avancer une rubrique indépendante.",
+      "stop_reason": "budget_reserve_reached — 50 minutes utiles observées atteintes ; lot partiel proche de carte sauvegardé et cinq dernières minutes réservées au checkpoint terminal et à la libération du bail.",
+      "next_useful_batch": "Terminer Les Hommes du président : textes, catalogue/liens, rendu et contrôles ; l’utiliser pour remplacer la réserve vendredi conflictuelle sans modifier les primaires.",
       "additions": {
         "new_works": 4,
         "visible_draft_cards": 14,
@@ -17462,6 +17529,20 @@
           "ended_at": "2026-10-15T19:41:57.327Z",
           "overlap": false,
           "note": "Dossier SOS fantômes : identité Sony/AFI, durée, recherche de notes, critique papier, grille d’autorité, affiche officielle, rédaction et rendu mécanique."
+        },
+        {
+          "kind": "recherche",
+          "started_at": "2026-10-15T19:43:03.969Z",
+          "ended_at": "2026-10-15T19:44:14.966Z",
+          "overlap": false,
+          "note": "Dossier proche de carte Les Hommes du président : identité, durée, réception, diffusion papier et image ; production laissée explicitement ouverte."
+        },
+        {
+          "kind": "controles_sauvegarde",
+          "started_at": "2026-10-15T19:44:35.352Z",
+          "ended_at": "2026-10-15T19:45:49.505Z",
+          "overlap": false,
+          "note": "Triage final, observation CI sur le SHA exact, décision --finish et préparation du checkpoint terminal."
         }
       ],
       "continuation_decisions": [
@@ -17618,20 +17699,64 @@
             "lease_until": "2026-10-15T20:16:46.235Z",
             "external_stop": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T19:43:03.969Z",
+          "elapsed_seconds": 2854.319,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "9a25429c3ef553d4b1684a273f04d148cf597ccd",
+          "next_actions": [
+            "Compléter vendredi, encore à neuf cartes mais avec une ancienne réserve factuellement conflictuelle à remplacer, ou mardi ; sinon avancer une rubrique indépendante."
+          ],
+          "remaining_count": 11,
+          "observations": {
+            "started_at": "2026-10-15T18:55:29.650Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T20:16:46.235Z",
+            "external_stop": null
+          }
+        },
+        {
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-15T19:45:34.024Z",
+          "elapsed_seconds": 3004.374,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "9a25429c3ef553d4b1684a273f04d148cf597ccd",
+          "next_actions": [
+            "Terminer Les Hommes du président : rédiger les textes, intégrer catalogue/liens, rendre et contrôler la carte, puis remplacer la réserve vendredi conflictuelle sans modifier les primaires.",
+            "Compléter vendredi et mardi avec des dossiers admissibles, ou avancer une rubrique indépendante."
+          ],
+          "remaining_count": 11,
+          "observations": {
+            "started_at": "2026-10-15T18:55:29.650Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T20:16:46.235Z",
+            "external_stop": null
+          }
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T19:38:53.926Z",
-        "elapsed_seconds": 2604.276,
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-15T19:45:34.024Z",
+        "elapsed_seconds": 3004.374,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "b1d0b308dcbc87c3e25b7b10e87dec67fc3390a4",
+        "source_sha": "9a25429c3ef553d4b1684a273f04d148cf597ccd",
         "next_actions": [
-          "Compléter vendredi, encore à huit cartes, ou mardi, encore à sept, depuis des dossiers admissibles ; sinon avancer une rubrique indépendante."
+          "Terminer Les Hommes du président : rédiger les textes, intégrer catalogue/liens, rendre et contrôler la carte, puis remplacer la réserve vendredi conflictuelle sans modifier les primaires.",
+          "Compléter vendredi et mardi avec des dossiers admissibles, ou avancer une rubrique indépendante."
         ],
         "remaining_count": 11,
         "observations": {
@@ -17643,7 +17768,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-15T19:41:57.327Z",
+  "updated_at": "2026-10-15T19:45:49.505Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -21367,6 +21492,108 @@
       ],
       "decision": "carte draft matérialisée — CI final requis",
       "reason": "Identité, diffusion sous autorité papier, réception, visuel et textes sont revus ; l’absence de note exploitable est datée et spécifique."
+    },
+    {
+      "title": "Les Hommes du président",
+      "work_id": "les-hommes-du-president-1976",
+      "catalogue_match": null,
+      "identity_research": {
+        "director": "Alan J. Pakula",
+        "year": 1976,
+        "country": "États-Unis",
+        "source_urls": [
+          "https://www.warnerbros.it/scheda-film/genere-drammatico/tutti-gli-uomini-del-presidente/",
+          "https://catalog.afi.com/Film/53913-ALL-THE-PRESIDENTS-MEN",
+          "https://www.festival-cannes.com/f/all-the-president-s-men/"
+        ],
+        "checked_at": "2026-10-15T19:44:14.966Z",
+        "duration_observations": [
+          {
+            "duration": "138 min",
+            "version": "Warner, AFI, Festival de Cannes et BFI concordants",
+            "source_url": "https://www.warnerbros.it/scheda-film/genere-drammatico/tutti-gli-uomini-del-presidente/"
+          }
+        ],
+        "note": "Identité certaine du film All the President’s Men / Les Hommes du président de 1976. Les sources institutionnelles et de droit concordent sur le réalisateur, le pays et 138 min ; la copie France 5 n’est pas documentée."
+      },
+      "critical_evidence": [
+        {
+          "source": "Télérama",
+          "author": "Guillemette Odicino",
+          "source_url": null,
+          "source_ref": "sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d",
+          "pdf_page": 141,
+          "bbox": [
+            21.35,
+            399.78,
+            157.55,
+            424.2
+          ],
+          "provenance": {
+            "source_sha": "9a25429c3ef553d4b1684a273f04d148cf597ccd",
+            "path": "data/editorial-inputs/2026-S43/telerama-editorial.json",
+            "json_pointer": "/reviews/37"
+          },
+          "assessment": "La reconstitution de l’enquête du Watergate célèbre la presse comme contre-pouvoir et rend captivant le travail patient de collecte et de vérification.",
+          "kind": "provided_magazine_criticism",
+          "native_rating": "Très bien",
+          "access": "provided_pdf_reviewed",
+          "checked_at": "2026-10-15T19:44:14.966Z"
+        },
+        {
+          "source": "American Film Institute",
+          "author": "AFI Catalog",
+          "source_url": "https://catalog.afi.com/Film/53913-ALL-THE-PRESIDENTS-MEN",
+          "assessment": "Le film figure au rang 77 de la liste AFI 100 Years…100 Movies (édition anniversaire 2007).",
+          "kind": "canon_critique",
+          "checked_at": "2026-10-15T19:44:14.966Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_alternative_current_rating",
+        "checked_at": "2026-10-15T19:44:14.966Z",
+        "source_urls": [
+          "https://www.allocine.fr/film/fichefilm_gen_cfilm=3690.html"
+        ],
+        "allocine": "4,1/5 (7 068 notes spectateurs)",
+        "note": "Valeur et volume relus sur la fiche exacte le 15 octobre 2026 ; les pages IMDb et SensCritique exactes ont été retrouvées sans valeur actuelle exposée dans les résultats lus."
+      },
+      "broadcast_research": {
+        "date": "2026-10-23",
+        "start": "21:05",
+        "channel": "France 5",
+        "source_urls": [],
+        "checked_at": "2026-10-15T19:44:14.966Z",
+        "status": "verified_by_reviewed_telerama_grid_authority",
+        "note": "La ligne Télérama p. 140 /observations/1294, bbox [393.17,400.68,449.38,418.68], est relue comme autorité du titre, de la chaîne, de la date et de l’heure : vendredi 23 octobre à 21:05 sur France 5."
+      },
+      "image_research": {
+        "checked_at": "2026-10-15T19:44:14.966Z",
+        "source_page": "https://www.festival-cannes.com/f/all-the-president-s-men/",
+        "image_url": "https://img.festival-cannes.com/eyJidWNrZXQiOiJtZWRpYSIsImtleSI6InVwbG9hZHNcLzIwMjZcLzA1XC8yMDQzMTguanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoxMzYwLCJmaXQiOiJjb3ZlciJ9fX0%3D",
+        "status": "official_still_visually_verified_ci_pending",
+        "visually_checked": true,
+        "note": "Photogramme officiel de la reprise Cannes 2026 inspecté : Robert Redford et Dustin Hoffman côte à côte, téléphone au premier plan ; contrôle CI distant requis."
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T19:44:14.966Z",
+        "status": "new_candidate_no_recent_exposure",
+        "issues_checked": [
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ],
+        "note": "Aucune exposition récente vérifiée dans ce lot ; contrôle mécanique final requis avant carte."
+      },
+      "missing_fields": [
+        "rédiger et revoir synopsis et justification",
+        "créer work_id et liens dans le catalogue",
+        "rendre la carte vendredi et contrôler le handoff",
+        "contrôle fraîcheur mécanique et CI distant"
+      ],
+      "decision": "dossier partiel proche de carte — non matérialisé",
+      "reason": "Les faits stables, la réception, l’image et l’événement éditorial sont acquis ; les champs de production et les contrôles finaux restent explicitement ouverts."
     }
   ],
   "coverage": {
