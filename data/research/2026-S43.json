@@ -90,7 +90,8 @@
     "2026-10-15T12:43:30.000Z — trois choix développés du jeudi matérialisés : Old Boy, Le dernier rivage et Freaks, après revue complète des grilles, identités, durées, réception, visuels et fraîcheur.",
     "Trio développé du vendredi matérialisé : Nos années sauvages, Put Your Soul on Your Hand and Walk et Baccalauréat, après recoupement Web concordant et revue de niveau 3.",
     "Mardi réconcilié sur la nouvelle concordance horaire de Left-Handed Girl et enrichi de deux réserves complètes : Freaks et Raccrochez, c’est une erreur.",
-    "Mercredi enrichi de trois réserves complètes réutilisant des dossiers déjà revus : Baccalauréat, Interstellar et Peau d’âne ; leurs diffusions du 21 octobre ont été recoupées séparément."
+    "Mercredi enrichi de trois réserves complètes réutilisant des dossiers déjà revus : Baccalauréat, Interstellar et Peau d’âne ; leurs diffusions du 21 octobre ont été recoupées séparément.",
+    "Jeudi enrichi d’une réserve complète : Le pont de la rivière Kwaï, dossier déjà revu dont la nouvelle diffusion du 22 octobre a été recoupée séparément."
   ],
   "blockers": [],
   "research_attempts": [
@@ -3290,6 +3291,32 @@
       "checked_at": "2026-10-15T13:29:43.840Z",
       "stability": "mixed_stable_dynamic_and_cycle_specific",
       "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "work_id": "le-pont-de-la-riviere-kwai-1957",
+      "fields": [
+        "identity",
+        "version_limit",
+        "ratings",
+        "broadcast_title",
+        "broadcast_channel",
+        "broadcast_date",
+        "broadcast_time",
+        "criticism",
+        "image",
+        "synopsis",
+        "editorial_justification",
+        "draft_reserve"
+      ],
+      "urls": [
+        "https://programmetv.ouest-france.fr/film/guerre/le-pont-de-la-riviere-kwai-c51635/",
+        "https://tv.digital3d.com/detail/arte-337?date=2026-10-22&time=13%3A35"
+      ],
+      "applies_to": "réserve draft Le pont de la rivière Kwaï — jeudi 2026-10-22 rang 5",
+      "evidence_note": "Identité et texte stables réutilisés ; diffusion du jeudi recoupée par Ouest-France et Digital3D, indépendance amont inconnue.",
+      "checked_at": "2026-10-15T13:32:50.832Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "status": "verified_for_draft_card_ci_pending"
     }
   ],
   "source_issues": [
@@ -4337,6 +4364,28 @@
           "sl-mercredi-a-ghost-story",
           "sl-mercredi-m-le-maudit",
           "sl-mercredi-gens-de-dublin"
+        ]
+      },
+      {
+        "id": "sl-jeudi-le-pont-de-la-riviere-kwai-1957",
+        "title": "Le pont de la rivière Kwaï",
+        "work_id": "le-pont-de-la-riviere-kwai-1957",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Roger Ebert analyse le conflit entre devoir, orgueil et folie militaire qui donne au film son trouble durable.",
+            "source_url": "https://www.rogerebert.com/reviews/great-movie-the-bridge-on-the-river-kwai-1957"
+          }
+        ],
+        "decision_note": "Réserve draft jeudi rang 5 ; identité et textes stables réutilisés, diffusion du 22 octobre à 13:35 recoupée séparément.",
+        "alternatives": [
+          "sl-jeudi-old-boy",
+          "sl-jeudi-le-dernier-rivage",
+          "sl-jeudi-freaks"
         ]
       }
     ]
@@ -8466,7 +8515,8 @@
       "completed_batches": [
         "Trio développé du vendredi matérialisé avec trois nouvelles œuvres fraîches entièrement revues.",
         "Deux réserves complètes ajoutées au mardi et horaire du premier choix réconcilié sur les grilles actuelles.",
-        "Trois réserves complètes ajoutées au mercredi depuis des dossiers déjà revus, avec nouvelles diffusions recoupées."
+        "Trois réserves complètes ajoutées au mercredi depuis des dossiers déjà revus, avec nouvelles diffusions recoupées.",
+        "Une réserve complète ajoutée au jeudi depuis un dossier déjà revu, avec nouvelle diffusion recoupée."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -8477,16 +8527,16 @@
       ],
       "complete_cards_added": 0,
       "draft_cards_added": 3,
-      "draft_reserves_added": 5,
+      "draft_reserves_added": 6,
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Ajouter des réserves complètes à un autre jour sous le minimum, ou avancer une rubrique indépendante prête.",
+      "next_useful_batch": "Ajouter des réserves complètes au vendredi ou à un autre jour sous le minimum, ou avancer une rubrique indépendante prête.",
       "additions": {
         "new_works": 3,
         "visible_draft_cards": 3,
-        "distinct_reserves_added": 5,
-        "reused_existing_cards": 5,
+        "distinct_reserves_added": 6,
+        "reused_existing_cards": 6,
         "scope": "comparaison avec bc9f78f1534b222b560b92f9c4040569412c3f5c"
       },
       "intervals": [
@@ -8530,6 +8580,18 @@
           "started_at": "2026-10-15T13:28:30.000Z",
           "ended_at": "2026-10-15T13:29:43.840Z",
           "note": "Chevauche la recherche ; ajout mécanique de trois réserves au pool et à la grille du mercredi."
+        },
+        {
+          "kind": "recherche",
+          "started_at": "2026-10-15T13:31:06.746Z",
+          "ended_at": "2026-10-15T13:32:50.832Z",
+          "note": "Recoupement ciblé de la rediffusion jeudi du Pont de la rivière Kwaï."
+        },
+        {
+          "kind": "redaction_rendu",
+          "started_at": "2026-10-15T13:32:00.000Z",
+          "ended_at": "2026-10-15T13:32:50.832Z",
+          "note": "Chevauche la recherche ; ajout mécanique d’une réserve au jeudi."
         }
       ],
       "continuation_decisions": [
@@ -8584,29 +8646,55 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T13:31:06.746Z",
+          "elapsed_seconds": 1778.305,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "fc55c98085e9f98be312c9e8c041e30491126b1f",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T14:23:59.757Z",
+          "remaining_count": 12,
+          "evaluated_by": "scripts/editorial-continuation.mjs",
+          "next_actions": [
+            "Ajouter des réserves complètes à un autre jour sous le minimum, ou avancer une rubrique indépendante prête."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T13:01:28.441Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T14:23:59.757Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T13:16:25.461Z",
-        "elapsed_seconds": 897.02,
+        "observed_at": "2026-10-15T13:31:06.746Z",
+        "elapsed_seconds": 1778.305,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "0dc8304d2fa63174bf8d0c46ec657766055cabb7",
+        "source_sha": "fc55c98085e9f98be312c9e8c041e30491126b1f",
         "lease_owned": "yes",
-        "lease_until": "2026-10-15T14:04:03.947Z",
+        "lease_until": "2026-10-15T14:23:59.757Z",
         "remaining_count": 12,
         "evaluated_by": "scripts/editorial-continuation.mjs",
         "next_actions": [
-          "Ajouter des réserves fraîches aux jours sous le minimum, en priorité à partir des dossiers déjà proches d’une carte."
+          "Ajouter des réserves complètes à un autre jour sous le minimum, ou avancer une rubrique indépendante prête."
         ],
         "observations": {
           "started_at": "2026-10-15T13:01:28.441Z",
           "lease_owned": "yes",
-          "lease_until": "2026-10-15T14:04:03.947Z",
+          "lease_until": "2026-10-15T14:23:59.757Z",
           "external_stop": null,
           "accessible_task_checks": [],
           "ready_handoff": null
@@ -8614,7 +8702,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-15T13:29:43.840Z",
+  "updated_at": "2026-10-15T13:32:50.832Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -9175,7 +9263,21 @@
         "contrôle CI distant du visuel et des liens sur la tête exacte"
       ],
       "decision": "carte draft matérialisée — CI final requis",
-      "reason": "Identité, diffusion officielle, réception, notes, visuel, fraîcheur et textes revus ; limite de durée explicitement conservée."
+      "reason": "Identité, diffusion officielle, réception, notes, visuel, fraîcheur et textes revus ; limite de durée explicitement conservée.",
+      "additional_broadcasts": [
+        {
+          "date": "2026-10-22",
+          "start": "13:35",
+          "channel": "Arte",
+          "source_urls": [
+            "https://programmetv.ouest-france.fr/film/guerre/le-pont-de-la-riviere-kwai-c51635/",
+            "https://tv.digital3d.com/detail/arte-337?date=2026-10-22&time=13%3A35"
+          ],
+          "checked_at": "2026-10-15T13:32:50.832Z",
+          "status": "verified_by_two_current_guides_distinct_publishers_upstream_unknown",
+          "note": "Titre, chaîne, date et heure concordent ; indépendance amont non affirmée."
+        }
+      ]
     },
     {
       "title": "La rivière rouge",
