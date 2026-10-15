@@ -140,7 +140,8 @@
     "2026-10-15T18:27:56.559Z — Canal+ sur les sept jours : seconde lecture jour+nuit achevée sur 180 départs sauvegardés ; contradictions de composition, d’identité et d’horaires conservées sur chaque date, dont vingt décalages et un remplacement jeudi. Aucun inventaire n’est corrigé sans collecte/handoff dédié ; Bird reste fermé par son retry_gate.",
     "2026-10-15T18:35:23.900Z — RMC Story sur les sept jours : seconde lecture jour+nuit achevée ; 171/171 départs concordants, aucune omission ni divergence horaire, avec seulement les alias Pause/Fin des programmes et les limites de versions/labels S/E non réaffirmés.",
     "2026-10-15T18:38:31.480Z — Action sur les sept jours : seconde lecture jour+nuit achevée sur 103 départs sauvegardés ; dimanche, mercredi et vendredi concordent sous limites de placeholders, tandis que samedi nuit, lundi journée et mardi gardent des écarts, et jeudi révèle une vraie omission hors antenne à 05:52. Aucun retry_gate n’est rouvert.",
-    "2026-10-15T18:41:59.191Z — RMC Découverte sur les sept jours : seconde lecture jour+nuit achevée sur 138 départs sauvegardés ; six journées sans omission interne, mais le report sortant du mercredi et toute la séquence nocturne du jeudi sont contradictoires et restent ouverts. Aucune correction automatique."
+    "2026-10-15T18:41:59.191Z — RMC Découverte sur les sept jours : seconde lecture jour+nuit achevée sur 138 départs sauvegardés ; six journées sans omission interne, mais le report sortant du mercredi et toute la séquence nocturne du jeudi sont contradictoires et restent ouverts. Aucune correction automatique.",
+    "2026-10-15T18:45:28.776Z — RTL9 sur les sept jours : seconde lecture jour+nuit achevée ; 243/243 départs concordants, aucune omission ni divergence horaire ou d’identité nommée, reports civils continus et labels S/E non réaffirmés lorsqu’absents du second guide."
   ],
   "blockers": [],
   "research_attempts": [
@@ -6203,7 +6204,7 @@
     "first_incomplete_stage": "enrichment",
     "next_actions": [
       "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
-      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les deux chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur la seule chaîne encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
       "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
       "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
       "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
@@ -16290,7 +16291,8 @@
         "2026-10-15T18:27:56.559Z — Canal+ sur les sept jours : seconde lecture jour+nuit achevée sur 180 départs sauvegardés ; contradictions de composition, d’identité et d’horaires conservées sur chaque date, dont vingt décalages et un remplacement jeudi. Aucun inventaire n’est corrigé sans collecte/handoff dédié ; Bird reste fermé par son retry_gate.",
         "2026-10-15T18:35:23.900Z — RMC Story sur les sept jours : seconde lecture jour+nuit achevée ; 171/171 départs concordants, aucune omission ni divergence horaire, avec seulement les alias Pause/Fin des programmes et les limites de versions/labels S/E non réaffirmés.",
         "2026-10-15T18:38:31.480Z — Action sur les sept jours : seconde lecture jour+nuit achevée sur 103 départs sauvegardés ; dimanche, mercredi et vendredi concordent sous limites de placeholders, tandis que samedi nuit, lundi journée et mardi gardent des écarts, et jeudi révèle une vraie omission hors antenne à 05:52. Aucun retry_gate n’est rouvert.",
-        "2026-10-15T18:41:59.191Z — RMC Découverte sur les sept jours : seconde lecture jour+nuit achevée sur 138 départs sauvegardés ; six journées sans omission interne, mais le report sortant du mercredi et toute la séquence nocturne du jeudi sont contradictoires et restent ouverts. Aucune correction automatique."
+        "2026-10-15T18:41:59.191Z — RMC Découverte sur les sept jours : seconde lecture jour+nuit achevée sur 138 départs sauvegardés ; six journées sans omission interne, mais le report sortant du mercredi et toute la séquence nocturne du jeudi sont contradictoires et restent ouverts. Aucune correction automatique.",
+        "2026-10-15T18:45:28.776Z — RTL9 sur les sept jours : seconde lecture jour+nuit achevée ; 243/243 départs concordants, aucune omission ni divergence horaire ou d’identité nommée, reports civils continus et labels S/E non réaffirmés lorsqu’absents du second guide."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json"
@@ -16302,14 +16304,14 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre la seconde lecture de RTL9 sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
+      "next_useful_batch": "Actualiser le triage sur la tête exacte puis terminer un dossier déjà proche d’une carte ou une rubrique accessible ; ne pas reprendre TV5MONDE tant que son retry_gate de flux régional n’est pas satisfait.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
         "distinct_reserves_added": 0,
         "reused_existing_cards": 0,
         "raw_inventory_observations_added": 0,
-        "scope": "Comparaison avec 89789660bbb7a235484219e61e437557da01df1d : synchronisation Télérama et revues hebdomadaires TMC, TFX, 6ter, Paris Première, Canal+, Action, RMC Story et RMC Découverte ; aucun ajout de carte, réserve, œuvre ou observation brute."
+        "scope": "Comparaison avec 89789660bbb7a235484219e61e437557da01df1d : synchronisation Télérama et revues hebdomadaires TMC, TFX, 6ter, Paris Première, Canal+, Action, RMC Story, RMC Découverte et RTL9 ; aucun ajout de carte, réserve, œuvre ou observation brute."
       },
       "intervals": [
         {
@@ -16373,6 +16375,13 @@
           "ended_at": "2026-10-15T18:41:59.191Z",
           "overlap": true,
           "note": "Trois revues RMC Découverte ont été menées en parallèle ; les intervalles se chevauchent et ne sont pas additionnés au temps séquentiel."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": "2026-10-15T18:44:48.000Z",
+          "ended_at": "2026-10-15T18:45:28.776Z",
+          "overlap": true,
+          "note": "Trois revues RTL9 ont été menées en parallèle ; les intervalles se chevauchent et ne sont pas additionnés au temps séquentiel."
         }
       ],
       "continuation_decisions": [
@@ -16529,22 +16538,44 @@
           "next_actions_total": 18,
           "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
           "all_actions_total": 30
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T18:44:22.093Z",
+          "elapsed_seconds": 2490.584,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "8d3f88ac49f2b195bc8a8c0550b542b0052cb15e",
+          "next_actions": [
+            "Poursuivre la seconde lecture de RTL9 sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
+            "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les deux chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+            "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 18,
+          "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 30
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T18:40:43.847Z",
-        "elapsed_seconds": 2272.338,
+        "observed_at": "2026-10-15T18:44:22.093Z",
+        "elapsed_seconds": 2490.584,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "72e031a4bd7b4c987fb46d477c9d789045dc940a",
+        "source_sha": "8d3f88ac49f2b195bc8a8c0550b542b0052cb15e",
         "next_actions": [
-          "Poursuivre la seconde lecture de RMC Découverte sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
+          "Poursuivre la seconde lecture de RTL9 sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
           "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
-          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les trois chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les deux chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
           "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
           "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
         ],
@@ -27011,6 +27042,279 @@
           "Les URL datées L’Internaute peuvent rediriger vers un slug de jour de semaine ; contenu et navigation lus correspondent à la date ciblée."
         ],
         "status": "reread_complete_no_omissions"
+      },
+      {
+        "date": "2026-10-17",
+        "channels": [
+          "RTL9"
+        ],
+        "flow": "RTL9",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:45:04.000Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 27 départs RTL9 sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rtl-9/samedi-17-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rtl9-samedi-17-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 27,
+          "source_rows_reviewed": 27,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 27 départs du jour civil concordent en heure, titre et sous-titre au niveau requis pour la recherche d’omissions.",
+          "Les nuits et reports civils adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Les numéros SxxExx, notamment pour Pep’s et Amour, gloire et beauté, ne sont pas affichés par le second guide ; les sous-titres ou positions concordent mais ces numéros ne sont pas réaffirmés.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les URL datées L’Internaute peuvent rediriger vers un slug de jour de semaine ; contenu et navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-18",
+        "channels": [
+          "RTL9"
+        ],
+        "flow": "RTL9",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:45:04.000Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 24 départs RTL9 sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rtl-9/dimanche-18-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rtl9-dimanche-18-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 24,
+          "source_rows_reviewed": 24,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 24 départs du jour civil concordent en heure, titre et sous-titre au niveau requis pour la recherche d’omissions.",
+          "Les nuits et reports civils adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Les numéros SxxExx, notamment pour Pep’s et Amour, gloire et beauté, ne sont pas affichés par le second guide ; les sous-titres ou positions concordent mais ces numéros ne sont pas réaffirmés.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les URL datées L’Internaute peuvent rediriger vers un slug de jour de semaine ; contenu et navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-19",
+        "channels": [
+          "RTL9"
+        ],
+        "flow": "RTL9",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:45:04.000Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 39 départs RTL9 sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rtl-9/lundi-19-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rtl9-lundi-19-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 39,
+          "source_rows_reviewed": 39,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 39 départs du jour civil concordent en heure, titre et sous-titre au niveau requis pour la recherche d’omissions.",
+          "Les nuits et reports civils adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Les numéros SxxExx, notamment pour Pep’s et Amour, gloire et beauté, ne sont pas affichés par le second guide ; les sous-titres ou positions concordent mais ces numéros ne sont pas réaffirmés.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les URL datées L’Internaute peuvent rediriger vers un slug de jour de semaine ; contenu et navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-20",
+        "channels": [
+          "RTL9"
+        ],
+        "flow": "RTL9",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:45:28.776Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 39 départs RTL9 sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rtl-9/mardi-20-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rtl9-mardi-20-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 39,
+          "source_rows_reviewed": 39,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 39 départs du jour civil concordent en heure, titre et sous-titre au niveau requis pour la recherche d’omissions.",
+          "Les nuits et reports civils adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Les numéros SxxExx, notamment pour Pep’s et Amour, gloire et beauté, ne sont pas affichés par le second guide ; les sous-titres ou positions concordent mais ces numéros ne sont pas réaffirmés.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les URL datées L’Internaute peuvent rediriger vers un slug de jour de semaine ; contenu et navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-21",
+        "channels": [
+          "RTL9"
+        ],
+        "flow": "RTL9",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:45:28.776Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 40 départs RTL9 sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rtl-9/mercredi-21-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rtl9-mercredi-21-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 40,
+          "source_rows_reviewed": 40,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 40 départs du jour civil concordent en heure, titre et sous-titre au niveau requis pour la recherche d’omissions.",
+          "Les nuits et reports civils adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Les numéros SxxExx, notamment pour Pep’s et Amour, gloire et beauté, ne sont pas affichés par le second guide ; les sous-titres ou positions concordent mais ces numéros ne sont pas réaffirmés.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les URL datées L’Internaute peuvent rediriger vers un slug de jour de semaine ; contenu et navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-22",
+        "channels": [
+          "RTL9"
+        ],
+        "flow": "RTL9",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:45:09.554Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 37 départs RTL9 sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rtl-9/jeudi-22-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rtl9-jeudi-22-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 37,
+          "source_rows_reviewed": 37,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 37 départs du jour civil concordent en heure, titre et sous-titre au niveau requis pour la recherche d’omissions.",
+          "Les nuits et reports civils adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Les numéros SxxExx, notamment pour Pep’s et Amour, gloire et beauté, ne sont pas affichés par le second guide ; les sous-titres ou positions concordent mais ces numéros ne sont pas réaffirmés.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les URL datées L’Internaute peuvent rediriger vers un slug de jour de semaine ; contenu et navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-23",
+        "channels": [
+          "RTL9"
+        ],
+        "flow": "RTL9",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:45:09.554Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 37 départs RTL9 sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/rtl-9/vendredi-23-octobre-2026/",
+          "https://www.linternaute.com/television/programme-rtl9-vendredi-23-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 37,
+          "source_rows_reviewed": 37,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 37 départs du jour civil concordent en heure, titre et sous-titre au niveau requis pour la recherche d’omissions.",
+          "Les nuits et reports civils adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Les numéros SxxExx, notamment pour Pep’s et Amour, gloire et beauté, ne sont pas affichés par le second guide ; les sous-titres ou positions concordent mais ces numéros ne sont pas réaffirmés.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les URL datées L’Internaute peuvent rediriger vers un slug de jour de semaine ; contenu et navigation lus correspondent à la date ciblée."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
       }
     ],
     "independent_crosscheck_complete": false,
