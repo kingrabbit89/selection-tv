@@ -379,9 +379,9 @@
     {
       "prompt_revision": "production-weekly-continuity-2026-10-10",
       "started_at": "2026-10-15T06:02:43Z",
-      "ended_at": null,
-      "duration_basis": "Passage en cours ; heures observées en UTC.",
-      "run_state": "running",
+      "ended_at": "2026-10-15T06:53:02.538Z",
+      "duration_basis": "Heures UTC réellement observées par le contrôleur, de 2026-10-15T06:02:43Z à 2026-10-15T06:53:02.538Z.",
+      "run_state": "stopped",
       "completed_batches": [
         "Checkpoint initial S43 et contrats courants sauvegardés.",
         "Collecte officielle ARTE/France 2/3/4/5 importée : 1 130 lignes d’inventaire, sept dates et nuits présentes sur ce périmètre partiel.",
@@ -406,7 +406,7 @@
       "draft_cards_added": 0,
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
-      "stop_reason": null,
+      "stop_reason": "budget_reserve_reached — 3 019,538 secondes écoulées : passage placé dans la réserve finale de sauvegarde et de libération du bail.",
       "next_useful_batch": "Compléter TV5MONDE, Canal+ Box Office et Canal+ Grand Écran le 20 octobre, puis poursuivre les quatre chaînes sur les trois dates restantes.",
       "continuation_decisions": [
         {
@@ -812,22 +812,92 @@
             "ready_handoff": null
           },
           "evaluated_by": "scripts/editorial-continuation.mjs"
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T06:52:41.706Z",
+          "elapsed_seconds": 2998.706,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "16ffea99f4f4a3b39584651f0d6e5a0cac9ed386",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T07:46:45.000Z",
+          "next_actions": [
+            "Compléter TV5MONDE, Canal+ Box Office et Canal+ Grand Écran le 20 octobre, puis poursuivre les quatre chaînes sur les trois dates restantes.",
+            "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
+            "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
+            "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte.",
+            "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés."
+          ],
+          "remaining_count": 12,
+          "next_actions_total": 16,
+          "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 16,
+          "waiting_actions": [],
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-15T06:02:43Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T07:46:45.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "evaluated_by": "scripts/editorial-continuation.mjs"
+        },
+        {
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-15T06:53:02.538Z",
+          "elapsed_seconds": 3019.538,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "16ffea99f4f4a3b39584651f0d6e5a0cac9ed386",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T07:46:45.000Z",
+          "next_actions": [
+            "Compléter TV5MONDE, Canal+ Box Office et Canal+ Grand Écran le 20 octobre, puis poursuivre les quatre chaînes sur les trois dates restantes.",
+            "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
+            "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
+            "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte.",
+            "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés."
+          ],
+          "remaining_count": 12,
+          "next_actions_total": 16,
+          "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 16,
+          "waiting_actions": [],
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-15T06:02:43Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T07:46:45.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "evaluated_by": "scripts/editorial-continuation.mjs"
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T06:50:34.321Z",
-        "elapsed_seconds": 2871.321,
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-15T06:53:02.538Z",
+        "elapsed_seconds": 3019.538,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "b574c85b0d53272fcb64550bfd8e70cb631277b1",
+        "source_sha": "16ffea99f4f4a3b39584651f0d6e5a0cac9ed386",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T07:46:45.000Z",
         "next_actions": [
-          "Poursuivre les mêmes chaînes cinéphiles sur les quatre autres dates et les autres chaînes obligatoires de la semaine.",
+          "Compléter TV5MONDE, Canal+ Box Office et Canal+ Grand Écran le 20 octobre, puis poursuivre les quatre chaînes sur les trois dates restantes.",
           "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
           "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
           "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte.",
@@ -929,9 +999,15 @@
           "started_at": "2026-10-15T06:50:36Z",
           "ended_at": "2026-10-15T06:51:00Z",
           "note": "Lecture de la grille Web datée TCM Cinéma du mardi et transcription des lignes civiles."
+        },
+        {
+          "kind": "save",
+          "started_at": "2026-10-15T06:53:02.538Z",
+          "ended_at": "2026-10-15T06:53:02.538Z",
+          "note": "Début du bilan terminal ; durée ultérieure non attribuée avant la sauvegarde distante."
         }
       ]
     }
   ],
-  "updated_at": "2026-10-15T06:51:00Z"
+  "updated_at": "2026-10-15T06:53:02.538Z"
 }
