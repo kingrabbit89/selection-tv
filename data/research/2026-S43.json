@@ -83,7 +83,8 @@
     "2026-10-15T10:47:13.428Z — première réserve dominicale matérialisée : La vie de château, après recoupement concordant du créneau, revue d’identité, réception, visuel et fraîcheur ; divergences de durée conservées sans inférence technique.",
     "2026-10-15T11:12:00Z — trois choix développés du lundi matérialisés : Cadavres exquis, Peau d’âne et Bird, après revue des diffusions, identités, réception, visuels et fraîcheur ; divergences d’année et de durée conservées sans inférence de master.",
     "2026-10-15T11:21:20.843Z — première réserve du lundi matérialisée : Midsommar, après concordance des quatre faits de grille et revue d’identité, réception, visuel et fraîcheur ; divergences de durée conservées sans inférence de copie.",
-    "2026-10-15T11:33:40.000Z — trois choix développés du mardi matérialisés : Left-Handed Girl, Partir un jour et Que Dios nos perdone ; horaires recoupés, homonyme court désambiguïsé, réception et fraîcheur revues, divergences de durée et fréquence des rediffusions Action conservées."
+    "2026-10-15T11:33:40.000Z — trois choix développés du mardi matérialisés : Left-Handed Girl, Partir un jour et Que Dios nos perdone ; horaires recoupés, homonyme court désambiguïsé, réception et fraîcheur revues, divergences de durée et fréquence des rediffusions Action conservées.",
+    "2026-10-15T11:43:10.000Z — premier choix développé du mercredi matérialisé : A Ghost Story ; Father Mother Sister Brother et Hamnet ont été examinés puis exclus de S43 pour exposition publique récente."
   ],
   "blockers": [],
   "research_attempts": [
@@ -2517,6 +2518,35 @@
       "applies_to": "choix draft Que Dios nos perdone — mardi 2026-10-20, rang 3",
       "evidence_note": "Diffusion et identité recoupées ; critique positive et contrepoint négatif conservés ; fréquence des rediffusions Action explicitée.",
       "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "work_id": "a-ghost-story-2017",
+      "fields": [
+        "identity",
+        "duration_limit",
+        "ratings",
+        "broadcast",
+        "criticism",
+        "image",
+        "freshness",
+        "synopsis",
+        "editorial_justification",
+        "draft_card"
+      ],
+      "urls": [
+        "https://tv-programme.com/tcm-cinema/mercredi-21-octobre-2026/",
+        "https://www.mon-programme-tv.be/television/1250997961/a-ghost-story.html",
+        "https://www.programmetvcesoir.net/chaine/tcm-cinema/2026-10-21",
+        "https://a24films.com/films/a-ghost-story",
+        "https://www.imdb.com/title/tt6265828/ratings/",
+        "https://www.senscritique.com/film/a_ghost_story/23854223",
+        "https://www.rogerebert.com/reviews/a-ghost-story-2017"
+      ],
+      "checked_at": "2026-10-15T11:40:34Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "applies_to": "choix draft A Ghost Story — mercredi 2026-10-21, rang 1",
+      "evidence_note": "Trois guides concordent sur les quatre faits ; identité, réception, affiche et fraîcheur publique relues ; durée cinéma 92 min et créneau 95 min séparés.",
+      "status": "verified_for_draft_card_ci_pending"
     }
   ],
   "source_issues": [
@@ -3098,6 +3128,64 @@
         "alternatives": [
           "sl-mardi-left-handed-girl",
           "sl-mardi-partir-un-jour"
+        ]
+      },
+      {
+        "id": "sl-mercredi-a-ghost-story",
+        "title": "A Ghost Story",
+        "work_id": "a-ghost-story-2017",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "RogerEbert.com lit le film comme une histoire d’amour et de solitude devenue méditation de science-fiction sur les boucles du temps et la finitude.",
+            "source_url": "https://www.rogerebert.com/reviews/a-ghost-story-2017"
+          }
+        ],
+        "decision_note": "Carte draft matérialisée au rang 1 après concordance de trois guides à 19:15 ; durée cinéma A24 de 92 min distinguée du créneau TCM de 95 min, sans inférence de master.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-mercredi-father-mother-sister-brother",
+        "title": "Father Mother Sister Brother",
+        "work_id": "father-mother-sister-brother-2025",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "rejected",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Sight and Sound souligne la vulnérabilité qui affleure sous l’humour sec et la gêne domestique des trois récits familiaux.",
+            "source_url": "https://www.bfi.org.uk/sight-and-sound/reviews/father-mother-sister-brother-jim-jarmuschs-low-key-family-anthology-speaks-from-heart"
+          }
+        ],
+        "decision_note": "Diffusion et dossier vérifiés, mais œuvre rejetée pour S43 : carte déjà visible en S42 et exposition plateforme en S40.",
+        "alternatives": [
+          "sl-mercredi-a-ghost-story"
+        ]
+      },
+      {
+        "id": "sl-mercredi-hamnet",
+        "title": "Hamnet",
+        "work_id": "hamnet-2025",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "rejected",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Le Monde salue le décentrement vers Agnes, la poésie brute du deuil et le théâtre comme lieu collectif de consolation.",
+            "source_url": "https://www.lemonde.fr/en/culture/article/2026/01/20/in-hamnet-their-love-is-haunted-by-the-specter-of-death_6749599_30.html"
+          }
+        ],
+        "decision_note": "Diffusion et dossier vérifiés, mais œuvre rejetée pour S43 : choix développé public en S41 et nouvelle rediffusion avant le créneau cible.",
+        "alternatives": [
+          "sl-mercredi-a-ghost-story"
         ]
       }
     ]
@@ -6644,7 +6732,8 @@
       "completed_batches": [
         "2026-10-15T11:12:00Z — trois choix développés du lundi matérialisés : Cadavres exquis, Peau d’âne et Bird, après revue des diffusions, identités, réception, visuels et fraîcheur ; divergences d’année et de durée conservées sans inférence de master.",
         "2026-10-15T11:21:20.843Z — première réserve du lundi matérialisée : Midsommar, après concordance des quatre faits de grille et revue d’identité, réception, visuel et fraîcheur ; divergences de durée conservées sans inférence de copie.",
-        "2026-10-15T11:33:40.000Z — trois choix développés du mardi matérialisés : Left-Handed Girl, Partir un jour et Que Dios nos perdone ; deux pistes fraîches différées sur conflits d’horaire exacts."
+        "2026-10-15T11:33:40.000Z — trois choix développés du mardi matérialisés : Left-Handed Girl, Partir un jour et Que Dios nos perdone ; deux pistes fraîches différées sur conflits d’horaire exacts.",
+        "2026-10-15T11:43:10.000Z — premier choix développé du mercredi matérialisé : A Ghost Story ; deux autres dossiers exclus pour fraîcheur récente."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -6654,12 +6743,12 @@
         "data/weeks/2026-S43.json"
       ],
       "complete_cards_added": 0,
-      "draft_cards_added": 6,
+      "draft_cards_added": 7,
       "draft_reserves_added": 1,
       "partial_dossiers_added": 2,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Ajouter des réserves fraîches au mardi et aux jours déjà composés, ou commencer les trois choix développés du mercredi depuis des dossiers entièrement vérifiables.",
+      "next_useful_batch": "Compléter le trio développé du mercredi avec deux œuvres fraîches entièrement vérifiées, puis ajouter des réserves distinctes aux pools déficitaires.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -6705,21 +6794,62 @@
           "lease_until": "2026-10-15T12:19:15.366Z",
           "remaining_count": 12,
           "evaluated_by": "scripts/editorial-continuation.mjs"
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T11:37:50.562Z",
+          "elapsed_seconds": 2364.771,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "3d62eb859e3e7e94f925da409d65f246baf23723",
+          "next_actions": [
+            "Ajouter des réserves fraîches au mardi et aux jours déjà composés, ou commencer les trois choix développés du mercredi depuis des dossiers entièrement vérifiables.",
+            "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche et du lundi pour progresser vers le minimum de dix candidats complets par jour, sans modifier les choix développés.",
+            "Commencer les trois choix développés du mardi depuis des dossiers entièrement vérifiables et sans contradiction factuelle."
+          ],
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T12:19:15.366Z",
+          "remaining_count": 12,
+          "observations": {
+            "started_at": "2026-10-15T10:58:25.791Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T12:19:15.366Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "evaluated_by": "scripts/editorial-continuation.mjs"
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T11:24:10.532Z",
-        "elapsed_seconds": 1544.741,
+        "observed_at": "2026-10-15T11:37:50.562Z",
+        "elapsed_seconds": 2364.771,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "9c5b1ce4df735f8c291b1f9b6562532826373bf5",
+        "source_sha": "3d62eb859e3e7e94f925da409d65f246baf23723",
+        "next_actions": [
+          "Ajouter des réserves fraîches au mardi et aux jours déjà composés, ou commencer les trois choix développés du mercredi depuis des dossiers entièrement vérifiables.",
+          "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche et du lundi pour progresser vers le minimum de dix candidats complets par jour, sans modifier les choix développés.",
+          "Commencer les trois choix développés du mardi depuis des dossiers entièrement vérifiables et sans contradiction factuelle."
+        ],
         "lease_owned": "yes",
         "lease_until": "2026-10-15T12:19:15.366Z",
         "remaining_count": 12,
+        "observations": {
+          "started_at": "2026-10-15T10:58:25.791Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T12:19:15.366Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
+        },
         "evaluated_by": "scripts/editorial-continuation.mjs"
       },
       "measured_intervals": [
@@ -6746,11 +6876,17 @@
           "started_at": "2026-10-15T11:24:11Z",
           "ended_at": "2026-10-15T11:33:40.000Z",
           "note": "Six dossiers mardi recherchés en parallèle puis revus centralement ; trois cartes intégrées, deux pistes différées sur conflits factuels et une piste non retenue pour fraîcheur. Les travaux parallèles ne sont pas additionnés séquentiellement."
+        },
+        {
+          "kind": "research_drafting_and_review",
+          "started_at": "2026-10-15T11:37:51Z",
+          "ended_at": "2026-10-15T11:43:10.000Z",
+          "note": "Flow recalculé sur la tête exacte ; trois dossiers mercredi examinés en parallèle, A Ghost Story intégré et deux pistes rejetées pour fraîcheur publique récente."
         }
       ],
       "pass_additions": {
         "scope": "Comparaison de la tête de départ 468acf595180f5557ee345a245746609f972de2d avec ce checkpoint intermédiaire.",
-        "new_works": 7,
+        "new_works": 8,
         "new_work_ids": [
           "cadavres-exquis-1976",
           "peau-d-ane-1970",
@@ -6758,16 +6894,17 @@
           "midsommar-2019",
           "left-handed-girl-2025",
           "partir-un-jour-2025",
-          "que-dios-nos-perdone-2016"
+          "que-dios-nos-perdone-2016",
+          "a-ghost-story-2017"
         ],
-        "visible_primary_cards": 6,
+        "visible_primary_cards": 7,
         "distinct_draft_reserves_added": 1,
         "reused_existing_works": 0,
-        "note": "Six choix développés et une réserve distincte des lundi et mardi ont été ajoutés ; aucun stock hérité n’est compté comme création de ce passage."
+        "note": "Sept choix développés et une réserve distincte des lundi, mardi et mercredi ont été ajoutés ; aucun stock hérité n’est compté comme création de ce passage."
       }
     }
   ],
-  "updated_at": "2026-10-15T11:33:40.000Z",
+  "updated_at": "2026-10-15T11:43:10.000Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -8201,6 +8338,77 @@
       ],
       "decision": "différé — carte non matérialisée",
       "reason": "Deux guides donnent 17:01 mais un guide courant donne 16:59 ; pas d’arbitrage par majorité."
+    },
+    {
+      "title": "A Ghost Story",
+      "work_id": "a-ghost-story-2017",
+      "catalogue_match": "a-ghost-story-2017",
+      "identity_research": {
+        "director": "David Lowery",
+        "year": 2017,
+        "country": "États-Unis",
+        "source_urls": [
+          "https://a24films.com/films/a-ghost-story",
+          "https://www.imdb.com/title/tt6265828/"
+        ],
+        "checked_at": "2026-10-15T11:40:34Z",
+        "note": "Identité certaine ; durée cinéma 92 min, créneau TCM 95 min, master de diffusion inconnu."
+      },
+      "critical_evidence": [
+        {
+          "source": "RogerEbert.com",
+          "author": "Matt Zoller Seitz",
+          "source_url": "https://www.rogerebert.com/reviews/a-ghost-story-2017",
+          "assessment": "Critique positive et argumentée sur l’amour, la solitude, le déni, les boucles du temps et la finitude.",
+          "kind": "professional_criticism",
+          "checked_at": "2026-10-15T11:40:34Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_two_sources",
+        "checked_at": "2026-10-15T11:40:34Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt6265828/ratings/",
+          "https://www.senscritique.com/film/a_ghost_story/23854223"
+        ],
+        "note": "IMDb 6,8/10 (88 k) ; SensCritique 6,9/10."
+      },
+      "broadcast_research": {
+        "date": "2026-10-21",
+        "start": "19:15",
+        "channel": "TCM Cinéma",
+        "source_urls": [
+          "https://tv-programme.com/tcm-cinema/mercredi-21-octobre-2026/",
+          "https://www.mon-programme-tv.be/television/1250997961/a-ghost-story.html",
+          "https://www.programmetvcesoir.net/chaine/tcm-cinema/2026-10-21"
+        ],
+        "checked_at": "2026-10-15T11:40:34Z",
+        "status": "verified_by_three_current_guides_independence_unknown"
+      },
+      "image_research": {
+        "source_page": "https://a24films.com/films/a-ghost-story",
+        "checked_at": "2026-10-15T11:40:34Z",
+        "status": "exact_official_poster_visually_verified_ci_pending",
+        "visually_checked": true
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T11:40:34Z",
+        "status": "fresh_within_public_history",
+        "issues_checked": [
+          "2026-S37",
+          "2026-S38",
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ],
+        "note": "Piste S42 seulement en recherche, jamais matérialisée publiquement."
+      },
+      "missing_fields": [
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
+      ],
+      "decision": "carte draft matérialisée — CI final requis",
+      "reason": "Diffusion, identité, réception, notes, affiche officielle, fraîcheur publique et textes revus."
     }
   ]
 }

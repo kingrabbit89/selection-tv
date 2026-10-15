@@ -53,9 +53,19 @@
       "id": "mardi-grille",
       "className": "page",
       "html": "<div class=\"topbar\">Grille filtrée<span class=\"issue\">S43</span></div><div class=\"grid-title\">MARDI 20 OCTOBRE — la grille commentée</div><table class=\"schedule\"><thead><tr><th>Heure</th><th>Chaîne</th><th>Programme</th><th>Pourquoi le retenir</th><th>Repère</th></tr></thead><tbody><tr><td class=\"time\">19:04</td><td class=\"chan\">Ciné+ Festival</td><td class=\"prog\">Left-Handed Girl</td><td class=\"reason\">Tsou filme Taipei à hauteur d’enfant et transforme la superstition de la main gauche en chronique familiale vive et sensorielle.</td><td class=\"rep\"><span class=\"badge TRÈS_FORT\">TRÈS FORT</span></td></tr><tr><td class=\"time\">20:50</td><td class=\"chan\">Ciné+ Emotion</td><td class=\"prog\">Partir un jour</td><td class=\"reason\">Bonnin transforme le retour au pays en romance musicale douce-amère, portée par Juliette Armanet et Bastien Bouillon.</td><td class=\"rep\"><span class=\"badge À_VOIR\">À VOIR</span></td></tr><tr><td class=\"time\">07:29</td><td class=\"chan\">Action</td><td class=\"prog\">Que Dios nos perdone</td><td class=\"reason\">Sorogoyen ancre la traque dans un Madrid suffocant et fait du duo de policiers le cœur inquiet du polar.</td><td class=\"rep\"><span class=\"badge À_VOIR\">À VOIR</span></td></tr></tbody></table><div class=\"footer\"><span>Sélection TV · S43</span><span>8</span></div>"
+    },
+    {
+      "id": "mercredi-selection",
+      "className": "page",
+      "html": "<div class=\"topbar\">Sélection du jour<span class=\"issue\">S43 · 17–23 octobre 2026</span></div><div class=\"day-head\"><div><div class=\"kicker\">Les choix développés</div><div class=\"h1\">MERCREDI 21 OCTOBRE</div></div></div><div class=\"rule\"></div><div class=\"feature-columns\"><article class=\"feature\" data-title=\"A Ghost Story\" data-work-id=\"a-ghost-story-2017\"><div class=\"visual\"><img class=\"poster\" src=\"https://a24films.com/_next/image?q=75&amp;url=https%3A%2F%2Fapi-asset-production.s3.amazonaws.com%2Fmedia%2Fimages%2Fletterboxd_-_Artboard_842x-100.jpg&amp;w=3840\" alt=\"A Ghost Story\"><div class=\"fallback\">A Ghost Story</div></div><div style=\"margin-top:2mm\"><span class=\"badge TRÈS_FORT\">TRÈS FORT</span></div><h3>A Ghost Story</h3><div class=\"slot\">19:15 · TCM Cinéma</div><div class=\"meta\">2017 · David Lowery · États-Unis · 92 min (durée officielle A24 ; créneau TCM 95 min, master non documenté) · Drame / fantastique</div><h4>Ce que ça raconte</h4><p>Tué dans un accident, C revient dans la maison qu’il partageait avec M sous l’apparence dérisoire d’un fantôme drapé de blanc. Invisible à sa compagne, qui traverse le deuil puis quitte les lieux, il reste attaché au foyer tandis que les habitants se succèdent et que le temps se replie autour de lui, dans l’attente du message secret qu’elle a laissé.</p><div class=\"interest\"><h4>Pourquoi c’est intéressant</h4><p>David Lowery détourne l’image enfantine du drap à deux trous pour en faire une présence bouleversante, prisonnière d’un cadre presque carré et d’un temps qui se dilate puis se fracture. Le montage, le silence et la musique de Daniel Hart transforment une histoire de deuil en méditation sur ce que les lieux retiennent de nous ; radical et très lent, le film assume une exigence qui peut aussi tenir certains spectateurs à distance.</p></div></article></div><div class=\"footer\"><span>Sélection TV · S43</span><span>9</span></div>"
+    },
+    {
+      "id": "mercredi-grille",
+      "className": "page",
+      "html": "<div class=\"topbar\">Grille filtrée<span class=\"issue\">S43</span></div><div class=\"grid-title\">MERCREDI 21 OCTOBRE — la grille commentée</div><table class=\"schedule\"><thead><tr><th>Heure</th><th>Chaîne</th><th>Programme</th><th>Pourquoi le retenir</th><th>Repère</th></tr></thead><tbody><tr><td class=\"time\">19:15</td><td class=\"chan\">TCM Cinéma</td><td class=\"prog\">A Ghost Story</td><td class=\"reason\">Lowery détourne le fantôme sous un drap en méditation radicale sur le deuil, les lieux et le temps.</td><td class=\"rep\"><span class=\"badge TRÈS_FORT\">TRÈS FORT</span></td></tr></tbody></table><div class=\"footer\"><span>Sélection TV · S43</span><span>10</span></div>"
     }
   ],
-  "page_count": 8,
+  "page_count": 10,
   "section_shortages": {},
   "personalization": {
     "schema_version": 1,
@@ -408,6 +418,40 @@
             "ratings": {
               "imdb": "7,1/10 (14 k)",
               "senscritique": "7,1/10"
+            }
+          }
+        ]
+      },
+      "mercredi-selection": {
+        "page_id": "mercredi-selection",
+        "container_selector": ".feature-columns",
+        "primary_selector": "article.feature:not(.replacement-generated)",
+        "card_type": "feature",
+        "target": 3,
+        "desired_reserve": 7,
+        "candidates": [
+          {
+            "title": "A Ghost Story",
+            "work_id": "a-ghost-story-2017",
+            "rank": 1,
+            "quality": "TRÈS FORT",
+            "time": "19:15",
+            "channel": "TCM Cinéma",
+            "meta": "2017 · David Lowery · États-Unis · 92 min (durée officielle A24 ; créneau TCM 95 min, master non documenté) · Drame / fantastique",
+            "summary": "Tué dans un accident, C revient dans la maison qu’il partageait avec M sous l’apparence dérisoire d’un fantôme drapé de blanc. Invisible à sa compagne, qui traverse le deuil puis quitte les lieux, il reste attaché au foyer tandis que les habitants se succèdent et que le temps se replie autour de lui, dans l’attente du message secret qu’elle a laissé.",
+            "why": "David Lowery détourne l’image enfantine du drap à deux trous pour en faire une présence bouleversante, prisonnière d’un cadre presque carré et d’un temps qui se dilate puis se fracture. Le montage, le silence et la musique de Daniel Hart transforment une histoire de deuil en méditation sur ce que les lieux retiennent de nous ; radical et très lent, le film assume une exigence qui peut aussi tenir certains spectateurs à distance.",
+            "image": "https://a24films.com/_next/image?q=75&url=https%3A%2F%2Fapi-asset-production.s3.amazonaws.com%2Fmedia%2Fimages%2Fletterboxd_-_Artboard_842x-100.jpg&w=3840",
+            "links": {
+              "official": "https://a24films.com/films/a-ghost-story",
+              "imdb": "https://www.imdb.com/title/tt6265828/",
+              "sc": "https://www.senscritique.com/film/a_ghost_story/23854223",
+              "allocine": "https://www.allocine.fr/film/fichefilm_gen_cfilm=252406.html",
+              "tmdb": "https://www.themoviedb.org/movie/428449-a-ghost-story",
+              "critique": "https://www.rogerebert.com/reviews/a-ghost-story-2017"
+            },
+            "ratings": {
+              "imdb": "6,8/10 (88 k)",
+              "senscritique": "6,9/10"
             }
           }
         ]
