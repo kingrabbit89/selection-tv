@@ -117,7 +117,10 @@
     "2026-10-15T16:14:24.321Z — The Big Short : Le Casse du siècle matérialisé mécaniquement comme réserve draft rang 7 du mercredi à 08:31 sur Ciné+ Frisson ; les six cartes et pages existantes sont conservées exactement, le catalogue et les liens directs sont ajoutés, la CI distante reste à observer.",
     "2026-10-15T16:21:23.328Z — seconde lecture Canal+ Box Office sur les sept dates : 107/107 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; sept reports de veille distingués, limite mono-éditeur maintenue.",
     "2026-10-15T16:24:52.033Z — revues ciblées Bird et La Nuit du chasseur : Bird différé sur 06:30/06:34, ancienne valeur 06:33 déclarée hors portée datée ; La Nuit du chasseur devenue conflictuelle à 17:51/17:54, réserve rang 4 à remplacer ou retirer. Les faits stables sont conservés sans réouvrir durée/master.",
-    "2026-10-15T16:39:00.000Z — réserve vendredi réconciliée : La Nuit du chasseur retirée du pool en raison du conflit 17:51/17:54 et remplacée par Last Stop : Yuma County à 19:27, après deux guides d’éditeurs distincts concordants, revue d’identité, notes, visuel, critique contradictoire et fraîcheur."
+    "2026-10-15T16:39:00.000Z — réserve vendredi réconciliée : La Nuit du chasseur retirée du pool en raison du conflit 17:51/17:54 et remplacée par Last Stop : Yuma County à 19:27, après deux guides d’éditeurs distincts concordants, revue d’identité, notes, visuel, critique contradictoire et fraîcheur.",
+    "2026-10-15T16:44:13.961Z — seconde lecture M6 sur les sept dates : 159/159 départs présents, nuits et reports inclus ; titre du 17 à 10:10 corrigé en « Le mag du samedi Jura », indépendance amont inconnue.",
+    "2026-10-15T16:45:02.184Z — seconde lecture TF1 sur les sept dates : 178/178 départs présents, nuits et reports inclus, aucune omission ni contradiction ; indépendance amont inconnue.",
+    "2026-10-15T16:45:08.774Z — seconde lecture France 5 sur les sept dates : 37 omissions et plusieurs décalages conservés, dont En tension le 18 et trois identités Serengeti le 21 ; couverture non close."
   ],
   "blockers": [],
   "research_attempts": [
@@ -4448,6 +4451,48 @@
       "applies_to": "Last Stop : Yuma County — réserve vendredi 23 octobre 2026 rang 5",
       "evidence_note": "Deux guides d’éditeurs distincts concordent sur les quatre faits à 19:27 ; identité, notes, visuel et réception contradictoire relus ; répétition S41 conservée sans franchir le seuil de fraîcheur.",
       "status": "verified_draft_card_ci_pending"
+    },
+    {
+      "fields": [
+        "level2_schedule_coverage"
+      ],
+      "urls": [
+        "https://tv-programme.com/m6/samedi-17-octobre-2026/",
+        "https://www.linternaute.com/television/programme-m6-samedi-17-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T16:44:13.961Z",
+      "stability": "cycle_specific",
+      "applies_to": "M6 — sept jours et nuits 2026-S43",
+      "evidence_note": "159 départs relus, aucune omission ni contradiction horaire ; titre 10:10 corrigé en « Le mag du samedi Jura » ; indépendance amont inconnue.",
+      "status": "level2_complete"
+    },
+    {
+      "fields": [
+        "level2_schedule_coverage"
+      ],
+      "urls": [
+        "https://tf1pro.com/grilles-tv/TF1/2026-10-17",
+        "https://tv-programme.com/tf1/samedi-17-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T16:45:02.184Z",
+      "stability": "cycle_specific",
+      "applies_to": "TF1 — sept jours et nuits 2026-S43",
+      "evidence_note": "178 départs relus, aucune omission ni contradiction de grille ; reports de veille et variantes de libellé revus ; indépendance amont inconnue.",
+      "status": "level2_complete"
+    },
+    {
+      "fields": [
+        "level2_schedule_coverage"
+      ],
+      "urls": [
+        "https://www.francetvpro.fr/grille-xml/france-5/17-10-2026",
+        "https://tv-programme.com/france-5/samedi-17-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T16:45:08.774Z",
+      "stability": "cycle_specific",
+      "applies_to": "France 5 — sept jours et nuits 2026-S43",
+      "evidence_note": "Seconde lecture complète, 37 omissions et plusieurs contradictions conservées ; couverture non close avant import/réconciliation.",
+      "status": "level2_complete_with_blocking_gaps"
     }
   ],
   "source_issues": [
@@ -12780,7 +12825,7 @@
       "prompt_revision": "production-weekly-continuity-2026-10-10",
       "started_at": "2026-10-15T16:02:41.000Z",
       "ended_at": null,
-      "duration_basis": "Temps UTC observé depuis 2026-10-15T16:02:41.000Z ; checkpoint préparé à 2026-10-15T16:24:52.033Z.",
+      "duration_basis": "Temps UTC observé depuis 2026-10-15T16:02:41.000Z ; checkpoint préparé après les revues M6, TF1 et France 5 terminées à 2026-10-15T16:45:08.774Z.",
       "run_state": "running",
       "completed_batches": [
         "2026-10-15T16:07:08.666Z — secondes lectures Canal+ Grand Écran des 21 au 23 octobre : 13/13, 14/14 et 13/13 départs concordants, nuits incluses, aucune omission ; les sept dates de la chaîne sont désormais relues, limite mono-éditeur conservée.",
@@ -12788,13 +12833,17 @@
         "2026-10-15T16:14:24.321Z — The Big Short : Le Casse du siècle matérialisé mécaniquement comme réserve draft rang 7 du mercredi à 08:31 sur Ciné+ Frisson ; les six cartes et pages existantes sont conservées exactement, le catalogue et les liens directs sont ajoutés, la CI distante reste à observer.",
         "2026-10-15T16:21:23.328Z — seconde lecture Canal+ Box Office sur les sept dates : 107/107 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; sept reports de veille distingués, limite mono-éditeur maintenue.",
         "2026-10-15T16:24:52.033Z — revues ciblées Bird et La Nuit du chasseur : Bird différé sur 06:30/06:34, ancienne valeur 06:33 déclarée hors portée datée ; La Nuit du chasseur devenue conflictuelle à 17:51/17:54, réserve rang 4 à remplacer ou retirer. Les faits stables sont conservés sans réouvrir durée/master.",
-        "2026-10-15T16:39:00.000Z — La Nuit du chasseur remplacée dans le pool vendredi par Last Stop : Yuma County, réserve complète à 19:27 ; cinq cartes vendredi conservées, conflit historique et pénalité S41 documentés."
+        "2026-10-15T16:39:00.000Z — La Nuit du chasseur remplacée dans le pool vendredi par Last Stop : Yuma County, réserve complète à 19:27 ; cinq cartes vendredi conservées, conflit historique et pénalité S41 documentés.",
+        "2026-10-15T16:44:13.961Z — seconde lecture M6 sur les sept dates : 159/159 départs présents, nuits et reports inclus ; titre du 17 à 10:10 corrigé en « Le mag du samedi Jura », indépendance amont inconnue.",
+        "2026-10-15T16:45:02.184Z — seconde lecture TF1 sur les sept dates : 178/178 départs présents, nuits et reports inclus, aucune omission ni contradiction ; indépendance amont inconnue.",
+        "2026-10-15T16:45:08.774Z — seconde lecture France 5 sur les sept dates : 37 omissions et plusieurs décalages conservés, dont En tension le 18 et trois identités Serengeti le 21 ; couverture non close."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
         "data/works.json",
         "data/links.json",
-        "data/weeks/2026-S43.json"
+        "data/weeks/2026-S43.json",
+        "data/inventory/2026-S43.json"
       ],
       "complete_cards_added": 2,
       "draft_cards_added": 2,
@@ -12803,7 +12852,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre les secondes lectures niveau 2 sur les vingt chaînes encore ouvertes et observer la CI exacte ; la panne de test-editorial-task-board sur fixture doit être corrigée sur main, hors lot éditorial.",
+      "next_useful_batch": "Importer et réconcilier les 37 omissions France 5 et les conflits En tension/Serengeti, puis poursuivre les secondes lectures sur les dix-huit chaînes encore ouvertes ; traiter la panne CI de fixture sur main, hors lot éditorial.",
       "additions": {
         "new_works": 1,
         "visible_draft_cards": 0,
@@ -12871,6 +12920,27 @@
           "ended_at": "2026-10-15T16:39:00.000Z",
           "overlap": false,
           "note": "Recomposition mécanique du pool complet vendredi avec replace_days."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": null,
+          "ended_at": "2026-10-15T16:44:13.961Z",
+          "overlap": true,
+          "note": "Début exact non mesuré ; seconde lecture M6 en lecture seule et parallèle."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": null,
+          "ended_at": "2026-10-15T16:45:02.184Z",
+          "overlap": true,
+          "note": "Début exact non mesuré ; seconde lecture TF1 en lecture seule et parallèle."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": null,
+          "ended_at": "2026-10-15T16:45:08.774Z",
+          "overlap": true,
+          "note": "Début exact non mesuré ; seconde lecture France 5 en lecture seule et parallèle."
         }
       ],
       "continuation_decisions": [
@@ -13116,24 +13186,103 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T16:40:53.753Z",
+          "elapsed_seconds": 2292.753,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "c8584bff209b8f9049b59f53666c0bcc8db40e6c",
+          "next_actions": [
+            "Poursuivre les secondes lectures niveau 2 sur les vingt chaînes encore ouvertes et observer la CI exacte ; la panne de test-editorial-task-board sur fixture doit être corrigée sur main, hors lot éditorial.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 20 autres chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+            "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+            "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 16,
+          "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 18,
+          "waiting_actions": [
+            {
+              "action_text": "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master.",
+              "gates": [
+                {
+                  "attempt_index": 11,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master."
+                    ],
+                    "reason": "Heure exacte non recoupée : 06:34 contre 06:30 ; aucune preuve officielle datée.",
+                    "resume_when": "Une preuve officielle datée confirme le créneau du 23 octobre, ou un second guide actuel d’un éditeur distinct concorde exactement avec 06:34.",
+                    "observed_at": "2026-10-15T16:24:23.000Z",
+                    "evidence": "TV-programme 06:34 ; SCREEN+ 06:30 ; CANAL+ sans événement daté ; ancienne lecture Télérama 06:33 hors portée du 23 octobre."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent.",
+              "gates": [
+                {
+                  "attempt_index": 16,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent."
+                    ],
+                    "reason": "Deux paires de guides actuels donnent des heures incompatibles pour le même événement.",
+                    "resume_when": "Une page officielle Ciné+ ou correction officielle datée indique l’heure, ou une modification fraîche des guides fait converger au moins deux éditeurs distincts sans paire contradictoire encore actuelle.",
+                    "observed_at": "2026-10-15T16:24:52.033Z",
+                    "evidence": "Télérama 17:54 ; Digital3D 17:54 ; TV-programme 17:51 ; Molotov 17:51 ; Orange inaccessible."
+                  }
+                }
+              ]
+            }
+          ],
+          "research_review_warnings": [
+            "research_attempts[0].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[1].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[8].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[9].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[10].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[14].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[15].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate"
+          ],
+          "observations": {
+            "started_at": "2026-10-15T16:02:41.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T17:25:58.907Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T16:29:30.453Z",
-        "elapsed_seconds": 1609.453,
+        "observed_at": "2026-10-15T16:40:53.753Z",
+        "elapsed_seconds": 2292.753,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "df805e02d17d58fd19fe14b67edbe65545cfd603",
+        "source_sha": "c8584bff209b8f9049b59f53666c0bcc8db40e6c",
         "next_actions": [
-          "Remplacer ou retirer La Nuit du chasseur du pool vendredi avec replace_days et une alternative entièrement vérifiée ; poursuivre sinon les secondes lectures niveau 2.",
+          "Poursuivre les secondes lectures niveau 2 sur les vingt chaînes encore ouvertes et observer la CI exacte ; la panne de test-editorial-task-board sur fixture doit être corrigée sur main, hors lot éditorial.",
           "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 20 autres chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+          "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
           "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
-          "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
-          "Remplacer ou retirer La Nuit du chasseur de la réserve vendredi tant que 17:51/17:54 n’est pas résolu, en conservant le pool complet avec replace_days."
+          "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau."
         ],
         "remaining_count": 11,
         "next_actions_total": 16,
@@ -19295,6 +19444,770 @@
           "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
         ],
         "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "date": "2026-10-17",
+        "channels": [
+          "M6"
+        ],
+        "flow": "M6",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T16:44:13.961Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre l’inventaire sauvegardé, reports de veille compris",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/m6/samedi-17-octobre-2026/",
+          "https://www.linternaute.com/television/programme-m6-samedi-17-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 26,
+          "source_rows_reviewed": 26,
+          "omissions": [],
+          "schedule_contradictions": [
+            {
+              "time": "10:10",
+              "field": "title",
+              "saved": "Le mag du samedi",
+              "observed": "Le mag du samedi Jura",
+              "resolution": "Titre sauvegardé corrigé : les deux guides concordent sur le sous-titre Jura."
+            }
+          ],
+          "retained_source_segments": [
+            "Arnaques ! commencé le 16 octobre à 23:05 se termine à 00:05 ; report de veille non dupliqué."
+          ]
+        },
+        "decisions": [
+          "Tous les départs du jour civil sont présents ; aucune contradiction de date, chaîne ou horaire."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue et niveau 3 non certifié."
+        ],
+        "status": "reread_complete_with_title_correction"
+      },
+      {
+        "date": "2026-10-18",
+        "channels": [
+          "M6"
+        ],
+        "flow": "M6",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T16:44:13.961Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre l’inventaire sauvegardé, reports de veille compris",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/m6/dimanche-18-octobre-2026/",
+          "https://www.linternaute.com/television/programme-m6-dimanche-18-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 23,
+          "source_rows_reviewed": 23,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "The Rookie : le flic de Los Angeles — Tir croisé commencé le 17 octobre à 23:35 se termine à 00:30 ; report de veille non dupliqué."
+          ]
+        },
+        "decisions": [
+          "Tous les départs du jour civil sont présents ; aucune contradiction de date, chaîne ou horaire."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue et niveau 3 non certifié."
+        ],
+        "status": "reread_complete_no_omissions"
+      },
+      {
+        "date": "2026-10-19",
+        "channels": [
+          "M6"
+        ],
+        "flow": "M6",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T16:44:13.961Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre l’inventaire sauvegardé, reports de veille compris",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/m6/lundi-19-octobre-2026/",
+          "https://www.linternaute.com/television/programme-m6-lundi-19-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 22,
+          "source_rows_reviewed": 22,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Enquête exclusive — Luxe et démesure : camping-cars américains commencé le 18 octobre à 23:10 se termine à 00:20 ; report de veille non dupliqué."
+          ]
+        },
+        "decisions": [
+          "Tous les départs du jour civil sont présents ; aucune contradiction de date, chaîne ou horaire."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue et niveau 3 non certifié."
+        ],
+        "status": "reread_complete_no_omissions"
+      },
+      {
+        "date": "2026-10-20",
+        "channels": [
+          "M6"
+        ],
+        "flow": "M6",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T16:44:13.961Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre l’inventaire sauvegardé, reports de veille compris",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/m6/mardi-20-octobre-2026/",
+          "https://www.linternaute.com/television/programme-m6-mardi-20-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 23,
+          "source_rows_reviewed": 23,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "L’amour vu du pré commencé le 19 octobre à 23:15 se termine exactement à 00:00 ; aucun départ du 20 octobre à ajouter."
+          ]
+        },
+        "decisions": [
+          "Tous les départs du jour civil sont présents ; aucune contradiction de date, chaîne ou horaire."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue et niveau 3 non certifié."
+        ],
+        "status": "reread_complete_no_omissions"
+      },
+      {
+        "date": "2026-10-21",
+        "channels": [
+          "M6"
+        ],
+        "flow": "M6",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T16:44:13.961Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre l’inventaire sauvegardé, reports de veille compris",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/m6/mercredi-21-octobre-2026/",
+          "https://www.linternaute.com/television/programme-m6-mercredi-21-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 23,
+          "source_rows_reviewed": 23,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "9-1-1 — Attention crash imminent ! commencé le 20 octobre à 23:35 se termine à 00:30 ; report de veille non dupliqué."
+          ]
+        },
+        "decisions": [
+          "Tous les départs du jour civil sont présents ; aucune contradiction de date, chaîne ou horaire."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue et niveau 3 non certifié."
+        ],
+        "status": "reread_complete_no_omissions"
+      },
+      {
+        "date": "2026-10-22",
+        "channels": [
+          "M6"
+        ],
+        "flow": "M6",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T16:44:13.961Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre l’inventaire sauvegardé, reports de veille compris",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/m6/jeudi-22-octobre-2026/",
+          "https://www.linternaute.com/television/programme-m6-jeudi-22-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 21,
+          "source_rows_reviewed": 21,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Les incroyables talents sont éternels commencé le 21 octobre à 23:55 se termine à 00:35 ; report de veille non dupliqué."
+          ]
+        },
+        "decisions": [
+          "Tous les départs du jour civil sont présents ; aucune contradiction de date, chaîne ou horaire."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue et niveau 3 non certifié."
+        ],
+        "status": "reread_complete_no_omissions"
+      },
+      {
+        "date": "2026-10-23",
+        "channels": [
+          "M6"
+        ],
+        "flow": "M6",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T16:44:13.961Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre l’inventaire sauvegardé, reports de veille compris",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/m6/vendredi-23-octobre-2026/",
+          "https://www.linternaute.com/television/programme-m6-vendredi-23-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 21,
+          "source_rows_reviewed": 21,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Wanted, les secrets de cette course folle commencé le 22 octobre à 23:10 se termine exactement à 00:00 ; aucun départ du 23 octobre à ajouter."
+          ]
+        },
+        "decisions": [
+          "Tous les départs du jour civil sont présents ; aucune contradiction de date, chaîne ou horaire."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue et niveau 3 non certifié."
+        ],
+        "status": "reread_complete_no_omissions"
+      },
+      {
+        "date": "2026-10-17",
+        "channels": [
+          "TF1"
+        ],
+        "flow": "TF1",
+        "publisher": "TF1 Pro + Télé 7 Jours / CMI France + TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:45:02.184Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "seconde lecture des grilles complètes contre l’extraction sauvegardée et revue des reports de veille",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tf1pro.com/grilles-tv/TF1/2026-10-17",
+          "https://tv-programme.com/tf1/17-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 24,
+          "source_rows_reviewed": 24,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Vendredi, tout est permis avec Arthur, début le 16 à 23:55, se poursuit jusqu’à 01:40 ; correctement absent des nouveaux débuts du 17."
+          ],
+          "normalizations": [
+            "Variantes de libellé seulement : chiffres, accents, suffixes JT et épisodes."
+          ]
+        },
+        "decisions": [
+          "Les 24 départs sauvegardés du jour civil sont présents ; aucune omission ni contradiction de grille."
+        ],
+        "limits": [
+          "La provenance technique des guides n’est pas établie ; indépendance inconnue. La revue ne certifie ni durée d’œuvre ni niveau 3."
+        ],
+        "status": "reread_complete_no_omissions"
+      },
+      {
+        "date": "2026-10-18",
+        "channels": [
+          "TF1"
+        ],
+        "flow": "TF1",
+        "publisher": "TF1 Pro + Télé 7 Jours / CMI France + TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:45:02.184Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "seconde lecture des grilles complètes contre l’extraction sauvegardée et revue des reports de veille",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tf1pro.com/grilles-tv/TF1/2026-10-17",
+          "https://tv-programme.com/tf1/18-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 21,
+          "source_rows_reviewed": 21,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Star Academy, retour au château, début le 17 à 23:45, se poursuit jusqu’à 00:55 ; nouveau début à 00:55 présent."
+          ],
+          "normalizations": [
+            "Variantes de libellé seulement : chiffres, accents, suffixes JT et épisodes."
+          ]
+        },
+        "decisions": [
+          "Les 21 départs sauvegardés du jour civil sont présents ; aucune omission ni contradiction de grille."
+        ],
+        "limits": [
+          "La provenance technique des guides n’est pas établie ; indépendance inconnue. La revue ne certifie ni durée d’œuvre ni niveau 3."
+        ],
+        "status": "reread_complete_no_omissions"
+      },
+      {
+        "date": "2026-10-19",
+        "channels": [
+          "TF1"
+        ],
+        "flow": "TF1",
+        "publisher": "TF1 Pro + Télé 7 Jours / CMI France + TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:45:02.184Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "seconde lecture des grilles complètes contre l’extraction sauvegardée et revue des reports de veille",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tf1pro.com/grilles-tv/TF1/2026-10-17",
+          "https://tv-programme.com/tf1/19-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 26,
+          "source_rows_reviewed": 26,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Aquaman et le Royaume perdu, début le 18 à 22:50, se poursuit jusqu’à 01:00 ; nouveau début à 01:00 présent."
+          ],
+          "normalizations": [
+            "Variantes de libellé seulement : chiffres, accents, suffixes JT et épisodes."
+          ]
+        },
+        "decisions": [
+          "Les 26 départs sauvegardés du jour civil sont présents ; aucune omission ni contradiction de grille."
+        ],
+        "limits": [
+          "La provenance technique des guides n’est pas établie ; indépendance inconnue. La revue ne certifie ni durée d’œuvre ni niveau 3."
+        ],
+        "status": "reread_complete_no_omissions"
+      },
+      {
+        "date": "2026-10-20",
+        "channels": [
+          "TF1"
+        ],
+        "flow": "TF1",
+        "publisher": "TF1 Pro + Télé 7 Jours / CMI France + TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:45:02.184Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "seconde lecture des grilles complètes contre l’extraction sauvegardée et revue des reports de veille",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tf1pro.com/grilles-tv/TF1/2026-10-17",
+          "https://tv-programme.com/tf1/20-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 28,
+          "source_rows_reviewed": 28,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "New York Unité Spéciale, début le 19 à 23:35, se poursuit jusqu’à 00:20 ; débuts 00:20, 01:15 et 02:00 présents."
+          ],
+          "normalizations": [
+            "Variantes de libellé seulement : chiffres, accents, suffixes JT et épisodes."
+          ]
+        },
+        "decisions": [
+          "Les 28 départs sauvegardés du jour civil sont présents ; aucune omission ni contradiction de grille."
+        ],
+        "limits": [
+          "La provenance technique des guides n’est pas établie ; indépendance inconnue. La revue ne certifie ni durée d’œuvre ni niveau 3."
+        ],
+        "status": "reread_complete_no_omissions"
+      },
+      {
+        "date": "2026-10-21",
+        "channels": [
+          "TF1"
+        ],
+        "flow": "TF1",
+        "publisher": "TF1 Pro + Télé 7 Jours / CMI France + TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:45:02.184Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "seconde lecture des grilles complètes contre l’extraction sauvegardée et revue des reports de veille",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tf1pro.com/grilles-tv/TF1/2026-10-17",
+          "https://tv-programme.com/tf1/21-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 29,
+          "source_rows_reviewed": 29,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Une famille en or, début le 20 à 23:30, se poursuit jusqu’à 00:30 ; débuts 00:30, 01:45 et 01:50 présents."
+          ],
+          "normalizations": [
+            "Variantes de libellé seulement : chiffres, accents, suffixes JT et épisodes."
+          ]
+        },
+        "decisions": [
+          "Les 29 départs sauvegardés du jour civil sont présents ; aucune omission ni contradiction de grille."
+        ],
+        "limits": [
+          "La provenance technique des guides n’est pas établie ; indépendance inconnue. La revue ne certifie ni durée d’œuvre ni niveau 3."
+        ],
+        "status": "reread_complete_no_omissions"
+      },
+      {
+        "date": "2026-10-22",
+        "channels": [
+          "TF1"
+        ],
+        "flow": "TF1",
+        "publisher": "TF1 Pro + Télé 7 Jours / CMI France + TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:45:02.184Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "seconde lecture des grilles complètes contre l’extraction sauvegardée et revue des reports de veille",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tf1pro.com/grilles-tv/TF1/2026-10-17",
+          "https://tv-programme.com/tf1/22-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 25,
+          "source_rows_reviewed": 25,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Programmes de la nuit, début le 21 à 23:40, couvre 00:00–05:49 ; absence de nouveau début nocturne correcte."
+          ],
+          "normalizations": [
+            "Variantes de libellé seulement : chiffres, accents, suffixes JT et épisodes."
+          ]
+        },
+        "decisions": [
+          "Les 25 départs sauvegardés du jour civil sont présents ; aucune omission ni contradiction de grille."
+        ],
+        "limits": [
+          "La provenance technique des guides n’est pas établie ; indépendance inconnue. La revue ne certifie ni durée d’œuvre ni niveau 3."
+        ],
+        "status": "reread_complete_no_omissions"
+      },
+      {
+        "date": "2026-10-23",
+        "channels": [
+          "TF1"
+        ],
+        "flow": "TF1",
+        "publisher": "TF1 Pro + Télé 7 Jours / CMI France + TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:45:02.184Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "seconde lecture des grilles complètes contre l’extraction sauvegardée et revue des reports de veille",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tf1pro.com/grilles-tv/TF1/2026-10-17",
+          "https://tv-programme.com/tf1/23-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 25,
+          "source_rows_reviewed": 25,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "New York police judiciaire, début le 22 à 23:50, se poursuit jusqu’à 00:40 ; nouveau début à 00:40 présent."
+          ],
+          "normalizations": [
+            "Variantes de libellé seulement : chiffres, accents, suffixes JT et épisodes."
+          ]
+        },
+        "decisions": [
+          "Les 25 départs sauvegardés du jour civil sont présents ; aucune omission ni contradiction de grille."
+        ],
+        "limits": [
+          "La provenance technique des guides n’est pas établie ; indépendance inconnue. La revue ne certifie ni durée d’œuvre ni niveau 3."
+        ],
+        "status": "reread_complete_no_omissions"
+      },
+      {
+        "channels": [
+          "France 5"
+        ],
+        "flow": "France 5",
+        "publisher": "France Télévisions / FranceTVPro + TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:45:08.774Z",
+        "dates": [
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23"
+        ],
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte des sept grilles Web complètes contre l’extraction officielle FranceTVPro sauvegardée",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://www.francetvpro.fr/grille-xml/france-5/17-10-2026",
+          "https://tv-programme.com/france-5/samedi-17-octobre-2026/",
+          "https://tv-programme.com/france-5/dimanche-18-octobre-2026/",
+          "https://tv-programme.com/france-5/lundi-19-octobre-2026/",
+          "https://tv-programme.com/france-5/mardi-20-octobre-2026/",
+          "https://tv-programme.com/france-5/mercredi-21-octobre-2026/",
+          "https://tv-programme.com/france-5/jeudi-22-octobre-2026/",
+          "https://tv-programme.com/france-5/vendredi-23-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 238,
+          "omissions": [
+            {
+              "date": "2026-10-17",
+              "start": "03:33",
+              "title": "Consuelo et Antoine de Saint-Exupéry, apprivoiser les étoiles"
+            },
+            {
+              "date": "2026-10-17",
+              "start": "04:27",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-17",
+              "start": "04:40",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-17",
+              "start": "10:03",
+              "title": "Les Moodz — Chocotte a peur du noir"
+            },
+            {
+              "date": "2026-10-17",
+              "start": "15:18",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-18",
+              "start": "03:32",
+              "title": "Vivre loin du monde — Dans les montagnes au Sri Lanka"
+            },
+            {
+              "date": "2026-10-18",
+              "start": "04:17",
+              "title": "Sale temps pour la planète — Corse, les possibilités d’une île"
+            },
+            {
+              "date": "2026-10-18",
+              "start": "04:45",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-18",
+              "start": "16:07",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-18",
+              "start": "20:45",
+              "title": "En tension — En tension dans les lycées avec HugoDécrypte"
+            },
+            {
+              "date": "2026-10-19",
+              "start": "03:05",
+              "title": "Caméras espions au cœur des océans — L’union fait la force"
+            },
+            {
+              "date": "2026-10-19",
+              "start": "04:05",
+              "title": "Le verre dans tous ses éclats"
+            },
+            {
+              "date": "2026-10-19",
+              "start": "04:48",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-19",
+              "start": "12:47",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-19",
+              "start": "16:06",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-20",
+              "start": "03:04",
+              "title": "Sans alcool, la fête est-elle plus folle ?"
+            },
+            {
+              "date": "2026-10-20",
+              "start": "03:55",
+              "title": "Vivre loin du monde — Un refuge dans la jungle colombienne"
+            },
+            {
+              "date": "2026-10-20",
+              "start": "04:40",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-20",
+              "start": "04:56",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-20",
+              "start": "16:10",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-21",
+              "start": "03:03",
+              "title": "La Grande Librairie — De quoi hérite-t-on : d’un nom, d’une faute, d’un manque ?"
+            },
+            {
+              "date": "2026-10-21",
+              "start": "04:23",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-21",
+              "start": "04:46",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-21",
+              "start": "12:47",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-21",
+              "start": "16:09",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-22",
+              "start": "02:49",
+              "title": "Les 5 vies de la Terre — La glace"
+            },
+            {
+              "date": "2026-10-22",
+              "start": "03:49",
+              "title": "Michel Foucault, le philosophe et le poisson rouge"
+            },
+            {
+              "date": "2026-10-22",
+              "start": "04:33",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-22",
+              "start": "04:46",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-22",
+              "start": "12:50",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-22",
+              "start": "16:08",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-23",
+              "start": "02:52",
+              "title": "Grignote-moi si tu peux, les dessous de l’apéritif"
+            },
+            {
+              "date": "2026-10-23",
+              "start": "03:45",
+              "title": "Une vie de manchot"
+            },
+            {
+              "date": "2026-10-23",
+              "start": "04:37",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-23",
+              "start": "04:50",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-23",
+              "start": "12:45",
+              "title": "Imprévus"
+            },
+            {
+              "date": "2026-10-23",
+              "start": "16:05",
+              "title": "Imprévus"
+            }
+          ],
+          "schedule_contradictions": [
+            {
+              "date": "2026-10-18",
+              "field": "schedule",
+              "saved": "Réflexe ! 18:25 ; Le Monde en face 21:05 ; Etats-Unis–Chine 21:07 ; Premiers résistants 22:40",
+              "observed": "Réflexe ! 18:20 ; En tension 20:45 ; Le Monde en face 21:10 ; Etats-Unis–Chine 21:11 ; Premiers résistants 22:45"
+            },
+            {
+              "date": "2026-10-21",
+              "field": "identity_and_time",
+              "saved": "Serengeti 10:00 Le Refuge ; 11:00 L’enfer du brasier ; 12:00 Les Premières Leçons",
+              "observed": "10:01 Les trônes des fauves ; 10:55 Un paradis en feu ; 11:55 Vivre à tout prix"
+            }
+          ],
+          "granularity_limit": "Les épisodes Okoo/Okoo Nuit détaillés par le guide sont conservés comme différence de granularité et ne sont pas comptés dans les 37 omissions."
+        },
+        "decisions": [
+          "Revue hebdomadaire France 5 achevée avec lacunes : importer/réconcilier les 37 lignes avant clôture et résoudre En tension du 18 ainsi que les trois identités Serengeti du 21."
+        ],
+        "limits": [
+          "Provenance amont du guide inconnue ; indépendance non certifiée. Les lignes Imprévus restent des omissions factuelles. Aucun niveau 3 certifié."
+        ],
+        "status": "second_reading_complete_with_gaps"
       }
     ],
     "independent_crosscheck_complete": false,
