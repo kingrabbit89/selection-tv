@@ -101,7 +101,8 @@
     "Réserve complète ajoutée au dimanche : Nos années sauvages à 14:44, depuis le dossier déjà revu du vendredi, avec divergence 14:43/14:44 explicitement conservée.",
     "Piste Midsommar du jeudi revue puis différée sans carte : les grilles françaises actuelles se contredisent, et le flux belge accessible ne les arbitre pas.",
     "CI de la tête exacte lue : échec mécanique sur preparation-gaps.json, artefact informatif interdit dans la candidate ; fichier retiré de la branche et rapport courant conservé hors candidate.",
-    "CI de la tête corrigée a632afd observée : résolution de préparation réussie ; une exécution distante du groupe de tests a échoué sur test-editorial-task-board, tandis que les 101 mêmes tests passent localement sur la tête exacte. Divergence conservée pour réobservation, sans baisse de critères."
+    "CI de la tête corrigée a632afd observée : résolution de préparation réussie ; une exécution distante du groupe de tests a échoué sur test-editorial-task-board, tandis que les 101 mêmes tests passent localement sur la tête exacte. Divergence conservée pour réobservation, sans baisse de critères.",
+    "2026-10-15T15:08:39.575Z — dossier The Big Short complété : deux guides actuels concordent désormais à 08:31 sur Ciné+ Frisson le 21 octobre ; la contradiction historique 08:30/08:31 est conservée, aucune carte n’est affirmée sans rendu mécanique."
   ],
   "blockers": [],
   "research_attempts": [
@@ -3594,6 +3595,30 @@
       "applies_to": "réserve draft Nos années sauvages — dimanche 2026-10-18 rang 7",
       "evidence_note": "Le Zapp TV et Sudinfo concordent à 14:44 ; TV-programme et Télérama indiquent 14:43. La divergence reste visible, les champs stables sont réutilisés et aucune indépendance technique n’est affirmée.",
       "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "work_id": "the-big-short-2015",
+      "fields": [
+        "identity",
+        "duration_limits",
+        "ratings",
+        "professional_criticism",
+        "current_broadcast",
+        "image",
+        "freshness"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-frisson/mercredi-21-octobre-2026/",
+        "https://tv.digital3d.com/detail/cineplus-frisson-47?date=2026-10-21&time=10:39",
+        "https://time.com/4134370/the-big-short-knows-why-your-rent-is-too-damn-high/",
+        "https://www.imdb.com/fr/title/tt1596363/",
+        "https://www.senscritique.com/film/the_big_short_le_casse_du_siecle/13089556"
+      ],
+      "checked_at": "2026-10-15T15:08:39.575Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "applies_to": "dossier The Big Short — mercredi 2026-10-21, carte non matérialisée",
+      "evidence_note": "TV-programme et Digital3D concordent actuellement à 08:31. Les anciennes observations à 08:30 restent historiques ; amont technique inconnu et aucune indépendance certifiée.",
+      "status": "verified_dossier_ready_for_draft_card"
     }
   ],
   "source_issues": [
@@ -4282,7 +4307,7 @@
         "scope": {
           "day": "mercredi"
         },
-        "status": "deferred",
+        "status": "dossier_complete",
         "signals": [
           {
             "kind": "professional_criticism",
@@ -4290,7 +4315,7 @@
             "source_url": "https://time.com/4134370/the-big-short-knows-why-your-rent-is-too-damn-high/"
           }
         ],
-        "decision_note": "Identité, réception, notes, visuel et fraîcheur vérifiés, mais carte différée : les guides actuels divergent sur la minute exacte de départ, 08:30 contre 08:31. Gens de Dublin a été retenu comme alternative entièrement vérifiée.",
+        "decision_note": "Dossier complet : TV-programme et Digital3D concordent désormais à 08:31 le 21 octobre sur Ciné+ Frisson. Les anciennes observations à 08:30 restent conservées comme historique ; amont technique inconnu. Carte non encore matérialisée, Gens de Dublin reste l’alternative visible.",
         "alternatives": [
           "sl-mercredi-gens-de-dublin"
         ]
@@ -4900,7 +4925,7 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Réobserver la CI exacte de la prochaine tête, puis ajouter une réserve complète à un jour déficitaire depuis un dossier sauvegardé et une diffusion concordante ; ne reprendre aucune piste en attente sans fait nouveau.",
+      "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
       "Observer la CI de la tête corrigée tout en poursuivant une tâche éditoriale indépendante accessible ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
       "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé et une diffusion concordante, sans reprendre Midsommar jeudi ni les autres pistes en attente sans fait nouveau.",
       "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé, sans rouvrir les pistes placées en attente.",
@@ -10719,9 +10744,108 @@
           "ready_handoff": null
         }
       }
+    },
+    {
+      "prompt_revision": "production-weekly-continuity-2026-10-10",
+      "started_at": "2026-10-15T15:03:29.000Z",
+      "ended_at": null,
+      "duration_basis": "Temps UTC observé depuis 2026-10-15T15:03:29.000Z ; checkpoint à 2026-10-15T15:08:39.575Z.",
+      "run_state": "running",
+      "completed_batches": [
+        "2026-10-15T15:08:39.575Z — dossier The Big Short complété : deux guides actuels concordent désormais à 08:31 sur Ciné+ Frisson le 21 octobre ; la contradiction historique 08:30/08:31 est conservée, aucune carte n’est affirmée sans rendu mécanique."
+      ],
+      "deliverables_changed": [
+        "data/research/2026-S43.json"
+      ],
+      "complete_cards_added": 0,
+      "draft_cards_added": 0,
+      "draft_reserves_added": 0,
+      "dossiers_completed": 1,
+      "partial_dossiers_added": 0,
+      "requirements_resolved": 0,
+      "stop_reason": null,
+      "next_useful_batch": "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
+      "additions": {
+        "new_works": 0,
+        "visible_draft_cards": 0,
+        "distinct_reserves_added": 0,
+        "reused_existing_cards": 0,
+        "scope": "comparaison avec 6b2f013a2c60c6dd839ade05022c71129f4d0ebc"
+      },
+      "intervals": [],
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T15:08:39.575Z",
+          "elapsed_seconds": 310.575,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "6b2f013a2c60c6dd839ade05022c71129f4d0ebc",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T16:05:44.714Z",
+          "remaining_count": 12,
+          "next_actions_total": 10,
+          "evaluated_by": "manual_fallback",
+          "evaluation_note": "Le clone et les helpers locaux sont indisponibles à cause de l’échec d’initialisation exec-server ; décision appliquée depuis l’horloge observée, le bail relu et le checkpoint immuable.",
+          "next_actions": [
+            "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
+            "Observer la CI de la tête corrigée tout en poursuivant une tâche éditoriale indépendante accessible ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+            "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé et une diffusion concordante, sans reprendre Midsommar jeudi ni les autres pistes en attente sans fait nouveau.",
+            "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé, sans rouvrir les pistes placées en attente.",
+            "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi, du mercredi, du jeudi et du vendredi pour progresser vers le minimum de dix candidats complets par jour, sans défaire les choix développés."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T15:03:29.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T16:05:44.714Z",
+            "external_stop": null,
+            "accessible_task_checks": [
+              "The Big Short dossier complete; draft rendering awaits executable clone"
+            ],
+            "ready_handoff": null
+          }
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-15T15:08:39.575Z",
+        "elapsed_seconds": 310.575,
+        "prompt_revision": "production-weekly-continuity-2026-10-10",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S43",
+        "source_sha": "6b2f013a2c60c6dd839ade05022c71129f4d0ebc",
+        "lease_owned": "yes",
+        "lease_until": "2026-10-15T16:05:44.714Z",
+        "remaining_count": 12,
+        "next_actions_total": 10,
+        "evaluated_by": "manual_fallback",
+        "evaluation_note": "Le clone et les helpers locaux sont indisponibles à cause de l’échec d’initialisation exec-server ; décision appliquée depuis l’horloge observée, le bail relu et le checkpoint immuable.",
+        "next_actions": [
+          "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
+          "Observer la CI de la tête corrigée tout en poursuivant une tâche éditoriale indépendante accessible ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+          "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé et une diffusion concordante, sans reprendre Midsommar jeudi ni les autres pistes en attente sans fait nouveau.",
+          "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé, sans rouvrir les pistes placées en attente.",
+          "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi, du mercredi, du jeudi et du vendredi pour progresser vers le minimum de dix candidats complets par jour, sans défaire les choix développés."
+        ],
+        "observations": {
+          "started_at": "2026-10-15T15:03:29.000Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T16:05:44.714Z",
+          "external_stop": null,
+          "accessible_task_checks": [
+            "The Big Short dossier complete; draft rendering awaits executable clone"
+          ],
+          "ready_handoff": null
+        }
+      }
     }
   ],
-  "updated_at": "2026-10-15T14:45:39.133Z",
+  "updated_at": "2026-10-15T15:08:39.575Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -12543,16 +12667,15 @@
       },
       "broadcast_research": {
         "date": "2026-10-21",
-        "start": null,
+        "start": "08:31",
         "channel": "Ciné+ Frisson",
         "source_urls": [
           "https://tv-programme.com/cine-plus-frisson/mercredi-21-octobre-2026/",
-          "https://www.programme-tv.com/chaine/mercredi-prochain/241/programme-television-cine-frisson.html",
-          "https://www.programmetvcesoir.net/chaine/cine-frisson/2026-10-21",
           "https://tv.digital3d.com/detail/cineplus-frisson-47?date=2026-10-21&time=10:39"
         ],
-        "checked_at": "2026-10-15T12:13:14.077Z",
-        "status": "blocked_08_30_vs_08_31"
+        "checked_at": "2026-10-15T15:08:39.575Z",
+        "status": "verified_by_two_current_publishers_independence_unknown",
+        "note": "Relecture actuelle : TV-programme (Tabom) et Digital3D concordent sur The Big Short, Ciné+ Frisson, mercredi 21 octobre 2026 à 08:31. Les anciennes observations à 08:30 restent historiques ; programme-tv.com rend désormais le 7 octobre et ProgrammeTVCeSoir est inaccessible. L’amont technique demeure inconnu, sans indépendance certifiée."
       },
       "image_research": {
         "source_page": "https://tv-programme.com/the-big-short-le-casse-du-siecle-film",
@@ -12573,10 +12696,10 @@
         ]
       },
       "missing_fields": [
-        "horaire exact arbitré"
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
       ],
-      "decision": "différé — carte non matérialisée, alternative Gens de Dublin retenue",
-      "reason": "Trois guides indiquent 08:30 et un guide actuel 08:31 ; contradiction factuelle non résolue."
+      "decision": "dossier complet — carte draft à matérialiser sous helper",
+      "reason": "Les deux guides actuels d’éditeurs distincts concordent désormais sur les quatre faits de grille à 08:31 ; identité, réception, notes, visuel et fraîcheur étaient déjà revus."
     },
     {
       "title": "Raccrochez, c’est une erreur",
