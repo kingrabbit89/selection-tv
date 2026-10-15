@@ -97,7 +97,8 @@
     "2026-10-15T13:59:44.420Z — réserve complète du samedi ajoutée : Left-Handed Girl à 11:06, depuis un dossier déjà revu et deux guides datés concordants ; provenance amont inconnue et durées distinctes conservées.",
     "2026-10-15T14:05:31.818Z — deux réserves complètes ajoutées au dimanche : Gens de Dublin à 22:35 et Freaks à 14:05, depuis des dossiers déjà revus et des diffusions actuelles concordantes.",
     "2026-10-15T14:13:50.772Z — deux réserves complètes ajoutées au lundi : Left-Handed Girl à 08:30 et La rivière rouge à 15:11, depuis des dossiers déjà revus ; la divergence 15:11/15:12 de La rivière rouge reste visible.",
-    "2026-10-15T14:22:57.874Z — réserve complète du jeudi ajoutée : Partir un jour à 11:41, depuis le dossier déjà revu et deux grilles actuelles concordantes ; le conflit d’identité de La Prisonnière du désert à 13:30 est conservé et la piste écartée du lot."
+    "2026-10-15T14:22:57.874Z — réserve complète du jeudi ajoutée : Partir un jour à 11:41, depuis le dossier déjà revu et deux grilles actuelles concordantes ; le conflit d’identité de La Prisonnière du désert à 13:30 est conservé et la piste écartée du lot.",
+    "Réserve complète ajoutée au dimanche : Nos années sauvages à 14:44, depuis le dossier déjà revu du vendredi, avec divergence 14:43/14:44 explicitement conservée."
   ],
   "blockers": [],
   "research_attempts": [
@@ -3550,6 +3551,33 @@
       "applies_to": "réserve draft Partir un jour — jeudi 2026-10-22 rang 6",
       "evidence_note": "Deux guides actuels d’éditeurs distincts concordent à 11:41 et identifient le long métrage 2025 ; champs stables réutilisés, durées séparées et indépendance amont non affirmée.",
       "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "work_id": "nos-annees-sauvages-1990",
+      "fields": [
+        "identity",
+        "duration_limits",
+        "ratings",
+        "professional_criticism",
+        "current_broadcast",
+        "image",
+        "freshness",
+        "draft_reserve"
+      ],
+      "urls": [
+        "https://lezapptv.fr/chaine/cine-festival/2026-10-18",
+        "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-festival/484/dimanche/h2",
+        "https://tv-programme.com/cine-plus-festival/dimanche-18-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-dimanche/cine-club",
+        "https://www.criterion.com/films/29477-days-of-being-wild",
+        "https://www.imdb.com/title/tt0101258/",
+        "https://www.rottentomatoes.com/m/days_of_being_wild"
+      ],
+      "checked_at": "2026-10-15T14:30:41.277Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "applies_to": "réserve draft Nos années sauvages — dimanche 2026-10-18 rang 7",
+      "evidence_note": "Le Zapp TV et Sudinfo concordent à 14:44 ; TV-programme et Télérama indiquent 14:43. La divergence reste visible, les champs stables sont réutilisés et aucune indépendance technique n’est affirmée.",
+      "status": "verified_for_draft_card_ci_pending"
     }
   ],
   "source_issues": [
@@ -4790,6 +4818,28 @@
           "sl-jeudi-le-pont-de-la-riviere-kwai-1957",
           "sl-jeudi-old-boy"
         ]
+      },
+      {
+        "id": "sl-dimanche-nos-annees-sauvages-1990",
+        "title": "Nos années sauvages",
+        "work_id": "nos-annees-sauvages-1990",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "institutional_criticism",
+            "note": "Criterion rattache précisément le film de Wong Kar-wai à une méditation sur le temps, le désir, la dislocation et la recherche de connexion.",
+            "source_url": "https://www.criterion.com/films/29477-days-of-being-wild"
+          }
+        ],
+        "decision_note": "Réserve draft dimanche rang 7 à 14:44 : dossier stable du vendredi réutilisé à identité certaine ; deux guides datés concordent à 14:44, tandis que la divergence 14:43/14:44 reste conservée ; CI final requis.",
+        "alternatives": [
+          "sl-dimanche-gens-de-dublin",
+          "sl-dimanche-freaks-2018",
+          "sl-dimanche-la-vie-de-chateau"
+        ]
       }
     ]
   },
@@ -4812,6 +4862,7 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
+      "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé, sans rouvrir les pistes placées en attente.",
       "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi, du mercredi, du jeudi et du vendredi pour progresser vers le minimum de dix candidats complets par jour, sans défaire les choix développés.",
       "Reprendre Bird seulement si une preuve officielle datée relie la diffusion du vendredi 23 octobre 2026 à une durée/version exacte, ou si un recoupement admissible résout 06:33/06:34.",
       "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés.",
@@ -9319,7 +9370,8 @@
         "Réserve complète du samedi ajoutée : Left-Handed Girl à 11:06, depuis un dossier déjà revu et une diffusion recoupée sur deux guides datés.",
         "Deux réserves complètes ajoutées au dimanche : Gens de Dublin à 22:35 et Freaks à 14:05, depuis des dossiers déjà revus et des diffusions recoupées.",
         "Deux réserves complètes ajoutées au lundi : Left-Handed Girl à 08:30 et La rivière rouge à 15:11, en conservant la divergence 15:11/15:12 de cette dernière.",
-        "Réserve complète ajoutée au jeudi : Partir un jour à 11:41, avec identité 2025 et diffusion recoupées ; La Prisonnière du désert écartée du lot sur contradiction de grille."
+        "Réserve complète ajoutée au jeudi : Partir un jour à 11:41, avec identité 2025 et diffusion recoupées ; La Prisonnière du désert écartée du lot sur contradiction de grille.",
+        "Réserve complète ajoutée au dimanche : Nos années sauvages à 14:44, depuis le dossier déjà revu du vendredi, avec divergence 14:43/14:44 explicitement conservée."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -9328,16 +9380,16 @@
       ],
       "complete_cards_added": 0,
       "draft_cards_added": 0,
-      "draft_reserves_added": 6,
+      "draft_reserves_added": 7,
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Ajouter une réserve complète au vendredi depuis un dossier avancé non placé en attente, ou compléter les réserves d’un autre jour déficitaire.",
+      "next_useful_batch": "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé, sans rouvrir les pistes placées en attente.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
-        "distinct_reserves_added": 6,
-        "reused_existing_cards": 6,
+        "distinct_reserves_added": 7,
+        "reused_existing_cards": 7,
         "scope": "comparaison avec 38586fd1d25a92adae5fabbc68d52b0bd20baf31"
       },
       "intervals": [
@@ -9387,6 +9439,18 @@
           "started_at": "2026-10-15T14:22:57.874Z",
           "ended_at": "2026-10-15T14:24:10.000Z",
           "note": "Plan et rendu mécanique de la réserve Partir un jour, puis réconciliation du dossier sauvegardé."
+        },
+        {
+          "kind": "recherche",
+          "started_at": "2026-10-15T14:27:22.805Z",
+          "ended_at": "2026-10-15T14:29:14.051Z",
+          "note": "Lecture ciblée de quatre guides du dimanche et conservation de la divergence 14:43/14:44 pour Nos années sauvages."
+        },
+        {
+          "kind": "redaction_rendu",
+          "started_at": "2026-10-15T14:29:14.051Z",
+          "ended_at": "2026-10-15T14:30:41.277Z",
+          "note": "Plan, rendu mécanique et réconciliation de la réserve Nos années sauvages depuis le dossier stable du vendredi."
         }
       ],
       "continuation_decisions": [
@@ -9733,20 +9797,162 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T14:27:22.805Z",
+          "elapsed_seconds": 1924.658,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "64c65949a1348be4e87ae4b8cbd90b8de6c5f624",
+          "next_actions": [
+            "Ajouter une réserve complète au vendredi depuis un dossier avancé non placé en attente, ou compléter les réserves d’un autre jour déficitaire.",
+            "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi, du mercredi, du jeudi et du vendredi pour progresser vers le minimum de dix candidats complets par jour, sans défaire les choix développés.",
+            "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés.",
+            "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews.",
+            "Effectuer le rappel éditorial et la prospection documentaire dédiée Arte, France 5, France 2/3/4, france.tv, TV5MONDE et autres sources pertinentes, avec offres linéaires/replay/avant-premières/exclusivités/expirations, décisions et preuves critiques exactes sauvegardées."
+          ],
+          "remaining_count": 12,
+          "next_actions_total": 14,
+          "truncated_notice": "9 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 19,
+          "waiting_actions": [
+            {
+              "action_text": "Reprendre Bird seulement si une preuve officielle datée relie la diffusion du vendredi 23 octobre 2026 à une durée/version exacte, ou si un recoupement admissible résout 06:33/06:34.",
+              "gates": [
+                {
+                  "attempt_index": 11,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre Bird seulement si une preuve officielle datée relie la diffusion du vendredi 23 octobre 2026 à une durée/version exacte, ou si un recoupement admissible résout 06:33/06:34."
+                    ],
+                    "reason": "Minute contradictoire et aucune liaison événementielle officielle de la durée/version.",
+                    "resume_when": "Correction officielle datée, BroadcastEvent CANAL+ exact ou nouveau recoupement admissible résolvant la minute et la version/durée.",
+                    "observed_at": "2026-10-15T12:49:03Z",
+                    "evidence": "TV-programme 06:34–08:30 ; Télérama 06:33 ; CANAL+ asset 114 min, Cannes/VOD 119 min, Ad Vitam 118 min sans lien événementiel daté."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés.",
+              "gates": [
+                {
+                  "attempt_index": 0,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
+                    ],
+                    "reason": "Les voies directe et alternative réellement ouvertes ne fournissent pas une grille complète de la date cible.",
+                    "resume_when": "Nouvelle grille datée exacte accessible ou changement observé sur l’une des pages.",
+                    "observed_at": "2026-10-15T08:41:23.322Z",
+                    "evidence": "403 sur les deux URLs TV-programme.com ; pages Télérama ouvertes mais dates rendues hors cible."
+                  }
+                },
+                {
+                  "attempt_index": 1,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
+                    ],
+                    "reason": "La source directe est inaccessible et les alternatives lues n’exposent pas les lignes de grille.",
+                    "resume_when": "Nouvelle grille datée exacte accessible ou changement observé sur l’une des pages.",
+                    "observed_at": "2026-10-15T08:41:23.322Z",
+                    "evidence": "403 sur les deux URLs TV-programme.com ; Vualatele annonce 0 programme ; SCREEN+ n’expose que le calendrier dans le résultat lu."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre Quand la ville dort seulement si une preuve permet d’attribuer une durée exacte à la copie du dimanche 18 octobre 2026.",
+              "gates": [
+                {
+                  "attempt_index": 8,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre Quand la ville dort seulement si une preuve permet d’attribuer une durée exacte à la copie du dimanche 18 octobre 2026."
+                    ],
+                    "reason": "Deux voies distinctes ne permettent pas d’attribuer une durée exacte à la copie.",
+                    "resume_when": "Preuve officielle ou source précise de la durée de la copie du 18 octobre.",
+                    "observed_at": "2026-10-15T12:22:43.453Z",
+                    "evidence": "Durées 107/108/109/112 min de portées différentes ; la fenêtre EPG ne certifie pas la copie."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre Memories of Murder seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:44/10:45 du lundi 19 octobre 2026.",
+              "gates": [
+                {
+                  "attempt_index": 9,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre Memories of Murder seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:44/10:45 du lundi 19 octobre 2026."
+                    ],
+                    "reason": "Deux clusters de guides actuels divergent d’une minute.",
+                    "resume_when": "Correction officielle datée ou nouveau recoupement qui résout la contradiction.",
+                    "observed_at": "2026-10-15T12:25:00.000Z",
+                    "evidence": "10:45 chez Programme-TV, Ouest-France, ProgrammeTVCeSoir et Digital3D ; 10:44 chez TV-programme et Télérama."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre Bienvenue à Gattaca seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:07/10:11 du mardi 20 octobre 2026.",
+              "gates": [
+                {
+                  "attempt_index": 10,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre Bienvenue à Gattaca seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:07/10:11 du mardi 20 octobre 2026."
+                    ],
+                    "reason": "Deux clusters actuels divergent de quatre minutes.",
+                    "resume_when": "Correction officielle datée ou nouveau recoupement qui résout la contradiction.",
+                    "observed_at": "2026-10-15T12:22:22.000Z",
+                    "evidence": "Concordances 10:07 et contradiction persistante 10:11."
+                  }
+                }
+              ]
+            }
+          ],
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-15T13:55:18.147Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T15:15:30.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T14:17:41.184Z",
-        "elapsed_seconds": 1343.037,
+        "observed_at": "2026-10-15T14:27:22.805Z",
+        "elapsed_seconds": 1924.658,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "b23349fcd914634b01db3f41268ae539bf90325d",
+        "source_sha": "64c65949a1348be4e87ae4b8cbd90b8de6c5f624",
         "next_actions": [
-          "Ajouter des réserves complètes au jeudi ou au vendredi depuis des dossiers déjà avancés, sans reprendre les pistes placées en attente de fait nouveau.",
+          "Ajouter une réserve complète au vendredi depuis un dossier avancé non placé en attente, ou compléter les réserves d’un autre jour déficitaire.",
           "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi, du mercredi, du jeudi et du vendredi pour progresser vers le minimum de dix candidats complets par jour, sans défaire les choix développés.",
           "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés.",
           "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews.",
@@ -9879,7 +10085,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-15T14:13:50.772Z",
+  "updated_at": "2026-10-15T14:30:41.277Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -12570,7 +12776,23 @@
         "contrôle CI distant du visuel et des liens sur la tête exacte"
       ],
       "decision": "carte draft vendredi rang 1 matérialisée — CI final requis",
-      "reason": "Niveau 3 revu ; aucun conflit factuel ouvert."
+      "reason": "Niveau 3 revu ; aucun conflit factuel ouvert.",
+      "additional_broadcasts": [
+        {
+          "date": "2026-10-18",
+          "start": "14:44",
+          "channel": "Ciné+ Festival",
+          "source_urls": [
+            "https://lezapptv.fr/chaine/cine-festival/2026-10-18",
+            "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-festival/484/dimanche/h2",
+            "https://tv-programme.com/cine-plus-festival/dimanche-18-octobre-2026/",
+            "https://television.telerama.fr/programme-tv-dimanche/cine-club"
+          ],
+          "checked_at": "2026-10-15T14:30:41.277Z",
+          "status": "verified_by_two_current_guides_distinct_publishers_upstream_unknown_with_retained_minute_divergence",
+          "note": "Le Zapp TV et Sudinfo concordent à 14:44 sur le titre, la chaîne et la date ; TV-programme et Télérama indiquent 14:43. La divergence 14:43/14:44 est conservée, l’amont technique reste inconnu et aucune indépendance n’est affirmée."
+        }
+      ]
     },
     {
       "title": "Put Your Soul on Your Hand and Walk",
