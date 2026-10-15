@@ -89,7 +89,8 @@
     "2026-10-15T12:27:00.000Z — réserve fraîche du samedi matérialisée : Raccrochez, c’est une erreur ; trois alternatives prometteuses du dimanche au mardi approfondies puis différées avec leurs contradictions exactes et conditions de reprise.",
     "2026-10-15T12:43:30.000Z — trois choix développés du jeudi matérialisés : Old Boy, Le dernier rivage et Freaks, après revue complète des grilles, identités, durées, réception, visuels et fraîcheur.",
     "Trio développé du vendredi matérialisé : Nos années sauvages, Put Your Soul on Your Hand and Walk et Baccalauréat, après recoupement Web concordant et revue de niveau 3.",
-    "Mardi réconcilié sur la nouvelle concordance horaire de Left-Handed Girl et enrichi de deux réserves complètes : Freaks et Raccrochez, c’est une erreur."
+    "Mardi réconcilié sur la nouvelle concordance horaire de Left-Handed Girl et enrichi de deux réserves complètes : Freaks et Raccrochez, c’est une erreur.",
+    "Mercredi enrichi de trois réserves complètes réutilisant des dossiers déjà revus : Baccalauréat, Interstellar et Peau d’âne ; leurs diffusions du 21 octobre ont été recoupées séparément."
   ],
   "blockers": [],
   "research_attempts": [
@@ -3211,6 +3212,84 @@
       "checked_at": "2026-10-15T13:21:37.183Z",
       "stability": "mixed_stable_dynamic_and_cycle_specific",
       "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "work_id": "baccalaureat-2016",
+      "fields": [
+        "identity",
+        "version_limit",
+        "ratings",
+        "broadcast_title",
+        "broadcast_channel",
+        "broadcast_date",
+        "broadcast_time",
+        "criticism",
+        "image",
+        "synopsis",
+        "editorial_justification",
+        "draft_reserve"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-festival/mercredi-21-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-mercredi/cine-club"
+      ],
+      "applies_to": "réserve draft Baccalauréat — mercredi 2026-10-21 rang 4",
+      "evidence_note": "Identité et texte stables réutilisés ; diffusion du mercredi vérifiée séparément par deux éditeurs actuels, provenance amont inconnue.",
+      "checked_at": "2026-10-15T13:29:43.840Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "work_id": "interstellar-2014",
+      "fields": [
+        "identity",
+        "version_limit",
+        "ratings",
+        "broadcast_title",
+        "broadcast_channel",
+        "broadcast_date",
+        "broadcast_time",
+        "criticism",
+        "image",
+        "synopsis",
+        "editorial_justification",
+        "draft_reserve"
+      ],
+      "urls": [
+        "https://television.telerama.fr/programme-tv-mercredi/arte",
+        "https://tv-programme.com/arte/mercredi-21-octobre-2026/"
+      ],
+      "applies_to": "réserve draft Interstellar — mercredi 2026-10-21 rang 5",
+      "evidence_note": "Identité et texte stables réutilisés ; diffusion du mercredi vérifiée séparément par deux éditeurs actuels, provenance amont inconnue.",
+      "checked_at": "2026-10-15T13:29:43.840Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "work_id": "peau-d-ane-1970",
+      "fields": [
+        "identity",
+        "version_limit",
+        "ratings",
+        "broadcast_title",
+        "broadcast_channel",
+        "broadcast_date",
+        "broadcast_time",
+        "criticism",
+        "image",
+        "synopsis",
+        "editorial_justification",
+        "draft_reserve"
+      ],
+      "urls": [
+        "https://tv-programme.com/mercredi-21-octobre-2026/14h-16h/",
+        "https://www.programmetvcesoir.net/chaine/cine-classic/2026-10-21"
+      ],
+      "applies_to": "réserve draft Peau d’âne — mercredi 2026-10-21 rang 6",
+      "evidence_note": "Identité et texte stables réutilisés ; diffusion du mercredi vérifiée séparément par deux éditeurs actuels, provenance amont inconnue.",
+      "checked_at": "2026-10-15T13:29:43.840Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "status": "verified_for_draft_card_ci_pending"
     }
   ],
   "source_issues": [
@@ -4192,6 +4271,72 @@
         "decision_note": "Réserve draft mardi rang 5 ; diffusion du 20 octobre à 08:30 recoupée par trois guides et Molotov, durée œuvre et fenêtre antenne séparées.",
         "alternatives": [
           "sl-mardi-freaks-2018"
+        ]
+      },
+      {
+        "id": "sl-mercredi-baccalaureat-2016",
+        "title": "Baccalauréat",
+        "work_id": "baccalaureat-2016",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "institutional_award",
+            "note": "Le Festival de Cannes documente le prix de la mise en scène ex aequo 2016 et la durée de référence de 127 minutes.",
+            "source_url": "https://www.festival-cannes.com/en/f/bacalaureat/"
+          }
+        ],
+        "decision_note": "Réserve draft mercredi rang 4 ; identité et textes stables réutilisés, nouvelle diffusion recoupée séparément par deux éditeurs actuels, provenance amont inconnue.",
+        "alternatives": [
+          "sl-mercredi-a-ghost-story",
+          "sl-mercredi-m-le-maudit",
+          "sl-mercredi-gens-de-dublin"
+        ]
+      },
+      {
+        "id": "sl-mercredi-interstellar-2014",
+        "title": "Interstellar",
+        "work_id": "interstellar-2014",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Matt Zoller Seitz lit le voyage spatial comme une fresque émotionnelle sur la famille, la séparation et la mortalité.",
+            "source_url": "https://www.rogerebert.com/reviews/interstellar-2014"
+          }
+        ],
+        "decision_note": "Réserve draft mercredi rang 5 ; identité et textes stables réutilisés, nouvelle diffusion recoupée séparément par deux éditeurs actuels, provenance amont inconnue.",
+        "alternatives": [
+          "sl-mercredi-a-ghost-story",
+          "sl-mercredi-m-le-maudit",
+          "sl-mercredi-gens-de-dublin"
+        ]
+      },
+      {
+        "id": "sl-mercredi-peau-d-ane-1970",
+        "title": "Peau d’âne",
+        "work_id": "peau-d-ane-1970",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Roger Ebert souligne l’invention visuelle et musicale avec laquelle Demy transforme le conte en féerie singulière.",
+            "source_url": "https://www.rogerebert.com/reviews/donkey-skin-2005"
+          }
+        ],
+        "decision_note": "Réserve draft mercredi rang 6 ; identité et textes stables réutilisés, nouvelle diffusion recoupée séparément par deux éditeurs actuels, provenance amont inconnue.",
+        "alternatives": [
+          "sl-mercredi-a-ghost-story",
+          "sl-mercredi-m-le-maudit",
+          "sl-mercredi-gens-de-dublin"
         ]
       }
     ]
@@ -8320,7 +8465,8 @@
       "run_state": "running",
       "completed_batches": [
         "Trio développé du vendredi matérialisé avec trois nouvelles œuvres fraîches entièrement revues.",
-        "Deux réserves complètes ajoutées au mardi et horaire du premier choix réconcilié sur les grilles actuelles."
+        "Deux réserves complètes ajoutées au mardi et horaire du premier choix réconcilié sur les grilles actuelles.",
+        "Trois réserves complètes ajoutées au mercredi depuis des dossiers déjà revus, avec nouvelles diffusions recoupées."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -8331,7 +8477,7 @@
       ],
       "complete_cards_added": 0,
       "draft_cards_added": 3,
-      "draft_reserves_added": 2,
+      "draft_reserves_added": 5,
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
@@ -8339,8 +8485,8 @@
       "additions": {
         "new_works": 3,
         "visible_draft_cards": 3,
-        "distinct_reserves_added": 2,
-        "reused_existing_cards": 2,
+        "distinct_reserves_added": 5,
+        "reused_existing_cards": 5,
         "scope": "comparaison avec bc9f78f1534b222b560b92f9c4040569412c3f5c"
       },
       "intervals": [
@@ -8372,6 +8518,18 @@
           "started_at": "2026-10-15T13:19:00.000Z",
           "ended_at": "2026-10-15T13:21:37.183Z",
           "note": "Chevauche la recherche ; remplacement du pool mardi complet et ajout de deux réserves."
+        },
+        {
+          "kind": "recherche",
+          "started_at": "2026-10-15T13:26:36.510Z",
+          "ended_at": "2026-10-15T13:29:43.840Z",
+          "note": "Recoupements groupés des diffusions du mercredi pour trois dossiers déjà complets."
+        },
+        {
+          "kind": "redaction_rendu",
+          "started_at": "2026-10-15T13:28:30.000Z",
+          "ended_at": "2026-10-15T13:29:43.840Z",
+          "note": "Chevauche la recherche ; ajout mécanique de trois réserves au pool et à la grille du mercredi."
         }
       ],
       "continuation_decisions": [
@@ -8456,7 +8614,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-15T13:21:37.183Z",
+  "updated_at": "2026-10-15T13:29:43.840Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -9222,7 +9380,21 @@
         "contrôle CI distant du visuel et des liens sur la tête exacte"
       ],
       "decision": "carte draft matérialisée — CI final requis",
-      "reason": "Identité, diffusion officielle, réception, note datée, visuel, fraîcheur et textes revus ; limite de durée explicitement conservée."
+      "reason": "Identité, diffusion officielle, réception, note datée, visuel, fraîcheur et textes revus ; limite de durée explicitement conservée.",
+      "additional_broadcasts": [
+        {
+          "date": "2026-10-21",
+          "start": "13:35",
+          "channel": "Arte",
+          "source_urls": [
+            "https://television.telerama.fr/programme-tv-mercredi/arte",
+            "https://tv-programme.com/arte/mercredi-21-octobre-2026/"
+          ],
+          "checked_at": "2026-10-15T13:29:43.840Z",
+          "status": "verified_by_two_current_guides_distinct_publishers_upstream_unknown",
+          "note": "Titre, chaîne, date et heure concordent ; indépendance amont non affirmée."
+        }
+      ]
     },
     {
       "title": "La vie de château",
@@ -9454,7 +9626,21 @@
         "contrôle CI distant du visuel et des liens sur la tête exacte"
       ],
       "decision": "carte draft matérialisée — CI final requis",
-      "reason": "Identité, diffusion concordante, durée CNC, réception, notes, visuel, fraîcheur et textes revus."
+      "reason": "Identité, diffusion concordante, durée CNC, réception, notes, visuel, fraîcheur et textes revus.",
+      "additional_broadcasts": [
+        {
+          "date": "2026-10-21",
+          "start": "15:30",
+          "channel": "Ciné+ Classic",
+          "source_urls": [
+            "https://tv-programme.com/mercredi-21-octobre-2026/14h-16h/",
+            "https://www.programmetvcesoir.net/chaine/cine-classic/2026-10-21"
+          ],
+          "checked_at": "2026-10-15T13:29:43.840Z",
+          "status": "verified_by_two_current_guides_distinct_publishers_upstream_unknown",
+          "note": "Titre, chaîne, date et heure concordent ; indépendance amont non affirmée."
+        }
+      ]
     },
     {
       "title": "Bird",
@@ -11215,7 +11401,21 @@
         "contrôle CI distant du visuel et des liens sur la tête exacte"
       ],
       "decision": "carte draft vendredi rang 3 matérialisée — CI final requis",
-      "reason": "Niveau 3 revu ; contrepoint critique et austérité signalés."
+      "reason": "Niveau 3 revu ; contrepoint critique et austérité signalés.",
+      "additional_broadcasts": [
+        {
+          "date": "2026-10-21",
+          "start": "17:08",
+          "channel": "Ciné+ Festival",
+          "source_urls": [
+            "https://tv-programme.com/cine-plus-festival/mercredi-21-octobre-2026/",
+            "https://television.telerama.fr/programme-tv-mercredi/cine-club"
+          ],
+          "checked_at": "2026-10-15T13:29:43.840Z",
+          "status": "verified_by_two_current_guides_distinct_publishers_upstream_unknown",
+          "note": "Titre, chaîne, date et heure concordent ; indépendance amont non affirmée."
+        }
+      ]
     }
   ]
 }
