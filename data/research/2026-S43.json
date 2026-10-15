@@ -748,6 +748,13 @@
       "scope": "TF1, semaine civile 2026-S43",
       "status": "open",
       "note": "Ce lot ne couvre complètement que le dimanche 18 octobre ; les nuits précédentes du samedi 17 et du jeudi 22 et les journées des 19, 20, 21 et 23 restent à relever."
+    },
+    {
+      "id": "action-wednesday-partial-read-20261015T074551Z",
+      "observed_at": "2026-10-15T07:45:51Z",
+      "scope": "Action, mercredi 21 octobre 2026",
+      "status": "open",
+      "note": "L’ouverture directe de la grille a été indisponible. Une recherche ciblée distincte a retrouvé la page datée et exposé seulement le début de la grille (00:07 Une vierge chez les morts vivants, 01:39 La guerre des polices, 03:20 La fille de Dracula) avant la décision terminale. Aucune ligne n’a été importée ; reprendre par l’ouverture du résultat ciblé et relire la grille complète."
     }
   ],
   "shortlist": {
@@ -1414,9 +1421,9 @@
     {
       "prompt_revision": "production-weekly-continuity-2026-10-10",
       "started_at": "2026-10-15T06:55:29Z",
-      "ended_at": null,
-      "duration_basis": "Passage en cours ; heures UTC réellement observées.",
-      "run_state": "running",
+      "ended_at": "2026-10-15T07:45:53.722Z",
+      "duration_basis": "UTC observée du début du passage 2026-10-15T06:55:29Z à la décision terminale 2026-10-15T07:45:53.722Z.",
+      "run_state": "stopped",
       "completed_batches": [
         "Ajout de 79 observations du 20 octobre depuis trois grilles Web complètes et datées : TV5MONDE, Canal+ Box Office et Canal+ Grand Écran.",
         "Ajout de 97 observations du 21 octobre depuis quatre grilles Web complètes et datées : TV5MONDE, Canal+ Box Office, Canal+ Grand Écran et TCM Cinéma.",
@@ -1445,7 +1452,7 @@
       "draft_cards_added": 0,
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
-      "stop_reason": null,
+      "stop_reason": "budget_reserve_reached : la réserve finale de cinq minutes a été atteinte après 3024,722 secondes observées.",
       "next_useful_batch": "Compléter Action, RMC Story et RMC Découverte le 21 octobre, puis poursuivre le groupe les 22 et 23 octobre.",
       "continuation_decisions": [
         {
@@ -2043,20 +2050,86 @@
             "ready_handoff": null
           },
           "evaluated_by": "scripts/editorial-continuation.mjs"
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T07:45:21.589Z",
+          "elapsed_seconds": 2992.589,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "c6282f4c8c21159ff184514c6179c92e3ad0ff89",
+          "next_actions": [
+            "Compléter Action, RMC Story et RMC Découverte le 21 octobre, puis poursuivre le groupe les 22 et 23 octobre.",
+            "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
+            "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
+            "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte.",
+            "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés."
+          ],
+          "remaining_count": 12,
+          "next_actions_total": 16,
+          "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 16,
+          "waiting_actions": [],
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-15T06:55:29Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T08:16:27.424Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "evaluated_by": "scripts/editorial-continuation.mjs"
+        },
+        {
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-15T07:45:53.722Z",
+          "elapsed_seconds": 3024.722,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "c6282f4c8c21159ff184514c6179c92e3ad0ff89",
+          "next_actions": [
+            "Compléter Action, RMC Story et RMC Découverte le 21 octobre, puis poursuivre le groupe les 22 et 23 octobre.",
+            "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
+            "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
+            "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte.",
+            "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés."
+          ],
+          "remaining_count": 12,
+          "next_actions_total": 16,
+          "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 16,
+          "waiting_actions": [],
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-15T06:55:29Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T08:16:27.424Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "evaluated_by": "scripts/editorial-continuation.mjs"
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T07:43:29.485Z",
-        "elapsed_seconds": 2880.485,
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-15T07:45:53.722Z",
+        "elapsed_seconds": 3024.722,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "4c5c3e3981a43da77c9ce3e9bd86eb40c5b0986a",
+        "source_sha": "c6282f4c8c21159ff184514c6179c92e3ad0ff89",
         "next_actions": [
-          "Poursuivre Canal+, Action, RMC Story et RMC Découverte du 21 au 23 octobre.",
+          "Compléter Action, RMC Story et RMC Découverte le 21 octobre, puis poursuivre le groupe les 22 et 23 octobre.",
           "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
           "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
           "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte.",
@@ -2196,5 +2269,5 @@
       ]
     }
   ],
-  "updated_at": "2026-10-15T07:44:25Z"
+  "updated_at": "2026-10-15T07:45:53.722Z"
 }
