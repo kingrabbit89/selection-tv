@@ -31,7 +31,8 @@
     "Lecture complète des grilles Web datées du samedi 17 octobre pour TV5MONDE, Canal+ Box Office, Canal+ Grand Écran et TCM Cinéma : 90 observations civiles ajoutées, nuits 00:00–05:59 incluses, sans seconde lecture ni certification de proposition.",
     "Lecture complète des grilles Web datées du dimanche 18 octobre pour TV5MONDE, Canal+ Box Office, Canal+ Grand Écran et TCM Cinéma : 84 observations civiles ajoutées, nuits 00:00–05:59 incluses, sans seconde lecture ni certification de proposition.",
     "Lecture complète des grilles Web datées du lundi 19 octobre pour TV5MONDE, Canal+ Box Office, Canal+ Grand Écran et TCM Cinéma : 92 observations civiles ajoutées, nuits 00:00–05:59 incluses, sans seconde lecture ni certification de proposition.",
-    "Lecture complète de la grille Web datée du mardi 20 octobre pour TCM Cinéma : 14 observations civiles ajoutées, nuit 00:00–05:59 incluse, sans seconde lecture ni certification de proposition."
+    "Lecture complète de la grille Web datée du mardi 20 octobre pour TCM Cinéma : 14 observations civiles ajoutées, nuit 00:00–05:59 incluse, sans seconde lecture ni certification de proposition.",
+    "Lecture complète des grilles Web datées du mardi 20 octobre pour TV5MONDE, Canal+ Box Office et Canal+ Grand Écran : 79 observations civiles ajoutées, nuits 00:00–05:59 incluses, sans seconde lecture ni certification de proposition."
   ],
   "blockers": [],
   "research_attempts": [],
@@ -328,6 +329,27 @@
       "stability": "cycle_specific",
       "applies_to": "Inventaire primaire du mardi 20 octobre 2026 pour TCM Cinéma uniquement.",
       "evidence_note": "La page portait explicitement TCM Cinéma et la date du mardi 20 octobre 2026. La ligne de fin de soirée du lundi affichée en tête a été exclue ; les quatorze créneaux commençant le 20, y compris 00:00–05:59, ont été conservés. Ce lot ne prouve ni les autres chaînes ou dates, ni la seconde lecture, ni l’indépendance, ni la qualité éditoriale.",
+      "status": "partial"
+    },
+    {
+      "id": "web-grids-tuesday-three-cine-channels-20261015T070055Z",
+      "work_id": null,
+      "fields": [
+        "inventory.title",
+        "inventory.channel",
+        "inventory.date",
+        "inventory.start",
+        "inventory.source_url"
+      ],
+      "urls": [
+        "https://tv-programme.com/tv5monde/mardi-20-octobre-2026/",
+        "https://tv-programme.com/canal-plus-box-office/mardi-20-octobre-2026/",
+        "https://tv-programme.com/canal-plus-grand-ecran/mardi-20-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T07:00:55Z",
+      "stability": "cycle_specific",
+      "applies_to": "Inventaire primaire du mardi 20 octobre 2026 pour TV5MONDE, Canal+ Box Office et Canal+ Grand Écran uniquement.",
+      "evidence_note": "Chaque page portait explicitement le nom de la chaîne et la date du mardi 20 octobre 2026. Les lignes de fin de soirée du lundi encore affichées en tête ont été exclues ; les créneaux commençant le 20, y compris 00:00–05:59, ont été conservés. Ce lot ne prouve ni les trois autres dates de ces chaînes, ni la seconde lecture, ni l’indépendance, ni la qualité éditoriale.",
       "status": "partial"
     }
   ],
@@ -1007,7 +1029,113 @@
           "note": "Début du bilan terminal ; durée ultérieure non attribuée avant la sauvegarde distante."
         }
       ]
+    },
+    {
+      "prompt_revision": "production-weekly-continuity-2026-10-10",
+      "started_at": "2026-10-15T06:55:29Z",
+      "ended_at": null,
+      "duration_basis": "Passage en cours ; heures UTC réellement observées.",
+      "run_state": "running",
+      "completed_batches": [
+        "Ajout de 79 observations du 20 octobre depuis trois grilles Web complètes et datées : TV5MONDE, Canal+ Box Office et Canal+ Grand Écran."
+      ],
+      "deliverables_changed": [
+        "data/inventory/2026-S43.json",
+        "data/research/2026-S43.json"
+      ],
+      "complete_cards_added": 0,
+      "draft_cards_added": 0,
+      "partial_dossiers_added": 0,
+      "requirements_resolved": 0,
+      "stop_reason": null,
+      "next_useful_batch": "Poursuivre TV5MONDE, Canal+ Box Office, Canal+ Grand Écran et TCM Cinéma du 21 au 23 octobre.",
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T06:58:02.981Z",
+          "elapsed_seconds": 153.981,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "59980723e9a5196bb87177030bd1250269cba7c2",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T07:56:21.642869Z",
+          "next_actions": [
+            "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
+            "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
+            "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte.",
+            "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés.",
+            "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
+          ],
+          "remaining_count": 12,
+          "next_actions_total": 15,
+          "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 15,
+          "waiting_actions": [],
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-15T06:55:29Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T07:56:21.642869Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "evaluated_by": "scripts/editorial-continuation.mjs"
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-15T06:58:02.981Z",
+        "elapsed_seconds": 153.981,
+        "prompt_revision": "production-weekly-continuity-2026-10-10",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S43",
+        "source_sha": "59980723e9a5196bb87177030bd1250269cba7c2",
+        "lease_owned": "yes",
+        "lease_until": "2026-10-15T07:56:21.642869Z",
+        "next_actions": [
+          "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
+          "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
+          "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte.",
+          "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés.",
+          "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
+        ],
+        "remaining_count": 12,
+        "next_actions_total": 15,
+        "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "all_actions_total": 15,
+        "waiting_actions": [],
+        "research_review_warnings": [],
+        "observations": {
+          "started_at": "2026-10-15T06:55:29Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T07:56:21.642869Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
+        },
+        "evaluated_by": "scripts/editorial-continuation.mjs"
+      },
+      "measured_intervals": [
+        {
+          "kind": "resume_and_extraction",
+          "started_at": "2026-10-15T06:55:29Z",
+          "ended_at": "2026-10-15T06:58:02.981Z",
+          "note": "Cible, contrats attestés inchangés, bail, diagnostics, flow sans réseau et triage."
+        },
+        {
+          "kind": "research",
+          "started_at": "2026-10-15T06:58:05Z",
+          "ended_at": "2026-10-15T07:00:55Z",
+          "note": "Lecture groupée de trois grilles Web datées du mardi et transcription mécanique des lignes civiles ; aucune seconde lecture ni qualification éditoriale."
+        }
+      ]
     }
   ],
-  "updated_at": "2026-10-15T06:53:02.538Z"
+  "updated_at": "2026-10-15T07:00:55Z"
 }
