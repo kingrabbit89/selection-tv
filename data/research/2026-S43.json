@@ -21,7 +21,8 @@
   "completed_batches": [
     "Initialisation S43, diagnostics de tête et collecte officielle ARTE/France 2/3/4/5 : 2 121 observations brutes capturées, 1 130 lignes admissibles importées dans l’inventaire, sans certification de couverture.",
     "Lecture datée de grilles TF1 Télé 7 Jours : 70 observations civiles sauvegardées pour les 17, 18, 19, 22 et 23 octobre ; seul le 18 octobre possède ici une journée et sa nuit précédente suffisamment couvertes pour déclarer TF1 dans channels_scanned.",
-    "Lecture complète des grilles Web datées du samedi 17 octobre pour M6, W9, TMC et Canal+ Cinéma : 74 observations civiles ajoutées, nuits 00:00–05:59 incluses, sans seconde lecture ni certification de proposition."
+    "Lecture complète des grilles Web datées du samedi 17 octobre pour M6, W9, TMC et Canal+ Cinéma : 74 observations civiles ajoutées, nuits 00:00–05:59 incluses, sans seconde lecture ni certification de proposition.",
+    "Lecture complète des grilles Web datées du dimanche 18 octobre pour M6, W9, TMC et Canal+ Cinéma : 71 observations civiles ajoutées, nuits 00:00–05:59 incluses, sans seconde lecture ni certification de proposition."
   ],
   "blockers": [],
   "research_attempts": [],
@@ -102,6 +103,28 @@
       "applies_to": "Inventaire primaire du samedi 17 octobre 2026 pour M6, W9, TMC et Canal+ Cinéma uniquement.",
       "evidence_note": "Chaque page portait explicitement le nom de la chaîne et la date du samedi 17 octobre 2026. Les programmes commençant le 16 au soir mais affichés en tête de page ont été exclus ; les créneaux civils du 17, y compris 00:00–05:59, ont été conservés. Ce lot ne prouve ni les six autres jours, ni la seconde lecture, ni l’indépendance, ni la qualité éditoriale.",
       "status": "partial"
+    },
+    {
+      "id": "web-grids-sunday-four-channels-20261015T062448Z",
+      "work_id": null,
+      "fields": [
+        "inventory.title",
+        "inventory.channel",
+        "inventory.date",
+        "inventory.start",
+        "inventory.source_url"
+      ],
+      "urls": [
+        "https://tv-programme.com/m6/dimanche-18-octobre-2026/",
+        "https://tv-programme.com/w9/dimanche-18-octobre-2026/",
+        "https://tv-programme.com/tmc/dimanche-18-octobre-2026/",
+        "https://tv-programme.com/canal-plus-cinema/dimanche-18-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T06:24:48Z",
+      "stability": "cycle_specific",
+      "applies_to": "Inventaire primaire du dimanche 18 octobre 2026 pour M6, W9, TMC et Canal+ Cinéma uniquement.",
+      "evidence_note": "Chaque page portait explicitement le nom de la chaîne et la date du dimanche 18 octobre 2026. Les lignes de fin de soirée du samedi encore affichées en tête ont été exclues ; les créneaux commençant le 18, y compris 00:00–05:59, ont été conservés. Ce lot ne prouve ni les cinq autres jours, ni la seconde lecture, ni l’indépendance, ni la qualité éditoriale.",
+      "status": "partial"
     }
   ],
   "source_issues": [
@@ -159,7 +182,8 @@
         "Checkpoint initial S43 et contrats courants sauvegardés.",
         "Collecte officielle ARTE/France 2/3/4/5 importée : 1 130 lignes d’inventaire, sept dates et nuits présentes sur ce périmètre partiel.",
         "Ajout de 70 observations TF1 issues de trois grilles datées, avec segments manquants conservés explicitement.",
-        "Ajout de 74 observations du 17 octobre depuis quatre grilles Web complètes et datées : M6, W9, TMC et Canal+ Cinéma."
+        "Ajout de 74 observations du 17 octobre depuis quatre grilles Web complètes et datées : M6, W9, TMC et Canal+ Cinéma.",
+        "Ajout de 71 observations du 18 octobre depuis quatre grilles Web complètes et datées : M6, W9, TMC et Canal+ Cinéma."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -170,7 +194,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre les grilles complètes des chaînes obligatoires sur les six autres dates, puis seulement constituer la présélection sourcée.",
+      "next_useful_batch": "Poursuivre les grilles complètes des chaînes obligatoires sur les cinq autres dates et les chaînes encore absentes du week-end.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -225,21 +249,57 @@
             "ready_handoff": null
           },
           "evaluated_by": "scripts/editorial-continuation.mjs"
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T06:23:45.614Z",
+          "elapsed_seconds": 1262.614,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "478997d500b9df7050995b9ec6d71ec57a0533a9",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T07:06:00.948Z",
+          "next_actions": [
+            "Poursuivre les grilles complètes des chaînes obligatoires sur les six autres dates, puis seulement constituer la présélection sourcée.",
+            "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
+            "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
+            "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte.",
+            "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés."
+          ],
+          "remaining_count": 12,
+          "next_actions_total": 16,
+          "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 16,
+          "waiting_actions": [],
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-15T06:02:43Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T07:06:00.948Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "evaluated_by": "scripts/editorial-continuation.mjs"
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T06:17:40.772Z",
-        "elapsed_seconds": 897.772,
+        "observed_at": "2026-10-15T06:23:45.614Z",
+        "elapsed_seconds": 1262.614,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
-        "source_sha": "974f1db0f97401b0f12ff56d2d9c06a9cc29d42d",
+        "week": "2026-S43",
+        "source_sha": "478997d500b9df7050995b9ec6d71ec57a0533a9",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T07:06:00.948Z",
         "next_actions": [
-          "Compléter les chaînes obligatoires absentes de l’amorce officielle, puis trier des pistes prometteuses déjà sauvegardées.",
+          "Poursuivre les grilles complètes des chaînes obligatoires sur les six autres dates, puis seulement constituer la présélection sourcée.",
           "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
           "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
           "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte.",
@@ -279,6 +339,12 @@
           "started_at": "2026-10-15T06:18:00Z",
           "ended_at": "2026-10-15T06:20:27Z",
           "note": "Lecture de quatre grilles complètes datées du 17 octobre et transcription mécanique de leurs créneaux civils ; aucune seconde lecture ni qualification éditoriale."
+        },
+        {
+          "kind": "research",
+          "started_at": "2026-10-15T06:23:50Z",
+          "ended_at": "2026-10-15T06:24:48Z",
+          "note": "Lecture de quatre grilles complètes datées du 18 octobre et transcription mécanique de leurs créneaux civils ; aucune seconde lecture ni qualification éditoriale."
         }
       ]
     }
