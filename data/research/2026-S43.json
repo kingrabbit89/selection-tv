@@ -123,7 +123,10 @@
     "2026-10-15T16:45:08.774Z — seconde lecture France 5 sur les sept dates : 37 omissions et plusieurs décalages conservés, dont En tension le 18 et trois identités Serengeti le 21 ; couverture non close.",
     "2026-10-15T16:50:14.000Z — seconde lecture Arte sur les sept dates : 186 événements comparés, aucune omission ; deux horaires du mardi corrigés de 01:10 à 01:15 et de 04:10 à 04:15 selon l’officiel confirmé, aucune carte visible affectée.",
     "2026-10-15T17:05:14.237Z — France 5 : 35 omissions relues importées dans l’inventaire (12 émissions nommées et 23 lignes Imprévus) ; le doublon probable Les Moodz et la ligne conflictuelle En tension sont suspendus, les trois identités Serengeti restent ouvertes.",
-    "2026-10-15T17:01:31.348Z — collecte officielle groupée ARTE et France 2/3/4/5 : 2 121 observations issues de 16 sources parsées ; 0 ajout, 1 130 doublons, 976 lignes exclues et 15 conflits à revoir, sans certification de couverture."
+    "2026-10-15T17:01:31.348Z — collecte officielle groupée ARTE et France 2/3/4/5 : 2 121 observations issues de 16 sources parsées ; 0 ajout, 1 130 doublons, 976 lignes exclues et 15 conflits à revoir, sans certification de couverture.",
+    "2026-10-15T17:05:08.531Z — seconde lecture France 2 sur les sept jours et nuits : 241/241 créneaux officiels présents ; 49 départs propres au guide analysés, conflits de segmentation et séquences du 18 à 23:41/23:45 et du 23 à 15:40–18:35 conservés ouverts.",
+    "2026-10-15T17:13:30.000Z — France 5 : tentative ciblée et voies alternatives pour En tension et Serengeti ; concordance des guides confirmée mais contradiction officielle persistante, lignes suspendues et conditions de reprise enregistrées.",
+    "2026-10-15T17:11:00.672Z — seconde lecture France 3 sur les sept jours et nuits : 260 lignes sauvegardées comparées ; 14 écarts officiels bruts expliqués par des conteneurs, une omission Scooby-Doo à 10:30 et un conflit d’identité à 01:35 conservés ouverts."
   ],
   "blockers": [],
   "research_attempts": [
@@ -495,6 +498,61 @@
         "resume_when": "Une page officielle Ciné+ ou correction officielle datée indique l’heure, ou une modification fraîche des guides fait converger au moins deux éditeurs distincts sans paire contradictoire encore actuelle.",
         "observed_at": "2026-10-15T16:24:52.033Z",
         "evidence": "Télérama 17:54 ; Digital3D 17:54 ; TV-programme 17:51 ; Molotov 17:51 ; Orange inaccessible."
+      }
+    },
+    {
+      "id": "france5-en-tension-official-conflict-2026-10-15T17:13:30Z",
+      "object": "En tension — En tension dans les lycées avec HugoDécrypte",
+      "version": "diffusion France 5 du 18 octobre 2026",
+      "broadcast": "France 5, dimanche 18 octobre 2026 à 20:45 selon trois guides actuels",
+      "question": "Arbitrer l’insertion En tension et toute la séquence du soir face à la grille officielle FranceTVPro courante qui ne la contient pas.",
+      "urls": [
+        "https://www.francetvpro.fr/grille-xml/france-5/17-10-2026",
+        "https://tv-programme.com/france-5/dimanche-18-octobre-2026/",
+        "https://zappe.fr/programme-tv/chaine/france-5/2026-10-18/",
+        "https://tele.24infos.fr/chaine/france-5/dimanche"
+      ],
+      "checked_at": "2026-10-15T17:13:30.000Z",
+      "result": "TV-programme, Zappe et 24Infos concordent sur En tension 20:45, Le monde en face 21:10, Etats-Unis–Chine 21:11 et Premiers résistants 22:45. La collecte FranceTVPro fraîche de 17:01 UTC conserve C politique jusqu’à 21:00 puis Le Monde en Face 21:05, documentaire 21:07 et Premiers Résistants 22:40 ; aucune correction officielle datée trouvée.",
+      "blocking_scope": "Ligne En tension suspendue et séquence France 5 du 18 octobre non réconciliée ; aucune carte visible affectée.",
+      "resume_condition": "Correction officielle FranceTVPro datée ou modification fraîche de la grille officielle courante.",
+      "retry_gate": {
+        "state": "waiting_for_new_evidence",
+        "action_texts": [
+          "Reprendre En tension du 18 octobre seulement si FranceTVPro publie une correction datée ou si sa grille officielle courante change."
+        ],
+        "reason": "Trois guides distincts concordent, mais la grille officielle courante du même événement reste contradictoire.",
+        "resume_when": "FranceTVPro publie une correction datée ou sa grille officielle courante change.",
+        "observed_at": "2026-10-15T17:13:30.000Z",
+        "evidence": "FranceTVPro 21:05/21:07/22:40 sans En tension ; TV-programme, Zappe et 24Infos 20:45/21:10/21:11/22:45 avec En tension."
+      }
+    },
+    {
+      "id": "france5-serengeti-identity-conflict-2026-10-15T17:13:30Z",
+      "object": "Serengeti — trois épisodes du 21 octobre 2026",
+      "version": "diffusions France 5 à 10:00, 11:00 et 12:00",
+      "broadcast": "France 5, mercredi 21 octobre 2026",
+      "question": "Réconcilier les identités officielles Le Refuge / L’enfer du brasier / Les Premières Leçons avec Les trônes des fauves / Un paradis en feu / Vivre à tout prix annoncés par les guides.",
+      "urls": [
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/21-10-2026",
+        "https://zappe.fr/programme-tv/chaine/france-5/2026-10-21/",
+        "https://tele.24infos.fr/chaine/france-5/mercredi",
+        "https://www.linternaute.com/television/programme-hertz-mercredi-21-octobre-2026-matin/",
+        "https://www.programme-television.org/type/documentaires/animaliers/serengeti-la-grande-cavalcade-des-animaux-95767256"
+      ],
+      "checked_at": "2026-10-15T17:13:30.000Z",
+      "result": "La page FranceTVPro datée décrit précisément Le Refuge à 10:00 et conserve les trois identités officielles sauvegardées. Zappe, 24Infos, L’Internaute et Télé 7 Jours concordent à 10:00/11:00/12:00 sur trois titres différents ; Ouest-France conserve le même trio à 10:01/10:55/11:55. L’identité/version reste contradictoire malgré les horaires proches.",
+      "blocking_scope": "Les trois lignes officielles sont conservées sans écrasement ; aucun de ces épisodes ne peut être retenu ni servir de réserve avant arbitrage.",
+      "resume_condition": "Correction officielle datée reliant explicitement les titres des guides aux épisodes FranceTVPro, ou modification fraîche de la grille officielle.",
+      "retry_gate": {
+        "state": "waiting_for_new_evidence",
+        "action_texts": [
+          "Reprendre les trois identités Serengeti du 21 octobre seulement si une correction officielle datée réconcilie les titres FranceTVPro et ceux des guides actuels."
+        ],
+        "reason": "La source officielle détaillée et plusieurs guides actuels décrivent des identités d’épisode incompatibles.",
+        "resume_when": "Une correction officielle datée réconcilie explicitement les identités ou la grille officielle change.",
+        "observed_at": "2026-10-15T17:13:30.000Z",
+        "evidence": "FranceTVPro : Le Refuge / L’enfer du brasier / Les Premières Leçons ; guides : Les trônes des fauves / Un paradis en feu / Vivre à tout prix."
       }
     }
   ],
@@ -4548,6 +4606,72 @@
       "applies_to": "ARTE et France 2/3/4/5 — collecte officielle groupée 2026-S43",
       "evidence_note": "2 121 observations, 16 sources parsées ; 0 ajout, 1 130 doublons, 976 exclusions et 15 conflits. Acquisition fraîche sauvegardée localement pour revue ; ne clôt aucune couverture.",
       "status": "official_collection_review_required"
+    },
+    {
+      "fields": [
+        "level2_schedule_coverage"
+      ],
+      "urls": [
+        "https://www.francetvpro.fr/grille-xml/france-2/10-10-2026",
+        "https://www.francetvpro.fr/grille-xml/france-2/17-10-2026",
+        "https://www.linternaute.com/television/programme-france-2-samedi-17-octobre-2026/",
+        "https://www.linternaute.com/television/programme-france-2-dimanche-18-octobre-2026/",
+        "https://www.linternaute.com/television/programme-france-2-lundi-19-octobre-2026/",
+        "https://www.linternaute.com/television/programme-france-2-mardi-20-octobre-2026/",
+        "https://www.linternaute.com/television/programme-france-2-mercredi-21-octobre-2026/",
+        "https://www.linternaute.com/television/programme-france-2-jeudi-22-octobre-2026/",
+        "https://www.linternaute.com/television/programme-france-2-vendredi-23-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T17:05:08.531Z",
+      "stability": "cycle_specific",
+      "applies_to": "France 2 — sept jours et nuits 2026-S43",
+      "evidence_note": "241/241 créneaux de la capture officielle présents ; grilles L’Internaute complètes comparées et contrôles TV-programme ciblés. Divergences substantielles conservées ouvertes ; indépendance amont inconnue.",
+      "status": "level2_complete_with_schedule_conflicts"
+    },
+    {
+      "fields": [
+        "schedule_title",
+        "channel",
+        "date",
+        "time",
+        "identity_version"
+      ],
+      "urls": [
+        "https://www.francetvpro.fr/grille-xml/france-5/17-10-2026",
+        "https://zappe.fr/programme-tv/chaine/france-5/2026-10-18/",
+        "https://tele.24infos.fr/chaine/france-5/dimanche",
+        "https://www.francetvpro.fr/grille/france-5/10-10-2026/21-10-2026",
+        "https://zappe.fr/programme-tv/chaine/france-5/2026-10-21/"
+      ],
+      "checked_at": "2026-10-15T17:13:30.000Z",
+      "stability": "cycle_specific",
+      "applies_to": "France 5 — En tension 18 octobre et Serengeti 21 octobre 2026",
+      "evidence_note": "Les guides concordent entre eux, mais la grille officielle courante demeure contradictoire sur En tension et sur les identités Serengeti. Les lignes officielles restent conservées ; aucune proposition certifiée.",
+      "status": "conflict_waiting_for_official_change"
+    },
+    {
+      "fields": [
+        "level2_schedule_coverage"
+      ],
+      "urls": [
+        "https://www.francetvpro.fr/grille-xml/france-3/10-10-2026",
+        "https://www.francetvpro.fr/grille-xml/france-3/17-10-2026",
+        "https://www.linternaute.com/television/programme-france-3-samedi-17-octobre-2026/",
+        "https://www.linternaute.com/television/programme-france-3-dimanche-18-octobre-2026/",
+        "https://www.linternaute.com/television/programme-france-3-lundi-19-octobre-2026/",
+        "https://www.linternaute.com/television/programme-france-3-mardi-20-octobre-2026/",
+        "https://www.linternaute.com/television/programme-france-3-mercredi-21-octobre-2026/",
+        "https://www.linternaute.com/television/programme-france-3-jeudi-22-octobre-2026/",
+        "https://www.linternaute.com/television/programme-france-3-vendredi-23-octobre-2026/",
+        "https://tv-programme.com/france-3/samedi-17-octobre-2026/",
+        "https://tv-programme.com/france-3/dimanche-18-octobre-2026/",
+        "https://tv-programme.com/france-3/jeudi-22-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T17:11:00.672Z",
+      "stability": "cycle_specific",
+      "applies_to": "France 3 — sept jours et nuits 2026-S43",
+      "evidence_note": "Sept jours complets comparés. Les 14 écarts officiels bruts sont des conteneurs imbriqués déjà couverts ; Scooby-Doo 10:30 reste à importer/revoir et le titre 01:35 reste contradictoire. Indépendance amont inconnue.",
+      "status": "level2_complete_with_open_omission_and_conflict"
     }
   ],
   "source_issues": [
@@ -5877,13 +6001,15 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Résoudre les conflits France 5 En tension du 18 octobre et les trois identités Serengeti du 21, ainsi que le rapprochement Les Moodz, sans écraser les lignes officielles sauvegardées.",
+      "Importer/revoir l’omission France 3 Scooby-Doo du 17 octobre à 10:30 et résoudre le conflit de titre à 01:35 sans écraser la ligne officielle.",
       "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
       "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
       "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
       "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
       "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master.",
-      "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent."
+      "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent.",
+      "Reprendre En tension du 18 octobre seulement si FranceTVPro publie une correction datée ou si sa grille officielle courante change.",
+      "Reprendre les trois identités Serengeti du 21 octobre seulement si une correction officielle datée réconcilie les titres FranceTVPro et ceux des guides actuels."
     ]
   },
   "run_metrics": [
@@ -13749,7 +13875,10 @@
       "run_state": "running",
       "completed_batches": [
         "2026-10-15T17:05:14.237Z — France 5 : 35 omissions relues importées dans l’inventaire (12 émissions nommées et 23 lignes Imprévus) ; le doublon probable Les Moodz et la ligne conflictuelle En tension sont suspendus, les trois identités Serengeti restent ouvertes.",
-        "2026-10-15T17:01:31.348Z — collecte officielle groupée ARTE et France 2/3/4/5 : 2 121 observations issues de 16 sources parsées ; 0 ajout, 1 130 doublons, 976 lignes exclues et 15 conflits à revoir, sans certification de couverture."
+        "2026-10-15T17:01:31.348Z — collecte officielle groupée ARTE et France 2/3/4/5 : 2 121 observations issues de 16 sources parsées ; 0 ajout, 1 130 doublons, 976 lignes exclues et 15 conflits à revoir, sans certification de couverture.",
+        "2026-10-15T17:05:08.531Z — seconde lecture France 2 sur les sept jours et nuits : 241/241 créneaux officiels présents ; 49 départs propres au guide analysés, conflits de segmentation et séquences du 18 à 23:41/23:45 et du 23 à 15:40–18:35 conservés ouverts.",
+        "2026-10-15T17:13:30.000Z — France 5 : tentative ciblée et voies alternatives pour En tension et Serengeti ; concordance des guides confirmée mais contradiction officielle persistante, lignes suspendues et conditions de reprise enregistrées.",
+        "2026-10-15T17:11:00.672Z — seconde lecture France 3 sur les sept jours et nuits : 260 lignes sauvegardées comparées ; 14 écarts officiels bruts expliqués par des conteneurs, une omission Scooby-Doo à 10:30 et un conflit d’identité à 01:35 conservés ouverts."
       ],
       "deliverables_changed": [
         "data/inventory/2026-S43.json",
@@ -13762,7 +13891,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Intégrer les secondes lectures France 2 et France 3, puis résoudre les conflits France 5 ou avancer une rubrique indépendante.",
+      "next_useful_batch": "Importer/revoir Scooby-Doo France 3 et résoudre le titre à 01:35, ou avancer une rubrique indépendante ; les conflits France 5 attendent une correction officielle.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -13791,6 +13920,27 @@
           "ended_at": "2026-10-15T17:05:14.237Z",
           "overlap": false,
           "note": "Revue mécanique des omissions France 5 et préparation du checkpoint."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": null,
+          "ended_at": "2026-10-15T17:05:08.531Z",
+          "overlap": true,
+          "note": "Début exact non mesuré ; seconde lecture France 2 en lecture seule, parallèle à la réconciliation France 5."
+        },
+        {
+          "kind": "research",
+          "started_at": "2026-10-15T17:10:30.000Z",
+          "ended_at": "2026-10-15T17:13:30.000Z",
+          "overlap": false,
+          "note": "Recherche ciblée France 5 : officiel et guides distincts, sans résolution des contradictions."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": null,
+          "ended_at": "2026-10-15T17:11:00.672Z",
+          "overlap": true,
+          "note": "Début exact non mesuré ; seconde lecture France 3 en lecture seule, parallèle aux recherches France 5."
         }
       ],
       "continuation_decisions": [
@@ -13872,29 +14022,108 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T17:08:01.077Z",
+          "elapsed_seconds": 647.795,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "3c6b6683548c6f5f3f78d96d2f07a63b25531040",
+          "next_actions": [
+            "Intégrer les secondes lectures France 2 et France 3, puis résoudre les conflits France 5 ou avancer une rubrique indépendante.",
+            "Résoudre les conflits France 5 En tension du 18 octobre et les trois identités Serengeti du 21, ainsi que le rapprochement Les Moodz, sans écraser les lignes officielles sauvegardées.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+            "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 17,
+          "truncated_notice": "12 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 19,
+          "waiting_actions": [
+            {
+              "action_text": "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master.",
+              "gates": [
+                {
+                  "attempt_index": 11,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master."
+                    ],
+                    "reason": "Heure exacte non recoupée : 06:34 contre 06:30 ; aucune preuve officielle datée.",
+                    "resume_when": "Une preuve officielle datée confirme le créneau du 23 octobre, ou un second guide actuel d’un éditeur distinct concorde exactement avec 06:34.",
+                    "observed_at": "2026-10-15T16:24:23.000Z",
+                    "evidence": "TV-programme 06:34 ; SCREEN+ 06:30 ; CANAL+ sans événement daté ; ancienne lecture Télérama 06:33 hors portée du 23 octobre."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent.",
+              "gates": [
+                {
+                  "attempt_index": 16,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent."
+                    ],
+                    "reason": "Deux paires de guides actuels donnent des heures incompatibles pour le même événement.",
+                    "resume_when": "Une page officielle Ciné+ ou correction officielle datée indique l’heure, ou une modification fraîche des guides fait converger au moins deux éditeurs distincts sans paire contradictoire encore actuelle.",
+                    "observed_at": "2026-10-15T16:24:52.033Z",
+                    "evidence": "Télérama 17:54 ; Digital3D 17:54 ; TV-programme 17:51 ; Molotov 17:51 ; Orange inaccessible."
+                  }
+                }
+              ]
+            }
+          ],
+          "research_review_warnings": [
+            "research_attempts[0].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[1].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[8].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[9].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[10].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[14].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[15].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate"
+          ],
+          "observations": {
+            "started_at": "2026-10-15T16:57:13.282Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T17:58:10.070Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T16:58:59.449Z",
-        "elapsed_seconds": 106.167,
+        "observed_at": "2026-10-15T17:08:01.077Z",
+        "elapsed_seconds": 647.795,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "bf4dac650dfbc96e53fb0b630c11f81534027c16",
+        "source_sha": "3c6b6683548c6f5f3f78d96d2f07a63b25531040",
         "next_actions": [
-          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 20 autres chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+          "Intégrer les secondes lectures France 2 et France 3, puis résoudre les conflits France 5 ou avancer une rubrique indépendante.",
+          "Résoudre les conflits France 5 En tension du 18 octobre et les trois identités Serengeti du 21, ainsi que le rapprochement Les Moodz, sans écraser les lignes officielles sauvegardées.",
+          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
           "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
-          "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
-          "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
-          "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
+          "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
         ],
         "remaining_count": 11,
-        "next_actions_total": 15,
-        "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
-        "all_actions_total": 17,
+        "next_actions_total": 17,
+        "truncated_notice": "12 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "all_actions_total": 19,
         "waiting_actions": [
           {
             "action_text": "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master.",
@@ -13955,7 +14184,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-15T17:05:14.237Z",
+  "updated_at": "2026-10-15T17:13:13.490Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -20912,6 +21141,326 @@
           "Empreintes de captures locales transitoires non sauvegardées en Git. Indépendance amont inconnue ; aucun niveau 3 certifié."
         ],
         "status": "reread_complete_with_inventory_corrections"
+      },
+      {
+        "channels": [
+          "France 2"
+        ],
+        "flow": "France 2",
+        "publisher": "France Télévisions / FranceTVPro + L’Internaute / CCM Benchmark ; contrôles ponctuels TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T17:05:08.531Z",
+        "dates": [
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23"
+        ],
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "Comparaison complète de l’inventaire sauvegardé avec la grille officielle FranceTVPro et sept grilles L’Internaute datées ; contrôles ponctuels TV-programme sur les contradictions substantielles.",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://www.francetvpro.fr/grille-xml/france-2/10-10-2026",
+          "https://www.francetvpro.fr/grille-xml/france-2/17-10-2026",
+          "https://www.linternaute.com/television/programme-france-2-samedi-17-octobre-2026/",
+          "https://www.linternaute.com/television/programme-france-2-dimanche-18-octobre-2026/",
+          "https://www.linternaute.com/television/programme-france-2-lundi-19-octobre-2026/",
+          "https://www.linternaute.com/television/programme-france-2-mardi-20-octobre-2026/",
+          "https://www.linternaute.com/television/programme-france-2-mercredi-21-octobre-2026/",
+          "https://www.linternaute.com/television/programme-france-2-jeudi-22-octobre-2026/",
+          "https://www.linternaute.com/television/programme-france-2-vendredi-23-octobre-2026/",
+          "https://tv-programme.com/france-2/samedi-17-octobre-2026/",
+          "https://tv-programme.com/france-2/dimanche-18-octobre-2026/",
+          "https://tv-programme.com/france-2/lundi-19-octobre-2026/",
+          "https://tv-programme.com/france-2/mardi-20-octobre-2026/",
+          "https://tv-programme.com/france-2/mercredi-21-octobre-2026/",
+          "https://tv-programme.com/france-2/jeudi-22-octobre-2026/",
+          "https://tv-programme.com/france-2/vendredi-23-octobre-2026/"
+        ],
+        "source_captures": [
+          {
+            "url": "https://www.francetvpro.fr/grille-xml/france-2/10-10-2026",
+            "sha256": "2557d7b57d96b73135b3e2c925a8860a1a9920fdebef703b7162106d2e1758b9",
+            "scope": "reports de veille du 17 octobre 00:00–05:59"
+          },
+          {
+            "url": "https://www.francetvpro.fr/grille-xml/france-2/17-10-2026",
+            "sha256": "cbe26cb7a91d36ee1f3d03a9a87e6cd705557484c22f8b13d49d2bc70610f4a0",
+            "scope": "17 octobre 06:00 au 24 octobre 05:59"
+          }
+        ],
+        "comparison": {
+          "inventory_rows": 241,
+          "official_rows_target_window": 241,
+          "official_exact_start_matches": 241,
+          "linternaute_rows": 259,
+          "linternaute_same_start_rows": 210,
+          "linternaute_guide_only_starts": 49,
+          "inventory_only_starts_vs_linternaute": 31,
+          "omissions_against_current_official": [],
+          "days": [
+            {
+              "date": "2026-10-17",
+              "inventory": 29,
+              "official": 29,
+              "guide": 32,
+              "same_starts": 26,
+              "guide_only_starts": 6,
+              "inventory_only_starts": 3,
+              "contradictions": [
+                "03:50–06:00 : officiel rugby 03:55 continu jusqu’à 06:00 ; L’Internaute insère Affaire conclue 03:50, rugby 04:00 et Stade 2 04:45 ; TV-programme donne rugby 03:50 puis Stade 2 04:45.",
+                "Matin : officiel Télématin 06:30 ; guide 06:35 avec Journal 08:00 puis Télématin 08:35.",
+                "Météo officielle 13:20 absente du guide."
+              ],
+              "decision": "Conserver l’inventaire officiel ; conflits de segmentation 03:50–06:00 et matin ouverts."
+            },
+            {
+              "date": "2026-10-18",
+              "inventory": 33,
+              "official": 33,
+              "guide": 37,
+              "same_starts": 30,
+              "guide_only_starts": 7,
+              "inventory_only_starts": 3,
+              "contradictions": [
+                "Guide : Courant d’art 04:20 et Le goût du Cap 04:30 ; officiel seulement Le Gout du Cap 04:30.",
+                "Matin : officiel Télématin 06:30 ; guide 06:45 avec Journal 08:05 et Télématin 08:15.",
+                "Guide insère C’est bon à savoir 12:57 et météo 12:59 ; officiel météo 12:55.",
+                "Officiel Que les Meilleurs Gagnent 23:45 ; les deux guides donnent Histoires courtes 23:41."
+              ],
+              "decision": "Conserver l’officiel ; conflits 12:55 et 23:41/23:45 ouverts."
+            },
+            {
+              "date": "2026-10-19",
+              "inventory": 37,
+              "official": 37,
+              "guide": 39,
+              "same_starts": 32,
+              "guide_only_starts": 7,
+              "inventory_only_starts": 5,
+              "contradictions": [
+                "Officiel Wonderwall 00:05 absent du guide, dont Histoires courtes de la veille court jusqu’à 00:30.",
+                "Officiel 06:30/09:15 contre guide 06:25, Journal 08:00, Télématin 08:25 et suite 09:10.",
+                "Officiel Affaire conclue 16:15/17:10 contre guide 16:20/17:15.",
+                "Guide insère Voyage au coeur du patrimoine 21:01, absent de l’officiel."
+              ],
+              "decision": "Conserver l’officiel ; report de veille, insertion 21:01 et horaires ouverts."
+            },
+            {
+              "date": "2026-10-20",
+              "inventory": 37,
+              "official": 37,
+              "guide": 39,
+              "same_starts": 32,
+              "guide_only_starts": 7,
+              "inventory_only_starts": 5,
+              "contradictions": [
+                "Matin officiel 06:30/09:15 contre guide 06:35, Journal 08:00, Télématin 08:17 et suite 09:20.",
+                "Après-midi officiel 16:15/17:10/18:00 contre guide 16:25/17:20/18:01."
+              ],
+              "decision": "Conserver l’officiel ; conflits d’horaire et de segmentation ouverts."
+            },
+            {
+              "date": "2026-10-21",
+              "inventory": 35,
+              "official": 35,
+              "guide": 37,
+              "same_starts": 30,
+              "guide_only_starts": 7,
+              "inventory_only_starts": 5,
+              "contradictions": [
+                "Décalages matin 06:30/09:15 contre 06:35, 08:00, 08:17 et 09:20 ; après-midi 16:15/17:10/18:00 contre 16:25/17:20/18:01."
+              ],
+              "decision": "Conserver l’officiel ; conflits d’horaire et de segmentation ouverts."
+            },
+            {
+              "date": "2026-10-22",
+              "inventory": 33,
+              "official": 33,
+              "guide": 34,
+              "same_starts": 27,
+              "guide_only_starts": 7,
+              "inventory_only_starts": 6,
+              "contradictions": [
+                "Guide agrège les programmes religieux officiels 02:50 et 03:35 en un bloc 02:50–04:05 ; ce n’est pas une omission.",
+                "Décalages matin et après-midi identiques aux 20–21 octobre."
+              ],
+              "decision": "Conserver l’officiel ; agrégation du guide documentée."
+            },
+            {
+              "date": "2026-10-23",
+              "inventory": 37,
+              "official": 37,
+              "guide": 41,
+              "same_starts": 33,
+              "guide_only_starts": 8,
+              "inventory_only_starts": 4,
+              "contradictions": [
+                "Matin : officiel Télématin 06:30 contre guide 06:35, Journal 08:00 et Télématin 08:30.",
+                "Après-midi : officiel Le Mag de la Santé 15:05–16:15 puis Affaire conclue 16:15/17:10 et Tout le monde… 18:00 ; les deux guides donnent Le Mag 15:05–15:40, Affaire 15:40, La vie des objets 16:03, Affaire 16:20/17:20 et Tout le monde… 18:01."
+              ],
+              "decision": "Conserver la capture officielle ; séquence 15:40–18:35 non résolue."
+            }
+          ]
+        },
+        "decisions": [
+          "Les 241 lignes d’inventaire correspondent exactement aux 241 créneaux de la capture officielle courante ; aucune ligne officielle ne doit être ajoutée ou retirée.",
+          "Les 49 départs propres au guide sont surtout des segmentations ; les divergences substantielles restent ouvertes et ne sont pas traitées comme omissions closes."
+        ],
+        "limits": [
+          "FranceTVPro XML ne porte pas d’horodatage de génération explicite ; checked_at conserve la lecture réelle.",
+          "L’Internaute et TV-programme sont des éditeurs distincts, mais l’indépendance de leur acquisition amont reste inconnue.",
+          "Aucune carte, réserve, disponibilité ou qualité éditoriale de niveau 3 n’est certifiée."
+        ],
+        "status": "second_reading_complete_with_schedule_conflicts"
+      },
+      {
+        "channels": [
+          "France 3"
+        ],
+        "flow": "France 3",
+        "publisher": "France Télévisions / FranceTVPro + L’Internaute / CCM Benchmark ; contrôles ciblés TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T17:11:00.672Z",
+        "dates": [
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23"
+        ],
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "Comparaison complète de l’inventaire avec les exports FranceTVPro courant et antérieur, sept grilles L’Internaute datées et contrôles TV-programme ciblés.",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://www.francetvpro.fr/grille-xml/france-3/10-10-2026",
+          "https://www.francetvpro.fr/grille-xml/france-3/17-10-2026",
+          "https://www.linternaute.com/television/programme-france-3-samedi-17-octobre-2026/",
+          "https://www.linternaute.com/television/programme-france-3-dimanche-18-octobre-2026/",
+          "https://www.linternaute.com/television/programme-france-3-lundi-19-octobre-2026/",
+          "https://www.linternaute.com/television/programme-france-3-mardi-20-octobre-2026/",
+          "https://www.linternaute.com/television/programme-france-3-mercredi-21-octobre-2026/",
+          "https://www.linternaute.com/television/programme-france-3-jeudi-22-octobre-2026/",
+          "https://www.linternaute.com/television/programme-france-3-vendredi-23-octobre-2026/",
+          "https://tv-programme.com/france-3/samedi-17-octobre-2026/",
+          "https://tv-programme.com/france-3/dimanche-18-octobre-2026/",
+          "https://tv-programme.com/france-3/jeudi-22-octobre-2026/"
+        ],
+        "comparison": {
+          "counts_by_day": [
+            {
+              "date": "2026-10-17",
+              "saved": 39,
+              "francetvpro_raw": 41,
+              "linternaute": 66
+            },
+            {
+              "date": "2026-10-18",
+              "saved": 32,
+              "francetvpro_raw": 33,
+              "linternaute": 43
+            },
+            {
+              "date": "2026-10-19",
+              "saved": 38,
+              "francetvpro_raw": 40,
+              "linternaute": 59
+            },
+            {
+              "date": "2026-10-20",
+              "saved": 37,
+              "francetvpro_raw": 39,
+              "linternaute": 50
+            },
+            {
+              "date": "2026-10-21",
+              "saved": 42,
+              "francetvpro_raw": 45,
+              "linternaute": 56
+            },
+            {
+              "date": "2026-10-22",
+              "saved": 36,
+              "francetvpro_raw": 38,
+              "linternaute": 52
+            },
+            {
+              "date": "2026-10-23",
+              "saved": 36,
+              "francetvpro_raw": 38,
+              "linternaute": 49
+            }
+          ],
+          "official_raw_differences": {
+            "count": 14,
+            "decision": "Tous sont des conteneurs ou entrées imbriquées déjà représentés : Okoo, Okoo Vacances, Le Refuge et Libre Court contenant quatre courts ; aucune omission de bloc officiel autonome."
+          },
+          "omissions": [
+            {
+              "date": "2026-10-17",
+              "start": "10:30",
+              "title": "Scooby-Doo : mission environnement — La pollution de l’espace",
+              "evidence": "L’Internaute et TV-programme concordent ; absent de l’inventaire et de l’export officiel.",
+              "decision": "Omission concordante à importer/revoir sans certifier de proposition."
+            }
+          ],
+          "schedule_contradictions": [
+            {
+              "date": "2026-10-17",
+              "start": "01:35",
+              "saved_and_official": "Appassionata",
+              "observed": "L’orchestre de la Garde républicaine à l’Opéra-Comique",
+              "evidence": "TV-programme et L’Internaute concordent sur le titre observé.",
+              "decision": "Conserver la ligne officielle et laisser l’identité bloquante ouverte."
+            }
+          ],
+          "civil_slot_normalizations": [
+            {
+              "date": "2026-10-22",
+              "start": "00:02",
+              "title": "La France en vrai",
+              "decision": "Englobé dans la ligne mercredi 23:10 Enquêtes de Région + la France en Vrai ; pas matérialisé séparément jeudi."
+            },
+            {
+              "date": "2026-10-22",
+              "start": "23:42",
+              "title": "La France en vrai",
+              "decision": "Deuxième segment non matérialisé séparément, mais couvert par le bloc officiel unique 22:50–00:35."
+            }
+          ],
+          "non_blocking_container_labels": [
+            {
+              "date": "2026-10-18",
+              "start": "00:10",
+              "saved": "Cinéma de Minuit",
+              "guide": "Le mécano de la General"
+            },
+            {
+              "date": "2026-10-19",
+              "start": "23:55",
+              "saved": "Outremer.ledoc",
+              "guide": "Rahui, le lagon en partage"
+            }
+          ]
+        },
+        "decisions": [
+          "Aucun des 14 écarts bruts FranceTVPro n’est une omission de bloc autonome.",
+          "L’omission Scooby-Doo 10:30 et le conflit de titre 01:35 restent ouverts ; les segmentations régionales et jeunesse plus fines sont couvertes par les blocs enregistrés."
+        ],
+        "limits": [
+          "L’Internaute et TV-programme sont des éditeurs distincts, mais leur provenance amont n’est pas établie.",
+          "Aucune nouvelle recommandation, réserve ou donnée de niveau 3 n’est certifiée."
+        ],
+        "status": "second_reading_complete_with_open_omission_and_conflict"
       }
     ],
     "independent_crosscheck_complete": false,
