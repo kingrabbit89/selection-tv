@@ -114,7 +114,8 @@
     "2026-10-15T15:53:19.000Z — secondes lectures Canal+ Grand Écran des 19 et 20 octobre : 13/13 puis 15/15 départs concordants, nuits incluses, aucune omission ; limite mono-éditeur conservée.",
     "2026-10-15T16:07:08.666Z — secondes lectures Canal+ Grand Écran des 21 au 23 octobre : 13/13, 14/14 et 13/13 départs concordants, nuits incluses, aucune omission ; les sept dates de la chaîne sont désormais relues, limite mono-éditeur conservée.",
     "2026-10-15T16:08:27.719Z — seconde lecture Canal+ Cinéma sur les sept dates : 109/109 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; reports de veille et double ligne La Tour de glace conservés, limite mono-éditeur maintenue.",
-    "2026-10-15T16:14:24.321Z — The Big Short : Le Casse du siècle matérialisé mécaniquement comme réserve draft rang 7 du mercredi à 08:31 sur Ciné+ Frisson ; les six cartes et pages existantes sont conservées exactement, le catalogue et les liens directs sont ajoutés, la CI distante reste à observer."
+    "2026-10-15T16:14:24.321Z — The Big Short : Le Casse du siècle matérialisé mécaniquement comme réserve draft rang 7 du mercredi à 08:31 sur Ciné+ Frisson ; les six cartes et pages existantes sont conservées exactement, le catalogue et les liens directs sont ajoutés, la CI distante reste à observer.",
+    "2026-10-15T16:21:23.328Z — seconde lecture Canal+ Box Office sur les sept dates : 107/107 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; sept reports de veille distingués, limite mono-éditeur maintenue."
   ],
   "blockers": [],
   "research_attempts": [
@@ -4327,6 +4328,26 @@
       "applies_to": "lot local The Big Short avant checkpoint distant",
       "evidence_note": "validate-canonical-identities, validate-freshness et validate-reserves terminés avec code 0. Le contrôle réseau validate-image-sources n’a produit aucun résultat exploitable et a été interrompu ; il ne vaut pas réussite, la CI distante du visuel et des liens reste requise.",
       "status": "local_structure_passed_network_check_unavailable"
+    },
+    {
+      "fields": [
+        "schedule_identity",
+        "omission_review"
+      ],
+      "urls": [
+        "https://tv-programme.com/canal-plus-box-office/samedi-17-octobre-2026/",
+        "https://tv-programme.com/canal-plus-box-office/dimanche-18-octobre-2026/",
+        "https://tv-programme.com/canal-plus-box-office/lundi-19-octobre-2026/",
+        "https://tv-programme.com/canal-plus-box-office/mardi-20-octobre-2026/",
+        "https://tv-programme.com/canal-plus-box-office/mercredi-21-octobre-2026/",
+        "https://tv-programme.com/canal-plus-box-office/jeudi-22-octobre-2026/",
+        "https://tv-programme.com/canal-plus-box-office/vendredi-23-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T16:21:23.328Z",
+      "stability": "cycle_specific",
+      "applies_to": "Canal+ Box Office — samedi 17 au vendredi 23 octobre 2026, jours civils 00:00–23:59",
+      "evidence_note": "Seconde lecture hebdomadaire complète : 107/107 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; reports de veille distingués.",
+      "status": "reread_complete_single_editor_limit"
     }
   ],
   "source_issues": [
@@ -5633,7 +5654,7 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 21 autres chaînes encore sans revue hebdomadaire complète ; commencer par Canal+ Box Office et sauvegarder comparaisons, omissions et limites.",
+      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 20 autres chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
       "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
       "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau."
     ]
@@ -12633,12 +12654,13 @@
       "prompt_revision": "production-weekly-continuity-2026-10-10",
       "started_at": "2026-10-15T16:02:41.000Z",
       "ended_at": null,
-      "duration_basis": "Temps UTC observé depuis 2026-10-15T16:02:41.000Z ; checkpoint préparé à 2026-10-15T16:17:20.593Z.",
+      "duration_basis": "Temps UTC observé depuis 2026-10-15T16:02:41.000Z ; checkpoint préparé à 2026-10-15T16:21:23.328Z.",
       "run_state": "running",
       "completed_batches": [
         "2026-10-15T16:07:08.666Z — secondes lectures Canal+ Grand Écran des 21 au 23 octobre : 13/13, 14/14 et 13/13 départs concordants, nuits incluses, aucune omission ; les sept dates de la chaîne sont désormais relues, limite mono-éditeur conservée.",
         "2026-10-15T16:08:27.719Z — seconde lecture Canal+ Cinéma sur les sept dates : 109/109 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; reports de veille et double ligne La Tour de glace conservés, limite mono-éditeur maintenue.",
-        "2026-10-15T16:14:24.321Z — The Big Short : Le Casse du siècle matérialisé mécaniquement comme réserve draft rang 7 du mercredi à 08:31 sur Ciné+ Frisson ; les six cartes et pages existantes sont conservées exactement, le catalogue et les liens directs sont ajoutés, la CI distante reste à observer."
+        "2026-10-15T16:14:24.321Z — The Big Short : Le Casse du siècle matérialisé mécaniquement comme réserve draft rang 7 du mercredi à 08:31 sur Ciné+ Frisson ; les six cartes et pages existantes sont conservées exactement, le catalogue et les liens directs sont ajoutés, la CI distante reste à observer.",
+        "2026-10-15T16:21:23.328Z — seconde lecture Canal+ Box Office sur les sept dates : 107/107 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; sept reports de veille distingués, limite mono-éditeur maintenue."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -12653,7 +12675,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre la seconde lecture niveau 2 sur Canal+ Box Office, puis les 20 autres chaînes encore sans revue hebdomadaire complète.",
+      "next_useful_batch": "Poursuivre les secondes lectures niveau 2 sur les 20 autres chaînes sans revue hebdomadaire complète, en parallèle des dossiers proches d’une réserve.",
       "additions": {
         "new_works": 1,
         "visible_draft_cards": 0,
@@ -12693,6 +12715,13 @@
           "ended_at": "2026-10-15T16:17:20.593Z",
           "overlap": false,
           "note": "Contrôles structurels terminés ; contrôle réseau image/liens interrompu sans résultat et non compté comme réussite."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": null,
+          "ended_at": "2026-10-15T16:21:23.328Z",
+          "overlap": true,
+          "note": "Début exact non mesuré ; seconde lecture Canal+ Box Office en lecture seule, chevauchant le suivi CI et la préparation du lot suivant."
         }
       ],
       "continuation_decisions": [
@@ -12777,29 +12806,70 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T16:20:43.334Z",
+          "elapsed_seconds": 1082.334,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "e1c862a17c2250e99c059e33d9c5de77a491c848",
+          "next_actions": [
+            "Poursuivre la seconde lecture niveau 2 sur Canal+ Box Office, puis les 20 autres chaînes encore sans revue hebdomadaire complète.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 21 autres chaînes encore sans revue hebdomadaire complète ; commencer par Canal+ Box Office et sauvegarder comparaisons, omissions et limites.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+            "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
+            "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 15,
+          "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 15,
+          "waiting_actions": [],
+          "research_review_warnings": [
+            "research_attempts[0].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[1].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[8].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[9].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[10].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[11].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[14].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[15].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate"
+          ],
+          "observations": {
+            "started_at": "2026-10-15T16:02:41.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T17:05:18.965Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T16:10:59.314Z",
-        "elapsed_seconds": 498.314,
+        "observed_at": "2026-10-15T16:20:43.334Z",
+        "elapsed_seconds": 1082.334,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "4fd1e6d860bb9f5546c322e894980c4138ce5f3b",
+        "source_sha": "e1c862a17c2250e99c059e33d9c5de77a491c848",
         "next_actions": [
           "Poursuivre la seconde lecture niveau 2 sur Canal+ Box Office, puis les 20 autres chaînes encore sans revue hebdomadaire complète.",
           "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 21 autres chaînes encore sans revue hebdomadaire complète ; commencer par Canal+ Box Office et sauvegarder comparaisons, omissions et limites.",
-          "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs ; ne modifier aucun choix visible.",
           "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
-          "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau."
+          "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
+          "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
         ],
         "remaining_count": 11,
-        "next_actions_total": 16,
-        "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
-        "all_actions_total": 16,
+        "next_actions_total": 15,
+        "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "all_actions_total": 15,
         "waiting_actions": [],
         "research_review_warnings": [
           "research_attempts[0].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
@@ -12822,7 +12892,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-15T16:17:20.593Z",
+  "updated_at": "2026-10-15T16:21:23.328Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -18583,6 +18653,250 @@
         },
         "decisions": [
           "Concordance exacte des 16 lignes ; la grille commence à 00:00 avec Bugonia et aucun report de veille n’est compté."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Box Office"
+        ],
+        "flow": "Canal+ Box Office",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:21:23.328Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-17",
+        "urls": [
+          "https://tv-programme.com/canal-plus-box-office/samedi-17-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 16,
+          "source_rows_reviewed": 16,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Libre échange commencé la veille à 23:30 est un report de continuité rattaché au 2026-10-16 et non dupliqué."
+          ],
+          "normalizations": [
+            "Les différences d’apostrophes droites ou typographiques dans « L’hebd’Hollywood » et « L’affaire Bojarski » ne changent ni l’identité ni le créneau."
+          ]
+        },
+        "decisions": [
+          "Concordance exacte des 16 départs du jour civil ; aucune omission ni contradiction de titre ou d’horaire, inventaire inchangé."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Box Office"
+        ],
+        "flow": "Canal+ Box Office",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:21:23.328Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-18",
+        "urls": [
+          "https://tv-programme.com/canal-plus-box-office/dimanche-18-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 15,
+          "source_rows_reviewed": 15,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Le Jour J commencé la veille à 22:39 est un report de continuité rattaché au 2026-10-17 et non dupliqué."
+          ],
+          "normalizations": [
+            "Les apostrophes typographiques sauvegardées correspondent aux apostrophes droites de la source, sans changement d’identité ni de créneau."
+          ]
+        },
+        "decisions": [
+          "Concordance exacte des 15 départs du jour civil ; aucune omission ni contradiction de titre ou d’horaire, inventaire inchangé."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Box Office"
+        ],
+        "flow": "Canal+ Box Office",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:21:23.328Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-19",
+        "urls": [
+          "https://tv-programme.com/canal-plus-box-office/lundi-19-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 14,
+          "source_rows_reviewed": 14,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Chasse gardée 2 commencé la veille à 22:29 est un report de continuité rattaché au 2026-10-18 et non dupliqué."
+          ],
+          "normalizations": [
+            "L’apostrophe typographique sauvegardée dans « L’hebd’Hollywood » correspond à l’apostrophe droite de la source."
+          ]
+        },
+        "decisions": [
+          "Concordance exacte des 14 départs du jour civil ; aucune omission ni contradiction de titre ou d’horaire, inventaire inchangé."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Box Office"
+        ],
+        "flow": "Canal+ Box Office",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:21:23.328Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-20",
+        "urls": [
+          "https://tv-programme.com/canal-plus-box-office/mardi-20-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 17,
+          "source_rows_reviewed": 17,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Les Enfants de la Résistance commencé la veille à 22:41 est un report de continuité rattaché au 2026-10-19 et non dupliqué."
+          ],
+          "normalizations": []
+        },
+        "decisions": [
+          "Concordance exacte des 17 départs du jour civil ; aucune omission ni contradiction de titre ou d’horaire, inventaire inchangé."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Box Office"
+        ],
+        "flow": "Canal+ Box Office",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:21:23.328Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-21",
+        "urls": [
+          "https://tv-programme.com/canal-plus-box-office/mercredi-21-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 15,
+          "source_rows_reviewed": 15,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "T'as pas changé commencé la veille à 22:24 est un report de continuité rattaché au 2026-10-20 et non dupliqué."
+          ],
+          "normalizations": []
+        },
+        "decisions": [
+          "Concordance exacte des 15 départs du jour civil ; aucune omission ni contradiction de titre ou d’horaire, inventaire inchangé."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Box Office"
+        ],
+        "flow": "Canal+ Box Office",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:21:23.328Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-22",
+        "urls": [
+          "https://tv-programme.com/canal-plus-box-office/jeudi-22-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 15,
+          "source_rows_reviewed": 15,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "F1 : Le film commencé la veille à 22:36 est un report de continuité rattaché au 2026-10-21 et non dupliqué."
+          ],
+          "normalizations": []
+        },
+        "decisions": [
+          "Concordance exacte des 15 départs du jour civil ; aucune omission ni contradiction de titre ou d’horaire, inventaire inchangé."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Box Office"
+        ],
+        "flow": "Canal+ Box Office",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:21:23.328Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-23",
+        "urls": [
+          "https://tv-programme.com/canal-plus-box-office/vendredi-23-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 15,
+          "source_rows_reviewed": 15,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Greenland : Migration commencé la veille à 22:31 est un report de continuité rattaché au 2026-10-22 et non dupliqué."
+          ],
+          "normalizations": []
+        },
+        "decisions": [
+          "Concordance exacte des 15 départs du jour civil ; aucune omission ni contradiction de titre ou d’horaire, inventaire inchangé."
         ],
         "limits": [
           "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
