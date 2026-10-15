@@ -19,7 +19,8 @@
     "Après résolution réelle de remaining, effectuer la revue éditoriale complète des livrables, sceller les empreintes exactes, passer stage à ready, puis laisser la fusion candidate et la promotion protégées suivre leurs contrôles et leur publication vérifiée."
   ],
   "completed_batches": [
-    "Initialisation S43, diagnostics de tête et collecte officielle ARTE/France 2/3/4/5 : 2 121 observations brutes capturées, 1 130 lignes admissibles importées dans l’inventaire, sans certification de couverture."
+    "Initialisation S43, diagnostics de tête et collecte officielle ARTE/France 2/3/4/5 : 2 121 observations brutes capturées, 1 130 lignes admissibles importées dans l’inventaire, sans certification de couverture.",
+    "Lecture datée de grilles TF1 Télé 7 Jours : 70 observations civiles sauvegardées pour les 17, 18, 19, 22 et 23 octobre ; seul le 18 octobre possède ici une journée et sa nuit précédente suffisamment couvertes pour déclarer TF1 dans channels_scanned."
   ],
   "blockers": [],
   "research_attempts": [],
@@ -57,6 +58,27 @@
       "applies_to": "Inventaire primaire partiel 2026-S43 pour Arte et France 2/3/4/5 uniquement.",
       "evidence_note": "Collecte réseau officielle du flow : 2 121 observations, 1 130 lignes importées, source-report SHA-256 afee0a6eb327e4386d6e7fd24bce7ae499ed7e0a74093b7dd705b44006d50a0f. Les 15 divergences de titres au même créneau restent à revoir. Ce lot ne prouve ni les autres chaînes, ni la seconde lecture, ni l’indépendance, ni la qualité éditoriale.",
       "status": "partial"
+    },
+    {
+      "id": "tf1-grid-partial-20261015T061830Z",
+      "work_id": null,
+      "fields": [
+        "inventory.title",
+        "inventory.channel",
+        "inventory.date",
+        "inventory.start",
+        "inventory.source_url"
+      ],
+      "urls": [
+        "https://www.programme-television.org/tv/chaines/TF1/samedi",
+        "https://www.programme-television.org/tv/chaines/TF1/dimanche",
+        "https://www.programme-television.org/tv/chaines/TF1/jeudi"
+      ],
+      "checked_at": "2026-10-15T06:16:47Z",
+      "stability": "cycle_specific",
+      "applies_to": "Observations TF1 de niveau inventaire pour les grilles explicitement titrées samedi 17, dimanche 18 et jeudi 22 octobre 2026.",
+      "evidence_note": "Les horaires de nuit ont été rattachés à leur date civile : 00:55 du guide samedi au 18, 01:00 du guide dimanche au 19 et 00:40 du guide jeudi au 23. Les nuits précédentes du 17 et du 22 ainsi que les journées des 19, 20, 21 et 23 ne sont pas couvertes par ce lot ; aucune seconde lecture ni indépendance n’est attestée.",
+      "status": "partial"
     }
   ],
   "source_issues": [
@@ -67,6 +89,13 @@
       "scope": "France 3 et France 4, créneaux bruts de l’inventaire officiel importé",
       "status": "impact_to_review",
       "note": "Le normaliseur a conservé des titres divergents au même créneau sans résoudre l’identité ; aucune carte ni lacune de couverture n’est certifiée ou écartée par ce constat."
+    },
+    {
+      "id": "tf1-grid-missing-segments",
+      "observed_at": "2026-10-15T06:16:47Z",
+      "scope": "TF1, semaine civile 2026-S43",
+      "status": "open",
+      "note": "Ce lot ne couvre complètement que le dimanche 18 octobre ; les nuits précédentes du samedi 17 et du jeudi 22 et les journées des 19, 20, 21 et 23 restent à relever."
     }
   ],
   "shortlist": {
@@ -105,7 +134,8 @@
       "run_state": "running",
       "completed_batches": [
         "Checkpoint initial S43 et contrats courants sauvegardés.",
-        "Collecte officielle ARTE/France 2/3/4/5 importée : 1 130 lignes d’inventaire, sept dates et nuits présentes sur ce périmètre partiel."
+        "Collecte officielle ARTE/France 2/3/4/5 importée : 1 130 lignes d’inventaire, sept dates et nuits présentes sur ce périmètre partiel.",
+        "Ajout de 70 observations TF1 issues de trois grilles datées, avec segments manquants conservés explicitement."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -127,13 +157,23 @@
           "lease_owned": "yes",
           "lease_until": "2026-10-15T07:06:00.948Z",
           "evaluated_by": "scripts/editorial-continuation.mjs"
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T06:13:30.855Z",
+          "elapsed_seconds": 647.855,
+          "source_sha": "339c76de614796b5fa35759274d3b1d088cb2730",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T07:06:00.948Z",
+          "evaluated_by": "scripts/editorial-continuation.mjs"
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T06:09:13.252Z",
-        "source_sha": "87970ce97ea10127d4d06e7a8616d244e6fdc927"
+        "observed_at": "2026-10-15T06:13:30.855Z",
+        "source_sha": "339c76de614796b5fa35759274d3b1d088cb2730"
       },
       "measured_intervals": [
         {
@@ -141,9 +181,15 @@
           "started_at": "2026-10-15T06:02:43Z",
           "ended_at": "2026-10-15T06:11:34Z",
           "note": "Cible, contrats, bail, initialisation, diagnostics, flow sans réseau puis collecte officielle et revue du handoff ; aucune tâche parallèle comptée séparément."
+        },
+        {
+          "kind": "research",
+          "started_at": "2026-10-15T06:14:00Z",
+          "ended_at": "2026-10-15T06:16:47Z",
+          "note": "Lecture de trois grilles TF1 datées et transcription mécanique des seuls horaires/titres observés ; les segments non lus restent ouverts."
         }
       ]
     }
   ],
-  "updated_at": "2026-10-15T06:11:34Z"
+  "updated_at": "2026-10-15T06:16:47Z"
 }
