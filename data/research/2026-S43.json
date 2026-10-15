@@ -144,7 +144,8 @@
     "2026-10-15T18:45:28.776Z — RTL9 sur les sept jours : seconde lecture jour+nuit achevée ; 243/243 départs concordants, aucune omission ni divergence horaire ou d’identité nommée, reports civils continus et labels S/E non réaffirmés lorsqu’absents du second guide.",
     "2026-10-15T18:49:00.000Z — À pied d’œuvre : dossier partiel consolidé depuis la fiche officielle CANAL+ ; identité de base et durée 1 h 32 vérifiées, sans sélection ni certification de la diffusion, des notes ou du visuel.",
     "2026-10-15T19:01:58.983Z — Last Stop : Yuma County réutilisé comme réserve draft samedi rang 6 à 17:20 selon la ligne Télérama fournie relue (p. 106, /observations/31) ; l’écart Web 17:17 reste visible, les trois primaires et les cinq cartes antérieures sont conservés.",
-    "2026-10-15T19:06:44.300Z — cinq réserves réutilisées sous autorité des lignes Télérama fournies et relues : lundi Last Stop : Yuma County rang 7 et Bright Star rang 8, jeudi La Prisonnière du désert rang 7 et Midsommar rang 8, vendredi Raccrochez, c’est une erreur rang 7 ; primaires et cartes antérieures conservés."
+    "2026-10-15T19:06:44.300Z — cinq réserves réutilisées sous autorité des lignes Télérama fournies et relues : lundi Last Stop : Yuma County rang 7 et Bright Star rang 8, jeudi La Prisonnière du désert rang 7 et Midsommar rang 8, vendredi Raccrochez, c’est une erreur rang 7 ; primaires et cartes antérieures conservés.",
+    "2026-10-15T19:17:46.349Z — jeudi complété à dix cartes avec Bugonia rang 9 à 01:15 et La Voix de Hind Rajab rang 10 à 18:30 ; deux dossiers complets, textes originaux, visuels inspectés, notes relues, répétitions S40 justifiées par une nouvelle diffusion linéaire et écarts de grille conservés."
   ],
   "blockers": [],
   "research_attempts": [
@@ -4989,6 +4990,75 @@
       ],
       "evidence_note": "Transcription relue ; source sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d. Télérama fourni p. 142, bbox [400.67,211.16,459.16,224.66], /observations/1238 : vendredi 23 octobre, Ciné+ Classic, 19:20. Aucune concordance Web de cette occurrence n’est réaffirmée.",
       "status": "verified_by_provided_telerama_authority_for_printed_fields"
+    },
+    {
+      "work_id": "bugonia-2025",
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "ratings",
+        "image",
+        "links",
+        "title",
+        "channel",
+        "date",
+        "start",
+        "editorial_copy"
+      ],
+      "urls": [
+        "https://www.focusfeatures.com/bugonia",
+        "https://www.programme-television.org/tv/chaines/canal/jeudi-prochain",
+        "https://www.imdb.com/title/tt12300742/",
+        "https://www.senscritique.com/film/bugonia/73084825",
+        "https://www.theguardian.com/film/2025/aug/28/bugonia-review-emma-stone-might-be-an-alien-in-yorgos-lanthimoss-macabre-conspiracy-theory-comedy",
+        "https://aperturecinema.com/movies/bugonia/"
+      ],
+      "checked_at": "2026-10-15T19:17:46.349Z",
+      "stability": "mixed_stable_identity_and_cycle_specific_broadcast",
+      "applies_to": [
+        "jeudi-selection reserve rank 9"
+      ],
+      "evidence_note": "Télérama fourni p. 130 /observations/987 (sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d) et Télé 7 Jours concordent à 01:15. Dossier canonique, notes, critique et affiche relus ; CI distant restant.",
+      "status": "verified_for_draft"
+    },
+    {
+      "work_id": "la-voix-de-hind-rajab-2025",
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "ratings",
+        "image",
+        "links",
+        "title",
+        "channel",
+        "date",
+        "start",
+        "editorial_copy"
+      ],
+      "urls": [
+        "https://jour2fete.com/film/la-voix-de-hind-rajab/",
+        "https://www.thevoiceofhindrajabfilm.com/synopsis/",
+        "https://tv-programme.com/canal-plus-cinema/jeudi-22-octobre-2026/",
+        "https://www.imdb.com/title/tt36943034/",
+        "https://www.senscritique.com/film/la_voix_de_hind_rajab/119592780",
+        "https://www.lemonde.fr/culture/article/2025/09/04/a-venise-the-voice-of-hind-rajab-secoue-la-mostra_6638914_3246.html",
+        "https://www.mobbee.fr/La-Voix-de-Hind-Rajab_a10831.html"
+      ],
+      "checked_at": "2026-10-15T19:17:46.349Z",
+      "stability": "mixed_stable_identity_and_cycle_specific_broadcast",
+      "applies_to": [
+        "jeudi-selection reserve rank 10"
+      ],
+      "evidence_note": "Télérama fourni p. 136 /observations/1003 (sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d) arbitre 18:30 ; TV-programme 18:24 conservé. Dossier canonique, notes, critique et affiche relus ; CI distant restant.",
+      "status": "verified_for_draft"
     }
   ],
   "source_issues": [
@@ -6417,6 +6487,46 @@
         ],
         "decision_note": "Réserve draft vendredi rang 7 à 19:20 selon la ligne Télérama p. 142 relue ; les faits stables et les textes des cartes existantes sont réutilisés, sans réaffirmer une concordance Web de cette occurrence.",
         "alternatives": []
+      },
+      {
+        "id": "sl-jeudi-bugonia-2025",
+        "title": "Bugonia",
+        "work_id": "bugonia-2025",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "critique_professionnelle",
+            "note": "Le Guardian salue les interprètes, la fabrication et le final tout en signalant un dispositif long et parfois appuyé.",
+            "source_url": "https://www.theguardian.com/film/2025/aug/28/bugonia-review-emma-stone-might-be-an-alien-in-yorgos-lanthimoss-macabre-conspiracy-theory-comedy"
+          }
+        ],
+        "decision_note": "Réserve draft jeudi rang 9 à 01:15 : ligne Télérama relue et grille Télé 7 Jours concordante ; dossier complet, répétition S40 justifiée par la nouvelle diffusion linéaire.",
+        "alternatives": [
+          "sl-jeudi-la-voix-de-hind-rajab-2025"
+        ]
+      },
+      {
+        "id": "sl-jeudi-la-voix-de-hind-rajab-2025",
+        "title": "La Voix de Hind Rajab",
+        "work_id": "la-voix-de-hind-rajab-2025",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "critique_professionnelle",
+            "note": "Le Monde décrit un dispositif hybride qui transforme les vrais appels et la reconstitution en thriller de l’impuissance, tout en conservant la question éthique.",
+            "source_url": "https://www.lemonde.fr/culture/article/2025/09/04/a-venise-the-voice-of-hind-rajab-secoue-la-mostra_6638914_3246.html"
+          }
+        ],
+        "decision_note": "Réserve draft jeudi rang 10 à 18:30 : autorité Télérama relue, écart TV-programme 18:24 conservé ; dossier complet, répétition S40 justifiée par la nouvelle diffusion linéaire.",
+        "alternatives": [
+          "sl-jeudi-bugonia-2025"
+        ]
       }
     ]
   },
@@ -16918,27 +17028,28 @@
       "run_state": "running",
       "completed_batches": [
         "2026-10-15T19:01:58.983Z — Last Stop : Yuma County réutilisé comme réserve draft samedi rang 6 à 17:20 selon la ligne Télérama fournie relue (p. 106, /observations/31) ; l’écart Web 17:17 reste visible, les trois primaires et les cinq cartes antérieures sont conservés.",
-        "2026-10-15T19:06:44.300Z — cinq réserves réutilisées sous autorité des lignes Télérama fournies et relues : lundi Last Stop : Yuma County rang 7 et Bright Star rang 8, jeudi La Prisonnière du désert rang 7 et Midsommar rang 8, vendredi Raccrochez, c’est une erreur rang 7 ; primaires et cartes antérieures conservés."
+        "2026-10-15T19:06:44.300Z — cinq réserves réutilisées sous autorité des lignes Télérama fournies et relues : lundi Last Stop : Yuma County rang 7 et Bright Star rang 8, jeudi La Prisonnière du désert rang 7 et Midsommar rang 8, vendredi Raccrochez, c’est une erreur rang 7 ; primaires et cartes antérieures conservés.",
+        "2026-10-15T19:17:46.349Z — jeudi complété à dix cartes avec Bugonia rang 9 à 01:15 et La Voix de Hind Rajab rang 10 à 18:30 ; deux dossiers complets, textes originaux, visuels inspectés, notes relues, répétitions S40 justifiées par une nouvelle diffusion linéaire et écarts de grille conservés."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
         "data/weeks/2026-S43.json"
       ],
       "complete_cards_added": 0,
-      "draft_cards_added": 6,
-      "draft_reserves_added": 6,
-      "dossiers_completed": 0,
+      "draft_cards_added": 8,
+      "draft_reserves_added": 8,
+      "dossiers_completed": 2,
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Compléter les réserves des jours encore sous dix avec d’autres dossiers déjà contrôlés, ou avancer une rubrique indépendante ; ne reprendre aucune impasse sans fait nouveau.",
+      "next_useful_batch": "Compléter mardi, encore à cinq cartes, depuis des dossiers admissibles ; sinon avancer une rubrique indépendante ou la seconde lecture restante sans rouvrir les impasses fermées.",
       "additions": {
         "new_works": 0,
-        "visible_draft_cards": 6,
+        "visible_draft_cards": 8,
         "distinct_reserves_added": 0,
-        "reused_existing_cards": 6,
+        "reused_existing_cards": 8,
         "raw_inventory_observations_added": 0,
-        "scope": "Comparaison avec 0a2a9bd03796ce3ca39a6ad811c0a776c73da4c4 : six occurrences de cartes existantes ajoutées aux pools samedi, lundi, jeudi et vendredi. Elles accroissent les réserves quotidiennes de six unités au total, mais ne créent aucune œuvre ni réserve distincte à l’échelle hebdomadaire car chaque work_id était déjà présent dans un autre jour."
+        "scope": "Comparaison avec 0a2a9bd03796ce3ca39a6ad811c0a776c73da4c4 : huit occurrences de cartes ajoutées aux pools samedi, lundi, jeudi et vendredi. Bugonia et La Voix de Hind Rajab complètent jeudi à dix cartes ; les huit occurrences réutilisent des work_id déjà présents dans le catalogue et n’ajoutent aucune œuvre unique au stock hebdomadaire."
       },
       "intervals": [
         {
@@ -16960,6 +17071,13 @@
           "ended_at": "2026-10-15T19:06:44.300Z",
           "overlap": false,
           "note": "Triage sur la tête exacte, revue de cinq lignes Télérama, plan append_days multi-jours, rendu mécanique et contrôle du handoff."
+        },
+        {
+          "kind": "recherche",
+          "started_at": "2026-10-15T19:07:39.217Z",
+          "ended_at": "2026-10-15T19:17:46.349Z",
+          "overlap": false,
+          "note": "Deux dossiers ciblés : identité, durées, notes, critiques, images, preuves de diffusion et fraîcheur."
         }
       ],
       "continuation_decisions": [
@@ -16987,24 +17105,62 @@
             "lease_until": "2026-10-15T19:56:03.718Z",
             "external_stop": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T19:04:24.562Z",
+          "elapsed_seconds": 534.912,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "8db7b70e29f344dbecd9d15a63d5d4e33708da48",
+          "next_actions": [
+            "Compléter les réserves des jours encore sous dix avec des dossiers déjà contrôlés ou une rubrique indépendante."
+          ],
+          "remaining_count": 11,
+          "observations": {
+            "started_at": "2026-10-15T18:55:29.650Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T19:56:03.718Z",
+            "external_stop": null
+          }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T19:07:39.217Z",
+          "elapsed_seconds": 729.567,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "2fd11b58985b14fe837d321f570da0770fa852cb",
+          "next_actions": [
+            "Compléter les réserves des jours encore sous dix avec d’autres dossiers déjà contrôlés, ou avancer une rubrique indépendante."
+          ],
+          "remaining_count": 11,
+          "observations": {
+            "started_at": "2026-10-15T18:55:29.650Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T19:56:03.718Z",
+            "external_stop": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T18:57:09.342Z",
-        "elapsed_seconds": 99.692,
+        "observed_at": "2026-10-15T19:07:39.217Z",
+        "elapsed_seconds": 729.567,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "0a2a9bd03796ce3ca39a6ad811c0a776c73da4c4",
+        "source_sha": "2fd11b58985b14fe837d321f570da0770fa852cb",
         "next_actions": [
-          "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
-          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur la seule chaîne encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
-          "Consigner et traiter sur main la panne CI de test-editorial-task-board ; ne modifier aucun code dans la candidate éditoriale.",
-          "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants.",
-          "Terminer un dossier proche d’une carte ou une rubrique accessible sans reprendre les impasses dont le retry_gate reste fermé."
+          "Compléter les réserves des jours encore sous dix avec d’autres dossiers déjà contrôlés, ou avancer une rubrique indépendante."
         ],
         "remaining_count": 11,
         "observations": {
@@ -17016,7 +17172,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-15T19:06:44.300Z",
+  "updated_at": "2026-10-15T19:17:46.349Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -20165,6 +20321,201 @@
       ],
       "decision": "dossier partiel — non présélectionné et non publiable",
       "reason": "Le lot ferme seulement la durée officielle manquante et consolide l’identité de base ; les contrôles éditoriaux, dynamiques et de diffusion restent ouverts."
+    },
+    {
+      "title": "Bugonia",
+      "work_id": "bugonia-2025",
+      "catalogue_match": "bugonia-2025",
+      "identity_research": {
+        "director": "Yórgos Lánthimos",
+        "year": 2025,
+        "country": "Irlande / Royaume-Uni / Canada / Corée du Sud / États-Unis",
+        "cast": [
+          "Emma Stone",
+          "Jesse Plemons",
+          "Aidan Delbis"
+        ],
+        "source_urls": [
+          "https://www.focusfeatures.com/bugonia",
+          "https://www.imdb.com/title/tt12300742/"
+        ],
+        "checked_at": "2026-10-15T19:17:46.349Z",
+        "duration_observations": [
+          {
+            "duration": "119 min",
+            "version": "durée de l’œuvre sur SensCritique",
+            "source_url": "https://www.senscritique.com/film/bugonia/73084825"
+          },
+          {
+            "duration": "118 min",
+            "version": "durée de l’œuvre sur Rotten Tomatoes",
+            "source_url": "https://www.rottentomatoes.com/m/bugonia"
+          }
+        ],
+        "note": "Identité certaine. L’écart d’une minute entre deux durées éditoriales est conservé sans déduction de montage."
+      },
+      "critical_evidence": [
+        {
+          "source": "The Guardian",
+          "author": "Peter Bradshaw",
+          "source_url": "https://www.theguardian.com/film/2025/aug/28/bugonia-review-emma-stone-might-be-an-alien-in-yorgos-lanthimoss-macabre-conspiracy-theory-comedy",
+          "assessment": "Relève la force des interprètes, la fabrication et le final, tout en jugeant le parcours long, parfois appuyé et construit autour d’une idée unique.",
+          "kind": "professional_criticism",
+          "access": "full",
+          "checked_at": "2026-10-15T19:17:46.349Z"
+        },
+        {
+          "source": "Rotten Tomatoes",
+          "source_url": "https://www.rottentomatoes.com/m/bugonia",
+          "assessment": "Le consensus critique souligne le jeu d’Emma Stone et Jesse Plemons et la satire très noire de la folie contemporaine.",
+          "kind": "critical_aggregation",
+          "access": "full",
+          "checked_at": "2026-10-15T19:17:46.349Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic_two_sources",
+        "checked_at": "2026-10-15T19:17:46.349Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt12300742/",
+          "https://www.senscritique.com/film/bugonia/73084825"
+        ],
+        "note": "IMDb affiche 7,4/10 pour 230 k votes ; SensCritique affiche 6,9/10 sur la fiche exacte."
+      },
+      "broadcast_research": {
+        "date": "2026-10-22",
+        "start": "01:15",
+        "channel": "Canal+",
+        "source_urls": [
+          "https://www.programme-television.org/tv/chaines/canal/jeudi-prochain"
+        ],
+        "checked_at": "2026-10-15T19:17:46.349Z",
+        "status": "verified_by_provided_telerama_authority_and_concordant_web_guide",
+        "note": "Télérama fourni p. 130, bbox [39.42,534.91,108.61,541.41], /observations/987 (sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d) et Télé 7 Jours concordent exactement. L’amont Web reste inconnu ; aucune indépendance n’est certifiée."
+      },
+      "image_research": {
+        "checked_at": "2026-10-15T19:17:46.349Z",
+        "source_page": "https://aperturecinema.com/movies/bugonia/",
+        "image_url": "https://s3.amazonaws.com/nightjarprod/content/uploads/sites/122/2025/09/10090017/Bugonia_OfficialPoster.jpeg",
+        "status": "poster_visually_verified_ci_pending",
+        "visually_checked": true,
+        "note": "Affiche exacte Bugonia inspectée visuellement : visage d’Emma Stone recouvert de formes rouges et jaunes, Jesse Plemons en retrait et titre noir ; contrôle CI distant encore requis."
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T19:17:46.349Z",
+        "status": "repeat_with_structured_material_availability_change",
+        "issues_checked": [
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ],
+        "note": "Le catalogue signale une exposition S40. La nouvelle diffusion linéaire Canal+ à 01:15 est une disponibilité matérielle distincte ; exception structurée enregistrée, sans prétendre à une œuvre nouvelle."
+      },
+      "missing_fields": [
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
+      ],
+      "decision": "carte draft matérialisée — CI final requis",
+      "reason": "Identité, diffusion, réception, notes, visuel et textes sont revus ; la répétition S40 reste explicite et justifiée par le nouveau créneau linéaire."
+    },
+    {
+      "title": "La Voix de Hind Rajab",
+      "work_id": "la-voix-de-hind-rajab-2025",
+      "catalogue_match": "la-voix-de-hind-rajab-2025",
+      "identity_research": {
+        "director": "Kaouther Ben Hania",
+        "year": 2025,
+        "country": "Tunisie / France",
+        "cast": [
+          "Saja Kilani",
+          "Motaz Malhees",
+          "Clara Khoury",
+          "Amer Hlehel"
+        ],
+        "source_urls": [
+          "https://jour2fete.com/film/la-voix-de-hind-rajab/",
+          "https://www.thevoiceofhindrajabfilm.com/synopsis/",
+          "https://www.imdb.com/title/tt36943034/"
+        ],
+        "checked_at": "2026-10-15T19:17:46.349Z",
+        "duration_observations": [
+          {
+            "duration": "89 min",
+            "version": "durée distributeur France",
+            "source_url": "https://jour2fete.com/film/la-voix-de-hind-rajab/"
+          },
+          {
+            "duration": "89 min",
+            "version": "durée Académie des César",
+            "source_url": "https://www.academie-cinema.org/films/la-voix-de-hind-rajab-46990/"
+          }
+        ],
+        "note": "Identité et durée concordantes. Le film associe une reconstitution avec acteurs aux véritables enregistrements téléphoniques."
+      },
+      "critical_evidence": [
+        {
+          "source": "Le Monde",
+          "author": "Boris Bastide",
+          "source_url": "https://www.lemonde.fr/culture/article/2025/09/04/a-venise-the-voice-of-hind-rajab-secoue-la-mostra_6638914_3246.html",
+          "assessment": "Décrit un vrai geste de cinéma qui emploie les codes du thriller, les enregistrements authentiques et une reconstitution jouée, tout en consignant le débat sur l’instrumentalisation et le consentement.",
+          "kind": "professional_criticism",
+          "access": "partial_article_text",
+          "checked_at": "2026-10-15T19:17:46.349Z"
+        },
+        {
+          "source": "The Guardian",
+          "author": "Peter Bradshaw",
+          "source_url": "https://www.theguardian.com/film/2025/sep/04/the-voice-of-hind-rajab-review-provocative-docufiction-is-fierce-urgent-and-heart-shattering",
+          "assessment": "Juge la docufiction urgente et déchirante, et insiste sur la puissance de son dispositif hybride.",
+          "kind": "professional_criticism",
+          "access": "full",
+          "checked_at": "2026-10-15T19:17:46.349Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic_two_sources",
+        "checked_at": "2026-10-15T19:17:46.349Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt36943034/",
+          "https://www.senscritique.com/film/la_voix_de_hind_rajab/119592780"
+        ],
+        "note": "IMDb affiche 8,2/10 pour 21 k votes ; SensCritique affiche 7,0/10 dans le catalogue, fiche exacte relue."
+      },
+      "broadcast_research": {
+        "date": "2026-10-22",
+        "start": "18:30",
+        "channel": "Canal+ Cinéma",
+        "source_urls": [
+          "https://tv-programme.com/canal-plus-cinema/jeudi-22-octobre-2026/"
+        ],
+        "checked_at": "2026-10-15T19:17:46.349Z",
+        "status": "verified_by_provided_telerama_authority_with_web_time_discrepancy",
+        "note": "Télérama fourni p. 136, bbox [123.87,153.91,186.25,167.41], /observations/1003 (sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d) fait autorité à 18:30. TV-programme indique 18:24 ; écart conservé."
+      },
+      "image_research": {
+        "checked_at": "2026-10-15T19:17:46.349Z",
+        "source_page": "https://www.mobbee.fr/La-Voix-de-Hind-Rajab_a10831.html",
+        "image_url": "https://www.mobbee.fr/photo/art/grande/92857069-65005510.jpg?ibox=&v=1764236705",
+        "status": "poster_visually_verified_ci_pending",
+        "visually_checked": true,
+        "note": "Affiche exacte inspectée visuellement : trois opérateurs autour d’un téléphone, titre et lauriers de festivals lisibles ; contrôle CI distant encore requis."
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T19:17:46.349Z",
+        "status": "repeat_with_structured_material_availability_change",
+        "issues_checked": [
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ],
+        "note": "Le catalogue signale une exposition S40. La nouvelle diffusion linéaire Canal+ Cinéma à 18:30 est une disponibilité matérielle distincte ; exception structurée enregistrée, sans prétendre à une œuvre nouvelle."
+      },
+      "missing_fields": [
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
+      ],
+      "decision": "carte draft matérialisée — CI final requis",
+      "reason": "Identité, diffusion, critique, notes, visuel, durée et textes sont revus ; le débat éthique et l’écart Web de six minutes restent explicites."
     }
   ],
   "coverage": {
