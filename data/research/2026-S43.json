@@ -116,7 +116,7 @@
       "retry_gate": {
         "state": "waiting_for_new_evidence",
         "action_texts": [
-          "Compléter Ciné+ OCS les 21 et 22 octobre depuis une grille complète datée accessible."
+          "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
         ],
         "reason": "Les voies directe et alternative réellement ouvertes ne fournissent pas une grille complète de la date cible.",
         "resume_when": "Nouvelle grille datée exacte accessible ou changement observé sur l’une des pages.",
@@ -143,7 +143,7 @@
       "retry_gate": {
         "state": "waiting_for_new_evidence",
         "action_texts": [
-          "Compléter Ciné+ Family les 21 et 22 octobre depuis une grille complète datée accessible."
+          "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
         ],
         "reason": "La source directe est inaccessible et les alternatives lues n’exposent pas les lignes de grille.",
         "resume_when": "Nouvelle grille datée exacte accessible ou changement observé sur l’une des pages.",
@@ -8613,7 +8613,8 @@
         "Trois réserves complètes ajoutées au mercredi depuis des dossiers déjà revus, avec nouvelles diffusions recoupées.",
         "Une réserve complète ajoutée au jeudi depuis un dossier déjà revu, avec nouvelle diffusion recoupée.",
         "Une réserve complète ajoutée au vendredi après correction documentée du créneau : La Nuit du chasseur à 17:54.",
-        "Deuxième réserve complète ajoutée au vendredi : Que Dios nos perdone à 18:47, diffusion officielle et guide daté concordants."
+        "Deuxième réserve complète ajoutée au vendredi : Que Dios nos perdone à 18:47, diffusion officielle et guide daté concordants.",
+        "Retry gates Ciné+ OCS et Ciné+ Family réconciliés sur le texte exact de l’action courante, sans fermer les lacunes de couverture."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -8708,6 +8709,12 @@
           "started_at": "2026-10-15T13:43:18.099Z",
           "ended_at": "2026-10-15T13:46:30.000Z",
           "note": "Revue de la grille officielle Action et du guide daté, puis réutilisation contrôlée du dossier et rendu mécanique de la réserve vendredi rang 5."
+        },
+        {
+          "kind": "reconciliation",
+          "started_at": "2026-10-15T13:48:44.832Z",
+          "ended_at": "2026-10-15T13:49:20.000Z",
+          "note": "Correction des action_texts de deux retry_gates pour les relier exactement à l’action courante ; exigences et preuves inchangées."
         }
       ],
       "continuation_decisions": [
@@ -8847,18 +8854,51 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T13:48:44.832Z",
+          "elapsed_seconds": 2836.391,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "7779a077295f759234820d8b9fbd201a3f74d2e3",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T14:23:59.757Z",
+          "remaining_count": 12,
+          "next_actions_total": 15,
+          "all_actions_total": 19,
+          "evaluated_by": "scripts/editorial-continuation.mjs",
+          "next_actions": [
+            "Ajouter des réserves fraîches et complètes aux jours encore sous le minimum, ou avancer une rubrique indépendante prête, sans reprendre les pistes dont le retry_gate attend un fait nouveau.",
+            "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi, du mercredi, du jeudi et du vendredi pour progresser vers le minimum de dix candidats complets par jour, sans défaire les choix développés.",
+            "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés.",
+            "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés.",
+            "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
+          ],
+          "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "observations": {
+            "started_at": "2026-10-15T13:01:28.441Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T14:23:59.757Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T13:43:18.099Z",
-        "elapsed_seconds": 2509.658,
+        "observed_at": "2026-10-15T13:48:44.832Z",
+        "elapsed_seconds": 2836.391,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "6d4ecea6cdfcb8a5181ef0cb23026216fb3a18dc",
+        "source_sha": "7779a077295f759234820d8b9fbd201a3f74d2e3",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T14:23:59.757Z",
         "remaining_count": 12,
@@ -8866,7 +8906,7 @@
         "all_actions_total": 19,
         "evaluated_by": "scripts/editorial-continuation.mjs",
         "next_actions": [
-          "Ajouter une deuxième réserve complète au vendredi ou avancer une rubrique indépendante prête, sans reprendre les pistes dont le retry_gate attend un fait nouveau.",
+          "Ajouter des réserves fraîches et complètes aux jours encore sous le minimum, ou avancer une rubrique indépendante prête, sans reprendre les pistes dont le retry_gate attend un fait nouveau.",
           "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi, du mercredi, du jeudi et du vendredi pour progresser vers le minimum de dix candidats complets par jour, sans défaire les choix développés.",
           "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés.",
           "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés.",
