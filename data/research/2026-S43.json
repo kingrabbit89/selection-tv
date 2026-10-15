@@ -147,7 +147,8 @@
     "2026-10-15T19:06:44.300Z — cinq réserves réutilisées sous autorité des lignes Télérama fournies et relues : lundi Last Stop : Yuma County rang 7 et Bright Star rang 8, jeudi La Prisonnière du désert rang 7 et Midsommar rang 8, vendredi Raccrochez, c’est une erreur rang 7 ; primaires et cartes antérieures conservés.",
     "2026-10-15T19:17:46.349Z — jeudi complété à dix cartes avec Bugonia rang 9 à 01:15 et La Voix de Hind Rajab rang 10 à 18:30 ; deux dossiers complets, textes originaux, visuels inspectés, notes relues, répétitions S40 justifiées par une nouvelle diffusion linéaire et écarts de grille conservés.",
     "2026-10-15T19:28:09.437Z — mardi complété à sept cartes avec deux documentaires ARTE : Kibboutz Nir Oz, aux portes de Gaza rang 6 à 22:40 et Yémen, carrefour de toutes les guerres rang 7 à 23:40 ; deux nouveaux dossiers complets, visuels officiels inspectés, absence de notes ciblée, critiques Télérama attribuées et corrections officielles d’horaire conservées.",
-    "2026-10-15T19:33:32.923Z — deux occurrences supplémentaires réutilisées sans rouvrir leurs dossiers stables : La Voix de Hind Rajab lundi rang 9 à 08:42, recoupée par trois guides actuels, et Bugonia vendredi rang 8 à 00:00, concordante entre Télérama fourni et trois guides actuels."
+    "2026-10-15T19:33:32.923Z — deux occurrences supplémentaires réutilisées sans rouvrir leurs dossiers stables : La Voix de Hind Rajab lundi rang 9 à 08:42, recoupée par trois guides actuels, et Bugonia vendredi rang 8 à 00:00, concordante entre Télérama fourni et trois guides actuels.",
+    "2026-10-15T19:37:51.411Z — lundi atteint le minimum de dix cartes avec Une jeunesse indienne rang 10 à 20:50 sur Ciné+ Festival ; identité et durée distributeur, note SensCritique, critique Télérama attribuée, affiche officielle inspectée et ligne papier d’autorité relue."
   ],
   "blockers": [],
   "research_attempts": [
@@ -5169,6 +5170,37 @@
       ],
       "evidence_note": "Télérama fourni p. 136 /observations/1203 (sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d) et trois guides actuels concordent à 00:00. Identité et textes repris du dossier complet sauvegardé.",
       "status": "verified_for_draft"
+    },
+    {
+      "work_id": "une-jeunesse-indienne-2025",
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "rating",
+        "image",
+        "links",
+        "title",
+        "channel",
+        "date",
+        "start",
+        "editorial_copy"
+      ],
+      "urls": [
+        "https://www.advitamdistribution.com/films/une-jeunesse-indienne/",
+        "https://www.senscritique.com/film/une_jeunesse_indienne/110570347",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000022828.html"
+      ],
+      "checked_at": "2026-10-15T19:37:51.411Z",
+      "stability": "mixed_stable_identity_and_cycle_specific_broadcast",
+      "applies_to": [
+        "lundi-selection reserve rank 10"
+      ],
+      "evidence_note": "Distributeur, SensCritique et AlloCiné relus ; critique Télérama p. 118 /reviews/14 et grille /observations/475 (sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d) relues ; affiche officielle inspectée ; CI distant restant.",
+      "status": "verified_for_draft"
     }
   ],
   "source_issues": [
@@ -6739,6 +6771,40 @@
         ],
         "decision_note": "Réserve draft vendredi rang 8 à 00:00 : ligne Télérama p. 136 et trois guides actuels concordants ; dossier stable et textes réutilisés.",
         "alternatives": []
+      },
+      {
+        "id": "sl-lundi-une-jeunesse-indienne-2025",
+        "title": "Une jeunesse indienne",
+        "work_id": "une-jeunesse-indienne-2025",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama juge le film « Très bien » et relève la force du duo, l’ouverture virtuose et un dénouement émouvant, malgré un passage pandémique plus mélodramatique.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d",
+            "pdf_page": 118,
+            "bbox": [
+              260.35,
+              48.22,
+              461.98,
+              81.77
+            ],
+            "provenance": {
+              "source_sha": "65f8eeb53ee578b68ab80a065f05fe97299743de",
+              "path": "data/editorial-inputs/2026-S43/telerama-editorial.json",
+              "json_pointer": "/reviews/14"
+            }
+          }
+        ],
+        "decision_note": "Réserve draft lundi rang 10 à 20:50 sous autorité de la ligne Télérama p. 118 /observations/475 relue ; dossier stable complet, CI distant restant.",
+        "alternatives": [
+          "sl-lundi-cadavres-exquis",
+          "sl-lundi-peau-d-ane"
+        ]
       }
     ]
   },
@@ -17243,7 +17309,8 @@
         "2026-10-15T19:06:44.300Z — cinq réserves réutilisées sous autorité des lignes Télérama fournies et relues : lundi Last Stop : Yuma County rang 7 et Bright Star rang 8, jeudi La Prisonnière du désert rang 7 et Midsommar rang 8, vendredi Raccrochez, c’est une erreur rang 7 ; primaires et cartes antérieures conservés.",
         "2026-10-15T19:17:46.349Z — jeudi complété à dix cartes avec Bugonia rang 9 à 01:15 et La Voix de Hind Rajab rang 10 à 18:30 ; deux dossiers complets, textes originaux, visuels inspectés, notes relues, répétitions S40 justifiées par une nouvelle diffusion linéaire et écarts de grille conservés.",
         "2026-10-15T19:28:09.437Z — mardi complété à sept cartes avec deux documentaires ARTE : Kibboutz Nir Oz, aux portes de Gaza rang 6 à 22:40 et Yémen, carrefour de toutes les guerres rang 7 à 23:40 ; deux nouveaux dossiers complets, visuels officiels inspectés, absence de notes ciblée, critiques Télérama attribuées et corrections officielles d’horaire conservées.",
-        "2026-10-15T19:33:32.923Z — deux occurrences supplémentaires réutilisées sans rouvrir leurs dossiers stables : La Voix de Hind Rajab lundi rang 9 à 08:42, recoupée par trois guides actuels, et Bugonia vendredi rang 8 à 00:00, concordante entre Télérama fourni et trois guides actuels."
+        "2026-10-15T19:33:32.923Z — deux occurrences supplémentaires réutilisées sans rouvrir leurs dossiers stables : La Voix de Hind Rajab lundi rang 9 à 08:42, recoupée par trois guides actuels, et Bugonia vendredi rang 8 à 00:00, concordante entre Télérama fourni et trois guides actuels.",
+        "2026-10-15T19:37:51.411Z — lundi atteint le minimum de dix cartes avec Une jeunesse indienne rang 10 à 20:50 sur Ciné+ Festival ; identité et durée distributeur, note SensCritique, critique Télérama attribuée, affiche officielle inspectée et ligne papier d’autorité relue."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -17252,20 +17319,20 @@
         "data/links.json"
       ],
       "complete_cards_added": 0,
-      "draft_cards_added": 12,
-      "draft_reserves_added": 12,
-      "dossiers_completed": 4,
+      "draft_cards_added": 13,
+      "draft_reserves_added": 13,
+      "dossiers_completed": 5,
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Compléter lundi, encore à neuf cartes, depuis un dossier admissible pour fermer son minimum ; sinon compléter vendredi ou mardi, ou avancer une rubrique indépendante.",
+      "next_useful_batch": "Compléter vendredi, encore à huit cartes, ou mardi, encore à sept, depuis des dossiers admissibles ; sinon avancer une rubrique indépendante.",
       "additions": {
-        "new_works": 2,
-        "visible_draft_cards": 12,
-        "distinct_reserves_added": 2,
+        "new_works": 3,
+        "visible_draft_cards": 13,
+        "distinct_reserves_added": 3,
         "reused_existing_cards": 10,
         "raw_inventory_observations_added": 0,
-        "scope": "Comparaison avec 0a2a9bd03796ce3ca39a6ad811c0a776c73da4c4 : douze occurrences de cartes ajoutées aux pools samedi, lundi, mardi, jeudi et vendredi. Deux œuvres nouvelles ont été intégrées au catalogue ; dix occurrences réutilisent des work_id déjà présents, dont deux nouvelles diffusions contrôlées dans ce lot."
+        "scope": "Comparaison avec 0a2a9bd03796ce3ca39a6ad811c0a776c73da4c4 : treize occurrences de cartes ajoutées. Trois œuvres nouvelles ont été intégrées au catalogue ; dix occurrences réutilisent des work_id déjà présents."
       },
       "intervals": [
         {
@@ -17308,6 +17375,13 @@
           "ended_at": "2026-10-15T19:33:32.923Z",
           "overlap": false,
           "note": "Extraction des dossiers complets, recoupement des deux nouvelles diffusions, rendu mécanique et réconciliation du checkpoint."
+        },
+        {
+          "kind": "recherche_redaction_rendu",
+          "started_at": "2026-10-15T19:35:05.074Z",
+          "ended_at": "2026-10-15T19:37:51.411Z",
+          "overlap": false,
+          "note": "Dossier Une jeunesse indienne : identité, durée, note, critique papier, ligne de grille d’autorité, affiche officielle, rédaction et rendu mécanique."
         }
       ],
       "continuation_decisions": [
@@ -17422,35 +17496,53 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T19:35:05.074Z",
+          "elapsed_seconds": 2375.424,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "65f8eeb53ee578b68ab80a065f05fe97299743de",
+          "next_actions": [
+            "Compléter lundi, encore à neuf cartes, depuis un dossier admissible pour fermer son minimum ; sinon compléter vendredi ou mardi, ou avancer une rubrique indépendante."
+          ],
+          "remaining_count": 11,
+          "observations": {
+            "started_at": "2026-10-15T18:55:29.650Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T20:16:46.235Z",
+            "external_stop": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T19:30:07.006Z",
-        "elapsed_seconds": 2077.356,
+        "observed_at": "2026-10-15T19:35:05.074Z",
+        "elapsed_seconds": 2375.424,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "13da7bfec595fda5fa786a69d39f496c651971b3",
+        "source_sha": "65f8eeb53ee578b68ab80a065f05fe97299743de",
         "next_actions": [
-          "Compléter mardi, encore à sept cartes, ou l’un des jours restés à six ou sept cartes depuis des dossiers admissibles ; sinon avancer une rubrique indépendante ou la seconde lecture restante.",
-          "Terminer un autre dossier déjà proche d’une carte ou une rubrique accessible ; ne pas reprendre TV5MONDE tant que son retry_gate de flux régional n’est pas satisfait."
+          "Compléter lundi, encore à neuf cartes, depuis un dossier admissible pour fermer son minimum ; sinon compléter vendredi ou mardi, ou avancer une rubrique indépendante."
         ],
         "remaining_count": 11,
         "observations": {
           "started_at": "2026-10-15T18:55:29.650Z",
           "lease_owned": "yes",
           "lease_until": "2026-10-15T20:16:46.235Z",
-          "external_stop": null,
-          "accessible_task_checks": [],
-          "ready_handoff": null
+          "external_stop": null
         }
       }
     }
   ],
-  "updated_at": "2026-10-15T19:33:32.923Z",
+  "updated_at": "2026-10-15T19:37:51.411Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -20982,6 +21074,100 @@
       ],
       "decision": "carte draft matérialisée — CI final requis",
       "reason": "Identité, diffusion actuelle, critique attribuée, absence de notes, visuel et textes sont revus ; les écarts de durée, d’année et d’horaire restent explicitement conservés."
+    },
+    {
+      "title": "Une jeunesse indienne",
+      "work_id": "une-jeunesse-indienne-2025",
+      "catalogue_match": "une-jeunesse-indienne-2025",
+      "identity_research": {
+        "director": "Neeraj Ghaywan",
+        "year": 2025,
+        "country": "Inde / France",
+        "source_urls": [
+          "https://www.advitamdistribution.com/films/une-jeunesse-indienne/"
+        ],
+        "checked_at": "2026-10-15T19:37:51.411Z",
+        "duration_observations": [
+          {
+            "duration": "1 h 58",
+            "version": "durée du distributeur Ad Vitam",
+            "source_url": "https://www.advitamdistribution.com/films/une-jeunesse-indienne/"
+          },
+          {
+            "duration": "2 h 02",
+            "version": "durée de la fiche SensCritique",
+            "source_url": "https://www.senscritique.com/film/une_jeunesse_indienne/110570347"
+          }
+        ],
+        "note": "Identité certaine du long métrage Homebound / Une jeunesse indienne. La divergence de durée est conservée sans inférence de master de diffusion."
+      },
+      "critical_evidence": [
+        {
+          "source": "Télérama",
+          "author": "Cécile Mury",
+          "source_url": null,
+          "source_ref": "sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d",
+          "pdf_page": 118,
+          "bbox": [
+            260.35,
+            48.22,
+            461.98,
+            81.77
+          ],
+          "provenance": {
+            "source_sha": "65f8eeb53ee578b68ab80a065f05fe97299743de",
+            "path": "data/editorial-inputs/2026-S43/telerama-editorial.json",
+            "json_pointer": "/reviews/14"
+          },
+          "assessment": "Le duo d’acteurs et l’ouverture donnent force au récit d’amitié entravé par les discriminations ; le passage pandémique alourdit parfois le mélodrame avant un dénouement plus émouvant.",
+          "kind": "provided_magazine_criticism",
+          "native_rating": "Très bien",
+          "access": "provided_pdf_reviewed",
+          "checked_at": "2026-10-15T19:37:51.411Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_one_configured_source",
+        "checked_at": "2026-10-15T19:37:51.411Z",
+        "source_urls": [
+          "https://www.senscritique.com/film/une_jeunesse_indienne/110570347"
+        ],
+        "senscritique": "6,7/10 (227 notes affichées)",
+        "note": "Fiche exacte Homebound / Une jeunesse indienne relue. IMDb est lié mais aucune valeur inaccessible n’est reprise."
+      },
+      "broadcast_research": {
+        "date": "2026-10-19",
+        "start": "20:50",
+        "channel": "Ciné+ Festival",
+        "source_urls": [],
+        "checked_at": "2026-10-15T19:37:51.411Z",
+        "status": "verified_by_reviewed_telerama_grid_authority",
+        "note": "Ligne Télérama p. 118 /observations/475 (sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d), bbox [485.43,249.41,542.65,267.41], relue pour le titre, la chaîne, la date et l’heure. L’identité correspond exactement au film du distributeur."
+      },
+      "image_research": {
+        "checked_at": "2026-10-15T19:37:51.411Z",
+        "source_page": "https://www.advitamdistribution.com/films/une-jeunesse-indienne/",
+        "image_url": "https://www.advitamdistribution.com/app/uploads/2026/01/UNE-JEUNESSE-INDIENNE_120-HD-526x712.jpg",
+        "status": "official_poster_visually_verified_ci_pending",
+        "visually_checked": true,
+        "note": "Affiche officielle verticale inspectée : les deux amis au centre, foule et paysage rural en arrière-plan ; contrôle CI distant encore requis."
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T19:37:51.411Z",
+        "status": "new_catalogue_work_no_recent_exposure",
+        "issues_checked": [
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ],
+        "note": "Aucune exposition récente de cette identité exacte dans les numéros sauvegardés."
+      },
+      "missing_fields": [
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
+      ],
+      "decision": "carte draft matérialisée — CI final requis",
+      "reason": "Identité, diffusion sous autorité papier, réception, visuel et textes sont revus ; les divergences de durée restent explicites."
     }
   ],
   "coverage": {
