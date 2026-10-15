@@ -110,7 +110,8 @@
     "2026-10-15T15:18:14.000Z — Ciné+ Family : grilles Web complètes et datées des 21, 22 et 23 octobre ajoutées (49 observations), jours civils et nuits inclus ; le relevé primaire de la chaîne couvre désormais les sept dates, sans seconde lecture ni indépendance certifiée.",
     "2026-10-15T15:19:54.000Z — Ciné+ OCS : sept grilles Web complètes et datées ajoutées (125 observations), jours civils et nuits reliés ; la matrice primaire atteint 29 chaînes et plus de 30 observations sur chacune des sept dates, sans seconde lecture ni indépendance certifiée.",
     "2026-10-15T15:22:35.000Z — matrice primaire réconciliée sur preuves sauvegardées : sept dates, 29 chaînes par date et 595–670 observations ; coverage.days[].channels_scanned créé mécaniquement. Première seconde lecture consignée sur Ciné+ OCS le 21 octobre, 19/19 lignes sans omission, avec limite d’un seul éditeur et indépendance inconnue.",
-    "2026-10-15T15:23:32.000Z — seconde lecture Ciné+ Family du 22 octobre : Sudinfo comparé à l’inventaire sur 05:55–23:59, 13/13 lignes concordantes et aucune omission ; nuit 00:00–05:54 laissée ouverte car la page rattache l’après-minuit à la soirée précédente, indépendance amont inconnue."
+    "2026-10-15T15:23:32.000Z — seconde lecture Ciné+ Family du 22 octobre : Sudinfo comparé à l’inventaire sur 05:55–23:59, 13/13 lignes concordantes et aucune omission ; nuit 00:00–05:54 laissée ouverte car la page rattache l’après-minuit à la soirée précédente, indépendance amont inconnue.",
+    "2026-10-15T15:53:19.000Z — secondes lectures Canal+ Grand Écran des 19 et 20 octobre : 13/13 puis 15/15 départs concordants, nuits incluses, aucune omission ; limite mono-éditeur conservée."
   ],
   "blockers": [],
   "research_attempts": [
@@ -4231,6 +4232,21 @@
       "applies_to": "Canal+ Grand Écran — samedi 17 et dimanche 18 octobre 2026, jours civils 00:00–23:59",
       "evidence_note": "Secondes lectures distinctes : 13/13 puis 15/15 départs concordants, nuits incluses, aucune omission ; une seule grille complète accessible par date.",
       "status": "reread_complete_single_editor_limit"
+    },
+    {
+      "fields": [
+        "schedule_identity",
+        "omission_review"
+      ],
+      "urls": [
+        "https://tv-programme.com/canal-plus-grand-ecran/lundi-19-octobre-2026/",
+        "https://tv-programme.com/canal-plus-grand-ecran/mardi-20-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T15:53:19.000Z",
+      "stability": "cycle_specific",
+      "applies_to": "Canal+ Grand Écran — lundi 19 et mardi 20 octobre 2026, jours civils 00:00–23:59",
+      "evidence_note": "Secondes lectures distinctes : 13/13 puis 15/15 départs concordants, nuits incluses, aucune omission ; une seule grille complète accessible par date.",
+      "status": "reread_complete_single_editor_limit"
     }
   ],
   "source_issues": [
@@ -5537,10 +5553,10 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
+      "Terminer les secondes lectures Canal+ Grand Écran des 21 au 23 octobre ; conserver toute omission ou contradiction factuelle sans correction automatique.",
+      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 22 autres chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites dans coverage.web_schedule_reviews.",
       "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
-      "Compléter la seconde lecture nocturne de Ciné+ Family le 22 octobre via une lecture civile distincte ; sinon passer à un autre jour/chaîne et conserver explicitement cette limite.",
-      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, en priorité sur les chaînes cinéma nouvellement complétées ; sauvegarder comparaisons, omissions et limites dans coverage.web_schedule_reviews.",
-      "Observer la CI de la tête corrigée sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
+      "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
     ]
   },
   "run_metrics": [
@@ -11354,9 +11370,9 @@
     {
       "prompt_revision": "production-weekly-continuity-2026-10-10",
       "started_at": "2026-10-15T15:03:29.000Z",
-      "ended_at": null,
-      "duration_basis": "Temps UTC observé depuis 2026-10-15T15:03:29.000Z ; checkpoint préparé à 2026-10-15T15:42:50.000Z.",
-      "run_state": "running",
+      "ended_at": "2026-10-15T15:53:33.000Z",
+      "duration_basis": "Temps UTC réellement observé de 2026-10-15T15:03:29.000Z à 2026-10-15T15:53:33.000Z ; 50 minutes écoulées atteintes, réserve finale appliquée.",
+      "run_state": "stopped",
       "completed_batches": [
         "2026-10-15T15:08:39.575Z — dossier The Big Short complété : deux guides actuels concordent désormais à 08:31 sur Ciné+ Frisson le 21 octobre ; la contradiction historique 08:30/08:31 est conservée, aucune carte n’est affirmée sans rendu mécanique.",
         "2026-10-15T15:11:01.172Z — impasses de grille révisées pour U Are the Universe et La Mer au loin : deux voies actuelles par dossier restent contradictoires ; retry_gates exacts sauvegardés, aucune carte ni clôture de couverture inventée.",
@@ -11390,7 +11406,8 @@
         "Seconde lecture Ciné+ Emotion des 17 et 18 octobre : 14/14 puis 15/15 départs concordants, aucune omission ; limite mono-éditeur conservée.",
         "Seconde lecture Ciné+ Emotion des 19 et 20 octobre : 17/17 puis 16/16 départs concordants, aucune omission ; limite mono-éditeur conservée.",
         "Seconde lecture Ciné+ Emotion des 21 au 23 octobre : 17/17, 16/16 et 17/17 départs concordants, aucune omission ; les sept dates de la chaîne disposent désormais d’une revue de niveau 2.",
-        "Seconde lecture Canal+ Grand Écran des 17 et 18 octobre : 13/13 puis 15/15 départs concordants, aucune omission ; limite mono-éditeur conservée."
+        "Seconde lecture Canal+ Grand Écran des 17 et 18 octobre : 13/13 puis 15/15 départs concordants, aucune omission ; limite mono-éditeur conservée.",
+        "2026-10-15T15:53:19.000Z — secondes lectures Canal+ Grand Écran des 19 et 20 octobre : 13/13 puis 15/15 départs concordants, nuits incluses, aucune omission ; limite mono-éditeur conservée."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -11402,8 +11419,8 @@
       "dossiers_completed": 1,
       "partial_dossiers_added": 0,
       "requirements_resolved": 1,
-      "stop_reason": null,
-      "next_useful_batch": "Poursuivre les secondes lectures Canal+ Grand Écran des 19 au 23 octobre.",
+      "stop_reason": "budget_reserve_reached: 50 minutes de temps réel écoulé observées ; réserve finale de cinq minutes utilisée pour le checkpoint durable et la libération du bail.",
+      "next_useful_batch": "Terminer les secondes lectures Canal+ Grand Écran des 21 au 23 octobre, puis poursuivre les 22 autres chaînes encore sans revue hebdomadaire complète.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -12458,26 +12475,66 @@
             ],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "finish": true,
+          "observed_at": "2026-10-15T15:53:33.000Z",
+          "elapsed_seconds": 3004,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "b5d23610abf58e15b391b690a57c9c2722ebe194",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T16:34:27.059Z",
+          "remaining_count": 11,
+          "next_actions_total": 4,
+          "evaluated_by": "manual_fallback",
+          "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision --finish appliquée depuis l’horloge UTC observée, le bail relu et le checkpoint immuable.",
+          "next_actions": [
+            "Terminer les secondes lectures Canal+ Grand Écran des 21 au 23 octobre.",
+            "Poursuivre les secondes lectures sur les 22 autres chaînes encore sans revue hebdomadaire complète.",
+            "Matérialiser The Big Short comme réserve draft lorsque le clone exécutable est disponible.",
+            "Inspecter la CI sur la prochaine tête candidate exacte."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T15:03:29.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T16:34:27.059Z",
+            "external_stop": null,
+            "accessible_task_checks": [
+              "Les secondes lectures Grand Écran des 19 et 20 octobre ont été achevées avant la réserve finale.",
+              "Trois dates Grand Écran et 22 autres chaînes restent accessibles au prochain passage.",
+              "Le rendu draft The Big Short reste dépendant d’un clone exécutable."
+            ],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T15:52:08.684Z",
-        "elapsed_seconds": 2920,
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "finish": true,
+        "observed_at": "2026-10-15T15:53:33.000Z",
+        "elapsed_seconds": 3004,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "4520b3f6b8b15ab5385c63bb7995ee4e716e9555",
+        "source_sha": "b5d23610abf58e15b391b690a57c9c2722ebe194",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T16:34:27.059Z",
         "remaining_count": 11,
         "next_actions_total": 4,
         "evaluated_by": "manual_fallback",
-        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les dates Grand Écran restant à traiter.",
+        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision --finish appliquée depuis l’horloge UTC observée, le bail relu et le checkpoint immuable.",
         "next_actions": [
-          "Poursuivre les secondes lectures Canal+ Grand Écran des 19 au 23 octobre."
+          "Terminer les secondes lectures Canal+ Grand Écran des 21 au 23 octobre.",
+          "Poursuivre les secondes lectures sur les 22 autres chaînes encore sans revue hebdomadaire complète.",
+          "Matérialiser The Big Short comme réserve draft lorsque le clone exécutable est disponible.",
+          "Inspecter la CI sur la prochaine tête candidate exacte."
         ],
         "observations": {
           "started_at": "2026-10-15T15:03:29.000Z",
@@ -12485,14 +12542,16 @@
           "lease_until": "2026-10-15T16:34:27.059Z",
           "external_stop": null,
           "accessible_task_checks": [
-            "Cinq dates Canal+ Grand Écran restent sans seconde lecture sauvegardée."
+            "Les secondes lectures Grand Écran des 19 et 20 octobre ont été achevées avant la réserve finale.",
+            "Trois dates Grand Écran et 22 autres chaînes restent accessibles au prochain passage.",
+            "Le rendu draft The Big Short reste dépendant d’un clone exécutable."
           ],
           "ready_handoff": null
         }
       }
     }
   ],
-  "updated_at": "2026-10-15T15:33:25.000Z",
+  "updated_at": "2026-10-15T15:53:33.000Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -17864,6 +17923,72 @@
           "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
         ],
         "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Grand Écran"
+        ],
+        "flow": "Canal+ Grand Écran",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:53:19.000Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor",
+        "date": "2026-10-19",
+        "urls": [
+          "https://tv-programme.com/canal-plus-grand-ecran/lundi-19-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 13,
+          "source_rows_reviewed": 13,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Un crime dans la tête commencé la veille à 23:00 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "13/13 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée."
+        ]
+      },
+      {
+        "channels": [
+          "Canal+ Grand Écran"
+        ],
+        "flow": "Canal+ Grand Écran",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:53:19.000Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor",
+        "date": "2026-10-20",
+        "urls": [
+          "https://tv-programme.com/canal-plus-grand-ecran/mardi-20-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 15,
+          "source_rows_reviewed": 15,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Tanguy commencé la veille à 22:43 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "15/15 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée."
+        ]
       }
     ],
     "independent_crosscheck_complete": false,
