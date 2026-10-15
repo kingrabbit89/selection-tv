@@ -4012,6 +4012,23 @@
       "applies_to": "Les Bodin's partent en vrille à 01:32 et Drôle de prof 2 au camping à 04:33 — Ciné+ Family, lundi 19 octobre 2026",
       "evidence_note": "TV-programme.com rafraîchi concorde avec Ouest-France pour Les Bodin's et avec ProgrammeTVCeSoir pour Drôle de prof 2 ; les anciennes variantes 01:33/04:34 restent tracées historiquement.",
       "status": "verified_two_publisher_concordance"
+    },
+    {
+      "fields": [
+        "schedule_identity",
+        "omission_review",
+        "schedule_time"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-frisson/mercredi-21-octobre-2026/",
+        "https://tv.digital3d.com/detail/cineplus-frisson-47?date=2026-10-21&time=10:39",
+        "https://programmestv.sudinfo.be/programme-tv/chaine/cine-frisson/483/mercrediprochain"
+      ],
+      "checked_at": "2026-10-15T15:39:50.000Z",
+      "stability": "cycle_specific",
+      "applies_to": "Ciné+ Frisson — mercredi 21 octobre 2026, jour civil 00:00–23:59",
+      "evidence_note": "Seconde grille complète : 15/15 identités, aucune omission ; douze horaires restent en conflit avec l’extraction primaire. Sudinfo concorde avec Digital3D sur le segment diurne, provenance amont inconnue.",
+      "status": "reread_complete_contradictions_open"
     }
   ],
   "source_issues": [
@@ -11136,7 +11153,7 @@
       "prompt_revision": "production-weekly-continuity-2026-10-10",
       "started_at": "2026-10-15T15:03:29.000Z",
       "ended_at": null,
-      "duration_basis": "Temps UTC observé depuis 2026-10-15T15:03:29.000Z ; checkpoint préparé à 2026-10-15T15:38:03.000Z.",
+      "duration_basis": "Temps UTC observé depuis 2026-10-15T15:03:29.000Z ; checkpoint préparé à 2026-10-15T15:39:50.000Z.",
       "run_state": "running",
       "completed_batches": [
         "2026-10-15T15:08:39.575Z — dossier The Big Short complété : deux guides actuels concordent désormais à 08:31 sur Ciné+ Frisson le 21 octobre ; la contradiction historique 08:30/08:31 est conservée, aucune carte n’est affirmée sans rendu mécanique.",
@@ -11157,7 +11174,8 @@
         "2026-10-15T15:31:37.000Z — secondes lectures Ciné+ Family des 20, 21 et 23 octobre : mercredi 17/17 et vendredi 16/16 sans omission ; mardi quinze identités présentes mais neuf décalages horaires conservés sans correction automatique.",
         "2026-10-15T15:33:25.000Z — recoupement distinct Ciné+ Family : mardi entièrement réconcilié par deux éditeurs (9 horaires corrigés, 15/15 lignes), lundi réconcilié sur 05:49–22:49 (10 horaires corrigés) ; trois écarts nocturnes du lundi restent ouverts.",
         "2026-10-15T15:35:59.000Z — recoupement Ciné+ Family : Le Père Noël est une ordure corrigé à 00:04 après concordance TV-programme/Télé 7 Jours ; samedi reste en conflit multi-éditeur (deux guides pour la grille révisée, deux pour l’extraction primaire), donc aucune correction ni omission clôturée.",
-        "2026-10-15T15:38:03.000Z — Ciné+ Family lundi 19 octobre entièrement réconcilié : sources actuelles concordantes sur Les Bodin's à 01:32 et Drôle de prof 2 à 04:33 ; les variations historiques restent tracées, aucune donnée d’inventaire modifiée."
+        "2026-10-15T15:38:03.000Z — Ciné+ Family lundi 19 octobre entièrement réconcilié : sources actuelles concordantes sur Les Bodin's à 01:32 et Drôle de prof 2 à 04:33 ; les variations historiques restent tracées, aucune donnée d’inventaire modifiée.",
+        "2026-10-15T15:39:50.000Z — seconde lecture Ciné+ Frisson du 21 octobre : 15/15 identités retrouvées et aucune omission ; douze écarts horaires, dont The Big Short, restent ouverts dans un conflit multi-guide sans correction d’inventaire."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -11170,7 +11188,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Commencer la seconde lecture complète d’une autre chaîne, en priorité Ciné+ Frisson déjà liée à un dossier avancé, sans revenir sur Family sauf fait nouveau.",
+      "next_useful_batch": "Poursuivre la seconde lecture Ciné+ Frisson sur une autre date, sans résoudre les douze horaires du 21 octobre tant qu’aucune correction officielle ou concordance non contradictoire n’est disponible.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -11805,26 +11823,56 @@
             ],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T15:39:50.000Z",
+          "elapsed_seconds": 2181,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "d64fccb246a6865c11310689b9954811cbf15f42",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T16:34:27.059Z",
+          "remaining_count": 11,
+          "next_actions_total": 4,
+          "evaluated_by": "manual_fallback",
+          "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et la matrice de niveau 2.",
+          "next_actions": [
+            "Poursuivre la seconde lecture Ciné+ Frisson sur une autre date, sans résoudre les douze horaires du 21 octobre tant qu’aucune correction officielle ou concordance non contradictoire n’est disponible."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T15:03:29.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T16:34:27.059Z",
+            "external_stop": null,
+            "accessible_task_checks": [
+              "Six autres dates Ciné+ Frisson restent accessibles à la seconde lecture."
+            ],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T15:38:03.000Z",
-        "elapsed_seconds": 2074,
+        "observed_at": "2026-10-15T15:39:50.000Z",
+        "elapsed_seconds": 2181,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "c93b080bece913237170d5fbac2a02acc0e40635",
+        "source_sha": "d64fccb246a6865c11310689b9954811cbf15f42",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T16:34:27.059Z",
         "remaining_count": 11,
         "next_actions_total": 4,
         "evaluated_by": "manual_fallback",
-        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les lacunes de niveau 2 du checkpoint.",
+        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et la matrice de niveau 2.",
         "next_actions": [
-          "Commencer la seconde lecture complète d’une autre chaîne, en priorité Ciné+ Frisson déjà liée à un dossier avancé, sans revenir sur Family sauf fait nouveau."
+          "Poursuivre la seconde lecture Ciné+ Frisson sur une autre date, sans résoudre les douze horaires du 21 octobre tant qu’aucune correction officielle ou concordance non contradictoire n’est disponible."
         ],
         "observations": {
           "started_at": "2026-10-15T15:03:29.000Z",
@@ -11832,7 +11880,7 @@
           "lease_until": "2026-10-15T16:34:27.059Z",
           "external_stop": null,
           "accessible_task_checks": [
-            "27 chaînes inventoriées n’ont encore aucune seconde lecture complète sauvegardée."
+            "Six autres dates Ciné+ Frisson restent accessibles à la seconde lecture."
           ],
           "ready_handoff": null
         }
@@ -15944,6 +15992,111 @@
           "Provenance amont et indépendance inconnues."
         ],
         "status": "single_publisher_full_day_reread_complete"
+      },
+      {
+        "channels": [
+          "Ciné+ Frisson"
+        ],
+        "flow": "Ciné+ Frisson",
+        "publisher": "TV Digital3D + Ciné-Télé-Revue / Sudinfo, comparés à TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:39:50.000Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture complète de TV Digital3D contre l’extraction primaire ; contrôle Sudinfo distinct du segment 05:26–23:59",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-21",
+        "urls": [
+          "https://tv-programme.com/cine-plus-frisson/mercredi-21-octobre-2026/",
+          "https://tv.digital3d.com/detail/cineplus-frisson-47?date=2026-10-21&time=10:39",
+          "https://programmestv.sudinfo.be/programme-tv/chaine/cine-frisson/483/mercrediprochain"
+        ],
+        "comparison": {
+          "saved_observations": 15,
+          "source_rows_reviewed": 15,
+          "omissions": [],
+          "schedule_contradictions": [
+            {
+              "saved_start": "00:08",
+              "review_start": "00:11",
+              "title": "Les charnelles"
+            },
+            {
+              "saved_start": "01:37",
+              "review_start": "01:39",
+              "title": "Morlaix"
+            },
+            {
+              "saved_start": "03:40",
+              "review_start": "03:39",
+              "title": "Pour elle"
+            },
+            {
+              "saved_start": "08:30",
+              "review_start": "08:31",
+              "title": "The Big Short : le casse du siècle"
+            },
+            {
+              "saved_start": "10:39",
+              "review_start": "10:36",
+              "title": "Ocean's Eleven"
+            },
+            {
+              "saved_start": "12:32",
+              "review_start": "12:29",
+              "title": "Jean-Claude Van Damme, coup sur coup"
+            },
+            {
+              "saved_start": "13:30",
+              "review_start": "13:29",
+              "title": "Batman v Superman : l'aube de la justice"
+            },
+            {
+              "saved_start": "15:56",
+              "review_start": "15:55",
+              "title": "Le livre d'Eli"
+            },
+            {
+              "saved_start": "17:51",
+              "review_start": "17:49",
+              "title": "Burn Out"
+            },
+            {
+              "saved_start": "19:32",
+              "review_start": "19:29",
+              "title": "L.A. Confidentiel S01E05"
+            },
+            {
+              "saved_start": "19:45",
+              "review_start": "19:44",
+              "title": "Yannick"
+            },
+            {
+              "saved_start": "22:48",
+              "review_start": "22:46",
+              "title": "L'affaire SK1"
+            }
+          ],
+          "retained_source_segments": [
+            "Juste après l'aube commencé la veille à 22:31 est un report de continuité et n’est pas dupliqué comme départ du jour civil du 21 octobre."
+          ],
+          "concordant_unchanged": [
+            "Corporate 05:26",
+            "Les arènes 06:59",
+            "Le dahlia noir 20:50"
+          ]
+        },
+        "decisions": [
+          "Les quinze identités de l’inventaire sont présentes dans la seconde grille complète ; aucune omission détectée.",
+          "Sudinfo et TV Digital3D concordent sur le segment 05:26–23:59, mais TV-programme.com conserve douze horaires différents ; ces écarts restent ouverts et l’inventaire n’est pas corrigé.",
+          "Le conflit The Big Short 08:30/08:31 reste visible malgré le dossier éditorial déjà complété ; aucun rang ni carte n’est certifié par cette revue."
+        ],
+        "limits": [
+          "TV Digital3D renvoie vers Programme-TV.net ; la provenance amont commune ou indépendante n’est pas établie.",
+          "Le segment nocturne 00:00–05:25 n’a qu’une seconde grille complète distincte dans ce lot ; trois écarts horaires y restent ouverts.",
+          "Conflit multi-guide sur les horaires, sans correction officielle précise."
+        ],
+        "status": "reread_complete_no_omissions_schedule_conflicts_open"
       }
     ],
     "independent_crosscheck_complete": false,
