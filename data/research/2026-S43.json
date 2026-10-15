@@ -121,7 +121,9 @@
     "2026-10-15T16:44:13.961Z — seconde lecture M6 sur les sept dates : 159/159 départs présents, nuits et reports inclus ; titre du 17 à 10:10 corrigé en « Le mag du samedi Jura », indépendance amont inconnue.",
     "2026-10-15T16:45:02.184Z — seconde lecture TF1 sur les sept dates : 178/178 départs présents, nuits et reports inclus, aucune omission ni contradiction ; indépendance amont inconnue.",
     "2026-10-15T16:45:08.774Z — seconde lecture France 5 sur les sept dates : 37 omissions et plusieurs décalages conservés, dont En tension le 18 et trois identités Serengeti le 21 ; couverture non close.",
-    "2026-10-15T16:50:14.000Z — seconde lecture Arte sur les sept dates : 186 événements comparés, aucune omission ; deux horaires du mardi corrigés de 01:10 à 01:15 et de 04:10 à 04:15 selon l’officiel confirmé, aucune carte visible affectée."
+    "2026-10-15T16:50:14.000Z — seconde lecture Arte sur les sept dates : 186 événements comparés, aucune omission ; deux horaires du mardi corrigés de 01:10 à 01:15 et de 04:10 à 04:15 selon l’officiel confirmé, aucune carte visible affectée.",
+    "2026-10-15T17:05:14.237Z — France 5 : 35 omissions relues importées dans l’inventaire (12 émissions nommées et 23 lignes Imprévus) ; le doublon probable Les Moodz et la ligne conflictuelle En tension sont suspendus, les trois identités Serengeti restent ouvertes.",
+    "2026-10-15T17:01:31.348Z — collecte officielle groupée ARTE et France 2/3/4/5 : 2 121 observations issues de 16 sources parsées ; 0 ajout, 1 130 doublons, 976 lignes exclues et 15 conflits à revoir, sans certification de couverture."
   ],
   "blockers": [],
   "research_attempts": [
@@ -4508,6 +4510,44 @@
       "applies_to": "Arte — sept jours et nuits 2026-S43",
       "evidence_note": "186 événements comparés, aucune omission ; 01:10→01:15 et 04:10→04:15 corrigés selon ARTE et Linternaute ; indépendance amont inconnue.",
       "status": "level2_complete"
+    },
+    {
+      "fields": [
+        "raw_inventory_reconciliation",
+        "level2_schedule_coverage"
+      ],
+      "urls": [
+        "https://www.francetvpro.fr/grille-xml/france-5/17-10-2026",
+        "https://tv-programme.com/france-5/samedi-17-octobre-2026/",
+        "https://tv-programme.com/france-5/dimanche-18-octobre-2026/",
+        "https://tv-programme.com/france-5/lundi-19-octobre-2026/",
+        "https://tv-programme.com/france-5/mardi-20-octobre-2026/",
+        "https://tv-programme.com/france-5/mercredi-21-octobre-2026/",
+        "https://tv-programme.com/france-5/jeudi-22-octobre-2026/",
+        "https://tv-programme.com/france-5/vendredi-23-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T17:05:14.237Z",
+      "stability": "cycle_specific",
+      "applies_to": "France 5 — inventaire brut 2026-S43",
+      "evidence_note": "35 omissions factuelles importées après revue : 12 lignes nommées et 23 Imprévus. Les Moodz 10:03 et En tension 20:45 sont suspendus ; Serengeti reste contradictoire. Aucun niveau 3 certifié.",
+      "status": "inventory_rows_imported_conflicts_open"
+    },
+    {
+      "fields": [
+        "official_schedule_collection"
+      ],
+      "urls": [
+        "https://www.arte.tv/fr/guide/20261017/",
+        "https://www.francetvpro.fr/grille-xml/france-2/17-10-2026",
+        "https://www.francetvpro.fr/grille-xml/france-3/17-10-2026",
+        "https://www.francetvpro.fr/grille-xml/france-4/17-10-2026",
+        "https://www.francetvpro.fr/grille-xml/france-5/17-10-2026"
+      ],
+      "checked_at": "2026-10-15T17:01:31.348Z",
+      "stability": "cycle_specific",
+      "applies_to": "ARTE et France 2/3/4/5 — collecte officielle groupée 2026-S43",
+      "evidence_note": "2 121 observations, 16 sources parsées ; 0 ajout, 1 130 doublons, 976 exclusions et 15 conflits. Acquisition fraîche sauvegardée localement pour revue ; ne clôt aucune couverture.",
+      "status": "official_collection_review_required"
     }
   ],
   "source_issues": [
@@ -5837,7 +5877,8 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 20 autres chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+      "Résoudre les conflits France 5 En tension du 18 octobre et les trois identités Serengeti du 21, ainsi que le rapprochement Les Moodz, sans écraser les lignes officielles sauvegardées.",
+      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
       "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
       "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
       "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
@@ -13699,9 +13740,222 @@
           "ready_handoff": null
         }
       }
+    },
+    {
+      "prompt_revision": "production-weekly-continuity-2026-10-10",
+      "started_at": "2026-10-15T16:57:13.282Z",
+      "ended_at": null,
+      "duration_basis": "Temps UTC observé depuis le début réel ; les revues déléguées sont parallèles et ne sont pas additionnées au temps séquentiel.",
+      "run_state": "running",
+      "completed_batches": [
+        "2026-10-15T17:05:14.237Z — France 5 : 35 omissions relues importées dans l’inventaire (12 émissions nommées et 23 lignes Imprévus) ; le doublon probable Les Moodz et la ligne conflictuelle En tension sont suspendus, les trois identités Serengeti restent ouvertes.",
+        "2026-10-15T17:01:31.348Z — collecte officielle groupée ARTE et France 2/3/4/5 : 2 121 observations issues de 16 sources parsées ; 0 ajout, 1 130 doublons, 976 lignes exclues et 15 conflits à revoir, sans certification de couverture."
+      ],
+      "deliverables_changed": [
+        "data/inventory/2026-S43.json",
+        "data/research/2026-S43.json"
+      ],
+      "complete_cards_added": 0,
+      "draft_cards_added": 0,
+      "draft_reserves_added": 0,
+      "dossiers_completed": 0,
+      "partial_dossiers_added": 0,
+      "requirements_resolved": 0,
+      "stop_reason": null,
+      "next_useful_batch": "Intégrer les secondes lectures France 2 et France 3, puis résoudre les conflits France 5 ou avancer une rubrique indépendante.",
+      "additions": {
+        "new_works": 0,
+        "visible_draft_cards": 0,
+        "distinct_reserves_added": 0,
+        "reused_existing_cards": 0,
+        "raw_inventory_observations_added": 35,
+        "scope": "Comparaison avec bf4dac650dfbc96e53fb0b630c11f81534027c16 ; 12 lignes nommées et 23 placeholders Imprévus, aucune carte."
+      },
+      "intervals": [
+        {
+          "kind": "reprise_extraction",
+          "started_at": "2026-10-15T16:57:13.282Z",
+          "ended_at": "2026-10-15T17:01:31.348Z",
+          "overlap": false
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": null,
+          "ended_at": "2026-10-15T17:05:14.237Z",
+          "overlap": true,
+          "note": "Début exact non mesuré ; revue France 5 en lecture seule, parallèle à la collecte officielle."
+        },
+        {
+          "kind": "research",
+          "started_at": "2026-10-15T17:01:31.348Z",
+          "ended_at": "2026-10-15T17:05:14.237Z",
+          "overlap": false,
+          "note": "Revue mécanique des omissions France 5 et préparation du checkpoint."
+        }
+      ],
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T16:58:59.449Z",
+          "elapsed_seconds": 106.167,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "bf4dac650dfbc96e53fb0b630c11f81534027c16",
+          "next_actions": [
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 20 autres chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+            "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+            "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
+            "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 15,
+          "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 17,
+          "waiting_actions": [
+            {
+              "action_text": "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master.",
+              "gates": [
+                {
+                  "attempt_index": 11,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master."
+                    ],
+                    "reason": "Heure exacte non recoupée : 06:34 contre 06:30 ; aucune preuve officielle datée.",
+                    "resume_when": "Une preuve officielle datée confirme le créneau du 23 octobre, ou un second guide actuel d’un éditeur distinct concorde exactement avec 06:34.",
+                    "observed_at": "2026-10-15T16:24:23.000Z",
+                    "evidence": "TV-programme 06:34 ; SCREEN+ 06:30 ; CANAL+ sans événement daté ; ancienne lecture Télérama 06:33 hors portée du 23 octobre."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent.",
+              "gates": [
+                {
+                  "attempt_index": 16,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent."
+                    ],
+                    "reason": "Deux paires de guides actuels donnent des heures incompatibles pour le même événement.",
+                    "resume_when": "Une page officielle Ciné+ ou correction officielle datée indique l’heure, ou une modification fraîche des guides fait converger au moins deux éditeurs distincts sans paire contradictoire encore actuelle.",
+                    "observed_at": "2026-10-15T16:24:52.033Z",
+                    "evidence": "Télérama 17:54 ; Digital3D 17:54 ; TV-programme 17:51 ; Molotov 17:51 ; Orange inaccessible."
+                  }
+                }
+              ]
+            }
+          ],
+          "research_review_warnings": [
+            "research_attempts[0].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[1].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[8].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[9].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[10].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[14].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[15].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate"
+          ],
+          "observations": {
+            "started_at": "2026-10-15T16:57:13.282Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T17:58:10.070Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-15T16:58:59.449Z",
+        "elapsed_seconds": 106.167,
+        "prompt_revision": "production-weekly-continuity-2026-10-10",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S43",
+        "source_sha": "bf4dac650dfbc96e53fb0b630c11f81534027c16",
+        "next_actions": [
+          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 20 autres chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+          "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+          "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+          "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
+          "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
+        ],
+        "remaining_count": 11,
+        "next_actions_total": 15,
+        "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "all_actions_total": 17,
+        "waiting_actions": [
+          {
+            "action_text": "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master.",
+            "gates": [
+              {
+                "attempt_index": 11,
+                "effective_state": "waiting_for_new_evidence",
+                "retry_gate": {
+                  "state": "waiting_for_new_evidence",
+                  "action_texts": [
+                    "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master."
+                  ],
+                  "reason": "Heure exacte non recoupée : 06:34 contre 06:30 ; aucune preuve officielle datée.",
+                  "resume_when": "Une preuve officielle datée confirme le créneau du 23 octobre, ou un second guide actuel d’un éditeur distinct concorde exactement avec 06:34.",
+                  "observed_at": "2026-10-15T16:24:23.000Z",
+                  "evidence": "TV-programme 06:34 ; SCREEN+ 06:30 ; CANAL+ sans événement daté ; ancienne lecture Télérama 06:33 hors portée du 23 octobre."
+                }
+              }
+            ]
+          },
+          {
+            "action_text": "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent.",
+            "gates": [
+              {
+                "attempt_index": 16,
+                "effective_state": "waiting_for_new_evidence",
+                "retry_gate": {
+                  "state": "waiting_for_new_evidence",
+                  "action_texts": [
+                    "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent."
+                  ],
+                  "reason": "Deux paires de guides actuels donnent des heures incompatibles pour le même événement.",
+                  "resume_when": "Une page officielle Ciné+ ou correction officielle datée indique l’heure, ou une modification fraîche des guides fait converger au moins deux éditeurs distincts sans paire contradictoire encore actuelle.",
+                  "observed_at": "2026-10-15T16:24:52.033Z",
+                  "evidence": "Télérama 17:54 ; Digital3D 17:54 ; TV-programme 17:51 ; Molotov 17:51 ; Orange inaccessible."
+                }
+              }
+            ]
+          }
+        ],
+        "research_review_warnings": [
+          "research_attempts[0].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+          "research_attempts[1].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+          "research_attempts[8].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+          "research_attempts[9].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+          "research_attempts[10].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+          "research_attempts[14].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+          "research_attempts[15].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate"
+        ],
+        "observations": {
+          "started_at": "2026-10-15T16:57:13.282Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T17:58:10.070Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
+        }
+      }
     }
   ],
-  "updated_at": "2026-10-15T16:39:00.000Z",
+  "updated_at": "2026-10-15T17:05:14.237Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -20555,12 +20809,41 @@
           "granularity_limit": "Les épisodes Okoo/Okoo Nuit détaillés par le guide sont conservés comme différence de granularité et ne sont pas comptés dans les 37 omissions."
         },
         "decisions": [
-          "Revue hebdomadaire France 5 achevée avec lacunes : importer/réconcilier les 37 lignes avant clôture et résoudre En tension du 18 ainsi que les trois identités Serengeti du 21."
+          "35 of 37 factual omissions were imported after line-by-line reconciliation; the probable Les Moodz duplicate and conflicting En tension line remain held.",
+          "The three Serengeti identity/time conflicts remain open and no saved official row was overwritten."
         ],
         "limits": [
           "Provenance amont du guide inconnue ; indépendance non certifiée. Les lignes Imprévus restent des omissions factuelles. Aucun niveau 3 certifié."
         ],
-        "status": "second_reading_complete_with_gaps"
+        "status": "second_reading_imported_with_conflicts_open",
+        "inventory_reconciliation": {
+          "reviewed_at": "2026-10-15T17:05:14.237Z",
+          "source_candidate_sha": "bf4dac650dfbc96e53fb0b630c11f81534027c16",
+          "evidence_pointer": "data/research/2026-S43.json#/coverage/web_schedule_reviews/78",
+          "reviewed_omissions": 37,
+          "imported_observations": 35,
+          "named_observations_imported": 12,
+          "imprevus_observations_imported": 23,
+          "held_observations": [
+            {
+              "date": "2026-10-17",
+              "start": "10:03",
+              "title": "Les Moodz — Chocotte a peur du noir",
+              "reason": "Probable duplicate of the saved FranceTVPro event at 10:00; identity and label remain to reconcile."
+            },
+            {
+              "date": "2026-10-18",
+              "start": "20:45",
+              "title": "En tension — En tension dans les lycées avec HugoDécrypte",
+              "reason": "Conflicts with the saved official evening sequence; held pending a precise dated correction or a conforming cross-check."
+            }
+          ],
+          "open_conflicts": [
+            "France 5, 18 October: En tension and the downstream evening schedule.",
+            "France 5, 21 October: three Serengeti episode identities and start times."
+          ],
+          "limits": "The 23 Imprévus rows remain raw schedule placeholders and do not certify any proposal. No visible card or level-3 fact is closed by this import."
+        }
       },
       {
         "channels": [
