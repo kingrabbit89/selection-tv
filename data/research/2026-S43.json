@@ -49,7 +49,8 @@
     "Lecture complète des grilles Web datées du lundi 19 octobre pour Canal+, Action, RMC Story et RMC Découverte : 86 observations civiles ajoutées, nuits 00:00–05:59 incluses, sans seconde lecture ni certification de proposition.",
     "Lecture complète des grilles Web datées du mardi 20 octobre pour Canal+ et Action : 41 observations civiles ajoutées, nuits 00:00–05:59 incluses ; RMC Story et RMC Découverte restent ouvertes pour cette date, sans seconde lecture ni certification de proposition.",
     "2026-10-15T07:42:30Z — mardi 20 octobre : RMC Story et RMC Découverte ajoutées depuis deux grilles Web datées (41 observations).",
-    "2026-10-15T07:44:25Z — mercredi 21 octobre : Canal+ ajoutée depuis une grille Web datée (26 observations)."
+    "2026-10-15T07:44:25Z — mercredi 21 octobre : Canal+ ajoutée depuis une grille Web datée (26 observations).",
+    "2026-10-15T08:07:40Z — mercredi 21 octobre : Action, RMC Story et RMC Découverte ajoutées depuis trois grilles Web complètes et datées (60 observations)."
   ],
   "blockers": [],
   "research_attempts": [],
@@ -731,6 +732,63 @@
       "applies_to": "Inventaire primaire du mercredi 21 octobre 2026 pour Canal+ uniquement.",
       "evidence_note": "La page portait explicitement le nom de la chaîne et la date du mercredi 21 octobre 2026. La ligne de fin de soirée du mardi affichée en tête a été exclue ; les créneaux commençant le 21, y compris 00:00–05:59, ont été conservés. Ce lot ne prouve ni Action/RMC sur cette date, ni les deux autres dates, ni RTL9/Ciné+/TF1, ni la seconde lecture, ni l’indépendance, ni la qualité éditoriale.",
       "status": "partial"
+    },
+    {
+      "id": "web-grid-wednesday-action-20261015T080740Z",
+      "work_id": null,
+      "fields": [
+        "inventory.title",
+        "inventory.channel",
+        "inventory.date",
+        "inventory.start",
+        "inventory.source_url"
+      ],
+      "urls": [
+        "https://lezapptv.fr/chaine/action/2026-10-21"
+      ],
+      "checked_at": "2026-10-15T08:07:40Z",
+      "stability": "cycle_specific",
+      "applies_to": "Inventaire primaire du mercredi 21 octobre 2026 pour Action uniquement.",
+      "evidence_note": "La page LeZappTV portait explicitement Action et la date du mercredi 21 octobre 2026. Les 15 créneaux commençant le 21, nuit 00:00–05:59 incluse, ont été conservés ; les lignes après minuit relevant du jeudi ont été exclues. Ce lot ne prouve ni les deux autres dates, ni la seconde lecture, ni l’indépendance, ni la qualité éditoriale.",
+      "status": "partial"
+    },
+    {
+      "id": "web-grid-wednesday-rmc-story-20261015T080740Z",
+      "work_id": null,
+      "fields": [
+        "inventory.title",
+        "inventory.channel",
+        "inventory.date",
+        "inventory.start",
+        "inventory.source_url"
+      ],
+      "urls": [
+        "https://tv-programme.com/rmc-story/mercredi-21-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T08:07:40Z",
+      "stability": "cycle_specific",
+      "applies_to": "Inventaire primaire du mercredi 21 octobre 2026 pour RMC Story uniquement.",
+      "evidence_note": "La page TV-programme.com portait explicitement RMC Story et la date du mercredi 21 octobre 2026. La ligne tardive du mardi affichée en tête a été exclue et les 25 créneaux civils, nuit 00:00–05:59 incluse, ont été conservés. Ce lot ne prouve ni les deux autres dates, ni la seconde lecture, ni l’indépendance, ni la qualité éditoriale.",
+      "status": "partial"
+    },
+    {
+      "id": "web-grid-wednesday-rmc-decouverte-20261015T080740Z",
+      "work_id": null,
+      "fields": [
+        "inventory.title",
+        "inventory.channel",
+        "inventory.date",
+        "inventory.start",
+        "inventory.source_url"
+      ],
+      "urls": [
+        "https://zappe.fr/programme-tv/2026-10-21/"
+      ],
+      "checked_at": "2026-10-15T08:07:40Z",
+      "stability": "cycle_specific",
+      "applies_to": "Inventaire primaire du mercredi 21 octobre 2026 pour RMC Découverte uniquement.",
+      "evidence_note": "La page Zappe portait explicitement la date du mercredi 21 octobre 2026 et une section RMC Découverte complète. Les 20 créneaux civils, nuit 00:00–05:59 incluse, ont été conservés. Ce lot ne prouve ni les deux autres dates, ni la seconde lecture, ni l’indépendance, ni la qualité éditoriale.",
+      "status": "partial"
     }
   ],
   "source_issues": [
@@ -779,7 +837,7 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
-      "Compléter Action, RMC Story et RMC Découverte le 21 octobre, puis poursuivre le groupe les 22 et 23 octobre.",
+      "Compléter Canal+, Action, RMC Story et RMC Découverte les 22 et 23 octobre.",
       "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
       "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
       "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte."
@@ -2267,7 +2325,111 @@
           "note": "Lecture de la grille Web datée Canal+ du mercredi et transcription mécanique ; aucune seconde lecture ni qualification éditoriale."
         }
       ]
+    },
+    {
+      "prompt_revision": "production-weekly-continuity-2026-10-10",
+      "started_at": "2026-10-15T08:01:18.283Z",
+      "ended_at": null,
+      "duration_basis": "UTC observée depuis le début réel du passage ; passage encore en cours.",
+      "run_state": "running",
+      "completed_batches": [
+        "2026-10-15T08:07:40Z — mercredi 21 octobre : Action, RMC Story et RMC Découverte ajoutées depuis trois grilles Web complètes et datées (60 observations)."
+      ],
+      "deliverables_changed": [
+        "data/inventory/2026-S43.json",
+        "data/research/2026-S43.json"
+      ],
+      "complete_cards_added": 0,
+      "draft_cards_added": 0,
+      "partial_dossiers_added": 0,
+      "requirements_resolved": 0,
+      "stop_reason": null,
+      "next_useful_batch": "Compléter Canal+, Action, RMC Story et RMC Découverte les 22 et 23 octobre.",
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T08:04:00.184Z",
+          "elapsed_seconds": 161.901,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "c8fc8ee021a5e9e61be75f12be197b2a332c4374",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T09:02:37.478Z",
+          "next_actions": [
+            "Compléter Action, RMC Story et RMC Découverte le 21 octobre, puis poursuivre le groupe les 22 et 23 octobre.",
+            "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
+            "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
+            "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte."
+          ],
+          "remaining_count": 12,
+          "next_actions_total": 16,
+          "truncated_notice": "12 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 16,
+          "waiting_actions": [],
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-15T08:01:18.283Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T09:02:37.478Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "evaluated_by": "scripts/editorial-continuation.mjs"
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-15T08:04:00.184Z",
+        "elapsed_seconds": 161.901,
+        "prompt_revision": "production-weekly-continuity-2026-10-10",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S43",
+        "source_sha": "c8fc8ee021a5e9e61be75f12be197b2a332c4374",
+        "lease_owned": "yes",
+        "lease_until": "2026-10-15T09:02:37.478Z",
+        "next_actions": [
+          "Compléter Action, RMC Story et RMC Découverte le 21 octobre, puis poursuivre le groupe les 22 et 23 octobre.",
+          "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
+          "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
+          "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte."
+        ],
+        "remaining_count": 12,
+        "next_actions_total": 16,
+        "truncated_notice": "12 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "all_actions_total": 16,
+        "waiting_actions": [],
+        "research_review_warnings": [],
+        "observations": {
+          "started_at": "2026-10-15T08:01:18.283Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T09:02:37.478Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
+        },
+        "evaluated_by": "scripts/editorial-continuation.mjs"
+      },
+      "measured_intervals": [
+        {
+          "kind": "resume_and_extraction",
+          "started_at": "2026-10-15T08:01:18.283Z",
+          "ended_at": "2026-10-15T08:04:00.184Z",
+          "note": "Cible, attestations des contrats inchangés, bail, diagnostics, flow sans réseau et triage."
+        },
+        {
+          "kind": "research",
+          "started_at": "2026-10-15T08:04:03Z",
+          "ended_at": "2026-10-15T08:07:40Z",
+          "note": "Lecture groupée de trois grilles Web datées du mercredi et transcription mécanique de 60 lignes civiles ; aucune seconde lecture ni qualification éditoriale."
+        }
+      ]
     }
   ],
-  "updated_at": "2026-10-15T07:45:53.722Z"
+  "updated_at": "2026-10-15T08:07:40Z"
 }
