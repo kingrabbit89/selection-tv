@@ -130,7 +130,8 @@
     "2026-10-15T17:15:54.526Z — France 3 : trois lignes brutes importées mécaniquement sous handoff contrôlé (Scooby-Doo 10:30 et La France en vrai 00:02/23:42) ; le conflit de titre Appassionata à 01:35 reste ouvert.",
     "2026-10-15T17:16:20.000Z — France 3 à 01:35 : quatre guides actuels concordent sur le concert de la Garde républicaine, mais FranceTVPro conserve Appassionata ; contradiction et condition de reprise sauvegardées.",
     "2026-10-15T17:36:49.485Z — Bright Star : réserve vendredi rang 6 matérialisée sous handoff contrôlé ; identité 2009, diffusion Ciné+ OCS du 23 octobre à 10:35, visuel et critique relus, note courante laissée indisponible après HTTP 403 ; répétition S41 pénalisée mais seuil global de fraîcheur conservé.",
-    "2026-10-15T17:41:33.548Z — TV5MONDE : préparation ciblée de la seconde lecture ; 342 lignes sauvegardées sur sept jours, mais la grille officielle TV5MONDE Europe diverge dès la nuit du 17 octobre du guide primaire. Le périmètre de flux régional reste à confirmer ; aucune omission, identité ni couverture n’est close."
+    "2026-10-15T17:41:33.548Z — TV5MONDE : préparation ciblée de la seconde lecture ; 342 lignes sauvegardées sur sept jours, mais la grille officielle TV5MONDE Europe diverge dès la nuit du 17 octobre du guide primaire. Le périmètre de flux régional reste à confirmer ; aucune omission, identité ni couverture n’est close.",
+    "2026-10-15T17:44:11.091Z — TMC samedi 17 octobre : seconde lecture jour+nuit, 18/18 départs présents dans deux grilles Web datées d’éditeurs distincts ; aucune omission de programme, labels d’épisode du bloc New York Unité Spéciale non exposés par le second guide et indépendance amont inconnue."
   ],
   "blockers": [],
   "research_attempts": [
@@ -4811,6 +4812,21 @@
       "applies_to": "TV5MONDE — préparation de la seconde lecture du 17 au 23 octobre 2026",
       "evidence_note": "342 lignes primaires sont sauvegardées. La comparaison officielle/guide est partielle et rencontre une divergence nocturne compatible avec des flux régionaux différents ; aucune omission n’est conclue.",
       "status": "partial_waiting_for_feed_scope"
+    },
+    {
+      "fields": [
+        "weekly_level2_omission_review",
+        "civil_day_night_segments"
+      ],
+      "urls": [
+        "https://tv-programme.com/tmc/samedi-17-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-samedi/tmc"
+      ],
+      "checked_at": "2026-10-15T17:44:11.091Z",
+      "stability": "cycle_specific",
+      "applies_to": "TMC — samedi 17 octobre 2026, journée civile et nuit 00:00–05:59",
+      "evidence_note": "18 départs sauvegardés et 18 départs relus ; aucune omission. Les labels d’épisode détaillés du bloc de soirée ne sont pas exposés par le second guide et restent hors certification niveau 3.",
+      "status": "level2_complete_no_omission_independence_unknown"
     }
   ],
   "source_issues": [
@@ -14056,7 +14072,8 @@
         "2026-10-15T17:28:32.146Z — France 4 : seconde lecture complète des sept jours et nuits ; aucune omission autonome à importer, un chevauchement officiel à 05:00 écarté comme créneau autonome et quatre groupes de contradictions conservés ouverts ; aucun niveau 3 certifié.",
         "2026-10-15T17:28:54.769Z — Gulli : seconde lecture complète des sept jours et nuits, 139 événements réconciliés ; aucune omission de contenu, cinq segmentations nocturnes, deux conflits de libellé et une convention de numérotation conservés ; aucun niveau 3 certifié.",
         "2026-10-15T17:36:49.485Z — Bright Star : réserve vendredi rang 6 matérialisée sous handoff contrôlé ; identité 2009, diffusion Ciné+ OCS du 23 octobre à 10:35, visuel et critique relus, note courante laissée indisponible après HTTP 403 ; répétition S41 pénalisée mais seuil global de fraîcheur conservé.",
-        "2026-10-15T17:41:33.548Z — TV5MONDE : préparation ciblée de la seconde lecture ; 342 lignes sauvegardées sur sept jours, mais la grille officielle TV5MONDE Europe diverge dès la nuit du 17 octobre du guide primaire. Le périmètre de flux régional reste à confirmer ; aucune omission, identité ni couverture n’est close."
+        "2026-10-15T17:41:33.548Z — TV5MONDE : préparation ciblée de la seconde lecture ; 342 lignes sauvegardées sur sept jours, mais la grille officielle TV5MONDE Europe diverge dès la nuit du 17 octobre du guide primaire. Le périmètre de flux régional reste à confirmer ; aucune omission, identité ni couverture n’est close.",
+        "2026-10-15T17:44:11.091Z — TMC samedi 17 octobre : seconde lecture jour+nuit, 18/18 départs présents dans deux grilles Web datées d’éditeurs distincts ; aucune omission de programme, labels d’épisode du bloc New York Unité Spéciale non exposés par le second guide et indépendance amont inconnue."
       ],
       "deliverables_changed": [
         "data/inventory/2026-S43.json",
@@ -14071,7 +14088,7 @@
       "partial_dossiers_added": 1,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Reprendre la seconde lecture TV5MONDE seulement après avoir confirmé que la grille officielle TV5MONDE Europe et la chaîne TV5MONDE du relevé sauvegardé décrivent le même flux régional ; conserver la divergence nocturne du 17 octobre ouverte.",
+      "next_useful_batch": "Poursuivre la seconde lecture TMC du 18 au 23 octobre avec les grilles complètes datées déjà repérées, sans réaffirmer les labels d’épisode que le second guide ne détaille pas.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -14184,6 +14201,13 @@
           "ended_at": "2026-10-15T17:41:33.548Z",
           "overlap": false,
           "note": "Décompte des chaînes encore sans revue, choix de TV5MONDE, lecture de la grille officielle et détection d’un conflit de périmètre régional avant toute comparaison d’omissions."
+        },
+        {
+          "kind": "research",
+          "started_at": "2026-10-15T17:43:26.689Z",
+          "ended_at": "2026-10-15T17:44:11.091Z",
+          "overlap": false,
+          "note": "Cartographie des dix chaînes encore sans revue complète, puis comparaison niveau 2 de TMC samedi sur deux guides datés."
         }
       ],
       "continuation_decisions": [
@@ -15109,30 +15133,324 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T17:43:26.689Z",
+          "elapsed_seconds": 2773.407,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "306d4d4d1378bc7603a93922d0828ce044584428",
+          "next_actions": [
+            "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+            "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+            "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 17,
+          "truncated_notice": "12 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 29,
+          "waiting_actions": [
+            {
+              "action_text": "Reprendre la seconde lecture TV5MONDE seulement après avoir confirmé que la grille officielle TV5MONDE Europe et la chaîne TV5MONDE du relevé sauvegardé décrivent le même flux régional ; conserver la divergence nocturne du 17 octobre ouverte.",
+              "gates": [
+                {
+                  "attempt_index": 20,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre la seconde lecture TV5MONDE seulement après avoir confirmé que la grille officielle TV5MONDE Europe et la chaîne TV5MONDE du relevé sauvegardé décrivent le même flux régional ; conserver la divergence nocturne du 17 octobre ouverte."
+                    ],
+                    "reason": "Les premières lignes nocturnes divergent et le périmètre régional exact des deux grilles n’est pas encore relié positivement.",
+                    "resume_when": "Le flux régional est confirmé identique, ou une grille complète du même flux que le relevé primaire est accessible.",
+                    "observed_at": "2026-10-15T17:41:33.548Z",
+                    "evidence": "TV5MONDE Europe officiel : 00:51 Météo puis 00:54 #Investigation ; TV-programme TV5MONDE : 00:05 L’actu puis 00:41 Lou et Sophie le 17 octobre."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master.",
+              "gates": [
+                {
+                  "attempt_index": 11,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master."
+                    ],
+                    "reason": "Heure exacte non recoupée : 06:34 contre 06:30 ; aucune preuve officielle datée.",
+                    "resume_when": "Une preuve officielle datée confirme le créneau du 23 octobre, ou un second guide actuel d’un éditeur distinct concorde exactement avec 06:34.",
+                    "observed_at": "2026-10-15T16:24:23.000Z",
+                    "evidence": "TV-programme 06:34 ; SCREEN+ 06:30 ; CANAL+ sans événement daté ; ancienne lecture Télérama 06:33 hors portée du 23 octobre."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent.",
+              "gates": [
+                {
+                  "attempt_index": 16,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent."
+                    ],
+                    "reason": "Deux paires de guides actuels donnent des heures incompatibles pour le même événement.",
+                    "resume_when": "Une page officielle Ciné+ ou correction officielle datée indique l’heure, ou une modification fraîche des guides fait converger au moins deux éditeurs distincts sans paire contradictoire encore actuelle.",
+                    "observed_at": "2026-10-15T16:24:52.033Z",
+                    "evidence": "Télérama 17:54 ; Digital3D 17:54 ; TV-programme 17:51 ; Molotov 17:51 ; Orange inaccessible."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre En tension du 18 octobre seulement si FranceTVPro publie une correction datée ou si sa grille officielle courante change.",
+              "gates": [
+                {
+                  "attempt_index": 17,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre En tension du 18 octobre seulement si FranceTVPro publie une correction datée ou si sa grille officielle courante change."
+                    ],
+                    "reason": "Trois guides distincts concordent, mais la grille officielle courante du même événement reste contradictoire.",
+                    "resume_when": "FranceTVPro publie une correction datée ou sa grille officielle courante change.",
+                    "observed_at": "2026-10-15T17:13:30.000Z",
+                    "evidence": "FranceTVPro 21:05/21:07/22:40 sans En tension ; TV-programme, Zappe et 24Infos 20:45/21:10/21:11/22:45 avec En tension."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre les trois identités Serengeti du 21 octobre seulement si une correction officielle datée réconcilie les titres FranceTVPro et ceux des guides actuels.",
+              "gates": [
+                {
+                  "attempt_index": 18,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre les trois identités Serengeti du 21 octobre seulement si une correction officielle datée réconcilie les titres FranceTVPro et ceux des guides actuels."
+                    ],
+                    "reason": "La source officielle détaillée et plusieurs guides actuels décrivent des identités d’épisode incompatibles.",
+                    "resume_when": "Une correction officielle datée réconcilie explicitement les identités ou la grille officielle change.",
+                    "observed_at": "2026-10-15T17:13:30.000Z",
+                    "evidence": "FranceTVPro : Le Refuge / L’enfer du brasier / Les Premières Leçons ; guides : Les trônes des fauves / Un paradis en feu / Vivre à tout prix."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre le titre France 3 du 17 octobre à 01:35 seulement si FranceTVPro corrige Appassionata ou publie une fiche événementielle datée pour L’orchestre de la Garde républicaine.",
+              "gates": [
+                {
+                  "attempt_index": 19,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre le titre France 3 du 17 octobre à 01:35 seulement si FranceTVPro corrige Appassionata ou publie une fiche événementielle datée pour L’orchestre de la Garde républicaine."
+                    ],
+                    "reason": "Quatre guides actuels concordent sur un titre différent de la grille officielle courante du même créneau.",
+                    "resume_when": "FranceTVPro corrige Appassionata ou une fiche officielle datée relie le concert au créneau.",
+                    "observed_at": "2026-10-15T17:16:20.000Z",
+                    "evidence": "FranceTVPro : Appassionata ; TV-programme, L’Internaute, Ouest-France et Zappe : L’orchestre de la Garde républicaine à l’Opéra-Comique, 01:35."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés.",
+              "gates": [
+                {
+                  "attempt_index": 0,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
+                    ],
+                    "reason": "Les voies directe et alternative réellement ouvertes ne fournissent pas une grille complète de la date cible.",
+                    "resume_when": "Nouvelle grille datée exacte accessible ou changement observé sur l’une des pages.",
+                    "observed_at": "2026-10-15T08:41:23.322Z",
+                    "evidence": "403 sur les deux URLs TV-programme.com ; pages Télérama ouvertes mais dates rendues hors cible."
+                  }
+                },
+                {
+                  "attempt_index": 1,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
+                    ],
+                    "reason": "La source directe est inaccessible et les alternatives lues n’exposent pas les lignes de grille.",
+                    "resume_when": "Nouvelle grille datée exacte accessible ou changement observé sur l’une des pages.",
+                    "observed_at": "2026-10-15T08:41:23.322Z",
+                    "evidence": "403 sur les deux URLs TV-programme.com ; Vualatele annonce 0 programme ; SCREEN+ n’expose que le calendrier dans le résultat lu."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre Quand la ville dort seulement si une preuve permet d’attribuer une durée exacte à la copie du dimanche 18 octobre 2026.",
+              "gates": [
+                {
+                  "attempt_index": 8,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre Quand la ville dort seulement si une preuve permet d’attribuer une durée exacte à la copie du dimanche 18 octobre 2026."
+                    ],
+                    "reason": "Deux voies distinctes ne permettent pas d’attribuer une durée exacte à la copie.",
+                    "resume_when": "Preuve officielle ou source précise de la durée de la copie du 18 octobre.",
+                    "observed_at": "2026-10-15T12:22:43.453Z",
+                    "evidence": "Durées 107/108/109/112 min de portées différentes ; la fenêtre EPG ne certifie pas la copie."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre Memories of Murder seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:44/10:45 du lundi 19 octobre 2026.",
+              "gates": [
+                {
+                  "attempt_index": 9,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre Memories of Murder seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:44/10:45 du lundi 19 octobre 2026."
+                    ],
+                    "reason": "Deux clusters de guides actuels divergent d’une minute.",
+                    "resume_when": "Correction officielle datée ou nouveau recoupement qui résout la contradiction.",
+                    "observed_at": "2026-10-15T12:25:00.000Z",
+                    "evidence": "10:45 chez Programme-TV, Ouest-France, ProgrammeTVCeSoir et Digital3D ; 10:44 chez TV-programme et Télérama."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre Bienvenue à Gattaca seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:07/10:11 du mardi 20 octobre 2026.",
+              "gates": [
+                {
+                  "attempt_index": 10,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre Bienvenue à Gattaca seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:07/10:11 du mardi 20 octobre 2026."
+                    ],
+                    "reason": "Deux clusters actuels divergent de quatre minutes.",
+                    "resume_when": "Correction officielle datée ou nouveau recoupement qui résout la contradiction.",
+                    "observed_at": "2026-10-15T12:22:22.000Z",
+                    "evidence": "Concordances 10:07 et contradiction persistante 10:11."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre U Are the Universe seulement si une correction officielle datée ou un nouveau recoupement admissible résout la contradiction 08:30/08:33 du mardi 20 octobre 2026.",
+              "gates": [
+                {
+                  "attempt_index": 14,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre U Are the Universe seulement si une correction officielle datée ou un nouveau recoupement admissible résout la contradiction 08:30/08:33 du mardi 20 octobre 2026."
+                    ],
+                    "reason": "Deux clusters actuels d’horaires restent contradictoires et aucune preuve officielle événementielle n’arbitre la minute.",
+                    "resume_when": "Correction officielle datée ou nouveau recoupement admissible résolvant la contradiction.",
+                    "observed_at": "2026-10-15T15:11:01.172Z",
+                    "evidence": "TV-programme + ProgrammeTVCeSoir : 08:30 ; Digital3D + Télérama : 08:33 ; durée œuvre 101 min séparée des fenêtres EPG."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre La Mer au loin seulement si une correction officielle datée ou un nouveau recoupement admissible résout la contradiction 16:59/17:01 du mardi 20 octobre 2026.",
+              "gates": [
+                {
+                  "attempt_index": 15,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre La Mer au loin seulement si une correction officielle datée ou un nouveau recoupement admissible résout la contradiction 16:59/17:01 du mardi 20 octobre 2026."
+                    ],
+                    "reason": "Deux clusters actuels restent contradictoires ; l’identité de l’œuvre est certaine mais ne tranche pas l’heure de diffusion.",
+                    "resume_when": "Correction officielle datée ou nouveau recoupement admissible résolvant la contradiction.",
+                    "observed_at": "2026-10-15T15:11:01.172Z",
+                    "evidence": "ProgrammeTVCeSoir + Le Zapp TV : 17:01 ; TV-programme : 16:59 ; aucune pièce officielle événementielle."
+                  }
+                }
+              ]
+            }
+          ],
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-15T16:57:13.282Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T18:34:48.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T17:39:47.690Z",
-        "elapsed_seconds": 2554.408,
+        "observed_at": "2026-10-15T17:43:26.689Z",
+        "elapsed_seconds": 2773.407,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "5a3a15395114c4eb6783a509e8a45bd7cc5f31b3",
+        "source_sha": "306d4d4d1378bc7603a93922d0828ce044584428",
         "next_actions": [
-          "Compléter une nouvelle réserve quotidienne depuis un dossier déjà avancé et une diffusion entièrement démontrable, ou reprendre une seconde lecture hebdomadaire indépendante si aucun dossier proche n’est admissible.",
           "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
           "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
           "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
-          "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
+          "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+          "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau."
         ],
         "remaining_count": 11,
-        "next_actions_total": 18,
-        "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "next_actions_total": 17,
+        "truncated_notice": "12 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
         "all_actions_total": 29,
         "waiting_actions": [
+          {
+            "action_text": "Reprendre la seconde lecture TV5MONDE seulement après avoir confirmé que la grille officielle TV5MONDE Europe et la chaîne TV5MONDE du relevé sauvegardé décrivent le même flux régional ; conserver la divergence nocturne du 17 octobre ouverte.",
+            "gates": [
+              {
+                "attempt_index": 20,
+                "effective_state": "waiting_for_new_evidence",
+                "retry_gate": {
+                  "state": "waiting_for_new_evidence",
+                  "action_texts": [
+                    "Reprendre la seconde lecture TV5MONDE seulement après avoir confirmé que la grille officielle TV5MONDE Europe et la chaîne TV5MONDE du relevé sauvegardé décrivent le même flux régional ; conserver la divergence nocturne du 17 octobre ouverte."
+                  ],
+                  "reason": "Les premières lignes nocturnes divergent et le périmètre régional exact des deux grilles n’est pas encore relié positivement.",
+                  "resume_when": "Le flux régional est confirmé identique, ou une grille complète du même flux que le relevé primaire est accessible.",
+                  "observed_at": "2026-10-15T17:41:33.548Z",
+                  "evidence": "TV5MONDE Europe officiel : 00:51 Météo puis 00:54 #Investigation ; TV-programme TV5MONDE : 00:05 L’actu puis 00:41 Lou et Sophie le 17 octobre."
+                }
+              }
+            ]
+          },
           {
             "action_text": "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master.",
             "gates": [
@@ -15369,7 +15687,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-15T17:41:33.548Z",
+  "updated_at": "2026-10-15T17:44:11.091Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -23557,6 +23875,42 @@
           "No inference about guide-feed independence was made from matching schedules or different domains."
         ],
         "status": "completed_with_segmentation_and_label_conflicts"
+      },
+      {
+        "date": "2026-10-17",
+        "channels": [
+          "TMC"
+        ],
+        "flow": "TMC",
+        "publisher": "TV-programme.com / Tabom + Télérama / CMI France",
+        "checked_at": "2026-10-15T17:44:11.091Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 18 lignes TMC de l’inventaire sauvegardé, report de veille inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/tmc/samedi-17-octobre-2026/",
+          "https://television.telerama.fr/programme-tv-samedi/tmc"
+        ],
+        "comparison": {
+          "saved_observations": 18,
+          "source_rows_reviewed": 18,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "L’élève Ducobu commencé le 16 octobre à 23:05 se termine à 00:59 ; report de veille non dupliqué."
+          ]
+        },
+        "decisions": [
+          "Les 18 départs du jour civil concordent en heure et identité de programme au niveau requis pour la recherche d’omissions."
+        ],
+        "limits": [
+          "Le second guide n’expose pas dans sa liste les labels détaillés des quatre épisodes de New York Unité Spéciale ; ces identités ne sont pas certifiées au niveau 3.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
       }
     ],
     "independent_crosscheck_complete": false,
