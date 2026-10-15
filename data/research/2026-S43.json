@@ -143,7 +143,8 @@
     "2026-10-15T18:41:59.191Z — RMC Découverte sur les sept jours : seconde lecture jour+nuit achevée sur 138 départs sauvegardés ; six journées sans omission interne, mais le report sortant du mercredi et toute la séquence nocturne du jeudi sont contradictoires et restent ouverts. Aucune correction automatique.",
     "2026-10-15T18:45:28.776Z — RTL9 sur les sept jours : seconde lecture jour+nuit achevée ; 243/243 départs concordants, aucune omission ni divergence horaire ou d’identité nommée, reports civils continus et labels S/E non réaffirmés lorsqu’absents du second guide.",
     "2026-10-15T18:49:00.000Z — À pied d’œuvre : dossier partiel consolidé depuis la fiche officielle CANAL+ ; identité de base et durée 1 h 32 vérifiées, sans sélection ni certification de la diffusion, des notes ou du visuel.",
-    "2026-10-15T19:01:58.983Z — Last Stop : Yuma County réutilisé comme réserve draft samedi rang 6 à 17:20 selon la ligne Télérama fournie relue (p. 106, /observations/31) ; l’écart Web 17:17 reste visible, les trois primaires et les cinq cartes antérieures sont conservés."
+    "2026-10-15T19:01:58.983Z — Last Stop : Yuma County réutilisé comme réserve draft samedi rang 6 à 17:20 selon la ligne Télérama fournie relue (p. 106, /observations/31) ; l’écart Web 17:17 reste visible, les trois primaires et les cinq cartes antérieures sont conservés.",
+    "2026-10-15T19:06:44.300Z — cinq réserves réutilisées sous autorité des lignes Télérama fournies et relues : lundi Last Stop : Yuma County rang 7 et Bright Star rang 8, jeudi La Prisonnière du désert rang 7 et Midsommar rang 8, vendredi Raccrochez, c’est une erreur rang 7 ; primaires et cartes antérieures conservés."
   ],
   "blockers": [],
   "research_attempts": [
@@ -4893,6 +4894,101 @@
       ],
       "evidence_note": "Transcription relue de la ligne Télérama fournie : source sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d, page 106, bbox [123.74,168.15,192.68,181.65], data/editorial-inputs/2026-S43/telerama.json /observations/31. Elle établit Last Stop : Yuma County, Canal+ Cinéma, samedi 17 octobre 2026 à 17:20. TV-programme sauvegardé affiche 17:17 ; divergence conservée.",
       "status": "verified_by_provided_telerama_authority_for_printed_fields"
+    },
+    {
+      "work_id": "last-stop-yuma-county",
+      "fields": [
+        "title",
+        "channel",
+        "date",
+        "start"
+      ],
+      "urls": [
+        "https://tv-programme.com/canal-plus-cinema/lundi-19-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T19:06:44.300Z",
+      "stability": "cycle_specific_telerama_authority",
+      "applies_to": [
+        "lundi-selection reserve rank 7"
+      ],
+      "evidence_note": "Transcription relue ; source sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d. Télérama fourni p. 118, bbox [123.77,203.15,192.7,216.65], /observations/418 : lundi 19 octobre, Canal+ Cinéma, 18:40. TV-programme sauvegardé concorde à 18:40.",
+      "status": "verified_by_provided_telerama_authority_for_printed_fields"
+    },
+    {
+      "work_id": "bright-star-2009",
+      "fields": [
+        "title",
+        "channel",
+        "date",
+        "start"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-ocs/lundi-19-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T19:06:44.300Z",
+      "stability": "cycle_specific_telerama_authority",
+      "applies_to": [
+        "lundi-selection reserve rank 8"
+      ],
+      "evidence_note": "Transcription relue ; source sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d. Télérama fourni p. 118, bbox [308.38,175.12,376.4,188.62], /observations/489 : lundi 19 octobre, Ciné+ OCS, 17:10. TV-programme sauvegardé indique 17:07 ; écart conservé.",
+      "status": "verified_by_provided_telerama_authority_for_printed_fields"
+    },
+    {
+      "work_id": "la-prisonniere-du-desert-1956",
+      "fields": [
+        "title",
+        "channel",
+        "date",
+        "start"
+      ],
+      "urls": [
+        "https://www.canalplus.com/cinema/la-prisonniere-du-desert/h/1102077_40099"
+      ],
+      "checked_at": "2026-10-15T19:06:44.300Z",
+      "stability": "cycle_specific_telerama_authority",
+      "applies_to": [
+        "jeudi-selection reserve rank 7"
+      ],
+      "evidence_note": "Transcription relue ; source sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d. Télérama fourni p. 136, bbox [400.67,134.3,471.96,147.8], /observations/1026 : jeudi 22 octobre, Ciné+ Classic, 13:30. Aucune concordance Web de cette occurrence n’est réaffirmée.",
+      "status": "verified_by_provided_telerama_authority_for_printed_fields"
+    },
+    {
+      "work_id": "midsommar-2019",
+      "fields": [
+        "title",
+        "channel",
+        "date",
+        "start"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-frisson/jeudi-22-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T19:06:44.300Z",
+      "stability": "cycle_specific_telerama_authority",
+      "applies_to": [
+        "jeudi-selection reserve rank 8"
+      ],
+      "evidence_note": "Transcription relue ; source sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d. Télérama fourni p. 130, bbox [308.35,638.35,348.19,644.85], /observations/1055 : date civile jeudi 22 octobre, Ciné+ Frisson, 02:10. TV-programme 02:08 et autre programme à 02:09 dans une grille antérieure ; écarts conservés.",
+      "status": "verified_by_provided_telerama_authority_for_printed_fields"
+    },
+    {
+      "work_id": "raccrochez-c-est-une-erreur-1948",
+      "fields": [
+        "title",
+        "channel",
+        "date",
+        "start"
+      ],
+      "urls": [
+        "https://www.molotov.tv/fr_fr/p/12354/raccrochez-c-est-une-erreur"
+      ],
+      "checked_at": "2026-10-15T19:06:44.300Z",
+      "stability": "cycle_specific_telerama_authority",
+      "applies_to": [
+        "vendredi-selection reserve rank 7"
+      ],
+      "evidence_note": "Transcription relue ; source sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d. Télérama fourni p. 142, bbox [400.67,211.16,459.16,224.66], /observations/1238 : vendredi 23 octobre, Ciné+ Classic, 19:20. Aucune concordance Web de cette occurrence n’est réaffirmée.",
+      "status": "verified_by_provided_telerama_authority_for_printed_fields"
     }
   ],
   "source_issues": [
@@ -6163,7 +6259,7 @@
         "scope": {
           "day": "jeudi"
         },
-        "status": "deferred",
+        "status": "card_drafted",
         "signals": [
           {
             "kind": "professional_criticism",
@@ -6171,7 +6267,7 @@
             "source_url": "https://www.theguardian.com/film/2019/jul/03/midsommar-review-ari-aster-florence-pugh"
           }
         ],
-        "decision_note": "Piste optionnelle différée : TV-programme annonce 02:08, tandis que la grille actuelle de Télé 7 Jours donne un autre programme à 02:09 ; le flux belge Sudinfo n’arbitre pas la diffusion française. Aucune carte créée.",
+        "decision_note": "Piste rouverte sur fait nouveau : le complément Télérama de la bonne cible, importé puis relu, arbitre la ligne papier à 02:10 jeudi 22 octobre (p. 130, /observations/1055). Réserve draft jeudi rang 8 ; les écarts Web 02:08 et 02:09 restent conservés.",
         "alternatives": [
           "sl-jeudi-old-boy",
           "sl-jeudi-freaks-2018",
@@ -6243,6 +6339,83 @@
           }
         ],
         "decision_note": "Réserve draft samedi rang 6 à 17:20, fondée sur la ligne Télérama fournie relue ; la grille Web sauvegardée indique 17:17, écart conservé sans renverser l’autorité papier. Dossier, carte et pénalité de fraîcheur S41 réutilisés depuis vendredi.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-lundi-last-stop-yuma-county",
+        "title": "Last Stop : Yuma County",
+        "work_id": "last-stop-yuma-county",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "RogerEbert.com souligne la montée méthodique de la tension et l’humour noir du huis clos.",
+            "source_url": "https://www.rogerebert.com/reviews/the-last-stop-in-yuma-county-film-review-2024"
+          },
+          {
+            "kind": "professional_counterpoint",
+            "note": "Télérama reconnaît l’efficacité et le casting mais juge l’ensemble trop tributaire de ses modèles.",
+            "source_url": "https://www.telerama.fr/cinema/last-stop-yuma-county-de-francis-galluppi-notre-critique_cri-7040091.php"
+          }
+        ],
+        "decision_note": "Réserve draft lundi rang 7 à 18:40 : ligne Télérama p. 118 relue et grille Web sauvegardée concordante. Dossier et textes réutilisés ; pénalité de fraîcheur S41 conservée.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-lundi-bright-star-2009",
+        "title": "Bright Star",
+        "work_id": "bright-star-2009",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Roger Ebert décrit un film beau et mélancolique dont la mise en scène sensible fait éprouver la poésie et l’amour empêché.",
+            "source_url": "https://www.rogerebert.com/reviews/bright-star-2009"
+          }
+        ],
+        "decision_note": "Réserve draft lundi rang 8 à 17:10 : ligne Télérama p. 118 relue et prioritaire sur la grille Web à 17:07. Dossier et textes réutilisés ; pénalité de répétition S41 conservée.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-jeudi-la-prisonniere-du-desert",
+        "title": "La Prisonnière du désert",
+        "work_id": "la-prisonniere-du-desert-1956",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "canon_critique",
+            "note": "Le classement Sight and Sound du BFI conservé dans le catalogue constitue un signal patrimonial précis ; identité, version diffusée et fraîcheur restent à contrôler avant toute carte.",
+            "source_url": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time"
+          }
+        ],
+        "decision_note": "Réserve draft jeudi rang 7 à 13:30 selon la ligne Télérama p. 136 relue ; les faits stables et les textes de la carte samedi sont réutilisés, sans réaffirmer une concordance Web de cette occurrence.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-vendredi-raccrochez-erreur",
+        "title": "Raccrochez, c’est une erreur",
+        "work_id": "raccrochez-c-est-une-erreur-1948",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Time Out relève la force du huis clos téléphonique et du jeu de Barbara Stanwyck, tandis que le New Yorker conserve une réserve sur les flashbacks emboîtés.",
+            "source_url": "https://www.timeout.com/movies/sorry-wrong-number"
+          }
+        ],
+        "decision_note": "Réserve draft vendredi rang 7 à 19:20 selon la ligne Télérama p. 142 relue ; les faits stables et les textes des cartes existantes sont réutilisés, sans réaffirmer une concordance Web de cette occurrence.",
         "alternatives": []
       }
     ]
@@ -16744,27 +16917,28 @@
       "duration_basis": "Temps UTC observé depuis le début réel ; aucun intervalle parallèle ajouté à ce checkpoint.",
       "run_state": "running",
       "completed_batches": [
-        "2026-10-15T19:01:58.983Z — Last Stop : Yuma County réutilisé comme réserve draft samedi rang 6 à 17:20 selon la ligne Télérama fournie relue (p. 106, /observations/31) ; l’écart Web 17:17 reste visible, les trois primaires et les cinq cartes antérieures sont conservés."
+        "2026-10-15T19:01:58.983Z — Last Stop : Yuma County réutilisé comme réserve draft samedi rang 6 à 17:20 selon la ligne Télérama fournie relue (p. 106, /observations/31) ; l’écart Web 17:17 reste visible, les trois primaires et les cinq cartes antérieures sont conservés.",
+        "2026-10-15T19:06:44.300Z — cinq réserves réutilisées sous autorité des lignes Télérama fournies et relues : lundi Last Stop : Yuma County rang 7 et Bright Star rang 8, jeudi La Prisonnière du désert rang 7 et Midsommar rang 8, vendredi Raccrochez, c’est une erreur rang 7 ; primaires et cartes antérieures conservés."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
         "data/weeks/2026-S43.json"
       ],
       "complete_cards_added": 0,
-      "draft_cards_added": 1,
-      "draft_reserves_added": 1,
+      "draft_cards_added": 6,
+      "draft_reserves_added": 6,
       "dossiers_completed": 0,
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Terminer un autre dossier déjà proche d’une carte ou une rubrique accessible ; ne reprendre aucune impasse sans fait nouveau.",
+      "next_useful_batch": "Compléter les réserves des jours encore sous dix avec d’autres dossiers déjà contrôlés, ou avancer une rubrique indépendante ; ne reprendre aucune impasse sans fait nouveau.",
       "additions": {
         "new_works": 0,
-        "visible_draft_cards": 1,
+        "visible_draft_cards": 6,
         "distinct_reserves_added": 0,
-        "reused_existing_cards": 1,
+        "reused_existing_cards": 6,
         "raw_inventory_observations_added": 0,
-        "scope": "Comparaison avec 0a2a9bd03796ce3ca39a6ad811c0a776c73da4c4 : une occurrence supplémentaire de Last Stop : Yuma County est ajoutée au samedi. Elle accroît le pool samedi de cinq à six cartes et ses réserves quotidiennes d’une unité, mais ne crée aucune œuvre ni réserve distincte à l’échelle hebdomadaire car le work_id existe déjà vendredi."
+        "scope": "Comparaison avec 0a2a9bd03796ce3ca39a6ad811c0a776c73da4c4 : six occurrences de cartes existantes ajoutées aux pools samedi, lundi, jeudi et vendredi. Elles accroissent les réserves quotidiennes de six unités au total, mais ne créent aucune œuvre ni réserve distincte à l’échelle hebdomadaire car chaque work_id était déjà présent dans un autre jour."
       },
       "intervals": [
         {
@@ -16779,6 +16953,13 @@
           "ended_at": "2026-10-15T19:01:58.983Z",
           "overlap": false,
           "note": "Plan append_days, rendu mécanique, contrôle du handoff, revue de la transcription Télérama et réconciliation du checkpoint."
+        },
+        {
+          "kind": "redaction_rendu",
+          "started_at": "2026-10-15T19:04:24.562Z",
+          "ended_at": "2026-10-15T19:06:44.300Z",
+          "overlap": false,
+          "note": "Triage sur la tête exacte, revue de cinq lignes Télérama, plan append_days multi-jours, rendu mécanique et contrôle du handoff."
         }
       ],
       "continuation_decisions": [
@@ -16835,7 +17016,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-15T19:01:58.983Z",
+  "updated_at": "2026-10-15T19:06:44.300Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
