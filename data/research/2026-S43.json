@@ -60,7 +60,8 @@
     "2026-10-15T08:38:47.527Z — Ciné+ Classic : grilles complètes et datées des 21 et 22 octobre ajoutées (37 observations), ce qui achève le relevé primaire de cette chaîne sur les sept dates.",
     "2026-10-15T08:41:23.322Z — Impasse ciblée consignée pour Ciné+ OCS et Ciné+ Family les 21–22 octobre : deux ouvertures directes 403 par chaîne et alternatives non datées correctement ou sans lignes ; aucune observation inventée.",
     "2026-10-15T08:44:55.227Z — jeudi 22 octobre : Ciné+ Festival ajoutée depuis une grille Web complète et datée (14 observations), nuit 00:00–05:59 incluse.",
-    "2026-10-15T08:46:35.582Z — mercredi 21 octobre : Ciné+ Festival ajoutée depuis une grille Web complète et datée (14 observations), nuit 00:00–05:59 incluse."
+    "2026-10-15T08:46:35.582Z — mercredi 21 octobre : Ciné+ Festival ajoutée depuis une grille Web complète et datée (14 observations), nuit 00:00–05:59 incluse.",
+    "2026-10-15T08:49:39.000Z — mardi 20 octobre : Ciné+ Festival ajoutée depuis une grille Web complète et datée (14 observations), nuit 00:00–05:59 incluse."
   ],
   "blockers": [],
   "research_attempts": [
@@ -1293,6 +1294,24 @@
       "applies_to": "Inventaire primaire du mercredi 21 octobre 2026 pour Ciné+ Festival uniquement.",
       "evidence_note": "La page portait explicitement Ciné+ Festival et le mercredi 21 octobre 2026. Les 14 débuts du jour civil ont été sauvegardés ; le programme commencé la veille à 22:43 relie le segment 00:00–00:22. Ce lot ne prouve ni les cinq autres dates de la chaîne, ni la seconde lecture, ni l’indépendance, ni la qualité éditoriale.",
       "status": "partial"
+    },
+    {
+      "fields": [
+        "inventory",
+        "channel",
+        "date",
+        "start_time",
+        "title",
+        "night_segment"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-festival/mardi-20-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T08:49:39.000Z",
+      "stability": "cycle_specific",
+      "applies_to": "2026-10-20 — Ciné+ Festival — relevé primaire",
+      "evidence_note": "Grille Web datée réellement lue de 00:39 à 22:43. Le programme Kika commencé à 22:48 la veille, affiché en tête de page comme chevauchement, n'est pas importé comme départ civil du 20 octobre. Les 14 départs civils sont transcrits ; aucune seconde lecture ni qualification éditoriale n'est attestée.",
+      "status": "verified_for_inventory"
     }
   ],
   "source_issues": [
@@ -1363,7 +1382,7 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
-      "Poursuivre Ciné+ Festival sur les 17–21 et 23 octobre, puis Emotion, Frisson et RTL9, sans répéter les ouvertures OCS/Family en attente.",
+      "Poursuivre Ciné+ Festival sur les 17–19 et 23 octobre, puis Emotion, Frisson et RTL9, sans répéter les ouvertures OCS/Family en attente.",
       "Compléter Ciné+ OCS les 21 et 22 octobre depuis une grille complète datée accessible.",
       "Compléter Ciné+ Family les 21 et 22 octobre depuis une grille complète datée accessible.",
       "Compléter la grille Action du 23 octobre au-delà de 04:31 depuis une grille complète datée accessible.",
@@ -2871,7 +2890,8 @@
         "2026-10-15T08:38:47.527Z — Ciné+ Classic : 37 observations ajoutées pour les 21–22 octobre depuis deux grilles Web complètes et datées ; relevé primaire sept jours achevé pour cette chaîne.",
         "2026-10-15T08:41:23.322Z — Impasses de grilles Ciné+ OCS/Family des 21–22 octobre caractérisées après voies directe et alternative ; 0 observation ajoutée.",
         "2026-10-15T08:44:55.227Z — jeudi 22 octobre : 14 observations Ciné+ Festival ajoutées depuis une grille Web complète et datée.",
-        "2026-10-15T08:46:35.582Z — mercredi 21 octobre : 14 observations Ciné+ Festival ajoutées depuis une grille Web complète et datée."
+        "2026-10-15T08:46:35.582Z — mercredi 21 octobre : 14 observations Ciné+ Festival ajoutées depuis une grille Web complète et datée.",
+        "2026-10-15T08:49:39.000Z — mardi 20 octobre : 14 observations Ciné+ Festival ajoutées depuis une grille Web complète et datée."
       ],
       "deliverables_changed": [
         "data/inventory/2026-S43.json",
@@ -2882,7 +2902,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre Ciné+ Festival sur une autre date accessible.",
+      "next_useful_batch": "Poursuivre Ciné+ Festival sur les 17–19 et 23 octobre, puis Emotion, Frisson et RTL9, sans répéter les ouvertures OCS/Family en attente.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -3386,9 +3406,15 @@
           "started_at": "2026-10-15T08:45:56Z",
           "ended_at": "2026-10-15T08:46:35.582Z",
           "note": "Lecture et transcription mécanique de la grille Ciné+ Festival du mercredi ; aucune seconde lecture ni qualification éditoriale."
+        },
+        {
+          "kind": "research",
+          "started_at": "2026-10-15T08:48:34Z",
+          "ended_at": "2026-10-15T08:49:39.000Z",
+          "note": "Lecture et transcription mécanique de la grille Ciné+ Festival du mardi ; le chevauchement commencé la veille est exclu, aucune seconde lecture ni qualification éditoriale."
         }
       ]
     }
   ],
-  "updated_at": "2026-10-15T08:46:35.582Z"
+  "updated_at": "2026-10-15T08:49:39.000Z"
 }
