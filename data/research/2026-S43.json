@@ -79,17 +79,14 @@
       "blocking_scope": "Inventaire primaire Ciné+ OCS des 21 et 22 octobre incomplet ; aucune ligne nouvelle certifiée par ce lot.",
       "resume_condition": "Reprendre si une grille statique ou une capture datée exacte des 21/22 octobre devient accessible, ou si une autre source complète expose les horaires civils et nocturnes.",
       "retry_gate": {
-        "state": "waiting",
+        "state": "waiting_for_new_evidence",
         "action_texts": [
           "Compléter Ciné+ OCS, Festival, Emotion, Frisson, Family et RTL9 sur les sept jours, avec leurs grilles datées et nuits."
         ],
         "reason": "Les voies directe et alternative réellement ouvertes ne fournissent pas une grille complète de la date cible.",
         "resume_when": "Nouvelle grille datée exacte accessible ou changement observé sur l’une des pages.",
         "observed_at": "2026-10-15T08:41:23.322Z",
-        "evidence": [
-          "403 sur les deux URLs TV-programme.com",
-          "Pages Télérama ouvertes mais dates rendues hors cible"
-        ]
+        "evidence": "403 sur les deux URLs TV-programme.com ; pages Télérama ouvertes mais dates rendues hors cible."
       }
     },
     {
@@ -109,18 +106,14 @@
       "blocking_scope": "Inventaire primaire Ciné+ Family des 21 et 22 octobre incomplet ; aucune ligne nouvelle certifiée par ce lot.",
       "resume_condition": "Reprendre si l’une des pages expose les lignes horaires ou si une autre grille complète datée devient accessible.",
       "retry_gate": {
-        "state": "waiting",
+        "state": "waiting_for_new_evidence",
         "action_texts": [
           "Compléter Ciné+ OCS, Festival, Emotion, Frisson, Family et RTL9 sur les sept jours, avec leurs grilles datées et nuits."
         ],
         "reason": "La source directe est inaccessible et les alternatives lues n’exposent pas les lignes de grille.",
         "resume_when": "Nouvelle grille datée exacte accessible ou changement observé sur l’une des pages.",
         "observed_at": "2026-10-15T08:41:23.322Z",
-        "evidence": [
-          "403 sur les deux URLs TV-programme.com",
-          "Vualatele annonce 0 programme",
-          "SCREEN+ n’expose que le calendrier dans le résultat lu"
-        ]
+        "evidence": "403 sur les deux URLs TV-programme.com ; Vualatele annonce 0 programme ; SCREEN+ n’expose que le calendrier dans le résultat lu."
       }
     }
   ],
