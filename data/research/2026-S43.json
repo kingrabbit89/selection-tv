@@ -6078,7 +6078,14 @@
       "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent.",
       "Reprendre En tension du 18 octobre seulement si FranceTVPro publie une correction datée ou si sa grille officielle courante change.",
       "Reprendre les trois identités Serengeti du 21 octobre seulement si une correction officielle datée réconcilie les titres FranceTVPro et ceux des guides actuels.",
-      "Reprendre le titre France 3 du 17 octobre à 01:35 seulement si FranceTVPro corrige Appassionata ou publie une fiche événementielle datée pour L’orchestre de la Garde républicaine."
+      "Reprendre le titre France 3 du 17 octobre à 01:35 seulement si FranceTVPro corrige Appassionata ou publie une fiche événementielle datée pour L’orchestre de la Garde républicaine.",
+      "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés.",
+      "Reprendre Quand la ville dort seulement si une preuve permet d’attribuer une durée exacte à la copie du dimanche 18 octobre 2026.",
+      "Reprendre Memories of Murder seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:44/10:45 du lundi 19 octobre 2026.",
+      "Reprendre Bienvenue à Gattaca seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:07/10:11 du mardi 20 octobre 2026.",
+      "Reprendre U Are the Universe seulement si une correction officielle datée ou un nouveau recoupement admissible résout la contradiction 08:30/08:33 du mardi 20 octobre 2026.",
+      "Reprendre La Mer au loin seulement si une correction officielle datée ou un nouveau recoupement admissible résout la contradiction 16:59/17:01 du mardi 20 octobre 2026.",
+      "Résoudre ou remplacer les conflits France 4 des 17 octobre à 19:30 et 23:40 et de la nuit du 18 octobre ; confirmer ou écarter le libellé Taratata du 21 octobre sans nouvelle collecte générale."
     ]
   },
   "run_metrics": [
@@ -13949,7 +13956,12 @@
         "2026-10-15T17:13:30.000Z — France 5 : tentative ciblée et voies alternatives pour En tension et Serengeti ; concordance des guides confirmée mais contradiction officielle persistante, lignes suspendues et conditions de reprise enregistrées.",
         "2026-10-15T17:11:00.672Z — seconde lecture France 3 sur les sept jours et nuits : 260 lignes sauvegardées comparées ; 14 écarts officiels bruts expliqués par des conteneurs, une omission Scooby-Doo à 10:30 et un conflit d’identité à 01:35 conservés ouverts.",
         "2026-10-15T17:15:54.526Z — France 3 : trois lignes brutes importées mécaniquement sous handoff contrôlé (Scooby-Doo 10:30 et La France en vrai 00:02/23:42) ; le conflit de titre Appassionata à 01:35 reste ouvert.",
-        "2026-10-15T17:16:20.000Z — France 3 à 01:35 : quatre guides actuels concordent sur le concert de la Garde républicaine, mais FranceTVPro conserve Appassionata ; contradiction et condition de reprise sauvegardées."
+        "2026-10-15T17:16:20.000Z — France 3 à 01:35 : quatre guides actuels concordent sur le concert de la Garde républicaine, mais FranceTVPro conserve Appassionata ; contradiction et condition de reprise sauvegardées.",
+        "2026-10-15T17:22:15.789Z — sept anciens retry_gates relus et rattachés mécaniquement à six actions exactes de reprise ; aucune exigence close et aucune recherche répétée.",
+        "2026-10-15T17:23:31.379Z — TCM Cinéma : seconde lecture complète des sept jours et nuits, 101/101 départs concordants dans deux grilles Web datées ; aucune omission ni contradiction, indépendance amont inconnue et aucun niveau 3 certifié.",
+        "2026-10-15T17:25:19.892Z — W9 : seconde lecture complète des sept jours et nuits, 132/132 départs et identités concordants dans deux grilles Web datées ; conflit de libellés d’un troisième éditeur conservé, indépendance amont inconnue et aucun niveau 3 certifié.",
+        "2026-10-15T17:28:32.146Z — France 4 : seconde lecture complète des sept jours et nuits ; aucune omission autonome à importer, un chevauchement officiel à 05:00 écarté comme créneau autonome et quatre groupes de contradictions conservés ouverts ; aucun niveau 3 certifié.",
+        "2026-10-15T17:28:54.769Z — Gulli : seconde lecture complète des sept jours et nuits, 139 événements réconciliés ; aucune omission de contenu, cinq segmentations nocturnes, deux conflits de libellé et une convention de numérotation conservés ; aucun niveau 3 certifié."
       ],
       "deliverables_changed": [
         "data/inventory/2026-S43.json",
@@ -13962,7 +13974,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Avancer une rubrique indépendante ou une autre seconde lecture ; les conflits France 3 et France 5 attendent une correction officielle.",
+      "next_useful_batch": "Résoudre ou remplacer les conflits France 4 des 17 octobre à 19:30 et 23:40 et de la nuit du 18 octobre ; confirmer ou écarter le libellé Taratata du 21 octobre sans nouvelle collecte générale.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -14026,6 +14038,41 @@
           "ended_at": "2026-10-15T17:16:20.000Z",
           "overlap": false,
           "note": "Recherche ciblée du titre France 3 à 01:35."
+        },
+        {
+          "kind": "research_reconciliation",
+          "started_at": "2026-10-15T17:19:50.000Z",
+          "ended_at": "2026-10-15T17:22:15.789Z",
+          "overlap": false,
+          "note": "Revue administrative des retry_gates historiques et rattachement aux actions exactes, sans nouvelle preuve factuelle."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": null,
+          "ended_at": "2026-10-15T17:21:15.178Z",
+          "overlap": true,
+          "note": "Début exact non mesuré ; seconde lecture TCM Cinéma en lecture seule, parallèle à la réconciliation des retry_gates."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": null,
+          "ended_at": "2026-10-15T17:23:45.863Z",
+          "overlap": true,
+          "note": "Début exact non mesuré ; seconde lecture W9 en lecture seule, parallèle aux autres revues."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": null,
+          "ended_at": "2026-10-15T17:26:31Z",
+          "overlap": true,
+          "note": "Début exact non mesuré ; seconde lecture France 4 en lecture seule, parallèle aux autres revues."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": null,
+          "ended_at": "2026-10-15T17:26:06Z",
+          "overlap": true,
+          "note": "Début exact non mesuré ; seconde lecture Gulli en lecture seule, parallèle aux autres revues."
         }
       ],
       "continuation_decisions": [
@@ -14303,21 +14350,157 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T17:19:49.400Z",
+          "elapsed_seconds": 1356.118,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "9524528392cf1706f0fe514fd331dc726a1d64d7",
+          "next_actions": [
+            "Avancer une rubrique indépendante ou une autre seconde lecture ; les conflits France 3 et France 5 attendent une correction officielle.",
+            "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+            "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 17,
+          "truncated_notice": "12 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 22,
+          "waiting_actions": [
+            {
+              "action_text": "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master.",
+              "gates": [
+                {
+                  "attempt_index": 11,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master."
+                    ],
+                    "reason": "Heure exacte non recoupée : 06:34 contre 06:30 ; aucune preuve officielle datée.",
+                    "resume_when": "Une preuve officielle datée confirme le créneau du 23 octobre, ou un second guide actuel d’un éditeur distinct concorde exactement avec 06:34.",
+                    "observed_at": "2026-10-15T16:24:23.000Z",
+                    "evidence": "TV-programme 06:34 ; SCREEN+ 06:30 ; CANAL+ sans événement daté ; ancienne lecture Télérama 06:33 hors portée du 23 octobre."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent.",
+              "gates": [
+                {
+                  "attempt_index": 16,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent."
+                    ],
+                    "reason": "Deux paires de guides actuels donnent des heures incompatibles pour le même événement.",
+                    "resume_when": "Une page officielle Ciné+ ou correction officielle datée indique l’heure, ou une modification fraîche des guides fait converger au moins deux éditeurs distincts sans paire contradictoire encore actuelle.",
+                    "observed_at": "2026-10-15T16:24:52.033Z",
+                    "evidence": "Télérama 17:54 ; Digital3D 17:54 ; TV-programme 17:51 ; Molotov 17:51 ; Orange inaccessible."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre En tension du 18 octobre seulement si FranceTVPro publie une correction datée ou si sa grille officielle courante change.",
+              "gates": [
+                {
+                  "attempt_index": 17,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre En tension du 18 octobre seulement si FranceTVPro publie une correction datée ou si sa grille officielle courante change."
+                    ],
+                    "reason": "Trois guides distincts concordent, mais la grille officielle courante du même événement reste contradictoire.",
+                    "resume_when": "FranceTVPro publie une correction datée ou sa grille officielle courante change.",
+                    "observed_at": "2026-10-15T17:13:30.000Z",
+                    "evidence": "FranceTVPro 21:05/21:07/22:40 sans En tension ; TV-programme, Zappe et 24Infos 20:45/21:10/21:11/22:45 avec En tension."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre les trois identités Serengeti du 21 octobre seulement si une correction officielle datée réconcilie les titres FranceTVPro et ceux des guides actuels.",
+              "gates": [
+                {
+                  "attempt_index": 18,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre les trois identités Serengeti du 21 octobre seulement si une correction officielle datée réconcilie les titres FranceTVPro et ceux des guides actuels."
+                    ],
+                    "reason": "La source officielle détaillée et plusieurs guides actuels décrivent des identités d’épisode incompatibles.",
+                    "resume_when": "Une correction officielle datée réconcilie explicitement les identités ou la grille officielle change.",
+                    "observed_at": "2026-10-15T17:13:30.000Z",
+                    "evidence": "FranceTVPro : Le Refuge / L’enfer du brasier / Les Premières Leçons ; guides : Les trônes des fauves / Un paradis en feu / Vivre à tout prix."
+                  }
+                }
+              ]
+            },
+            {
+              "action_text": "Reprendre le titre France 3 du 17 octobre à 01:35 seulement si FranceTVPro corrige Appassionata ou publie une fiche événementielle datée pour L’orchestre de la Garde républicaine.",
+              "gates": [
+                {
+                  "attempt_index": 19,
+                  "effective_state": "waiting_for_new_evidence",
+                  "retry_gate": {
+                    "state": "waiting_for_new_evidence",
+                    "action_texts": [
+                      "Reprendre le titre France 3 du 17 octobre à 01:35 seulement si FranceTVPro corrige Appassionata ou publie une fiche événementielle datée pour L’orchestre de la Garde républicaine."
+                    ],
+                    "reason": "Quatre guides actuels concordent sur un titre différent de la grille officielle courante du même créneau.",
+                    "resume_when": "FranceTVPro corrige Appassionata ou une fiche officielle datée relie le concert au créneau.",
+                    "observed_at": "2026-10-15T17:16:20.000Z",
+                    "evidence": "FranceTVPro : Appassionata ; TV-programme, L’Internaute, Ouest-France et Zappe : L’orchestre de la Garde républicaine à l’Opéra-Comique, 01:35."
+                  }
+                }
+              ]
+            }
+          ],
+          "research_review_warnings": [
+            "research_attempts[0].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[1].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[8].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[9].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[10].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[14].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[15].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate"
+          ],
+          "observations": {
+            "started_at": "2026-10-15T16:57:13.282Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T18:17:45.000Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T17:13:57.543Z",
-        "elapsed_seconds": 1004.261,
+        "observed_at": "2026-10-15T17:19:49.400Z",
+        "elapsed_seconds": 1356.118,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "a0708c61440a9588617d5d133fdbb8bc5fd76bc3",
+        "source_sha": "9524528392cf1706f0fe514fd331dc726a1d64d7",
         "next_actions": [
-          "Importer/revoir Scooby-Doo France 3 et résoudre le titre à 01:35, ou avancer une rubrique indépendante ; les conflits France 5 attendent une correction officielle.",
-          "Importer/revoir l’omission France 3 Scooby-Doo du 17 octobre à 10:30 et résoudre le conflit de titre à 01:35 sans écraser la ligne officielle.",
+          "Avancer une rubrique indépendante ou une autre seconde lecture ; les conflits France 3 et France 5 attendent une correction officielle.",
+          "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
           "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
           "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
           "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
@@ -14325,7 +14508,7 @@
         "remaining_count": 11,
         "next_actions_total": 17,
         "truncated_notice": "12 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
-        "all_actions_total": 21,
+        "all_actions_total": 22,
         "waiting_actions": [
           {
             "action_text": "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master.",
@@ -14402,6 +14585,25 @@
                 }
               }
             ]
+          },
+          {
+            "action_text": "Reprendre le titre France 3 du 17 octobre à 01:35 seulement si FranceTVPro corrige Appassionata ou publie une fiche événementielle datée pour L’orchestre de la Garde républicaine.",
+            "gates": [
+              {
+                "attempt_index": 19,
+                "effective_state": "waiting_for_new_evidence",
+                "retry_gate": {
+                  "state": "waiting_for_new_evidence",
+                  "action_texts": [
+                    "Reprendre le titre France 3 du 17 octobre à 01:35 seulement si FranceTVPro corrige Appassionata ou publie une fiche événementielle datée pour L’orchestre de la Garde républicaine."
+                  ],
+                  "reason": "Quatre guides actuels concordent sur un titre différent de la grille officielle courante du même créneau.",
+                  "resume_when": "FranceTVPro corrige Appassionata ou une fiche officielle datée relie le concert au créneau.",
+                  "observed_at": "2026-10-15T17:16:20.000Z",
+                  "evidence": "FranceTVPro : Appassionata ; TV-programme, L’Internaute, Ouest-France et Zappe : L’orchestre de la Garde républicaine à l’Opéra-Comique, 01:35."
+                }
+              }
+            ]
           }
         ],
         "research_review_warnings": [
@@ -14416,7 +14618,7 @@
         "observations": {
           "started_at": "2026-10-15T16:57:13.282Z",
           "lease_owned": "yes",
-          "lease_until": "2026-10-15T17:58:10.070Z",
+          "lease_until": "2026-10-15T18:17:45.000Z",
           "external_stop": null,
           "accessible_task_checks": [],
           "ready_handoff": null
@@ -21725,6 +21927,893 @@
           "open_conflict": "France 3 samedi 17 octobre à 01:35 : Appassionata dans l’officiel et l’inventaire, contre L’orchestre de la Garde républicaine à l’Opéra-Comique dans deux guides actuels.",
           "limits": "Ajouts d’inventaire brut uniquement ; aucun niveau 3 ni choix éditorial certifié."
         }
+      },
+      {
+        "channels": [
+          "TCM Cinéma"
+        ],
+        "flow": "TCM Cinéma",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T17:21:15.178Z",
+        "dates": [
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23"
+        ],
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "Seconde lecture exhaustive des 101 départs civils sauvegardés contre deux grilles Web complètes datées, avec revue explicite des reports de veille.",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/tcm-cinema/samedi-17-octobre-2026/",
+          "https://www.linternaute.com/television/programme-tcm-samedi-17-octobre-2026/",
+          "https://tv-programme.com/tcm-cinema/dimanche-18-octobre-2026/",
+          "https://www.linternaute.com/television/programme-tcm-dimanche-18-octobre-2026/",
+          "https://tv-programme.com/tcm-cinema/lundi-19-octobre-2026/",
+          "https://www.linternaute.com/television/programme-tcm-lundi-19-octobre-2026/",
+          "https://tv-programme.com/tcm-cinema/mardi-20-octobre-2026/",
+          "https://www.linternaute.com/television/programme-tcm-mardi-20-octobre-2026/",
+          "https://tv-programme.com/tcm-cinema/mercredi-21-octobre-2026/",
+          "https://www.linternaute.com/television/programme-tcm-mercredi-21-octobre-2026/",
+          "https://tv-programme.com/tcm-cinema/jeudi-22-octobre-2026/",
+          "https://www.linternaute.com/television/programme-tcm-jeudi-22-octobre-2026/",
+          "https://tv-programme.com/tcm-cinema/vendredi-23-octobre-2026/",
+          "https://www.linternaute.com/television/programme-tcm-vendredi-23-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_rows": 101,
+          "primary_rows": 101,
+          "secondary_rows": 101,
+          "counts_by_day": [
+            {
+              "date": "2026-10-17",
+              "saved": 14,
+              "primary": 14,
+              "secondary": 14,
+              "previous_day_carryover": "Aucun; la grille civile commence à 00:00 avec Joies matrimoniales.",
+              "omissions": [],
+              "contradictions": [],
+              "status": "complete_match"
+            },
+            {
+              "date": "2026-10-18",
+              "saved": 14,
+              "primary": 14,
+              "secondary": 14,
+              "previous_day_carryover": "Fenêtre sur cour (téléfilm), départ 2026-10-17 22:45, fin 2026-10-18 00:15; affiché en tête de la grille primaire et correctement non dupliqué comme départ civil du 18.",
+              "omissions": [],
+              "contradictions": [],
+              "status": "complete_match"
+            },
+            {
+              "date": "2026-10-19",
+              "saved": 16,
+              "primary": 16,
+              "secondary": 16,
+              "previous_day_carryover": "Gens de Dublin, départ 2026-10-18 22:35, finit exactement à 00:00; aucun chevauchement à intégrer.",
+              "omissions": [],
+              "contradictions": [],
+              "status": "complete_match"
+            },
+            {
+              "date": "2026-10-20",
+              "saved": 14,
+              "primary": 14,
+              "secondary": 14,
+              "previous_day_carryover": "Cinq cartes à abattre, départ 2026-10-19 22:40, fin 2026-10-20 00:25; affiché en tête de la grille primaire et correctement non dupliqué.",
+              "omissions": [],
+              "contradictions": [],
+              "status": "complete_match"
+            },
+            {
+              "date": "2026-10-21",
+              "saved": 14,
+              "primary": 14,
+              "secondary": 14,
+              "previous_day_carryover": "Body Parts, départ 2026-10-20 22:40, fin 2026-10-21 00:10; affiché en tête de la grille primaire et correctement non dupliqué.",
+              "omissions": [],
+              "contradictions": [],
+              "status": "complete_match"
+            },
+            {
+              "date": "2026-10-22",
+              "saved": 14,
+              "primary": 14,
+              "secondary": 14,
+              "previous_day_carryover": "L’homme de nulle part, départ 2026-10-21 22:20, fin 2026-10-22 00:05; affiché en tête de la grille primaire et correctement non dupliqué.",
+              "omissions": [],
+              "contradictions": [],
+              "status": "complete_match"
+            },
+            {
+              "date": "2026-10-23",
+              "saved": 15,
+              "primary": 15,
+              "secondary": 15,
+              "previous_day_carryover": "L’extravagant Mr Deeds, départ 2026-10-22 22:20, fin 2026-10-23 00:15; affiché en tête de la grille primaire et correctement non dupliqué.",
+              "omissions": [],
+              "contradictions": [],
+              "status": "complete_match"
+            }
+          ],
+          "omissions": [],
+          "schedule_contradictions": [],
+          "identity_conflicts": [],
+          "normalizations": [
+            "Variantes typographiques d’apostrophes et de casse uniquement, sans incidence sur l’identité ni le créneau."
+          ]
+        },
+        "decisions": [
+          "Les 101 départs civils sauvegardés concordent en titre et heure avec les deux grilles complètes lues; aucune omission ni contradiction factuelle observée."
+        ],
+        "limits": [
+          "Deux éditeurs publics distincts ont été réellement lus, mais leur provenance EPG amont n’est pas établie; l’indépendance reste donc inconnue et independent_crosscheck_complete reste faux.",
+          "Cette revue certifie uniquement la comparaison exhaustive de niveau 2 pour TCM Cinéma; elle ne vérifie ni ne certifie les propositions, cartes ou réserves de niveau 3."
+        ],
+        "status": "second_reading_complete_match"
+      },
+      {
+        "channels": [
+          "W9"
+        ],
+        "flow": "W9",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T17:23:45.863Z",
+        "dates": [
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23"
+        ],
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "Seconde lecture exhaustive de l’inventaire et des nuits contre une seconde grille Web complète datée, avec contrôle ciblé d’un troisième éditeur.",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/w9/samedi-17-octobre-2026/",
+          "https://tv-programme.com/w9/dimanche-18-octobre-2026/",
+          "https://tv-programme.com/w9/lundi-19-octobre-2026/",
+          "https://tv-programme.com/w9/mardi-20-octobre-2026/",
+          "https://tv-programme.com/w9/mercredi-21-octobre-2026/",
+          "https://tv-programme.com/w9/jeudi-22-octobre-2026/",
+          "https://tv-programme.com/w9/vendredi-23-octobre-2026/",
+          "https://www.linternaute.com/television/programme-w9-samedi-17-octobre-2026/",
+          "https://www.linternaute.com/television/programme-w9-dimanche-18-octobre-2026/",
+          "https://www.linternaute.com/television/programme-w9-lundi-19-octobre-2026/",
+          "https://www.linternaute.com/television/programme-w9-mardi-20-octobre-2026/",
+          "https://www.linternaute.com/television/programme-w9-mercredi-21-octobre-2026/",
+          "https://www.linternaute.com/television/programme-w9-jeudi-22-octobre-2026/",
+          "https://www.linternaute.com/television/programme-w9-vendredi-23-octobre-2026/",
+          "https://www.programme-television.org/tv/chaines/w9/samedi"
+        ],
+        "source_captures": [
+          {
+            "url": "https://www.linternaute.com/television/programme-w9-samedi-17-octobre-2026/",
+            "date": "2026-10-17",
+            "sha256": "6834c0f055221313743a0decb9b3119407e6701dc3539116888a372dbde9f096",
+            "scope": "seconde grille complète datée"
+          },
+          {
+            "url": "https://www.linternaute.com/television/programme-w9-dimanche-18-octobre-2026/",
+            "date": "2026-10-18",
+            "sha256": "0d5fd71227ca4ca167b1c29ddbce0988a85542f20167bc53d0c93b6f590b4bb8",
+            "scope": "seconde grille complète datée"
+          },
+          {
+            "url": "https://www.linternaute.com/television/programme-w9-lundi-19-octobre-2026/",
+            "date": "2026-10-19",
+            "sha256": "b950e26b1eb82a5f0a30a1b14da9ff1b8ab2a447202e94f51d86038fa457e76a",
+            "scope": "seconde grille complète datée"
+          },
+          {
+            "url": "https://www.linternaute.com/television/programme-w9-mardi-20-octobre-2026/",
+            "date": "2026-10-20",
+            "sha256": "e66a964126b466c354dc4a3008e2e1f62ca5d7110da3d1e5fd4c10134b18a1ca",
+            "scope": "seconde grille complète datée"
+          },
+          {
+            "url": "https://www.linternaute.com/television/programme-w9-mercredi-21-octobre-2026/",
+            "date": "2026-10-21",
+            "sha256": "c244a5a9e6313200df7ea608b065bab7931ae8858bb08cd95a4bd80b1f39d4a5",
+            "scope": "seconde grille complète datée"
+          },
+          {
+            "url": "https://www.linternaute.com/television/programme-w9-jeudi-22-octobre-2026/",
+            "date": "2026-10-22",
+            "sha256": "16ecb1acebfb204e2f5174d789e736b294bbc3d2c86a73ac6d7e28b322aa98c2",
+            "scope": "seconde grille complète datée"
+          },
+          {
+            "url": "https://www.linternaute.com/television/programme-w9-vendredi-23-octobre-2026/",
+            "date": "2026-10-23",
+            "sha256": "b880e30e7428a5f78c4e506e5931bade62a6e4aac7753d0f3fc9ea685714b88e",
+            "scope": "seconde grille complète datée"
+          }
+        ],
+        "comparison": {
+          "inventory_rows": 132,
+          "second_guide_rows": 132,
+          "same_start_rows": 132,
+          "same_identity_rows": 132,
+          "night_rows": 16,
+          "omissions": 0,
+          "time_conflicts": 0,
+          "identity_conflicts_between_primary_two": 0,
+          "days": [
+            {
+              "date": "2026-10-17",
+              "segment": "00:00-23:59",
+              "inventory": 16,
+              "second_guide": 16,
+              "night_rows": 4,
+              "same_starts": 16,
+              "omissions": [],
+              "conflicts": [],
+              "decision": "concordant"
+            },
+            {
+              "date": "2026-10-18",
+              "segment": "00:00-23:59",
+              "inventory": 12,
+              "second_guide": 12,
+              "night_rows": 1,
+              "same_starts": 12,
+              "omissions": [],
+              "conflicts": [],
+              "decision": "concordant"
+            },
+            {
+              "date": "2026-10-19",
+              "segment": "00:00-23:59",
+              "inventory": 19,
+              "second_guide": 19,
+              "night_rows": 1,
+              "same_starts": 19,
+              "omissions": [],
+              "conflicts": [],
+              "decision": "concordant"
+            },
+            {
+              "date": "2026-10-20",
+              "segment": "00:00-23:59",
+              "inventory": 19,
+              "second_guide": 19,
+              "night_rows": 1,
+              "same_starts": 19,
+              "omissions": [],
+              "conflicts": [],
+              "decision": "concordant"
+            },
+            {
+              "date": "2026-10-21",
+              "segment": "00:00-23:59",
+              "inventory": 20,
+              "second_guide": 20,
+              "night_rows": 1,
+              "same_starts": 20,
+              "omissions": [],
+              "conflicts": [],
+              "decision": "concordant"
+            },
+            {
+              "date": "2026-10-22",
+              "segment": "00:00-23:59",
+              "inventory": 23,
+              "second_guide": 23,
+              "night_rows": 4,
+              "same_starts": 23,
+              "omissions": [],
+              "conflicts": [],
+              "decision": "concordant"
+            },
+            {
+              "date": "2026-10-23",
+              "segment": "00:00-23:59",
+              "inventory": 23,
+              "second_guide": 23,
+              "night_rows": 4,
+              "same_starts": 23,
+              "omissions": [],
+              "conflicts": [],
+              "decision": "concordant"
+            }
+          ],
+          "night_continuity": [
+            "2026-10-17 23:00 La petite histoire de France -> 2026-10-18 03:00 Programmes de la nuit",
+            "2026-10-18 22:40 Les infaillibles -> 2026-10-19 00:40 Programmes de la nuit",
+            "2026-10-19 23:20 Divorce Club -> 2026-10-20 01:20 Programmes de la nuit",
+            "2026-10-20 23:20 Mylène Farmer, sans contrefaçon -> 2026-10-21 01:00 Programmes de la nuit",
+            "2026-10-21 23:30 Enquêtes criminelles -> 2026-10-22 00:30 suite",
+            "2026-10-22 23:30 Y’a que la vérité qui compte -> 2026-10-23 00:30 suite",
+            "2026-10-23 23:20 Enquête d’action -> 2026-10-24 00:20 hors cible"
+          ],
+          "other_observed_conflicts": [
+            {
+              "source": "Télé 7 Jours / programme-television.org",
+              "url": "https://www.programme-television.org/tv/chaines/w9/samedi",
+              "scope": "2026-10-17 11:50–18:30",
+              "conflict": "labels Blanca S1E2/E4/E5/E6/E7/E8 at the same starts where both TV-programme.com and L’Internaute concord on NCIS S13E13–E18",
+              "decision": "retain NCIS identities supported by the two complete primary guides; preserve third-source label contradiction; no independence inferred"
+            }
+          ]
+        },
+        "decisions": [
+          "Les deux grilles complètes concordent sur les 132 départs et identités sauvegardés ; aucune omission ni contradiction horaire entre elles.",
+          "La contradiction de libellés Télé 7 Jours du samedi est conservée ; elle ne remplace pas les identités NCIS concordantes dans les deux grilles complètes."
+        ],
+        "limits": [
+          "TV-programme.com and L’Internaute are distinct publishers; upstream acquisition independence is unknown",
+          "no official W9/M6 group schedule was accessible or asserted",
+          "the two complete primary guides agree on all 132 starts and programme identities, but that concordance does not certify upstream independence",
+          "Télé 7 Jours Saturday identity conflict remains recorded and was not used to overwrite two-guide concordance",
+          "no retained card/reserve, availability, image, critique or level-3 field was certified",
+          "read-only: no file or branch modified"
+        ],
+        "status": "second_reading_complete_with_third_source_identity_conflict"
+      },
+      {
+        "channels": [
+          "France 4"
+        ],
+        "flow": "France 4",
+        "publisher": "France Télévisions / FranceTVPro + CCM Benchmark / L’Internaute + Tabom / TV-programme.com",
+        "checked_at": "2026-10-15T17:26:31Z",
+        "dates": [
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23"
+        ],
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "Comparaison complète des blocs d’inventaire et FranceTVPro avec les sept grilles L’Internaute datées ; contrelecture Tabom sur six jours, mercredi indisponible.",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://www.francetvpro.fr/grille-xml/france-4/10-10-2026",
+          "https://www.francetvpro.fr/grille-xml/france-4/17-10-2026",
+          "https://www.linternaute.com/television/programme-france-4-samedi-17-octobre-2026/",
+          "https://www.linternaute.com/television/programme-france-4-dimanche-18-octobre-2026/",
+          "https://www.linternaute.com/television/programme-france-4-lundi-19-octobre-2026/",
+          "https://www.linternaute.com/television/programme-france-4-mardi-20-octobre-2026/",
+          "https://www.linternaute.com/television/programme-france-4-mercredi-21-octobre-2026/",
+          "https://www.linternaute.com/television/programme-france-4-jeudi-22-octobre-2026/",
+          "https://www.linternaute.com/television/programme-france-4-vendredi-23-octobre-2026/"
+        ],
+        "source_captures": [
+          {
+            "url": "https://www.francetvpro.fr/grille-xml/france-4/17-10-2026",
+            "sha256": "8c6e24134b374cb32254719a1d18163d7eccb9a90fc4f3994340267f5767ed82",
+            "fetched_at": "2026-10-15T17:01:23.733Z",
+            "scope": "semaine officielle à partir du 17 octobre ; nuit initiale complétée par l’export du 10 octobre"
+          }
+        ],
+        "comparison": {
+          "counts_by_day": [
+            {
+              "date": "2026-10-17",
+              "inventory_blocks": 29,
+              "official_blocks": 29,
+              "guide_episode_rows": 81,
+              "status": "open_conflicts"
+            },
+            {
+              "date": "2026-10-18",
+              "inventory_blocks": 27,
+              "official_blocks": 28,
+              "guide_episode_rows": 70,
+              "status": "open_night_conflict"
+            },
+            {
+              "date": "2026-10-19",
+              "inventory_blocks": 29,
+              "official_blocks": 29,
+              "guide_episode_rows": 81,
+              "status": "reviewed_no_autonomous_omission"
+            },
+            {
+              "date": "2026-10-20",
+              "inventory_blocks": 30,
+              "official_blocks": 30,
+              "guide_episode_rows": 84,
+              "status": "reviewed_no_autonomous_omission"
+            },
+            {
+              "date": "2026-10-21",
+              "inventory_blocks": 29,
+              "official_blocks": 29,
+              "guide_episode_rows": 86,
+              "status": "open_single_guide_label_conflict"
+            },
+            {
+              "date": "2026-10-22",
+              "inventory_blocks": 30,
+              "official_blocks": 30,
+              "guide_episode_rows": 83,
+              "status": "reviewed_no_autonomous_omission"
+            },
+            {
+              "date": "2026-10-23",
+              "inventory_blocks": 31,
+              "official_blocks": 31,
+              "guide_episode_rows": 83,
+              "status": "reviewed_no_autonomous_omission"
+            }
+          ],
+          "omissions": [
+            {
+              "date": "2026-10-18",
+              "time": "05:00",
+              "side": "saved_inventory_missing_official_raw_row",
+              "title": "Les Matinales",
+              "decision": "do_not_add_as_autonomous_slot",
+              "reason": "FranceTVPro fournit simultanément Case Nuit Okoo à 05:00; les deux guides n’exposent pas une diffusion autonome Les Matinales à 05:00; conserver comme anomalie de chevauchement/carryover."
+            }
+          ],
+          "schedule_contradictions": [
+            {
+              "date": "2026-10-17",
+              "time": "19:30",
+              "field": "title/version",
+              "official_and_inventory": "Shaun le Mouton, le Film : la Ferme Contre-Attaque",
+              "two_guides": "Shaun le mouton (film 2015; synopsis du troupeau en ville)",
+              "decision": "open; vérifier identité/version avant toute sélection"
+            },
+            {
+              "date": "2026-10-17",
+              "time": "23:40",
+              "field": "title",
+              "official_and_inventory": "Beau Geste en Public — Le Biopic : quelle Histoire !",
+              "two_guides": "La TEAM",
+              "decision": "open; deux guides concordants contredisent la capture officielle"
+            },
+            {
+              "date": "2026-10-18",
+              "time_range": "00:20-04:59",
+              "field": "night_sequence",
+              "official_and_inventory": [
+                "00:20 Ronisia",
+                "01:00 Concerts au Palais Princier de Monaco",
+                "02:15 Entre Duel et Duo",
+                "03:40 Birds on a Wire"
+              ],
+              "two_guides": [
+                "01:15 Ronisia",
+                "02:00 Entre Duel et Duo",
+                "03:30 Birds on a Wire",
+                "04:35 Moonwalk — Baptiste Lecaplain"
+              ],
+              "decision": "open; ne pas corriger automatiquement: Monaco absent des deux guides, Moonwalk absent de l’officiel, horaires décalés et frontière de jour différente"
+            },
+            {
+              "date": "2026-10-21",
+              "time": "21:00",
+              "field": "title/edition_label",
+              "official_and_inventory": "Taratata Zenith Paris — Taratata Fête le Zenith - 1984",
+              "linternaute": "Taratata 100% live",
+              "tabom": "unavailable",
+              "decision": "open one-guide label conflict; aucun remplacement sans seconde confirmation"
+            }
+          ],
+          "reconciled_non_omissions": {
+            "result": "Aucune autre omission autonome trouvée sur les sept jours après rapprochement.",
+            "rule": "Les lignes supplémentaires des guides sont majoritairement des épisodes internes aux blocs officiels (Case Nuit Okoo, Les as de la jungle, Mystery Lane, Oscar et Malika, Bluey, etc.) et non des créneaux manquants."
+          }
+        },
+        "decisions": [
+          "do_not_add_as_autonomous_slot : FranceTVPro fournit simultanément Case Nuit Okoo à 05:00; les deux guides n’exposent pas une diffusion autonome Les Matinales à 05:00; conserver comme anomalie de chevauchement/carryover.",
+          "Aucune autre omission autonome trouvée sur les sept jours après rapprochement.",
+          "résoudre/remplacer les conflits 17/10 19:30, 17/10 23:40 et nuit 18/10; confirmer ou écarter le libellé Taratata du 21/10; aucune recollecte générale France 4 nécessaire"
+        ],
+        "limits": [
+          "Comptes guide non directement comparables aux blocs FranceTVPro: détail épisode contre blocs éditoriaux.",
+          "Les deux domaines secondaires sont des éditeurs distincts, mais leur amont EPG n’est pas établi; aucune indépendance attestée.",
+          "Le guide Tabom du mercredi était indisponible pendant la lecture; la contradiction Taratata reste à une seule source secondaire.",
+          "La revue niveau 2 détecte les omissions; elle ne certifie ni identité/version des retenus ni niveau 3."
+        ],
+        "status": "second_reading_complete_with_open_conflicts"
+      },
+      {
+        "channels": [
+          "Gulli"
+        ],
+        "flow": "Gulli",
+        "publisher": "M6 Pro + Linternaute.com / CCM Benchmark + ProgrammeTVCeSoir.net",
+        "checked_at": "2026-10-15T17:26:06Z",
+        "dates": [
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23"
+        ],
+        "segments_reviewed": [
+          "00:00-05:59",
+          "06:00-23:59",
+          "prior-day carryovers crossing 00:00"
+        ],
+        "review_method": "Comparaison complète de l’inventaire avec la grille officielle M6 Pro, sept grilles L’Internaute et un troisième guide disponible sur cinq jours, reports de veille inclus.",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/gulli/samedi-17-octobre-2026/",
+          "https://tv-programme.com/gulli/dimanche-18-octobre-2026/",
+          "https://tv-programme.com/gulli/lundi-19-octobre-2026/",
+          "https://tv-programme.com/gulli/mardi-20-octobre-2026/",
+          "https://tv-programme.com/gulli/mercredi-21-octobre-2026/",
+          "https://tv-programme.com/gulli/jeudi-22-octobre-2026/",
+          "https://tv-programme.com/gulli/vendredi-23-octobre-2026/",
+          "https://pro.m6.fr/gulli/grille/2026-43",
+          "https://pro.m6.fr/gulli/grille/2026-43.xml",
+          "https://pro.m6.fr/gulli/grille/2026-42.xml",
+          "https://www.linternaute.com/television/programme-gulli-samedi-17-octobre-2026/",
+          "https://www.linternaute.com/television/programme-gulli-dimanche-18-octobre-2026/",
+          "https://www.linternaute.com/television/programme-gulli-lundi-19-octobre-2026/",
+          "https://www.linternaute.com/television/programme-gulli-mardi-20-octobre-2026/",
+          "https://www.linternaute.com/television/programme-gulli-mercredi-21-octobre-2026/",
+          "https://www.linternaute.com/television/programme-gulli-jeudi-22-octobre-2026/",
+          "https://www.linternaute.com/television/programme-gulli-vendredi-23-octobre-2026/",
+          "https://www.programmetvcesoir.net/chaine/gulli/2026-10-17",
+          "https://www.programmetvcesoir.net/chaine/gulli/2026-10-18",
+          "https://www.programmetvcesoir.net/chaine/gulli/2026-10-19",
+          "https://www.programmetvcesoir.net/chaine/gulli/2026-10-20",
+          "https://www.programmetvcesoir.net/chaine/gulli/2026-10-21"
+        ],
+        "source_captures": [
+          {
+            "url": "https://pro.m6.fr/gulli/grille/2026-43.xml",
+            "sha256": "c0c6ed5b3df6946f247f9cdc4a5e48beeb4d17442df3749fc16fd75cf3f798c9",
+            "publisher": "M6 Pro"
+          },
+          {
+            "url": "https://pro.m6.fr/gulli/grille/2026-42.xml",
+            "sha256": "318692e81466ecbd5a77a51d3b8560e8bfed61660a555fe2bbf2e326a1456c1f",
+            "publisher": "M6 Pro"
+          },
+          {
+            "url": "https://www.linternaute.com/television/programme-gulli-samedi-17-octobre-2026/",
+            "sha256": "d2d7c76b069abdefdaafca9af2090b4f6708c4ac4ffb568c2980be8f5c6a5689",
+            "date": "2026-10-17",
+            "publisher": "Linternaute.com / CCM Benchmark"
+          },
+          {
+            "url": "https://www.linternaute.com/television/programme-gulli-dimanche-18-octobre-2026/",
+            "sha256": "5e4324a3acf82cc2867a8826dddc053ba6ae15244a55716c48c0515071f625dd",
+            "date": "2026-10-18",
+            "publisher": "Linternaute.com / CCM Benchmark"
+          },
+          {
+            "url": "https://www.linternaute.com/television/programme-gulli-lundi-19-octobre-2026/",
+            "sha256": "9df57eca0a8933e308c446eec4cc7252ddf6c43dfda4175ecca5ec44a2b6fad9",
+            "date": "2026-10-19",
+            "publisher": "Linternaute.com / CCM Benchmark"
+          },
+          {
+            "url": "https://www.linternaute.com/television/programme-gulli-mardi-20-octobre-2026/",
+            "sha256": "bfc5a90dc861a676be59bbd6e44d3d27c24abe301a262fbc4722f47cedff0a9a",
+            "date": "2026-10-20",
+            "publisher": "Linternaute.com / CCM Benchmark"
+          },
+          {
+            "url": "https://www.linternaute.com/television/programme-gulli-mercredi-21-octobre-2026/",
+            "sha256": "0562a4ea83eccd2bbdb40907cf90e52a2e127b29a79f5502fa012f9653dfdc44",
+            "date": "2026-10-21",
+            "publisher": "Linternaute.com / CCM Benchmark"
+          },
+          {
+            "url": "https://www.linternaute.com/television/programme-gulli-jeudi-22-octobre-2026/",
+            "sha256": "d89d24b265aa95d891d4d9869ea4e6d96f9ef72a3b0b696f2d4edd41bb557de8",
+            "date": "2026-10-22",
+            "publisher": "Linternaute.com / CCM Benchmark"
+          },
+          {
+            "url": "https://www.linternaute.com/television/programme-gulli-vendredi-23-octobre-2026/",
+            "sha256": "4fb4f173053d78cec6642e0db0a24f0788d932e7d82bb0e3ea0f615621bf7363",
+            "date": "2026-10-23",
+            "publisher": "Linternaute.com / CCM Benchmark"
+          },
+          {
+            "url": "https://www.programmetvcesoir.net/chaine/gulli/2026-10-17",
+            "sha256": "c7ddcd3ab1c3c89d74bc70dadab79821820143f08c39c4d00c0f192cad63c808",
+            "date": "2026-10-17",
+            "publisher": "ProgrammeTVCeSoir.net"
+          },
+          {
+            "url": "https://www.programmetvcesoir.net/chaine/gulli/2026-10-18",
+            "sha256": "334fdb9062c87fd90b2eaf40d87ed6798869c02da6701fff38854742a45b4b27",
+            "date": "2026-10-18",
+            "publisher": "ProgrammeTVCeSoir.net"
+          },
+          {
+            "url": "https://www.programmetvcesoir.net/chaine/gulli/2026-10-19",
+            "sha256": "e0c6e8d62890f38fb0a1eac4312c0c4857dba3db6aefc1b9e37a91945a79e762",
+            "date": "2026-10-19",
+            "publisher": "ProgrammeTVCeSoir.net"
+          },
+          {
+            "url": "https://www.programmetvcesoir.net/chaine/gulli/2026-10-20",
+            "sha256": "c6f982fc258b2e952d614eeb992634287cd1d65da93dfb67b348496000a3c05b",
+            "date": "2026-10-20",
+            "publisher": "ProgrammeTVCeSoir.net"
+          },
+          {
+            "url": "https://www.programmetvcesoir.net/chaine/gulli/2026-10-21",
+            "sha256": "76a6ecb2d2eaf50a9d8be950935c2814855a9a20bd803fa0ca75dd3522b8097a",
+            "date": "2026-10-21",
+            "publisher": "ProgrammeTVCeSoir.net"
+          }
+        ],
+        "comparison": {
+          "totals": {
+            "inventory_events": 139,
+            "official_distinct_blocks": 134,
+            "official_blocks_matched_by_start_time": 134,
+            "linternaute_events_matched": 139,
+            "programme_tv_ce_soir_events_matched": 103,
+            "programme_tv_ce_soir_covered_dates": 5,
+            "distinct_content_omissions": 0,
+            "official_start_time_mismatches": 0,
+            "night_segmentation_discrepancies": 5,
+            "exact_title_label_conflicts": 2,
+            "episode_numbering_convention_ambiguities": 1,
+            "materialized_candidate_cards_with_channel_gulli": 0
+          },
+          "days": [
+            {
+              "date": "2026-10-17",
+              "counts": {
+                "inventory": 23,
+                "official_distinct_blocks": 22,
+                "linternaute": 23,
+                "programme_tv_ce_soir": 23
+              },
+              "night_starts_inventory": [
+                "00:10",
+                "00:35",
+                "01:05",
+                "03:35"
+              ],
+              "prior_day_carryover": {
+                "start": "2026-10-16T23:40:00+02:00",
+                "end": "2026-10-17T00:10:00+02:00",
+                "official_title": "Pokémon, la série : XYZ",
+                "official_episode": "S19E34 La raison contre la passion !",
+                "status": "covered_from_official_2026-S42"
+              },
+              "omissions_from_inventory": [],
+              "segmentation_discrepancies": [
+                {
+                  "time": "03:35",
+                  "inventory_and_guides": "new Programmation nuit entry",
+                  "official": "continuation of a single Programmes de nuit block",
+                  "decision": "not a distinct-content omission"
+                }
+              ],
+              "identity_or_label_conflicts": [
+                {
+                  "time": "00:35",
+                  "inventory": "Pokémon : XY S19E36 Finale de Kalos, passion et préparation !",
+                  "official": "Pokémon, la série : XYZ S19E36 La grande finale, les passions se déchaînent !",
+                  "assessment": "same time and S19E36, but exact series and episode labels conflict; retain unresolved for any level-3 use"
+                },
+                {
+                  "time": "15:45",
+                  "inventory": "Stuart Little 3, en route pour l'aventure",
+                  "official": "Stuart Little 3 : l'appel de la forêt",
+                  "assessment": "likely alternate French subtitle for the same third film, but exact title/version label differs; retain ambiguity"
+                },
+                {
+                  "times": [
+                    "13:30",
+                    "13:50",
+                    "14:00",
+                    "14:20",
+                    "14:35",
+                    "15:00",
+                    "15:25"
+                  ],
+                  "work": "Hôtel Transylvanie, la série",
+                  "inventory_and_guides": "group paired 11-minute shorts under half-episode numbers",
+                  "official": "numbers individual shorts as S1E19 through S1E27",
+                  "assessment": "numbering-convention ambiguity; titles and start times align"
+                }
+              ]
+            },
+            {
+              "date": "2026-10-18",
+              "counts": {
+                "inventory": 18,
+                "official_distinct_blocks": 17,
+                "linternaute": 18,
+                "programme_tv_ce_soir": 18
+              },
+              "night_starts_inventory": [
+                "00:45",
+                "01:35",
+                "04:05"
+              ],
+              "prior_day_carryover": {
+                "start": "2026-10-17T23:50:00+02:00",
+                "end": "2026-10-18T00:45:00+02:00",
+                "official_title": "Domino Masters",
+                "official_episode": "S01E10 Tout est permis",
+                "status": "covered"
+              },
+              "omissions_from_inventory": [],
+              "segmentation_discrepancies": [
+                {
+                  "time": "04:05",
+                  "inventory_and_guides": "new Programmation nuit entry",
+                  "official": "continuation of a single Programmes de nuit block",
+                  "decision": "not a distinct-content omission"
+                }
+              ],
+              "identity_or_label_conflicts": []
+            },
+            {
+              "date": "2026-10-19",
+              "counts": {
+                "inventory": 20,
+                "official_distinct_blocks": 19,
+                "linternaute": 20,
+                "programme_tv_ce_soir": 20
+              },
+              "night_starts_inventory": [
+                "00:50",
+                "01:50",
+                "04:20"
+              ],
+              "prior_day_carryover": {
+                "start": "2026-10-18T23:55:00+02:00",
+                "end": "2026-10-19T00:50:00+02:00",
+                "official_title": "MacGyver",
+                "official_episode": "S03E01",
+                "status": "covered"
+              },
+              "omissions_from_inventory": [],
+              "segmentation_discrepancies": [
+                {
+                  "time": "04:20",
+                  "inventory_and_guides": "new Programmation nuit entry",
+                  "official": "continuation of a single Programmes de nuit block",
+                  "decision": "not a distinct-content omission"
+                }
+              ],
+              "identity_or_label_conflicts": []
+            },
+            {
+              "date": "2026-10-20",
+              "counts": {
+                "inventory": 20,
+                "official_distinct_blocks": 20,
+                "linternaute": 20,
+                "programme_tv_ce_soir": 20
+              },
+              "night_starts_inventory": [
+                "00:50",
+                "02:25"
+              ],
+              "prior_day_carryover": {
+                "start": "2026-10-19T23:05:00+02:00",
+                "end": "2026-10-20T00:50:00+02:00",
+                "official_title": "Les secrets de vos jouets préférés",
+                "official_episode": "épisode 1",
+                "status": "covered"
+              },
+              "omissions_from_inventory": [],
+              "segmentation_discrepancies": [],
+              "identity_or_label_conflicts": []
+            },
+            {
+              "date": "2026-10-21",
+              "counts": {
+                "inventory": 22,
+                "official_distinct_blocks": 21,
+                "linternaute": 22,
+                "programme_tv_ce_soir": 22
+              },
+              "night_starts_inventory": [
+                "00:00",
+                "00:25",
+                "00:55",
+                "01:15",
+                "04:35"
+              ],
+              "prior_day_carryover": null,
+              "omissions_from_inventory": [],
+              "segmentation_discrepancies": [
+                {
+                  "time": "04:35",
+                  "inventory_and_guides": "new Programmation nuit entry",
+                  "official": "continuation of a single Programmes de nuit block",
+                  "decision": "not a distinct-content omission"
+                }
+              ],
+              "identity_or_label_conflicts": []
+            },
+            {
+              "date": "2026-10-22",
+              "counts": {
+                "inventory": 19,
+                "official_distinct_blocks": 19,
+                "linternaute": 19,
+                "programme_tv_ce_soir": null
+              },
+              "night_starts_inventory": [
+                "01:05",
+                "02:35"
+              ],
+              "prior_day_carryover": {
+                "start": "2026-10-21T23:25:00+02:00",
+                "end": "2026-10-22T01:05:00+02:00",
+                "official_title": "La success story des BD cultes - De Tintin à Naruto",
+                "status": "covered"
+              },
+              "omissions_from_inventory": [],
+              "segmentation_discrepancies": [],
+              "identity_or_label_conflicts": [],
+              "source_limit": "ProgrammeTVCeSoir page returned HTTP 404; official M6 Pro and complete Linternaute page were read."
+            },
+            {
+              "date": "2026-10-23",
+              "counts": {
+                "inventory": 17,
+                "official_distinct_blocks": 16,
+                "linternaute": 17,
+                "programme_tv_ce_soir": null
+              },
+              "night_starts_inventory": [
+                "00:35",
+                "01:30",
+                "04:00"
+              ],
+              "prior_day_carryover": {
+                "start": "2026-10-22T22:50:00+02:00",
+                "end": "2026-10-23T00:35:00+02:00",
+                "official_title": "Noël en escarpins",
+                "status": "covered"
+              },
+              "omissions_from_inventory": [],
+              "segmentation_discrepancies": [
+                {
+                  "time": "04:00",
+                  "inventory_and_guides": "new Programmation nuit entry",
+                  "official": "continuation of a single Programmes de nuit block",
+                  "decision": "not a distinct-content omission"
+                }
+              ],
+              "identity_or_label_conflicts": [],
+              "source_limit": "ProgrammeTVCeSoir page returned HTTP 404; official M6 Pro and complete Linternaute page were read."
+            }
+          ]
+        },
+        "decisions": [
+          "Aucune omission de contenu distincte ; les cinq écarts nocturnes sont des segmentations d’un même bloc officiel.",
+          "Les deux conflits de libellé et l’ambiguïté de numérotation Hôtel Transylvanie restent à résoudre avant tout usage de niveau 3."
+        ],
+        "limits": [
+          "Official M6 Pro models each overnight Programmes de nuit span as one block, while the saved inventory and web guides split five of those spans into two starts; those five differences were retained as segmentation discrepancies, not erased or counted as distinct-content omissions.",
+          "ProgrammeTVCeSoir was accessible only for 2026-10-17 through 2026-10-21; its 2026-10-22 and 2026-10-23 dated pages returned HTTP 404.",
+          "The two exact-title conflicts and the Hôtel Transylvanie episode-numbering convention remain unresolved for any future level-3 selection.",
+          "No inference about guide-feed independence was made from matching schedules or different domains."
+        ],
+        "status": "completed_with_segmentation_and_label_conflicts"
       }
     ],
     "independent_crosscheck_complete": false,
