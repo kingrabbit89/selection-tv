@@ -115,9 +115,12 @@
     "2026-10-15T16:07:08.666Z — secondes lectures Canal+ Grand Écran des 21 au 23 octobre : 13/13, 14/14 et 13/13 départs concordants, nuits incluses, aucune omission ; les sept dates de la chaîne sont désormais relues, limite mono-éditeur conservée.",
     "2026-10-15T16:08:27.719Z — seconde lecture Canal+ Cinéma sur les sept dates : 109/109 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; reports de veille et double ligne La Tour de glace conservés, limite mono-éditeur maintenue.",
     "2026-10-15T16:14:24.321Z — The Big Short : Le Casse du siècle matérialisé mécaniquement comme réserve draft rang 7 du mercredi à 08:31 sur Ciné+ Frisson ; les six cartes et pages existantes sont conservées exactement, le catalogue et les liens directs sont ajoutés, la CI distante reste à observer.",
-    "2026-10-15T16:21:23.328Z — seconde lecture Canal+ Box Office sur les sept dates : 107/107 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; sept reports de veille distingués, limite mono-éditeur maintenue."
+    "2026-10-15T16:21:23.328Z — seconde lecture Canal+ Box Office sur les sept dates : 107/107 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; sept reports de veille distingués, limite mono-éditeur maintenue.",
+    "2026-10-15T16:24:52.033Z — revues ciblées Bird et La Nuit du chasseur : Bird différé sur 06:30/06:34, ancienne valeur 06:33 déclarée hors portée datée ; La Nuit du chasseur devenue conflictuelle à 17:51/17:54, réserve rang 4 à remplacer ou retirer. Les faits stables sont conservés sans réouvrir durée/master."
   ],
-  "blockers": [],
+  "blockers": [
+    "La réserve vendredi rang 4 « La Nuit du chasseur » est matérialisée à 17:54 mais deux guides actuels donnent 17:51 ; remplacement/retrait sous replace_days ou résolution officielle requis."
+  ],
   "research_attempts": [
     {
       "id": "cine-ocs-21-22-access-2026-10-15T08:41:23.322Z",
@@ -353,28 +356,25 @@
       "object": "Bird (Andrea Arnold, 2024)",
       "version": "diffusion Ciné+ Festival du 23 octobre 2026",
       "broadcast": "Ciné+ Festival, vendredi 23 octobre 2026",
-      "question": "Arbitrer 06:33/06:34 et relier une durée/version exacte à la diffusion.",
+      "question": "Établir l’heure exacte du même événement du 23 octobre.",
       "urls": [
         "https://tv-programme.com/cine-plus-festival/vendredi-23-octobre-2026/",
-        "https://television.telerama.fr/chaine/cine-club",
-        "https://www.advitamdistribution.com/films/bird/",
-        "https://www.festival-cannes.com/f/bird-2/",
-        "https://www.canalplus.com/cinema/bird/h/27480859_50002",
-        "https://www.canalplus.com/cinema/bird/h/27480859_40099"
+        "https://screenplus.fr/programmestv/programmes/bird-6c681feaed953179/",
+        "https://www.canalplus.com/cinema/bird/h/27480859_50002"
       ],
-      "checked_at": "2026-10-15T12:49:03Z",
-      "result": "TV-programme donne 06:34 et une fenêtre de 116 min ; Télérama donne 06:33 ; les sources officielles donnent 114/118/119 min sans événement daté reliant l’asset au créneau. Le flow offset 6 a identifié Que Dios nos perdone comme alternative fraîche à vérifier.",
-      "blocking_scope": "Carte vendredi non matérialisée.",
-      "resume_condition": "Correction officielle datée, BroadcastEvent CANAL+ exact ou nouveau recoupement admissible résolvant la minute et la version/durée.",
+      "checked_at": "2026-10-15T16:24:23.000Z",
+      "result": "TV-programme 06:34 ; SCREEN+ 06:30 ; ancienne valeur Télérama 06:33 hors portée datée ; asset CANAL+ sans événement daté. La durée/master exact n’est pas une exigence universelle et n’est plus un manque.",
+      "blocking_scope": "Réserve vendredi Bird non matérialisable au niveau 3.",
+      "resume_condition": "Preuve officielle datée ou second guide actuel d’un éditeur distinct concordant exactement avec 06:34.",
       "retry_gate": {
         "state": "waiting_for_new_evidence",
         "action_texts": [
-          "Reprendre Bird seulement si une preuve officielle datée relie la diffusion du vendredi 23 octobre 2026 à une durée/version exacte, ou si un recoupement admissible résout 06:33/06:34."
+          "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master."
         ],
-        "reason": "Minute contradictoire et aucune liaison événementielle officielle de la durée/version.",
-        "resume_when": "Correction officielle datée, BroadcastEvent CANAL+ exact ou nouveau recoupement admissible résolvant la minute et la version/durée.",
-        "observed_at": "2026-10-15T12:49:03Z",
-        "evidence": "TV-programme 06:34–08:30 ; Télérama 06:33 ; CANAL+ asset 114 min, Cannes/VOD 119 min, Ad Vitam 118 min sans lien événementiel daté."
+        "reason": "Heure exacte non recoupée : 06:34 contre 06:30 ; aucune preuve officielle datée.",
+        "resume_when": "Une preuve officielle datée confirme le créneau du 23 octobre, ou un second guide actuel d’un éditeur distinct concorde exactement avec 06:34.",
+        "observed_at": "2026-10-15T16:24:23.000Z",
+        "evidence": "TV-programme 06:34 ; SCREEN+ 06:30 ; CANAL+ sans événement daté ; ancienne lecture Télérama 06:33 hors portée du 23 octobre."
       }
     },
     {
@@ -462,6 +462,34 @@
         "resume_when": "Correction officielle datée ou nouveau recoupement admissible résolvant la contradiction.",
         "observed_at": "2026-10-15T15:11:01.172Z",
         "evidence": "ProgrammeTVCeSoir + Le Zapp TV : 17:01 ; TV-programme : 16:59 ; aucune pièce officielle événementielle."
+      }
+    },
+    {
+      "id": "night-hunter-time-conflict-2026-10-15T16:24:52Z",
+      "object": "La Nuit du chasseur (Charles Laughton, 1955)",
+      "version": "diffusion Ciné+ Classic du 23 octobre 2026",
+      "broadcast": "Ciné+ Classic, vendredi 23 octobre 2026",
+      "question": "Résoudre 17:51/17:54 pour le même événement.",
+      "urls": [
+        "https://television.telerama.fr/programme-tv-vendredi-prochain/cine-classic",
+        "https://tv.digital3d.com/detail/cineplus-classic-44?date=2026-10-23&time=17%3A54",
+        "https://tv-programme.com/cine-plus-classic/vendredi-23-octobre-2026/",
+        "https://www.molotov.tv/fr_fr/p/12876/la-nuit-du-chasseur",
+        "https://tv.orange.fr/fiche-info/en-direct/videos/1758701472"
+      ],
+      "checked_at": "2026-10-15T16:24:52.033Z",
+      "result": "Télérama et Digital3D 17:54 ; TV-programme et Molotov 17:51 ; Orange précédemment sauvegardé à 17:54 est actuellement inaccessible. Aucune correction officielle précise ne tranche.",
+      "blocking_scope": "Réserve draft vendredi rang 4 actuellement matérialisée ; remplacement ou retrait requis.",
+      "resume_condition": "Page officielle Ciné+ ou correction officielle datée, ou changement frais faisant converger au moins deux éditeurs distincts sans paire contradictoire actuelle.",
+      "retry_gate": {
+        "state": "waiting_for_new_evidence",
+        "action_texts": [
+          "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent."
+        ],
+        "reason": "Deux paires de guides actuels donnent des heures incompatibles pour le même événement.",
+        "resume_when": "Une page officielle Ciné+ ou correction officielle datée indique l’heure, ou une modification fraîche des guides fait converger au moins deux éditeurs distincts sans paire contradictoire encore actuelle.",
+        "observed_at": "2026-10-15T16:24:52.033Z",
+        "evidence": "Télérama 17:54 ; Digital3D 17:54 ; TV-programme 17:51 ; Molotov 17:51 ; Orange inaccessible."
       }
     }
   ],
@@ -4348,6 +4376,50 @@
       "applies_to": "Canal+ Box Office — samedi 17 au vendredi 23 octobre 2026, jours civils 00:00–23:59",
       "evidence_note": "Seconde lecture hebdomadaire complète : 107/107 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; reports de veille distingués.",
       "status": "reread_complete_single_editor_limit"
+    },
+    {
+      "work_id": "bird-2024",
+      "fields": [
+        "identity_version",
+        "broadcast_time",
+        "ratings",
+        "visual",
+        "freshness",
+        "critical_interest"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-festival/vendredi-23-octobre-2026/",
+        "https://screenplus.fr/programmestv/programmes/bird-6c681feaed953179/",
+        "https://www.canalplus.com/cinema/bird/h/27480859_50002"
+      ],
+      "checked_at": "2026-10-15T16:24:23.000Z",
+      "stability": "mixed_stable_and_cycle_specific",
+      "applies_to": "Bird — réserve vendredi 23 octobre 2026, non matérialisée",
+      "evidence_note": "Faits stables prêts ; conflit 06:30/06:34. Ancienne valeur 06:33 retirée de la portée datée ; aucune liaison durée/master exigée.",
+      "status": "partial_blocked_waiting_for_new_schedule_evidence"
+    },
+    {
+      "work_id": "la-nuit-du-chasseur-1955",
+      "fields": [
+        "identity_version",
+        "broadcast_time",
+        "ratings",
+        "visual",
+        "freshness",
+        "critical_interest"
+      ],
+      "urls": [
+        "https://television.telerama.fr/programme-tv-vendredi-prochain/cine-classic",
+        "https://tv.digital3d.com/detail/cineplus-classic-44?date=2026-10-23&time=17%3A54",
+        "https://tv-programme.com/cine-plus-classic/vendredi-23-octobre-2026/",
+        "https://www.molotov.tv/fr_fr/p/12876/la-nuit-du-chasseur",
+        "https://tv.orange.fr/fiche-info/en-direct/videos/1758701472"
+      ],
+      "checked_at": "2026-10-15T16:24:52.033Z",
+      "stability": "mixed_stable_and_cycle_specific",
+      "applies_to": "La Nuit du chasseur — réserve draft vendredi rang 4",
+      "evidence_note": "Titre/date/chaîne certains ; 17:54 contre 17:51 non résolu. Carte actuelle à remplacer ou retirer ; durées divergentes conservées sans inférence technique.",
+      "status": "draft_card_conflict_requires_replacement"
     }
   ],
   "source_issues": [
@@ -5200,7 +5272,7 @@
         "scope": {
           "day": "vendredi"
         },
-        "status": "researching",
+        "status": "deferred",
         "signals": [
           {
             "kind": "professional_criticism",
@@ -5208,7 +5280,7 @@
             "source_url": "https://www.bfi.org.uk/sight-and-sound/reviews/bird-andrea-arnolds-tender-contemporary-fable"
           }
         ],
-        "decision_note": "Dossier avancé mais carte non matérialisée : TV-programme donne 06:34, Télérama 06:33, et aucun événement officiel daté ne relie formellement le créneau à l’asset CANAL+ de 114 min.",
+        "decision_note": "Réserve vendredi différée : TV-programme donne 06:34, SCREEN+ 06:30 et la valeur Télérama 06:33 sauvegardée n’était pas datée du 23 octobre. Tous les champs stables sont prêts ; ne reprendre que sur preuve officielle datée ou second guide distinct concordant exactement.",
         "alternatives": [
           "sl-vendredi-nos-annees-sauvages-1990",
           "sl-vendredi-put-your-soul-2025",
@@ -5426,7 +5498,7 @@
         "scope": {
           "day": "vendredi"
         },
-        "status": "card_drafted",
+        "status": "deferred",
         "signals": [
           {
             "kind": "professional_criticism",
@@ -5434,7 +5506,7 @@
             "source_url": "https://www.criterion.com/films/27525-the-night-of-the-hunter"
           }
         ],
-        "decision_note": "Réserve draft vendredi rang 4 à 17:54 ; l’ancienne observation 17:51 est remplacée par trois pages actuelles concordantes. Réapparition S40 conservée et mesurée par le contrôle de fraîcheur.",
+        "decision_note": "Réserve rang 4 actuellement matérialisée mais devenue non admissible : Télérama et Digital3D donnent 17:54, TV-programme et Molotov 17:51 ; Orange est inaccessible. Remplacer ou retirer sous replace_days, ou rouvrir seulement sur preuve nouvelle précise.",
         "alternatives": [
           "sl-vendredi-bird-2024"
         ]
@@ -5656,7 +5728,10 @@
     "next_actions": [
       "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 20 autres chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
       "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
-      "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau."
+      "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
+      "Remplacer ou retirer La Nuit du chasseur de la réserve vendredi tant que 17:51/17:54 n’est pas résolu, en conservant le pool complet avec replace_days.",
+      "Résoudre la diffusion vendredi de Bird seulement sur preuve officielle datée ou second guide distinct concordant exactement, sans réouvrir l’identité, les notes, le visuel ni la durée/master.",
+      "Recontrôler uniquement l’heure de La Nuit du chasseur si une preuve officielle précise devient accessible ou si les guides actuels changent."
     ]
   },
   "run_metrics": [
@@ -12654,13 +12729,14 @@
       "prompt_revision": "production-weekly-continuity-2026-10-10",
       "started_at": "2026-10-15T16:02:41.000Z",
       "ended_at": null,
-      "duration_basis": "Temps UTC observé depuis 2026-10-15T16:02:41.000Z ; checkpoint préparé à 2026-10-15T16:21:23.328Z.",
+      "duration_basis": "Temps UTC observé depuis 2026-10-15T16:02:41.000Z ; checkpoint préparé à 2026-10-15T16:24:52.033Z.",
       "run_state": "running",
       "completed_batches": [
         "2026-10-15T16:07:08.666Z — secondes lectures Canal+ Grand Écran des 21 au 23 octobre : 13/13, 14/14 et 13/13 départs concordants, nuits incluses, aucune omission ; les sept dates de la chaîne sont désormais relues, limite mono-éditeur conservée.",
         "2026-10-15T16:08:27.719Z — seconde lecture Canal+ Cinéma sur les sept dates : 109/109 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; reports de veille et double ligne La Tour de glace conservés, limite mono-éditeur maintenue.",
         "2026-10-15T16:14:24.321Z — The Big Short : Le Casse du siècle matérialisé mécaniquement comme réserve draft rang 7 du mercredi à 08:31 sur Ciné+ Frisson ; les six cartes et pages existantes sont conservées exactement, le catalogue et les liens directs sont ajoutés, la CI distante reste à observer.",
-        "2026-10-15T16:21:23.328Z — seconde lecture Canal+ Box Office sur les sept dates : 107/107 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; sept reports de veille distingués, limite mono-éditeur maintenue."
+        "2026-10-15T16:21:23.328Z — seconde lecture Canal+ Box Office sur les sept dates : 107/107 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; sept reports de veille distingués, limite mono-éditeur maintenue.",
+        "2026-10-15T16:24:52.033Z — revues ciblées Bird et La Nuit du chasseur : Bird différé sur 06:30/06:34, ancienne valeur 06:33 déclarée hors portée datée ; La Nuit du chasseur devenue conflictuelle à 17:51/17:54, réserve rang 4 à remplacer ou retirer. Les faits stables sont conservés sans réouvrir durée/master."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -12675,7 +12751,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre les secondes lectures niveau 2 sur les 20 autres chaînes sans revue hebdomadaire complète, en parallèle des dossiers proches d’une réserve.",
+      "next_useful_batch": "Remplacer ou retirer La Nuit du chasseur du pool vendredi avec replace_days et une alternative entièrement vérifiée ; poursuivre sinon les secondes lectures niveau 2.",
       "additions": {
         "new_works": 1,
         "visible_draft_cards": 0,
@@ -12722,6 +12798,13 @@
           "ended_at": "2026-10-15T16:21:23.328Z",
           "overlap": true,
           "note": "Début exact non mesuré ; seconde lecture Canal+ Box Office en lecture seule, chevauchant le suivi CI et la préparation du lot suivant."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": null,
+          "ended_at": "2026-10-15T16:24:52.033Z",
+          "overlap": true,
+          "note": "Début exact non mesuré ; revues Bird et La Nuit du chasseur menées en lecture seule et en parallèle."
         }
       ],
       "continuation_decisions": [
@@ -12847,21 +12930,62 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T16:24:10.254Z",
+          "elapsed_seconds": 1289.254,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "cda84e6122439402edae7576fdebb156eb999cd0",
+          "next_actions": [
+            "Poursuivre les secondes lectures niveau 2 sur les 20 autres chaînes sans revue hebdomadaire complète, en parallèle des dossiers proches d’une réserve.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 20 autres chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+            "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
+            "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 15,
+          "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 15,
+          "waiting_actions": [],
+          "research_review_warnings": [
+            "research_attempts[0].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[1].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[8].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[9].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[10].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[11].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[14].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[15].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate"
+          ],
+          "observations": {
+            "started_at": "2026-10-15T16:02:41.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T17:05:18.965Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T16:20:43.334Z",
-        "elapsed_seconds": 1082.334,
+        "observed_at": "2026-10-15T16:24:10.254Z",
+        "elapsed_seconds": 1289.254,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "e1c862a17c2250e99c059e33d9c5de77a491c848",
+        "source_sha": "cda84e6122439402edae7576fdebb156eb999cd0",
         "next_actions": [
-          "Poursuivre la seconde lecture niveau 2 sur Canal+ Box Office, puis les 20 autres chaînes encore sans revue hebdomadaire complète.",
-          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 21 autres chaînes encore sans revue hebdomadaire complète ; commencer par Canal+ Box Office et sauvegarder comparaisons, omissions et limites.",
+          "Poursuivre les secondes lectures niveau 2 sur les 20 autres chaînes sans revue hebdomadaire complète, en parallèle des dossiers proches d’une réserve.",
+          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 20 autres chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
           "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
           "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
           "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
@@ -12892,7 +13016,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-15T16:21:23.328Z",
+  "updated_at": "2026-10-15T16:24:52.033Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -15462,12 +15586,12 @@
         "channel": "Ciné+ Festival",
         "source_urls": [
           "https://tv-programme.com/cine-plus-festival/vendredi-23-octobre-2026/",
-          "https://television.telerama.fr/chaine/cine-club",
+          "https://screenplus.fr/programmestv/programmes/bird-6c681feaed953179/",
           "https://www.canalplus.com/cinema/bird/h/27480859_50002"
         ],
-        "checked_at": "2026-10-15T12:49:03Z",
-        "status": "conflicted_current_minute_and_unlinked_asset",
-        "note": "TV-programme donne 06:34–08:30 ; Télérama donne 06:33. Aucune grille officielle CANAL+ datée du 23 octobre ni BroadcastEvent reliant l’asset 114 min."
+        "checked_at": "2026-10-15T16:24:23.000Z",
+        "status": "insufficient_for_level_3_conflicted_0630_0634",
+        "note": "TV-programme donne 06:34 et SCREEN+ 06:30 pour le même titre, la même chaîne et la même date. La valeur Télérama 06:33 précédemment conservée provenait d’une page dynamique affichant le 15 octobre et n’est pas attribuable au 23. CANAL+ confirme l’œuvre mais pas un événement daté. Aucune preuve officielle exacte ni deux guides distincts concordants sur les quatre faits."
       },
       "image_research": {
         "checked_at": "2026-10-15T12:49:03Z",
@@ -15479,23 +15603,22 @@
         "note": "Affiche officielle Ad Vitam violette/crépusculaire, titre Bird et distribution exacts."
       },
       "freshness_research": {
-        "checked_at": "2026-10-15T12:49:03Z",
-        "status": "fresh_within_public_history",
+        "checked_at": "2026-10-15T16:24:23.000Z",
+        "status": "fresh_public_history_reused_inside_current_candidate",
         "issues_checked": [
           "2026-S39",
           "2026-S40",
           "2026-S41",
           "2026-S42"
         ],
-        "note": "Aucune exposition publique ni réserve quotidienne ; seule piste interne S42 différée."
+        "note": "Aucune exposition publique antérieure ; Bird est déjà choix développé du lundi dans la candidate S43, donc une seconde occurrence vendredi ne crée pas une nouvelle œuvre distincte."
       },
       "missing_fields": [
-        "résolution de la contradiction 06:33/06:34",
-        "preuve reliant la durée/version exacte à la diffusion du 23 octobre",
-        "contrôle CI distant du visuel et des liens"
+        "heure exacte du 23 octobre établie par preuve officielle datée ou second guide distinct concordant",
+        "contrôle CI distant du visuel et des liens sur la tête finale"
       ],
-      "decision": "dossier partiel conservé ; carte non matérialisée",
-      "reason": "Les faits stables, la réception, la fraîcheur, le visuel et les textes sont prêts, mais la minute exacte et la liaison officielle de version/durée restent indémontrées."
+      "decision": "dossier stable conservé — réserve vendredi différée",
+      "reason": "Identité, réception, notes, visuel, fraîcheur et durée de référence sont suffisants ; la liaison durée/master n’est plus exigée. La diffusion reste bloquée seulement par 06:30/06:34 sans recoupement admissible."
     },
     {
       "title": "Nos années sauvages",
@@ -15834,8 +15957,8 @@
           "https://www.criterion.com/films/27525-the-night-of-the-hunter",
           "https://www.imdb.com/title/tt0048424/"
         ],
-        "checked_at": "2026-10-15T13:39:02.051Z",
-        "note": "Identité certaine. Criterion indique 93 min, SensCritique 92 min et la fiche CANAL+ 88 min ; aucun master de diffusion n’est déduit."
+        "checked_at": "2026-10-15T16:24:52.033Z",
+        "note": "Identité certaine. Criterion 93 min, SensCritique 92 min, CANAL+ 88 min et fenêtre EPG 90 min restent de portées différentes ; aucune coupe ni version technique n’est déduite."
       },
       "critical_evidence": [
         {
@@ -15857,42 +15980,46 @@
       },
       "broadcast_research": {
         "date": "2026-10-23",
-        "start": "17:54",
+        "start": null,
         "channel": "Ciné+ Classic",
         "source_urls": [
-          "https://tv.orange.fr/fiche-info/en-direct/videos/1758701472",
           "https://television.telerama.fr/programme-tv-vendredi-prochain/cine-classic",
-          "https://tv-programme.com/cine-plus-classic/vendredi-23-octobre-2026/"
+          "https://tv.digital3d.com/detail/cineplus-classic-44?date=2026-10-23&time=17%3A54",
+          "https://tv-programme.com/cine-plus-classic/vendredi-23-octobre-2026/",
+          "https://www.molotov.tv/fr_fr/p/12876/la-nuit-du-chasseur",
+          "https://tv.orange.fr/fiche-info/en-direct/videos/1758701472"
         ],
-        "checked_at": "2026-10-15T13:39:02.051Z",
-        "status": "verified_by_operator_and_two_current_publishers_independence_unknown",
-        "note": "Les trois pages actuelles concordent à 17:54 ; cette preuve nouvelle remplace l’observation d’inventaire initiale à 17:51 sans masquer l’écart historique."
+        "checked_at": "2026-10-15T16:24:52.033Z",
+        "status": "contradictory_unresolved_1751_1754",
+        "note": "Télérama et Digital3D indiquent 17:54 ; TV-programme et Molotov indiquent 17:51. Orange, auparavant sauvegardé à 17:54, est inaccessible à la relecture. Titre, date et chaîne concordent ; l’heure bloque la réserve actuelle."
       },
       "image_research": {
         "source_page": "https://www.benitomovieposter.com/",
-        "checked_at": "2026-10-09T00:00:00.000Z",
-        "status": "exact_poster_reused_from_catalogue_ci_pending",
+        "checked_at": "2026-10-15T16:24:52.033Z",
+        "status": "exact_poster_visually_rechecked_ci_pending",
         "visually_checked": true,
         "reused_in": [
           "2026-S43"
         ]
       },
       "freshness_research": {
-        "checked_at": "2026-10-15T13:39:02.051Z",
-        "status": "repeat_in_lookback_measured_not_hidden",
+        "checked_at": "2026-10-15T16:24:52.033Z",
+        "status": "repeat_in_lookback_and_previous_issue",
         "issues_checked": [
           "2026-S39",
           "2026-S40",
           "2026-S41",
           "2026-S42"
         ],
-        "note": "Œuvre déjà présente en S40 ; l’effet sur le ratio global de fraîcheur des réserves doit rester soumis au validateur."
+        "note": "Apparitions conservées en S40 et S42 ; aucune exception de fraîcheur enregistrée. L’impact sur les ratios finaux reste à vérifier."
       },
       "missing_fields": [
-        "contrôle CI distant du visuel et des liens sur la tête exacte"
+        "heure exacte de diffusion résolue par preuve officielle précise ou convergence fraîche non contradictoire",
+        "évaluation finale de fraîcheur après retrait, remplacement ou maintien motivé",
+        "contrôle CI distant du visuel et des liens sur la tête finale"
       ],
-      "decision": "réserve draft matérialisée — CI final requis",
-      "reason": "Diffusion actuelle corrigée et concordante, identité, réception, notes, visuel, historique de fraîcheur et textes revus."
+      "decision": "réserve draft rang 4 devenue conflictuelle — remplacement ou retrait requis",
+      "reason": "Deux paires de guides actuels donnent 17:51 et 17:54 pour le même événement ; l’ancienne preuve Orange n’est plus accessible. Les faits stables restent réutilisables, mais la carte actuelle ne satisfait plus le niveau 3."
     }
   ],
   "coverage": {
