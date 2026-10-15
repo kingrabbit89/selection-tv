@@ -4122,6 +4122,21 @@
       "applies_to": "Ciné+ Classic — mercredi 21 au vendredi 23 octobre 2026, jours civils 00:00–23:59",
       "evidence_note": "Secondes lectures distinctes : 17/17, 20/20 et 15/15 départs concordants, nuits incluses, aucune omission ; une seule grille complète accessible par date.",
       "status": "reread_complete_single_editor_limit"
+    },
+    {
+      "fields": [
+        "schedule_identity",
+        "omission_review"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-festival/samedi-17-octobre-2026/",
+        "https://tv-programme.com/cine-plus-festival/dimanche-18-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T15:48:00.709Z",
+      "stability": "cycle_specific",
+      "applies_to": "Ciné+ Festival — samedi 17 et dimanche 18 octobre 2026, jours civils 00:00–23:59",
+      "evidence_note": "Secondes lectures distinctes : 15/15 puis 16/16 départs concordants, nuits incluses, aucune omission ; une seule grille complète accessible par date.",
+      "status": "reread_complete_single_editor_limit"
     }
   ],
   "source_issues": [
@@ -11274,7 +11289,8 @@
         "2026-10-15T15:42:50.000Z — secondes lectures Ciné+ Frisson des 19 et 20 octobre : 18/18 puis 15/15 identités, aucune omission ; six puis dix décalages horaires laissés ouverts. Les sept dates de la chaîne disposent désormais d’une revue de niveau 2 réellement sauvegardée.",
         "Seconde lecture Ciné+ Classic des 17 et 18 octobre : 16/16 identités chaque jour, aucune omission ; deux décalages horaires conservés le samedi, dimanche concordant.",
         "Seconde lecture Ciné+ Classic des 19 et 20 octobre : 15/15 puis 20/20 départs concordants, aucune omission ; limite mono-éditeur conservée.",
-        "Seconde lecture Ciné+ Classic des 21 au 23 octobre : 17/17, 20/20 et 15/15 départs concordants, aucune omission ; les sept dates de la chaîne disposent désormais d’une revue de niveau 2."
+        "Seconde lecture Ciné+ Classic des 21 au 23 octobre : 17/17, 20/20 et 15/15 départs concordants, aucune omission ; les sept dates de la chaîne disposent désormais d’une revue de niveau 2.",
+        "Seconde lecture Ciné+ Festival des 17 et 18 octobre : 15/15 puis 16/16 départs concordants, aucune omission ; limite mono-éditeur conservée."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -11287,7 +11303,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Commencer la seconde lecture complète d’une autre chaîne inventoriée ; Ciné+ Classic est relue sur les sept dates, avec deux horaires du samedi conservés en contradiction.",
+      "next_useful_batch": "Poursuivre les secondes lectures Ciné+ Festival des 19 au 23 octobre.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -12132,26 +12148,56 @@
             ],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T15:48:00.709Z",
+          "elapsed_seconds": 2672,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "667a6345140f1184064a0df8ec34a3e5e0833a5a",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T16:34:27.059Z",
+          "remaining_count": 11,
+          "next_actions_total": 4,
+          "evaluated_by": "manual_fallback",
+          "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les dates Festival restant à traiter.",
+          "next_actions": [
+            "Poursuivre les secondes lectures Ciné+ Festival des 19 au 23 octobre."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T15:03:29.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T16:34:27.059Z",
+            "external_stop": null,
+            "accessible_task_checks": [
+              "Cinq dates Ciné+ Festival restent sans seconde lecture sauvegardée."
+            ],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T15:47:25.199Z",
-        "elapsed_seconds": 2636,
+        "observed_at": "2026-10-15T15:48:00.709Z",
+        "elapsed_seconds": 2672,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "28580c59e9f1208c4a20f4ac67c3ee9d5c340cc0",
+        "source_sha": "667a6345140f1184064a0df8ec34a3e5e0833a5a",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T16:34:27.059Z",
         "remaining_count": 11,
         "next_actions_total": 4,
         "evaluated_by": "manual_fallback",
-        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les chaînes de niveau 2 restant à traiter.",
+        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les dates Festival restant à traiter.",
         "next_actions": [
-          "Commencer la seconde lecture complète d’une autre chaîne inventoriée ; Ciné+ Classic est relue sur les sept dates, avec deux horaires du samedi conservés en contradiction."
+          "Poursuivre les secondes lectures Ciné+ Festival des 19 au 23 octobre."
         ],
         "observations": {
           "started_at": "2026-10-15T15:03:29.000Z",
@@ -12159,7 +12205,7 @@
           "lease_until": "2026-10-15T16:34:27.059Z",
           "external_stop": null,
           "accessible_task_checks": [
-            "25 autres chaînes inventoriées restent sans seconde lecture sauvegardée."
+            "Cinq dates Ciné+ Festival restent sans seconde lecture sauvegardée."
           ],
           "ready_handoff": null
         }
@@ -16896,6 +16942,72 @@
         },
         "decisions": [
           "15/15 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Ciné+ Festival"
+        ],
+        "flow": "Ciné+ Festival",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:48:00.709Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-17",
+        "urls": [
+          "https://tv-programme.com/cine-plus-festival/samedi-17-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 15,
+          "source_rows_reviewed": 15,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Sarah Bernhardt, la Divine commencé la veille à 22:55 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "15/15 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Ciné+ Festival"
+        ],
+        "flow": "Ciné+ Festival",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:48:00.709Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-18",
+        "urls": [
+          "https://tv-programme.com/cine-plus-festival/dimanche-18-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 16,
+          "source_rows_reviewed": 16,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Amours très intimes pour couples commencé la veille à 23:54 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "16/16 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée."
         ],
         "limits": [
           "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
