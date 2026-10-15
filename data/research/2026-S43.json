@@ -111,7 +111,9 @@
     "2026-10-15T15:19:54.000Z — Ciné+ OCS : sept grilles Web complètes et datées ajoutées (125 observations), jours civils et nuits reliés ; la matrice primaire atteint 29 chaînes et plus de 30 observations sur chacune des sept dates, sans seconde lecture ni indépendance certifiée.",
     "2026-10-15T15:22:35.000Z — matrice primaire réconciliée sur preuves sauvegardées : sept dates, 29 chaînes par date et 595–670 observations ; coverage.days[].channels_scanned créé mécaniquement. Première seconde lecture consignée sur Ciné+ OCS le 21 octobre, 19/19 lignes sans omission, avec limite d’un seul éditeur et indépendance inconnue.",
     "2026-10-15T15:23:32.000Z — seconde lecture Ciné+ Family du 22 octobre : Sudinfo comparé à l’inventaire sur 05:55–23:59, 13/13 lignes concordantes et aucune omission ; nuit 00:00–05:54 laissée ouverte car la page rattache l’après-minuit à la soirée précédente, indépendance amont inconnue.",
-    "2026-10-15T15:53:19.000Z — secondes lectures Canal+ Grand Écran des 19 et 20 octobre : 13/13 puis 15/15 départs concordants, nuits incluses, aucune omission ; limite mono-éditeur conservée."
+    "2026-10-15T15:53:19.000Z — secondes lectures Canal+ Grand Écran des 19 et 20 octobre : 13/13 puis 15/15 départs concordants, nuits incluses, aucune omission ; limite mono-éditeur conservée.",
+    "2026-10-15T16:07:08.666Z — secondes lectures Canal+ Grand Écran des 21 au 23 octobre : 13/13, 14/14 et 13/13 départs concordants, nuits incluses, aucune omission ; les sept dates de la chaîne sont désormais relues, limite mono-éditeur conservée.",
+    "2026-10-15T16:08:27.719Z — seconde lecture Canal+ Cinéma sur les sept dates : 109/109 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; reports de veille et double ligne La Tour de glace conservés, limite mono-éditeur maintenue."
   ],
   "blockers": [],
   "research_attempts": [
@@ -4247,6 +4249,42 @@
       "applies_to": "Canal+ Grand Écran — lundi 19 et mardi 20 octobre 2026, jours civils 00:00–23:59",
       "evidence_note": "Secondes lectures distinctes : 13/13 puis 15/15 départs concordants, nuits incluses, aucune omission ; une seule grille complète accessible par date.",
       "status": "reread_complete_single_editor_limit"
+    },
+    {
+      "fields": [
+        "schedule_identity",
+        "omission_review"
+      ],
+      "urls": [
+        "https://tv-programme.com/canal-plus-grand-ecran/mercredi-21-octobre-2026/",
+        "https://tv-programme.com/canal-plus-grand-ecran/jeudi-22-octobre-2026/",
+        "https://tv-programme.com/canal-plus-grand-ecran/vendredi-23-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T16:07:08.666Z",
+      "stability": "cycle_specific",
+      "applies_to": "Canal+ Grand Écran — mercredi 21 au vendredi 23 octobre 2026, jours civils 00:00–23:59",
+      "evidence_note": "Secondes lectures distinctes : 13/13, 14/14 et 13/13 départs concordants, nuits incluses, aucune omission ; une seule grille complète accessible par date.",
+      "status": "reread_complete_single_editor_limit"
+    },
+    {
+      "fields": [
+        "schedule_identity",
+        "omission_review"
+      ],
+      "urls": [
+        "https://tv-programme.com/canal-plus-cinema/samedi-17-octobre-2026/",
+        "https://tv-programme.com/canal-plus-cinema/dimanche-18-octobre-2026/",
+        "https://tv-programme.com/canal-plus-cinema/lundi-19-octobre-2026/",
+        "https://tv-programme.com/canal-plus-cinema/mardi-20-octobre-2026/",
+        "https://tv-programme.com/canal-plus-cinema/mercredi-21-octobre-2026/",
+        "https://tv-programme.com/canal-plus-cinema/jeudi-22-octobre-2026/",
+        "https://tv-programme.com/canal-plus-cinema/vendredi-23-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T16:08:27.719Z",
+      "stability": "cycle_specific",
+      "applies_to": "Canal+ Cinéma — samedi 17 au vendredi 23 octobre 2026, jours civils 00:00–23:59",
+      "evidence_note": "Seconde lecture hebdomadaire complète : 109/109 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; reports de veille distingués et double ligne La Tour de glace conservée.",
+      "status": "reread_complete_single_editor_limit"
     }
   ],
   "source_issues": [
@@ -5553,10 +5591,10 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Terminer les secondes lectures Canal+ Grand Écran des 21 au 23 octobre ; conserver toute omission ou contradiction factuelle sans correction automatique.",
-      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 22 autres chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites dans coverage.web_schedule_reviews.",
-      "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
-      "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
+      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 21 autres chaînes encore sans revue hebdomadaire complète ; commencer par Canal+ Box Office et sauvegarder comparaisons, omissions et limites.",
+      "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs ; ne modifier aucun choix visible.",
+      "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+      "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau."
     ]
   },
   "run_metrics": [
@@ -12549,9 +12587,143 @@
           "ready_handoff": null
         }
       }
+    },
+    {
+      "prompt_revision": "production-weekly-continuity-2026-10-10",
+      "started_at": "2026-10-15T16:02:41.000Z",
+      "ended_at": null,
+      "duration_basis": "Temps UTC observé depuis 2026-10-15T16:02:41.000Z ; checkpoint préparé à 2026-10-15T16:08:27.719Z.",
+      "run_state": "running",
+      "completed_batches": [
+        "2026-10-15T16:07:08.666Z — secondes lectures Canal+ Grand Écran des 21 au 23 octobre : 13/13, 14/14 et 13/13 départs concordants, nuits incluses, aucune omission ; les sept dates de la chaîne sont désormais relues, limite mono-éditeur conservée.",
+        "2026-10-15T16:08:27.719Z — seconde lecture Canal+ Cinéma sur les sept dates : 109/109 départs du jour civil concordants, nuits incluses, aucune omission ni contradiction ; reports de veille et double ligne La Tour de glace conservés, limite mono-éditeur maintenue."
+      ],
+      "deliverables_changed": [
+        "data/research/2026-S43.json"
+      ],
+      "complete_cards_added": 0,
+      "draft_cards_added": 0,
+      "draft_reserves_added": 0,
+      "dossiers_completed": 0,
+      "partial_dossiers_added": 0,
+      "requirements_resolved": 0,
+      "stop_reason": null,
+      "next_useful_batch": "Poursuivre la seconde lecture niveau 2 sur Canal+ Box Office, puis les 20 autres chaînes encore sans revue hebdomadaire complète.",
+      "additions": {
+        "new_works": 0,
+        "visible_draft_cards": 0,
+        "distinct_reserves_added": 0,
+        "reused_existing_cards": 0,
+        "scope": "comparaison avec 18454a598fba1e26a6167844274073bfc82dbef3"
+      },
+      "intervals": [
+        {
+          "kind": "reprise_extraction",
+          "started_at": "2026-10-15T16:02:41.000Z",
+          "ended_at": "2026-10-15T16:06:02.618Z",
+          "overlap": false
+        },
+        {
+          "kind": "research",
+          "started_at": "2026-10-15T16:06:02.618Z",
+          "ended_at": "2026-10-15T16:07:08.666Z",
+          "overlap": false
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": null,
+          "ended_at": "2026-10-15T16:08:27.719Z",
+          "overlap": true,
+          "note": "Début exact non mesuré ; travail en lecture seule ayant chevauché la revue Grand Écran."
+        }
+      ],
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T16:07:08.666Z",
+          "elapsed_seconds": 267.666,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "18454a598fba1e26a6167844274073bfc82dbef3",
+          "next_actions": [
+            "Terminer les secondes lectures Canal+ Grand Écran des 21 au 23 octobre ; conserver toute omission ou contradiction factuelle sans correction automatique.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 22 autres chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites dans coverage.web_schedule_reviews.",
+            "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+            "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 15,
+          "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 15,
+          "waiting_actions": [],
+          "research_review_warnings": [
+            "research_attempts[0].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[1].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[8].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[9].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[10].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[11].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[14].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+            "research_attempts[15].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate"
+          ],
+          "observations": {
+            "started_at": "2026-10-15T16:02:41.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T17:05:18.965Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-15T16:07:08.666Z",
+        "elapsed_seconds": 267.666,
+        "prompt_revision": "production-weekly-continuity-2026-10-10",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S43",
+        "source_sha": "18454a598fba1e26a6167844274073bfc82dbef3",
+        "next_actions": [
+          "Terminer les secondes lectures Canal+ Grand Écran des 21 au 23 octobre ; conserver toute omission ou contradiction factuelle sans correction automatique.",
+          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les 22 autres chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites dans coverage.web_schedule_reviews.",
+          "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
+          "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+          "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
+        ],
+        "remaining_count": 11,
+        "next_actions_total": 15,
+        "truncated_notice": "10 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "all_actions_total": 15,
+        "waiting_actions": [],
+        "research_review_warnings": [
+          "research_attempts[0].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+          "research_attempts[1].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+          "research_attempts[8].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+          "research_attempts[9].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+          "research_attempts[10].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+          "research_attempts[11].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+          "research_attempts[14].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate",
+          "research_attempts[15].retry_gate needs_review: unmapped or invalid exact action_texts; no action suppressed by this gate"
+        ],
+        "observations": {
+          "started_at": "2026-10-15T16:02:41.000Z",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T17:05:18.965Z",
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
+        }
+      }
     }
   ],
-  "updated_at": "2026-10-15T15:53:33.000Z",
+  "updated_at": "2026-10-15T16:08:27.719Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -17989,6 +18161,334 @@
         "decisions": [
           "15/15 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée."
         ]
+      },
+      {
+        "channels": [
+          "Canal+ Grand Écran"
+        ],
+        "flow": "Canal+ Grand Écran",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:07:08.666Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-21",
+        "urls": [
+          "https://tv-programme.com/canal-plus-grand-ecran/mercredi-21-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 13,
+          "source_rows_reviewed": 13,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Le BGG : le bon gros géant commencé la veille à 22:52 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "13/13 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Grand Écran"
+        ],
+        "flow": "Canal+ Grand Écran",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:07:08.666Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-22",
+        "urls": [
+          "https://tv-programme.com/canal-plus-grand-ecran/jeudi-22-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 14,
+          "source_rows_reviewed": 14,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "La fleur du mal commencé la veille à 23:22 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "14/14 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Grand Écran"
+        ],
+        "flow": "Canal+ Grand Écran",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:07:08.666Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-23",
+        "urls": [
+          "https://tv-programme.com/canal-plus-grand-ecran/vendredi-23-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 13,
+          "source_rows_reviewed": 13,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "American Gangster commencé la veille à 23:30 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "13/13 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Cinéma"
+        ],
+        "flow": "Canal+ Cinéma",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:08:27.719Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-17",
+        "urls": [
+          "https://tv-programme.com/canal-plus-cinema/samedi-17-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 14,
+          "source_rows_reviewed": 14,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Gangs of Copenhagen commencé la veille à 23:48 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "Concordance exacte des 14 lignes du jour civil ; inventaire inchangé."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Cinéma"
+        ],
+        "flow": "Canal+ Cinéma",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:08:27.719Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-18",
+        "urls": [
+          "https://tv-programme.com/canal-plus-cinema/dimanche-18-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 19,
+          "source_rows_reviewed": 19,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Exit 8 commencé la veille à 22:41 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "Concordance exacte des 19 lignes ; la double ligne La Tour de glace à 02:44 puis 02:47 figure identiquement dans la source et l’inventaire et reste conservée sans résolution spéculative."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Cinéma"
+        ],
+        "flow": "Canal+ Cinéma",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:08:27.719Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-19",
+        "urls": [
+          "https://tv-programme.com/canal-plus-cinema/lundi-19-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 17,
+          "source_rows_reviewed": 17,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Not Without Hope commencé la veille à 23:47 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "Concordance exacte des 17 lignes du jour civil ; inventaire inchangé."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Cinéma"
+        ],
+        "flow": "Canal+ Cinéma",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:08:27.719Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-20",
+        "urls": [
+          "https://tv-programme.com/canal-plus-cinema/mardi-20-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 14,
+          "source_rows_reviewed": 14,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "La Tour de glace commencé la veille à 22:39 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "Concordance exacte des 14 lignes du jour civil ; inventaire inchangé."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Cinéma"
+        ],
+        "flow": "Canal+ Cinéma",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:08:27.719Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-21",
+        "urls": [
+          "https://tv-programme.com/canal-plus-cinema/mercredi-21-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 14,
+          "source_rows_reviewed": 14,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Touch - Nos étreintes passées commencé la veille à 23:12 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "Concordance exacte des 14 lignes du jour civil ; inventaire inchangé."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Cinéma"
+        ],
+        "flow": "Canal+ Cinéma",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:08:27.719Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-22",
+        "urls": [
+          "https://tv-programme.com/canal-plus-cinema/jeudi-22-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 15,
+          "source_rows_reviewed": 15,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Muganga - Celui qui soigne commencé la veille à 22:45 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "Concordance exacte des 15 lignes du jour civil ; inventaire inchangé."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Cinéma"
+        ],
+        "flow": "Canal+ Cinéma",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T16:08:27.719Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-23",
+        "urls": [
+          "https://tv-programme.com/canal-plus-cinema/vendredi-23-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 16,
+          "source_rows_reviewed": 16,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": []
+        },
+        "decisions": [
+          "Concordance exacte des 16 lignes ; la grille commence à 00:00 avec Bugonia et aucun report de veille n’est compté."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
       }
     ],
     "independent_crosscheck_complete": false,
