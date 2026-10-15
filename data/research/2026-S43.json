@@ -2907,6 +2907,74 @@
       "applies_to": "choix draft Freaks — jeudi 2026-10-22",
       "evidence_note": "Choix draft jeudi rang 3 ; film 2018 désambiguïsé de Tod Browning 1932, grille officielle Action et deux guides concordants.",
       "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "work_id": "la-guerre-des-mondes-1953",
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "broadcast_title",
+        "broadcast_channel",
+        "broadcast_date",
+        "broadcast_time"
+      ],
+      "urls": [
+        "https://catalog.afi.com/Catalog/moviedetails/51100",
+        "https://www.paramount.de/kampf-der-welten",
+        "https://www.bbfc.co.uk/release/the-war-of-the-worlds-q29sbgvjdglvbjpwwc0ynjuznjq",
+        "https://tv.digital3d.com/detail/tcm-cinema-113?date=2026-10-22&time=22%3A20",
+        "https://www.linternaute.com/television/programme-tcm-jeudi-22-octobre-2026/",
+        "https://tv-programme.com/tcm-cinema/jeudi-22-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T12:42:44Z",
+      "stability": "mixed_stable_and_cycle_specific",
+      "applies_to": "dossier La Guerre des mondes — jeudi 2026-10-22, réserve rang 4",
+      "evidence_note": "AFI/Paramount/BBFC établissent l’identité et 85 min ; Digital3D et L’Internaute concordent sur titre, TCM Cinéma, date et 20:50, avec TV-programme.com en troisième concordance. Amont EPG et indépendance inconnus.",
+      "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "work_id": "la-guerre-des-mondes-1953",
+      "fields": [
+        "ratings",
+        "critical_reception",
+        "freshness",
+        "synopsis",
+        "editorial_justification",
+        "draft_card"
+      ],
+      "urls": [
+        "https://www.imdb.com/title/tt0046534/",
+        "https://www.senscritique.com/film/La_Guerre_des_mondes/473030",
+        "https://www.tcm.com/articles/188880/the-war-of-the-worlds-1953-the-war-of-the-worlds-b-1953",
+        "https://www.oscars.org/oscars/ceremonies/1954/K--O",
+        "https://www.loc.gov/programs/national-film-preservation-board/film-registry/complete-national-film-registry-listing/"
+      ],
+      "checked_at": "2026-10-15T12:42:44Z",
+      "stability": "mixed_dynamic_and_editorial",
+      "applies_to": "carte draft La Guerre des mondes — jeudi 2026-10-22, rang 4",
+      "evidence_note": "Notes relues ; aucune exposition S39–S42 ni emploi S43 observé ; textes originaux fondés sur AFI/TCM/Oscars/National Film Registry. CI distant encore requis.",
+      "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "work_id": "la-guerre-des-mondes-1953",
+      "fields": [
+        "image_identity",
+        "image_dimensions",
+        "image_provenance"
+      ],
+      "urls": [
+        "https://tv.digital3d.com/detail/tcm-cinema-113?date=2026-10-22&time=22%3A20",
+        "https://image.tmdb.org/t/p/w342/gzc75Za4ArqfXIIr7STNnIE5rnA.jpg"
+      ],
+      "checked_at": "2026-10-15T12:42:44Z",
+      "stability": "stable_visual",
+      "applies_to": "La Guerre des mondes — affiche de la réserve jeudi rang 4",
+      "evidence_note": "Affiche anglaise exacte 342×513 inspectée visuellement ; provenance Digital3D/TMDB explicite ; contrôle CI distant encore requis.",
+      "status": "visually_verified_ci_pending"
     }
   ],
   "source_issues": [
@@ -3724,6 +3792,33 @@
           "sl-jeudi-old-boy",
           "sl-jeudi-dernier-rivage"
         ]
+      },
+      {
+        "id": "sl-jeudi-guerre-des-mondes-1953",
+        "title": "La Guerre des mondes",
+        "work_id": "la-guerre-des-mondes-1953",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "institutional_critical_history",
+            "note": "TCM documente la modernisation du roman dans la Californie de l’âge des soucoupes volantes et le rôle déterminant d’Albert Nozaki dans le dessin des machines martiennes.",
+            "source_url": "https://www.tcm.com/articles/188880/the-war-of-the-worlds-1953-the-war-of-the-worlds-b-1953"
+          },
+          {
+            "kind": "institutional_awards",
+            "note": "Oscar 1954 des effets spéciaux ; nominations pour le montage et l’enregistrement sonore.",
+            "source_url": "https://www.oscars.org/oscars/ceremonies/1954/K--O"
+          }
+        ],
+        "decision_note": "Réserve draft jeudi rang 4 ; film Paramount de 1953 identifié avec certitude, créneau recoupé et indépendance amont laissée inconnue.",
+        "alternatives": [
+          "sl-jeudi-old-boy",
+          "sl-jeudi-dernier-rivage",
+          "sl-jeudi-freaks-2018"
+        ]
       }
     ]
   },
@@ -3746,7 +3841,7 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Compléter le trio développé du vendredi avec trois œuvres fraîches entièrement vérifiées, puis reprendre les réserves des jours encore sous le minimum.",
+      "Compléter le trio développé du vendredi ; le flow courant place Bird parmi les dossiers réutilisables à recontrôler, tandis que les pistes récemment exposées restent exclues.",
       "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi et du mardi pour progresser vers le minimum de dix candidats complets par jour, sans modifier les choix développés.",
       "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés.",
       "Reprendre Quand la ville dort seulement si une preuve permet d’attribuer une durée exacte à la copie du dimanche 18 octobre 2026.",
@@ -7520,7 +7615,8 @@
       "completed_batches": [
         "Trio développé du mercredi complété par deux cartes draft fraîches entièrement revues ; une piste en conflit remplacée par une alternative vérifiée.",
         "Réserve du samedi ajoutée ; trois dossiers proches d’une carte sauvegardés comme partiels avec leurs contradictions factuelles et conditions de reprise.",
-        "Trio développé du jeudi matérialisé : Old Boy, Le dernier rivage et Freaks."
+        "Trio développé du jeudi matérialisé : Old Boy, Le dernier rivage et Freaks.",
+        "Réserve du jeudi ajoutée : La Guerre des mondes (1953), dossier complet et preuves de diffusion recoupées."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -7530,15 +7626,15 @@
       ],
       "complete_cards_added": 0,
       "draft_cards_added": 5,
-      "draft_reserves_added": 1,
+      "draft_reserves_added": 2,
       "partial_dossiers_added": 4,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Compléter le trio développé du vendredi avec trois œuvres fraîches entièrement vérifiées, puis reprendre les réserves des jours encore sous le minimum.",
+      "next_useful_batch": "Compléter le trio développé du vendredi ; le flow courant place Bird parmi les dossiers réutilisables à recontrôler, tandis que les pistes récemment exposées restent exclues.",
       "additions": {
-        "new_works": 6,
+        "new_works": 7,
         "visible_draft_cards": 5,
-        "distinct_reserves_added": 1,
+        "distinct_reserves_added": 2,
         "reused_existing_cards": 1,
         "scope": "comparaison avec ea37f56ecf36ec81bad7b061e6769b661fcd3844"
       },
@@ -7583,6 +7679,18 @@
           "started_at": "2026-10-15T12:40:00.000Z",
           "ended_at": "2026-10-15T12:43:30.000Z",
           "note": "Plan groupé et rendu mécanique des trois cartes jeudi."
+        },
+        {
+          "kind": "recherche",
+          "started_at": "2026-10-15T12:42:44.000Z",
+          "ended_at": "2026-10-15T12:45:12.682Z",
+          "note": "Revue déléguée en lecture seule et réconciliation ; chevauche le démarrage du lot suivant."
+        },
+        {
+          "kind": "redaction_rendu",
+          "started_at": "2026-10-15T12:44:00.000Z",
+          "ended_at": "2026-10-15T12:45:12.682Z",
+          "note": "Rendu mécanique de la réserve jeudi rang 4."
         }
       ],
       "continuation_decisions": [
@@ -7668,31 +7776,59 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T12:41:47.006Z",
+          "elapsed_seconds": 2317.851,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "afd7fa4545a3e8626e80ad18f5a73141cf052da1",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T13:31:38.669Z",
+          "remaining_count": 12,
+          "evaluated_by": "scripts/editorial-continuation.mjs",
+          "next_actions": [
+            "Compléter le trio développé du vendredi avec trois œuvres fraîches entièrement vérifiées, puis reprendre les réserves des jours encore sous le minimum.",
+            "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi et du mardi pour progresser vers le minimum de dix candidats complets par jour, sans modifier les choix développés.",
+            "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T12:03:09.155Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T13:31:38.669Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T12:31:19.506Z",
-        "elapsed_seconds": 1690.351,
+        "observed_at": "2026-10-15T12:41:47.006Z",
+        "elapsed_seconds": 2317.851,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "c7d63394348708d7443944235a5307c44e4fb086",
+        "source_sha": "afd7fa4545a3e8626e80ad18f5a73141cf052da1",
         "lease_owned": "yes",
-        "lease_until": "2026-10-15T13:11:27.604Z",
+        "lease_until": "2026-10-15T13:31:38.669Z",
         "remaining_count": 12,
         "evaluated_by": "scripts/editorial-continuation.mjs",
         "next_actions": [
+          "Compléter le trio développé du vendredi avec trois œuvres fraîches entièrement vérifiées, puis reprendre les réserves des jours encore sous le minimum.",
           "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi et du mardi pour progresser vers le minimum de dix candidats complets par jour, sans modifier les choix développés.",
-          "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés.",
-          "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés."
+          "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
         ],
         "observations": {
           "started_at": "2026-10-15T12:03:09.155Z",
           "lease_owned": "yes",
-          "lease_until": "2026-10-15T13:11:27.604Z",
+          "lease_until": "2026-10-15T13:31:38.669Z",
           "external_stop": null,
           "accessible_task_checks": [],
           "ready_handoff": null
@@ -7712,7 +7848,7 @@
       ]
     }
   ],
-  "updated_at": "2026-10-15T12:43:30.000Z",
+  "updated_at": "2026-10-15T12:45:12.682Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -9913,6 +10049,119 @@
       ],
       "decision": "carte draft matérialisée — CI final requis",
       "reason": "Choix draft jeudi rang 3 ; film 2018 désambiguïsé de Tod Browning 1932, grille officielle Action et deux guides concordants."
+    },
+    {
+      "title": "La Guerre des mondes",
+      "work_id": "la-guerre-des-mondes-1953",
+      "catalogue_match": null,
+      "identity_research": {
+        "director": "Byron Haskin",
+        "year": 1953,
+        "country": "États-Unis",
+        "cast": [
+          "Gene Barry",
+          "Ann Robinson",
+          "Les Tremayne"
+        ],
+        "source_urls": [
+          "https://catalog.afi.com/Catalog/moviedetails/51100",
+          "https://www.paramount.de/kampf-der-welten",
+          "https://www.bbfc.co.uk/release/the-war-of-the-worlds-q29sbgvjdglvbjpwwc0ynjuznjq"
+        ],
+        "checked_at": "2026-10-15T12:42:44Z",
+        "duration_observations": [
+          {
+            "duration": "85 min",
+            "version": "durée de l’œuvre selon AFI et Paramount",
+            "source_url": "https://catalog.afi.com/Catalog/moviedetails/51100"
+          },
+          {
+            "duration": "85 min 16 s",
+            "version": "version cinéma classifiée en 1953",
+            "source_url": "https://www.bbfc.co.uk/release/the-war-of-the-worlds-q29sbgvjdglvbjpwwc0ynjuznjq"
+          },
+          {
+            "duration": "90 min",
+            "version": "fenêtre EPG 20:50–22:20 ; ne certifie ni coupe ni montage différent",
+            "source_url": "https://www.linternaute.com/television/programme-tcm-jeudi-22-octobre-2026/"
+          }
+        ],
+        "note": "Identité certaine ; le film de 1953 est séparé des adaptations ultérieures."
+      },
+      "critical_evidence": [
+        {
+          "source": "Turner Classic Movies",
+          "source_url": "https://www.tcm.com/articles/188880/the-war-of-the-worlds-1953-the-war-of-the-worlds-b-1953",
+          "assessment": "TCM documente la modernisation du roman dans la Californie de l’âge des soucoupes volantes et le rôle déterminant d’Albert Nozaki dans le dessin des machines martiennes.",
+          "kind": "institutional_critical_history",
+          "access": "full",
+          "checked_at": "2026-10-15T12:42:44Z"
+        },
+        {
+          "source": "Academy of Motion Picture Arts and Sciences",
+          "source_url": "https://www.oscars.org/oscars/ceremonies/1954/K--O",
+          "assessment": "Oscar 1954 des effets spéciaux ; nominations pour le montage et l’enregistrement sonore.",
+          "kind": "institutional_awards",
+          "access": "full",
+          "checked_at": "2026-10-15T12:42:44Z"
+        },
+        {
+          "source": "Library of Congress — National Film Registry",
+          "source_url": "https://www.loc.gov/programs/national-film-preservation-board/film-registry/complete-national-film-registry-listing/",
+          "assessment": "Film inscrit au National Film Registry en 2011, signal patrimonial institutionnel.",
+          "kind": "institutional_preservation",
+          "access": "full",
+          "checked_at": "2026-10-15T12:42:44Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic_two_sources",
+        "checked_at": "2026-10-15T12:42:44Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0046534/",
+          "https://www.senscritique.com/film/La_Guerre_des_mondes/473030"
+        ],
+        "note": "IMDb affiche 7,0/10 pour 42 k votes ; SensCritique affiche 6,3/10 sur la fiche exacte du film de 1953."
+      },
+      "broadcast_research": {
+        "date": "2026-10-22",
+        "start": "20:50",
+        "channel": "TCM Cinéma",
+        "source_urls": [
+          "https://tv.digital3d.com/detail/tcm-cinema-113?date=2026-10-22&time=22%3A20",
+          "https://www.linternaute.com/television/programme-tcm-jeudi-22-octobre-2026/",
+          "https://tv-programme.com/tcm-cinema/jeudi-22-octobre-2026/"
+        ],
+        "checked_at": "2026-10-15T12:42:44Z",
+        "status": "verified_by_two_current_guides_independence_unknown",
+        "note": "Digital3D et L’Internaute concordent sur les quatre faits ; TV-programme.com dans l’inventaire Git concorde aussi. Amont technique inconnu, aucune indépendance certifiée."
+      },
+      "image_research": {
+        "checked_at": "2026-10-15T12:42:44Z",
+        "source_page": "https://tv.digital3d.com/detail/tcm-cinema-113?date=2026-10-22&time=22%3A20",
+        "image_url": "https://image.tmdb.org/t/p/w342/gzc75Za4ArqfXIIr7STNnIE5rnA.jpg",
+        "dimensions": "342x513",
+        "status": "poster_visually_verified_ci_pending",
+        "visually_checked": true,
+        "note": "Affiche anglaise exacte inspectée : titre The War of the Worlds, Gene Barry et Ann Robinson, machines martiennes ; lien exposé par Digital3D et hébergé par TMDB."
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T12:42:44Z",
+        "status": "fresh_within_available_history",
+        "issues_checked": [
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42",
+          "2026-S43"
+        ],
+        "note": "Aucune occurrence du titre français, du titre original ou du work_id dans les numéros S39–S42 ni dans le numéro S43 observé."
+      },
+      "missing_fields": [
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
+      ],
+      "decision": "réserve draft jeudi rang 4 matérialisée — CI final requis",
+      "reason": "Identité, diffusion, réception, notes, visuel, fraîcheur et textes sont revus ; aucun conflit factuel non résolu."
     }
   ]
 }
