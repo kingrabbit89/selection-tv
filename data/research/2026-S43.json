@@ -4216,6 +4216,21 @@
       "applies_to": "Ciné+ Emotion — mercredi 21 au vendredi 23 octobre 2026, jours civils 00:00–23:59",
       "evidence_note": "Secondes lectures distinctes : 17/17, 16/16 et 17/17 départs concordants, nuits incluses, aucune omission ; différences de guillemets normalisées sans changement d’identité.",
       "status": "reread_complete_single_editor_limit"
+    },
+    {
+      "fields": [
+        "schedule_identity",
+        "omission_review"
+      ],
+      "urls": [
+        "https://tv-programme.com/canal-plus-grand-ecran/samedi-17-octobre-2026/",
+        "https://tv-programme.com/canal-plus-grand-ecran/dimanche-18-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T15:52:08.684Z",
+      "stability": "cycle_specific",
+      "applies_to": "Canal+ Grand Écran — samedi 17 et dimanche 18 octobre 2026, jours civils 00:00–23:59",
+      "evidence_note": "Secondes lectures distinctes : 13/13 puis 15/15 départs concordants, nuits incluses, aucune omission ; une seule grille complète accessible par date.",
+      "status": "reread_complete_single_editor_limit"
     }
   ],
   "source_issues": [
@@ -11374,7 +11389,8 @@
         "Seconde lecture Ciné+ Festival des 21 au 23 octobre : aucune omission ; mercredi et vendredi concordants, neuf horaires du jeudi laissés ouverts. Les sept dates de la chaîne disposent désormais d’une revue de niveau 2.",
         "Seconde lecture Ciné+ Emotion des 17 et 18 octobre : 14/14 puis 15/15 départs concordants, aucune omission ; limite mono-éditeur conservée.",
         "Seconde lecture Ciné+ Emotion des 19 et 20 octobre : 17/17 puis 16/16 départs concordants, aucune omission ; limite mono-éditeur conservée.",
-        "Seconde lecture Ciné+ Emotion des 21 au 23 octobre : 17/17, 16/16 et 17/17 départs concordants, aucune omission ; les sept dates de la chaîne disposent désormais d’une revue de niveau 2."
+        "Seconde lecture Ciné+ Emotion des 21 au 23 octobre : 17/17, 16/16 et 17/17 départs concordants, aucune omission ; les sept dates de la chaîne disposent désormais d’une revue de niveau 2.",
+        "Seconde lecture Canal+ Grand Écran des 17 et 18 octobre : 13/13 puis 15/15 départs concordants, aucune omission ; limite mono-éditeur conservée."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -11387,7 +11403,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Commencer la seconde lecture complète d’une autre chaîne inventoriée ; Ciné+ Emotion est relue sur les sept dates.",
+      "next_useful_batch": "Poursuivre les secondes lectures Canal+ Grand Écran des 19 au 23 octobre.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -12412,26 +12428,56 @@
             ],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T15:52:08.684Z",
+          "elapsed_seconds": 2920,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "4520b3f6b8b15ab5385c63bb7995ee4e716e9555",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T16:34:27.059Z",
+          "remaining_count": 11,
+          "next_actions_total": 4,
+          "evaluated_by": "manual_fallback",
+          "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les dates Grand Écran restant à traiter.",
+          "next_actions": [
+            "Poursuivre les secondes lectures Canal+ Grand Écran des 19 au 23 octobre."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T15:03:29.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T16:34:27.059Z",
+            "external_stop": null,
+            "accessible_task_checks": [
+              "Cinq dates Canal+ Grand Écran restent sans seconde lecture sauvegardée."
+            ],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T15:51:31.996Z",
-        "elapsed_seconds": 2883,
+        "observed_at": "2026-10-15T15:52:08.684Z",
+        "elapsed_seconds": 2920,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "42ea66837e6b1ff4497b68ada6eae3bedb2bffdc",
+        "source_sha": "4520b3f6b8b15ab5385c63bb7995ee4e716e9555",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T16:34:27.059Z",
         "remaining_count": 11,
         "next_actions_total": 4,
         "evaluated_by": "manual_fallback",
-        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les chaînes de niveau 2 restant à traiter.",
+        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les dates Grand Écran restant à traiter.",
         "next_actions": [
-          "Commencer la seconde lecture complète d’une autre chaîne inventoriée ; Ciné+ Emotion est relue sur les sept dates."
+          "Poursuivre les secondes lectures Canal+ Grand Écran des 19 au 23 octobre."
         ],
         "observations": {
           "started_at": "2026-10-15T15:03:29.000Z",
@@ -12439,7 +12485,7 @@
           "lease_until": "2026-10-15T16:34:27.059Z",
           "external_stop": null,
           "accessible_task_checks": [
-            "23 autres chaînes inventoriées restent sans seconde lecture sauvegardée."
+            "Cinq dates Canal+ Grand Écran restent sans seconde lecture sauvegardée."
           ],
           "ready_handoff": null
         }
@@ -17747,6 +17793,72 @@
         },
         "decisions": [
           "17/17 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Grand Écran"
+        ],
+        "flow": "Canal+ Grand Écran",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:52:08.684Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-17",
+        "urls": [
+          "https://tv-programme.com/canal-plus-grand-ecran/samedi-17-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 13,
+          "source_rows_reviewed": 13,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Million Dollar Baby commencé la veille à 22:45 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "13/13 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée ; apostrophes typographiques normalisées sans changement d’identité."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Canal+ Grand Écran"
+        ],
+        "flow": "Canal+ Grand Écran",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:52:08.684Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-18",
+        "urls": [
+          "https://tv-programme.com/canal-plus-grand-ecran/dimanche-18-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 15,
+          "source_rows_reviewed": 15,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Le silence des agneaux commencé la veille à 22:49 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "15/15 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée ; apostrophes typographiques normalisées sans changement d’identité."
         ],
         "limits": [
           "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
