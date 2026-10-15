@@ -58,7 +58,8 @@
     "2026-10-15T08:30:25.945Z — vendredi 23 octobre : Ciné+ Classic ajoutée depuis une grille Web complète et datée (15 observations), nuit 00:00–05:59 incluse.",
     "2026-10-15T08:37:25.372Z — Ciné+ Classic : grilles complètes et datées des 17, 18, 19 et 20 octobre ajoutées (67 observations), jours civils et nuits inclus ; les 21 et 22 octobre restent ouverts.",
     "2026-10-15T08:38:47.527Z — Ciné+ Classic : grilles complètes et datées des 21 et 22 octobre ajoutées (37 observations), ce qui achève le relevé primaire de cette chaîne sur les sept dates.",
-    "2026-10-15T08:41:23.322Z — Impasse ciblée consignée pour Ciné+ OCS et Ciné+ Family les 21–22 octobre : deux ouvertures directes 403 par chaîne et alternatives non datées correctement ou sans lignes ; aucune observation inventée."
+    "2026-10-15T08:41:23.322Z — Impasse ciblée consignée pour Ciné+ OCS et Ciné+ Family les 21–22 octobre : deux ouvertures directes 403 par chaîne et alternatives non datées correctement ou sans lignes ; aucune observation inventée.",
+    "2026-10-15T08:44:55.227Z — jeudi 22 octobre : Ciné+ Festival ajoutée depuis une grille Web complète et datée (14 observations), nuit 00:00–05:59 incluse."
   ],
   "blockers": [],
   "research_attempts": [
@@ -81,7 +82,7 @@
       "retry_gate": {
         "state": "waiting_for_new_evidence",
         "action_texts": [
-          "Compléter Ciné+ OCS, Festival, Emotion, Frisson, Family et RTL9 sur les sept jours, avec leurs grilles datées et nuits."
+          "Compléter Ciné+ OCS les 21 et 22 octobre depuis une grille complète datée accessible."
         ],
         "reason": "Les voies directe et alternative réellement ouvertes ne fournissent pas une grille complète de la date cible.",
         "resume_when": "Nouvelle grille datée exacte accessible ou changement observé sur l’une des pages.",
@@ -108,7 +109,7 @@
       "retry_gate": {
         "state": "waiting_for_new_evidence",
         "action_texts": [
-          "Compléter Ciné+ OCS, Festival, Emotion, Frisson, Family et RTL9 sur les sept jours, avec leurs grilles datées et nuits."
+          "Compléter Ciné+ Family les 21 et 22 octobre depuis une grille complète datée accessible."
         ],
         "reason": "La source directe est inaccessible et les alternatives lues n’exposent pas les lignes de grille.",
         "resume_when": "Nouvelle grille datée exacte accessible ou changement observé sur l’une des pages.",
@@ -1253,6 +1254,25 @@
       "applies_to": "Inventaire primaire du 2026-10-22 pour Ciné+ Classic uniquement.",
       "evidence_note": "La page datée Ciné+ Classic a été relue sur tout le jour civil 2026-10-22. Les débuts 00:00–23:59 ont été sauvegardés et le programme commencé la veille a été utilisé pour confirmer la continuité après minuit. Cette lecture achève le premier relevé Ciné+ Classic des sept dates, mais ne prouve ni les six autres chaînes encore absentes, ni la seconde lecture des omissions, ni l’indépendance, ni la qualité éditoriale.",
       "status": "partial"
+    },
+    {
+      "id": "web-grid-cine-plus-festival-2026-10-22-20261015T084455227Z",
+      "work_id": null,
+      "fields": [
+        "inventory.title",
+        "inventory.channel",
+        "inventory.date",
+        "inventory.start",
+        "inventory.source_url"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-festival/jeudi-22-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T08:44:55.227Z",
+      "stability": "cycle_specific",
+      "applies_to": "Inventaire primaire du jeudi 22 octobre 2026 pour Ciné+ Festival uniquement.",
+      "evidence_note": "La page portait explicitement Ciné+ Festival et le jeudi 22 octobre 2026. Les 14 débuts du jour civil ont été sauvegardés ; le programme commencé la veille à 23:42 relie le segment 00:00–01:14. Ce lot ne prouve ni les six autres dates de la chaîne, ni la seconde lecture, ni l’indépendance, ni la qualité éditoriale.",
+      "status": "partial"
     }
   ],
   "source_issues": [
@@ -1323,8 +1343,10 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
+      "Poursuivre Ciné+ Festival sur les 17–21 et 23 octobre, puis Emotion, Frisson et RTL9, sans répéter les ouvertures OCS/Family en attente.",
+      "Compléter Ciné+ OCS les 21 et 22 octobre depuis une grille complète datée accessible.",
+      "Compléter Ciné+ Family les 21 et 22 octobre depuis une grille complète datée accessible.",
       "Compléter la grille Action du 23 octobre au-delà de 04:31 depuis une grille complète datée accessible.",
-      "Compléter Ciné+ OCS, Festival, Emotion, Frisson, Family et RTL9 sur les sept jours, avec leurs grilles datées et nuits.",
       "Revoir l’impact des divergences de titres au même créneau conservées par le normaliseur et des deux intitulés contradictoires à 04:17 sur Canal+ le 23 octobre, sans résoudre automatiquement les identités.",
       "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte."
     ]
@@ -2827,7 +2849,8 @@
         "2026-10-15T08:30:25.945Z — vendredi 23 octobre : Ciné+ Classic ajoutée depuis une grille Web complète et datée (15 observations), nuit 00:00–05:59 incluse.",
         "2026-10-15T08:37:25.372Z — Ciné+ Classic : 67 observations ajoutées pour les 17–20 octobre depuis quatre grilles Web complètes et datées ; les 21–22 octobre restent ouverts.",
         "2026-10-15T08:38:47.527Z — Ciné+ Classic : 37 observations ajoutées pour les 21–22 octobre depuis deux grilles Web complètes et datées ; relevé primaire sept jours achevé pour cette chaîne.",
-        "2026-10-15T08:41:23.322Z — Impasses de grilles Ciné+ OCS/Family des 21–22 octobre caractérisées après voies directe et alternative ; 0 observation ajoutée."
+        "2026-10-15T08:41:23.322Z — Impasses de grilles Ciné+ OCS/Family des 21–22 octobre caractérisées après voies directe et alternative ; 0 observation ajoutée.",
+        "2026-10-15T08:44:55.227Z — jeudi 22 octobre : 14 observations Ciné+ Festival ajoutées depuis une grille Web complète et datée."
       ],
       "deliverables_changed": [
         "data/inventory/2026-S43.json",
@@ -2838,7 +2861,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre une autre date ou une autre chaîne résiduelle accessible sans répéter les quatre ouvertures en attente.",
+      "next_useful_batch": "Poursuivre Ciné+ Festival sur une autre date accessible.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -3150,32 +3173,73 @@
             "ready_handoff": null
           },
           "evaluated_by": "scripts/editorial-continuation.mjs"
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T08:44:02.222Z",
+          "elapsed_seconds": 2563.939,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "e6e14ab71567457e9d55df0d769af113bab4805f",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T09:22:34.041Z",
+          "next_actions": [
+            "Poursuivre une autre date ou une autre chaîne résiduelle accessible sans répéter les quatre ouvertures en attente.",
+            "Compléter la grille Action du 23 octobre au-delà de 04:31 depuis une grille complète datée accessible.",
+            "Revoir l’impact des divergences de titres au même créneau conservées par le normaliseur et des deux intitulés contradictoires à 04:17 sur Canal+ le 23 octobre, sans résoudre automatiquement les identités.",
+            "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte."
+          ],
+          "remaining_count": 12,
+          "next_actions_total": 16,
+          "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 17,
+          "waiting_actions": [
+            {
+              "action_text": "Compléter Ciné+ OCS, Festival, Emotion, Frisson, Family et RTL9 sur les sept jours, avec leurs grilles datées et nuits."
+            }
+          ],
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-15T08:01:18.283Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T09:22:34.041Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "evaluated_by": "scripts/editorial-continuation.mjs"
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T08:39:50.493Z",
-        "elapsed_seconds": 2312.21,
+        "observed_at": "2026-10-15T08:44:02.222Z",
+        "elapsed_seconds": 2563.939,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "5c2b2a3b285710309d8823f5bc66cd151e991964",
+        "source_sha": "e6e14ab71567457e9d55df0d769af113bab4805f",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T09:22:34.041Z",
         "next_actions": [
-          "Compléter une première chaîne résiduelle parmi Ciné+ OCS, Festival, Emotion, Frisson, Family et RTL9 sur les sept dates.",
+          "Poursuivre une autre date ou une autre chaîne résiduelle accessible sans répéter les quatre ouvertures en attente.",
           "Compléter la grille Action du 23 octobre au-delà de 04:31 depuis une grille complète datée accessible.",
-          "Compléter Ciné+ OCS, Festival, Emotion, Frisson, Family et RTL9 sur les sept jours, avec leurs grilles datées et nuits.",
           "Revoir l’impact des divergences de titres au même créneau conservées par le normaliseur et des deux intitulés contradictoires à 04:17 sur Canal+ le 23 octobre, sans résoudre automatiquement les identités.",
           "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte."
         ],
         "remaining_count": 12,
-        "next_actions_total": 17,
-        "truncated_notice": "12 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "next_actions_total": 16,
+        "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
         "all_actions_total": 17,
-        "waiting_actions": [],
+        "waiting_actions": [
+          {
+            "action_text": "Compléter Ciné+ OCS, Festival, Emotion, Frisson, Family et RTL9 sur les sept jours, avec leurs grilles datées et nuits."
+          }
+        ],
         "research_review_warnings": [],
         "observations": {
           "started_at": "2026-10-15T08:01:18.283Z",
@@ -3247,9 +3311,15 @@
           "started_at": "2026-10-15T08:39:53Z",
           "ended_at": "2026-10-15T08:41:23.322Z",
           "note": "Tentatives ciblées sur Ciné+ OCS et Ciné+ Family, puis voies alternatives distinctes ; absence de grille complète exploitable, aucune ligne importée."
+        },
+        {
+          "kind": "research",
+          "started_at": "2026-10-15T08:44:05Z",
+          "ended_at": "2026-10-15T08:44:55.227Z",
+          "note": "Lecture et transcription mécanique de la grille Ciné+ Festival du jeudi ; aucune seconde lecture ni qualification éditoriale."
         }
       ]
     }
   ],
-  "updated_at": "2026-10-15T08:41:23.322Z"
+  "updated_at": "2026-10-15T08:44:55.227Z"
 }
