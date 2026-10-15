@@ -94,7 +94,8 @@
     "Jeudi enrichi d’une réserve complète : Le pont de la rivière Kwaï, dossier déjà revu dont la nouvelle diffusion du 22 octobre a été recoupée séparément.",
     "2026-10-15T13:39:02.051Z — première réserve du vendredi matérialisée : La Nuit du chasseur à 17:54, après concordance nouvelle d’OrangeTV, Télérama et de la grille TV-programme actuelle ; l’observation initiale à 17:51 et la réapparition S40 restent visibles.",
     "2026-10-15T13:46:30.000Z — deuxième réserve du vendredi matérialisée : Que Dios nos perdone à 18:47, après concordance de la grille officielle Action et du guide daté TV-programme ; fréquence des rediffusions et limites de durée conservées.",
-    "2026-10-15T13:59:44.420Z — réserve complète du samedi ajoutée : Left-Handed Girl à 11:06, depuis un dossier déjà revu et deux guides datés concordants ; provenance amont inconnue et durées distinctes conservées."
+    "2026-10-15T13:59:44.420Z — réserve complète du samedi ajoutée : Left-Handed Girl à 11:06, depuis un dossier déjà revu et deux guides datés concordants ; provenance amont inconnue et durées distinctes conservées.",
+    "2026-10-15T14:05:31.818Z — deux réserves complètes ajoutées au dimanche : Gens de Dublin à 22:35 et Freaks à 14:05, depuis des dossiers déjà revus et des diffusions actuelles concordantes."
   ],
   "blockers": [],
   "research_attempts": [
@@ -3398,6 +3399,58 @@
       "applies_to": "réserve draft Left-Handed Girl — samedi 2026-10-17 rang 5",
       "evidence_note": "Deux guides datés concordent à 11:06 ; identité, notes, visuel et textes stables réutilisés. Amont technique inconnu et durées distinctes conservés sans inférence.",
       "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "work_id": "gens-de-dublin-1987",
+      "fields": [
+        "identity",
+        "duration_limits",
+        "ratings",
+        "professional_criticism",
+        "current_broadcast",
+        "image",
+        "freshness",
+        "draft_reserve"
+      ],
+      "urls": [
+        "https://tv-programme.com/tcm-cinema/dimanche-18-octobre-2026/",
+        "https://www.programmetvcesoir.net/chaine/tcm-cinema/2026-10-18",
+        "https://www.imdb.com/title/tt0092843/",
+        "https://www.senscritique.com/film/gens_de_dublin/427405",
+        "https://www.newyorker.com/magazine/1987/12/14/irish-voices"
+      ],
+      "checked_at": "2026-10-15T14:05:31.818Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "applies_to": "réserve draft Gens de Dublin — dimanche 2026-10-18 rang 5",
+      "evidence_note": "Deux guides datés concordent à 22:35 ; identité et champs stables réutilisés, amont inconnu et durées séparées.",
+      "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "work_id": "freaks-2018",
+      "fields": [
+        "identity",
+        "duration_limits",
+        "ratings",
+        "professional_criticism",
+        "current_broadcast",
+        "image",
+        "freshness",
+        "draft_reserve"
+      ],
+      "urls": [
+        "https://www.actiontv.fr/fr/grille-tv",
+        "https://tv-programme.com/action/dimanche-18-octobre-2026/",
+        "https://www.programmetvcesoir.net/chaine/action/2026-10-18",
+        "https://wellgousa.com/films/freaks",
+        "https://www.imdb.com/title/tt8781414/",
+        "https://www.senscritique.com/film/Freaks/38114916",
+        "https://www.screendaily.com/reviews/freaks-toronto-review/5131742.article"
+      ],
+      "checked_at": "2026-10-15T14:05:31.818Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "applies_to": "réserve draft Freaks — dimanche 2026-10-18 rang 6",
+      "evidence_note": "Grille Action courante et deux guides datés concordent à 14:05 ; identité et champs stables réutilisés, durées séparées.",
+      "status": "verified_for_draft_card_ci_pending"
     }
   ],
   "source_issues": [
@@ -4529,6 +4582,48 @@
         "alternatives": [
           "sl-samedi-raccrochez-erreur",
           "sl-samedi-max-et-les-ferrailleurs"
+        ]
+      },
+      {
+        "id": "sl-dimanche-gens-de-dublin",
+        "title": "Gens de Dublin",
+        "work_id": "gens-de-dublin-1987",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Pauline Kael décrit la chaleur de l’adaptation de Joyce et la puissance du basculement émotionnel final.",
+            "source_url": "https://www.newyorker.com/magazine/1987/12/14/irish-voices"
+          }
+        ],
+        "decision_note": "Réserve draft dimanche rang 5 : dossier complet réutilisé ; diffusion TCM Cinéma à 22:35 recoupée sur deux guides datés d’éditeurs distincts, amont inconnu.",
+        "alternatives": [
+          "sl-dimanche-la-vie-de-chateau",
+          "sl-dimanche-le-pont-de-la-riviere-kwai"
+        ]
+      },
+      {
+        "id": "sl-dimanche-freaks-2018",
+        "title": "Freaks",
+        "work_id": "freaks-2018",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Screen Daily salue une révélation progressive maîtrisée et le mélange crédible de dystopie, d’horreur et de récit de super-héros.",
+            "source_url": "https://www.screendaily.com/reviews/freaks-toronto-review/5131742.article"
+          }
+        ],
+        "decision_note": "Réserve draft dimanche rang 6 : dossier complet réutilisé ; diffusion Action à 14:05 concordante sur la grille officielle courante et deux guides datés.",
+        "alternatives": [
+          "sl-dimanche-gens-de-dublin",
+          "sl-dimanche-la-vie-de-chateau"
         ]
       }
     ]
@@ -9056,7 +9151,8 @@
       "duration_basis": "Passage en cours ; heure de début UTC observée à l’entrée. La durée terminale sera inscrite au bilan.",
       "run_state": "running",
       "completed_batches": [
-        "Réserve complète du samedi ajoutée : Left-Handed Girl à 11:06, depuis un dossier déjà revu et une diffusion recoupée sur deux guides datés."
+        "Réserve complète du samedi ajoutée : Left-Handed Girl à 11:06, depuis un dossier déjà revu et une diffusion recoupée sur deux guides datés.",
+        "Deux réserves complètes ajoutées au dimanche : Gens de Dublin à 22:35 et Freaks à 14:05, depuis des dossiers déjà revus et des diffusions recoupées."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -9065,16 +9161,16 @@
       ],
       "complete_cards_added": 0,
       "draft_cards_added": 0,
-      "draft_reserves_added": 1,
+      "draft_reserves_added": 3,
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Ajouter une réserve complète au dimanche ou au lundi depuis un dossier déjà avancé, sans reprendre les pistes placées en attente de fait nouveau.",
+      "next_useful_batch": "Ajouter une réserve complète au lundi depuis un dossier déjà avancé, sans reprendre les pistes placées en attente de fait nouveau.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
-        "distinct_reserves_added": 1,
-        "reused_existing_cards": 1,
+        "distinct_reserves_added": 3,
+        "reused_existing_cards": 3,
         "scope": "comparaison avec 38586fd1d25a92adae5fabbc68d52b0bd20baf31"
       },
       "intervals": [
@@ -9088,6 +9184,18 @@
           "started_at": "2026-10-15T13:58:37.418Z",
           "ended_at": "2026-10-15T13:59:44.420Z",
           "note": "Plan, rendu mécanique et réconciliation du dossier déjà sauvegardé."
+        },
+        {
+          "kind": "recherche",
+          "started_at": "2026-10-15T14:03:39.237Z",
+          "ended_at": "2026-10-15T14:04:55.000Z",
+          "note": "Lecture actuelle groupée des grilles TCM Cinéma et Action ; réutilisation des dossiers stables sauvegardés."
+        },
+        {
+          "kind": "redaction_rendu",
+          "started_at": "2026-10-15T14:04:55.000Z",
+          "ended_at": "2026-10-15T14:05:31.818Z",
+          "note": "Plan groupé et rendu mécanique de deux réserves dimanche."
         }
       ],
       "continuation_decisions": [
@@ -9120,28 +9228,58 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T14:03:39.237Z",
+          "elapsed_seconds": 501.09,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "821a7af6543346e79993edc39bd8b1a9f0638f90",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T14:56:16.610Z",
+          "remaining_count": 12,
+          "next_actions_total": 14,
+          "all_actions_total": 19,
+          "evaluated_by": "scripts/editorial-continuation.mjs",
+          "next_actions": [
+            "Ajouter une réserve complète au dimanche ou au lundi depuis un dossier déjà avancé, sans reprendre les pistes placées en attente de fait nouveau.",
+            "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi, du mercredi, du jeudi et du vendredi pour progresser vers le minimum de dix candidats complets par jour, sans défaire les choix développés.",
+            "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T13:55:18.147Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T14:56:16.610Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T13:58:37.418Z",
-        "elapsed_seconds": 199.271,
+        "observed_at": "2026-10-15T14:03:39.237Z",
+        "elapsed_seconds": 501.09,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "38586fd1d25a92adae5fabbc68d52b0bd20baf31",
+        "source_sha": "821a7af6543346e79993edc39bd8b1a9f0638f90",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T14:56:16.610Z",
         "remaining_count": 12,
-        "next_actions_total": 13,
-        "all_actions_total": 18,
+        "next_actions_total": 14,
+        "all_actions_total": 19,
         "evaluated_by": "scripts/editorial-continuation.mjs",
         "next_actions": [
+          "Ajouter une réserve complète au dimanche ou au lundi depuis un dossier déjà avancé, sans reprendre les pistes placées en attente de fait nouveau.",
           "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi, du mercredi, du jeudi et du vendredi pour progresser vers le minimum de dix candidats complets par jour, sans défaire les choix développés.",
-          "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés.",
-          "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews."
+          "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés."
         ],
         "observations": {
           "started_at": "2026-10-15T13:55:18.147Z",
@@ -9154,7 +9292,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-15T13:59:44.420Z",
+  "updated_at": "2026-10-15T14:05:31.818Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -10883,7 +11021,21 @@
         "contrôle CI distant du visuel et des liens sur la tête exacte"
       ],
       "decision": "carte draft matérialisée — CI final requis",
-      "reason": "Diffusion, identité, réception, notes, visuel, fraîcheur et textes revus."
+      "reason": "Diffusion, identité, réception, notes, visuel, fraîcheur et textes revus.",
+      "additional_broadcasts": [
+        {
+          "date": "2026-10-18",
+          "start": "22:35",
+          "channel": "TCM Cinéma",
+          "source_urls": [
+            "https://tv-programme.com/tcm-cinema/dimanche-18-octobre-2026/",
+            "https://www.programmetvcesoir.net/chaine/tcm-cinema/2026-10-18"
+          ],
+          "checked_at": "2026-10-15T14:05:31.818Z",
+          "status": "verified_by_two_current_guides_distinct_publishers_upstream_unknown",
+          "note": "Les deux guides datés concordent sur les quatre faits de grille ; amont technique inconnu et aucune indépendance affirmée."
+        }
+      ]
     },
     {
       "title": "The Big Short : Le Casse du siècle",
@@ -11464,6 +11616,19 @@
           ],
           "checked_at": "2026-10-15T13:21:37.183Z",
           "status": "verified_by_three_current_publishers_upstream_unknown"
+        },
+        {
+          "date": "2026-10-18",
+          "start": "14:05",
+          "channel": "Action",
+          "source_urls": [
+            "https://www.actiontv.fr/fr/grille-tv",
+            "https://tv-programme.com/action/dimanche-18-octobre-2026/",
+            "https://www.programmetvcesoir.net/chaine/action/2026-10-18"
+          ],
+          "checked_at": "2026-10-15T14:05:31.818Z",
+          "status": "verified_by_current_official_grid_and_two_current_guides_upstream_unknown",
+          "note": "La grille Action courante et deux guides datés concordent à 14:05 ; amont technique des guides inconnu et aucune indépendance affirmée."
         }
       ]
     },
