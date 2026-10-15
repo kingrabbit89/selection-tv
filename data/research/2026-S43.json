@@ -146,7 +146,8 @@
     "2026-10-15T19:01:58.983Z — Last Stop : Yuma County réutilisé comme réserve draft samedi rang 6 à 17:20 selon la ligne Télérama fournie relue (p. 106, /observations/31) ; l’écart Web 17:17 reste visible, les trois primaires et les cinq cartes antérieures sont conservés.",
     "2026-10-15T19:06:44.300Z — cinq réserves réutilisées sous autorité des lignes Télérama fournies et relues : lundi Last Stop : Yuma County rang 7 et Bright Star rang 8, jeudi La Prisonnière du désert rang 7 et Midsommar rang 8, vendredi Raccrochez, c’est une erreur rang 7 ; primaires et cartes antérieures conservés.",
     "2026-10-15T19:17:46.349Z — jeudi complété à dix cartes avec Bugonia rang 9 à 01:15 et La Voix de Hind Rajab rang 10 à 18:30 ; deux dossiers complets, textes originaux, visuels inspectés, notes relues, répétitions S40 justifiées par une nouvelle diffusion linéaire et écarts de grille conservés.",
-    "2026-10-15T19:28:09.437Z — mardi complété à sept cartes avec deux documentaires ARTE : Kibboutz Nir Oz, aux portes de Gaza rang 6 à 22:40 et Yémen, carrefour de toutes les guerres rang 7 à 23:40 ; deux nouveaux dossiers complets, visuels officiels inspectés, absence de notes ciblée, critiques Télérama attribuées et corrections officielles d’horaire conservées."
+    "2026-10-15T19:28:09.437Z — mardi complété à sept cartes avec deux documentaires ARTE : Kibboutz Nir Oz, aux portes de Gaza rang 6 à 22:40 et Yémen, carrefour de toutes les guerres rang 7 à 23:40 ; deux nouveaux dossiers complets, visuels officiels inspectés, absence de notes ciblée, critiques Télérama attribuées et corrections officielles d’horaire conservées.",
+    "2026-10-15T19:33:32.923Z — deux occurrences supplémentaires réutilisées sans rouvrir leurs dossiers stables : La Voix de Hind Rajab lundi rang 9 à 08:42, recoupée par trois guides actuels, et Bugonia vendredi rang 8 à 00:00, concordante entre Télérama fourni et trois guides actuels."
   ],
   "blockers": [],
   "research_attempts": [
@@ -5122,6 +5123,52 @@
       ],
       "evidence_note": "Page et guide officiels ARTE actuels relus ; 23:40 concorde avec TV-programme. Critique Télérama p. 120 /reviews/18 (sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d) attribuée et paraphrasée ; visuel officiel inspecté ; CI distant restant.",
       "status": "verified_for_draft"
+    },
+    {
+      "work_id": "la-voix-de-hind-rajab-2025",
+      "fields": [
+        "title",
+        "channel",
+        "date",
+        "start",
+        "reused_identity",
+        "reused_editorial_copy"
+      ],
+      "urls": [
+        "https://tv-programme.com/la-voix-de-hind-rajab-film",
+        "https://programmetv.ouest-france.fr/film/drame/la-voix-de-hind-rajab-c391004004/",
+        "https://tv.digital3d.com/detail/canalplus-cinema-35?date=2026-10-19&time=08%3A42"
+      ],
+      "checked_at": "2026-10-15T19:33:32.923Z",
+      "stability": "cycle_specific_broadcast_with_reused_stable_identity",
+      "applies_to": [
+        "lundi-selection reserve rank 9"
+      ],
+      "evidence_note": "Trois guides actuels d’éditeurs distincts concordent à 08:42 ; leur amont reste inconnu. Identité et textes repris du dossier complet sauvegardé.",
+      "status": "verified_for_draft"
+    },
+    {
+      "work_id": "bugonia-2025",
+      "fields": [
+        "title",
+        "channel",
+        "date",
+        "start",
+        "reused_identity",
+        "reused_editorial_copy"
+      ],
+      "urls": [
+        "https://tv-programme.com/canal-plus-cinema/vendredi-23-octobre-2026/",
+        "https://tv.digital3d.com/detail/canalplus-cinema-35?date=2026-10-23&time=08%3A45",
+        "https://programmetv.ouest-france.fr/film/comedie-noire/bugonia-c352076458/"
+      ],
+      "checked_at": "2026-10-15T19:33:32.923Z",
+      "stability": "cycle_specific_broadcast_with_reused_stable_identity",
+      "applies_to": [
+        "vendredi-selection reserve rank 8"
+      ],
+      "evidence_note": "Télérama fourni p. 136 /observations/1203 (sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d) et trois guides actuels concordent à 00:00. Identité et textes repris du dossier complet sauvegardé.",
+      "status": "verified_for_draft"
     }
   ],
   "source_issues": [
@@ -6656,6 +6703,42 @@
         "alternatives": [
           "sl-mardi-kibboutz-nir-oz-2026"
         ]
+      },
+      {
+        "id": "sl-lundi-la-voix-de-hind-rajab-2025",
+        "title": "La Voix de Hind Rajab",
+        "work_id": "la-voix-de-hind-rajab-2025",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Le Monde décrit un dispositif hybride qui transforme les vrais appels et la reconstitution en thriller de l’impuissance, tout en conservant la question éthique.",
+            "source_url": "https://www.lemonde.fr/culture/article/2025/09/04/a-venise-the-voice-of-hind-rajab-secoue-la-mostra_6638914_3246.html"
+          }
+        ],
+        "decision_note": "Réserve draft lundi rang 9 à 08:42 : TV-programme, Ouest-France et Digital3D concordent ; dossier stable et textes réutilisés sans nouvelle consultation fictive.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-vendredi-bugonia-2025",
+        "title": "Bugonia",
+        "work_id": "bugonia-2025",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Le Guardian salue les interprètes, la fabrication et le final tout en signalant un dispositif long et parfois appuyé.",
+            "source_url": "https://www.theguardian.com/film/2025/aug/28/bugonia-review-emma-stone-might-be-an-alien-in-yorgos-lanthimoss-macabre-conspiracy-theory-comedy"
+          }
+        ],
+        "decision_note": "Réserve draft vendredi rang 8 à 00:00 : ligne Télérama p. 136 et trois guides actuels concordants ; dossier stable et textes réutilisés.",
+        "alternatives": []
       }
     ]
   },
@@ -17159,7 +17242,8 @@
         "2026-10-15T19:01:58.983Z — Last Stop : Yuma County réutilisé comme réserve draft samedi rang 6 à 17:20 selon la ligne Télérama fournie relue (p. 106, /observations/31) ; l’écart Web 17:17 reste visible, les trois primaires et les cinq cartes antérieures sont conservés.",
         "2026-10-15T19:06:44.300Z — cinq réserves réutilisées sous autorité des lignes Télérama fournies et relues : lundi Last Stop : Yuma County rang 7 et Bright Star rang 8, jeudi La Prisonnière du désert rang 7 et Midsommar rang 8, vendredi Raccrochez, c’est une erreur rang 7 ; primaires et cartes antérieures conservés.",
         "2026-10-15T19:17:46.349Z — jeudi complété à dix cartes avec Bugonia rang 9 à 01:15 et La Voix de Hind Rajab rang 10 à 18:30 ; deux dossiers complets, textes originaux, visuels inspectés, notes relues, répétitions S40 justifiées par une nouvelle diffusion linéaire et écarts de grille conservés.",
-        "2026-10-15T19:28:09.437Z — mardi complété à sept cartes avec deux documentaires ARTE : Kibboutz Nir Oz, aux portes de Gaza rang 6 à 22:40 et Yémen, carrefour de toutes les guerres rang 7 à 23:40 ; deux nouveaux dossiers complets, visuels officiels inspectés, absence de notes ciblée, critiques Télérama attribuées et corrections officielles d’horaire conservées."
+        "2026-10-15T19:28:09.437Z — mardi complété à sept cartes avec deux documentaires ARTE : Kibboutz Nir Oz, aux portes de Gaza rang 6 à 22:40 et Yémen, carrefour de toutes les guerres rang 7 à 23:40 ; deux nouveaux dossiers complets, visuels officiels inspectés, absence de notes ciblée, critiques Télérama attribuées et corrections officielles d’horaire conservées.",
+        "2026-10-15T19:33:32.923Z — deux occurrences supplémentaires réutilisées sans rouvrir leurs dossiers stables : La Voix de Hind Rajab lundi rang 9 à 08:42, recoupée par trois guides actuels, et Bugonia vendredi rang 8 à 00:00, concordante entre Télérama fourni et trois guides actuels."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -17168,20 +17252,20 @@
         "data/links.json"
       ],
       "complete_cards_added": 0,
-      "draft_cards_added": 10,
-      "draft_reserves_added": 10,
+      "draft_cards_added": 12,
+      "draft_reserves_added": 12,
       "dossiers_completed": 4,
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Compléter mardi, encore à sept cartes, ou l’un des jours restés à six ou sept cartes depuis des dossiers admissibles ; sinon avancer une rubrique indépendante ou la seconde lecture restante.",
+      "next_useful_batch": "Compléter lundi, encore à neuf cartes, depuis un dossier admissible pour fermer son minimum ; sinon compléter vendredi ou mardi, ou avancer une rubrique indépendante.",
       "additions": {
         "new_works": 2,
-        "visible_draft_cards": 10,
+        "visible_draft_cards": 12,
         "distinct_reserves_added": 2,
-        "reused_existing_cards": 8,
+        "reused_existing_cards": 10,
         "raw_inventory_observations_added": 0,
-        "scope": "Comparaison avec 0a2a9bd03796ce3ca39a6ad811c0a776c73da4c4 : dix occurrences de cartes ajoutées aux pools samedi, lundi, mardi, jeudi et vendredi. Deux œuvres nouvelles sont intégrées au catalogue et au pool mardi ; huit autres occurrences réutilisent des work_id déjà présents."
+        "scope": "Comparaison avec 0a2a9bd03796ce3ca39a6ad811c0a776c73da4c4 : douze occurrences de cartes ajoutées aux pools samedi, lundi, mardi, jeudi et vendredi. Deux œuvres nouvelles ont été intégrées au catalogue ; dix occurrences réutilisent des work_id déjà présents, dont deux nouvelles diffusions contrôlées dans ce lot."
       },
       "intervals": [
         {
@@ -17217,6 +17301,13 @@
           "ended_at": "2026-10-15T19:28:09.437Z",
           "overlap": false,
           "note": "Deux documentaires ARTE : pages et guide officiels actuels, horaires, identités, critiques Télérama, absence de notes, visuels inspectés, rédaction et rendu mécanique."
+        },
+        {
+          "kind": "reprise_verification_rendu",
+          "started_at": "2026-10-15T19:30:07.006Z",
+          "ended_at": "2026-10-15T19:33:32.923Z",
+          "overlap": false,
+          "note": "Extraction des dossiers complets, recoupement des deux nouvelles diffusions, rendu mécanique et réconciliation du checkpoint."
         }
       ],
       "continuation_decisions": [
@@ -17307,32 +17398,59 @@
             "lease_until": "2026-10-15T20:16:46.235Z",
             "external_stop": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T19:30:07.006Z",
+          "elapsed_seconds": 2077.356,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "13da7bfec595fda5fa786a69d39f496c651971b3",
+          "next_actions": [
+            "Compléter mardi, encore à sept cartes, ou l’un des jours restés à six ou sept cartes depuis des dossiers admissibles ; sinon avancer une rubrique indépendante ou la seconde lecture restante.",
+            "Terminer un autre dossier déjà proche d’une carte ou une rubrique accessible ; ne pas reprendre TV5MONDE tant que son retry_gate de flux régional n’est pas satisfait."
+          ],
+          "remaining_count": 11,
+          "observations": {
+            "started_at": "2026-10-15T18:55:29.650Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T20:16:46.235Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T19:19:20.743Z",
-        "elapsed_seconds": 1431.093,
+        "observed_at": "2026-10-15T19:30:07.006Z",
+        "elapsed_seconds": 2077.356,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "434792b378bc21c950b0c25f00cc79015a9d572b",
+        "source_sha": "13da7bfec595fda5fa786a69d39f496c651971b3",
         "next_actions": [
-          "Compléter mardi, encore à cinq cartes, depuis des dossiers admissibles ; sinon avancer une rubrique indépendante ou la seconde lecture restante sans rouvrir les impasses fermées."
+          "Compléter mardi, encore à sept cartes, ou l’un des jours restés à six ou sept cartes depuis des dossiers admissibles ; sinon avancer une rubrique indépendante ou la seconde lecture restante.",
+          "Terminer un autre dossier déjà proche d’une carte ou une rubrique accessible ; ne pas reprendre TV5MONDE tant que son retry_gate de flux régional n’est pas satisfait."
         ],
         "remaining_count": 11,
         "observations": {
           "started_at": "2026-10-15T18:55:29.650Z",
           "lease_owned": "yes",
           "lease_until": "2026-10-15T20:16:46.235Z",
-          "external_stop": null
+          "external_stop": null,
+          "accessible_task_checks": [],
+          "ready_handoff": null
         }
       }
     }
   ],
-  "updated_at": "2026-10-15T19:28:09.437Z",
+  "updated_at": "2026-10-15T19:33:32.923Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
