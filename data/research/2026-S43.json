@@ -73,7 +73,8 @@
     "2026-10-15T09:41:10.739Z — dossier partiel La Prisonnière du désert : identité AFI, signal BFI et diffusion du 17 octobre recoupée par deux guides ; notes, visuel, fraîcheur et textes restent ouverts.",
     "2026-10-15T09:43:20.786Z — dossier partiel L’Homme de la rue : identité et versions AFI, réception attribuée TCM et diffusion du 17 octobre recoupée ; version exacte, notes, visuel, fraîcheur et textes restent ouverts.",
     "2026-10-15T09:45:19.161Z — dossier partiel L’Emploi du temps : identité Miramax, critique Guardian, IMDb actuel et diffusion du 17 octobre recoupée ; version, seconde note, visuel, fraîcheur et textes restent ouverts.",
-    "2026-10-15T09:47:38.358Z — divergence Canal+ du 23 octobre à 04:17 revue : aucun impact sur la présélection ou les trois dossiers actuels ; conflit La loi de la chair / Surprises conservé ouvert pour la couverture."
+    "2026-10-15T09:47:38.358Z — divergence Canal+ du 23 octobre à 04:17 revue : aucun impact sur la présélection ou les trois dossiers actuels ; conflit La loi de la chair / Surprises conservé ouvert pour la couverture.",
+    "2026-10-15T09:50:03.180Z — affiche de La Prisonnière du désert inspectée : JPEG 446×588 exact, empreinte conservée ; contrôle CI distant encore requis."
   ],
   "blockers": [],
   "research_attempts": [
@@ -1946,6 +1947,23 @@
       "applies_to": "Canal+, vendredi 2026-10-23 à 04:17",
       "evidence_note": "La loi de la chair / Surprises restent contradictoires. Aucun intitulé n’est utilisé par les six pistes de présélection ni par les trois dossiers partiels ; l’impact est nul sur le lot actuel mais la divergence demeure ouverte pour la couverture.",
       "status": "impact_reviewed_conflict_open"
+    },
+    {
+      "work_id": "la-prisonniere-du-desert-1956",
+      "fields": [
+        "image_identity",
+        "image_dimensions",
+        "image_provenance"
+      ],
+      "urls": [
+        "https://www.molotov.tv/fr_fr/p/34874/la-prisonniere-du-desert",
+        "https://fusion.molotov.tv/arts/i/446x588/Ch8SHQoUFAz7Nhse4fVhRoF4gHWWxRI2M7gSA2pwZxgBCh8IARIbChQxLzqbqIMDn7-kZ3dFroH0dNnI0xIDcG5n/jpg"
+      ],
+      "checked_at": "2026-10-15T09:50:03.180Z",
+      "stability": "stable_visual",
+      "applies_to": "La Prisonnière du désert — affiche de la carte potentielle",
+      "evidence_note": "JPEG 446×588, SHA-256 536186b66e79004a8f01216121971bb1e31a8038f19503eb6dd52d100c93ed03, inspecté visuellement comme affiche française exacte avec John Wayne et marque Ciné+ Classic.",
+      "status": "visually_verified_ci_pending"
     }
   ],
   "source_issues": [
@@ -2143,7 +2161,7 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
-      "Clore les champs de version, notes, visuels, fraîcheur et textes des trois dossiers samedi, puis étendre la présélection sourcée aux autres jours.",
+      "Clore notes dynamiques, fraîcheur et textes de La Prisonnière du désert ; inspecter les visuels et clore les champs des deux autres dossiers samedi.",
       "Compléter Ciné+ OCS les 21 et 22 octobre depuis une grille complète datée accessible.",
       "Compléter Ciné+ Family les 21 et 22 octobre depuis une grille complète datée accessible.",
       "Étendre la présélection sourcée aux autres jours et rubriques depuis l’inventaire sauvegardé, sans certifier de carte avant les preuves de niveau 3."
@@ -4322,7 +4340,8 @@
         "2026-10-15T09:41:10.739Z — dossier partiel La Prisonnière du désert : identité AFI, signal BFI et diffusion du 17 octobre recoupée par deux guides ; notes, visuel, fraîcheur et textes restent ouverts.",
         "2026-10-15T09:43:20.786Z — dossier partiel L’Homme de la rue : identité et versions AFI, réception attribuée TCM et diffusion du 17 octobre recoupée ; version exacte, notes, visuel, fraîcheur et textes restent ouverts.",
         "2026-10-15T09:45:19.161Z — dossier partiel L’Emploi du temps : identité Miramax, critique Guardian, IMDb actuel et diffusion du 17 octobre recoupée ; version, seconde note, visuel, fraîcheur et textes restent ouverts.",
-        "2026-10-15T09:47:38.358Z — divergence Canal+ du 23 octobre à 04:17 revue : aucun impact sur la présélection ou les trois dossiers actuels ; conflit La loi de la chair / Surprises conservé ouvert pour la couverture."
+        "2026-10-15T09:47:38.358Z — divergence Canal+ du 23 octobre à 04:17 revue : aucun impact sur la présélection ou les trois dossiers actuels ; conflit La loi de la chair / Surprises conservé ouvert pour la couverture.",
+        "2026-10-15T09:50:03.180Z — affiche de La Prisonnière du désert inspectée : JPEG 446×588 exact, empreinte conservée ; contrôle CI distant encore requis."
       ],
       "deliverables_changed": [
         "data/inventory/2026-S43.json",
@@ -4333,7 +4352,7 @@
       "partial_dossiers_added": 3,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Clore les champs de version, notes, visuels, fraîcheur et textes des trois dossiers samedi, puis étendre la présélection aux autres jours ; garder la divergence Canal+ ouverte pour la seconde lecture.",
+      "next_useful_batch": "Clore notes dynamiques, fraîcheur et textes de La Prisonnière du désert ; inspecter les visuels et clore les champs des deux autres dossiers samedi.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -5144,6 +5163,12 @@
           "started_at": "2026-10-15T09:46:12Z",
           "ended_at": "2026-10-15T09:47:38.358Z",
           "note": "Revue de l’impact de la contradiction Canal+ 04:17 sur les livrables réellement présents ; aucune identité résolue."
+        },
+        {
+          "kind": "editorial_review",
+          "started_at": "2026-10-15T09:49:09Z",
+          "ended_at": "2026-10-15T09:50:03.180Z",
+          "note": "Téléchargement, empreinte et inspection visuelle de l’affiche sauvegardée de La Prisonnière du désert."
         }
       ]
     }
@@ -5213,16 +5238,17 @@
         "note": "CisanaTV et Ouest-France, deux éditeurs distincts réellement lus, concordent sur le titre, Ciné+ Classic, le samedi 17 octobre 2026 et 15:23. Leur amont technique demeure inconnu ; aucune indépendance n’est certifiée."
       },
       "image_research": {
-        "checked_at": "2026-10-09",
+        "checked_at": "2026-10-15T09:50:03.180Z",
         "source_page": "https://www.molotov.tv/fr_fr/p/34874/la-prisonniere-du-desert",
         "image_url": "https://fusion.molotov.tv/arts/i/446x588/Ch8SHQoUFAz7Nhse4fVhRoF4gHWWxRI2M7gSA2pwZxgBCh8IARIbChQxLzqbqIMDn7-kZ3dFroH0dNnI0xIDcG5n/jpg",
-        "status": "saved_visual_recheck_required",
-        "visually_checked": false,
-        "note": "Affiche et provenance sauvegardées dans le catalogue ; aucune nouvelle inspection visuelle n’est affirmée dans ce passage."
+        "sha256": "536186b66e79004a8f01216121971bb1e31a8038f19503eb6dd52d100c93ed03",
+        "dimensions": "446x588",
+        "status": "poster_visually_verified_ci_pending",
+        "visually_checked": true,
+        "note": "JPEG téléchargé depuis l’URL sauvegardée et inspecté : affiche française exacte de La Prisonnière du désert, portrait de John Wayne, Monument Valley et marque Ciné+ Classic ; contrôle CI distant encore requis."
       },
       "missing_fields": [
         "rafraîchissement des notes dynamiques",
-        "inspection visuelle du poster",
         "contrôle final de fraîcheur et exposition",
         "rédaction et revue des textes de carte"
       ],
