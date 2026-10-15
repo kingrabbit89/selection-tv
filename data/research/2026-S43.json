@@ -106,7 +106,8 @@
     "2026-10-15T15:11:01.172Z — impasses de grille révisées pour U Are the Universe et La Mer au loin : deux voies actuelles par dossier restent contradictoires ; retry_gates exacts sauvegardés, aucune carte ni clôture de couverture inventée.",
     "2026-10-15T15:13:08.798Z — Ciné+ Family samedi 17 octobre : grille Web complète et datée ajoutée (16 observations, nuit 01:20–05:13 incluse) depuis ProgrammeTVCeSoir ; une seule source accessible, aucune seconde lecture ni indépendance certifiée.",
     "2026-10-15T15:14:02.384Z — Ciné+ Family dimanche 18 octobre : grille Web complète et datée ajoutée (14 observations, nuit 00:48–05:02 incluse) depuis ProgrammeTVCeSoir ; une seule source accessible, aucune seconde lecture ni indépendance certifiée.",
-    "2026-10-15T15:14:54.517Z — Ciné+ Family lundi 19 octobre : grille Web complète et datée ajoutée (17 observations, nuit 00:03–05:49 incluse) depuis ProgrammeTVCeSoir ; une seule source accessible, aucune seconde lecture ni indépendance certifiée."
+    "2026-10-15T15:14:54.517Z — Ciné+ Family lundi 19 octobre : grille Web complète et datée ajoutée (17 observations, nuit 00:03–05:49 incluse) depuis ProgrammeTVCeSoir ; une seule source accessible, aucune seconde lecture ni indépendance certifiée.",
+    "2026-10-15T15:16:20.000Z — Ciné+ Family mardi 20 octobre : grille Web complète et datée ajoutée (15 observations, nuit 00:38–05:40 incluse) depuis ProgrammeTVCeSoir ; une seule source accessible, aucune seconde lecture ni indépendance certifiée."
   ],
   "blockers": [],
   "research_attempts": [
@@ -3731,6 +3732,23 @@
       "stability": "cycle_specific",
       "applies_to": "inventaire primaire Ciné+ Family — lundi 2026-10-19",
       "evidence_note": "Grille datée lue de 00:03 à 22:51 ; 17 lignes importées, nuit incluse. Une seule grille complète accessible ; seconde lecture et indépendance restent ouvertes.",
+      "status": "verified_primary_inventory_import_ci_pending"
+    },
+    {
+      "fields": [
+        "primary_inventory",
+        "full_civil_day",
+        "overnight_segment",
+        "channel_source",
+        "channel_count"
+      ],
+      "urls": [
+        "https://www.programmetvcesoir.net/chaine/cine-family/2026-10-20"
+      ],
+      "checked_at": "2026-10-15T15:16:20.000Z",
+      "stability": "cycle_specific",
+      "applies_to": "inventaire primaire Ciné+ Family — mardi 2026-10-20",
+      "evidence_note": "Grille datée lue de 00:38 à 22:33 ; 15 lignes importées, nuit incluse. Une seule grille complète accessible ; seconde lecture et indépendance restent ouvertes.",
       "status": "verified_primary_inventory_import_ci_pending"
     }
   ],
@@ -10867,14 +10885,15 @@
       "prompt_revision": "production-weekly-continuity-2026-10-10",
       "started_at": "2026-10-15T15:03:29.000Z",
       "ended_at": null,
-      "duration_basis": "Temps UTC observé depuis 2026-10-15T15:03:29.000Z ; checkpoint à 2026-10-15T15:08:39.575Z.",
+      "duration_basis": "Temps UTC observé depuis 2026-10-15T15:03:29.000Z ; checkpoint à 2026-10-15T15:16:20.000Z.",
       "run_state": "running",
       "completed_batches": [
         "2026-10-15T15:08:39.575Z — dossier The Big Short complété : deux guides actuels concordent désormais à 08:31 sur Ciné+ Frisson le 21 octobre ; la contradiction historique 08:30/08:31 est conservée, aucune carte n’est affirmée sans rendu mécanique.",
         "2026-10-15T15:11:01.172Z — impasses de grille révisées pour U Are the Universe et La Mer au loin : deux voies actuelles par dossier restent contradictoires ; retry_gates exacts sauvegardés, aucune carte ni clôture de couverture inventée.",
         "2026-10-15T15:13:08.798Z — Ciné+ Family samedi 17 octobre : grille Web complète et datée ajoutée (16 observations, nuit 01:20–05:13 incluse) depuis ProgrammeTVCeSoir ; une seule source accessible, aucune seconde lecture ni indépendance certifiée.",
         "2026-10-15T15:14:02.384Z — Ciné+ Family dimanche 18 octobre : grille Web complète et datée ajoutée (14 observations, nuit 00:48–05:02 incluse) depuis ProgrammeTVCeSoir ; une seule source accessible, aucune seconde lecture ni indépendance certifiée.",
-        "2026-10-15T15:14:54.517Z — Ciné+ Family lundi 19 octobre : grille Web complète et datée ajoutée (17 observations, nuit 00:03–05:49 incluse) depuis ProgrammeTVCeSoir ; une seule source accessible, aucune seconde lecture ni indépendance certifiée."
+        "2026-10-15T15:14:54.517Z — Ciné+ Family lundi 19 octobre : grille Web complète et datée ajoutée (17 observations, nuit 00:03–05:49 incluse) depuis ProgrammeTVCeSoir ; une seule source accessible, aucune seconde lecture ni indépendance certifiée.",
+        "2026-10-15T15:16:20.000Z — Ciné+ Family mardi 20 octobre : grille Web complète et datée ajoutée (15 observations, nuit 00:38–05:40 incluse) depuis ProgrammeTVCeSoir ; une seule source accessible, aucune seconde lecture ni indépendance certifiée."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -10887,7 +10906,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre Ciné+ Family le mardi 20 octobre si la grille datée redevient accessible ; conserver Ciné+ OCS ouvert sans contourner son indisponibilité.",
+      "next_useful_batch": "Poursuivre Ciné+ Family du mercredi au vendredi depuis une nouvelle grille datée accessible ; conserver Ciné+ OCS ouvert sans contourner son indisponibilité.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -11066,30 +11085,62 @@
             ],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T15:16:20.000Z",
+          "elapsed_seconds": 771,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "0e13a0ac26fe194055380394aa20203ec2ef7561",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T16:14:22.427Z",
+          "remaining_count": 12,
+          "next_actions_total": 4,
+          "evaluated_by": "manual_fallback",
+          "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision fondée sur l’horloge observée, le bail relu et le checkpoint immuable.",
+          "next_actions": [
+            "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
+            "Poursuivre Ciné+ Family du mercredi au vendredi depuis une nouvelle grille datée accessible ; conserver Ciné+ OCS ouvert sans contourner son indisponibilité.",
+            "Observer la CI de la tête corrigée tout en poursuivant une tâche éditoriale indépendante accessible ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+            "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé et une diffusion concordante, sans reprendre les pistes en attente sans fait nouveau."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T15:03:29.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T16:14:22.427Z",
+            "external_stop": null,
+            "accessible_task_checks": [
+              "remaining Cine+ Family dates may be accessible through a distinct dated guide"
+            ],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T15:14:54.517Z",
-        "elapsed_seconds": 685.517,
+        "observed_at": "2026-10-15T15:16:20.000Z",
+        "elapsed_seconds": 771,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "f7b608a83b5ab53149a8984b27781ba02a2f1b77",
+        "source_sha": "0e13a0ac26fe194055380394aa20203ec2ef7561",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T16:14:22.427Z",
         "remaining_count": 12,
-        "next_actions_total": 15,
+        "next_actions_total": 4,
         "evaluated_by": "manual_fallback",
-        "evaluation_note": "Clone/helpers indisponibles ; poursuite fondée sur l’horloge, le bail relu et la matrice.",
+        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision fondée sur l’horloge observée, le bail relu et le checkpoint immuable.",
         "next_actions": [
           "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
-          "Poursuivre Ciné+ Family le mardi 20 octobre si la grille datée redevient accessible ; conserver Ciné+ OCS ouvert sans contourner son indisponibilité.",
-          "Poursuivre Ciné+ Family le lundi 19 octobre si la grille datée redevient accessible ; ne rouvrir Ciné+ OCS qu’en présence d’une grille datée nouvelle.",
-          "Poursuivre la matrice Ciné+ Family sur une autre date réellement accessible, en sauvegardant journée et nuit sans certifier la seconde lecture ; Ciné+ OCS reste en attente d’une grille datée.",
-          "Observer la CI de la tête corrigée tout en poursuivant une tâche éditoriale indépendante accessible ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
+          "Poursuivre Ciné+ Family du mercredi au vendredi depuis une nouvelle grille datée accessible ; conserver Ciné+ OCS ouvert sans contourner son indisponibilité.",
+          "Observer la CI de la tête corrigée tout en poursuivant une tâche éditoriale indépendante accessible ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+          "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé et une diffusion concordante, sans reprendre les pistes en attente sans fait nouveau."
         ],
         "observations": {
           "started_at": "2026-10-15T15:03:29.000Z",
@@ -11097,14 +11148,14 @@
           "lease_until": "2026-10-15T16:14:22.427Z",
           "external_stop": null,
           "accessible_task_checks": [
-            "Ciné+ Family Tuesday may be retrievable"
+            "remaining Cine+ Family dates may be accessible through a distinct dated guide"
           ],
           "ready_handoff": null
         }
       }
     }
   ],
-  "updated_at": "2026-10-15T15:14:54.517Z",
+  "updated_at": "2026-10-15T15:16:20.000Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
