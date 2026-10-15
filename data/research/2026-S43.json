@@ -82,7 +82,8 @@
     "2026-10-15T10:38:32.974Z — troisième choix du dimanche matérialisé : Interstellar complète le trio développé après preuve officielle ARTE du créneau, revue d’identité, réception, visuel et fraîcheur ; l’écart de durée 161/169 min reste visible sans inférence technique.",
     "2026-10-15T10:47:13.428Z — première réserve dominicale matérialisée : La vie de château, après recoupement concordant du créneau, revue d’identité, réception, visuel et fraîcheur ; divergences de durée conservées sans inférence technique.",
     "2026-10-15T11:12:00Z — trois choix développés du lundi matérialisés : Cadavres exquis, Peau d’âne et Bird, après revue des diffusions, identités, réception, visuels et fraîcheur ; divergences d’année et de durée conservées sans inférence de master.",
-    "2026-10-15T11:21:20.843Z — première réserve du lundi matérialisée : Midsommar, après concordance des quatre faits de grille et revue d’identité, réception, visuel et fraîcheur ; divergences de durée conservées sans inférence de copie."
+    "2026-10-15T11:21:20.843Z — première réserve du lundi matérialisée : Midsommar, après concordance des quatre faits de grille et revue d’identité, réception, visuel et fraîcheur ; divergences de durée conservées sans inférence de copie.",
+    "2026-10-15T11:33:40.000Z — trois choix développés du mardi matérialisés : Left-Handed Girl, Partir un jour et Que Dios nos perdone ; horaires recoupés, homonyme court désambiguïsé, réception et fraîcheur revues, divergences de durée et fréquence des rediffusions Action conservées."
   ],
   "blockers": [],
   "research_attempts": [
@@ -187,6 +188,37 @@
       "result": "Deux guides actuels concordent à 14:49 tandis que Télérama affiche 14:48 ; aucune preuve officielle Canal+ accessible n’arbitre l’écart.",
       "blocking_scope": "Carte dimanche non matérialisée tant que l’heure exacte reste contradictoire.",
       "resume_condition": "Correction officielle datée ou page Canal+ exacte établissant l’heure, sinon choisir une alternative entièrement vérifiée."
+    },
+    {
+      "id": "u-are-the-universe-slot-conflict-2026-10-15T11:30:49Z",
+      "object": "U Are the Universe (2024)",
+      "version": "diffusion Ciné+ Frisson du 20 octobre 2026",
+      "broadcast": "Ciné+ Frisson, mardi 20 octobre 2026",
+      "question": "Arbitrer l’heure exacte entre 08:30 et 08:33.",
+      "urls": [
+        "https://tv-programme.com/cine-plus-frisson/mardi-20-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-mardi/cine-frisson"
+      ],
+      "checked_at": "2026-10-15T11:30:49Z",
+      "result": "Deux éditeurs actuels divergent ; aucune preuve officielle Ciné+ accessible ne tranche.",
+      "blocking_scope": "Carte mardi non matérialisée.",
+      "resume_condition": "Correction officielle datée ou second guide distinct concordant sur les quatre faits."
+    },
+    {
+      "id": "la-mer-au-loin-slot-conflict-2026-10-15T11:31:21Z",
+      "object": "La Mer au loin (2024)",
+      "version": "diffusion Ciné+ Festival du 20 octobre 2026",
+      "broadcast": "Ciné+ Festival, mardi 20 octobre 2026",
+      "question": "Arbitrer l’heure exacte entre 16:59 et 17:01.",
+      "urls": [
+        "https://www.programmetvcesoir.net/chaine/cine-festival/2026-10-20",
+        "https://lezapptv.fr/chaine/cine-festival/2026-10-20",
+        "https://tv-programme.com/cine-plus-festival/mardi-20-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T11:31:21Z",
+      "result": "Deux éditeurs donnent 17:01 ; TV-programme affiche désormais 16:59, y compris contre sa capture sauvegardée antérieure à 17:01. Aucun arbitrage officiel.",
+      "blocking_scope": "Carte mardi non matérialisée.",
+      "resume_condition": "Correction officielle datée ou nouvelle preuve fiable arbitrant le conflit."
     }
   ],
   "verification_records": [
@@ -2289,7 +2321,18 @@
     },
     {
       "work_id": "cadavres-exquis-1976",
-      "fields": ["identity", "duration_limit", "ratings", "official_broadcast", "criticism", "image", "freshness", "synopsis", "editorial_justification", "draft_card"],
+      "fields": [
+        "identity",
+        "duration_limit",
+        "ratings",
+        "official_broadcast",
+        "criticism",
+        "image",
+        "freshness",
+        "synopsis",
+        "editorial_justification",
+        "draft_card"
+      ],
       "urls": [
         "https://www.arte.tv/fr/videos/026377-000-A/cadavres-exquis/",
         "https://www.moma.org/calendar/events/8136",
@@ -2305,7 +2348,18 @@
     },
     {
       "work_id": "peau-d-ane-1970",
-      "fields": ["identity", "duration_limit", "ratings", "broadcast", "criticism", "image", "freshness", "synopsis", "editorial_justification", "draft_card"],
+      "fields": [
+        "identity",
+        "duration_limit",
+        "ratings",
+        "broadcast",
+        "criticism",
+        "image",
+        "freshness",
+        "synopsis",
+        "editorial_justification",
+        "draft_card"
+      ],
       "urls": [
         "https://tv-programme.com/cine-plus-classic/lundi-19-octobre-2026/",
         "https://www.programme-television.org/tv/bouquets/canal/lundi",
@@ -2322,7 +2376,18 @@
     },
     {
       "work_id": "bird-2024",
-      "fields": ["identity", "duration_limit", "ratings", "broadcast", "criticism", "image", "freshness", "synopsis", "editorial_justification", "draft_card"],
+      "fields": [
+        "identity",
+        "duration_limit",
+        "ratings",
+        "broadcast",
+        "criticism",
+        "image",
+        "freshness",
+        "synopsis",
+        "editorial_justification",
+        "draft_card"
+      ],
       "urls": [
         "https://tv-programme.com/cine-plus-festival/lundi-19-octobre-2026/",
         "https://programmetv.ouest-france.fr/film/drame/bird-c323703270/",
@@ -2339,7 +2404,18 @@
     },
     {
       "work_id": "midsommar-2019",
-      "fields": ["identity", "duration_limit", "ratings", "broadcast", "criticism", "image", "freshness", "synopsis", "editorial_justification", "draft_reserve"],
+      "fields": [
+        "identity",
+        "duration_limit",
+        "ratings",
+        "broadcast",
+        "criticism",
+        "image",
+        "freshness",
+        "synopsis",
+        "editorial_justification",
+        "draft_reserve"
+      ],
       "urls": [
         "https://tv-programme.com/cine-plus-frisson/lundi-19-octobre-2026/",
         "https://tv.digital3d.com/programme/tt8772262/midsommar",
@@ -2354,6 +2430,93 @@
       "applies_to": "réserve draft Midsommar — lundi 2026-10-19, rang 4",
       "evidence_note": "Deux guides concordent sur les quatre faits ; identité, critique, notes, affiche officielle et fraîcheur relues. Divergences 142/147/148/171 min conservées sans inférence de copie ; CI final requis.",
       "status": "verified_for_draft_reserve_ci_pending"
+    },
+    {
+      "work_id": "left-handed-girl-2025",
+      "fields": [
+        "identity",
+        "duration_limit",
+        "ratings",
+        "broadcast",
+        "criticism",
+        "image",
+        "freshness",
+        "synopsis",
+        "editorial_justification",
+        "draft_card"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-festival/mardi-20-octobre-2026/",
+        "https://programmetv.ouest-france.fr/film/drame/left-handed-girl-c375018723/",
+        "https://le-pacte.com/france/film/left-handed-girl-2",
+        "https://www.senscritique.com/film/left_handed_girl/67453767",
+        "https://www.theguardian.com/film/2025/nov/13/left-handed-girl-review-sean-baker-shih-ching-tsou"
+      ],
+      "checked_at": "2026-10-15T11:28:35Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "applies_to": "choix draft Left-Handed Girl — mardi 2026-10-20, rang 1",
+      "evidence_note": "Horaire courant 19:04 recoupé ; identité, réception, affiche et fraîcheur relues ; anciennes données 18:55 corrigées, divergences de durée conservées.",
+      "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "work_id": "partir-un-jour-2025",
+      "fields": [
+        "identity",
+        "homonym_disambiguation",
+        "duration_limit",
+        "ratings",
+        "broadcast",
+        "criticism",
+        "image",
+        "freshness",
+        "synopsis",
+        "editorial_justification",
+        "draft_card"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-emotion/mardi-20-octobre-2026/",
+        "https://www.programmetvcesoir.net/chaine/cine-emotion/2026-10-20",
+        "https://www.pathefilms.com/fr/films/partir-un-jour/",
+        "https://www.imdb.com/title/tt35453969/",
+        "https://www.senscritique.com/film/partir_un_jour/101884448",
+        "https://www.lemonde.fr/culture/article/2025/05/13/cannes-2025-partir-un-jour-juliette-armanet-sur-des-airs-de-nostalgie_6605832_3246.html"
+      ],
+      "checked_at": "2026-10-15T11:30:39Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "applies_to": "choix draft Partir un jour — mardi 2026-10-20, rang 2",
+      "evidence_note": "Long de 20:50 distingué du court de 20:24 ; diffusion, identité, critique, notes, visuel et fraîcheur relus ; divergences de durée conservées.",
+      "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "work_id": "que-dios-nos-perdone-2016",
+      "fields": [
+        "identity",
+        "duration_limit",
+        "ratings",
+        "broadcast",
+        "criticism",
+        "counterpoint",
+        "image",
+        "freshness",
+        "repeat_limit",
+        "synopsis",
+        "editorial_justification",
+        "draft_card"
+      ],
+      "urls": [
+        "https://tv-programme.com/action/mardi-20-octobre-2026/",
+        "https://www.programmetvcesoir.net/chaine/action/2026-10-20",
+        "https://www.actiontv.fr/fr/grille-tv",
+        "https://www.imdb.com/title/tt4944596/",
+        "https://www.senscritique.com/film/que_dios_nos_perdone/17028357",
+        "https://www.telerama.fr/cinema/films/que-dios-nos-perdone,518623.php",
+        "https://www.lemonde.fr/cinema/article/2017/08/09/que-dios-nos-perdone-serial-killer-de-serie_5170288_3476.html"
+      ],
+      "checked_at": "2026-10-15T11:29:24Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "applies_to": "choix draft Que Dios nos perdone — mardi 2026-10-20, rang 3",
+      "evidence_note": "Diffusion et identité recoupées ; critique positive et contrepoint négatif conservés ; fréquence des rediffusions Action explicitée.",
+      "status": "verified_for_draft_card_ci_pending"
     }
   ],
   "source_issues": [
@@ -2707,85 +2870,235 @@
         "id": "sl-lundi-cadavres-exquis",
         "title": "Cadavres exquis",
         "work_id": "cadavres-exquis-1976",
-        "scope": {"day": "lundi"},
+        "scope": {
+          "day": "lundi"
+        },
         "status": "card_drafted",
-        "signals": [{
-          "kind": "professional_criticism",
-          "note": "Richard Brody lit le film de Rosi comme un polar politique où l’enquête méthodique révèle les compromissions institutionnelles.",
-          "source_url": "https://www.newyorker.com/culture/culture-desk/must-see-italian-cinema-francesco-rosis-illustrious-corpses"
-        }],
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Richard Brody lit le film de Rosi comme un polar politique où l’enquête méthodique révèle les compromissions institutionnelles.",
+            "source_url": "https://www.newyorker.com/culture/culture-desk/must-see-italian-cinema-francesco-rosis-illustrious-corpses"
+          }
+        ],
         "decision_note": "Carte draft matérialisée au rang 1 depuis l’événement officiel ARTE du lundi 19 octobre à 20:55 ; identité, réception, visuel et fraîcheur relus, divergence 1975/1976 conservée.",
-        "alternatives": ["sl-lundi-peau-d-ane", "sl-lundi-bird"]
+        "alternatives": [
+          "sl-lundi-peau-d-ane",
+          "sl-lundi-bird"
+        ]
       },
       {
         "id": "sl-lundi-peau-d-ane",
         "title": "Peau d’âne",
         "work_id": "peau-d-ane-1970",
-        "scope": {"day": "lundi"},
+        "scope": {
+          "day": "lundi"
+        },
         "status": "card_drafted",
-        "signals": [{
-          "kind": "professional_criticism",
-          "note": "Roger Ebert souligne l’invention visuelle et musicale avec laquelle Demy transforme le conte en féerie singulière.",
-          "source_url": "https://www.rogerebert.com/reviews/donkey-skin-2005"
-        }],
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Roger Ebert souligne l’invention visuelle et musicale avec laquelle Demy transforme le conte en féerie singulière.",
+            "source_url": "https://www.rogerebert.com/reviews/donkey-skin-2005"
+          }
+        ],
         "decision_note": "Carte draft matérialisée au rang 2 après concordance de deux guides à 20:50 sur Ciné+ Classic ; identité, durée CNC, réception, visuel et fraîcheur relus.",
-        "alternatives": ["sl-lundi-cadavres-exquis", "sl-lundi-bird"]
+        "alternatives": [
+          "sl-lundi-cadavres-exquis",
+          "sl-lundi-bird"
+        ]
       },
       {
         "id": "sl-lundi-bird",
         "title": "Bird",
         "work_id": "bird-2024",
-        "scope": {"day": "lundi"},
+        "scope": {
+          "day": "lundi"
+        },
         "status": "card_drafted",
-        "signals": [{
-          "kind": "professional_criticism",
-          "note": "Sight and Sound décrit une fable contemporaine tendre où Andrea Arnold fait cohabiter réalisme social et merveilleux.",
-          "source_url": "https://www.bfi.org.uk/sight-and-sound/reviews/bird-andrea-arnolds-tender-contemporary-fable"
-        }],
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Sight and Sound décrit une fable contemporaine tendre où Andrea Arnold fait cohabiter réalisme social et merveilleux.",
+            "source_url": "https://www.bfi.org.uk/sight-and-sound/reviews/bird-andrea-arnolds-tender-contemporary-fable"
+          }
+        ],
         "decision_note": "Carte draft matérialisée au rang 3 après concordance de deux guides à 13:30 sur Ciné+ Festival ; identité, réception, affiche officielle et fraîcheur relues, divergences de durée conservées.",
-        "alternatives": ["sl-lundi-cadavres-exquis", "sl-lundi-peau-d-ane"]
+        "alternatives": [
+          "sl-lundi-cadavres-exquis",
+          "sl-lundi-peau-d-ane"
+        ]
       },
       {
         "id": "sl-lundi-memories-of-murder",
         "title": "Memories of Murder",
         "work_id": "memories-of-murder-2003",
-        "scope": {"day": "lundi"},
+        "scope": {
+          "day": "lundi"
+        },
         "status": "deferred",
-        "signals": [{
-          "kind": "professional_criticism",
-          "note": "Roger Ebert met en avant la manière dont Bong Joon-ho transforme l’enquête policière en portrait moral d’une société et de ses méthodes.",
-          "source_url": "https://www.rogerebert.com/reviews/memories-of-murder-2020"
-        }],
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Roger Ebert met en avant la manière dont Bong Joon-ho transforme l’enquête policière en portrait moral d’une société et de ses méthodes.",
+            "source_url": "https://www.rogerebert.com/reviews/memories-of-murder-2020"
+          }
+        ],
         "decision_note": "Piste relue mais différée : les guides consultés donnent 10:44 et 10:45 sur Ciné+ Festival le 19 octobre ; aucune carte n’est créée tant que cette contradiction factuelle n’est pas tranchée ou remplacée.",
-        "alternatives": ["sl-lundi-cadavres-exquis", "sl-lundi-peau-d-ane", "sl-lundi-bird"]
+        "alternatives": [
+          "sl-lundi-cadavres-exquis",
+          "sl-lundi-peau-d-ane",
+          "sl-lundi-bird"
+        ]
       },
       {
         "id": "sl-lundi-les-demoiselles-de-rochefort",
         "title": "Les Demoiselles de Rochefort",
         "work_id": "les-demoiselles-de-rochefort-1967",
-        "scope": {"day": "lundi"},
+        "scope": {
+          "day": "lundi"
+        },
         "status": "deferred",
-        "signals": [{
-          "kind": "professional_criticism",
-          "note": "Criterion souligne l’architecture chorégraphiée, les couleurs et la mélancolie qui structurent la comédie musicale de Demy.",
-          "source_url": "https://www.criterion.com/current/posts/6904-the-young-girls-of-rochefort-not-the-same-old-song-and-dance"
-        }],
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Criterion souligne l’architecture chorégraphiée, les couleurs et la mélancolie qui structurent la comédie musicale de Demy.",
+            "source_url": "https://www.criterion.com/current/posts/6904-the-young-girls-of-rochefort-not-the-same-old-song-and-dance"
+          }
+        ],
         "decision_note": "Piste relue mais différée : les guides consultés donnent 22:17 et 22:18 sur Ciné+ Classic le 19 octobre ; aucune carte n’est créée tant que cette contradiction factuelle n’est pas tranchée ou remplacée.",
-        "alternatives": ["sl-lundi-cadavres-exquis", "sl-lundi-peau-d-ane", "sl-lundi-bird"]
+        "alternatives": [
+          "sl-lundi-cadavres-exquis",
+          "sl-lundi-peau-d-ane",
+          "sl-lundi-bird"
+        ]
       },
       {
         "id": "sl-lundi-midsommar",
         "title": "Midsommar",
         "work_id": "midsommar-2019",
-        "scope": {"day": "lundi"},
+        "scope": {
+          "day": "lundi"
+        },
         "status": "card_drafted",
-        "signals": [{
-          "kind": "professional_criticism",
-          "note": "Peter Bradshaw salue une folk horror lumineuse et sinistre dont la beauté plastique nourrit un malaise continu autour du deuil et de l’emprise.",
-          "source_url": "https://www.theguardian.com/film/2019/jul/03/midsommar-review-ari-aster-florence-pugh"
-        }],
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Peter Bradshaw salue une folk horror lumineuse et sinistre dont la beauté plastique nourrit un malaise continu autour du deuil et de l’emprise.",
+            "source_url": "https://www.theguardian.com/film/2019/jul/03/midsommar-review-ari-aster-florence-pugh"
+          }
+        ],
         "decision_note": "Réserve draft matérialisée au rang 4 après concordance de deux guides à 20:50 sur Ciné+ Frisson ; divergences de durée conservées sans inférer copie, coupe ou cadence.",
-        "alternatives": ["sl-lundi-cadavres-exquis", "sl-lundi-peau-d-ane", "sl-lundi-bird"]
+        "alternatives": [
+          "sl-lundi-cadavres-exquis",
+          "sl-lundi-peau-d-ane",
+          "sl-lundi-bird"
+        ]
+      },
+      {
+        "id": "sl-mardi-left-handed-girl",
+        "title": "Left-Handed Girl",
+        "work_id": "left-handed-girl-2025",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "The Guardian salue l’alliance de l’humour, de la tendresse et de la douleur dans cette chronique familiale tournée à hauteur d’enfant.",
+            "source_url": "https://www.theguardian.com/film/2025/nov/13/left-handed-girl-review-sean-baker-shih-ching-tsou"
+          }
+        ],
+        "decision_note": "Carte draft matérialisée au rang 1 après concordance de deux guides actuels à 19:04 ; l’ancienne observation à 18:55 est corrigée, et les durées 104/106/109 min restent visibles sans inférence de copie.",
+        "alternatives": [
+          "sl-mardi-partir-un-jour",
+          "sl-mardi-que-dios-nos-perdone"
+        ]
+      },
+      {
+        "id": "sl-mardi-partir-un-jour",
+        "title": "Partir un jour",
+        "work_id": "partir-un-jour-2025",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Le Monde relève la justesse du portrait d’une femme retrouvant ses racines et la façon dont les chansons relancent le récit.",
+            "source_url": "https://www.lemonde.fr/culture/article/2025/05/13/cannes-2025-partir-un-jour-juliette-armanet-sur-des-airs-de-nostalgie_6605832_3246.html"
+          }
+        ],
+        "decision_note": "Carte draft matérialisée au rang 2 à 20:50 ; le long métrage sur Cécile est explicitement distingué du court homonyme de 20:24, et la divergence 94/95/98 min est conservée.",
+        "alternatives": [
+          "sl-mardi-left-handed-girl",
+          "sl-mardi-que-dios-nos-perdone"
+        ]
+      },
+      {
+        "id": "sl-mardi-que-dios-nos-perdone",
+        "title": "Que Dios nos perdone",
+        "work_id": "que-dios-nos-perdone-2016",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Télérama soutient ce polar madrilène tendu ; le contrepoint négatif du Monde et la fréquence des rediffusions Action sont conservés.",
+            "source_url": "https://www.telerama.fr/cinema/films/que-dios-nos-perdone,518623.php"
+          }
+        ],
+        "decision_note": "Carte draft matérialisée au rang 3 après concordance de deux guides à 07:29 ; répétitions Action des 13, 15, 20 et 23 octobre signalées comme limite éditoriale, sans exposition publique S37–S42.",
+        "alternatives": [
+          "sl-mardi-left-handed-girl",
+          "sl-mardi-partir-un-jour"
+        ]
+      },
+      {
+        "id": "sl-mardi-u-are-the-universe",
+        "title": "U Are the Universe",
+        "work_id": "u-are-the-universe-2024",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "deferred",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "RogerEbert.com salue la performance solitaire, l’artisanat visuel et la tendresse de cette romance spatiale, tout en notant des répétitions.",
+            "source_url": "https://www.rogerebert.com/festivals/fantastic-fest-2024-u-are-the-universe-planet-b-the-rule-of-jenny-pen"
+          }
+        ],
+        "decision_note": "Piste fraîche et éditorialement solide, différée : TV-programme donne 08:30 et Télérama 08:33 sur Ciné+ Frisson ; aucune carte tant que les quatre faits de grille ne concordent pas.",
+        "alternatives": [
+          "sl-mardi-left-handed-girl",
+          "sl-mardi-partir-un-jour"
+        ]
+      },
+      {
+        "id": "sl-mardi-la-mer-au-loin",
+        "title": "La Mer au loin",
+        "work_id": "la-mer-au-loin-2024-said-hamich-benlarbi",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "deferred",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Le Monde salue le souffle romanesque, la complexité de l’exil, la photographie et la présence d’Ayoub Gretaa, avec une réserve sur le trop-plein thématique.",
+            "source_url": "https://www.lemonde.fr/culture/article/2025/02/05/la-mer-au-loin-une-vie-prisonniere-du-dechirement-de-l-exil_6532776_3246.html"
+          }
+        ],
+        "decision_note": "Piste fraîche et solide, différée : deux guides donnent 17:01 mais TV-programme affiche désormais 16:59, contredisant aussi sa capture d’inventaire antérieure ; aucune carte par vote majoritaire.",
+        "alternatives": [
+          "sl-mardi-left-handed-girl",
+          "sl-mardi-partir-un-jour"
+        ]
       }
     ]
   },
@@ -6330,7 +6643,8 @@
       "run_state": "running",
       "completed_batches": [
         "2026-10-15T11:12:00Z — trois choix développés du lundi matérialisés : Cadavres exquis, Peau d’âne et Bird, après revue des diffusions, identités, réception, visuels et fraîcheur ; divergences d’année et de durée conservées sans inférence de master.",
-        "2026-10-15T11:21:20.843Z — première réserve du lundi matérialisée : Midsommar, après concordance des quatre faits de grille et revue d’identité, réception, visuel et fraîcheur ; divergences de durée conservées sans inférence de copie."
+        "2026-10-15T11:21:20.843Z — première réserve du lundi matérialisée : Midsommar, après concordance des quatre faits de grille et revue d’identité, réception, visuel et fraîcheur ; divergences de durée conservées sans inférence de copie.",
+        "2026-10-15T11:33:40.000Z — trois choix développés du mardi matérialisés : Left-Handed Girl, Partir un jour et Que Dios nos perdone ; deux pistes fraîches différées sur conflits d’horaire exacts."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -6340,66 +6654,72 @@
         "data/weeks/2026-S43.json"
       ],
       "complete_cards_added": 0,
-      "draft_cards_added": 3,
+      "draft_cards_added": 6,
       "draft_reserves_added": 1,
-      "partial_dossiers_added": 0,
+      "partial_dossiers_added": 2,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Ajouter des réserves fraîches aux pools de samedi, dimanche et lundi, ou commencer les trois choix développés du mardi depuis des dossiers entièrement vérifiables.",
-      "continuation_decisions": [{
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T11:01:51.602Z",
-        "elapsed_seconds": 205.811,
-        "prompt_revision": "production-weekly-continuity-2026-10-10",
-        "budget_seconds": 3300,
-        "reserve_seconds": 300,
-        "week": "2026-S43",
-        "source_sha": "468acf595180f5557ee345a245746609f972de2d",
-        "lease_owned": "yes",
-        "lease_until": "2026-10-15T11:59:42.496Z",
-        "remaining_count": 12,
-        "evaluated_by": "scripts/editorial-continuation.mjs"
-      }, {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T11:19:29.539Z",
-        "elapsed_seconds": 1263.748,
-        "prompt_revision": "production-weekly-continuity-2026-10-10",
-        "budget_seconds": 3300,
-        "reserve_seconds": 300,
-        "week": "2026-S43",
-        "source_sha": "f6816e4781642e7b6eb83fcf667fbf36eacebcec",
-        "lease_owned": "yes",
-        "lease_until": "2026-10-15T12:19:15.366Z",
-        "remaining_count": 12,
-        "evaluated_by": "scripts/editorial-continuation.mjs"
-      }],
+      "next_useful_batch": "Ajouter des réserves fraîches au mardi et aux jours déjà composés, ou commencer les trois choix développés du mercredi depuis des dossiers entièrement vérifiables.",
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T11:01:51.602Z",
+          "elapsed_seconds": 205.811,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "468acf595180f5557ee345a245746609f972de2d",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T11:59:42.496Z",
+          "remaining_count": 12,
+          "evaluated_by": "scripts/editorial-continuation.mjs"
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T11:19:29.539Z",
+          "elapsed_seconds": 1263.748,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "f6816e4781642e7b6eb83fcf667fbf36eacebcec",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T12:19:15.366Z",
+          "remaining_count": 12,
+          "evaluated_by": "scripts/editorial-continuation.mjs"
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T11:24:10.532Z",
+          "elapsed_seconds": 1544.741,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "9c5b1ce4df735f8c291b1f9b6562532826373bf5",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T12:19:15.366Z",
+          "remaining_count": 12,
+          "evaluated_by": "scripts/editorial-continuation.mjs"
+        }
+      ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T11:19:29.539Z",
-        "elapsed_seconds": 1263.748,
+        "observed_at": "2026-10-15T11:24:10.532Z",
+        "elapsed_seconds": 1544.741,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "f6816e4781642e7b6eb83fcf667fbf36eacebcec",
-        "next_actions": [
-          "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche et du lundi.",
-          "Commencer les trois choix développés du mardi depuis des dossiers entièrement vérifiables."
-        ],
+        "source_sha": "9c5b1ce4df735f8c291b1f9b6562532826373bf5",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T12:19:15.366Z",
         "remaining_count": 12,
-        "observations": {
-          "started_at": "2026-10-15T10:58:25.791Z",
-          "lease_owned": "yes",
-          "lease_until": "2026-10-15T12:19:15.366Z",
-          "external_stop": null,
-          "accessible_task_checks": [],
-          "ready_handoff": null
-        },
         "evaluated_by": "scripts/editorial-continuation.mjs"
       },
       "measured_intervals": [
@@ -6420,20 +6740,34 @@
           "started_at": "2026-10-15T11:19:30Z",
           "ended_at": "2026-10-15T11:21:20.843Z",
           "note": "Dossier Midsommar réconcilié sous la politique actuelle, puis réserve ajoutée mécaniquement au rang 4 sans réécrire les trois primaires du lundi."
+        },
+        {
+          "kind": "research_drafting_and_review",
+          "started_at": "2026-10-15T11:24:11Z",
+          "ended_at": "2026-10-15T11:33:40.000Z",
+          "note": "Six dossiers mardi recherchés en parallèle puis revus centralement ; trois cartes intégrées, deux pistes différées sur conflits factuels et une piste non retenue pour fraîcheur. Les travaux parallèles ne sont pas additionnés séquentiellement."
         }
       ],
       "pass_additions": {
         "scope": "Comparaison de la tête de départ 468acf595180f5557ee345a245746609f972de2d avec ce checkpoint intermédiaire.",
-        "new_works": 4,
-        "new_work_ids": ["cadavres-exquis-1976", "peau-d-ane-1970", "bird-2024", "midsommar-2019"],
-        "visible_primary_cards": 3,
+        "new_works": 7,
+        "new_work_ids": [
+          "cadavres-exquis-1976",
+          "peau-d-ane-1970",
+          "bird-2024",
+          "midsommar-2019",
+          "left-handed-girl-2025",
+          "partir-un-jour-2025",
+          "que-dios-nos-perdone-2016"
+        ],
+        "visible_primary_cards": 6,
         "distinct_draft_reserves_added": 1,
         "reused_existing_works": 0,
-        "note": "Trois choix développés et une réserve distincte du lundi ont été ajoutés ; aucun stock hérité n’est compté comme création de ce passage."
+        "note": "Six choix développés et une réserve distincte des lundi et mardi ont été ajoutés ; aucun stock hérité n’est compté comme création de ce passage."
       }
     }
   ],
-  "updated_at": "2026-10-15T11:21:20.843Z",
+  "updated_at": "2026-10-15T11:33:40.000Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -7308,22 +7642,61 @@
         "director": "Francesco Rosi",
         "year": 1976,
         "country": "Italie / France",
-        "source_urls": ["https://www.arte.tv/fr/videos/026377-000-A/cadavres-exquis/", "https://www.moma.org/calendar/events/8136"],
+        "source_urls": [
+          "https://www.arte.tv/fr/videos/026377-000-A/cadavres-exquis/",
+          "https://www.moma.org/calendar/events/8136"
+        ],
         "checked_at": "2026-10-15T11:06:12Z",
         "note": "Identité certaine ; ARTE affiche 1975, tandis que les catalogues retiennent 1976. L’écart est conservé sans inférer le master."
       },
-      "critical_evidence": [{
-        "source": "The New Yorker",
-        "source_url": "https://www.newyorker.com/culture/culture-desk/must-see-italian-cinema-francesco-rosis-illustrious-corpses",
-        "assessment": "Richard Brody décrit un polar politique où l’enquête méthodique met à nu les compromissions institutionnelles.",
-        "kind": "professional_criticism",
-        "checked_at": "2026-10-15T11:06:12Z"
-      }],
-      "ratings_research": {"status": "verified_dynamic_two_sources", "checked_at": "2026-10-15T11:06:12Z", "source_urls": ["https://www.imdb.com/title/tt0074262/", "https://www.senscritique.com/film/cadavres_exquis/380818"]},
-      "broadcast_research": {"date": "2026-10-19", "start": "20:55", "channel": "Arte", "source_urls": ["https://www.arte.tv/fr/videos/026377-000-A/cadavres-exquis/"], "checked_at": "2026-10-15T11:06:12Z", "status": "verified_by_exact_official_event"},
-      "image_research": {"source_page": "https://www.moma.org/calendar/events/8136", "checked_at": "2026-10-15T11:06:12Z", "status": "exact_still_visually_verified_ci_pending", "visually_checked": true},
-      "freshness_research": {"checked_at": "2026-10-15T11:06:12Z", "status": "fresh_within_available_history", "issues_checked": ["2026-S37", "2026-S38", "2026-S39", "2026-S40", "2026-S41", "2026-S42"]},
-      "missing_fields": ["contrôle CI distant du visuel et des liens sur la tête exacte"],
+      "critical_evidence": [
+        {
+          "source": "The New Yorker",
+          "source_url": "https://www.newyorker.com/culture/culture-desk/must-see-italian-cinema-francesco-rosis-illustrious-corpses",
+          "assessment": "Richard Brody décrit un polar politique où l’enquête méthodique met à nu les compromissions institutionnelles.",
+          "kind": "professional_criticism",
+          "checked_at": "2026-10-15T11:06:12Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic_two_sources",
+        "checked_at": "2026-10-15T11:06:12Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0074262/",
+          "https://www.senscritique.com/film/cadavres_exquis/380818"
+        ]
+      },
+      "broadcast_research": {
+        "date": "2026-10-19",
+        "start": "20:55",
+        "channel": "Arte",
+        "source_urls": [
+          "https://www.arte.tv/fr/videos/026377-000-A/cadavres-exquis/"
+        ],
+        "checked_at": "2026-10-15T11:06:12Z",
+        "status": "verified_by_exact_official_event"
+      },
+      "image_research": {
+        "source_page": "https://www.moma.org/calendar/events/8136",
+        "checked_at": "2026-10-15T11:06:12Z",
+        "status": "exact_still_visually_verified_ci_pending",
+        "visually_checked": true
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T11:06:12Z",
+        "status": "fresh_within_available_history",
+        "issues_checked": [
+          "2026-S37",
+          "2026-S38",
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ]
+      },
+      "missing_fields": [
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
+      ],
       "decision": "carte draft matérialisée — CI final requis",
       "reason": "Identité, événement officiel, réception, notes, visuel, fraîcheur et textes revus ; divergence d’année conservée."
     },
@@ -7331,13 +7704,66 @@
       "title": "Peau d’âne",
       "work_id": "peau-d-ane-1970",
       "catalogue_match": null,
-      "identity_research": {"director": "Jacques Demy", "year": 1970, "country": "France", "source_urls": ["https://www.cnc.fr/professionnels/visas-et-classification/37228", "https://www.cinematheque.fr/film/48045.html"], "checked_at": "2026-10-15T11:07:17.153Z", "note": "Identité certaine ; durée officielle CNC de 90 min retenue comme référence, sans inférer le master d’antenne."},
-      "critical_evidence": [{"source": "RogerEbert.com", "source_url": "https://www.rogerebert.com/reviews/donkey-skin-2005", "assessment": "La critique souligne l’invention visuelle et musicale de cette féerie singulière.", "kind": "professional_criticism", "checked_at": "2026-10-15T11:07:17.153Z"}],
-      "ratings_research": {"status": "verified_dynamic_two_sources", "checked_at": "2026-10-15T11:07:17.153Z", "source_urls": ["https://www.imdb.com/title/tt0066207/", "https://www.senscritique.com/film/peau_d_ane/419404"]},
-      "broadcast_research": {"date": "2026-10-19", "start": "20:50", "channel": "Ciné+ Classic", "source_urls": ["https://tv-programme.com/cine-plus-classic/lundi-19-octobre-2026/", "https://www.programme-television.org/tv/bouquets/canal/lundi"], "checked_at": "2026-10-15T11:07:17.153Z", "status": "verified_by_two_current_guides_independence_unknown"},
-      "image_research": {"source_page": "https://www.allocine.fr/film/fichefilm_gen_cfilm=2463.html", "checked_at": "2026-10-15T11:07:17.153Z", "status": "exact_poster_visually_verified_ci_pending", "visually_checked": true},
-      "freshness_research": {"checked_at": "2026-10-15T11:07:17.153Z", "status": "fresh_within_available_history", "issues_checked": ["2026-S37", "2026-S38", "2026-S39", "2026-S40", "2026-S41", "2026-S42"]},
-      "missing_fields": ["contrôle CI distant du visuel et des liens sur la tête exacte"],
+      "identity_research": {
+        "director": "Jacques Demy",
+        "year": 1970,
+        "country": "France",
+        "source_urls": [
+          "https://www.cnc.fr/professionnels/visas-et-classification/37228",
+          "https://www.cinematheque.fr/film/48045.html"
+        ],
+        "checked_at": "2026-10-15T11:07:17.153Z",
+        "note": "Identité certaine ; durée officielle CNC de 90 min retenue comme référence, sans inférer le master d’antenne."
+      },
+      "critical_evidence": [
+        {
+          "source": "RogerEbert.com",
+          "source_url": "https://www.rogerebert.com/reviews/donkey-skin-2005",
+          "assessment": "La critique souligne l’invention visuelle et musicale de cette féerie singulière.",
+          "kind": "professional_criticism",
+          "checked_at": "2026-10-15T11:07:17.153Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic_two_sources",
+        "checked_at": "2026-10-15T11:07:17.153Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0066207/",
+          "https://www.senscritique.com/film/peau_d_ane/419404"
+        ]
+      },
+      "broadcast_research": {
+        "date": "2026-10-19",
+        "start": "20:50",
+        "channel": "Ciné+ Classic",
+        "source_urls": [
+          "https://tv-programme.com/cine-plus-classic/lundi-19-octobre-2026/",
+          "https://www.programme-television.org/tv/bouquets/canal/lundi"
+        ],
+        "checked_at": "2026-10-15T11:07:17.153Z",
+        "status": "verified_by_two_current_guides_independence_unknown"
+      },
+      "image_research": {
+        "source_page": "https://www.allocine.fr/film/fichefilm_gen_cfilm=2463.html",
+        "checked_at": "2026-10-15T11:07:17.153Z",
+        "status": "exact_poster_visually_verified_ci_pending",
+        "visually_checked": true
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T11:07:17.153Z",
+        "status": "fresh_within_available_history",
+        "issues_checked": [
+          "2026-S37",
+          "2026-S38",
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ]
+      },
+      "missing_fields": [
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
+      ],
       "decision": "carte draft matérialisée — CI final requis",
       "reason": "Identité, diffusion concordante, durée CNC, réception, notes, visuel, fraîcheur et textes revus."
     },
@@ -7345,13 +7771,66 @@
       "title": "Bird",
       "work_id": "bird-2024",
       "catalogue_match": null,
-      "identity_research": {"director": "Andrea Arnold", "year": 2024, "country": "Royaume-Uni", "source_urls": ["https://www.advitamdistribution.com/films/bird/?type=video", "https://www.imdb.com/title/tt28277817/"], "checked_at": "2026-10-15T11:05:44Z", "note": "Identité certaine ; durées 114, 116, 118 et 119 min conservées sans inférer coupe ni cadence."},
-      "critical_evidence": [{"source": "Sight and Sound", "source_url": "https://www.bfi.org.uk/sight-and-sound/reviews/bird-andrea-arnolds-tender-contemporary-fable", "assessment": "La critique décrit une fable tendre où réalisme social et merveilleux cohabitent à hauteur d’adolescente.", "kind": "professional_criticism", "checked_at": "2026-10-15T11:05:44Z"}],
-      "ratings_research": {"status": "verified_dynamic_two_sources", "checked_at": "2026-10-15T11:05:44Z", "source_urls": ["https://www.imdb.com/title/tt28277817/", "https://www.senscritique.com/film/bird/56271853"]},
-      "broadcast_research": {"date": "2026-10-19", "start": "13:30", "channel": "Ciné+ Festival", "source_urls": ["https://tv-programme.com/cine-plus-festival/lundi-19-octobre-2026/", "https://programmetv.ouest-france.fr/film/drame/bird-c323703270/"], "checked_at": "2026-10-15T11:05:44Z", "status": "verified_by_two_current_guides_independence_unknown"},
-      "image_research": {"source_page": "https://www.advitamdistribution.com/films/bird/?type=video", "checked_at": "2026-10-15T11:05:44Z", "status": "exact_official_poster_visually_verified_ci_pending", "visually_checked": true},
-      "freshness_research": {"checked_at": "2026-10-15T11:05:44Z", "status": "fresh_within_available_history", "issues_checked": ["2026-S37", "2026-S38", "2026-S39", "2026-S40", "2026-S41", "2026-S42"]},
-      "missing_fields": ["contrôle CI distant du visuel et des liens sur la tête exacte"],
+      "identity_research": {
+        "director": "Andrea Arnold",
+        "year": 2024,
+        "country": "Royaume-Uni",
+        "source_urls": [
+          "https://www.advitamdistribution.com/films/bird/?type=video",
+          "https://www.imdb.com/title/tt28277817/"
+        ],
+        "checked_at": "2026-10-15T11:05:44Z",
+        "note": "Identité certaine ; durées 114, 116, 118 et 119 min conservées sans inférer coupe ni cadence."
+      },
+      "critical_evidence": [
+        {
+          "source": "Sight and Sound",
+          "source_url": "https://www.bfi.org.uk/sight-and-sound/reviews/bird-andrea-arnolds-tender-contemporary-fable",
+          "assessment": "La critique décrit une fable tendre où réalisme social et merveilleux cohabitent à hauteur d’adolescente.",
+          "kind": "professional_criticism",
+          "checked_at": "2026-10-15T11:05:44Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic_two_sources",
+        "checked_at": "2026-10-15T11:05:44Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt28277817/",
+          "https://www.senscritique.com/film/bird/56271853"
+        ]
+      },
+      "broadcast_research": {
+        "date": "2026-10-19",
+        "start": "13:30",
+        "channel": "Ciné+ Festival",
+        "source_urls": [
+          "https://tv-programme.com/cine-plus-festival/lundi-19-octobre-2026/",
+          "https://programmetv.ouest-france.fr/film/drame/bird-c323703270/"
+        ],
+        "checked_at": "2026-10-15T11:05:44Z",
+        "status": "verified_by_two_current_guides_independence_unknown"
+      },
+      "image_research": {
+        "source_page": "https://www.advitamdistribution.com/films/bird/?type=video",
+        "checked_at": "2026-10-15T11:05:44Z",
+        "status": "exact_official_poster_visually_verified_ci_pending",
+        "visually_checked": true
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T11:05:44Z",
+        "status": "fresh_within_available_history",
+        "issues_checked": [
+          "2026-S37",
+          "2026-S38",
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ]
+      },
+      "missing_fields": [
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
+      ],
       "decision": "carte draft matérialisée — CI final requis",
       "reason": "Identité, diffusion concordante, réception, notes, affiche officielle, fraîcheur et textes revus ; limites de durée conservées."
     },
@@ -7363,26 +7842,365 @@
         "director": "Ari Aster",
         "year": 2019,
         "country": "États-Unis / Suède",
-        "source_urls": ["https://a24films.com/films/midsommar", "https://www.canalplus.com/cinema/midsommar/h/12118507_40099", "https://www.imdb.com/title/tt8772262/"],
+        "source_urls": [
+          "https://a24films.com/films/midsommar",
+          "https://www.canalplus.com/cinema/midsommar/h/12118507_40099",
+          "https://www.imdb.com/title/tt8772262/"
+        ],
         "checked_at": "2026-10-15T11:05:25Z",
         "note": "Identité certaine. Durées 147, 148 et 171 min conservées ; la fenêtre EPG de 142 min ne certifie aucune copie, coupe ou cadence."
       },
-      "critical_evidence": [{
-        "source": "The Guardian",
-        "author": "Peter Bradshaw",
-        "published_at": "2019-07-03",
-        "source_url": "https://www.theguardian.com/film/2019/jul/03/midsommar-review-ari-aster-florence-pugh",
-        "assessment": "Critique positive et argumentée sur la beauté lumineuse, le malaise, le deuil, l’emprise et la performance de Florence Pugh.",
-        "kind": "professional_criticism",
-        "checked_at": "2026-10-15T11:05:25Z"
-      }],
-      "ratings_research": {"status": "verified_dynamic_two_sources_with_imdb_relay_limit", "checked_at": "2026-10-15T11:05:25Z", "source_urls": ["https://tv.digital3d.com/programme/tt8772262/midsommar", "https://www.primevideo.com/-/es/detail/0TIW6OGOK94B3FEDSMEWIQXH1O", "https://www.senscritique.com/film/Midsommar/35478769"], "note": "IMDb 7,1/10 et environ 499,9 k votes via la fiche liée à tt8772262, note recoupée par Prime Video ; SensCritique 7,2/10, compteur explicite non disponible."},
-      "broadcast_research": {"date": "2026-10-19", "start": "20:50", "channel": "Ciné+ Frisson", "source_urls": ["https://tv-programme.com/cine-plus-frisson/lundi-19-octobre-2026/", "https://tv.digital3d.com/programme/tt8772262/midsommar"], "checked_at": "2026-10-15T11:05:25Z", "status": "verified_by_two_current_guides_independence_unknown"},
-      "image_research": {"source_page": "https://a24films.com/films/midsommar", "checked_at": "2026-10-15T11:05:25Z", "status": "exact_official_poster_visually_verified_ci_pending", "visually_checked": true, "note": "Affiche officielle A24 exacte inspectée ; stabilité réseau et CI final requis."},
-      "freshness_research": {"checked_at": "2026-10-15T11:05:25Z", "status": "fresh_within_available_history", "issues_checked": ["2026-S37", "2026-S38", "2026-S39", "2026-S40", "2026-S41", "2026-S42"]},
-      "missing_fields": ["contrôle CI distant du visuel et des liens sur la tête exacte"],
+      "critical_evidence": [
+        {
+          "source": "The Guardian",
+          "author": "Peter Bradshaw",
+          "published_at": "2019-07-03",
+          "source_url": "https://www.theguardian.com/film/2019/jul/03/midsommar-review-ari-aster-florence-pugh",
+          "assessment": "Critique positive et argumentée sur la beauté lumineuse, le malaise, le deuil, l’emprise et la performance de Florence Pugh.",
+          "kind": "professional_criticism",
+          "checked_at": "2026-10-15T11:05:25Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic_two_sources_with_imdb_relay_limit",
+        "checked_at": "2026-10-15T11:05:25Z",
+        "source_urls": [
+          "https://tv.digital3d.com/programme/tt8772262/midsommar",
+          "https://www.primevideo.com/-/es/detail/0TIW6OGOK94B3FEDSMEWIQXH1O",
+          "https://www.senscritique.com/film/Midsommar/35478769"
+        ],
+        "note": "IMDb 7,1/10 et environ 499,9 k votes via la fiche liée à tt8772262, note recoupée par Prime Video ; SensCritique 7,2/10, compteur explicite non disponible."
+      },
+      "broadcast_research": {
+        "date": "2026-10-19",
+        "start": "20:50",
+        "channel": "Ciné+ Frisson",
+        "source_urls": [
+          "https://tv-programme.com/cine-plus-frisson/lundi-19-octobre-2026/",
+          "https://tv.digital3d.com/programme/tt8772262/midsommar"
+        ],
+        "checked_at": "2026-10-15T11:05:25Z",
+        "status": "verified_by_two_current_guides_independence_unknown"
+      },
+      "image_research": {
+        "source_page": "https://a24films.com/films/midsommar",
+        "checked_at": "2026-10-15T11:05:25Z",
+        "status": "exact_official_poster_visually_verified_ci_pending",
+        "visually_checked": true,
+        "note": "Affiche officielle A24 exacte inspectée ; stabilité réseau et CI final requis."
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T11:05:25Z",
+        "status": "fresh_within_available_history",
+        "issues_checked": [
+          "2026-S37",
+          "2026-S38",
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ]
+      },
+      "missing_fields": [
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
+      ],
       "decision": "réserve draft matérialisée — CI final requis",
       "reason": "Diffusion concordante, identité, réception, notes, affiche officielle, fraîcheur et textes revus ; divergences de durée conservées."
+    },
+    {
+      "title": "Left-Handed Girl",
+      "work_id": "left-handed-girl-2025",
+      "catalogue_match": null,
+      "identity_research": {
+        "director": "Shih-Ching Tsou",
+        "year": 2025,
+        "country": "Taïwan / France / États-Unis / Royaume-Uni",
+        "source_urls": [
+          "https://le-pacte.com/france/film/left-handed-girl-2"
+        ],
+        "checked_at": "2026-10-15T11:28:35Z",
+        "note": "Identité certaine ; durées 104, 106 et 109 min conservées sans inférence de copie."
+      },
+      "critical_evidence": [
+        {
+          "source": "The Guardian",
+          "source_url": "https://www.theguardian.com/film/2025/nov/13/left-handed-girl-review-sean-baker-shih-ching-tsou",
+          "assessment": "Critique favorable et argumentée sur l’humour, la tendresse, la douleur et les rapports familiaux.",
+          "kind": "professional_criticism",
+          "checked_at": "2026-10-15T11:28:35Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_two_sources",
+        "checked_at": "2026-10-15T11:28:35Z",
+        "source_urls": [
+          "https://www.senscritique.com/film/left_handed_girl/67453767",
+          "https://www.rottentomatoes.com/m/left_handed_girl"
+        ],
+        "note": "SensCritique 7,3/10 ; Rotten Tomatoes 98 % sur 108 critiques."
+      },
+      "broadcast_research": {
+        "date": "2026-10-20",
+        "start": "19:04",
+        "channel": "Ciné+ Festival",
+        "source_urls": [
+          "https://tv-programme.com/cine-plus-festival/mardi-20-octobre-2026/",
+          "https://programmetv.ouest-france.fr/film/drame/left-handed-girl-c375018723/"
+        ],
+        "checked_at": "2026-10-15T11:28:35Z",
+        "status": "verified_by_two_current_guides_independence_unknown"
+      },
+      "image_research": {
+        "source_page": "https://le-pacte.com/france/film/left-handed-girl-2",
+        "checked_at": "2026-10-15T11:28:35Z",
+        "status": "exact_official_poster_visually_verified_ci_pending",
+        "visually_checked": true
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T11:28:35Z",
+        "status": "fresh_within_available_history",
+        "issues_checked": [
+          "2026-S37",
+          "2026-S38",
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ]
+      },
+      "missing_fields": [
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
+      ],
+      "decision": "carte draft matérialisée — CI final requis",
+      "reason": "Diffusion corrigée et concordante, identité, réception, notes, affiche, fraîcheur et textes revus."
+    },
+    {
+      "title": "Partir un jour",
+      "work_id": "partir-un-jour-2025",
+      "catalogue_match": null,
+      "identity_research": {
+        "director": "Amélie Bonnin",
+        "year": 2025,
+        "country": "France",
+        "source_urls": [
+          "https://www.pathefilms.com/fr/films/partir-un-jour/"
+        ],
+        "checked_at": "2026-10-15T11:30:39Z",
+        "note": "Long métrage sur Cécile à 20:50, distinct du court homonyme à 20:24 ; durées 94, 95 et 98 min conservées."
+      },
+      "critical_evidence": [
+        {
+          "source": "Le Monde",
+          "author": "Clarisse Fabre",
+          "published_at": "2025-05-13",
+          "source_url": "https://www.lemonde.fr/culture/article/2025/05/13/cannes-2025-partir-un-jour-juliette-armanet-sur-des-airs-de-nostalgie_6605832_3246.html",
+          "assessment": "Avis favorable et nuancé sur les racines, les liens familiaux et le rôle narratif des chansons.",
+          "kind": "professional_criticism",
+          "checked_at": "2026-10-15T11:30:39Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_two_sources",
+        "checked_at": "2026-10-15T11:30:39Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt35453969/",
+          "https://www.senscritique.com/film/partir_un_jour/101884448"
+        ],
+        "note": "IMDb 6,2/10 ; SensCritique 6,4/10."
+      },
+      "broadcast_research": {
+        "date": "2026-10-20",
+        "start": "20:50",
+        "channel": "Ciné+ Emotion",
+        "source_urls": [
+          "https://tv-programme.com/cine-plus-emotion/mardi-20-octobre-2026/",
+          "https://www.programmetvcesoir.net/chaine/cine-emotion/2026-10-20"
+        ],
+        "checked_at": "2026-10-15T11:30:39Z",
+        "status": "verified_by_two_current_guides_independence_unknown"
+      },
+      "image_research": {
+        "source_page": "https://www.pathefilms.com/fr/films/partir-un-jour/",
+        "checked_at": "2026-10-15T11:30:39Z",
+        "status": "exact_poster_visually_verified_ci_pending",
+        "visually_checked": true
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T11:30:39Z",
+        "status": "fresh_within_available_history",
+        "issues_checked": [
+          "2026-S37",
+          "2026-S38",
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ]
+      },
+      "missing_fields": [
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
+      ],
+      "decision": "carte draft matérialisée — CI final requis",
+      "reason": "Diffusion concordante, homonyme désambiguïsé, identité, réception, notes, visuel, fraîcheur et textes revus."
+    },
+    {
+      "title": "Que Dios nos perdone",
+      "work_id": "que-dios-nos-perdone-2016",
+      "catalogue_match": null,
+      "identity_research": {
+        "director": "Rodrigo Sorogoyen",
+        "year": 2016,
+        "country": "Espagne",
+        "source_urls": [
+          "https://www.imdb.com/title/tt4944596/"
+        ],
+        "checked_at": "2026-10-15T11:29:24Z",
+        "note": "Identité certaine ; fenêtre EPG 123 min et durée de référence 127 min conservées sans inférence."
+      },
+      "critical_evidence": [
+        {
+          "source": "Télérama",
+          "source_url": "https://www.telerama.fr/cinema/films/que-dios-nos-perdone,518623.php",
+          "assessment": "Critique favorable et argumentée ; contrepoint négatif du Monde conservé.",
+          "kind": "professional_criticism",
+          "checked_at": "2026-10-15T11:29:24Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_two_sources",
+        "checked_at": "2026-10-15T11:29:24Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt4944596/",
+          "https://www.senscritique.com/film/que_dios_nos_perdone/17028357"
+        ],
+        "note": "IMDb et SensCritique 7,1/10."
+      },
+      "broadcast_research": {
+        "date": "2026-10-20",
+        "start": "07:29",
+        "channel": "Action",
+        "source_urls": [
+          "https://tv-programme.com/action/mardi-20-octobre-2026/",
+          "https://www.programmetvcesoir.net/chaine/action/2026-10-20",
+          "https://www.actiontv.fr/fr/grille-tv"
+        ],
+        "checked_at": "2026-10-15T11:29:24Z",
+        "status": "verified_by_two_current_guides_official_schedule_support"
+      },
+      "image_research": {
+        "source_page": "https://www.senscritique.com/film/que_dios_nos_perdone/17028357",
+        "checked_at": "2026-10-15T11:29:24Z",
+        "status": "exact_program_art_visually_verified_ci_pending",
+        "visually_checked": true
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T11:29:24Z",
+        "status": "fresh_publication_history_but_frequent_linear_repeats",
+        "issues_checked": [
+          "2026-S37",
+          "2026-S38",
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ],
+        "note": "Aucune exposition publique récente ; diffusions Action observées les 13, 15, 20 et 23 octobre."
+      },
+      "missing_fields": [
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
+      ],
+      "decision": "carte draft matérialisée avec limite éditoriale — CI final requis",
+      "reason": "Diffusion, identité, réception, notes, visuel, fraîcheur publique et textes revus ; fréquence des rediffusions explicitement conservée."
+    },
+    {
+      "title": "U Are the Universe",
+      "work_id": "u-are-the-universe-2024",
+      "catalogue_match": null,
+      "identity_research": {
+        "director": "Pavlo Ostrikov",
+        "year": 2024,
+        "country": "Ukraine / Belgique",
+        "source_urls": [
+          "https://tiff.net/events/u-are-the-universe",
+          "https://www.siff.net/festival/archives/festival-2025/u-are-the-universe"
+        ],
+        "checked_at": "2026-10-15T11:30:49Z",
+        "note": "Identité certaine ; version festivals 101 min, fenêtres de grille 90/97/98 min non résolues."
+      },
+      "critical_evidence": [
+        {
+          "source": "RogerEbert.com",
+          "author": "Brian Tallerico",
+          "published_at": "2024-09-22",
+          "source_url": "https://www.rogerebert.com/festivals/fantastic-fest-2024-u-are-the-universe-planet-b-the-rule-of-jenny-pen",
+          "assessment": "Critique favorable et nuancée sur le lien humain, la performance solitaire et la fabrication visuelle.",
+          "kind": "professional_criticism",
+          "checked_at": "2026-10-15T11:30:49Z"
+        }
+      ],
+      "broadcast_research": {
+        "date": "2026-10-20",
+        "start": null,
+        "channel": "Ciné+ Frisson",
+        "source_urls": [
+          "https://tv-programme.com/cine-plus-frisson/mardi-20-octobre-2026/",
+          "https://television.telerama.fr/programme-tv-mardi/cine-frisson"
+        ],
+        "checked_at": "2026-10-15T11:30:49Z",
+        "status": "blocked_08_30_vs_08_33"
+      },
+      "missing_fields": [
+        "horaire exact concordant",
+        "version/durée de diffusion",
+        "visuel de résolution suffisante"
+      ],
+      "decision": "différé — carte non matérialisée",
+      "reason": "Contradiction factuelle sur l’heure entre deux éditeurs actuels."
+    },
+    {
+      "title": "La Mer au loin",
+      "work_id": "la-mer-au-loin-2024-said-hamich-benlarbi",
+      "catalogue_match": null,
+      "identity_research": {
+        "director": "Saïd Hamich Benlarbi",
+        "year": 2024,
+        "country": "France / Belgique / Maroc",
+        "source_urls": [
+          "https://www.unifrance.org/film/58069/la-mer-au-loin",
+          "https://www.thejokersfilms.com/films/la-mer-au-loin/"
+        ],
+        "checked_at": "2026-10-15T11:31:21Z",
+        "note": "Identité certaine ; durée cinéma 117 min, offre TV5MONDE+ 110 min et fenêtres 112/114 min conservées sans inférence."
+      },
+      "critical_evidence": [
+        {
+          "source": "Le Monde",
+          "author": "Boris Bastide",
+          "published_at": "2025-02-05",
+          "source_url": "https://www.lemonde.fr/culture/article/2025/02/05/la-mer-au-loin-une-vie-prisonniere-du-dechirement-de-l-exil_6532776_3246.html",
+          "assessment": "Avis favorable et nuancé sur l’exil, la photographie, le raï et Ayoub Gretaa.",
+          "kind": "professional_criticism",
+          "checked_at": "2026-10-15T11:31:21Z"
+        }
+      ],
+      "broadcast_research": {
+        "date": "2026-10-20",
+        "start": null,
+        "channel": "Ciné+ Festival",
+        "source_urls": [
+          "https://www.programmetvcesoir.net/chaine/cine-festival/2026-10-20",
+          "https://lezapptv.fr/chaine/cine-festival/2026-10-20",
+          "https://tv-programme.com/cine-plus-festival/mardi-20-octobre-2026/"
+        ],
+        "checked_at": "2026-10-15T11:31:21Z",
+        "status": "blocked_16_59_vs_17_01"
+      },
+      "missing_fields": [
+        "horaire exact arbitré",
+        "version/durée de diffusion"
+      ],
+      "decision": "différé — carte non matérialisée",
+      "reason": "Deux guides donnent 17:01 mais un guide courant donne 16:59 ; pas d’arbitrage par majorité."
     }
   ]
 }
