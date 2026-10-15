@@ -46,7 +46,8 @@
     "Lecture complète des grilles Web datées du samedi 17 octobre pour Canal+, Action, RMC Story et RMC Découverte : 95 observations civiles ajoutées, nuits 00:00–05:59 incluses, sans seconde lecture ni certification de proposition.",
     "Lecture complète des grilles Web datées du dimanche 18 octobre pour Canal+, Action et RMC Story : 61 observations civiles ajoutées, nuits 00:00–05:59 incluses ; RMC Découverte est restée inaccessible lors de ce lot, sans seconde lecture ni certification de proposition.",
     "Lecture complète de la grille Web datée du dimanche 18 octobre pour RMC Découverte : 18 observations civiles ajoutées après reprise ciblée de la source, nuit 00:00–05:59 incluse, sans seconde lecture ni certification de proposition.",
-    "Lecture complète des grilles Web datées du lundi 19 octobre pour Canal+, Action, RMC Story et RMC Découverte : 86 observations civiles ajoutées, nuits 00:00–05:59 incluses, sans seconde lecture ni certification de proposition."
+    "Lecture complète des grilles Web datées du lundi 19 octobre pour Canal+, Action, RMC Story et RMC Découverte : 86 observations civiles ajoutées, nuits 00:00–05:59 incluses, sans seconde lecture ni certification de proposition.",
+    "Lecture complète des grilles Web datées du mardi 20 octobre pour Canal+ et Action : 41 observations civiles ajoutées, nuits 00:00–05:59 incluses ; RMC Story et RMC Découverte restent ouvertes pour cette date, sans seconde lecture ni certification de proposition."
   ],
   "blockers": [],
   "research_attempts": [],
@@ -669,6 +670,26 @@
       "applies_to": "Inventaire primaire du lundi 19 octobre 2026 pour Canal+, Action, RMC Story et RMC Découverte uniquement.",
       "evidence_note": "Chaque page portait explicitement le nom de la chaîne et la date du lundi 19 octobre 2026. Les lignes de fin de soirée du dimanche encore affichées en tête ont été exclues ; les créneaux commençant le 19, y compris 00:00–05:59, ont été conservés. Ce lot ne prouve ni les quatre autres dates, ni RTL9/Ciné+/TF1, ni la seconde lecture, ni l’indépendance, ni la qualité éditoriale.",
       "status": "partial"
+    },
+    {
+      "id": "web-grids-tuesday-canal-action-20261015T073830Z",
+      "work_id": null,
+      "fields": [
+        "inventory.title",
+        "inventory.channel",
+        "inventory.date",
+        "inventory.start",
+        "inventory.source_url"
+      ],
+      "urls": [
+        "https://tv-programme.com/canal-plus/mardi-20-octobre-2026/",
+        "https://tv-programme.com/action/mardi-20-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T07:38:30Z",
+      "stability": "cycle_specific",
+      "applies_to": "Inventaire primaire du mardi 20 octobre 2026 pour Canal+ et Action uniquement.",
+      "evidence_note": "Chaque page portait explicitement le nom de la chaîne et la date du mardi 20 octobre 2026. Les lignes de fin de soirée du lundi encore affichées en tête ont été exclues ; les créneaux commençant le 20, y compris 00:00–05:59, ont été conservés. RMC Story était indisponible lors de ce lot et RMC Découverte n’a pas été transcrite faute de temps utile restant. Ce lot ne prouve ni les trois autres dates, ni RTL9/Ciné+/TF1, ni la seconde lecture, ni l’indépendance, ni la qualité éditoriale.",
+      "status": "partial"
     }
   ],
   "source_issues": [
@@ -710,7 +731,7 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "inventory",
     "next_actions": [
-      "Poursuivre Canal+, Action, RMC Story et RMC Découverte du 20 au 23 octobre.",
+      "Compléter RMC Story et RMC Découverte le 20 octobre, puis poursuivre Canal+, Action, RMC Story et RMC Découverte du 21 au 23 octobre.",
       "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
       "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
       "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte."
@@ -1370,7 +1391,8 @@
         "Ajout de 95 observations du 17 octobre depuis quatre grilles Web complètes et datées : Canal+, Action, RMC Story et RMC Découverte.",
         "Ajout de 61 observations du 18 octobre depuis trois grilles Web complètes et datées : Canal+, Action et RMC Story ; RMC Découverte reste ouverte après indisponibilité.",
         "Ajout de 18 observations du 18 octobre depuis la grille Web complète et datée de RMC Découverte, récupérée après reprise ciblée.",
-        "Ajout de 86 observations du 19 octobre depuis quatre grilles Web complètes et datées : Canal+, Action, RMC Story et RMC Découverte."
+        "Ajout de 86 observations du 19 octobre depuis quatre grilles Web complètes et datées : Canal+, Action, RMC Story et RMC Découverte.",
+        "Ajout de 41 observations du 20 octobre depuis deux grilles Web complètes et datées : Canal+ et Action."
       ],
       "deliverables_changed": [
         "data/inventory/2026-S43.json",
@@ -1381,7 +1403,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre Canal+, Action, RMC Story et RMC Découverte du 20 au 23 octobre.",
+      "next_useful_batch": "Compléter RMC Story et RMC Découverte le 20 octobre, puis poursuivre le groupe du 21 au 23 octobre.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -1879,20 +1901,53 @@
             "ready_handoff": null
           },
           "evaluated_by": "scripts/editorial-continuation.mjs"
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T07:38:05.566Z",
+          "elapsed_seconds": 2556.566,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "c6f2c88833559127945ba73acf87700fa140fbc1",
+          "next_actions": [
+            "Poursuivre Canal+, Action, RMC Story et RMC Découverte du 20 au 23 octobre.",
+            "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
+            "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
+            "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte.",
+            "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés."
+          ],
+          "remaining_count": 12,
+          "next_actions_total": 16,
+          "truncated_notice": "11 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 16,
+          "waiting_actions": [],
+          "research_review_warnings": [],
+          "observations": {
+            "started_at": "2026-10-15T06:55:29Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T08:16:27.424Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "evaluated_by": "scripts/editorial-continuation.mjs"
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T07:36:17.693Z",
-        "elapsed_seconds": 2448.693,
+        "observed_at": "2026-10-15T07:38:05.566Z",
+        "elapsed_seconds": 2556.566,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "73fd5df38f11795f86a7c89dd0450c7b699d8920",
+        "source_sha": "c6f2c88833559127945ba73acf87700fa140fbc1",
         "next_actions": [
-          "Poursuivre Canal+, Action, RMC Story et RMC Découverte du 19 au 23 octobre.",
+          "Poursuivre Canal+, Action, RMC Story et RMC Découverte du 20 au 23 octobre.",
           "Compléter le relevé primaire des chaînes obligatoires absentes de l’amorce officielle et conserver leurs sources datées, jours et nuits.",
           "Revoir l’impact des 15 divergences de titres au même créneau conservées par le normaliseur, sans résoudre automatiquement les identités.",
           "Trier les pistes prometteuses de l’inventaire officiel déjà sauvegardé et constituer la première présélection sourcée sans certifier de carte.",
@@ -2010,9 +2065,15 @@
           "started_at": "2026-10-15T07:36:20Z",
           "ended_at": "2026-10-15T07:36:45Z",
           "note": "Lecture groupée de quatre grilles Web datées du lundi et transcription mécanique des lignes civiles ; aucune seconde lecture ni qualification éditoriale."
+        },
+        {
+          "kind": "research",
+          "started_at": "2026-10-15T07:38:08Z",
+          "ended_at": "2026-10-15T07:38:30Z",
+          "note": "Lecture groupée de deux grilles Web datées du mardi et transcription mécanique ; RMC Story indisponible, RMC Découverte non transcrite dans le temps utile ; aucune seconde lecture ni qualification éditoriale."
         }
       ]
     }
   ],
-  "updated_at": "2026-10-15T07:36:45Z"
+  "updated_at": "2026-10-15T07:38:30Z"
 }
