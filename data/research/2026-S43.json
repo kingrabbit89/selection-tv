@@ -135,7 +135,8 @@
     "2026-10-15T18:04:37.000Z — candidate S43 synchronisée normalement avec main : import des deux compléments Télérama au SHA exact, sans modification ni écrasement des recherches existantes.",
     "2026-10-15T18:08:33.729Z — TMC du 18 au 23 octobre : secondes lectures jour+nuit achevées sur deux grilles Web datées d’éditeurs distincts ; 112/112 départs présents, aucune omission ni contradiction de programme, numéros d’épisode non réaffirmés et indépendance amont inconnue. Avec la revue du 17 déjà sauvegardée, les sept dates TMC sont désormais relues.",
     "2026-10-15T18:13:52.319Z — TFX sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 146/146 départs concordants, aucune omission ni contradiction d’horaire, labels S/E non réaffirmés et divergence de synopsis Super Nanny du 21 conservée hors certification de niveau 3.",
-    "2026-10-15T18:18:09.764Z — 6ter sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 168/168 départs concordants, aucune omission ni divergence horaire, alias Une vie rêvée/Erkenci Kus conservés selon leur niveau de preuve, numéros d’épisode non réaffirmés et indépendance amont inconnue."
+    "2026-10-15T18:18:09.764Z — 6ter sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 168/168 départs concordants, aucune omission ni divergence horaire, alias Une vie rêvée/Erkenci Kus conservés selon leur niveau de preuve, numéros d’épisode non réaffirmés et indépendance amont inconnue.",
+    "2026-10-15T18:23:40.455Z — Paris Première sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 125/125 départs concordants, aucune omission ni divergence horaire, alias Gordon Ramsay documenté, labels S/E non réaffirmés lorsque absents et correction officielle du vendredi 22:55 réconciliée."
   ],
   "blockers": [],
   "research_attempts": [
@@ -6198,7 +6199,7 @@
     "first_incomplete_stage": "enrichment",
     "next_actions": [
       "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
-      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les sept chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les six chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
       "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
       "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
       "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
@@ -16280,7 +16281,8 @@
         "2026-10-15T18:04:37.000Z — candidate S43 synchronisée normalement avec main : import des deux compléments Télérama au SHA exact, sans modification ni écrasement des recherches existantes.",
         "2026-10-15T18:08:33.729Z — TMC du 18 au 23 octobre : secondes lectures jour+nuit achevées sur deux grilles Web datées d’éditeurs distincts ; 112/112 départs présents, aucune omission ni contradiction de programme, numéros d’épisode non réaffirmés et indépendance amont inconnue. Avec la revue du 17 déjà sauvegardée, les sept dates TMC sont désormais relues.",
         "2026-10-15T18:13:52.319Z — TFX sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 146/146 départs concordants, aucune omission ni contradiction d’horaire, labels S/E non réaffirmés et divergence de synopsis Super Nanny du 21 conservée hors certification de niveau 3.",
-        "2026-10-15T18:18:09.764Z — 6ter sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 168/168 départs concordants, aucune omission ni divergence horaire, alias Une vie rêvée/Erkenci Kus conservés selon leur niveau de preuve, numéros d’épisode non réaffirmés et indépendance amont inconnue."
+        "2026-10-15T18:18:09.764Z — 6ter sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 168/168 départs concordants, aucune omission ni divergence horaire, alias Une vie rêvée/Erkenci Kus conservés selon leur niveau de preuve, numéros d’épisode non réaffirmés et indépendance amont inconnue.",
+        "2026-10-15T18:23:40.455Z — Paris Première sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 125/125 départs concordants, aucune omission ni divergence horaire, alias Gordon Ramsay documenté, labels S/E non réaffirmés lorsque absents et correction officielle du vendredi 22:55 réconciliée."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json"
@@ -16292,14 +16294,14 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre la seconde lecture de Paris Première sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation ou d’identité.",
+      "next_useful_batch": "Poursuivre la seconde lecture de Canal+ sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
         "distinct_reserves_added": 0,
         "reused_existing_cards": 0,
         "raw_inventory_observations_added": 0,
-        "scope": "Comparaison avec 89789660bbb7a235484219e61e437557da01df1d : synchronisation des entrées Télérama et revues hebdomadaires TMC, TFX et 6ter ; aucun ajout de carte, réserve, œuvre ou observation brute."
+        "scope": "Comparaison avec 89789660bbb7a235484219e61e437557da01df1d : synchronisation des entrées Télérama et revues hebdomadaires TMC, TFX, 6ter et Paris Première ; aucun ajout de carte, réserve, œuvre ou observation brute."
       },
       "intervals": [
         {
@@ -16335,6 +16337,13 @@
           "ended_at": "2026-10-15T18:18:09.764Z",
           "overlap": true,
           "note": "Trois comparaisons 6ter en lecture seule ont été menées en parallèle ; les intervalles se chevauchent et ne sont pas additionnés au temps séquentiel."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": "2026-10-15T18:21:49.283Z",
+          "ended_at": "2026-10-15T18:23:40.455Z",
+          "overlap": true,
+          "note": "Trois comparaisons Paris Première en lecture seule ont été menées en parallèle ; les intervalles se chevauchent et ne sont pas additionnés au temps séquentiel."
         }
       ],
       "continuation_decisions": [
@@ -16403,22 +16412,44 @@
           "next_actions_total": 18,
           "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
           "all_actions_total": 30
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T18:21:24.175Z",
+          "elapsed_seconds": 1112.666,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "e90249bbd3e990c3c02d8c4145a5ad3b08327f5e",
+          "next_actions": [
+            "Poursuivre la seconde lecture de Paris Première sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation ou d’identité.",
+            "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les sept chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+            "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 18,
+          "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 30
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T18:15:40.755Z",
-        "elapsed_seconds": 769.246,
+        "observed_at": "2026-10-15T18:21:24.175Z",
+        "elapsed_seconds": 1112.666,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "998374e90b09cb8aa06dcdd327ff5973a4ce4a3e",
+        "source_sha": "e90249bbd3e990c3c02d8c4145a5ad3b08327f5e",
         "next_actions": [
-          "Poursuivre la seconde lecture de 6ter sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation ou d’identité.",
+          "Poursuivre la seconde lecture de Paris Première sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation ou d’identité.",
           "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
-          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les huit chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les sept chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
           "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
           "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
         ],
@@ -25444,6 +25475,281 @@
           "saved `Une vie rêvée S01E66` / second guide `Erkenci Kus` at 06:30; the linked L’Internaute episode page confirms the same slot and S01E66, so this is retained as a title alias rather than a different programme."
         ],
         "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-17",
+        "channels": [
+          "Paris Première"
+        ],
+        "flow": "Paris Première",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:22:17.245Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 20 lignes Paris Première de l’inventaire sauvegardé, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/paris-premiere/samedi-17-octobre-2026/",
+          "https://www.linternaute.com/television/programme-paris-premiere-samedi-17-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 20,
+          "source_rows_reviewed": 20,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 20 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Les continuités nocturnes et reports civils adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "L’URL datée L’Internaute redirige actuellement vers un slug de jour de semaine dont le contenu et la navigation correspondent à la date civile ciblée ; cette canonicalisation est conservée comme limite.",
+          "Les quatre cases Gordon Ramsay : mission extrême correspondent en créneau et restaurant à Gordon Ramsay’s Secret Service dans le second guide ; l’alias de titre est conservé sans réaffirmer une identité éditoriale stricte.",
+          "Le second guide n’expose pas systématiquement les numéros de saison/épisode des séries et blocs génériques ; ces numéros et les versions techniques ne sont pas réaffirmés par cette seconde lecture."
+        ],
+        "status": "reread_complete_no_omissions_title_alias_documented"
+      },
+      {
+        "date": "2026-10-18",
+        "channels": [
+          "Paris Première"
+        ],
+        "flow": "Paris Première",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:22:17.245Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 19 lignes Paris Première de l’inventaire sauvegardé, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/paris-premiere/dimanche-18-octobre-2026/",
+          "https://www.linternaute.com/television/programme-paris-premiere-dimanche-18-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 19,
+          "source_rows_reviewed": 19,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 19 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Les continuités nocturnes et reports civils adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "L’URL datée L’Internaute redirige actuellement vers un slug de jour de semaine dont le contenu et la navigation correspondent à la date civile ciblée ; cette canonicalisation est conservée comme limite.",
+          "Les quatre cases Gordon Ramsay : mission extrême correspondent en créneau et restaurant à Gordon Ramsay’s Secret Service dans le second guide ; l’alias de titre est conservé sans réaffirmer une identité éditoriale stricte.",
+          "Le second guide n’expose pas systématiquement les numéros de saison/épisode des séries et blocs génériques ; ces numéros et les versions techniques ne sont pas réaffirmés par cette seconde lecture."
+        ],
+        "status": "reread_complete_no_omissions_title_alias_documented"
+      },
+      {
+        "date": "2026-10-19",
+        "channels": [
+          "Paris Première"
+        ],
+        "flow": "Paris Première",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:22:17.245Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 17 lignes Paris Première de l’inventaire sauvegardé, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/paris-premiere/lundi-19-octobre-2026/",
+          "https://www.linternaute.com/television/programme-paris-premiere-lundi-19-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 17,
+          "source_rows_reviewed": 17,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 17 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Les continuités nocturnes et reports civils adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "L’URL datée L’Internaute redirige actuellement vers un slug de jour de semaine dont le contenu et la navigation correspondent à la date civile ciblée ; cette canonicalisation est conservée comme limite.",
+          "Le second guide n’expose pas systématiquement les numéros de saison/épisode des séries et blocs génériques ; ces numéros et les versions techniques ne sont pas réaffirmés par cette seconde lecture."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-20",
+        "channels": [
+          "Paris Première"
+        ],
+        "flow": "Paris Première",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:22:17.128Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 17 lignes Paris Première de l’inventaire sauvegardé, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/paris-premiere/mardi-20-octobre-2026/",
+          "https://www.linternaute.com/television/programme-paris-premiere-mardi-20-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 17,
+          "source_rows_reviewed": 17,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 17 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Les continuités nocturnes et reports civils adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "L’URL datée L’Internaute redirige actuellement vers un slug de jour de semaine dont le contenu et la navigation correspondent à la date civile ciblée ; cette canonicalisation est conservée comme limite.",
+          "Le second guide n’expose pas systématiquement les numéros de saison/épisode des séries et blocs génériques ; ces numéros et les versions techniques ne sont pas réaffirmés par cette seconde lecture."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-21",
+        "channels": [
+          "Paris Première"
+        ],
+        "flow": "Paris Première",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:22:17.128Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 17 lignes Paris Première de l’inventaire sauvegardé, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/paris-premiere/mercredi-21-octobre-2026/",
+          "https://www.linternaute.com/television/programme-paris-premiere-mercredi-21-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 17,
+          "source_rows_reviewed": 17,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 17 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Les continuités nocturnes et reports civils adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "L’URL datée L’Internaute redirige actuellement vers un slug de jour de semaine dont le contenu et la navigation correspondent à la date civile ciblée ; cette canonicalisation est conservée comme limite.",
+          "Le second guide n’expose pas systématiquement les numéros de saison/épisode des séries et blocs génériques ; ces numéros et les versions techniques ne sont pas réaffirmés par cette seconde lecture."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-22",
+        "channels": [
+          "Paris Première"
+        ],
+        "flow": "Paris Première",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:23:31.125Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 17 lignes Paris Première de l’inventaire sauvegardé, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/paris-premiere/jeudi-22-octobre-2026/",
+          "https://www.linternaute.com/television/programme-paris-premiere-jeudi-22-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 17,
+          "source_rows_reviewed": 17,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 17 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Les continuités nocturnes et reports civils adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "L’URL datée L’Internaute redirige actuellement vers un slug de jour de semaine dont le contenu et la navigation correspondent à la date civile ciblée ; cette canonicalisation est conservée comme limite."
+        ],
+        "status": "reread_complete_no_omissions"
+      },
+      {
+        "date": "2026-10-23",
+        "channels": [
+          "Paris Première"
+        ],
+        "flow": "Paris Première",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark + Paris Première / M6 officiel",
+        "checked_at": "2026-10-15T18:23:40.455Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 18 lignes Paris Première de l’inventaire sauvegardé, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/paris-premiere/vendredi-23-octobre-2026/",
+          "https://www.linternaute.com/television/programme-paris-premiere-vendredi-23-octobre-2026/",
+          "https://pro.m6.fr/paris-premiere/grille/2026-43"
+        ],
+        "comparison": {
+          "saved_observations": 18,
+          "source_rows_reviewed": 18,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 18 départs du jour civil concordent en heure et ordre de programme au niveau requis pour la recherche d’omissions.",
+          "Les continuités nocturnes et reports civils adjacents ont été relus ; aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée.",
+          "La grille officielle Paris Première semaine 43 confirme le changement tardif du vendredi à 22:55 vers Equalizer et le départ suivant samedi à 01:10 ; les deux guides lus reflètent déjà cette correction."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "L’URL datée L’Internaute redirige actuellement vers un slug de jour de semaine dont le contenu et la navigation correspondent à la date civile ciblée ; cette canonicalisation est conservée comme limite."
+        ],
+        "status": "reread_complete_no_omissions_official_correction_reconciled"
       }
     ],
     "independent_crosscheck_complete": false,
