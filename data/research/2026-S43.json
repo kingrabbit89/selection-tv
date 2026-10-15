@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "week": "2026-S43",
+  "stage": "inventory",
+  "status": "in_progress",
+  "base_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
+  "remaining": [
+    "Constituer et sauvegarder l’inventaire primaire des sept jours du 17 au 23 octobre 2026, 00:00–23:59 et nuits 00:00–05:59, avec au moins 30 candidats bruts par jour, toutes les chaînes actives obligatoires et pertinentes, pages datées, lignes, comptes, contradictions et coverage.days[].channels_scanned réconciliés.",
+    "Effectuer et sauvegarder la seconde lecture des omissions pour chaque jour, chaîne et nuit sur les grilles Web complètes datées, avec un autre guide quand accessible ou une lecture distincte consignée, en conservant URLs, dates réelles, comparaisons, omissions, décisions, limites et état séparé de l’indépendance dans coverage.web_schedule_reviews.",
+    "Effectuer le rappel éditorial et la prospection documentaire dédiée Arte, France 5, France 2/3/4, france.tv, TV5MONDE et autres sources pertinentes, avec offres linéaires/replay/avant-premières/exclusivités/expirations, décisions et preuves critiques exactes sauvegardées.",
+    "Constituer puis tenir une présélection sourcée par jour et par rubrique, environ 1,5 à 2 fois les positions à pourvoir sans titre faible, en priorisant les dossiers proches d’une carte et en conservant les alternatives, rejets, reports et impasses selon le contrat courant.",
+    "Vérifier complètement chaque choix, réserve, ligne de grille et proposition de rubrique au niveau 3 : identité et version, diffusion officielle ou recoupement Web concordant admissible, disponibilité ou expiration, réception critique, métadonnées, notes ou raison spécifique, liens directs exacts et visuel réel.",
+    "Produire trois choix développés par jour et au moins dix candidats complets distincts par jour, objectif quinze si la qualité le permet, avec synopsis et justification propres, pools de réserves publiables et toute pénurie structurée réellement sourcée.",
+    "Compléter les rubriques obligatoires et leurs seuils sans remplissage faible : rendez-vous, replay, plateformes gratuites et abonnement film-first, sorties physiques et streaming, expirations et sommaire, avec pagination lisible et réserves effectives lorsqu’elles sont requises.",
+    "Compléter les radars selon les seuils inchangés : popularité avec cinq choix, cinq cartes de sillonnage et au moins cinq réserves distinctes, puis radar 1080p avec dix choix visibles et une réserve distincte visant dix œuvres, sans compter les primaires comme réserves.",
+    "Appliquer la déduplication, la fraîcheur inter-numéros et l’équilibre cinéma/documentaire/rubriques ; conserver toute exception de fraîcheur ou pénurie sous forme structurée, précise et sourcée.",
+    "Construire et revoir tous les livrables autorisés de 2026-S43, ainsi que les enrichissements vérifiés de works, links et releases, en gardant manifest.latest à 2026-S42 et tous les statuts S43 en draft.",
+    "Exécuter les contrôles pertinents de données, liens, fraîcheur, réserves, images et présentation sur la tête exacte, inspecter les pages modifiées, résoudre les causes réelles sans baisser les critères et conserver les résultats CI liés au SHA et à sa base.",
+    "Après résolution réelle de remaining, effectuer la revue éditoriale complète des livrables, sceller les empreintes exactes, passer stage à ready, puis laisser la fusion candidate et la promotion protégées suivre leurs contrôles et leur publication vérifiée."
+  ],
+  "completed_batches": [],
+  "blockers": [],
+  "research_attempts": [],
+  "verification_records": [],
+  "shortlist": {
+    "entries": []
+  },
+  "contract_reads": {
+    "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
+    "checked_at": "2026-10-15T06:08:55Z",
+    "documents": {
+      "AUTOMATION.md": "0fa19d862795c1a915edce2cc95bb097f979eae",
+      "docs/HYBRID-WORKFLOW.md": "649c1da691d961075f8517a14312bc25f27233d3",
+      "ARCHITECTURE.md": "7c6e72b0729e4f915bc5a90f084c40e1cc363e8a",
+      "data/automation-config.json": "e55d9a247fc0299ce6effc6c3e97eea9018f0dc3",
+      "data/editorial-config.json": "a27cb03406b26bc24da996fde82609483cf3defb",
+      "data/personalization-config.json": "ad5716e95db25894de7ca58c874154783b1766a8",
+      "docs/EDITORIAL-CLOSURE-POLICY.md": "79a8b57b020c9471ee9b800ada8ff681052cb902"
+    },
+    "note": "Les sept contrats ont été relus intégralement au SHA courant avant l’initialisation de 2026-S43."
+  },
+  "resume": {
+    "candidate_branch": "auto/2026-S43",
+    "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
+    "first_incomplete_stage": "inventory",
+    "next_actions": [
+      "Exécuter preparation-gaps et editorial-production-flow sur la tête candidate initialisée.",
+      "Collecter et importer sous bail un premier lot d’inventaire officiel daté sans cocher de drapeau de couverture automatiquement.",
+      "Sauvegarder les preuves et réévaluer la poursuite sur la nouvelle tête."
+    ]
+  },
+  "run_metrics": [
+    {
+      "prompt_revision": "production-weekly-continuity-2026-10-10",
+      "started_at": "2026-10-15T06:02:43Z",
+      "ended_at": null,
+      "duration_basis": "Passage en cours ; heures observées en UTC.",
+      "run_state": "running",
+      "completed_batches": [],
+      "deliverables_changed": [
+        "data/research/2026-S43.json"
+      ],
+      "complete_cards_added": 0,
+      "draft_cards_added": 0,
+      "partial_dossiers_added": 0,
+      "requirements_resolved": 0,
+      "stop_reason": null,
+      "next_useful_batch": "Initialiser l’inventaire 2026-S43 depuis des sources officielles datées et sauvegarder le premier handoff contrôlé.",
+      "continuation_decisions": [],
+      "continuation_decision": null
+    }
+  ],
+  "updated_at": "2026-10-15T06:08:55Z"
+}
