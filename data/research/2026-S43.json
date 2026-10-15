@@ -141,7 +141,8 @@
     "2026-10-15T18:35:23.900Z — RMC Story sur les sept jours : seconde lecture jour+nuit achevée ; 171/171 départs concordants, aucune omission ni divergence horaire, avec seulement les alias Pause/Fin des programmes et les limites de versions/labels S/E non réaffirmés.",
     "2026-10-15T18:38:31.480Z — Action sur les sept jours : seconde lecture jour+nuit achevée sur 103 départs sauvegardés ; dimanche, mercredi et vendredi concordent sous limites de placeholders, tandis que samedi nuit, lundi journée et mardi gardent des écarts, et jeudi révèle une vraie omission hors antenne à 05:52. Aucun retry_gate n’est rouvert.",
     "2026-10-15T18:41:59.191Z — RMC Découverte sur les sept jours : seconde lecture jour+nuit achevée sur 138 départs sauvegardés ; six journées sans omission interne, mais le report sortant du mercredi et toute la séquence nocturne du jeudi sont contradictoires et restent ouverts. Aucune correction automatique.",
-    "2026-10-15T18:45:28.776Z — RTL9 sur les sept jours : seconde lecture jour+nuit achevée ; 243/243 départs concordants, aucune omission ni divergence horaire ou d’identité nommée, reports civils continus et labels S/E non réaffirmés lorsqu’absents du second guide."
+    "2026-10-15T18:45:28.776Z — RTL9 sur les sept jours : seconde lecture jour+nuit achevée ; 243/243 départs concordants, aucune omission ni divergence horaire ou d’identité nommée, reports civils continus et labels S/E non réaffirmés lorsqu’absents du second guide.",
+    "2026-10-15T18:49:00.000Z — À pied d’œuvre : dossier partiel consolidé depuis la fiche officielle CANAL+ ; identité de base et durée 1 h 32 vérifiées, sans sélection ni certification de la diffusion, des notes ou du visuel."
   ],
   "blockers": [],
   "research_attempts": [
@@ -4853,6 +4854,25 @@
       "applies_to": "Candidate a2bb86e867dbdf0b06a2edcf69f86aff49c19c11 et tête précédente 5a3a15395114c4eb6783a509e8a45bd7cc5f31b3",
       "evidence_note": "Sur 5a3a1539, browser-presentation est vert ; data-and-policy échoue au sous-test test-editorial-task-board qui attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles et affiche « ? paragraphe(s) ». La CI de la tête courante a2bb86e8 était encore en cours ; aucun résultat antérieur ne la certifie.",
       "status": "previous_head_diagnosed_current_head_in_progress"
+    },
+    {
+      "work_id": "a-pied-d-oeuvre-2025",
+      "fields": [
+        "director",
+        "year",
+        "country",
+        "duration"
+      ],
+      "urls": [
+        "https://www.canalplus.com/cinema/a-pied-d-oeuvre/h/31072816_40099/streaming/"
+      ],
+      "checked_at": "2026-10-15T18:49:00.000Z",
+      "stability": "identity_metadata_stable_duration_version_scoped",
+      "applies_to": [
+        "research_dossier"
+      ],
+      "evidence_note": "Fiche officielle CANAL+ réellement ouverte : film biopic, 1 h 32, 2025, de Valérie Donzelli, pays France. Ne certifie ni la diffusion du 17 octobre ni la qualité éditoriale.",
+      "status": "verified_for_stated_fields_only"
     }
   ],
   "source_issues": [
@@ -16292,7 +16312,8 @@
         "2026-10-15T18:35:23.900Z — RMC Story sur les sept jours : seconde lecture jour+nuit achevée ; 171/171 départs concordants, aucune omission ni divergence horaire, avec seulement les alias Pause/Fin des programmes et les limites de versions/labels S/E non réaffirmés.",
         "2026-10-15T18:38:31.480Z — Action sur les sept jours : seconde lecture jour+nuit achevée sur 103 départs sauvegardés ; dimanche, mercredi et vendredi concordent sous limites de placeholders, tandis que samedi nuit, lundi journée et mardi gardent des écarts, et jeudi révèle une vraie omission hors antenne à 05:52. Aucun retry_gate n’est rouvert.",
         "2026-10-15T18:41:59.191Z — RMC Découverte sur les sept jours : seconde lecture jour+nuit achevée sur 138 départs sauvegardés ; six journées sans omission interne, mais le report sortant du mercredi et toute la séquence nocturne du jeudi sont contradictoires et restent ouverts. Aucune correction automatique.",
-        "2026-10-15T18:45:28.776Z — RTL9 sur les sept jours : seconde lecture jour+nuit achevée ; 243/243 départs concordants, aucune omission ni divergence horaire ou d’identité nommée, reports civils continus et labels S/E non réaffirmés lorsqu’absents du second guide."
+        "2026-10-15T18:45:28.776Z — RTL9 sur les sept jours : seconde lecture jour+nuit achevée ; 243/243 départs concordants, aucune omission ni divergence horaire ou d’identité nommée, reports civils continus et labels S/E non réaffirmés lorsqu’absents du second guide.",
+        "2026-10-15T18:49:00.000Z — À pied d’œuvre : dossier partiel consolidé depuis la fiche officielle CANAL+ ; identité de base et durée 1 h 32 vérifiées, sans sélection ni certification de la diffusion, des notes ou du visuel."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json"
@@ -16301,10 +16322,10 @@
       "draft_cards_added": 0,
       "draft_reserves_added": 0,
       "dossiers_completed": 0,
-      "partial_dossiers_added": 0,
+      "partial_dossiers_added": 1,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Actualiser le triage sur la tête exacte puis terminer un dossier déjà proche d’une carte ou une rubrique accessible ; ne pas reprendre TV5MONDE tant que son retry_gate de flux régional n’est pas satisfait.",
+      "next_useful_batch": "Reprendre À pied d’œuvre seulement pour les contrôles encore listés dans son dossier partiel, ou terminer une rubrique accessible ; conserver le retry_gate TV5MONDE fermé tant que le flux régional n’est pas relié.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -16382,6 +16403,13 @@
           "ended_at": "2026-10-15T18:45:28.776Z",
           "overlap": true,
           "note": "Trois revues RTL9 ont été menées en parallèle ; les intervalles se chevauchent et ne sont pas additionnés au temps séquentiel."
+        },
+        {
+          "kind": "research",
+          "started_at": "2026-10-15T18:47:21.000Z",
+          "ended_at": "2026-10-15T18:49:00.000Z",
+          "overlap": false,
+          "note": "Triage sur la tête exacte, production-flow sauvegardé et vérification directe de la fiche officielle CANAL+ pour le dossier partiel À pied d’œuvre."
         }
       ],
       "continuation_decisions": [
@@ -16560,22 +16588,44 @@
           "next_actions_total": 18,
           "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
           "all_actions_total": 30
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T18:47:20.802Z",
+          "elapsed_seconds": 2669.293,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "bb8de2c24cae39dea8e59acf7caafd1f149ef40f",
+          "next_actions": [
+            "Actualiser le triage sur la tête exacte puis terminer un dossier déjà proche d’une carte ou une rubrique accessible ; ne pas reprendre TV5MONDE tant que son retry_gate de flux régional n’est pas satisfait.",
+            "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur la seule chaîne encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+            "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 18,
+          "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 30
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T18:44:22.093Z",
-        "elapsed_seconds": 2490.584,
+        "observed_at": "2026-10-15T18:47:20.802Z",
+        "elapsed_seconds": 2669.293,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "8d3f88ac49f2b195bc8a8c0550b542b0052cb15e",
+        "source_sha": "bb8de2c24cae39dea8e59acf7caafd1f149ef40f",
         "next_actions": [
-          "Poursuivre la seconde lecture de RTL9 sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
+          "Actualiser le triage sur la tête exacte puis terminer un dossier déjà proche d’une carte ou une rubrique accessible ; ne pas reprendre TV5MONDE tant que son retry_gate de flux régional n’est pas satisfait.",
           "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
-          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les deux chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur la seule chaîne encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
           "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
           "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
         ],
@@ -16586,7 +16636,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-15T18:13:52.319Z",
+  "updated_at": "2026-10-15T18:49:00.000Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -19673,6 +19723,68 @@
       ],
       "decision": "réserve draft vendredi rang 5 admissible avec pénalité de fraîcheur",
       "reason": "Alternative entièrement vérifiée remplaçant une carte dont l’heure restait contradictoire ; la réception partagée et la répétition S41 sont explicitement conservées."
+    },
+    {
+      "title": "À pied d’œuvre",
+      "work_id": "a-pied-d-oeuvre-2025",
+      "catalogue_match": "a-pied-d-oeuvre-2025",
+      "identity_research": {
+        "director": "Valérie Donzelli",
+        "year": 2025,
+        "country": "France",
+        "source_urls": [
+          "https://www.canalplus.com/cinema/a-pied-d-oeuvre/h/31072816_40099/streaming/"
+        ],
+        "checked_at": "2026-10-15T18:49:00.000Z",
+        "duration_observations": [
+          {
+            "duration": "1 h 32",
+            "version": "fiche officielle CANAL+ de l’œuvre proposée en streaming",
+            "source_url": "https://www.canalplus.com/cinema/a-pied-d-oeuvre/h/31072816_40099/streaming/"
+          }
+        ],
+        "note": "La fiche officielle CANAL+ relue attribue le film de 2025 à Valérie Donzelli, indique la France et une durée de 1 h 32. Le rapprochement avec le créneau imprimé du 17 octobre reste à revoir avant sélection."
+      },
+      "broadcast_research": {
+        "date": "2026-10-17",
+        "start": "19:30",
+        "channel": "Canal+ Cinéma",
+        "source_urls": [],
+        "checked_at": "2026-10-15T18:49:00.000Z",
+        "status": "authoritative_telerama_pdf_reference_needs_identity_and_transcription_review",
+        "note": "Télérama imprimé sauvegardé place À pied d’œuvre sur Canal+ Cinéma le 17 octobre à 19:30 (page 106, bbox [123.73,203.15,188.22,216.65], source_ref sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d). La grille Web sauvegardée affiche 19:32 ; le PDF reste prioritaire pour ses faits imprimés après revue, sans assimilation automatique des deux observations.",
+        "provenance": {
+          "source_sha": "bb8de2c24cae39dea8e59acf7caafd1f149ef40f",
+          "path": "data/editorial-inputs/2026-S43/telerama.json",
+          "json_pointer": "/observations/32"
+        }
+      },
+      "critical_evidence": [],
+      "ratings_research": {
+        "status": "saved_values_need_current_review",
+        "checked_at": null,
+        "source_urls": [],
+        "note": "Les valeurs du catalogue ne sont pas réaffirmées par ce lot."
+      },
+      "image_research": {
+        "status": "saved_visual_needs_health_and_identity_review",
+        "checked_at": null,
+        "image_url": "https://cinehorizons.net/sites/default/files/affiches/1823285106-pied-doeuvre.jpg",
+        "note": "URL de catalogue seulement ; aucune inspection visuelle ni santé d’image réaffirmée."
+      },
+      "missing_fields": [
+        "signal éditorial sourcé et décision de présélection",
+        "revue du rapprochement exact entre la fiche CANAL+ et la diffusion imprimée",
+        "revue de transcription Télérama et arbitrage 19:30/19:32",
+        "réception critique ou indisponibilité spécifique documentée",
+        "notes actuelles ou indisponibilité spécifique documentée",
+        "visuel exact et sain inspecté",
+        "fraîcheur inter-numéros",
+        "synopsis et justification propres",
+        "contrôles CI des liens et du visuel"
+      ],
+      "decision": "dossier partiel — non présélectionné et non publiable",
+      "reason": "Le lot ferme seulement la durée officielle manquante et consolide l’identité de base ; les contrôles éditoriaux, dynamiques et de diffusion restent ouverts."
     }
   ],
   "coverage": {
