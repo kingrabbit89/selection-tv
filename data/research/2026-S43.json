@@ -85,7 +85,8 @@
     "2026-10-15T11:21:20.843Z — première réserve du lundi matérialisée : Midsommar, après concordance des quatre faits de grille et revue d’identité, réception, visuel et fraîcheur ; divergences de durée conservées sans inférence de copie.",
     "2026-10-15T11:33:40.000Z — trois choix développés du mardi matérialisés : Left-Handed Girl, Partir un jour et Que Dios nos perdone ; horaires recoupés, homonyme court désambiguïsé, réception et fraîcheur revues, divergences de durée et fréquence des rediffusions Action conservées.",
     "2026-10-15T11:43:10.000Z — premier choix développé du mercredi matérialisé : A Ghost Story ; Father Mother Sister Brother et Hamnet ont été examinés puis exclus de S43 pour exposition publique récente.",
-    "2026-10-15T12:13:14.077Z — trio développé du mercredi complété : M le Maudit et Gens de Dublin ajoutés aux côtés d’A Ghost Story après revue complète ; The Big Short différé sur contradiction 08:30/08:31 et remplacé par l’alternative vérifiée."
+    "2026-10-15T12:13:14.077Z — trio développé du mercredi complété : M le Maudit et Gens de Dublin ajoutés aux côtés d’A Ghost Story après revue complète ; The Big Short différé sur contradiction 08:30/08:31 et remplacé par l’alternative vérifiée.",
+    "2026-10-15T12:27:00.000Z — réserve fraîche du samedi matérialisée : Raccrochez, c’est une erreur ; trois alternatives prometteuses du dimanche au mardi approfondies puis différées avec leurs contradictions exactes et conditions de reprise."
   ],
   "blockers": [],
   "research_attempts": [
@@ -238,6 +239,85 @@
       "result": "Trois guides indiquent 08:30 ; TV Digital3D indique 08:31. Aucune correction officielle datée n’arbitre cette contradiction.",
       "blocking_scope": "Carte mercredi The Big Short non matérialisée ; le trio est complété par une alternative entièrement vérifiée.",
       "resume_condition": "Correction officielle datée ou nouvelle preuve fiable arbitrant la minute exacte."
+    },
+    {
+      "id": "quand-ville-dort-duration-2026-10-15T12:22:43Z",
+      "object": "Quand la ville dort (1950)",
+      "version": "diffusion Ciné+ Classic du 18 octobre 2026",
+      "broadcast": "Ciné+ Classic, dimanche 18 octobre 2026 à 18:01",
+      "question": "Attribuer une durée exacte à la copie diffusée.",
+      "urls": [
+        "https://www.canalplus.com/cinema/quand-la-ville-dort/h/174926_50002",
+        "https://tv-programme.com/cine-plus-classic/dimanche-18-octobre-2026/",
+        "https://www.criterion.com/films/28690-the-asphalt-jungle"
+      ],
+      "checked_at": "2026-10-15T12:22:43.453Z",
+      "result": "La fiche CANAL+ sauvegardée, les guides et les sources catalogue donnent 107, 108, 109 ou 112 min selon leur portée ; aucune preuve ne rattache une durée exacte à la copie du dimanche.",
+      "blocking_scope": "Carte dimanche non matérialisée.",
+      "resume_condition": "Preuve officielle ou source précise attribuant une durée à la copie du 18 octobre.",
+      "retry_gate": {
+        "state": "waiting_for_new_evidence",
+        "action_texts": [
+          "Reprendre Quand la ville dort seulement si une preuve permet d’attribuer une durée exacte à la copie du dimanche 18 octobre 2026."
+        ],
+        "reason": "Deux voies distinctes ne permettent pas d’attribuer une durée exacte à la copie.",
+        "resume_when": "Preuve officielle ou source précise de la durée de la copie du 18 octobre.",
+        "observed_at": "2026-10-15T12:22:43.453Z",
+        "evidence": "Durées 107/108/109/112 min de portées différentes ; la fenêtre EPG ne certifie pas la copie."
+      }
+    },
+    {
+      "id": "memories-of-murder-slot-conflict-2026-10-15T12:25:00Z",
+      "object": "Memories of Murder (2003)",
+      "version": "diffusion Ciné+ Frisson du 19 octobre 2026",
+      "broadcast": "Ciné+ Frisson, lundi 19 octobre 2026",
+      "question": "Arbitrer la minute exacte entre 10:44 et 10:45.",
+      "urls": [
+        "https://www.programme-tv.com/television/1254734021/memories-of-murder.html",
+        "https://www.programmetvcesoir.net/chaine/cine-frisson/2026-10-19",
+        "https://tv-programme.com/cine-plus-frisson/lundi-19-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-lundi/cine-frisson"
+      ],
+      "checked_at": "2026-10-15T12:25:00.000Z",
+      "result": "Plusieurs éditeurs donnent 10:45, tandis que TV-programme/Tabom et Télérama donnent 10:44 ; aucune correction officielle précise ne tranche.",
+      "blocking_scope": "Carte lundi non matérialisée.",
+      "resume_condition": "Correction officielle datée ou nouvelle preuve fiable arbitrant la minute exacte.",
+      "retry_gate": {
+        "state": "waiting_for_new_evidence",
+        "action_texts": [
+          "Reprendre Memories of Murder seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:44/10:45 du lundi 19 octobre 2026."
+        ],
+        "reason": "Deux clusters de guides actuels divergent d’une minute.",
+        "resume_when": "Correction officielle datée ou nouveau recoupement qui résout la contradiction.",
+        "observed_at": "2026-10-15T12:25:00.000Z",
+        "evidence": "10:45 chez Programme-TV, Ouest-France, ProgrammeTVCeSoir et Digital3D ; 10:44 chez TV-programme et Télérama."
+      }
+    },
+    {
+      "id": "gattaca-slot-conflict-2026-10-15T12:22:22Z",
+      "object": "Bienvenue à Gattaca (1997)",
+      "version": "diffusion Ciné+ Frisson du 20 octobre 2026",
+      "broadcast": "Ciné+ Frisson, mardi 20 octobre 2026",
+      "question": "Arbitrer la minute exacte entre 10:07 et 10:11.",
+      "urls": [
+        "https://tv-programme.com/cine-plus-frisson/mardi-20-octobre-2026/",
+        "https://www.molotov.tv/fr_fr/p/4021/bienvenue-a-gattaca",
+        "https://television.telerama.fr/programme-tv-mardi/cine-frisson"
+      ],
+      "checked_at": "2026-10-15T12:22:22.000Z",
+      "result": "TV-programme, Molotov, SciFi-Universe et une vue Sudinfo donnent 10:07 ; Télérama et une autre vue Sudinfo donnent 10:11. Aucune correction officielle précise.",
+      "blocking_scope": "Carte mardi non matérialisée.",
+      "resume_condition": "Correction officielle datée ou nouvelle preuve fiable arbitrant la minute exacte.",
+      "retry_gate": {
+        "state": "waiting_for_new_evidence",
+        "action_texts": [
+          "Reprendre Bienvenue à Gattaca seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:07/10:11 du mardi 20 octobre 2026."
+        ],
+        "reason": "Deux clusters actuels divergent de quatre minutes.",
+        "resume_when": "Correction officielle datée ou nouveau recoupement qui résout la contradiction.",
+        "observed_at": "2026-10-15T12:22:22.000Z",
+        "evidence": "Concordances 10:07 et contradiction persistante 10:11."
+      }
     }
   ],
   "verification_records": [
@@ -2645,6 +2725,98 @@
       "applies_to": "piste mercredi différée, non matérialisée",
       "evidence_note": "Identité et intérêt établis ; contradiction 08:30/08:31 conservée et alternative sélectionnée.",
       "status": "blocked_schedule_conflict"
+    },
+    {
+      "work_id": "raccrochez-c-est-une-erreur-1948",
+      "fields": [
+        "identity",
+        "duration_limit",
+        "ratings",
+        "broadcast",
+        "criticism",
+        "image",
+        "freshness",
+        "synopsis",
+        "editorial_justification",
+        "draft_reserve"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-classic/samedi-17-octobre-2026/",
+        "https://programmetv.ouest-france.fr/film/suspense/raccrochez-c-est-une-erreur-c54192/",
+        "https://www.imdb.com/title/tt0040823/",
+        "https://www.senscritique.com/film/raccrochez_c_est_une_erreur/444012",
+        "https://www.timeout.com/movies/sorry-wrong-number"
+      ],
+      "checked_at": "2026-10-15T12:23:09.000Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "applies_to": "réserve draft Raccrochez, c’est une erreur — samedi 2026-10-17, rang 4",
+      "evidence_note": "Deux éditeurs concordent sur les quatre faits ; durée œuvre et fenêtre antenne séparées, indépendance amont inconnue.",
+      "status": "verified_for_draft_reserve_ci_pending"
+    },
+    {
+      "work_id": "quand-la-ville-dort-1950",
+      "fields": [
+        "identity",
+        "ratings",
+        "broadcast",
+        "duration_conflict",
+        "criticism",
+        "image",
+        "freshness"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-classic/dimanche-18-octobre-2026/",
+        "https://tv.digital3d.com/detail/cineplus-classic-44?date=2026-10-18&time=18%3A01",
+        "https://www.canalplus.com/cinema/quand-la-ville-dort/h/174926_50002"
+      ],
+      "checked_at": "2026-10-15T12:22:43.453Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "applies_to": "piste dimanche différée, non matérialisée",
+      "evidence_note": "Diffusion recoupée, mais durée exacte de la copie non prouvée.",
+      "status": "blocked_duration_version"
+    },
+    {
+      "work_id": "memories-of-murder-2003",
+      "fields": [
+        "identity",
+        "ratings",
+        "broadcast_conflict",
+        "criticism",
+        "image",
+        "freshness"
+      ],
+      "urls": [
+        "https://www.programme-tv.com/television/1254734021/memories-of-murder.html",
+        "https://tv-programme.com/cine-plus-frisson/lundi-19-octobre-2026/",
+        "https://www.koreanfilm.or.kr/eng/films/index/filmsView.jsp?movieCd=20030046"
+      ],
+      "checked_at": "2026-10-15T12:25:00.000Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "applies_to": "piste lundi différée, non matérialisée",
+      "evidence_note": "Identité et intérêt établis ; contradiction 10:44/10:45 conservée.",
+      "status": "blocked_schedule_conflict"
+    },
+    {
+      "work_id": "bienvenue-a-gattaca-1997",
+      "fields": [
+        "identity",
+        "asset_duration",
+        "ratings",
+        "broadcast_conflict",
+        "criticism",
+        "image",
+        "freshness"
+      ],
+      "urls": [
+        "https://www.canalplus.com/cinema/bienvenue-a-gattaca/h/40778253_50889/resume-casting/",
+        "https://tv-programme.com/cine-plus-frisson/mardi-20-octobre-2026/",
+        "https://television.telerama.fr/programme-tv-mardi/cine-frisson"
+      ],
+      "checked_at": "2026-10-15T12:22:22.000Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "applies_to": "piste mardi différée, non matérialisée",
+      "evidence_note": "Asset courant et intérêt établis ; contradiction 10:07/10:11 conservée.",
+      "status": "blocked_schedule_conflict"
     }
   ],
   "source_issues": [
@@ -3345,6 +3517,60 @@
         "alternatives": [
           "sl-mercredi-gens-de-dublin"
         ]
+      },
+      {
+        "id": "sl-samedi-raccrochez-erreur",
+        "title": "Raccrochez, c’est une erreur",
+        "work_id": "raccrochez-c-est-une-erreur-1948",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Time Out relève la force du huis clos téléphonique et du jeu de Barbara Stanwyck, tandis que le New Yorker conserve une réserve sur les flashbacks emboîtés.",
+            "source_url": "https://www.timeout.com/movies/sorry-wrong-number"
+          }
+        ],
+        "decision_note": "Réserve draft matérialisée au rang 4 après concordance de TV-programme/Tabom et Ouest-France/SIPA sur samedi 17 octobre 2026 à 20:50 sur Ciné+ Classic ; durée œuvre et fenêtre antenne restent séparées.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-dimanche-quand-ville-dort",
+        "title": "Quand la ville dort",
+        "work_id": "quand-la-ville-dort-1950",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "deferred",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Criterion souligne le naturalisme, la précision du casse et la compassion de Huston pour la fragilité de ses personnages.",
+            "source_url": "https://www.criterion.com/films/28690-the-asphalt-jungle"
+          }
+        ],
+        "decision_note": "Diffusion du dimanche 18 octobre à 18:01 recoupée, identité, réception, notes, visuel et fraîcheur vérifiés ; carte différée faute de preuve attribuant une durée exacte à la copie diffusée.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-mardi-bienvenue-gattaca",
+        "title": "Bienvenue à Gattaca",
+        "work_id": "bienvenue-a-gattaca-1997",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "deferred",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Première salue une science-fiction d’atmosphère, ambitieuse et sans surenchère d’effets, qui réfléchit à l’eugénisme.",
+            "source_url": "https://www.premiere.fr/Cinema/News-Cinema/Bienvenue-a-Gattaca-est-un-film-dambiance-a-la-passion-tranquille--critique"
+          }
+        ],
+        "decision_note": "Identité, asset CANAL+ 1h42, réception, notes, visuel et fraîcheur vérifiés ; carte différée sur contradiction 10:07/10:11 non arbitrée.",
+        "alternatives": []
       }
     ]
   },
@@ -3368,7 +3594,10 @@
     "first_incomplete_stage": "enrichment",
     "next_actions": [
       "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi et du mardi pour progresser vers le minimum de dix candidats complets par jour, sans modifier les choix développés.",
-      "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
+      "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés.",
+      "Reprendre Quand la ville dort seulement si une preuve permet d’attribuer une durée exacte à la copie du dimanche 18 octobre 2026.",
+      "Reprendre Memories of Murder seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:44/10:45 du lundi 19 octobre 2026.",
+      "Reprendre Bienvenue à Gattaca seulement si une correction officielle précise ou un nouveau recoupement résout la contradiction 10:07/10:11 du mardi 20 octobre 2026."
     ]
   },
   "run_metrics": [
@@ -7135,7 +7364,8 @@
       "duration_basis": "Début UTC observé dans cette exécution ; passage en cours, intervalles de recherche et de rédaction partiellement parallèles non additionnés.",
       "run_state": "running",
       "completed_batches": [
-        "Trio développé du mercredi complété par deux cartes draft fraîches entièrement revues ; une piste en conflit remplacée par une alternative vérifiée."
+        "Trio développé du mercredi complété par deux cartes draft fraîches entièrement revues ; une piste en conflit remplacée par une alternative vérifiée.",
+        "Réserve du samedi ajoutée ; trois dossiers proches d’une carte sauvegardés comme partiels avec leurs contradictions factuelles et conditions de reprise."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -7145,15 +7375,15 @@
       ],
       "complete_cards_added": 0,
       "draft_cards_added": 2,
-      "draft_reserves_added": 0,
-      "partial_dossiers_added": 1,
+      "draft_reserves_added": 1,
+      "partial_dossiers_added": 4,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi et du mardi sans modifier les choix développés.",
+      "next_useful_batch": "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi et du mardi pour progresser vers le minimum de dix candidats complets par jour, sans modifier les choix développés.",
       "additions": {
-        "new_works": 2,
+        "new_works": 3,
         "visible_draft_cards": 2,
-        "distinct_reserves_added": 0,
+        "distinct_reserves_added": 1,
         "reused_existing_cards": 1,
         "scope": "comparaison avec ea37f56ecf36ec81bad7b061e6769b661fcd3844"
       },
@@ -7174,6 +7404,18 @@
           "started_at": "2026-10-15T12:11:27.604Z",
           "ended_at": "2026-10-15T12:13:14.077Z",
           "note": "Chevauche la fin des recherches."
+        },
+        {
+          "kind": "recherche",
+          "started_at": "2026-10-15T12:18:40.000Z",
+          "ended_at": "2026-10-15T12:25:00.000Z",
+          "note": "Quatre consultations parallèles en lecture seule ; chevauche la préparation du rendu."
+        },
+        {
+          "kind": "redaction_rendu",
+          "started_at": "2026-10-15T12:24:02.945Z",
+          "ended_at": "2026-10-15T12:27:00.000Z",
+          "note": "Rendu mécanique de la réserve sûre et sauvegarde structurée des trois dossiers différés."
         }
       ],
       "continuation_decisions": [
@@ -7204,39 +7446,77 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T12:18:34.269Z",
+          "elapsed_seconds": 925.114,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "5cf9e9693a8d056883be74317448be07f37d991b",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T13:11:27.604Z",
+          "remaining_count": 12,
+          "evaluated_by": "scripts/editorial-continuation.mjs",
+          "next_actions": [
+            "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi et du mardi pour progresser vers le minimum de dix candidats complets par jour, sans modifier les choix développés.",
+            "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T12:03:09.155Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T13:11:27.604Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T12:04:58.553Z",
-        "elapsed_seconds": 109.398,
+        "observed_at": "2026-10-15T12:18:34.269Z",
+        "elapsed_seconds": 925.114,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "ea37f56ecf36ec81bad7b061e6769b661fcd3844",
+        "source_sha": "5cf9e9693a8d056883be74317448be07f37d991b",
         "lease_owned": "yes",
-        "lease_until": "2026-10-15T13:03:36.394Z",
+        "lease_until": "2026-10-15T13:11:27.604Z",
         "remaining_count": 12,
         "evaluated_by": "scripts/editorial-continuation.mjs",
         "next_actions": [
-          "Compléter le trio développé du mercredi avec deux œuvres fraîches entièrement vérifiées, en partant de M le Maudit et The Big Short seulement après tri éditorial et recoupement du créneau.",
           "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi et du mardi pour progresser vers le minimum de dix candidats complets par jour, sans modifier les choix développés.",
           "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
         ],
         "observations": {
           "started_at": "2026-10-15T12:03:09.155Z",
           "lease_owned": "yes",
-          "lease_until": "2026-10-15T13:03:36.394Z",
+          "lease_until": "2026-10-15T13:11:27.604Z",
           "external_stop": null,
           "accessible_task_checks": [],
           "ready_handoff": null
         }
-      }
+      },
+      "ci_observations": [
+        {
+          "source_sha": "5cf9e9693a8d056883be74317448be07f37d991b",
+          "run_id": 38733582504,
+          "run_number": 991,
+          "observed_at": "2026-10-15T12:22:00.000Z",
+          "browser_presentation": "success",
+          "data_and_policy": "failure",
+          "failure": "test-editorial-task-board attend le texte historique « 35 paragraphes à réconcilier » alors que le rapport courant en déclare 12 ; les étapes ultérieures ont été sautées.",
+          "scope": "Défaut du test d’outillage, sans modification de code dans ce lot éditorial."
+        }
+      ]
     }
   ],
-  "updated_at": "2026-10-15T12:13:14.077Z",
+  "updated_at": "2026-10-15T12:27:00.000Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -8955,6 +9235,288 @@
       ],
       "decision": "différé — carte non matérialisée, alternative Gens de Dublin retenue",
       "reason": "Trois guides indiquent 08:30 et un guide actuel 08:31 ; contradiction factuelle non résolue."
+    },
+    {
+      "title": "Raccrochez, c’est une erreur",
+      "work_id": "raccrochez-c-est-une-erreur-1948",
+      "catalogue_match": null,
+      "identity_research": {
+        "director": "Anatole Litvak",
+        "year": 1948,
+        "country": "États-Unis",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0040823/",
+          "https://www.rottentomatoes.com/m/1032814-sorry_wrong_number"
+        ],
+        "checked_at": "2026-10-15T12:23:09.000Z",
+        "note": "Identité certaine ; durée œuvre 89 min séparée de la fenêtre antenne de 86 min, sans inférence de coupe, copie ou cadence."
+      },
+      "critical_evidence": [
+        {
+          "source": "Time Out",
+          "source_url": "https://www.timeout.com/movies/sorry-wrong-number",
+          "assessment": "La mise en scène transforme la chambre en cellule et fait évoluer le jeu de Stanwyck malgré l’immobilité ; la construction étendue depuis la pièce radio reste discutée.",
+          "kind": "professional_criticism",
+          "checked_at": "2026-10-15T12:23:09.000Z"
+        },
+        {
+          "source": "The New Yorker",
+          "author": "John McCarten",
+          "published_at": "1948-09-04",
+          "source_url": "https://www.newyorker.com/magazine/1948/09/11/1948-09-11-059-tny-cards-000027734",
+          "assessment": "La tension est forte auprès de l’héroïne, mais l’expansion et les flashbacks emboîtés alourdissent la chronologie.",
+          "kind": "professional_criticism",
+          "checked_at": "2026-10-15T12:23:09.000Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_two_sources",
+        "checked_at": "2026-10-15T12:23:09.000Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0040823/",
+          "https://www.senscritique.com/film/raccrochez_c_est_une_erreur/444012"
+        ],
+        "note": "IMDb 7,3/10 (15 k) ; SensCritique 6,6/10."
+      },
+      "broadcast_research": {
+        "date": "2026-10-17",
+        "start": "20:50",
+        "channel": "Ciné+ Classic",
+        "source_urls": [
+          "https://tv-programme.com/cine-plus-classic/samedi-17-octobre-2026/",
+          "https://programmetv.ouest-france.fr/film/suspense/raccrochez-c-est-une-erreur-c54192/",
+          "https://www.molotov.tv/fr_fr/p/12354/raccrochez-c-est-une-erreur"
+        ],
+        "checked_at": "2026-10-15T12:23:09.000Z",
+        "status": "verified_by_two_current_publishers_independence_unknown"
+      },
+      "image_research": {
+        "source_page": "https://www.rottentomatoes.com/m/1032814-sorry_wrong_number",
+        "checked_at": "2026-10-15T12:23:09.000Z",
+        "status": "exact_theatrical_poster_visually_verified_ci_pending",
+        "visually_checked": true
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T12:23:09.000Z",
+        "status": "fresh_within_public_history",
+        "issues_checked": [
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ]
+      },
+      "missing_fields": [
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
+      ],
+      "decision": "réserve draft matérialisée — CI final requis",
+      "reason": "Diffusion, identité, réception contradictoire conservée, notes, visuel, fraîcheur et textes revus."
+    },
+    {
+      "title": "Quand la ville dort",
+      "work_id": "quand-la-ville-dort-1950",
+      "catalogue_match": "preuves stables sauvegardées en S42",
+      "identity_research": {
+        "director": "John Huston",
+        "year": 1950,
+        "country": "États-Unis",
+        "source_urls": [
+          "https://www.canalplus.com/cinema/quand-la-ville-dort/h/174926_50002",
+          "https://www.imdb.com/title/tt0042208/"
+        ],
+        "checked_at": "2026-10-15T12:22:43.453Z",
+        "note": "Identité certaine ; durées 107, 108, 109 et 112 min ont des portées différentes et aucune n’est attribuable avec certitude à la copie du 18 octobre."
+      },
+      "critical_evidence": [
+        {
+          "source": "Criterion",
+          "source_url": "https://www.criterion.com/films/28690-the-asphalt-jungle",
+          "assessment": "Naturalisme, précision du casse, ensemble d’acteurs et compassion pour la fragilité des gangsters.",
+          "kind": "professional_criticism",
+          "checked_at": "2026-10-15T12:22:43.453Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_two_sources",
+        "checked_at": "2026-10-15T12:22:43.453Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0042208/",
+          "https://www.senscritique.com/film/quand_la_ville_dort/415613"
+        ],
+        "note": "IMDb 7,8/10 (34 k) ; SensCritique 7,6/10."
+      },
+      "broadcast_research": {
+        "date": "2026-10-18",
+        "start": "18:01",
+        "channel": "Ciné+ Classic",
+        "source_urls": [
+          "https://tv-programme.com/cine-plus-classic/dimanche-18-octobre-2026/",
+          "https://tv.digital3d.com/detail/cineplus-classic-44?date=2026-10-18&time=18%3A01"
+        ],
+        "checked_at": "2026-10-15T12:22:43.453Z",
+        "status": "schedule_verified_duration_version_blocked"
+      },
+      "image_research": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:The_Asphalt_Jungle_(1950_poster).jpg",
+        "checked_at": "2026-10-15T12:22:43.453Z",
+        "status": "exact_public_domain_poster_visually_verified",
+        "visually_checked": true
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T12:22:43.453Z",
+        "status": "fresh_within_public_history",
+        "issues_checked": [
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ]
+      },
+      "missing_fields": [
+        "durée exacte de la copie diffusée le 18 octobre"
+      ],
+      "decision": "différé — carte non matérialisée",
+      "reason": "La fenêtre EPG ne prouve pas la durée de copie et les sources donnent plusieurs durées de portée différente."
+    },
+    {
+      "title": "Memories of Murder",
+      "work_id": "memories-of-murder-2003",
+      "catalogue_match": null,
+      "identity_research": {
+        "director": "Bong Joon-ho",
+        "year": 2003,
+        "country": "Corée du Sud",
+        "source_urls": [
+          "https://www.koreanfilm.or.kr/eng/films/index/filmsView.jsp?movieCd=20030046",
+          "https://www.canalplus.com/cinema/memories-of-murder/h/2881021_50002/resume-casting/",
+          "https://www.criterion.com/films/31458-"
+        ],
+        "checked_at": "2026-10-15T12:25:00.000Z",
+        "note": "Identité certaine ; durées 125, 127, 130 et 131 min conservées selon portée, sans inférence de montage."
+      },
+      "critical_evidence": [
+        {
+          "source": "Cinémathèque française",
+          "source_url": "https://www.cinematheque.fr/intervention/530792.html",
+          "assessment": "Polar virtuose entre comédie et tragédie, où l’incompétence puis l’impuissance policières conduisent du rire au malaise.",
+          "kind": "professional_criticism",
+          "checked_at": "2026-10-15T12:25:00.000Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_two_sources",
+        "checked_at": "2026-10-15T12:25:00.000Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0353969/",
+          "https://www.senscritique.com/film/memories_of_murder/453901"
+        ],
+        "note": "IMDb 8,1/10 (276 k) ; SensCritique 8,1/10."
+      },
+      "broadcast_research": {
+        "date": "2026-10-19",
+        "start": null,
+        "channel": "Ciné+ Frisson",
+        "source_urls": [
+          "https://www.programme-tv.com/television/1254734021/memories-of-murder.html",
+          "https://programmetv.ouest-france.fr/film/policier/memories-of-murder-c2967314/",
+          "https://www.programmetvcesoir.net/chaine/cine-frisson/2026-10-19",
+          "https://tv-programme.com/cine-plus-frisson/lundi-19-octobre-2026/",
+          "https://television.telerama.fr/programme-tv-lundi/cine-frisson"
+        ],
+        "checked_at": "2026-10-15T12:25:00.000Z",
+        "status": "blocked_10_44_vs_10_45"
+      },
+      "image_research": {
+        "source_page": "https://www.neonrated.com/film/memories-of-murder",
+        "checked_at": "2026-10-15T12:25:00.000Z",
+        "status": "exact_distributor_art_visually_verified",
+        "visually_checked": true
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T12:25:00.000Z",
+        "status": "fresh_within_public_history",
+        "issues_checked": [
+          "2026-S37",
+          "2026-S38",
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ]
+      },
+      "missing_fields": [
+        "horaire exact arbitré entre 10:44 et 10:45"
+      ],
+      "decision": "différé — carte non matérialisée",
+      "reason": "Plusieurs guides concordent dans chaque cluster horaire ; aucune correction officielle précise ne tranche la minute."
+    },
+    {
+      "title": "Bienvenue à Gattaca",
+      "work_id": "bienvenue-a-gattaca-1997",
+      "catalogue_match": null,
+      "identity_research": {
+        "director": "Andrew Niccol",
+        "year": 1997,
+        "country": "États-Unis",
+        "source_urls": [
+          "https://www.canalplus.com/cinema/bienvenue-a-gattaca/h/40778253_50889/resume-casting/",
+          "https://www.bbfc.co.uk/release/gattaca-q29sbgvjdglvbjpwwc0zmdyyote"
+        ],
+        "checked_at": "2026-10-15T12:22:22.000Z",
+        "note": "Asset CANAL+ courant de 1h42 identifié ; une autre version CANAL+ de 1h46 est conservée séparément."
+      },
+      "critical_evidence": [
+        {
+          "source": "Première",
+          "source_url": "https://www.premiere.fr/Cinema/News-Cinema/Bienvenue-a-Gattaca-est-un-film-dambiance-a-la-passion-tranquille--critique",
+          "assessment": "Science-fiction d’atmosphère ambitieuse, réflexion sur l’eugénisme et suspense sans surenchère d’effets.",
+          "kind": "professional_criticism",
+          "checked_at": "2026-10-15T12:22:22.000Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_two_sources",
+        "checked_at": "2026-10-15T12:22:22.000Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0119177/",
+          "https://www.senscritique.com/film/bienvenue_a_gattaca/488559"
+        ],
+        "note": "IMDb 7,7/10 (351 k) ; SensCritique 7,6/10."
+      },
+      "broadcast_research": {
+        "date": "2026-10-20",
+        "start": null,
+        "channel": "Ciné+ Frisson",
+        "source_urls": [
+          "https://tv-programme.com/cine-plus-frisson/mardi-20-octobre-2026/",
+          "https://www.scifi-universe.com/films/programme-tv/2026/10/20",
+          "https://www.molotov.tv/fr_fr/p/4021/bienvenue-a-gattaca",
+          "https://television.telerama.fr/programme-tv-mardi/cine-frisson"
+        ],
+        "checked_at": "2026-10-15T12:22:22.000Z",
+        "status": "blocked_10_07_vs_10_11"
+      },
+      "image_research": {
+        "source_page": "https://www.imdb.com/title/tt0119177/mediaviewer/rm772375552/",
+        "checked_at": "2026-10-15T12:22:22.000Z",
+        "status": "exact_french_poster_visually_verified",
+        "visually_checked": true
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T12:22:22.000Z",
+        "status": "fresh_within_public_history",
+        "issues_checked": [
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ]
+      },
+      "missing_fields": [
+        "horaire exact arbitré entre 10:07 et 10:11"
+      ],
+      "decision": "différé — carte non matérialisée",
+      "reason": "Plusieurs guides convergent à 10:07, mais Télérama et une vue Sudinfo affichent 10:11 ; aucune correction officielle précise."
     }
   ]
 }
