@@ -4200,6 +4200,22 @@
       "applies_to": "Ciné+ Emotion — lundi 19 et mardi 20 octobre 2026, jours civils 00:00–23:59",
       "evidence_note": "Secondes lectures distinctes : 17/17 puis 16/16 départs concordants, nuits incluses, aucune omission ; l’apostrophe typographique de Pisse and Love est traitée comme différence de forme seulement.",
       "status": "reread_complete_single_editor_limit"
+    },
+    {
+      "fields": [
+        "schedule_identity",
+        "omission_review"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-emotion/mercredi-21-octobre-2026/",
+        "https://tv-programme.com/cine-plus-emotion/jeudi-22-octobre-2026/",
+        "https://tv-programme.com/cine-plus-emotion/vendredi-23-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T15:51:31.996Z",
+      "stability": "cycle_specific",
+      "applies_to": "Ciné+ Emotion — mercredi 21 au vendredi 23 octobre 2026, jours civils 00:00–23:59",
+      "evidence_note": "Secondes lectures distinctes : 17/17, 16/16 et 17/17 départs concordants, nuits incluses, aucune omission ; différences de guillemets normalisées sans changement d’identité.",
+      "status": "reread_complete_single_editor_limit"
     }
   ],
   "source_issues": [
@@ -11357,7 +11373,8 @@
         "Seconde lecture Ciné+ Festival des 19 et 20 octobre : lundi sans omission mais deux horaires divergents ; mardi avec trois omissions potentielles et sept horaires divergents, tous conservés ouverts.",
         "Seconde lecture Ciné+ Festival des 21 au 23 octobre : aucune omission ; mercredi et vendredi concordants, neuf horaires du jeudi laissés ouverts. Les sept dates de la chaîne disposent désormais d’une revue de niveau 2.",
         "Seconde lecture Ciné+ Emotion des 17 et 18 octobre : 14/14 puis 15/15 départs concordants, aucune omission ; limite mono-éditeur conservée.",
-        "Seconde lecture Ciné+ Emotion des 19 et 20 octobre : 17/17 puis 16/16 départs concordants, aucune omission ; limite mono-éditeur conservée."
+        "Seconde lecture Ciné+ Emotion des 19 et 20 octobre : 17/17 puis 16/16 départs concordants, aucune omission ; limite mono-éditeur conservée.",
+        "Seconde lecture Ciné+ Emotion des 21 au 23 octobre : 17/17, 16/16 et 17/17 départs concordants, aucune omission ; les sept dates de la chaîne disposent désormais d’une revue de niveau 2."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -11370,7 +11387,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Terminer les secondes lectures Ciné+ Emotion des 21 au 23 octobre.",
+      "next_useful_batch": "Commencer la seconde lecture complète d’une autre chaîne inventoriée ; Ciné+ Emotion est relue sur les sept dates.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -12365,26 +12382,56 @@
             ],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T15:51:31.996Z",
+          "elapsed_seconds": 2883,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "42ea66837e6b1ff4497b68ada6eae3bedb2bffdc",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T16:34:27.059Z",
+          "remaining_count": 11,
+          "next_actions_total": 4,
+          "evaluated_by": "manual_fallback",
+          "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les chaînes de niveau 2 restant à traiter.",
+          "next_actions": [
+            "Commencer la seconde lecture complète d’une autre chaîne inventoriée ; Ciné+ Emotion est relue sur les sept dates."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T15:03:29.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T16:34:27.059Z",
+            "external_stop": null,
+            "accessible_task_checks": [
+              "23 autres chaînes inventoriées restent sans seconde lecture sauvegardée."
+            ],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T15:50:47.969Z",
-        "elapsed_seconds": 2839,
+        "observed_at": "2026-10-15T15:51:31.996Z",
+        "elapsed_seconds": 2883,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "b4fdcd4da086808419bd161a7c1aebf0adaab014",
+        "source_sha": "42ea66837e6b1ff4497b68ada6eae3bedb2bffdc",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T16:34:27.059Z",
         "remaining_count": 11,
         "next_actions_total": 4,
         "evaluated_by": "manual_fallback",
-        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les trois dates Emotion encore accessibles.",
+        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les chaînes de niveau 2 restant à traiter.",
         "next_actions": [
-          "Terminer les secondes lectures Ciné+ Emotion des 21 au 23 octobre."
+          "Commencer la seconde lecture complète d’une autre chaîne inventoriée ; Ciné+ Emotion est relue sur les sept dates."
         ],
         "observations": {
           "started_at": "2026-10-15T15:03:29.000Z",
@@ -12392,7 +12439,7 @@
           "lease_until": "2026-10-15T16:34:27.059Z",
           "external_stop": null,
           "accessible_task_checks": [
-            "Trois dates Ciné+ Emotion restent sans seconde lecture sauvegardée."
+            "23 autres chaînes inventoriées restent sans seconde lecture sauvegardée."
           ],
           "ready_handoff": null
         }
@@ -17601,6 +17648,105 @@
         },
         "decisions": [
           "16/16 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Ciné+ Emotion"
+        ],
+        "flow": "Ciné+ Emotion",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:51:31.996Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-21",
+        "urls": [
+          "https://tv-programme.com/cine-plus-emotion/mercredi-21-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 17,
+          "source_rows_reviewed": 17,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Aucun report de la veille à exclure : le premier départ du jour civil est L'amour, c'est surcoté à 00:00."
+          ]
+        },
+        "decisions": [
+          "17/17 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Ciné+ Emotion"
+        ],
+        "flow": "Ciné+ Emotion",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:51:31.996Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-22",
+        "urls": [
+          "https://tv-programme.com/cine-plus-emotion/jeudi-22-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 16,
+          "source_rows_reviewed": 16,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Mal de pierres commencé la veille à 22:22 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "16/16 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Ciné+ Emotion"
+        ],
+        "flow": "Ciné+ Emotion",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:51:31.996Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-23",
+        "urls": [
+          "https://tv-programme.com/cine-plus-emotion/vendredi-23-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 17,
+          "source_rows_reviewed": 17,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Les bien-aimés commencé la veille à 22:37 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "17/17 départs du jour civil retrouvés aux mêmes horaires ; aucune omission détectée."
         ],
         "limits": [
           "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
