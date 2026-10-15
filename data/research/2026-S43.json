@@ -11063,7 +11063,8 @@
         "2026-10-15T15:26:02.000Z — seconde lecture nocturne Ciné+ Family du 22 octobre : 3/3 lignes de 00:00–05:54 concordantes avec l’inventaire, aucune omission ; la journée civile est désormais relue sur 00:00–23:59, sans indépendance certifiée.",
         "2026-10-15T15:27:03.000Z — seconde lecture Ciné+ OCS du 22 octobre : 19/19 départs du jour civil concordants et aucune omission ; report Better Man commencé la veille non dupliqué, double segment Le cinéma qui respire conservé, indépendance inconnue.",
         "2026-10-15T15:27:53.000Z — seconde lecture Ciné+ OCS du 23 octobre : 17/17 départs du jour civil concordants et aucune omission ; report B.R.I S01E06 commencé la veille non dupliqué, double segment Chanson douce conservé, indépendance inconnue.",
-        "2026-10-15T15:29:24.000Z — secondes lectures groupées Ciné+ OCS des 17, 18, 19 et 20 octobre : 70/70 départs concordants et aucune omission ; reports de veille et doubles segments conservés, indépendance inconnue."
+        "2026-10-15T15:29:24.000Z — secondes lectures groupées Ciné+ OCS des 17, 18, 19 et 20 octobre : 70/70 départs concordants et aucune omission ; reports de veille et doubles segments conservés, indépendance inconnue.",
+        "2026-10-15T15:30:41.000Z — secondes lectures Ciné+ Family des 17, 18 et 19 octobre : dimanche 14/14 sans omission ; samedi deux omissions et treize décalages, lundi treize décalages sans omission, tous conservés sans correction automatique."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -11076,7 +11077,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Ciné+ OCS est relu sur les sept dates ; poursuivre les secondes lectures sur Ciné+ Family ou une autre chaîne cinéma complète, sans certifier l’indépendance.",
+      "next_useful_batch": "Recouper les omissions et décalages de Ciné+ Family des 17 et 19 octobre avec une voie distincte, tout en achevant les secondes lectures des 20, 21 et 23 octobre.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -11552,18 +11553,51 @@
             ],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T15:29:52.091Z",
+          "elapsed_seconds": 1583,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "be908245e4dd8afaf17a0c92238acc488c5461b3",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T16:14:22.427Z",
+          "remaining_count": 11,
+          "next_actions_total": 4,
+          "evaluated_by": "manual_fallback",
+          "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision fondée sur l’horloge observée, le bail relu et le checkpoint immuable.",
+          "next_actions": [
+            "Réconcilier les omissions et décalages horaires détectés sur Ciné+ Family les 17 et 19 octobre contre une source distincte ou une capture datée avant toute correction.",
+            "Poursuivre les secondes lectures Ciné+ Family des 20, 21 et 23 octobre et conserver les contradictions éventuelles.",
+            "Matérialiser The Big Short comme réserve draft du mercredi avec le helper dès qu’un clone exécutable est disponible.",
+            "Observer la CI de la tête courante sans interrompre les travaux indépendants."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T15:03:29.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T16:14:22.427Z",
+            "external_stop": null,
+            "accessible_task_checks": [
+              "three Cine+ Family dated grids were accessible; two revealed contradictions requiring preservation"
+            ],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T15:28:23.344Z",
-        "elapsed_seconds": 1494,
+        "observed_at": "2026-10-15T15:29:52.091Z",
+        "elapsed_seconds": 1583,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "9eddcd1c3016212d15d27438695c48395fd72898",
+        "source_sha": "be908245e4dd8afaf17a0c92238acc488c5461b3",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T16:14:22.427Z",
         "remaining_count": 11,
@@ -11571,10 +11605,10 @@
         "evaluated_by": "manual_fallback",
         "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision fondée sur l’horloge observée, le bail relu et le checkpoint immuable.",
         "next_actions": [
-          "Matérialiser The Big Short comme réserve draft du mercredi depuis le dossier désormais complet, avec editorial-draft-cards.mjs dès qu’un clone exécutable est disponible ; ne modifier aucun choix visible.",
-          "Achever les secondes lectures restantes de Ciné+ OCS puis poursuivre sur Ciné+ Family, en sauvegardant comparaisons, omissions et limites.",
-          "Observer la CI de la tête courante sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
-          "Ajouter une réserve complète à un jour encore déficitaire depuis un dossier sauvegardé et une diffusion concordante, sans reprendre les pistes en attente sans fait nouveau."
+          "Réconcilier les omissions et décalages horaires détectés sur Ciné+ Family les 17 et 19 octobre contre une source distincte ou une capture datée avant toute correction.",
+          "Poursuivre les secondes lectures Ciné+ Family des 20, 21 et 23 octobre et conserver les contradictions éventuelles.",
+          "Matérialiser The Big Short comme réserve draft du mercredi avec le helper dès qu’un clone exécutable est disponible.",
+          "Observer la CI de la tête courante sans interrompre les travaux indépendants."
         ],
         "observations": {
           "started_at": "2026-10-15T15:03:29.000Z",
@@ -11582,7 +11616,7 @@
           "lease_until": "2026-10-15T16:14:22.427Z",
           "external_stop": null,
           "accessible_task_checks": [
-            "four additional Cine+ OCS dated grids were accessible for a grouped level-2 reread"
+            "three Cine+ Family dated grids were accessible; two revealed contradictions requiring preservation"
           ],
           "ready_handoff": null
         }
@@ -15160,6 +15194,252 @@
         ],
         "independent_crosscheck_complete": false,
         "status": "single_publisher_full_day_reread_complete"
+      },
+      {
+        "channels": [
+          "Ciné+ Family"
+        ],
+        "flow": "Ciné+ Family",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:30:41.000Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-17",
+        "urls": [
+          "https://tv-programme.com/cine-plus-family/samedi-17-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 16,
+          "source_rows_reviewed": 18,
+          "omissions": [
+            {
+              "start": "20:44",
+              "title": "Les cahiers d'Esther S02E19 La malédiction"
+            },
+            {
+              "start": "20:46",
+              "title": "Les cahiers d'Esther S02E40 Le club d'impro"
+            }
+          ],
+          "schedule_contradictions": [
+            {
+              "saved_start": "01:20",
+              "review_start": "01:19",
+              "title": "Microbe et Gasoil"
+            },
+            {
+              "saved_start": "03:00",
+              "review_start": "02:59",
+              "title": "Monsieur Papa"
+            },
+            {
+              "saved_start": "05:13",
+              "review_start": "05:12",
+              "title": "Hirondelles et amazones"
+            },
+            {
+              "saved_start": "06:48",
+              "review_start": "06:47",
+              "title": "Les Schtroumpfs 2"
+            },
+            {
+              "saved_start": "08:30",
+              "review_start": "08:29",
+              "title": "Amélie et la Métaphysique des tubes"
+            },
+            {
+              "saved_start": "09:46",
+              "review_start": "09:45",
+              "title": "L'odyssée de Céleste"
+            },
+            {
+              "saved_start": "11:13",
+              "review_start": "11:09",
+              "title": "Petit vampire"
+            },
+            {
+              "saved_start": "12:33",
+              "review_start": "12:30",
+              "title": "Tête en l'air"
+            },
+            {
+              "saved_start": "12:45",
+              "review_start": "12:43",
+              "title": "La bande à Rousseau"
+            },
+            {
+              "saved_start": "14:46",
+              "review_start": "14:45",
+              "title": "Mia et le lion blanc"
+            },
+            {
+              "saved_start": "16:22",
+              "review_start": "16:19",
+              "title": "La panthère des neiges"
+            },
+            {
+              "saved_start": "17:56",
+              "review_start": "17:54",
+              "title": "Les saisons"
+            },
+            {
+              "saved_start": "22:34",
+              "review_start": "22:33",
+              "title": "Kaamelott : Deuxième volet (partie 1)"
+            }
+          ],
+          "retained_source_segments": [
+            "Neuilly sa mère ! commencé la veille à 23:50 est un report de continuité et n’est pas dupliqué comme départ du jour civil du 17 octobre."
+          ]
+        },
+        "decisions": [
+          "Deux omissions réelles et treize décalages horaires sont conservés comme contradictions à réconcilier ; aucune correction automatique de l’inventaire.",
+          "Les cinq horaires inchangés restent concordants."
+        ],
+        "limits": [
+          "Une seule grille complète accessible pour ce périmètre ; seconde lecture distincte du même éditeur, pas une source indépendante.",
+          "La page relue a été crawlée le 14 octobre 2026 ; les différences avec l’extraction sauvegardée exigent une nouvelle décision de source avant correction."
+        ],
+        "status": "reread_complete_with_omissions_and_contradictions"
+      },
+      {
+        "channels": [
+          "Ciné+ Family"
+        ],
+        "flow": "Ciné+ Family",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:30:41.000Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-18",
+        "urls": [
+          "https://tv-programme.com/cine-plus-family/dimanche-18-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 14,
+          "source_rows_reviewed": 14,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Kaamelott : Deuxième volet (partie 1) commencé la veille à 22:34 est un report de continuité et n’est pas dupliqué comme départ du jour civil du 18 octobre."
+          ]
+        },
+        "decisions": [
+          "Les quatorze départs du jour civil, horaires et identités concordent avec l’inventaire sauvegardé.",
+          "Aucune omission détectée sur 00:00–23:59 après traitement du report commencé la veille."
+        ],
+        "limits": [
+          "Une seule grille complète accessible pour ce périmètre ; seconde lecture distincte de l’extraction primaire, pas un second éditeur.",
+          "Provenance amont et indépendance inconnues."
+        ],
+        "status": "single_publisher_full_day_reread_complete"
+      },
+      {
+        "channels": [
+          "Ciné+ Family"
+        ],
+        "flow": "Ciné+ Family",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:30:41.000Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-19",
+        "urls": [
+          "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 17,
+          "source_rows_reviewed": 17,
+          "omissions": [],
+          "schedule_contradictions": [
+            {
+              "saved_start": "00:03",
+              "review_start": "00:04",
+              "title": "Le Père Noël est une ordure"
+            },
+            {
+              "saved_start": "01:32",
+              "review_start": "01:33",
+              "title": "Les Bodin's partent en vrille"
+            },
+            {
+              "saved_start": "04:33",
+              "review_start": "04:34",
+              "title": "Drôle de prof 2 au camping"
+            },
+            {
+              "saved_start": "07:02",
+              "review_start": "07:04",
+              "title": "L'odyssée de Céleste"
+            },
+            {
+              "saved_start": "08:30",
+              "review_start": "08:29",
+              "title": "Kung Fu Nanny"
+            },
+            {
+              "saved_start": "10:02",
+              "review_start": "10:00",
+              "title": "Adventureland, job d'été à éviter"
+            },
+            {
+              "saved_start": "11:46",
+              "review_start": "11:45",
+              "title": "Diplodocus"
+            },
+            {
+              "saved_start": "13:18",
+              "review_start": "13:17",
+              "title": "Un caillou dans la chaussure"
+            },
+            {
+              "saved_start": "15:13",
+              "review_start": "15:12",
+              "title": "Le grand chemin"
+            },
+            {
+              "saved_start": "16:57",
+              "review_start": "16:55",
+              "title": "Boîte à savon"
+            },
+            {
+              "saved_start": "17:15",
+              "review_start": "17:13",
+              "title": "Jim Bouton : la cité des dragons"
+            },
+            {
+              "saved_start": "19:02",
+              "review_start": "19:01",
+              "title": "La vie scolaire"
+            },
+            {
+              "saved_start": "22:51",
+              "review_start": "22:49",
+              "title": "Sonic 3, le film"
+            }
+          ],
+          "retained_source_segments": [
+            "Dieumerci ! commencé la veille à 22:31 est un report de continuité et n’est pas dupliqué comme départ du jour civil du 19 octobre."
+          ]
+        },
+        "decisions": [
+          "Les dix-sept identités sont présentes sans omission, mais treize décalages horaires sont conservés comme contradictions à réconcilier ; aucune correction automatique.",
+          "Les quatre horaires inchangés restent concordants."
+        ],
+        "limits": [
+          "Une seule grille complète accessible pour ce périmètre ; seconde lecture distincte du même éditeur, pas une source indépendante.",
+          "La grille relue diffère de l’extraction sauvegardée ; une nouvelle décision de source est requise avant correction."
+        ],
+        "status": "reread_complete_with_schedule_contradictions"
       }
     ],
     "independent_crosscheck_complete": false,
