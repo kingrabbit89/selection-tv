@@ -145,7 +145,8 @@
     "2026-10-15T18:49:00.000Z — À pied d’œuvre : dossier partiel consolidé depuis la fiche officielle CANAL+ ; identité de base et durée 1 h 32 vérifiées, sans sélection ni certification de la diffusion, des notes ou du visuel.",
     "2026-10-15T19:01:58.983Z — Last Stop : Yuma County réutilisé comme réserve draft samedi rang 6 à 17:20 selon la ligne Télérama fournie relue (p. 106, /observations/31) ; l’écart Web 17:17 reste visible, les trois primaires et les cinq cartes antérieures sont conservés.",
     "2026-10-15T19:06:44.300Z — cinq réserves réutilisées sous autorité des lignes Télérama fournies et relues : lundi Last Stop : Yuma County rang 7 et Bright Star rang 8, jeudi La Prisonnière du désert rang 7 et Midsommar rang 8, vendredi Raccrochez, c’est une erreur rang 7 ; primaires et cartes antérieures conservés.",
-    "2026-10-15T19:17:46.349Z — jeudi complété à dix cartes avec Bugonia rang 9 à 01:15 et La Voix de Hind Rajab rang 10 à 18:30 ; deux dossiers complets, textes originaux, visuels inspectés, notes relues, répétitions S40 justifiées par une nouvelle diffusion linéaire et écarts de grille conservés."
+    "2026-10-15T19:17:46.349Z — jeudi complété à dix cartes avec Bugonia rang 9 à 01:15 et La Voix de Hind Rajab rang 10 à 18:30 ; deux dossiers complets, textes originaux, visuels inspectés, notes relues, répétitions S40 justifiées par une nouvelle diffusion linéaire et écarts de grille conservés.",
+    "2026-10-15T19:28:09.437Z — mardi complété à sept cartes avec deux documentaires ARTE : Kibboutz Nir Oz, aux portes de Gaza rang 6 à 22:40 et Yémen, carrefour de toutes les guerres rang 7 à 23:40 ; deux nouveaux dossiers complets, visuels officiels inspectés, absence de notes ciblée, critiques Télérama attribuées et corrections officielles d’horaire conservées."
   ],
   "blockers": [],
   "research_attempts": [
@@ -5059,6 +5060,68 @@
       ],
       "evidence_note": "Télérama fourni p. 136 /observations/1003 (sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d) arbitre 18:30 ; TV-programme 18:24 conservé. Dossier canonique, notes, critique et affiche relus ; CI distant restant.",
       "status": "verified_for_draft"
+    },
+    {
+      "work_id": "kibboutz-nir-oz-aux-portes-de-gaza-2026",
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "ratings_unavailable_reason",
+        "image",
+        "links",
+        "title",
+        "channel",
+        "date",
+        "start",
+        "editorial_copy"
+      ],
+      "urls": [
+        "https://www.arte.tv/fr/videos/124407-000-A/kibboutz-nir-oz-aux-portes-de-gaza/",
+        "https://www.arte.tv/fr/guide/20261020/",
+        "https://www.programme-television.org/type/documentaires/politiques/kibboutz-nir-oz-aux-portes-de-gaza-440328165"
+      ],
+      "checked_at": "2026-10-15T19:28:09.437Z",
+      "stability": "mixed_stable_identity_and_cycle_specific_broadcast",
+      "applies_to": [
+        "mardi-selection reserve rank 6"
+      ],
+      "evidence_note": "Page et guide officiels ARTE actuels relus ; 22:40 concorde avec Télé 7 Jours. Critique Télérama p. 120 /reviews/17 (sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d) attribuée et paraphrasée ; visuel officiel inspecté ; CI distant restant.",
+      "status": "verified_for_draft"
+    },
+    {
+      "work_id": "yemen-carrefour-de-toutes-les-guerres-2025",
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "ratings_unavailable_reason",
+        "image",
+        "links",
+        "title",
+        "channel",
+        "date",
+        "start",
+        "editorial_copy"
+      ],
+      "urls": [
+        "https://www.arte.tv/fr/videos/125539-000-A/yemen-carrefour-de-toutes-les-guerres/",
+        "https://www.arte.tv/fr/guide/20261020/",
+        "https://tv-programme.com/arte/mardi-20-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T19:28:09.437Z",
+      "stability": "mixed_stable_identity_and_cycle_specific_broadcast",
+      "applies_to": [
+        "mardi-selection reserve rank 7"
+      ],
+      "evidence_note": "Page et guide officiels ARTE actuels relus ; 23:40 concorde avec TV-programme. Critique Télérama p. 120 /reviews/18 (sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d) attribuée et paraphrasée ; visuel officiel inspecté ; CI distant restant.",
+      "status": "verified_for_draft"
     }
   ],
   "source_issues": [
@@ -6526,6 +6589,72 @@
         "decision_note": "Réserve draft jeudi rang 10 à 18:30 : autorité Télérama relue, écart TV-programme 18:24 conservé ; dossier complet, répétition S40 justifiée par la nouvelle diffusion linéaire.",
         "alternatives": [
           "sl-jeudi-bugonia-2025"
+        ]
+      },
+      {
+        "id": "sl-mardi-kibboutz-nir-oz-2026",
+        "title": "Kibboutz Nir Oz, aux portes de Gaza",
+        "work_id": "kibboutz-nir-oz-aux-portes-de-gaza-2026",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama juge le film « Très bien » et souligne la force des archives de Chaïm Peri, la pluralité des témoignages et le portrait nuancé des idéaux et aveuglements du kibboutz.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d",
+            "pdf_page": 120,
+            "bbox": [
+              103.96,
+              333.28,
+              262.73,
+              366.96
+            ],
+            "provenance": {
+              "source_sha": "434792b378bc21c950b0c25f00cc79015a9d572b",
+              "path": "data/editorial-inputs/2026-S43/telerama-editorial.json",
+              "json_pointer": "/reviews/17"
+            }
+          }
+        ],
+        "decision_note": "Réserve draft mardi rang 6 à 22:40 : horaire du guide officiel ARTE actuel, concordant avec Télé 7 Jours et Programme-TV ; ancienne ligne papier 22:30 conservée comme écart.",
+        "alternatives": [
+          "sl-mardi-yemen-2025"
+        ]
+      },
+      {
+        "id": "sl-mardi-yemen-2025",
+        "title": "Yémen, carrefour de toutes les guerres",
+        "work_id": "yemen-carrefour-de-toutes-les-guerres-2025",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama juge le film « Très bien » et relève une synthèse exigeante mais claire, rendue intelligible par la diversité des intervenants.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d",
+            "pdf_page": 120,
+            "bbox": [
+              262.16,
+              542.28,
+              465.77,
+              566.91
+            ],
+            "provenance": {
+              "source_sha": "434792b378bc21c950b0c25f00cc79015a9d572b",
+              "path": "data/editorial-inputs/2026-S43/telerama-editorial.json",
+              "json_pointer": "/reviews/18"
+            }
+          }
+        ],
+        "decision_note": "Réserve draft mardi rang 7 à 23:40 : horaire du guide officiel ARTE actuel et de TV-programme ; ancienne ligne papier et guides 23:35 conservés comme écart.",
+        "alternatives": [
+          "sl-mardi-kibboutz-nir-oz-2026"
         ]
       }
     ]
@@ -17029,27 +17158,30 @@
       "completed_batches": [
         "2026-10-15T19:01:58.983Z — Last Stop : Yuma County réutilisé comme réserve draft samedi rang 6 à 17:20 selon la ligne Télérama fournie relue (p. 106, /observations/31) ; l’écart Web 17:17 reste visible, les trois primaires et les cinq cartes antérieures sont conservés.",
         "2026-10-15T19:06:44.300Z — cinq réserves réutilisées sous autorité des lignes Télérama fournies et relues : lundi Last Stop : Yuma County rang 7 et Bright Star rang 8, jeudi La Prisonnière du désert rang 7 et Midsommar rang 8, vendredi Raccrochez, c’est une erreur rang 7 ; primaires et cartes antérieures conservés.",
-        "2026-10-15T19:17:46.349Z — jeudi complété à dix cartes avec Bugonia rang 9 à 01:15 et La Voix de Hind Rajab rang 10 à 18:30 ; deux dossiers complets, textes originaux, visuels inspectés, notes relues, répétitions S40 justifiées par une nouvelle diffusion linéaire et écarts de grille conservés."
+        "2026-10-15T19:17:46.349Z — jeudi complété à dix cartes avec Bugonia rang 9 à 01:15 et La Voix de Hind Rajab rang 10 à 18:30 ; deux dossiers complets, textes originaux, visuels inspectés, notes relues, répétitions S40 justifiées par une nouvelle diffusion linéaire et écarts de grille conservés.",
+        "2026-10-15T19:28:09.437Z — mardi complété à sept cartes avec deux documentaires ARTE : Kibboutz Nir Oz, aux portes de Gaza rang 6 à 22:40 et Yémen, carrefour de toutes les guerres rang 7 à 23:40 ; deux nouveaux dossiers complets, visuels officiels inspectés, absence de notes ciblée, critiques Télérama attribuées et corrections officielles d’horaire conservées."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
-        "data/weeks/2026-S43.json"
+        "data/weeks/2026-S43.json",
+        "data/works.json",
+        "data/links.json"
       ],
       "complete_cards_added": 0,
-      "draft_cards_added": 8,
-      "draft_reserves_added": 8,
-      "dossiers_completed": 2,
+      "draft_cards_added": 10,
+      "draft_reserves_added": 10,
+      "dossiers_completed": 4,
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Compléter mardi, encore à cinq cartes, depuis des dossiers admissibles ; sinon avancer une rubrique indépendante ou la seconde lecture restante sans rouvrir les impasses fermées.",
+      "next_useful_batch": "Compléter mardi, encore à sept cartes, ou l’un des jours restés à six ou sept cartes depuis des dossiers admissibles ; sinon avancer une rubrique indépendante ou la seconde lecture restante.",
       "additions": {
-        "new_works": 0,
-        "visible_draft_cards": 8,
-        "distinct_reserves_added": 0,
+        "new_works": 2,
+        "visible_draft_cards": 10,
+        "distinct_reserves_added": 2,
         "reused_existing_cards": 8,
         "raw_inventory_observations_added": 0,
-        "scope": "Comparaison avec 0a2a9bd03796ce3ca39a6ad811c0a776c73da4c4 : huit occurrences de cartes ajoutées aux pools samedi, lundi, jeudi et vendredi. Bugonia et La Voix de Hind Rajab complètent jeudi à dix cartes ; les huit occurrences réutilisent des work_id déjà présents dans le catalogue et n’ajoutent aucune œuvre unique au stock hebdomadaire."
+        "scope": "Comparaison avec 0a2a9bd03796ce3ca39a6ad811c0a776c73da4c4 : dix occurrences de cartes ajoutées aux pools samedi, lundi, mardi, jeudi et vendredi. Deux œuvres nouvelles sont intégrées au catalogue et au pool mardi ; huit autres occurrences réutilisent des work_id déjà présents."
       },
       "intervals": [
         {
@@ -17078,6 +17210,13 @@
           "ended_at": "2026-10-15T19:17:46.349Z",
           "overlap": false,
           "note": "Deux dossiers ciblés : identité, durées, notes, critiques, images, preuves de diffusion et fraîcheur."
+        },
+        {
+          "kind": "recherche_redaction_rendu",
+          "started_at": "2026-10-15T19:19:20.743Z",
+          "ended_at": "2026-10-15T19:28:09.437Z",
+          "overlap": false,
+          "note": "Deux documentaires ARTE : pages et guide officiels actuels, horaires, identités, critiques Télérama, absence de notes, visuels inspectés, rédaction et rendu mécanique."
         }
       ],
       "continuation_decisions": [
@@ -17147,32 +17286,53 @@
             "lease_until": "2026-10-15T19:56:03.718Z",
             "external_stop": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T19:19:20.743Z",
+          "elapsed_seconds": 1431.093,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "434792b378bc21c950b0c25f00cc79015a9d572b",
+          "next_actions": [
+            "Compléter mardi, encore à cinq cartes, depuis des dossiers admissibles ; sinon avancer une rubrique indépendante ou la seconde lecture restante sans rouvrir les impasses fermées."
+          ],
+          "remaining_count": 11,
+          "observations": {
+            "started_at": "2026-10-15T18:55:29.650Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T20:16:46.235Z",
+            "external_stop": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T19:07:39.217Z",
-        "elapsed_seconds": 729.567,
+        "observed_at": "2026-10-15T19:19:20.743Z",
+        "elapsed_seconds": 1431.093,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "2fd11b58985b14fe837d321f570da0770fa852cb",
+        "source_sha": "434792b378bc21c950b0c25f00cc79015a9d572b",
         "next_actions": [
-          "Compléter les réserves des jours encore sous dix avec d’autres dossiers déjà contrôlés, ou avancer une rubrique indépendante."
+          "Compléter mardi, encore à cinq cartes, depuis des dossiers admissibles ; sinon avancer une rubrique indépendante ou la seconde lecture restante sans rouvrir les impasses fermées."
         ],
         "remaining_count": 11,
         "observations": {
           "started_at": "2026-10-15T18:55:29.650Z",
           "lease_owned": "yes",
-          "lease_until": "2026-10-15T19:56:03.718Z",
+          "lease_until": "2026-10-15T20:16:46.235Z",
           "external_stop": null
         }
       }
     }
   ],
-  "updated_at": "2026-10-15T19:17:46.349Z",
+  "updated_at": "2026-10-15T19:28:09.437Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -20516,6 +20676,194 @@
       ],
       "decision": "carte draft matérialisée — CI final requis",
       "reason": "Identité, diffusion, critique, notes, visuel, durée et textes sont revus ; le débat éthique et l’écart Web de six minutes restent explicites."
+    },
+    {
+      "title": "Kibboutz Nir Oz, aux portes de Gaza",
+      "work_id": "kibboutz-nir-oz-aux-portes-de-gaza-2026",
+      "catalogue_match": "kibboutz-nir-oz-aux-portes-de-gaza-2026",
+      "identity_research": {
+        "director": "Olga Kravets et Yaël Vidan",
+        "year": 2026,
+        "country": "France",
+        "source_urls": [
+          "https://www.arte.tv/fr/videos/124407-000-A/kibboutz-nir-oz-aux-portes-de-gaza/"
+        ],
+        "checked_at": "2026-10-15T19:28:09.437Z",
+        "duration_observations": [
+          {
+            "duration": "59 min",
+            "version": "durée de la page officielle ARTE actuelle",
+            "source_url": "https://www.arte.tv/fr/videos/124407-000-A/kibboutz-nir-oz-aux-portes-de-gaza/"
+          },
+          {
+            "duration": "60 min",
+            "version": "durée arrondie des guides Web actuels",
+            "source_url": "https://www.programme-television.org/type/documentaires/politiques/kibboutz-nir-oz-aux-portes-de-gaza-440328165"
+          }
+        ],
+        "note": "Identité certaine. La page officielle ARTE actuelle donne France, 2026 et 59 min ; l’ancienne capture indiquant 2024 est conservée comme donnée périmée, sans assimilation."
+      },
+      "critical_evidence": [
+        {
+          "source": "Télérama",
+          "author": "Juliette Bénabent",
+          "source_url": null,
+          "source_ref": "sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d",
+          "pdf_page": 120,
+          "bbox": [
+            103.96,
+            333.28,
+            262.73,
+            366.96
+          ],
+          "provenance": {
+            "source_sha": "434792b378bc21c950b0c25f00cc79015a9d572b",
+            "path": "data/editorial-inputs/2026-S43/telerama-editorial.json",
+            "json_pointer": "/reviews/17"
+          },
+          "assessment": "Les archives de Chaïm Peri et des témoignages pluriels font ressortir les idéaux pacifistes, les contradictions et les aveuglements d’un destin lié à une terre disputée.",
+          "kind": "provided_magazine_criticism",
+          "native_rating": "Très bien",
+          "access": "provided_pdf_reviewed",
+          "checked_at": "2026-10-15T19:28:09.437Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "specific_unavailable_after_targeted_search",
+        "checked_at": "2026-10-15T19:28:09.437Z",
+        "source_urls": [],
+        "note": "Aucune fiche exacte assortie d’une note IMDb ou SensCritique n’a été trouvée lors de recherches ciblées le 15 octobre 2026 ; aucune note n’est inventée."
+      },
+      "broadcast_research": {
+        "date": "2026-10-20",
+        "start": "22:40",
+        "channel": "Arte",
+        "source_urls": [
+          "https://www.arte.tv/fr/guide/20261020/",
+          "https://www.programme-television.org/type/documentaires/politiques/kibboutz-nir-oz-aux-portes-de-gaza-440328165"
+        ],
+        "checked_at": "2026-10-15T19:28:09.437Z",
+        "status": "verified_by_current_official_schedule_and_concordant_current_guide",
+        "note": "Le guide officiel ARTE actuel place le programme à 22:40 ; Télé 7 Jours et Programme-TV concordent. Cette correction officielle précise et datée prévaut sur Télérama p. 122 /observations/607 (sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d) et l’ancienne capture ARTE à 22:30."
+      },
+      "image_research": {
+        "checked_at": "2026-10-15T19:28:09.437Z",
+        "source_page": "https://www.arte.tv/fr/videos/124407-000-A/kibboutz-nir-oz-aux-portes-de-gaza/",
+        "image_url": "https://api-cdn.arte.tv/img/v2/image/Hw8cft8uh4SReRX6fEwUkH/1920x1080?type=TEXT&watermark=true",
+        "status": "official_still_visually_verified_ci_pending",
+        "visually_checked": true,
+        "note": "Photogramme officiel paysage inspecté : un motocycliste se dirige vers Nir Oz au milieu des arbres et d’un poste protégé ; contrôle CI distant encore requis."
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T19:28:09.437Z",
+        "status": "new_catalogue_work_no_recent_exposure",
+        "issues_checked": [
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ],
+        "note": "Aucune exposition récente de cette identité exacte dans les numéros sauvegardés."
+      },
+      "missing_fields": [
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
+      ],
+      "decision": "carte draft matérialisée — CI final requis",
+      "reason": "Identité, diffusion actuelle, critique attribuée, absence de notes, visuel et textes sont revus ; les anciennes valeurs d’année et d’horaire restent explicitement réfutées par les pages officielles actuelles."
+    },
+    {
+      "title": "Yémen, carrefour de toutes les guerres",
+      "work_id": "yemen-carrefour-de-toutes-les-guerres-2025",
+      "catalogue_match": "yemen-carrefour-de-toutes-les-guerres-2025",
+      "identity_research": {
+        "director": "Sylvain Lepetit et Miyuki Droz Aramaki",
+        "year": 2025,
+        "country": "France",
+        "source_urls": [
+          "https://www.arte.tv/fr/videos/125539-000-A/yemen-carrefour-de-toutes-les-guerres/"
+        ],
+        "checked_at": "2026-10-15T19:28:09.437Z",
+        "duration_observations": [
+          {
+            "duration": "57 min",
+            "version": "durée de la page officielle ARTE",
+            "source_url": "https://www.arte.tv/fr/videos/125539-000-A/yemen-carrefour-de-toutes-les-guerres/"
+          },
+          {
+            "duration": "56 min",
+            "version": "durée du guide officiel ARTE de la journée",
+            "source_url": "https://www.arte.tv/fr/guide/20261020/"
+          }
+        ],
+        "note": "Identité certaine. La page officielle ARTE donne France, 2025 et 57 min ; les guides indiquant 2026 sont traités comme année de diffusion, sans modifier l’identité de l’œuvre."
+      },
+      "critical_evidence": [
+        {
+          "source": "Télérama",
+          "author": "Elko Hirsch",
+          "source_url": null,
+          "source_ref": "sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d",
+          "pdf_page": 120,
+          "bbox": [
+            262.16,
+            542.28,
+            465.77,
+            566.91
+          ],
+          "provenance": {
+            "source_sha": "434792b378bc21c950b0c25f00cc79015a9d572b",
+            "path": "data/editorial-inputs/2026-S43/telerama-editorial.json",
+            "json_pointer": "/reviews/18"
+          },
+          "assessment": "La diversité des intervenants et la clarté de l’exposé rendent intelligibles les conflits imbriqués et leurs enjeux diplomatiques et économiques.",
+          "kind": "provided_magazine_criticism",
+          "native_rating": "Très bien",
+          "access": "provided_pdf_reviewed",
+          "checked_at": "2026-10-15T19:28:09.437Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "specific_unavailable_after_targeted_search",
+        "checked_at": "2026-10-15T19:28:09.437Z",
+        "source_urls": [],
+        "note": "Aucune fiche exacte assortie d’une note IMDb ou SensCritique n’a été trouvée lors de recherches ciblées le 15 octobre 2026 ; aucune note n’est inventée."
+      },
+      "broadcast_research": {
+        "date": "2026-10-20",
+        "start": "23:40",
+        "channel": "Arte",
+        "source_urls": [
+          "https://www.arte.tv/fr/guide/20261020/",
+          "https://tv-programme.com/arte/mardi-20-octobre-2026/"
+        ],
+        "checked_at": "2026-10-15T19:28:09.437Z",
+        "status": "verified_by_current_official_schedule_and_concordant_current_guide",
+        "note": "Le guide officiel ARTE actuel et TV-programme placent le programme à 23:40. Cette correction officielle précise et datée prévaut sur Télérama p. 122 /observations/608 (sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d) et les guides encore à 23:35."
+      },
+      "image_research": {
+        "checked_at": "2026-10-15T19:28:09.437Z",
+        "source_page": "https://www.arte.tv/fr/videos/125539-000-A/yemen-carrefour-de-toutes-les-guerres/",
+        "image_url": "https://api-cdn.arte.tv/img/v2/image/QghRZ9MAVDajG65ujL8aNh/1920x1080?type=TEXT&watermark=true",
+        "status": "official_still_visually_verified_ci_pending",
+        "visually_checked": true,
+        "note": "Photogramme officiel paysage inspecté : vue d’Aden depuis un bateau sous un ciel chargé ; contrôle CI distant encore requis."
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T19:28:09.437Z",
+        "status": "new_catalogue_work_no_recent_exposure",
+        "issues_checked": [
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ],
+        "note": "Aucune exposition récente de cette identité exacte dans les numéros sauvegardés."
+      },
+      "missing_fields": [
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
+      ],
+      "decision": "carte draft matérialisée — CI final requis",
+      "reason": "Identité, diffusion actuelle, critique attribuée, absence de notes, visuel et textes sont revus ; les écarts de durée, d’année et d’horaire restent explicitement conservés."
     }
   ],
   "coverage": {
