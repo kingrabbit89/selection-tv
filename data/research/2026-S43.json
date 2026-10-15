@@ -3209,10 +3209,9 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche et du lundi pour progresser vers le minimum de dix candidats complets par jour, sans modifier les choix développés.",
-      "Commencer les trois choix développés du mardi depuis des dossiers entièrement vérifiables et sans contradiction factuelle.",
-      "Compléter Ciné+ OCS les 21 et 22 octobre depuis une grille complète datée accessible.",
-      "Compléter Ciné+ Family les 21 et 22 octobre depuis une grille complète datée accessible."
+      "Compléter le trio développé du mercredi avec deux œuvres fraîches entièrement vérifiées, en partant de M le Maudit et The Big Short seulement après tri éditorial et recoupement du créneau.",
+      "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi et du mardi pour progresser vers le minimum de dix candidats complets par jour, sans modifier les choix développés.",
+      "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
     ]
   },
   "run_metrics": [
@@ -6726,9 +6725,9 @@
     {
       "prompt_revision": "production-weekly-continuity-2026-10-10",
       "started_at": "2026-10-15T10:58:25.791Z",
-      "ended_at": null,
-      "duration_basis": "Passage en cours ; début UTC observé à l’entrée, fin encore inconnue.",
-      "run_state": "running",
+      "ended_at": "2026-10-15T11:48:42.650Z",
+      "duration_basis": "Début et fin UTC observés dans cette exécution ; 3016,859 s entre 10:58:25.791Z et 11:48:42.650Z.",
+      "run_state": "stopped",
       "completed_batches": [
         "2026-10-15T11:12:00Z — trois choix développés du lundi matérialisés : Cadavres exquis, Peau d’âne et Bird, après revue des diffusions, identités, réception, visuels et fraîcheur ; divergences d’année et de durée conservées sans inférence de master.",
         "2026-10-15T11:21:20.843Z — première réserve du lundi matérialisée : Midsommar, après concordance des quatre faits de grille et revue d’identité, réception, visuel et fraîcheur ; divergences de durée conservées sans inférence de copie.",
@@ -6747,8 +6746,8 @@
       "draft_reserves_added": 1,
       "partial_dossiers_added": 2,
       "requirements_resolved": 0,
-      "stop_reason": null,
-      "next_useful_batch": "Compléter le trio développé du mercredi avec deux œuvres fraîches entièrement vérifiées, puis ajouter des réserves distinctes aux pools déficitaires.",
+      "stop_reason": "Le contrôleur editorial-continuation --finish a observé budget_reserve_reached après 3008,191 s et a réservé les cinq dernières minutes à la sauvegarde finale et à la libération du bail.",
+      "next_useful_batch": "Compléter le trio développé du mercredi avec deux œuvres fraîches entièrement vérifiées ; M le Maudit et The Big Short sont des pistes brutes à trier, tandis que Father Mother Sister Brother et Hamnet sont exclus pour fraîcheur.",
       "continuation_decisions": [
         {
           "action": "continue",
@@ -6822,20 +6821,76 @@
             "ready_handoff": null
           },
           "evaluated_by": "scripts/editorial-continuation.mjs"
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T11:45:06.174Z",
+          "elapsed_seconds": 2800.383,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "33c5edf8a915a1a9a2d842395509d9b1e8b4ca38",
+          "next_actions": [
+            "Compléter le trio développé du mercredi avec deux œuvres fraîches entièrement vérifiées, puis ajouter des réserves distinctes aux pools déficitaires.",
+            "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche et du lundi pour progresser vers le minimum de dix candidats complets par jour, sans modifier les choix développés.",
+            "Commencer les trois choix développés du mardi depuis des dossiers entièrement vérifiables et sans contradiction factuelle."
+          ],
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T12:19:15.366Z",
+          "remaining_count": 12,
+          "observations": {
+            "started_at": "2026-10-15T10:58:25.791Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T12:19:15.366Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "evaluated_by": "scripts/editorial-continuation.mjs"
+        },
+        {
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-15T11:48:33.982Z",
+          "elapsed_seconds": 3008.191,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "33c5edf8a915a1a9a2d842395509d9b1e8b4ca38",
+          "next_actions": [
+            "Compléter le trio développé du mercredi avec deux œuvres fraîches entièrement vérifiées, puis ajouter des réserves distinctes aux pools déficitaires.",
+            "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche et du lundi pour progresser vers le minimum de dix candidats complets par jour, sans modifier les choix développés.",
+            "Commencer les trois choix développés du mardi depuis des dossiers entièrement vérifiables et sans contradiction factuelle."
+          ],
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T12:19:15.366Z",
+          "remaining_count": 12,
+          "observations": {
+            "started_at": "2026-10-15T10:58:25.791Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T12:19:15.366Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          },
+          "evaluated_by": "scripts/editorial-continuation.mjs"
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T11:37:50.562Z",
-        "elapsed_seconds": 2364.771,
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-15T11:48:33.982Z",
+        "elapsed_seconds": 3008.191,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "3d62eb859e3e7e94f925da409d65f246baf23723",
+        "source_sha": "33c5edf8a915a1a9a2d842395509d9b1e8b4ca38",
         "next_actions": [
-          "Ajouter des réserves fraîches au mardi et aux jours déjà composés, ou commencer les trois choix développés du mercredi depuis des dossiers entièrement vérifiables.",
+          "Compléter le trio développé du mercredi avec deux œuvres fraîches entièrement vérifiées, puis ajouter des réserves distinctes aux pools déficitaires.",
           "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche et du lundi pour progresser vers le minimum de dix candidats complets par jour, sans modifier les choix développés.",
           "Commencer les trois choix développés du mardi depuis des dossiers entièrement vérifiables et sans contradiction factuelle."
         ],
@@ -6882,6 +6937,12 @@
           "started_at": "2026-10-15T11:37:51Z",
           "ended_at": "2026-10-15T11:43:10.000Z",
           "note": "Flow recalculé sur la tête exacte ; trois dossiers mercredi examinés en parallèle, A Ghost Story intégré et deux pistes rejetées pour fraîcheur publique récente."
+        },
+        {
+          "kind": "controls_and_next_batch_preparation",
+          "started_at": "2026-10-15T11:43:11Z",
+          "ended_at": "2026-10-15T11:48:42.650Z",
+          "note": "Contrôles structurels ciblés, diagnostic preparation-gaps actualisé, CI observée sur le SHA exact, flow et triage recalculés ; prochain lot mercredi préparé sans nouvelle carte inventée."
         }
       ],
       "pass_additions": {
@@ -6901,10 +6962,17 @@
         "distinct_draft_reserves_added": 1,
         "reused_existing_works": 0,
         "note": "Sept choix développés et une réserve distincte des lundi, mardi et mercredi ont été ajoutés ; aucun stock hérité n’est compté comme création de ce passage."
+      },
+      "ci_observation": {
+        "source_sha": "33c5edf8a915a1a9a2d842395509d9b1e8b4ca38",
+        "observed_at": "2026-10-15T11:47:30Z",
+        "data_and_policy": "failure_expected_incomplete_candidate_logs_not_reused_as_certification",
+        "browser_presentation": "in_progress",
+        "note": "La candidate reste volontairement incomplète ; aucun résultat ancien ou pending n’est compté comme réussite."
       }
     }
   ],
-  "updated_at": "2026-10-15T11:43:10.000Z",
+  "updated_at": "2026-10-15T11:48:42.650Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
