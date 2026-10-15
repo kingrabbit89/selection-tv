@@ -131,7 +131,9 @@
     "2026-10-15T17:16:20.000Z — France 3 à 01:35 : quatre guides actuels concordent sur le concert de la Garde républicaine, mais FranceTVPro conserve Appassionata ; contradiction et condition de reprise sauvegardées.",
     "2026-10-15T17:36:49.485Z — Bright Star : réserve vendredi rang 6 matérialisée sous handoff contrôlé ; identité 2009, diffusion Ciné+ OCS du 23 octobre à 10:35, visuel et critique relus, note courante laissée indisponible après HTTP 403 ; répétition S41 pénalisée mais seuil global de fraîcheur conservé.",
     "2026-10-15T17:41:33.548Z — TV5MONDE : préparation ciblée de la seconde lecture ; 342 lignes sauvegardées sur sept jours, mais la grille officielle TV5MONDE Europe diverge dès la nuit du 17 octobre du guide primaire. Le périmètre de flux régional reste à confirmer ; aucune omission, identité ni couverture n’est close.",
-    "2026-10-15T17:44:11.091Z — TMC samedi 17 octobre : seconde lecture jour+nuit, 18/18 départs présents dans deux grilles Web datées d’éditeurs distincts ; aucune omission de programme, labels d’épisode du bloc New York Unité Spéciale non exposés par le second guide et indépendance amont inconnue."
+    "2026-10-15T17:44:11.091Z — TMC samedi 17 octobre : seconde lecture jour+nuit, 18/18 départs présents dans deux grilles Web datées d’éditeurs distincts ; aucune omission de programme, labels d’épisode du bloc New York Unité Spéciale non exposés par le second guide et indépendance amont inconnue.",
+    "2026-10-15T18:04:37.000Z — candidate S43 synchronisée normalement avec main : import des deux compléments Télérama au SHA exact, sans modification ni écrasement des recherches existantes.",
+    "2026-10-15T18:08:33.729Z — TMC du 18 au 23 octobre : secondes lectures jour+nuit achevées sur deux grilles Web datées d’éditeurs distincts ; 112/112 départs présents, aucune omission ni contradiction de programme, numéros d’épisode non réaffirmés et indépendance amont inconnue. Avec la revue du 17 déjà sauvegardée, les sept dates TMC sont désormais relues."
   ],
   "blockers": [],
   "research_attempts": [
@@ -6190,11 +6192,11 @@
   },
   "resume": {
     "candidate_branch": "auto/2026-S43",
-    "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
+    "main_sha": "8ab089ee5cc48d43e0bd41f7626d50e5beb5dd2f",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
       "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
-      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les neuf chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
       "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
       "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
       "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
@@ -16265,9 +16267,107 @@
           "ready_handoff": null
         }
       }
+    },
+    {
+      "prompt_revision": "production-weekly-continuity-2026-10-10",
+      "started_at": "2026-10-15T18:02:51.509Z",
+      "ended_at": null,
+      "duration_basis": "Temps UTC observé depuis le début réel ; les revues déléguées sont parallèles et ne sont pas additionnées au temps séquentiel.",
+      "run_state": "running",
+      "completed_batches": [
+        "2026-10-15T18:04:37.000Z — candidate S43 synchronisée normalement avec main : import des deux compléments Télérama au SHA exact, sans modification ni écrasement des recherches existantes.",
+        "2026-10-15T18:08:33.729Z — TMC du 18 au 23 octobre : secondes lectures jour+nuit achevées sur deux grilles Web datées d’éditeurs distincts ; 112/112 départs présents, aucune omission ni contradiction de programme, numéros d’épisode non réaffirmés et indépendance amont inconnue. Avec la revue du 17 déjà sauvegardée, les sept dates TMC sont désormais relues."
+      ],
+      "deliverables_changed": [
+        "data/research/2026-S43.json"
+      ],
+      "complete_cards_added": 0,
+      "draft_cards_added": 0,
+      "draft_reserves_added": 0,
+      "dossiers_completed": 0,
+      "partial_dossiers_added": 0,
+      "requirements_resolved": 0,
+      "stop_reason": null,
+      "next_useful_batch": "Poursuivre la seconde lecture de TFX sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, sans confondre éditeurs distincts et indépendance amont.",
+      "additions": {
+        "new_works": 0,
+        "visible_draft_cards": 0,
+        "distinct_reserves_added": 0,
+        "reused_existing_cards": 0,
+        "raw_inventory_observations_added": 0,
+        "scope": "Comparaison avec 89789660bbb7a235484219e61e437557da01df1d : synchronisation des entrées Télérama et six revues TMC ; aucun ajout de carte, réserve, œuvre ou observation brute."
+      },
+      "intervals": [
+        {
+          "kind": "reprise_extraction",
+          "started_at": "2026-10-15T18:02:51.509Z",
+          "ended_at": "2026-10-15T18:05:25.789Z",
+          "overlap": false
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": null,
+          "ended_at": "2026-10-15T18:08:33.729Z",
+          "overlap": true,
+          "note": "Début exact non mesuré ; comparaison en lecture seule du supplément Télérama pour les six dates TMC, parallèle à la lecture des grilles Web complètes."
+        },
+        {
+          "kind": "research",
+          "started_at": "2026-10-15T18:05:25.789Z",
+          "ended_at": "2026-10-15T18:08:33.729Z",
+          "overlap": false,
+          "note": "Comparaison complète des six grilles TMC sauvegardées avec L’Internaute, nuits et reports inclus."
+        }
+      ],
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T18:05:25.789Z",
+          "elapsed_seconds": 154.28,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "a30065fe72ca2a31dafb3f583907fc4d310b19cc",
+          "next_actions": [
+            "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+            "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+            "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 17,
+          "truncated_notice": "12 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 29
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-15T18:05:25.789Z",
+        "elapsed_seconds": 154.28,
+        "prompt_revision": "production-weekly-continuity-2026-10-10",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S43",
+        "source_sha": "a30065fe72ca2a31dafb3f583907fc4d310b19cc",
+        "next_actions": [
+          "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
+          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+          "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+          "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
+          "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau."
+        ],
+        "remaining_count": 11,
+        "next_actions_total": 17,
+        "truncated_notice": "12 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+        "all_actions_total": 29
+      }
     }
   ],
-  "updated_at": "2026-10-15T17:47:13.936Z",
+  "updated_at": "2026-10-15T18:08:33.729Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -24489,6 +24589,240 @@
         "limits": [
           "Le second guide n’expose pas dans sa liste les labels détaillés des quatre épisodes de New York Unité Spéciale ; ces identités ne sont pas certifiées au niveau 3.",
           "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-18",
+        "channels": [
+          "TMC"
+        ],
+        "flow": "TMC",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:08:33.729Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 17 lignes TMC de l’inventaire sauvegardé, report de veille inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/tmc/dimanche-18-octobre-2026/",
+          "https://www.linternaute.com/television/programme-tmc-dimanche-18-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 17,
+          "source_rows_reviewed": 17,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 17 départs du jour civil concordent en heure et identité de programme au niveau requis pour la recherche d’omissions.",
+          "Aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée par cette revue."
+        ],
+        "limits": [
+          "Le second guide expose les intitulés des programmes et épisodes mais pas systématiquement les numéros de saison/épisode du relevé primaire ; ces numéros ne sont pas réaffirmés par cette seconde lecture.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Le supplément PDF Télérama importé est limité aux films et documentaires et ne constitue pas une grille TMC complète ; ses lignes TMC concordantes ne sont pas utilisées pour certifier l’absence globale d’omissions."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-19",
+        "channels": [
+          "TMC"
+        ],
+        "flow": "TMC",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:08:33.729Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 19 lignes TMC de l’inventaire sauvegardé, report de veille inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/tmc/lundi-19-octobre-2026/",
+          "https://www.linternaute.com/television/programme-tmc-lundi-19-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 19,
+          "source_rows_reviewed": 19,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 19 départs du jour civil concordent en heure et identité de programme au niveau requis pour la recherche d’omissions.",
+          "Aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée par cette revue."
+        ],
+        "limits": [
+          "Le second guide expose les intitulés des programmes et épisodes mais pas systématiquement les numéros de saison/épisode du relevé primaire ; ces numéros ne sont pas réaffirmés par cette seconde lecture.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Le supplément PDF Télérama importé est limité aux films et documentaires et ne constitue pas une grille TMC complète ; ses lignes TMC concordantes ne sont pas utilisées pour certifier l’absence globale d’omissions."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-20",
+        "channels": [
+          "TMC"
+        ],
+        "flow": "TMC",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:08:33.729Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 19 lignes TMC de l’inventaire sauvegardé, report de veille inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/tmc/mardi-20-octobre-2026/",
+          "https://www.linternaute.com/television/programme-tmc-mardi-20-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 19,
+          "source_rows_reviewed": 19,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 19 départs du jour civil concordent en heure et identité de programme au niveau requis pour la recherche d’omissions.",
+          "Aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée par cette revue."
+        ],
+        "limits": [
+          "Le second guide expose les intitulés des programmes et épisodes mais pas systématiquement les numéros de saison/épisode du relevé primaire ; ces numéros ne sont pas réaffirmés par cette seconde lecture.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Le supplément PDF Télérama importé est limité aux films et documentaires et ne constitue pas une grille TMC complète ; ses lignes TMC concordantes ne sont pas utilisées pour certifier l’absence globale d’omissions."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-21",
+        "channels": [
+          "TMC"
+        ],
+        "flow": "TMC",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:08:33.729Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 17 lignes TMC de l’inventaire sauvegardé, report de veille inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/tmc/mercredi-21-octobre-2026/",
+          "https://www.linternaute.com/television/programme-tmc-mercredi-21-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 17,
+          "source_rows_reviewed": 17,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 17 départs du jour civil concordent en heure et identité de programme au niveau requis pour la recherche d’omissions.",
+          "Aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée par cette revue."
+        ],
+        "limits": [
+          "Le second guide expose les intitulés des programmes et épisodes mais pas systématiquement les numéros de saison/épisode du relevé primaire ; ces numéros ne sont pas réaffirmés par cette seconde lecture.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Le supplément PDF Télérama importé est limité aux films et documentaires et ne constitue pas une grille TMC complète ; ses lignes TMC concordantes ne sont pas utilisées pour certifier l’absence globale d’omissions."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-22",
+        "channels": [
+          "TMC"
+        ],
+        "flow": "TMC",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:08:33.729Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 20 lignes TMC de l’inventaire sauvegardé, report de veille inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/tmc/jeudi-22-octobre-2026/",
+          "https://www.linternaute.com/television/programme-tmc-jeudi-22-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 20,
+          "source_rows_reviewed": 20,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 20 départs du jour civil concordent en heure et identité de programme au niveau requis pour la recherche d’omissions.",
+          "Aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée par cette revue."
+        ],
+        "limits": [
+          "Le second guide expose les intitulés des programmes et épisodes mais pas systématiquement les numéros de saison/épisode du relevé primaire ; ces numéros ne sont pas réaffirmés par cette seconde lecture.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Le supplément PDF Télérama importé est limité aux films et documentaires et ne constitue pas une grille TMC complète ; ses lignes TMC concordantes ne sont pas utilisées pour certifier l’absence globale d’omissions."
+        ],
+        "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-23",
+        "channels": [
+          "TMC"
+        ],
+        "flow": "TMC",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:08:33.729Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 20 lignes TMC de l’inventaire sauvegardé, report de veille inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/tmc/vendredi-23-octobre-2026/",
+          "https://www.linternaute.com/television/programme-tmc-vendredi-23-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 20,
+          "source_rows_reviewed": 20,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "Les 20 départs du jour civil concordent en heure et identité de programme au niveau requis pour la recherche d’omissions.",
+          "Aucune ligne nouvelle n’est importée et aucune fiche de niveau 3 n’est certifiée par cette revue."
+        ],
+        "limits": [
+          "Le second guide expose les intitulés des programmes et épisodes mais pas systématiquement les numéros de saison/épisode du relevé primaire ; ces numéros ne sont pas réaffirmés par cette seconde lecture.",
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Le supplément PDF Télérama importé est limité aux films et documentaires et ne constitue pas une grille TMC complète ; ses lignes TMC concordantes ne sont pas utilisées pour certifier l’absence globale d’omissions."
         ],
         "status": "reread_complete_no_omissions_episode_labels_limited"
       }
