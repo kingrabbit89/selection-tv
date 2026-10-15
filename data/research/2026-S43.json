@@ -148,7 +148,8 @@
     "2026-10-15T19:17:46.349Z — jeudi complété à dix cartes avec Bugonia rang 9 à 01:15 et La Voix de Hind Rajab rang 10 à 18:30 ; deux dossiers complets, textes originaux, visuels inspectés, notes relues, répétitions S40 justifiées par une nouvelle diffusion linéaire et écarts de grille conservés.",
     "2026-10-15T19:28:09.437Z — mardi complété à sept cartes avec deux documentaires ARTE : Kibboutz Nir Oz, aux portes de Gaza rang 6 à 22:40 et Yémen, carrefour de toutes les guerres rang 7 à 23:40 ; deux nouveaux dossiers complets, visuels officiels inspectés, absence de notes ciblée, critiques Télérama attribuées et corrections officielles d’horaire conservées.",
     "2026-10-15T19:33:32.923Z — deux occurrences supplémentaires réutilisées sans rouvrir leurs dossiers stables : La Voix de Hind Rajab lundi rang 9 à 08:42, recoupée par trois guides actuels, et Bugonia vendredi rang 8 à 00:00, concordante entre Télérama fourni et trois guides actuels.",
-    "2026-10-15T19:37:51.411Z — lundi atteint le minimum de dix cartes avec Une jeunesse indienne rang 10 à 20:50 sur Ciné+ Festival ; identité et durée distributeur, note SensCritique, critique Télérama attribuée, affiche officielle inspectée et ligne papier d’autorité relue."
+    "2026-10-15T19:37:51.411Z — lundi atteint le minimum de dix cartes avec Une jeunesse indienne rang 10 à 20:50 sur Ciné+ Festival ; identité et durée distributeur, note SensCritique, critique Télérama attribuée, affiche officielle inspectée et ligne papier d’autorité relue.",
+    "2026-10-15T19:41:57.327Z — vendredi porté à neuf cartes avec SOS fantômes rang 9 à 21:05 sur Gulli ; identité Sony/AFI, durée AFI, absence de note actuelle spécifique, critique Télérama attribuée, affiche Sony inspectée et ligne papier d’autorité relue."
   ],
   "blockers": [],
   "research_attempts": [
@@ -5201,6 +5202,38 @@
       ],
       "evidence_note": "Distributeur, SensCritique et AlloCiné relus ; critique Télérama p. 118 /reviews/14 et grille /observations/475 (sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d) relues ; affiche officielle inspectée ; CI distant restant.",
       "status": "verified_for_draft"
+    },
+    {
+      "work_id": "sos-fantomes-1984",
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "country",
+        "genre",
+        "duration",
+        "ratings_unavailable_reason",
+        "image",
+        "links",
+        "title",
+        "channel",
+        "date",
+        "start",
+        "editorial_copy"
+      ],
+      "urls": [
+        "https://www.sonypictures.com/movies/ghostbusters",
+        "https://catalog.afi.com/Film/57089-ghostbusters",
+        "https://www.imdb.com/title/tt0087332/",
+        "https://www.senscritique.com/film/s_o_s_fantomes/472236"
+      ],
+      "checked_at": "2026-10-15T19:41:57.327Z",
+      "stability": "mixed_stable_identity_and_cycle_specific_broadcast",
+      "applies_to": [
+        "vendredi-selection reserve rank 9"
+      ],
+      "evidence_note": "Sony et AFI relus ; critique Télérama p. 141 /reviews/34 et grille /observations/1297 (sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d) relues ; affiche officielle inspectée ; CI distant restant.",
+      "status": "verified_for_draft"
     }
   ],
   "source_issues": [
@@ -6804,6 +6837,45 @@
         "alternatives": [
           "sl-lundi-cadavres-exquis",
           "sl-lundi-peau-d-ane"
+        ]
+      },
+      {
+        "id": "sl-vendredi-sos-fantomes-1984",
+        "title": "SOS fantômes",
+        "work_id": "sos-fantomes-1984",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama juge le film « Très bien » et souligne son mélange durable de fantaisie, d’angoisse urbaine et d’humour distancié.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d",
+            "pdf_page": 141,
+            "bbox": [
+              343.27,
+              504.2,
+              419.78,
+              528.7
+            ],
+            "provenance": {
+              "source_sha": "b1d0b308dcbc87c3e25b7b10e87dec67fc3390a4",
+              "path": "data/editorial-inputs/2026-S43/telerama-editorial.json",
+              "json_pointer": "/reviews/34"
+            }
+          },
+          {
+            "kind": "canon_critique",
+            "note": "L’AFI place Ghostbusters au rang 28 de sa liste 100 Years…100 Laughs.",
+            "source_url": "https://catalog.afi.com/Film/57089-ghostbusters"
+          }
+        ],
+        "decision_note": "Réserve draft vendredi rang 9 à 21:05 sous autorité de la ligne Télérama p. 141 /observations/1297 relue ; identité Sony/AFI, affiche inspectée, CI distant restant.",
+        "alternatives": [
+          "sl-vendredi-nos-annees-sauvages-1990",
+          "sl-vendredi-que-dios-nos-perdone-2016"
         ]
       }
     ]
@@ -17310,7 +17382,8 @@
         "2026-10-15T19:17:46.349Z — jeudi complété à dix cartes avec Bugonia rang 9 à 01:15 et La Voix de Hind Rajab rang 10 à 18:30 ; deux dossiers complets, textes originaux, visuels inspectés, notes relues, répétitions S40 justifiées par une nouvelle diffusion linéaire et écarts de grille conservés.",
         "2026-10-15T19:28:09.437Z — mardi complété à sept cartes avec deux documentaires ARTE : Kibboutz Nir Oz, aux portes de Gaza rang 6 à 22:40 et Yémen, carrefour de toutes les guerres rang 7 à 23:40 ; deux nouveaux dossiers complets, visuels officiels inspectés, absence de notes ciblée, critiques Télérama attribuées et corrections officielles d’horaire conservées.",
         "2026-10-15T19:33:32.923Z — deux occurrences supplémentaires réutilisées sans rouvrir leurs dossiers stables : La Voix de Hind Rajab lundi rang 9 à 08:42, recoupée par trois guides actuels, et Bugonia vendredi rang 8 à 00:00, concordante entre Télérama fourni et trois guides actuels.",
-        "2026-10-15T19:37:51.411Z — lundi atteint le minimum de dix cartes avec Une jeunesse indienne rang 10 à 20:50 sur Ciné+ Festival ; identité et durée distributeur, note SensCritique, critique Télérama attribuée, affiche officielle inspectée et ligne papier d’autorité relue."
+        "2026-10-15T19:37:51.411Z — lundi atteint le minimum de dix cartes avec Une jeunesse indienne rang 10 à 20:50 sur Ciné+ Festival ; identité et durée distributeur, note SensCritique, critique Télérama attribuée, affiche officielle inspectée et ligne papier d’autorité relue.",
+        "2026-10-15T19:41:57.327Z — vendredi porté à neuf cartes avec SOS fantômes rang 9 à 21:05 sur Gulli ; identité Sony/AFI, durée AFI, absence de note actuelle spécifique, critique Télérama attribuée, affiche Sony inspectée et ligne papier d’autorité relue."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -17319,20 +17392,20 @@
         "data/links.json"
       ],
       "complete_cards_added": 0,
-      "draft_cards_added": 13,
-      "draft_reserves_added": 13,
-      "dossiers_completed": 5,
+      "draft_cards_added": 14,
+      "draft_reserves_added": 14,
+      "dossiers_completed": 6,
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Compléter vendredi, encore à huit cartes, ou mardi, encore à sept, depuis des dossiers admissibles ; sinon avancer une rubrique indépendante.",
+      "next_useful_batch": "Compléter vendredi, encore à neuf cartes mais avec une ancienne réserve factuellement conflictuelle à remplacer, ou mardi ; sinon avancer une rubrique indépendante.",
       "additions": {
-        "new_works": 3,
-        "visible_draft_cards": 13,
-        "distinct_reserves_added": 3,
+        "new_works": 4,
+        "visible_draft_cards": 14,
+        "distinct_reserves_added": 4,
         "reused_existing_cards": 10,
         "raw_inventory_observations_added": 0,
-        "scope": "Comparaison avec 0a2a9bd03796ce3ca39a6ad811c0a776c73da4c4 : treize occurrences de cartes ajoutées. Trois œuvres nouvelles ont été intégrées au catalogue ; dix occurrences réutilisent des work_id déjà présents."
+        "scope": "Comparaison avec 0a2a9bd03796ce3ca39a6ad811c0a776c73da4c4 : quatorze occurrences de cartes ajoutées. Quatre œuvres nouvelles ont été intégrées au catalogue ; dix occurrences réutilisent des work_id déjà présents."
       },
       "intervals": [
         {
@@ -17382,6 +17455,13 @@
           "ended_at": "2026-10-15T19:37:51.411Z",
           "overlap": false,
           "note": "Dossier Une jeunesse indienne : identité, durée, note, critique papier, ligne de grille d’autorité, affiche officielle, rédaction et rendu mécanique."
+        },
+        {
+          "kind": "recherche_redaction_rendu",
+          "started_at": "2026-10-15T19:38:53.926Z",
+          "ended_at": "2026-10-15T19:41:57.327Z",
+          "overlap": false,
+          "note": "Dossier SOS fantômes : identité Sony/AFI, durée, recherche de notes, critique papier, grille d’autorité, affiche officielle, rédaction et rendu mécanique."
         }
       ],
       "continuation_decisions": [
@@ -17517,20 +17597,41 @@
             "lease_until": "2026-10-15T20:16:46.235Z",
             "external_stop": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T19:38:53.926Z",
+          "elapsed_seconds": 2604.276,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "b1d0b308dcbc87c3e25b7b10e87dec67fc3390a4",
+          "next_actions": [
+            "Compléter vendredi, encore à huit cartes, ou mardi, encore à sept, depuis des dossiers admissibles ; sinon avancer une rubrique indépendante."
+          ],
+          "remaining_count": 11,
+          "observations": {
+            "started_at": "2026-10-15T18:55:29.650Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T20:16:46.235Z",
+            "external_stop": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T19:35:05.074Z",
-        "elapsed_seconds": 2375.424,
+        "observed_at": "2026-10-15T19:38:53.926Z",
+        "elapsed_seconds": 2604.276,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "65f8eeb53ee578b68ab80a065f05fe97299743de",
+        "source_sha": "b1d0b308dcbc87c3e25b7b10e87dec67fc3390a4",
         "next_actions": [
-          "Compléter lundi, encore à neuf cartes, depuis un dossier admissible pour fermer son minimum ; sinon compléter vendredi ou mardi, ou avancer une rubrique indépendante."
+          "Compléter vendredi, encore à huit cartes, ou mardi, encore à sept, depuis des dossiers admissibles ; sinon avancer une rubrique indépendante."
         ],
         "remaining_count": 11,
         "observations": {
@@ -17542,7 +17643,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-15T19:37:51.411Z",
+  "updated_at": "2026-10-15T19:41:57.327Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -21168,6 +21269,104 @@
       ],
       "decision": "carte draft matérialisée — CI final requis",
       "reason": "Identité, diffusion sous autorité papier, réception, visuel et textes sont revus ; les divergences de durée restent explicites."
+    },
+    {
+      "title": "SOS fantômes",
+      "work_id": "sos-fantomes-1984",
+      "catalogue_match": "sos-fantomes-1984",
+      "identity_research": {
+        "director": "Ivan Reitman",
+        "year": 1984,
+        "country": "États-Unis",
+        "source_urls": [
+          "https://www.sonypictures.com/movies/ghostbusters",
+          "https://catalog.afi.com/Film/57089-ghostbusters"
+        ],
+        "checked_at": "2026-10-15T19:41:57.327Z",
+        "duration_observations": [
+          {
+            "duration": "105 min",
+            "version": "durée AFI du film de 1984",
+            "source_url": "https://catalog.afi.com/Film/57089-ghostbusters"
+          }
+        ],
+        "note": "Identité certaine du film Ghostbusters / SOS fantômes de 1984. La copie Gulli n’est pas documentée et aucune durée de fenêtre EPG n’est utilisée comme durée de copie."
+      },
+      "critical_evidence": [
+        {
+          "source": "Télérama",
+          "author": "Guillemette Odicino",
+          "source_url": null,
+          "source_ref": "sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d",
+          "pdf_page": 141,
+          "bbox": [
+            343.27,
+            504.2,
+            419.78,
+            528.7
+          ],
+          "provenance": {
+            "source_sha": "b1d0b308dcbc87c3e25b7b10e87dec67fc3390a4",
+            "path": "data/editorial-inputs/2026-S43/telerama-editorial.json",
+            "json_pointer": "/reviews/34"
+          },
+          "assessment": "La comédie conserve son plaisir ludique et son mélange d’angoisse urbaine et de fantaisie, porté par l’humour distancié de Bill Murray.",
+          "kind": "provided_magazine_criticism",
+          "native_rating": "Très bien",
+          "access": "provided_pdf_reviewed",
+          "checked_at": "2026-10-15T19:41:57.327Z"
+        },
+        {
+          "source": "American Film Institute",
+          "author": "AFI Catalog",
+          "source_url": "https://catalog.afi.com/Film/57089-ghostbusters",
+          "assessment": "Le film figure au rang 28 de la liste AFI 100 Years…100 Laughs ; l’AFI documente aussi sa réception et son importance populaire.",
+          "kind": "canon_critique",
+          "checked_at": "2026-10-15T19:41:57.327Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "specific_unavailable_after_targeted_search",
+        "checked_at": "2026-10-15T19:41:57.327Z",
+        "source_urls": [
+          "https://www.imdb.com/title/tt0087332/",
+          "https://www.senscritique.com/film/s_o_s_fantomes/472236"
+        ],
+        "note": "Les deux fiches exactes ont été retrouvées mais les résultats accessibles ne donnaient pas de valeur actuelle exploitable ; aucune note n’est inventée."
+      },
+      "broadcast_research": {
+        "date": "2026-10-23",
+        "start": "21:05",
+        "channel": "Gulli",
+        "source_urls": [],
+        "checked_at": "2026-10-15T19:41:57.327Z",
+        "status": "verified_by_reviewed_telerama_grid_authority",
+        "note": "Ligne Télérama p. 141 /observations/1297 (sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d), bbox [390.33,400.68,449.12,409.18], relue pour titre, chaîne, date et heure ; /reviews/34 relie la ligne au film de 1984."
+      },
+      "image_research": {
+        "checked_at": "2026-10-15T19:41:57.327Z",
+        "source_page": "https://www.sonypictures.com/movies/ghostbusters",
+        "image_url": "https://www.sonypictures.com/sites/default/files/styles/max_860x460/public/title-key-art/ghostbusters_onesheet_1400x2100_0.jpg?itok=WQt2OHRx",
+        "status": "official_poster_visually_verified_ci_pending",
+        "visually_checked": true,
+        "note": "Affiche officielle Sony inspectée : les quatre chasseurs devant New York et le logo rouge central ; contrôle CI distant requis."
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T19:41:57.327Z",
+        "status": "new_catalogue_work_no_recent_exposure",
+        "issues_checked": [
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ],
+        "note": "Aucune exposition de ce work_id ni du titre exact dans les numéros S39 à S42."
+      },
+      "missing_fields": [
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
+      ],
+      "decision": "carte draft matérialisée — CI final requis",
+      "reason": "Identité, diffusion sous autorité papier, réception, visuel et textes sont revus ; l’absence de note exploitable est datée et spécifique."
     }
   ],
   "coverage": {
