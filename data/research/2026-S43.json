@@ -319,6 +319,35 @@
         "observed_at": "2026-10-15T12:22:22.000Z",
         "evidence": "Concordances 10:07 et contradiction persistante 10:11."
       }
+    },
+    {
+      "id": "bird-slot-duration-link-2026-10-15T12:49:03Z",
+      "object": "Bird (Andrea Arnold, 2024)",
+      "version": "diffusion Ciné+ Festival du 23 octobre 2026",
+      "broadcast": "Ciné+ Festival, vendredi 23 octobre 2026",
+      "question": "Arbitrer 06:33/06:34 et relier une durée/version exacte à la diffusion.",
+      "urls": [
+        "https://tv-programme.com/cine-plus-festival/vendredi-23-octobre-2026/",
+        "https://television.telerama.fr/chaine/cine-club",
+        "https://www.advitamdistribution.com/films/bird/",
+        "https://www.festival-cannes.com/f/bird-2/",
+        "https://www.canalplus.com/cinema/bird/h/27480859_50002",
+        "https://www.canalplus.com/cinema/bird/h/27480859_40099"
+      ],
+      "checked_at": "2026-10-15T12:49:03Z",
+      "result": "TV-programme donne 06:34 et une fenêtre de 116 min ; Télérama donne 06:33 ; les sources officielles donnent 114/118/119 min sans événement daté reliant l’asset au créneau. Le flow offset 6 a identifié Que Dios nos perdone comme alternative fraîche à vérifier.",
+      "blocking_scope": "Carte vendredi non matérialisée.",
+      "resume_condition": "Correction officielle datée, BroadcastEvent CANAL+ exact ou nouveau recoupement admissible résolvant la minute et la version/durée.",
+      "retry_gate": {
+        "state": "waiting_for_new_evidence",
+        "action_texts": [
+          "Reprendre Bird seulement si une preuve officielle datée relie la diffusion du vendredi 23 octobre 2026 à une durée/version exacte, ou si un recoupement admissible résout 06:33/06:34."
+        ],
+        "reason": "Minute contradictoire et aucune liaison événementielle officielle de la durée/version.",
+        "resume_when": "Correction officielle datée, BroadcastEvent CANAL+ exact ou nouveau recoupement admissible résolvant la minute et la version/durée.",
+        "observed_at": "2026-10-15T12:49:03Z",
+        "evidence": "TV-programme 06:34–08:30 ; Télérama 06:33 ; CANAL+ asset 114 min, Cannes/VOD 119 min, Ad Vitam 118 min sans lien événementiel daté."
+      }
     }
   ],
   "verification_records": [
@@ -2975,6 +3004,37 @@
       "applies_to": "La Guerre des mondes — affiche de la réserve jeudi rang 4",
       "evidence_note": "Affiche anglaise exacte 342×513 inspectée visuellement ; provenance Digital3D/TMDB explicite ; contrôle CI distant encore requis.",
       "status": "visually_verified_ci_pending"
+    },
+    {
+      "work_id": "bird-2024",
+      "fields": [
+        "identity",
+        "director",
+        "year",
+        "critical_reception",
+        "ratings",
+        "freshness",
+        "image_identity",
+        "broadcast_title",
+        "broadcast_channel",
+        "broadcast_date",
+        "broadcast_time_conflict",
+        "duration_version_link"
+      ],
+      "urls": [
+        "https://www.advitamdistribution.com/films/bird/",
+        "https://www.festival-cannes.com/f/bird-2/",
+        "https://www.canalplus.com/cinema/bird/h/27480859_50002",
+        "https://www.canalplus.com/cinema/bird/h/27480859_40099",
+        "https://tv-programme.com/cine-plus-festival/vendredi-23-octobre-2026/",
+        "https://television.telerama.fr/chaine/cine-club",
+        "https://www.bfi.org.uk/sight-and-sound/reviews/bird-andrea-arnolds-tender-contemporary-fable"
+      ],
+      "checked_at": "2026-10-15T12:49:03Z",
+      "stability": "mixed_stable_and_cycle_specific",
+      "applies_to": "dossier partiel Bird — vendredi 2026-10-23",
+      "evidence_note": "Identité, réception, fraîcheur et affiche établies ; TV-programme donne 06:34, Télérama 06:33, et l’asset CANAL+ de 114 min n’est pas relié par un événement daté. Carte interdite jusqu’à preuve nouvelle.",
+      "status": "partial_blocked_waiting_for_new_evidence"
     }
   ],
   "source_issues": [
@@ -3819,6 +3879,24 @@
           "sl-jeudi-dernier-rivage",
           "sl-jeudi-freaks-2018"
         ]
+      },
+      {
+        "id": "sl-vendredi-bird-2024",
+        "title": "Bird",
+        "work_id": "bird-2024",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "researching",
+        "signals": [
+          {
+            "kind": "professional_criticism",
+            "note": "Sight and Sound souligne la tendresse du conte contemporain, la performance de Nykiya Adams et l’articulation du réalisme social au merveilleux.",
+            "source_url": "https://www.bfi.org.uk/sight-and-sound/reviews/bird-andrea-arnolds-tender-contemporary-fable"
+          }
+        ],
+        "decision_note": "Dossier avancé mais carte non matérialisée : TV-programme donne 06:34, Télérama 06:33, et aucun événement officiel daté ne relie formellement le créneau à l’asset CANAL+ de 114 min.",
+        "alternatives": []
       }
     ]
   },
@@ -3841,7 +3919,8 @@
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Compléter le trio développé du vendredi ; le flow courant place Bird parmi les dossiers réutilisables à recontrôler, tandis que les pistes récemment exposées restent exclues.",
+      "Compléter le trio développé du vendredi en approfondissant Que Dios nos perdone ou une autre alternative fraîche ; Bird attend une preuve nouvelle selon son retry_gate.",
+      "Reprendre Bird seulement si une preuve officielle datée relie la diffusion du vendredi 23 octobre 2026 à une durée/version exacte, ou si un recoupement admissible résout 06:33/06:34.",
       "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi et du mardi pour progresser vers le minimum de dix candidats complets par jour, sans modifier les choix développés.",
       "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés.",
       "Reprendre Quand la ville dort seulement si une preuve permet d’attribuer une durée exacte à la copie du dimanche 18 octobre 2026.",
@@ -7609,9 +7688,9 @@
     {
       "prompt_revision": "production-weekly-continuity-2026-10-10",
       "started_at": "2026-10-15T12:03:09.155Z",
-      "ended_at": null,
-      "duration_basis": "Début UTC observé dans cette exécution ; passage en cours, intervalles de recherche et de rédaction partiellement parallèles non additionnés.",
-      "run_state": "running",
+      "ended_at": "2026-10-15T12:53:47.633Z",
+      "duration_basis": "Début et fin UTC observés dans cette exécution ; durée écoulée 50 min 38 s environ jusqu’au bilan terminal. Les intervalles parallèles signalés ne sont pas additionnés.",
+      "run_state": "stopped",
       "completed_batches": [
         "Trio développé du mercredi complété par deux cartes draft fraîches entièrement revues ; une piste en conflit remplacée par une alternative vérifiée.",
         "Réserve du samedi ajoutée ; trois dossiers proches d’une carte sauvegardés comme partiels avec leurs contradictions factuelles et conditions de reprise.",
@@ -7622,15 +7701,16 @@
         "data/research/2026-S43.json",
         "data/works.json",
         "data/links.json",
-        "data/weeks/2026-S43.json"
+        "data/weeks/2026-S43.json",
+        "data/manifest.json"
       ],
       "complete_cards_added": 0,
       "draft_cards_added": 5,
       "draft_reserves_added": 2,
-      "partial_dossiers_added": 4,
+      "partial_dossiers_added": 5,
       "requirements_resolved": 0,
-      "stop_reason": null,
-      "next_useful_batch": "Compléter le trio développé du vendredi ; le flow courant place Bird parmi les dossiers réutilisables à recontrôler, tandis que les pistes récemment exposées restent exclues.",
+      "stop_reason": "budget_reserve_reached après 3023,736 s observées ; cinq minutes réservées à la sauvegarde finale et à la libération du bail, candidate encore incomplète.",
+      "next_useful_batch": "Compléter le trio développé du vendredi en approfondissant Que Dios nos perdone ou une autre alternative fraîche ; Bird attend une preuve nouvelle selon son retry_gate.",
       "additions": {
         "new_works": 7,
         "visible_draft_cards": 5,
@@ -7691,6 +7771,30 @@
           "started_at": "2026-10-15T12:44:00.000Z",
           "ended_at": "2026-10-15T12:45:12.682Z",
           "note": "Rendu mécanique de la réserve jeudi rang 4."
+        },
+        {
+          "kind": "recherche",
+          "started_at": "2026-10-15T12:47:10.744Z",
+          "ended_at": "2026-10-15T12:51:30.000Z",
+          "note": "Flow offsets 0 et 6, revue Bird déléguée et deux voies Web ; Bird différé sur contradiction 06:33/06:34 et liaison de version/durée, Que Dios nos perdone identifié comme alternative."
+        },
+        {
+          "kind": "controls",
+          "started_at": "2026-10-15T12:43:30.000Z",
+          "ended_at": "2026-10-15T12:46:17.635Z",
+          "note": "Contrôles éditoriaux, liens, fraîcheur, rapport d’écarts et inspection des pages jeudi ; chevauche la sauvegarde mécanique."
+        },
+        {
+          "kind": "sauvegarde",
+          "started_at": "2026-10-15T12:45:12.682Z",
+          "ended_at": "2026-10-15T12:47:10.744Z",
+          "note": "Checkpoint de la réserve jeudi, arbre local et arbre GitHub comparés avant mise à jour de référence."
+        },
+        {
+          "kind": "controls",
+          "started_at": "2026-10-15T12:49:30.143Z",
+          "ended_at": "2026-10-15T12:53:47.633Z",
+          "note": "Triage, flow offset 6, observation CI et bilan terminal ; recherches Bird/alternative partiellement parallèles."
         }
       ],
       "continuation_decisions": [
@@ -7804,24 +7908,80 @@
             "accessible_task_checks": [],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T12:47:10.744Z",
+          "elapsed_seconds": 2641.589,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "118a3680a1945f950d5ea222f10dc8525a8fe93d",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T13:31:38.669Z",
+          "remaining_count": 12,
+          "evaluated_by": "scripts/editorial-continuation.mjs",
+          "next_actions": [
+            "Compléter le trio développé du vendredi ; le flow courant place Bird parmi les dossiers réutilisables à recontrôler, tandis que les pistes récemment exposées restent exclues.",
+            "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi et du mardi pour progresser vers le minimum de dix candidats complets par jour, sans modifier les choix développés.",
+            "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T12:03:09.155Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T13:31:38.669Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
+        },
+        {
+          "action": "stop",
+          "reason_code": "budget_reserve_reached",
+          "observed_at": "2026-10-15T12:53:32.891Z",
+          "elapsed_seconds": 3023.736,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "118a3680a1945f950d5ea222f10dc8525a8fe93d",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T13:31:38.669Z",
+          "remaining_count": 12,
+          "evaluated_by": "scripts/editorial-continuation.mjs --finish",
+          "next_actions": [
+            "Compléter le trio développé du vendredi ; le flow courant place Bird parmi les dossiers réutilisables à recontrôler, tandis que les pistes récemment exposées restent exclues.",
+            "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi et du mardi pour progresser vers le minimum de dix candidats complets par jour, sans modifier les choix développés.",
+            "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T12:03:09.155Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T13:31:38.669Z",
+            "external_stop": null,
+            "accessible_task_checks": [],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
-        "action": "continue",
-        "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T12:41:47.006Z",
-        "elapsed_seconds": 2317.851,
+        "action": "stop",
+        "reason_code": "budget_reserve_reached",
+        "observed_at": "2026-10-15T12:53:32.891Z",
+        "elapsed_seconds": 3023.736,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "afd7fa4545a3e8626e80ad18f5a73141cf052da1",
+        "source_sha": "118a3680a1945f950d5ea222f10dc8525a8fe93d",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T13:31:38.669Z",
         "remaining_count": 12,
-        "evaluated_by": "scripts/editorial-continuation.mjs",
+        "evaluated_by": "scripts/editorial-continuation.mjs --finish",
         "next_actions": [
-          "Compléter le trio développé du vendredi avec trois œuvres fraîches entièrement vérifiées, puis reprendre les réserves des jours encore sous le minimum.",
+          "Compléter le trio développé du vendredi ; le flow courant place Bird parmi les dossiers réutilisables à recontrôler, tandis que les pistes récemment exposées restent exclues.",
           "Ajouter des réserves fraîches et complètes aux pools du samedi, du dimanche, du lundi et du mardi pour progresser vers le minimum de dix candidats complets par jour, sans modifier les choix développés.",
           "Compléter Ciné+ OCS et Ciné+ Family les 21 et 22 octobre seulement lorsqu’une nouvelle grille datée exacte devient accessible, conformément aux retry_gates sauvegardés."
         ],
@@ -7844,11 +8004,21 @@
           "data_and_policy": "failure",
           "failure": "test-editorial-task-board attend le texte historique « 35 paragraphes à réconcilier » alors que le rapport courant en déclare 12 ; les étapes ultérieures ont été sautées.",
           "scope": "Défaut du test d’outillage, sans modification de code dans ce lot éditorial."
+        },
+        {
+          "source_sha": "118a3680a1945f950d5ea222f10dc8525a8fe93d",
+          "run_id": 38737481509,
+          "run_number": 994,
+          "observed_at": "2026-10-15T12:50:00.000Z",
+          "browser_presentation": "in_progress",
+          "data_and_policy": "failure",
+          "failure": "La suite éditoriale groupée échoue encore à l’étape 14 ; les étapes structurelles, automatisation, identités et architecture précédentes sont vertes, le rapport d’écarts est produit.",
+          "scope": "Observation de la CI sur la tête exacte ; aucun code modifié dans ce lot éditorial."
         }
       ]
     }
   ],
-  "updated_at": "2026-10-15T12:45:12.682Z",
+  "updated_at": "2026-10-15T12:53:47.633Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -10162,6 +10332,118 @@
       ],
       "decision": "réserve draft jeudi rang 4 matérialisée — CI final requis",
       "reason": "Identité, diffusion, réception, notes, visuel, fraîcheur et textes sont revus ; aucun conflit factuel non résolu."
+    },
+    {
+      "title": "Bird",
+      "work_id": "bird-2024",
+      "catalogue_match": "bird-2024",
+      "identity_research": {
+        "director": "Andrea Arnold",
+        "year": 2024,
+        "country": "Royaume-Uni / France / États-Unis / Allemagne",
+        "cast": [
+          "Nykiya Adams",
+          "Barry Keoghan",
+          "Franz Rogowski"
+        ],
+        "source_urls": [
+          "https://www.advitamdistribution.com/films/bird/",
+          "https://www.festival-cannes.com/f/bird-2/",
+          "https://www.canalplus.com/cinema/bird/h/27480859_50002"
+        ],
+        "checked_at": "2026-10-15T12:49:03Z",
+        "duration_observations": [
+          {
+            "duration": "119 min",
+            "version": "durée œuvre/master cinéma Festival de Cannes et CANAL VOD",
+            "source_url": "https://www.festival-cannes.com/f/bird-2/"
+          },
+          {
+            "duration": "118 min",
+            "version": "arrondi distributeur Ad Vitam",
+            "source_url": "https://www.advitamdistribution.com/films/bird/"
+          },
+          {
+            "duration": "114 min",
+            "version": "offre CANAL+ direct/replay sans BroadcastEvent daté du 23 octobre",
+            "source_url": "https://www.canalplus.com/cinema/bird/h/27480859_50002"
+          },
+          {
+            "duration": "116 min",
+            "version": "fenêtre EPG 06:34–08:30, ne certifie pas la durée de l’œuvre",
+            "source_url": "https://tv-programme.com/cine-plus-festival/vendredi-23-octobre-2026/"
+          }
+        ],
+        "note": "Identité certaine ; l’asset CANAL+ 114 min n’est pas formellement relié au créneau daté."
+      },
+      "critical_evidence": [
+        {
+          "source": "BFI / Sight and Sound",
+          "source_url": "https://www.bfi.org.uk/sight-and-sound/reviews/bird-andrea-arnolds-tender-contemporary-fable",
+          "assessment": "Tendresse du conte contemporain, performance de Nykiya Adams et articulation du réalisme social au merveilleux.",
+          "kind": "professional_criticism",
+          "access": "full",
+          "checked_at": "2026-10-15T12:49:03Z"
+        },
+        {
+          "source": "Associated Press",
+          "source_url": "https://apnews.com/article/6cb552a4175a9853393d1092522d0f4d",
+          "assessment": "Contrepoint : la greffe de réalisme magique et certains rappels du style antérieur d’Arnold convainquent moins.",
+          "kind": "professional_criticism",
+          "access": "full",
+          "checked_at": "2026-10-15T12:49:03Z"
+        }
+      ],
+      "ratings_research": {
+        "status": "verified_dynamic_multiple_sources",
+        "checked_at": "2026-10-15T12:49:03Z",
+        "source_urls": [
+          "https://www.rottentomatoes.com/m/bird_2024",
+          "https://www.metacritic.com/movie/bird-2024/",
+          "https://www.allocine.fr/film/fichefilm-316459/critiques/presse/"
+        ],
+        "note": "Rotten Tomatoes 86 % (140 critiques), Metacritic 74/100 (36 critiques), AlloCiné presse 3,9/5 (34 titres)."
+      },
+      "broadcast_research": {
+        "date": "2026-10-23",
+        "start": "06:34",
+        "channel": "Ciné+ Festival",
+        "source_urls": [
+          "https://tv-programme.com/cine-plus-festival/vendredi-23-octobre-2026/",
+          "https://television.telerama.fr/chaine/cine-club",
+          "https://www.canalplus.com/cinema/bird/h/27480859_50002"
+        ],
+        "checked_at": "2026-10-15T12:49:03Z",
+        "status": "conflicted_current_minute_and_unlinked_asset",
+        "note": "TV-programme donne 06:34–08:30 ; Télérama donne 06:33. Aucune grille officielle CANAL+ datée du 23 octobre ni BroadcastEvent reliant l’asset 114 min."
+      },
+      "image_research": {
+        "checked_at": "2026-10-15T12:49:03Z",
+        "source_page": "https://www.advitamdistribution.com/films/bird/",
+        "image_url": "https://www.advitamdistribution.com/app/uploads/2024/11/BIRD_120x160-526x712.jpg",
+        "dimensions": "526x712",
+        "status": "exact_official_poster_visually_verified_ci_pending",
+        "visually_checked": true,
+        "note": "Affiche officielle Ad Vitam violette/crépusculaire, titre Bird et distribution exacts."
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T12:49:03Z",
+        "status": "fresh_within_public_history",
+        "issues_checked": [
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ],
+        "note": "Aucune exposition publique ni réserve quotidienne ; seule piste interne S42 différée."
+      },
+      "missing_fields": [
+        "résolution de la contradiction 06:33/06:34",
+        "preuve reliant la durée/version exacte à la diffusion du 23 octobre",
+        "contrôle CI distant du visuel et des liens"
+      ],
+      "decision": "dossier partiel conservé ; carte non matérialisée",
+      "reason": "Les faits stables, la réception, la fraîcheur, le visuel et les textes sont prêts, mais la minute exacte et la liaison officielle de version/durée restent indémontrées."
     }
   ]
 }
