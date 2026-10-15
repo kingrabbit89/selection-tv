@@ -3958,6 +3958,42 @@
       "applies_to": "Ciné+ Family — mardi 20 octobre 2026, jour civil 00:00–23:59",
       "evidence_note": "Deux guides actuels d’éditeurs distincts concordent sur les quinze identités et horaires ; neuf horaires divergents de l’extraction ont été corrigés. Provenance amont et indépendance inconnues.",
       "status": "verified_two_publisher_concordance"
+    },
+    {
+      "fields": [
+        "schedule_title",
+        "schedule_channel",
+        "schedule_date",
+        "schedule_time"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-family/samedi-17-octobre-2026/",
+        "https://www.programme-television.org/tv/chaines/cine-famiz/samedi",
+        "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/samedi/h17",
+        "https://www.programmetvcesoir.net/chaine/cine-family/2026-10-17"
+      ],
+      "checked_at": "2026-10-15T15:35:59.000Z",
+      "stability": "cycle_specific",
+      "applies_to": "Ciné+ Family — samedi 17 octobre 2026, jour civil 00:00–23:59",
+      "evidence_note": "Deux guides actuels concordent sur une grille révisée à 18 départs, tandis que deux autres guides conservent l’ancienne grille ; les deux omissions et treize horaires restent ouverts.",
+      "status": "conflicting_guides_open"
+    },
+    {
+      "fields": [
+        "schedule_title",
+        "schedule_channel",
+        "schedule_date",
+        "schedule_time"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
+        "https://www.programme-television.org/type/films/comedies/le-pere-noel-est-une-ordure-53570"
+      ],
+      "checked_at": "2026-10-15T15:35:59.000Z",
+      "stability": "cycle_specific",
+      "applies_to": "Le Père Noël est une ordure — Ciné+ Family, lundi 19 octobre 2026 à 00:04",
+      "evidence_note": "TV-programme.com et Télé 7 Jours concordent sur le même film, la même chaîne, la date du 19 octobre et l’horaire 00:04 ; provenance amont indépendante non établie.",
+      "status": "verified_two_publisher_single_event"
     }
   ],
   "source_issues": [
@@ -11082,7 +11118,7 @@
       "prompt_revision": "production-weekly-continuity-2026-10-10",
       "started_at": "2026-10-15T15:03:29.000Z",
       "ended_at": null,
-      "duration_basis": "Temps UTC observé depuis 2026-10-15T15:03:29.000Z ; checkpoint à 2026-10-15T15:23:32.000Z.",
+      "duration_basis": "Temps UTC observé depuis 2026-10-15T15:03:29.000Z ; checkpoint préparé à 2026-10-15T15:35:59.000Z.",
       "run_state": "running",
       "completed_batches": [
         "2026-10-15T15:08:39.575Z — dossier The Big Short complété : deux guides actuels concordent désormais à 08:31 sur Ciné+ Frisson le 21 octobre ; la contradiction historique 08:30/08:31 est conservée, aucune carte n’est affirmée sans rendu mécanique.",
@@ -11101,7 +11137,8 @@
         "2026-10-15T15:29:24.000Z — secondes lectures groupées Ciné+ OCS des 17, 18, 19 et 20 octobre : 70/70 départs concordants et aucune omission ; reports de veille et doubles segments conservés, indépendance inconnue.",
         "2026-10-15T15:30:41.000Z — secondes lectures Ciné+ Family des 17, 18 et 19 octobre : dimanche 14/14 sans omission ; samedi deux omissions et treize décalages, lundi treize décalages sans omission, tous conservés sans correction automatique.",
         "2026-10-15T15:31:37.000Z — secondes lectures Ciné+ Family des 20, 21 et 23 octobre : mercredi 17/17 et vendredi 16/16 sans omission ; mardi quinze identités présentes mais neuf décalages horaires conservés sans correction automatique.",
-        "2026-10-15T15:33:25.000Z — recoupement distinct Ciné+ Family : mardi entièrement réconcilié par deux éditeurs (9 horaires corrigés, 15/15 lignes), lundi réconcilié sur 05:49–22:49 (10 horaires corrigés) ; trois écarts nocturnes du lundi restent ouverts."
+        "2026-10-15T15:33:25.000Z — recoupement distinct Ciné+ Family : mardi entièrement réconcilié par deux éditeurs (9 horaires corrigés, 15/15 lignes), lundi réconcilié sur 05:49–22:49 (10 horaires corrigés) ; trois écarts nocturnes du lundi restent ouverts.",
+        "2026-10-15T15:35:59.000Z — recoupement Ciné+ Family : Le Père Noël est une ordure corrigé à 00:04 après concordance TV-programme/Télé 7 Jours ; samedi reste en conflit multi-éditeur (deux guides pour la grille révisée, deux pour l’extraction primaire), donc aucune correction ni omission clôturée."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -11114,7 +11151,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Recouper les deux omissions et décalages du samedi 17 octobre, puis les trois horaires nocturnes du lundi 19 ; poursuivre une autre chaîne si ces sources restent indisponibles.",
+      "next_useful_batch": "Recouper les deux horaires nocturnes encore ouverts du lundi 19 octobre ; poursuivre ensuite la seconde lecture d’une autre chaîne sans répéter le conflit samedi.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -11689,37 +11726,64 @@
             ],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T15:35:59.000Z",
+          "elapsed_seconds": 1950,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "2d3305e6d81ac553ac8950b21fb59bcd5e67393e",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T16:34:27.059Z",
+          "remaining_count": 11,
+          "next_actions_total": 4,
+          "evaluated_by": "manual_fallback",
+          "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision fondée sur l’horloge observée, le bail relu et les actions accessibles du checkpoint.",
+          "next_actions": [
+            "Recouper les deux horaires nocturnes encore ouverts du lundi 19 octobre ; poursuivre ensuite la seconde lecture d’une autre chaîne sans répéter le conflit samedi."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T15:03:29.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T16:34:27.059Z",
+            "external_stop": null,
+            "accessible_task_checks": [
+              "Deux écarts nocturnes Family restent recoupables ; les autres chaînes conservent des secondes lectures accessibles."
+            ],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T15:32:02.811Z",
-        "elapsed_seconds": 1714,
+        "observed_at": "2026-10-15T15:35:59.000Z",
+        "elapsed_seconds": 1950,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "eade4d3ca3519f86985a153a60885f80f973f2cd",
+        "source_sha": "2d3305e6d81ac553ac8950b21fb59bcd5e67393e",
         "lease_owned": "yes",
-        "lease_until": "2026-10-15T16:14:22.427Z",
+        "lease_until": "2026-10-15T16:34:27.059Z",
         "remaining_count": 11,
         "next_actions_total": 4,
         "evaluated_by": "manual_fallback",
-        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision fondée sur l’horloge observée, le bail relu et le checkpoint immuable.",
+        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision fondée sur l’horloge observée, le bail relu et les actions accessibles du checkpoint.",
         "next_actions": [
-          "Recouper les deux omissions du 17 octobre et les trois horaires nocturnes du 19 octobre sur Ciné+ Family ; ne corriger que sur preuve concordante.",
-          "Poursuivre une autre seconde lecture de chaîne cinéma complète.",
-          "Matérialiser The Big Short comme réserve draft du mercredi avec le helper dès qu’un clone exécutable est disponible.",
-          "Observer la CI de la tête courante sans interrompre les travaux indépendants."
+          "Recouper les deux horaires nocturnes encore ouverts du lundi 19 octobre ; poursuivre ensuite la seconde lecture d’une autre chaîne sans répéter le conflit samedi."
         ],
         "observations": {
           "started_at": "2026-10-15T15:03:29.000Z",
           "lease_owned": "yes",
-          "lease_until": "2026-10-15T16:14:22.427Z",
+          "lease_until": "2026-10-15T16:34:27.059Z",
           "external_stop": null,
           "accessible_task_checks": [
-            "Sudinfo dated Monday and Tuesday grids were accessible for targeted contradiction resolution"
+            "Deux écarts nocturnes Family restent recoupables ; les autres chaînes conservent des secondes lectures accessibles."
           ],
           "ready_handoff": null
         }
@@ -15303,8 +15367,8 @@
           "Ciné+ Family"
         ],
         "flow": "Ciné+ Family",
-        "publisher": "TV-programme.com / Tabom",
-        "checked_at": "2026-10-15T15:30:41.000Z",
+        "publisher": "TV-programme.com / Tabom + Télé 7 Jours, avec contradictions Sudinfo et ProgrammeTVCeSoir",
+        "checked_at": "2026-10-15T15:35:59.000Z",
         "segments_reviewed": [
           "jour civil et nuit 00:00–23:59"
         ],
@@ -15312,7 +15376,10 @@
         "independent_crosscheck_complete": false,
         "date": "2026-10-17",
         "urls": [
-          "https://tv-programme.com/cine-plus-family/samedi-17-octobre-2026/"
+          "https://tv-programme.com/cine-plus-family/samedi-17-octobre-2026/",
+          "https://www.programme-television.org/tv/chaines/cine-famiz/samedi",
+          "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/samedi/h17",
+          "https://www.programmetvcesoir.net/chaine/cine-family/2026-10-17"
         ],
         "comparison": {
           "saved_observations": 16,
@@ -15396,17 +15463,44 @@
           ],
           "retained_source_segments": [
             "Neuilly sa mère ! commencé la veille à 23:50 est un report de continuité et n’est pas dupliqué comme départ du jour civil du 17 octobre."
+          ],
+          "supporting_current_guides": [
+            {
+              "publisher": "TV-programme.com / Tabom",
+              "url": "https://tv-programme.com/cine-plus-family/samedi-17-octobre-2026/",
+              "rows": 18,
+              "note": "Grille courante à 18 départs, incluant les deux épisodes Les cahiers d’Esther à 20:44 et 20:46."
+            },
+            {
+              "publisher": "Télé 7 Jours",
+              "url": "https://www.programme-television.org/tv/chaines/cine-famiz/samedi",
+              "rows": 18,
+              "note": "Grille courante concordante sur les 18 départs et les deux épisodes Les cahiers d’Esther."
+            }
+          ],
+          "conflicting_guides": [
+            {
+              "publisher": "Ciné-Télé-Revue / Sudinfo",
+              "url": "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/samedi/h17",
+              "note": "Résultat daté utilisant encore les horaires de l’extraction primaire."
+            },
+            {
+              "publisher": "ProgrammeTVCeSoir",
+              "url": "https://www.programmetvcesoir.net/chaine/cine-family/2026-10-17",
+              "note": "Grille utilisant encore les horaires de l’extraction primaire et ne corroborant pas les deux lignes ajoutées."
+            }
           ]
         },
         "decisions": [
-          "Deux omissions réelles et treize décalages horaires sont conservés comme contradictions à réconcilier ; aucune correction automatique de l’inventaire.",
-          "Les cinq horaires inchangés restent concordants."
+          "TV-programme.com et Télé 7 Jours concordent sur la grille révisée à dix-huit départs, y compris les deux épisodes Les cahiers d’Esther à 20:44 et 20:46.",
+          "Sudinfo et ProgrammeTVCeSoir restent concordants avec l’extraction primaire plus ancienne ; ce conflit entre éditeurs distincts interdit de corriger l’inventaire ou de clore les deux omissions.",
+          "Les deux omissions et les treize décalages restent ouverts jusqu’à une correction officielle précise ou un recoupement daté levant le conflit."
         ],
         "limits": [
-          "Une seule grille complète accessible pour ce périmètre ; seconde lecture distincte du même éditeur, pas une source indépendante.",
-          "La page relue a été crawlée le 14 octobre 2026 ; les différences avec l’extraction sauvegardée exigent une nouvelle décision de source avant correction."
+          "Conflit multi-éditeur actuel : deux guides soutiennent la grille révisée et deux guides la grille primaire ; aucune autorité officielle précise n’a été trouvée dans ce lot.",
+          "Provenance amont et indépendance des flux inconnues."
         ],
-        "status": "reread_complete_with_omissions_and_contradictions"
+        "status": "multi_publisher_conflict_open"
       },
       {
         "channels": [
@@ -15448,8 +15542,8 @@
           "Ciné+ Family"
         ],
         "flow": "Ciné+ Family",
-        "publisher": "TV-programme.com / Tabom + Ciné-Télé-Revue / Sudinfo",
-        "checked_at": "2026-10-15T15:30:41.000Z",
+        "publisher": "TV-programme.com / Tabom + Ciné-Télé-Revue / Sudinfo + Télé 7 Jours",
+        "checked_at": "2026-10-15T15:35:59.000Z",
         "segments_reviewed": [
           "jour civil et nuit 00:00–23:59"
         ],
@@ -15458,18 +15552,14 @@
         "date": "2026-10-19",
         "urls": [
           "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
-          "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11"
+          "https://programmestv.sudinfo.be/programme-tv/chaine/cin%C3%A9%2B-family/488/lundi/h11",
+          "https://www.programme-television.org/type/films/comedies/le-pere-noel-est-une-ordure-53570"
         ],
         "comparison": {
           "saved_observations": 17,
           "source_rows_reviewed": 17,
           "omissions": [],
           "schedule_contradictions": [
-            {
-              "saved_start": "00:03",
-              "review_start": "00:04",
-              "title": "Le Père Noël est une ordure"
-            },
             {
               "saved_start": "01:32",
               "review_start": "01:33",
@@ -15485,6 +15575,15 @@
             "Dieumerci ! commencé la veille à 22:31 est un report de continuité et n’est pas dupliqué comme départ du jour civil du 19 octobre."
           ],
           "resolved_schedule_corrections": [
+            {
+              "title": "Le Père Noël est une ordure",
+              "saved_start": "00:03",
+              "confirmed_start": "00:04",
+              "evidence_urls": [
+                "https://tv-programme.com/cine-plus-family/lundi-19-octobre-2026/",
+                "https://www.programme-television.org/type/films/comedies/le-pere-noel-est-une-ordure-53570"
+              ]
+            },
             {
               "title": "L'odyssée de Céleste",
               "saved_start": "07:02",
@@ -15578,15 +15677,15 @@
           ]
         },
         "decisions": [
-          "Deux guides actuels d’éditeurs distincts concordent sur dix corrections horaires de 07:04 à 22:49 ; ces horaires sont corrigés mécaniquement dans l’inventaire.",
-          "Les trois décalages nocturnes à 00:04, 01:33 et 04:34 restent ouverts : la page Sudinfo de lundi rattache l’après-minuit au mardi et ne couvre pas ce segment civil.",
-          "Aucune omission d’identité détectée."
+          "Deux guides actuels d’éditeurs distincts concordent sur Le Père Noël est une ordure à 00:04 le 19 octobre ; cet horaire est corrigé mécaniquement dans l’inventaire.",
+          "Les dix corrections diurnes déjà recoupées restent acquises.",
+          "Les horaires de Les Bodin's partent en vrille (01:32/01:33) et Drôle de prof 2 au camping (04:33/04:34) restent ouverts faute d’une seconde preuve précise."
         ],
         "limits": [
-          "Concordance de deux éditeurs sur le segment 05:49–22:49, sans preuve positive d’indépendance amont.",
-          "Le segment 00:00–05:48 ne dispose encore que de la grille TV-programme.com relue ; trois décalages y restent à recouper."
+          "Concordance de deux éditeurs pour Le Père Noël est une ordure et pour les dix corrections diurnes déjà enregistrées, sans preuve positive d’indépendance amont.",
+          "Deux écarts nocturnes sur 01:32–04:34 ne disposent encore que de la grille TV-programme.com révisée."
         ],
-        "status": "two_publisher_daytime_concordance_night_contradictions_open"
+        "status": "two_publisher_concordance_two_night_contradictions_open"
       },
       {
         "channels": [
