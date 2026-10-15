@@ -4137,6 +4137,22 @@
       "applies_to": "Ciné+ Festival — samedi 17 et dimanche 18 octobre 2026, jours civils 00:00–23:59",
       "evidence_note": "Secondes lectures distinctes : 15/15 puis 16/16 départs concordants, nuits incluses, aucune omission ; une seule grille complète accessible par date.",
       "status": "reread_complete_single_editor_limit"
+    },
+    {
+      "fields": [
+        "schedule_identity",
+        "omission_review",
+        "schedule_time"
+      ],
+      "urls": [
+        "https://tv-programme.com/cine-plus-festival/lundi-19-octobre-2026/",
+        "https://tv-programme.com/cine-plus-festival/mardi-20-octobre-2026/"
+      ],
+      "checked_at": "2026-10-15T15:48:46.882Z",
+      "stability": "cycle_specific",
+      "applies_to": "Ciné+ Festival — lundi 19 et mardi 20 octobre 2026, jours civils 00:00–23:59",
+      "evidence_note": "Lundi : 16/16 identités, aucune omission, deux horaires divergents. Mardi : 14 identités retrouvées, trois départs supplémentaires et sept horaires divergents ; tout reste ouvert faute de seconde source.",
+      "status": "reread_complete_omissions_and_contradictions_open"
     }
   ],
   "source_issues": [
@@ -11290,7 +11306,8 @@
         "Seconde lecture Ciné+ Classic des 17 et 18 octobre : 16/16 identités chaque jour, aucune omission ; deux décalages horaires conservés le samedi, dimanche concordant.",
         "Seconde lecture Ciné+ Classic des 19 et 20 octobre : 15/15 puis 20/20 départs concordants, aucune omission ; limite mono-éditeur conservée.",
         "Seconde lecture Ciné+ Classic des 21 au 23 octobre : 17/17, 20/20 et 15/15 départs concordants, aucune omission ; les sept dates de la chaîne disposent désormais d’une revue de niveau 2.",
-        "Seconde lecture Ciné+ Festival des 17 et 18 octobre : 15/15 puis 16/16 départs concordants, aucune omission ; limite mono-éditeur conservée."
+        "Seconde lecture Ciné+ Festival des 17 et 18 octobre : 15/15 puis 16/16 départs concordants, aucune omission ; limite mono-éditeur conservée.",
+        "Seconde lecture Ciné+ Festival des 19 et 20 octobre : lundi sans omission mais deux horaires divergents ; mardi avec trois omissions potentielles et sept horaires divergents, tous conservés ouverts."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -11303,7 +11320,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre les secondes lectures Ciné+ Festival des 19 au 23 octobre.",
+      "next_useful_batch": "Poursuivre les secondes lectures Ciné+ Festival des 21 au 23 octobre ; recouper les trois omissions potentielles et sept horaires divergents du mardi seulement sur fait nouveau.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -12178,26 +12195,56 @@
             ],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T15:48:46.882Z",
+          "elapsed_seconds": 2718,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "0edb8aca4e4dcf7b56fdc7d652f9f86ef7f31752",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T16:34:27.059Z",
+          "remaining_count": 11,
+          "next_actions_total": 4,
+          "evaluated_by": "manual_fallback",
+          "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les trois dates Festival encore accessibles.",
+          "next_actions": [
+            "Poursuivre les secondes lectures Ciné+ Festival des 21 au 23 octobre ; recouper les trois omissions potentielles et sept horaires divergents du mardi seulement sur fait nouveau."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T15:03:29.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T16:34:27.059Z",
+            "external_stop": null,
+            "accessible_task_checks": [
+              "Trois dates Ciné+ Festival restent sans seconde lecture sauvegardée."
+            ],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T15:48:00.709Z",
-        "elapsed_seconds": 2672,
+        "observed_at": "2026-10-15T15:48:46.882Z",
+        "elapsed_seconds": 2718,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "667a6345140f1184064a0df8ec34a3e5e0833a5a",
+        "source_sha": "0edb8aca4e4dcf7b56fdc7d652f9f86ef7f31752",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T16:34:27.059Z",
         "remaining_count": 11,
         "next_actions_total": 4,
         "evaluated_by": "manual_fallback",
-        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les dates Festival restant à traiter.",
+        "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles ; décision fondée sur l’horloge, le bail relu et les trois dates Festival encore accessibles.",
         "next_actions": [
-          "Poursuivre les secondes lectures Ciné+ Festival des 19 au 23 octobre."
+          "Poursuivre les secondes lectures Ciné+ Festival des 21 au 23 octobre ; recouper les trois omissions potentielles et sept horaires divergents du mardi seulement sur fait nouveau."
         ],
         "observations": {
           "started_at": "2026-10-15T15:03:29.000Z",
@@ -12205,7 +12252,7 @@
           "lease_until": "2026-10-15T16:34:27.059Z",
           "external_stop": null,
           "accessible_task_checks": [
-            "Cinq dates Ciné+ Festival restent sans seconde lecture sauvegardée."
+            "Trois dates Ciné+ Festival restent sans seconde lecture sauvegardée."
           ],
           "ready_handoff": null
         }
@@ -17013,6 +17060,134 @@
           "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
         ],
         "status": "reread_complete_no_omissions_single_editor"
+      },
+      {
+        "channels": [
+          "Ciné+ Festival"
+        ],
+        "flow": "Ciné+ Festival",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:48:46.882Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-19",
+        "urls": [
+          "https://tv-programme.com/cine-plus-festival/lundi-19-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 16,
+          "source_rows_reviewed": 16,
+          "omissions": [],
+          "schedule_contradictions": [
+            {
+              "saved_start": "13:23",
+              "review_start": "13:24",
+              "title": "Ecroma Teio"
+            },
+            {
+              "saved_start": "19:30",
+              "review_start": "19:31",
+              "title": "Retour à Bollène"
+            }
+          ],
+          "retained_source_segments": [
+            "Sympathy for Mr Vengeance commencé la veille à 22:39 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "16/16 identités retrouvées ; aucune omission détectée.",
+          "Deux décalages horaires conservés comme contradictions ; aucune correction automatique sur une seule grille révisée."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; seconde lecture distincte de l’extraction primaire, sans seconde source ni indépendance certifiée."
+        ],
+        "status": "reread_complete_no_omissions_schedule_contradictions_single_editor"
+      },
+      {
+        "channels": [
+          "Ciné+ Festival"
+        ],
+        "flow": "Ciné+ Festival",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:48:46.882Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-20",
+        "urls": [
+          "https://tv-programme.com/cine-plus-festival/mardi-20-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 14,
+          "source_rows_reviewed": 17,
+          "omissions": [
+            {
+              "review_start": "05:41",
+              "title": "A Short Trip"
+            },
+            {
+              "review_start": "13:25",
+              "title": "Loulou"
+            },
+            {
+              "review_start": "18:51",
+              "title": "Mollusk"
+            }
+          ],
+          "schedule_contradictions": [
+            {
+              "saved_start": "05:58",
+              "review_start": "06:00",
+              "title": "Kristen Stewart, vers un renversement de l'industrie"
+            },
+            {
+              "saved_start": "10:20",
+              "review_start": "10:23",
+              "title": "Omar la fraise"
+            },
+            {
+              "saved_start": "11:56",
+              "review_start": "12:00",
+              "title": "En boucle"
+            },
+            {
+              "saved_start": "15:16",
+              "review_start": "15:14",
+              "title": "Les revenants"
+            },
+            {
+              "saved_start": "17:01",
+              "review_start": "16:59",
+              "title": "La Mer au loin"
+            },
+            {
+              "saved_start": "18:55",
+              "review_start": "19:04",
+              "title": "Left-Handed Girl"
+            },
+            {
+              "saved_start": "22:43",
+              "review_start": "22:42",
+              "title": "La Légende du roi crabe"
+            }
+          ],
+          "retained_source_segments": [
+            "Kika commencé la veille à 22:48 est un report de continuité non dupliqué."
+          ]
+        },
+        "decisions": [
+          "Les quatorze identités de l’inventaire sont retrouvées ; trois départs supplémentaires apparaissent dans la grille révisée.",
+          "Trois omissions potentielles et sept horaires divergents restent ouverts ; aucune correction automatique sur cette seule grille révisée."
+        ],
+        "limits": [
+          "Une seule grille complète accessible et réellement relue pour ce périmètre ; les omissions et horaires demandent une source distincte ou une correction officielle avant mutation de l’inventaire."
+        ],
+        "status": "reread_complete_omissions_and_schedule_contradictions_open"
       }
     ],
     "independent_crosscheck_complete": false,
