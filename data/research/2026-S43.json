@@ -136,7 +136,8 @@
     "2026-10-15T18:08:33.729Z — TMC du 18 au 23 octobre : secondes lectures jour+nuit achevées sur deux grilles Web datées d’éditeurs distincts ; 112/112 départs présents, aucune omission ni contradiction de programme, numéros d’épisode non réaffirmés et indépendance amont inconnue. Avec la revue du 17 déjà sauvegardée, les sept dates TMC sont désormais relues.",
     "2026-10-15T18:13:52.319Z — TFX sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 146/146 départs concordants, aucune omission ni contradiction d’horaire, labels S/E non réaffirmés et divergence de synopsis Super Nanny du 21 conservée hors certification de niveau 3.",
     "2026-10-15T18:18:09.764Z — 6ter sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 168/168 départs concordants, aucune omission ni divergence horaire, alias Une vie rêvée/Erkenci Kus conservés selon leur niveau de preuve, numéros d’épisode non réaffirmés et indépendance amont inconnue.",
-    "2026-10-15T18:23:40.455Z — Paris Première sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 125/125 départs concordants, aucune omission ni divergence horaire, alias Gordon Ramsay documenté, labels S/E non réaffirmés lorsque absents et correction officielle du vendredi 22:55 réconciliée."
+    "2026-10-15T18:23:40.455Z — Paris Première sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 125/125 départs concordants, aucune omission ni divergence horaire, alias Gordon Ramsay documenté, labels S/E non réaffirmés lorsque absents et correction officielle du vendredi 22:55 réconciliée.",
+    "2026-10-15T18:27:56.559Z — Canal+ sur les sept jours : seconde lecture jour+nuit achevée sur 180 départs sauvegardés ; contradictions de composition, d’identité et d’horaires conservées sur chaque date, dont vingt décalages et un remplacement jeudi. Aucun inventaire n’est corrigé sans collecte/handoff dédié ; Bird reste fermé par son retry_gate."
   ],
   "blockers": [],
   "research_attempts": [
@@ -6199,7 +6200,7 @@
     "first_incomplete_stage": "enrichment",
     "next_actions": [
       "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
-      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les six chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+      "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les cinq chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
       "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
       "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
       "Poursuivre la prospection documentaire et les rubriques indépendantes déjà ouvertes sans reprendre les pistes placées en attente faute de fait nouveau.",
@@ -16282,7 +16283,8 @@
         "2026-10-15T18:08:33.729Z — TMC du 18 au 23 octobre : secondes lectures jour+nuit achevées sur deux grilles Web datées d’éditeurs distincts ; 112/112 départs présents, aucune omission ni contradiction de programme, numéros d’épisode non réaffirmés et indépendance amont inconnue. Avec la revue du 17 déjà sauvegardée, les sept dates TMC sont désormais relues.",
         "2026-10-15T18:13:52.319Z — TFX sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 146/146 départs concordants, aucune omission ni contradiction d’horaire, labels S/E non réaffirmés et divergence de synopsis Super Nanny du 21 conservée hors certification de niveau 3.",
         "2026-10-15T18:18:09.764Z — 6ter sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 168/168 départs concordants, aucune omission ni divergence horaire, alias Une vie rêvée/Erkenci Kus conservés selon leur niveau de preuve, numéros d’épisode non réaffirmés et indépendance amont inconnue.",
-        "2026-10-15T18:23:40.455Z — Paris Première sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 125/125 départs concordants, aucune omission ni divergence horaire, alias Gordon Ramsay documenté, labels S/E non réaffirmés lorsque absents et correction officielle du vendredi 22:55 réconciliée."
+        "2026-10-15T18:23:40.455Z — Paris Première sur les sept jours : seconde lecture jour+nuit achevée dans deux grilles Web datées d’éditeurs distincts ; 125/125 départs concordants, aucune omission ni divergence horaire, alias Gordon Ramsay documenté, labels S/E non réaffirmés lorsque absents et correction officielle du vendredi 22:55 réconciliée.",
+        "2026-10-15T18:27:56.559Z — Canal+ sur les sept jours : seconde lecture jour+nuit achevée sur 180 départs sauvegardés ; contradictions de composition, d’identité et d’horaires conservées sur chaque date, dont vingt décalages et un remplacement jeudi. Aucun inventaire n’est corrigé sans collecte/handoff dédié ; Bird reste fermé par son retry_gate."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json"
@@ -16294,14 +16296,14 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 0,
       "stop_reason": null,
-      "next_useful_batch": "Poursuivre la seconde lecture de Canal+ sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
+      "next_useful_batch": "Poursuivre la seconde lecture d’Action sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
         "distinct_reserves_added": 0,
         "reused_existing_cards": 0,
         "raw_inventory_observations_added": 0,
-        "scope": "Comparaison avec 89789660bbb7a235484219e61e437557da01df1d : synchronisation des entrées Télérama et revues hebdomadaires TMC, TFX, 6ter et Paris Première ; aucun ajout de carte, réserve, œuvre ou observation brute."
+        "scope": "Comparaison avec 89789660bbb7a235484219e61e437557da01df1d : synchronisation des entrées Télérama et revues hebdomadaires TMC, TFX, 6ter, Paris Première et Canal+ ; aucun ajout de carte, réserve, œuvre ou observation brute."
       },
       "intervals": [
         {
@@ -16344,6 +16346,13 @@
           "ended_at": "2026-10-15T18:23:40.455Z",
           "overlap": true,
           "note": "Trois comparaisons Paris Première en lecture seule ont été menées en parallèle ; les intervalles se chevauchent et ne sont pas additionnés au temps séquentiel."
+        },
+        {
+          "kind": "research_delegated",
+          "started_at": "2026-10-15T18:26:12.551Z",
+          "ended_at": "2026-10-15T18:27:56.559Z",
+          "overlap": true,
+          "note": "Trois comparaisons Canal+ en lecture seule ont été menées en parallèle ; les intervalles se chevauchent et ne sont pas additionnés au temps séquentiel."
         }
       ],
       "continuation_decisions": [
@@ -16434,22 +16443,44 @@
           "next_actions_total": 18,
           "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
           "all_actions_total": 30
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T18:25:49.755Z",
+          "elapsed_seconds": 1378.246,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "87b358e4eda9e0d1279d990327d825f26ceb2207",
+          "next_actions": [
+            "Poursuivre la seconde lecture de Canal+ sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
+            "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
+            "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les six chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+            "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
+            "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
+          ],
+          "remaining_count": 11,
+          "next_actions_total": 18,
+          "truncated_notice": "13 further actions omitted from display; remaining stays authoritative and all-blocked checks use the full list.",
+          "all_actions_total": 30
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T18:21:24.175Z",
-        "elapsed_seconds": 1112.666,
+        "observed_at": "2026-10-15T18:25:49.755Z",
+        "elapsed_seconds": 1378.246,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "e90249bbd3e990c3c02d8c4145a5ad3b08327f5e",
+        "source_sha": "87b358e4eda9e0d1279d990327d825f26ceb2207",
         "next_actions": [
-          "Poursuivre la seconde lecture de Paris Première sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation ou d’identité.",
+          "Poursuivre la seconde lecture de Canal+ sur les sept jours et nuits avec deux grilles Web datées lorsque accessibles, en conservant toute divergence de segmentation, version ou identité.",
           "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
-          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les sept chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
+          "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur les six chaînes encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
           "Consigner et traiter sur main la panne CI de test-editorial-task-board : le test attend « 35 paragraphes » alors que la fixture rend les contrôles indisponibles ; ne modifier aucun code dans la candidate éditoriale.",
           "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète."
         ],
@@ -25750,6 +25781,316 @@
           "L’URL datée L’Internaute redirige actuellement vers un slug de jour de semaine dont le contenu et la navigation correspondent à la date civile ciblée ; cette canonicalisation est conservée comme limite."
         ],
         "status": "reread_complete_no_omissions_official_correction_reconciled"
+      },
+      {
+        "date": "2026-10-17",
+        "channels": [
+          "Canal+"
+        ],
+        "flow": "Canal+",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:26:55.045Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 26 départs Canal+ sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/canal-plus/samedi-17-octobre-2026/",
+          "https://www.linternaute.com/television/programme-canal-plus-samedi-17-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 26,
+          "source_rows_reviewed": 25,
+          "source_logical_departures": 25,
+          "omissions": [
+            "Rhubarb Rhubarb à 02:32 et Veuillez patienter à 02:48 ne sont pas retrouvés séparément ; le second guide porte une seule case Surprises à 02:33."
+          ],
+          "schedule_contradictions": [
+            "Le monde magique de Jérôme Commandeur à 09:41 dans la sauvegarde est remplacé par Hot Ones — Artus saccage le plateau à 09:33 dans le second guide.",
+            "Onze autres départs divergent d’une à neuf minutes ; Le Million part à 23:15 contre 23:13 et se termine à 00:43 contre 00:41."
+          ],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit est achevée sur 26 départs sauvegardés, mais les contradictions conservées interdisent d’attester une grille Canal+ concordante pour cette date.",
+          "Aucune ligne nouvelle ni correction n’est importée et aucune fiche de niveau 3 n’est certifiée par cette revue."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les pages L’Internaute peuvent exposer un état de rafraîchissement différent ou des variantes résiduelles ; cette revue conserve les contradictions au lieu de choisir arbitrairement une grille.",
+          "Les numéros de saison/épisode et versions techniques absents du second guide ne sont pas réaffirmés par cette seconde lecture.",
+          "Apollo Has Fallen S02E06 à 08:56 correspond par position à Has Fallen à 08:47, mais l’alias et le numéro d’épisode ne sont pas certifiés."
+        ],
+        "status": "reread_complete_with_omissions_identity_and_time_conflicts"
+      },
+      {
+        "date": "2026-10-18",
+        "channels": [
+          "Canal+"
+        ],
+        "flow": "Canal+",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:26:55.045Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 22 départs Canal+ sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/canal-plus/dimanche-18-octobre-2026/",
+          "https://www.linternaute.com/television/programme-canal-plus-dimanche-18-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 22,
+          "source_rows_reviewed": 23,
+          "source_logical_departures": 23,
+          "omissions": [
+            "Le second guide ajoute une case Surprises 05:50–06:20 qui chevauche 43° à l’ombre 05:51–06:19 ; les 22 départs sauvegardés restent tous présents."
+          ],
+          "schedule_contradictions": [
+            "Le report samedi–dimanche du second guide laisse un trou de deux minutes entre Le Million, fin 00:41, et Les Liens du désir, départ 00:43."
+          ],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit est achevée sur 22 départs sauvegardés, mais les contradictions conservées interdisent d’attester une grille Canal+ concordante pour cette date.",
+          "Aucune ligne nouvelle ni correction n’est importée et aucune fiche de niveau 3 n’est certifiée par cette revue."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les pages L’Internaute peuvent exposer un état de rafraîchissement différent ou des variantes résiduelles ; cette revue conserve les contradictions au lieu de choisir arbitrairement une grille.",
+          "Les numéros de saison/épisode et versions techniques absents du second guide ne sont pas réaffirmés par cette seconde lecture."
+        ],
+        "status": "reread_complete_with_internal_overlap_conflict"
+      },
+      {
+        "date": "2026-10-19",
+        "channels": [
+          "Canal+"
+        ],
+        "flow": "Canal+",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:26:55.045Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 29 départs Canal+ sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/canal-plus/lundi-19-octobre-2026/",
+          "https://www.linternaute.com/television/programme-canal-plus-lundi-19-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 29,
+          "source_rows_reviewed": 29,
+          "source_logical_departures": 29,
+          "omissions": [],
+          "schedule_contradictions": [
+            "Vingt-cinq départs avant 21:09 divergent d’une à six minutes entre l’inventaire et le second guide.",
+            "À 04:52/04:53, la sauvegarde porte 43° à l’ombre tandis que le second guide porte Surprises.",
+            "Les reports civils amont et aval divergent d’une minute."
+          ],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit est achevée sur 29 départs sauvegardés, mais les contradictions conservées interdisent d’attester une grille Canal+ concordante pour cette date.",
+          "Aucune ligne nouvelle ni correction n’est importée et aucune fiche de niveau 3 n’est certifiée par cette revue."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les pages L’Internaute peuvent exposer un état de rafraîchissement différent ou des variantes résiduelles ; cette revue conserve les contradictions au lieu de choisir arbitrairement une grille.",
+          "Les numéros de saison/épisode et versions techniques absents du second guide ne sont pas réaffirmés par cette seconde lecture."
+        ],
+        "status": "reread_complete_with_identity_and_time_conflicts"
+      },
+      {
+        "date": "2026-10-20",
+        "channels": [
+          "Canal+"
+        ],
+        "flow": "Canal+",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:27:02.869Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 26 départs Canal+ sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/canal-plus/mardi-20-octobre-2026/",
+          "https://www.linternaute.com/television/programme-canal-plus-mardi-20-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 26,
+          "source_rows_reviewed": 27,
+          "source_logical_departures": 26,
+          "omissions": [],
+          "schedule_contradictions": [
+            "Les tourmentés part à 01:14 dans la sauvegarde contre 01:12 dans le second guide ; Marche ou crève à 03:04 contre 03:03.",
+            "Le second guide duplique Amsterdad à 04:49 et 04:50 ; la sauvegarde porte 04:50."
+          ],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit est achevée sur 26 départs sauvegardés, mais les contradictions conservées interdisent d’attester une grille Canal+ concordante pour cette date.",
+          "Aucune ligne nouvelle ni correction n’est importée et aucune fiche de niveau 3 n’est certifiée par cette revue."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les pages L’Internaute peuvent exposer un état de rafraîchissement différent ou des variantes résiduelles ; cette revue conserve les contradictions au lieu de choisir arbitrairement une grille.",
+          "Les numéros de saison/épisode et versions techniques absents du second guide ne sont pas réaffirmés par cette seconde lecture.",
+          "Le second guide fraîchement relu remplace un premier instantané antérieur divergent ; les instantanés ne sont pas mélangés."
+        ],
+        "status": "reread_complete_with_time_and_duplicate_conflicts"
+      },
+      {
+        "date": "2026-10-21",
+        "channels": [
+          "Canal+"
+        ],
+        "flow": "Canal+",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:27:02.869Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 26 départs Canal+ sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/canal-plus/mercredi-21-octobre-2026/",
+          "https://www.linternaute.com/television/programme-canal-plus-mercredi-21-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 26,
+          "source_rows_reviewed": 27,
+          "source_logical_departures": 26,
+          "omissions": [],
+          "schedule_contradictions": [
+            "Le second guide duplique Loris Giuliano en balade à 04:38 et 04:42 ; la version 04:42 chevauche Le cercle à 05:49.",
+            "Le report Hot Ones 23:58 finit à 00:29 dans le second guide contre le départ sauvegardé suivant à 00:30."
+          ],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit est achevée sur 26 départs sauvegardés, mais les contradictions conservées interdisent d’attester une grille Canal+ concordante pour cette date.",
+          "Aucune ligne nouvelle ni correction n’est importée et aucune fiche de niveau 3 n’est certifiée par cette revue."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les pages L’Internaute peuvent exposer un état de rafraîchissement différent ou des variantes résiduelles ; cette revue conserve les contradictions au lieu de choisir arbitrairement une grille.",
+          "Les numéros de saison/épisode et versions techniques absents du second guide ne sont pas réaffirmés par cette seconde lecture.",
+          "Le plateau et le match du soir restent génériques dans le second guide ; l’adversaire et la saison sportive ne sont pas réaffirmés."
+        ],
+        "status": "reread_complete_with_duplicate_and_report_conflicts"
+      },
+      {
+        "date": "2026-10-22",
+        "channels": [
+          "Canal+"
+        ],
+        "flow": "Canal+",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:27:56.559Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 28 départs Canal+ sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/canal-plus/jeudi-22-octobre-2026/",
+          "https://www.linternaute.com/television/programme-canal-plus-jeudi-22-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 28,
+          "source_rows_reviewed": 28,
+          "source_logical_departures": 28,
+          "omissions": [
+            "La case sauvegardée Surprises à 05:31 est remplacée par In Articulo Mortis à 05:31 dans les deux grilles courantes."
+          ],
+          "schedule_contradictions": [
+            "Vingt des vingt-huit identités communes sont décalées d’une à trois minutes ; seuls sept départs conservent exactement titre et heure."
+          ],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit est achevée sur 28 départs sauvegardés, mais les contradictions conservées interdisent d’attester une grille Canal+ concordante pour cette date.",
+          "Aucune ligne nouvelle ni correction n’est importée et aucune fiche de niveau 3 n’est certifiée par cette revue."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les pages L’Internaute peuvent exposer un état de rafraîchissement différent ou des variantes résiduelles ; cette revue conserve les contradictions au lieu de choisir arbitrairement une grille.",
+          "Les numéros de saison/épisode et versions techniques absents du second guide ne sont pas réaffirmés par cette seconde lecture.",
+          "La grille sauvegardée paraît antérieure à une révision courante concordante entre Tabom et L’Internaute ; aucune correction n’est appliquée sans handoff de collecte et revue dédiée."
+        ],
+        "status": "reread_complete_inventory_refresh_required"
+      },
+      {
+        "date": "2026-10-23",
+        "channels": [
+          "Canal+"
+        ],
+        "flow": "Canal+",
+        "publisher": "TV-programme.com / Tabom + L’Internaute / CCM Benchmark",
+        "checked_at": "2026-10-15T18:27:56.559Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "comparaison complète de deux grilles Web datées contre les 23 départs Canal+ sauvegardés, nuits et reports civils adjacents inclus",
+        "independent_crosscheck_complete": false,
+        "urls": [
+          "https://tv-programme.com/canal-plus/vendredi-23-octobre-2026/",
+          "https://www.linternaute.com/television/programme-canal-plus-vendredi-23-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 23,
+          "source_rows_reviewed": 23,
+          "source_logical_departures": 23,
+          "omissions": [],
+          "schedule_contradictions": [
+            "Hot Ones S01E04 — Izïa Higelin est sauvegardé à 04:44, tandis que Tabom et la séquence active L’Internaute indiquent 04:38 ; le HTML L’Internaute conserve aussi des variantes 04:43/04:44."
+          ],
+          "retained_source_segments": [
+            "00:00–05:59",
+            "06:00–23:59"
+          ]
+        },
+        "decisions": [
+          "La seconde lecture jour+nuit est achevée sur 23 départs sauvegardés, mais les contradictions conservées interdisent d’attester une grille Canal+ concordante pour cette date.",
+          "Aucune ligne nouvelle ni correction n’est importée et aucune fiche de niveau 3 n’est certifiée par cette revue."
+        ],
+        "limits": [
+          "Deux éditeurs distincts réellement lus, mais provenance EPG amont non établie ; indépendance inconnue.",
+          "Les pages L’Internaute peuvent exposer un état de rafraîchissement différent ou des variantes résiduelles ; cette revue conserve les contradictions au lieu de choisir arbitrairement une grille.",
+          "Les numéros de saison/épisode et versions techniques absents du second guide ne sont pas réaffirmés par cette seconde lecture.",
+          "Le retry gate de Bird, qui concerne Ciné+ Festival, reste fermé : cette revue n’apporte ni preuve officielle datée ni second guide distinct concordant exactement à 06:34."
+        ],
+        "status": "reread_complete_with_single_time_conflict"
       }
     ],
     "independent_crosscheck_complete": false,
