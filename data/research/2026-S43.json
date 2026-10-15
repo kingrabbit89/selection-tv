@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "week": "2026-S43",
-  "stage": "inventory",
+  "stage": "enrichment",
   "status": "in_progress",
   "base_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
   "remaining": [
@@ -75,7 +75,8 @@
     "2026-10-15T09:45:19.161Z — dossier partiel L’Emploi du temps : identité Miramax, critique Guardian, IMDb actuel et diffusion du 17 octobre recoupée ; version, seconde note, visuel, fraîcheur et textes restent ouverts.",
     "2026-10-15T09:47:38.358Z — divergence Canal+ du 23 octobre à 04:17 revue : aucun impact sur la présélection ou les trois dossiers actuels ; conflit La loi de la chair / Surprises conservé ouvert pour la couverture.",
     "2026-10-15T09:50:03.180Z — affiche de La Prisonnière du désert inspectée : JPEG 446×588 exact, empreinte conservée ; contrôle CI distant encore requis.",
-    "2026-10-15T09:52:23.632Z — visuels de L’Homme de la rue et L’Emploi du temps inspectés et empreintes conservées ; deux affiches exactes, contrôles CI distants encore requis."
+    "2026-10-15T09:52:23.632Z — visuels de L’Homme de la rue et L’Emploi du temps inspectés et empreintes conservées ; deux affiches exactes, contrôles CI distants encore requis.",
+    "2026-10-15T10:08:05.703Z — trois dossiers samedi clos : La Prisonnière du désert matérialisée en carte draft après revue complète ; L’Homme de la rue et L’Emploi du temps différés pour fraîcheur après clôture de leurs vérifications."
   ],
   "blockers": [],
   "research_attempts": [
@@ -131,6 +132,31 @@
         "resume_when": "Nouvelle grille datée exacte accessible ou changement observé sur l’une des pages.",
         "observed_at": "2026-10-15T08:41:23.322Z",
         "evidence": "403 sur les deux URLs TV-programme.com ; Vualatele annonce 0 programme ; SCREEN+ n’expose que le calendrier dans le résultat lu."
+      }
+    },
+    {
+      "object": "L’Homme de la rue / Meet John Doe (1941)",
+      "version": "copie diffusée sur Ciné+ Classic le 17 octobre 2026 à 23:58",
+      "question": "Identifier le master, le montage ou la fin parmi les variantes AFI.",
+      "urls": [
+        "https://catalog.afi.com/Film/27680-MEET-JOHN-DOE",
+        "https://www.canalplus.com/cinema/l-homme-de-la-rue/h/4530700_50002",
+        "https://tv.digital3d.com/programme/tt0033891/l-homme-de-la-rue",
+        "https://programmetv.ouest-france.fr/film/comedie-dramatique/l-homme-de-la-rue-c31328/"
+      ],
+      "checked_at": "2026-10-15T10:05:56.542Z",
+      "result": "Deux voies distinctes — diffuseur et guide détaillé — n’exposent aucun identifiant de master, montage ou fin. Le créneau de 119 min ne permet aucune déduction technique.",
+      "blocking_scope": "Non bloquant après décision de différer la piste pour fraîcheur ; deviendrait à revoir seulement en cas de réouverture comme carte.",
+      "resume_when": "Page diffuseur ou fiche technique nouvelle identifiant explicitement la copie diffusée.",
+      "retry_gate": {
+        "state": "waiting_for_new_evidence",
+        "action_texts": [
+          "Identifier la copie exacte de L’Homme de la rue si la piste est rouverte comme carte S43."
+        ],
+        "reason": "Les deux voies réellement lues ne distinguent aucune des variantes historiques recensées par AFI.",
+        "resume_when": "Nouvelle preuve datée identifiant explicitement le master, le montage ou la fin diffusée.",
+        "observed_at": "2026-10-15T10:05:56.542Z",
+        "evidence": "AFI documente plusieurs durées et fins ; myCANAL, Digital3D et Ouest-France n’exposent aucun identifiant technique."
       }
     }
   ],
@@ -1999,6 +2025,67 @@
       "applies_to": "L'Emploi du temps — visuel de carte potentielle",
       "evidence_note": "Affiche française exacte de L’Emploi du temps : Aurélien Recoing, Karin Viard, Laurent Cantet et mention Lion de l’année à Venise. 1000x1333, SHA-256 c108f6d159e532d1d8232d3d1998fec7c59fc037e130853a280080baee4a4cde.",
       "status": "visually_verified_ci_pending"
+    },
+    {
+      "work_id": "la-prisonniere-du-desert-1956",
+      "fields": [
+        "ratings",
+        "freshness",
+        "synopsis",
+        "editorial_justification",
+        "draft_card"
+      ],
+      "urls": [
+        "https://www.imdb.com/title/tt0049730/ratings/",
+        "https://www.senscritique.com/film/la_prisonniere_du_desert/362069",
+        "https://catalog.afi.com/Catalog/moviedetails/53577",
+        "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time"
+      ],
+      "checked_at": "2026-10-15T10:05:29.867Z",
+      "stability": "mixed_dynamic_and_editorial",
+      "applies_to": "carte draft La Prisonnière du désert — samedi 2026-10-17, rang 1",
+      "evidence_note": "Notes relues et inchangées ; aucune exposition S37–S42 ; textes fondés sur AFI/BFI et matérialisés par le handoff contrôlé. CI distant encore requis.",
+      "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "work_id": "l-homme-de-la-rue",
+      "fields": [
+        "ratings",
+        "copy_version_limit",
+        "freshness",
+        "editorial_decision"
+      ],
+      "urls": [
+        "https://catalog.afi.com/Film/27680-MEET-JOHN-DOE",
+        "https://www.canalplus.com/cinema/l-homme-de-la-rue/h/4530700_50002",
+        "https://tv.digital3d.com/programme/tt0033891/l-homme-de-la-rue",
+        "https://programmetv.ouest-france.fr/film/comedie-dramatique/l-homme-de-la-rue-c31328/"
+      ],
+      "checked_at": "2026-10-15T10:05:56.542Z",
+      "stability": "mixed_dynamic_and_cycle_specific",
+      "applies_to": "dossier L’Homme de la rue — samedi 2026-10-17",
+      "evidence_note": "Notes relues ; copie technique non identifiable après deux voies ; exposition S41 sans exception nouvelle. Piste différée, pas de carte.",
+      "status": "reviewed_and_deferred"
+    },
+    {
+      "work_id": "l-emploi-du-temps-2001",
+      "fields": [
+        "canonical_duration",
+        "ratings",
+        "freshness",
+        "editorial_decision"
+      ],
+      "urls": [
+        "https://www.imdb.com/title/tt0279065/",
+        "https://www.senscritique.com/film/L_Emploi_du_temps/428650",
+        "https://www.primevideo.com/detail/0SMHLFFTFR5AXMLDUU46H09DLO",
+        "https://www.miramax.com/movie/l-emploi-du-temps-time-out/"
+      ],
+      "checked_at": "2026-10-15T10:05:41.023Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "applies_to": "dossier L’Emploi du temps — samedi 2026-10-17",
+      "evidence_note": "Durée canonique 134 min et deux notes relues ; exposition publique S41 sans contexte nouveau. Piste différée, pas de carte.",
+      "status": "reviewed_and_deferred"
     }
   ],
   "source_issues": [
@@ -2057,7 +2144,7 @@
         "scope": {
           "day": "samedi"
         },
-        "status": "researching",
+        "status": "card_drafted",
         "signals": [
           {
             "kind": "canon_critique",
@@ -2065,7 +2152,7 @@
             "source_url": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time"
           }
         ],
-        "decision_note": "Identité AFI, signal BFI et diffusion du 17 octobre à 15:23 sur Ciné+ Classic sont étayés ; notes dynamiques, visuel, fraîcheur et textes restent à clore avant toute carte.",
+        "decision_note": "Carte draft matérialisée au rang 1 : identité AFI, signal BFI, diffusion recoupée, notes relues, affiche inspectée, fraîcheur contrôlée sur S37–S42 et textes revus ; CI distant du visuel et des liens encore requis.",
         "alternatives": [
           "sl-samedi-l-homme-de-la-rue",
           "sl-samedi-l-emploi-du-temps"
@@ -2078,7 +2165,7 @@
         "scope": {
           "day": "samedi"
         },
-        "status": "researching",
+        "status": "deferred",
         "signals": [
           {
             "kind": "reception_saved",
@@ -2086,7 +2173,7 @@
             "source_url": "https://www.senscritique.com/film/l_homme_de_la_rue/453717"
           }
         ],
-        "decision_note": "Identité AFI, critique TCM et diffusion du 17 octobre à 23:58 sur Ciné+ Classic sont étayées ; version historique exacte, notes, visuel, fraîcheur et textes restent à clore.",
+        "decision_note": "Dossier clos mais piste différée : notes relues et copie technique non identifiable après deux voies distinctes ; surtout, l’œuvre a déjà été exposée en S41 et une alternative fraîche doit être privilégiée pour préserver les seuils globaux de S43.",
         "alternatives": [
           "sl-samedi-la-prisonniere-du-desert",
           "sl-samedi-l-emploi-du-temps"
@@ -2099,7 +2186,7 @@
         "scope": {
           "day": "samedi"
         },
-        "status": "researching",
+        "status": "deferred",
         "signals": [
           {
             "kind": "reception_saved",
@@ -2107,7 +2194,7 @@
             "source_url": "https://www.imdb.com/title/tt0279065/"
           }
         ],
-        "decision_note": "Identité Miramax, critique du Guardian, IMDb actuel et diffusion du 17 octobre à 16:24 sur Ciné+ Festival sont étayés ; version, seconde note, visuel, fraîcheur et textes restent à clore.",
+        "decision_note": "Dossier clos mais piste différée : durée canonique 2 h 14 et seconde note SensCritique relues ; l’œuvre a déjà été un choix développé en S41 et aucun fait nouveau ne justifie une exception de fraîcheur pour S43.",
         "alternatives": [
           "sl-samedi-la-prisonniere-du-desert",
           "sl-samedi-l-homme-de-la-rue"
@@ -2194,12 +2281,12 @@
   "resume": {
     "candidate_branch": "auto/2026-S43",
     "main_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
-    "first_incomplete_stage": "inventory",
+    "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Clore versions, notes, fraîcheur et textes des trois dossiers samedi ; leurs visuels sont inspectés, CI final encore requis.",
+      "Rechercher et vérifier deux alternatives fraîches pour compléter les trois choix développés du samedi, en commençant par les pistes proches d’une carte dans le flow sauvegardé.",
       "Compléter Ciné+ OCS les 21 et 22 octobre depuis une grille complète datée accessible.",
       "Compléter Ciné+ Family les 21 et 22 octobre depuis une grille complète datée accessible.",
-      "Étendre la présélection sourcée aux autres jours et rubriques depuis l’inventaire sauvegardé, sans certifier de carte avant les preuves de niveau 3."
+      "Étendre la présélection sourcée aux autres jours et rubriques depuis l’inventaire sauvegardé."
     ]
   },
   "run_metrics": [
@@ -5379,9 +5466,84 @@
         "stable_catalogue_entries_reused_in_shortlist": 5,
         "note": "Les 533 observations sont le delta net des lots de grilles de ce passage, dont Action remplace 3 lignes partielles par 14 lignes complètes (+11). Les stocks hérités ne sont pas comptés comme créations."
       }
+    },
+    {
+      "prompt_revision": "production-weekly-continuity-2026-10-10",
+      "started_at": "2026-10-15T10:01:08.349Z",
+      "ended_at": null,
+      "duration_basis": "Passage en cours ; horloge UTC observée depuis l’entrée de cette exécution.",
+      "run_state": "running",
+      "completed_batches": [
+        "2026-10-15T10:08:05.703Z — trois dossiers samedi clos : La Prisonnière du désert matérialisée en carte draft après revue complète ; L’Homme de la rue et L’Emploi du temps différés pour fraîcheur après clôture de leurs vérifications."
+      ],
+      "deliverables_changed": [
+        "data/research/2026-S43.json",
+        "data/works.json",
+        "data/manifest.json",
+        "data/weeks/2026-S43.json",
+        "semaines/2026-S43/index.html"
+      ],
+      "complete_cards_added": 0,
+      "draft_cards_added": 1,
+      "partial_dossiers_added": 0,
+      "requirements_resolved": 0,
+      "stop_reason": null,
+      "next_useful_batch": "Rechercher et vérifier deux alternatives fraîches pour compléter les trois choix développés du samedi.",
+      "continuation_decisions": [
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T10:02:54.270Z",
+          "elapsed_seconds": 105.921,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "a3dd1e1c2da32c805e3691dd559cd736379fb1bb",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T11:01:28.028Z",
+          "next_actions": [
+            "Clore versions, notes, fraîcheur et textes des trois dossiers samedi ; leurs visuels sont inspectés, CI final encore requis."
+          ],
+          "remaining_count": 12,
+          "evaluated_by": "scripts/editorial-continuation.mjs"
+        }
+      ],
+      "continuation_decision": {
+        "action": "continue",
+        "reason_code": "next_useful_batch",
+        "observed_at": "2026-10-15T10:02:54.270Z",
+        "elapsed_seconds": 105.921,
+        "prompt_revision": "production-weekly-continuity-2026-10-10",
+        "budget_seconds": 3300,
+        "reserve_seconds": 300,
+        "week": "2026-S43",
+        "source_sha": "a3dd1e1c2da32c805e3691dd559cd736379fb1bb",
+        "lease_owned": "yes",
+        "lease_until": "2026-10-15T11:01:28.028Z",
+        "next_actions": [
+          "Clore versions, notes, fraîcheur et textes des trois dossiers samedi ; leurs visuels sont inspectés, CI final encore requis."
+        ],
+        "remaining_count": 12,
+        "evaluated_by": "scripts/editorial-continuation.mjs"
+      },
+      "measured_intervals": [
+        {
+          "kind": "resume_and_extraction",
+          "started_at": "2026-10-15T10:01:08.349Z",
+          "ended_at": "2026-10-15T10:02:54.270Z",
+          "note": "Cible, contrats inchangés, bail, diagnostics, triage et flow sans collecte réseau."
+        },
+        {
+          "kind": "research_and_editorial_review",
+          "started_at": "2026-10-15T10:02:55Z",
+          "ended_at": "2026-10-15T10:08:05.703Z",
+          "note": "Trois vérifications indépendantes en lecture seule, revue centrale, décision de fraîcheur, rédaction et handoff d’une carte ; intervalles parallèles non additionnés séquentiellement."
+        }
+      ]
     }
   ],
-  "updated_at": "2026-10-15T09:31:43.614Z",
+  "updated_at": "2026-10-15T10:08:05.703Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -5425,13 +5587,13 @@
         }
       ],
       "ratings_research": {
-        "status": "reused_dynamic_recheck_required",
-        "checked_at": "2026-10-09",
+        "status": "verified_dynamic_two_sources",
+        "checked_at": "2026-10-15T10:05:29.867Z",
         "source_urls": [
-          "https://www.imdb.com/title/tt0049730/",
+          "https://www.imdb.com/title/tt0049730/ratings/",
           "https://www.senscritique.com/film/la_prisonniere_du_desert/362069"
         ],
-        "note": "Catalogue sauvegardé : IMDb 7,8/10 (104 k) et SensCritique 7,6/10. Réutilisation datée ; un rafraîchissement reste requis avant carte."
+        "note": "IMDb affiche 7,8/10 pour 104 k votes dans son résultat officiel, la page directe étant refusée au lecteur ; SensCritique affiche 7,6/10 sur la fiche exacte. Valeurs inchangées par rapport au catalogue."
       },
       "broadcast_research": {
         "date": "2026-10-17",
@@ -5456,12 +5618,23 @@
         "note": "JPEG téléchargé depuis l’URL sauvegardée et inspecté : affiche française exacte de La Prisonnière du désert, portrait de John Wayne, Monument Valley et marque Ciné+ Classic ; contrôle CI distant encore requis."
       },
       "missing_fields": [
-        "rafraîchissement des notes dynamiques",
-        "contrôle final de fraîcheur et exposition",
-        "rédaction et revue des textes de carte"
+        "contrôle CI distant du visuel et des liens sur la tête exacte"
       ],
-      "decision": "dossier partiel — piste active",
-      "reason": "Identité, durée de l’œuvre, signal critique institutionnel et quatre faits de diffusion sont étayés ; les champs dynamiques, visuels et éditoriaux empêchent encore toute carte."
+      "decision": "carte draft matérialisée — CI final requis",
+      "reason": "Identité, diffusion, réception, notes, visuel, fraîcheur disponible et textes sont revus ; la carte reste draft jusqu’aux contrôles distants applicables.",
+      "freshness_research": {
+        "checked_at": "2026-10-15T10:05:29.867Z",
+        "status": "fresh_within_available_history",
+        "issues_checked": [
+          "2026-S37",
+          "2026-S38",
+          "2026-S39",
+          "2026-S40",
+          "2026-S41",
+          "2026-S42"
+        ],
+        "note": "Aucune occurrence du titre français, du titre original ou du work_id dans les six numéros sauvegardés. Les deux numéros antérieurs de la mémoire cible à huit numéros ne sont pas présents ; aucune prétention au-delà de l’historique disponible."
+      }
     },
     {
       "title": "L'Homme de la rue",
@@ -5506,13 +5679,13 @@
         }
       ],
       "ratings_research": {
-        "status": "reused_dynamic_recheck_required",
-        "checked_at": "2026-09-27",
+        "status": "verified_dynamic_two_sources",
+        "checked_at": "2026-10-15T10:05:56.542Z",
         "source_urls": [
-          "https://www.imdb.com/title/tt0033891/",
+          "https://www.imdb.com/title/tt0033891/ratings/",
           "https://www.senscritique.com/film/l_homme_de_la_rue/453717"
         ],
-        "note": "Catalogue sauvegardé : IMDb 7,6 et SensCritique 7,7. Réutilisation datée ; rafraîchissement requis avant carte."
+        "note": "IMDb affiche 7,6/10 pour 17 k votes ; SensCritique affiche 7,7/10. Les compteurs adjacents non étiquetés dans l’extraction SensCritique ne sont pas interprétés."
       },
       "broadcast_research": {
         "date": "2026-10-17",
@@ -5536,14 +5709,25 @@
         "sha256": "890b8ecb1f44c94a5fdaf54f77a0a2e1cd7d8ac87b7bf15b20f31762c15068a9",
         "dimensions": "2000x3000"
       },
-      "missing_fields": [
-        "identification de la copie parmi les versions historiques ou constat explicite d’indisponibilité",
-        "rafraîchissement des notes",
-        "synopsis original et justification éditoriale",
-        "contrôle final de fraîcheur"
-      ],
-      "decision": "dossier partiel — piste active",
-      "reason": "Identité, signal critique et quatre faits de diffusion sont étayés ; version exacte, champs dynamiques, visuel et textes restent ouverts."
+      "missing_fields": [],
+      "decision": "dossier clos — piste différée pour fraîcheur",
+      "reason": "Les notes sont relues et l’indisponibilité de la version technique est documentée ; la répétition récente de S41 conduit à privilégier une alternative fraîche.",
+      "version_research": {
+        "checked_at": "2026-10-15T10:05:56.542Z",
+        "status": "copy_version_unknown_after_bounded_research",
+        "source_urls": [
+          "https://catalog.afi.com/Film/27680-MEET-JOHN-DOE",
+          "https://www.canalplus.com/cinema/l-homme-de-la-rue/h/4530700_50002",
+          "https://tv.digital3d.com/programme/tt0033891/l-homme-de-la-rue",
+          "https://programmetv.ouest-france.fr/film/comedie-dramatique/l-homme-de-la-rue-c31328/"
+        ],
+        "note": "AFI recense 123, 125 ou 129 min et plusieurs fins ; les voies diffuseur et guide détaillé ne donnent aucun identifiant de master ou de montage. Le programme est annoncé à 119 min, sans déduction de coupe, cadence ou version."
+      },
+      "freshness_research": {
+        "checked_at": "2026-10-15T10:05:56.542Z",
+        "status": "recent_repeat_deferred",
+        "note": "Exposition en S41, absence en S42 : répétition non immédiate mais incluse dans la fenêtre de quatre numéros et pénalisée par la politique. Aucune exception rare-new-broadcast documentée."
+      }
     },
     {
       "title": "L'Emploi du temps",
@@ -5565,6 +5749,11 @@
         "checked_at": "2026-10-15T09:45:19.161Z",
         "duration_observations": [
           {
+            "duration": "134 min / 2 h 14",
+            "version": "durée canonique concordante sur IMDb, SensCritique et Prime Video pour l’œuvre exacte",
+            "source_url": "https://www.senscritique.com/film/L_Emploi_du_temps/428650"
+          },
+          {
             "duration": "134 min",
             "version": "durée de la fiche IMDb courante ; dynamique",
             "source_url": "https://www.imdb.com/title/tt0279065/"
@@ -5575,7 +5764,7 @@
             "source_url": "https://www.programmetvcesoir.net/chaine/cine-festival/2026-10-17"
           }
         ],
-        "note": "Miramax établit le film de Laurent Cantet, sorti en 2001, et sa distribution. L’écart durée/créneau reste une contradiction de version à résoudre sans inférer de coupe."
+        "note": "IMDb, SensCritique et Prime Video concordent sur 134 min / 2 h 14 pour l’œuvre exacte. Le créneau TV de 132 min ne certifie ni durée de copie, ni coupe, ni cadence."
       },
       "critical_evidence": [
         {
@@ -5590,12 +5779,13 @@
         }
       ],
       "ratings_research": {
-        "status": "verified_dynamic_single_source",
-        "checked_at": "2026-10-15T09:45:19.161Z",
+        "status": "verified_dynamic_two_sources",
+        "checked_at": "2026-10-15T10:05:41.023Z",
         "source_urls": [
-          "https://www.imdb.com/title/tt0279065/"
+          "https://www.imdb.com/title/tt0279065/",
+          "https://www.senscritique.com/film/L_Emploi_du_temps/428650"
         ],
-        "note": "IMDb affiche 7,3/10 pour 5,3 k votes ; une seconde note ou un motif documenté d’absence reste requis avant carte."
+        "note": "IMDb affiche 7,3/10 ; SensCritique affiche 7/10 sur la fiche exacte."
       },
       "broadcast_research": {
         "date": "2026-10-17",
@@ -5619,14 +5809,14 @@
         "sha256": "c108f6d159e532d1d8232d3d1998fec7c59fc037e130853a280080baee4a4cde",
         "dimensions": "1000x1333"
       },
-      "missing_fields": [
-        "résolution de la durée/version exacte",
-        "seconde note ou motif documenté",
-        "contrôle final de fraîcheur",
-        "rédaction et revue des textes de carte"
-      ],
-      "decision": "dossier partiel — piste active",
-      "reason": "Identité officielle, critique professionnelle et quatre faits de diffusion sont étayés ; version, note secondaire, visuel, fraîcheur et textes restent ouverts."
+      "missing_fields": [],
+      "decision": "dossier clos — piste différée pour fraîcheur",
+      "reason": "Durée canonique et seconde note sont désormais vérifiées ; la répétition récente de S41 conduit à privilégier une alternative fraîche.",
+      "freshness_research": {
+        "checked_at": "2026-10-15T10:05:41.023Z",
+        "status": "recent_repeat_deferred",
+        "note": "Choix développé et ligne de grille en S41, absence en S42 : répétition dans la fenêtre de quatre numéros, sans fait nouveau justifiant une exception rare-new-broadcast."
+      }
     }
   ]
 }
