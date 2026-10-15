@@ -11064,7 +11064,8 @@
         "2026-10-15T15:27:03.000Z — seconde lecture Ciné+ OCS du 22 octobre : 19/19 départs du jour civil concordants et aucune omission ; report Better Man commencé la veille non dupliqué, double segment Le cinéma qui respire conservé, indépendance inconnue.",
         "2026-10-15T15:27:53.000Z — seconde lecture Ciné+ OCS du 23 octobre : 17/17 départs du jour civil concordants et aucune omission ; report B.R.I S01E06 commencé la veille non dupliqué, double segment Chanson douce conservé, indépendance inconnue.",
         "2026-10-15T15:29:24.000Z — secondes lectures groupées Ciné+ OCS des 17, 18, 19 et 20 octobre : 70/70 départs concordants et aucune omission ; reports de veille et doubles segments conservés, indépendance inconnue.",
-        "2026-10-15T15:30:41.000Z — secondes lectures Ciné+ Family des 17, 18 et 19 octobre : dimanche 14/14 sans omission ; samedi deux omissions et treize décalages, lundi treize décalages sans omission, tous conservés sans correction automatique."
+        "2026-10-15T15:30:41.000Z — secondes lectures Ciné+ Family des 17, 18 et 19 octobre : dimanche 14/14 sans omission ; samedi deux omissions et treize décalages, lundi treize décalages sans omission, tous conservés sans correction automatique.",
+        "2026-10-15T15:31:37.000Z — secondes lectures Ciné+ Family des 20, 21 et 23 octobre : mercredi 17/17 et vendredi 16/16 sans omission ; mardi quinze identités présentes mais neuf décalages horaires conservés sans correction automatique."
       ],
       "deliverables_changed": [
         "data/research/2026-S43.json",
@@ -11077,7 +11078,7 @@
       "partial_dossiers_added": 0,
       "requirements_resolved": 1,
       "stop_reason": null,
-      "next_useful_batch": "Recouper les omissions et décalages de Ciné+ Family des 17 et 19 octobre avec une voie distincte, tout en achevant les secondes lectures des 20, 21 et 23 octobre.",
+      "next_useful_batch": "Ciné+ Family est relu sur les sept dates ; recouper ses deux omissions et ses décalages des 17, 19 et 20 octobre contre une source distincte, puis poursuivre une autre chaîne.",
       "additions": {
         "new_works": 0,
         "visible_draft_cards": 0,
@@ -11586,18 +11587,51 @@
             ],
             "ready_handoff": null
           }
+        },
+        {
+          "action": "continue",
+          "reason_code": "next_useful_batch",
+          "observed_at": "2026-10-15T15:31:03.633Z",
+          "elapsed_seconds": 1655,
+          "prompt_revision": "production-weekly-continuity-2026-10-10",
+          "budget_seconds": 3300,
+          "reserve_seconds": 300,
+          "week": "2026-S43",
+          "source_sha": "254d86d577d6ed585e890197feaeaf6919f49b3b",
+          "lease_owned": "yes",
+          "lease_until": "2026-10-15T16:14:22.427Z",
+          "remaining_count": 11,
+          "next_actions_total": 4,
+          "evaluated_by": "manual_fallback",
+          "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision fondée sur l’horloge observée, le bail relu et le checkpoint immuable.",
+          "next_actions": [
+            "Réconcilier les omissions et décalages horaires détectés sur Ciné+ Family les 17, 19 et 20 octobre contre une source distincte ou une capture datée avant toute correction.",
+            "Poursuivre une autre seconde lecture de chaîne cinéma complète ; Ciné+ Family est désormais relu sur les sept dates mais garde ses contradictions ouvertes.",
+            "Matérialiser The Big Short comme réserve draft du mercredi avec le helper dès qu’un clone exécutable est disponible.",
+            "Observer la CI de la tête courante sans interrompre les travaux indépendants."
+          ],
+          "observations": {
+            "started_at": "2026-10-15T15:03:29.000Z",
+            "lease_owned": "yes",
+            "lease_until": "2026-10-15T16:14:22.427Z",
+            "external_stop": null,
+            "accessible_task_checks": [
+              "three remaining Cine+ Family dated grids were accessible; Tuesday revealed schedule contradictions"
+            ],
+            "ready_handoff": null
+          }
         }
       ],
       "continuation_decision": {
         "action": "continue",
         "reason_code": "next_useful_batch",
-        "observed_at": "2026-10-15T15:29:52.091Z",
-        "elapsed_seconds": 1583,
+        "observed_at": "2026-10-15T15:31:03.633Z",
+        "elapsed_seconds": 1655,
         "prompt_revision": "production-weekly-continuity-2026-10-10",
         "budget_seconds": 3300,
         "reserve_seconds": 300,
         "week": "2026-S43",
-        "source_sha": "be908245e4dd8afaf17a0c92238acc488c5461b3",
+        "source_sha": "254d86d577d6ed585e890197feaeaf6919f49b3b",
         "lease_owned": "yes",
         "lease_until": "2026-10-15T16:14:22.427Z",
         "remaining_count": 11,
@@ -11605,8 +11639,8 @@
         "evaluated_by": "manual_fallback",
         "evaluation_note": "Le clone et editorial-continuation.mjs restent indisponibles après l’échec d’initialisation exec-server ; décision fondée sur l’horloge observée, le bail relu et le checkpoint immuable.",
         "next_actions": [
-          "Réconcilier les omissions et décalages horaires détectés sur Ciné+ Family les 17 et 19 octobre contre une source distincte ou une capture datée avant toute correction.",
-          "Poursuivre les secondes lectures Ciné+ Family des 20, 21 et 23 octobre et conserver les contradictions éventuelles.",
+          "Réconcilier les omissions et décalages horaires détectés sur Ciné+ Family les 17, 19 et 20 octobre contre une source distincte ou une capture datée avant toute correction.",
+          "Poursuivre une autre seconde lecture de chaîne cinéma complète ; Ciné+ Family est désormais relu sur les sept dates mais garde ses contradictions ouvertes.",
           "Matérialiser The Big Short comme réserve draft du mercredi avec le helper dès qu’un clone exécutable est disponible.",
           "Observer la CI de la tête courante sans interrompre les travaux indépendants."
         ],
@@ -11616,7 +11650,7 @@
           "lease_until": "2026-10-15T16:14:22.427Z",
           "external_stop": null,
           "accessible_task_checks": [
-            "three Cine+ Family dated grids were accessible; two revealed contradictions requiring preservation"
+            "three remaining Cine+ Family dated grids were accessible; Tuesday revealed schedule contradictions"
           ],
           "ready_handoff": null
         }
@@ -15440,6 +15474,157 @@
           "La grille relue diffère de l’extraction sauvegardée ; une nouvelle décision de source est requise avant correction."
         ],
         "status": "reread_complete_with_schedule_contradictions"
+      },
+      {
+        "channels": [
+          "Ciné+ Family"
+        ],
+        "flow": "Ciné+ Family",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:31:37.000Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-20",
+        "urls": [
+          "https://tv-programme.com/cine-plus-family/mardi-20-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 15,
+          "source_rows_reviewed": 15,
+          "omissions": [],
+          "schedule_contradictions": [
+            {
+              "saved_start": "00:38",
+              "review_start": "00:36",
+              "title": "Scott Pilgrim"
+            },
+            {
+              "saved_start": "05:40",
+              "review_start": "05:41",
+              "title": "Les saisons"
+            },
+            {
+              "saved_start": "10:05",
+              "review_start": "10:03",
+              "title": "Le grand chemin"
+            },
+            {
+              "saved_start": "11:49",
+              "review_start": "11:46",
+              "title": "Tellement proches"
+            },
+            {
+              "saved_start": "14:55",
+              "review_start": "14:53",
+              "title": "Les gorilles"
+            },
+            {
+              "saved_start": "16:14",
+              "review_start": "16:11",
+              "title": "L'étage secret... Bad Gastein"
+            },
+            {
+              "saved_start": "17:47",
+              "review_start": "17:44",
+              "title": "Quand Hitler s'empara du lapin rose"
+            },
+            {
+              "saved_start": "19:43",
+              "review_start": "19:39",
+              "title": "Maya, donne-moi un autre titre"
+            },
+            {
+              "saved_start": "22:33",
+              "review_start": "22:31",
+              "title": "Le loup et le lion"
+            }
+          ],
+          "retained_source_segments": [
+            "Sonic 3, le film commencé la veille à 22:49 est un report de continuité et n’est pas dupliqué comme départ du jour civil du 20 octobre."
+          ]
+        },
+        "decisions": [
+          "Les quinze identités sont présentes sans omission, mais neuf décalages horaires sont conservés comme contradictions à réconcilier ; aucune correction automatique.",
+          "Les six horaires inchangés restent concordants."
+        ],
+        "limits": [
+          "Une seule grille complète accessible pour ce périmètre ; seconde lecture distincte du même éditeur, pas une source indépendante.",
+          "La grille relue diffère de l’extraction sauvegardée ; une nouvelle décision de source est requise avant correction."
+        ],
+        "status": "reread_complete_with_schedule_contradictions"
+      },
+      {
+        "channels": [
+          "Ciné+ Family"
+        ],
+        "flow": "Ciné+ Family",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:31:37.000Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-21",
+        "urls": [
+          "https://tv-programme.com/cine-plus-family/mercredi-21-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 17,
+          "source_rows_reviewed": 17,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Le loup et le lion commencé la veille à 22:31 est un report de continuité et n’est pas dupliqué comme départ du jour civil du 21 octobre."
+          ]
+        },
+        "decisions": [
+          "Les 17 départs du jour civil, horaires et identités concordent avec l’inventaire sauvegardé.",
+          "Aucune omission détectée sur 00:00–23:59 après traitement du report commencé la veille."
+        ],
+        "limits": [
+          "Une seule grille complète accessible pour ce périmètre ; seconde lecture distincte de l’extraction primaire, pas un second éditeur.",
+          "Provenance amont et indépendance inconnues."
+        ],
+        "status": "single_publisher_full_day_reread_complete"
+      },
+      {
+        "channels": [
+          "Ciné+ Family"
+        ],
+        "flow": "Ciné+ Family",
+        "publisher": "TV-programme.com / Tabom",
+        "checked_at": "2026-10-15T15:31:37.000Z",
+        "segments_reviewed": [
+          "jour civil et nuit 00:00–23:59"
+        ],
+        "review_method": "seconde lecture distincte de la grille complète contre l’extraction primaire sauvegardée",
+        "independent_crosscheck_complete": false,
+        "date": "2026-10-23",
+        "urls": [
+          "https://tv-programme.com/cine-plus-family/vendredi-23-octobre-2026/"
+        ],
+        "comparison": {
+          "saved_observations": 16,
+          "source_rows_reviewed": 16,
+          "omissions": [],
+          "schedule_contradictions": [],
+          "retained_source_segments": [
+            "Les saisons commencé la veille à 23:55 est un report de continuité et n’est pas dupliqué comme départ du jour civil du 23 octobre."
+          ]
+        },
+        "decisions": [
+          "Les 16 départs du jour civil, horaires et identités concordent avec l’inventaire sauvegardé.",
+          "Aucune omission détectée sur 00:00–23:59 après traitement du report commencé la veille."
+        ],
+        "limits": [
+          "Une seule grille complète accessible pour ce périmètre ; seconde lecture distincte de l’extraction primaire, pas un second éditeur.",
+          "Provenance amont et indépendance inconnues."
+        ],
+        "status": "single_publisher_full_day_reread_complete"
       }
     ],
     "independent_crosscheck_complete": false,
