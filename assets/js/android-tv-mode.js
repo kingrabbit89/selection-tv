@@ -140,7 +140,19 @@
   `;
   document.head.append(style);
 
-  const worksPromise=fetch('../../data/works.json',{cache:'no-store'}).then(r=>r.ok?r.json():{works:[]}).catch(()=>({works:[]}));
+  // Poster paths copied into the site (assets/posters/…) are relative to its root.
+  const siteUrl=(u,base)=>{try{return u&&!/^(?:[a-z][a-z0-9+.-]*:|\/\/)/i.test(u)?new URL(u,base).href:u}catch{return u}};
+  const siteImages=(data,url)=>{
+    const base=new URL('../',url||new URL('../../data/works.json',location.href));
+    for(const w of data?.works||[]){
+      if(w?.image)w.image=siteUrl(w.image,base);
+      if(Array.isArray(w?.image_fallbacks))w.image_fallbacks=w.image_fallbacks.map(u=>siteUrl(u,base));
+    }
+    return data;
+  };
+  // A site copy (image_remote set) goes first when the card shows its remote original.
+  const preferCopy=(w,list)=>w?.image_remote&&w.image&&(!list[0]||list[0]===w.image_remote)?[w.image,...list]:list;
+  const worksPromise=fetch('../../data/works.json',{cache:'no-store'}).then(r=>r.ok?r.json().then(d=>siteImages(d,r.url)):{works:[]}).catch(()=>({works:[]}));
   const linksPromise=fetch('../../data/links.json',{cache:'no-store'}).then(r=>r.ok?r.json():{links:{}}).catch(()=>({links:{}}));
 
   // Matches belong to the current native account/session only. Never restore
@@ -203,12 +215,12 @@
     const w=works.get(norm(title))||{};
     const source=imageOf(el);
     const fromResolver=window.SelectionTVImageSources?.(title,source?[source]:[])||[];
-    return [...new Set([
+    return [...new Set(preferCopy(w,[
       ...fromResolver,
       source,
       w.image,
       ...(w.image_fallbacks||[])
-    ].filter(Boolean))];
+    ].filter(Boolean)))];
   };
   const imageOf=el=>{
     const img=el.querySelector('img');
@@ -882,7 +894,7 @@
       const model={
         key,title,titleKey:norm(title),year,imdbId:ids.imdbId,tmdbId:ids.tmdbId,
         aliases:Array.isArray(w.aliases)?[...w.aliases]:[],
-        imageCandidates:[...new Set([c.image,w.image,...(c.image_fallbacks||[]),...(w.image_fallbacks||[])].filter(Boolean))],
+        imageCandidates:[...new Set(preferCopy(w,[c.image,w.image,...(c.image_fallbacks||[]),...(w.image_fallbacks||[])].filter(Boolean)))],
         meta:[...meta,...(c.release_label?[c.release_label,c.format,c.editor].filter(Boolean):[c.time,c.channel].filter(Boolean))],ratings,
         description:[c.summary,c.why].filter(Boolean).join(' '),
         state:'unknown',itemId:'',played:null,source:null,

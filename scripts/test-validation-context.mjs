@@ -41,6 +41,23 @@ test('preparation cannot conceal code changes, deletion or a publication transit
   f.files['data/manifest.json']=JSON.stringify({latest:week,weeks:[]});
   assert.throws(()=>validationContext(branch,p=>f.files[p]??null,p=>p==='data/manifest.json'?manifest:null,Object.keys(f.files),today),/latest/);
 });
+test('preparation may add a poster used by its works.json, never another asset or a poster still in use',()=>{
+  const f=fixture(),poster='assets/posters/film.webp';
+  const works=image=>JSON.stringify({works:[{id:'film',title:'Film',image,image_sha256:'b'.repeat(64)}]});
+  f.files['data/works.json']=works(poster);f.files[poster]='RIFF\u0000\u0000\u0000\u0000WEBP';
+  const base=p=>p==='data/manifest.json'?manifest:null;
+  const resolve=paths=>validationContext(branch,p=>f.files[p]??null,base,paths,today);
+  const changed=Object.keys(f.files).filter(p=>p!=='data/manifest.json');
+  assert.equal(resolve(changed).mode,'preparation','binary poster is not parsed as a text handoff');
+  f.files['data/works.json']=works('https://cdn.example.test/film.jpg');
+  assert.throws(()=>resolve(changed),/fingerprinted image of its work/);
+  delete f.files[poster];
+  assert.equal(resolve([...changed]).mode,'preparation','an unused poster may be deleted');
+  f.files['data/works.json']=works(poster);
+  assert.throws(()=>resolve(changed),/deletes a poster still used/);
+  assert.throws(()=>resolve([...changed,'assets/css/site.css']),/code\/configuration/);
+});
+
 test('wrong week/date, stale cycle, false review and incorrect counts fail preparation',()=>{
   for(const mutate of [f=>f.progress.week='2026-S43',f=>f.progress.remaining=[],f=>f.progress.editorial_review_completed=true,f=>f.progress.editorial_review={completed:true},f=>f.progress.stage='unknown',f=>f.inventory.days[0].date='2026-10-17',f=>f.inventory.days[0].channel_counts.Arte=2,f=>f.inventory.days[0].items[0].start='24:30']){
     const f=fixture();mutate(f);f.save();assert.throws(f.resolve);

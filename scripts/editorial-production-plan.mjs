@@ -526,7 +526,7 @@ export function productionContextFromGit(week,ref,cwd=process.cwd(),runGit) {
     coverage:read(`data/coverage/${week}.json`),research:read(`data/research/${week}.json`),research_source_content:raw(`data/research/${week}.json`),
     prepared_telerama_report:read(`data/editorial-inputs/${week}/telerama.json`),
     prepared_telerama_editorial:read(`data/editorial-inputs/${week}/telerama-editorial.json`),
-    currentissue:read(`data/weeks/${week}.json`),works:read('data/works.json'),links:read('data/links.json')};
+    currentissue:read(`data/weeks/${week}.json`),works:read('data/works.json'),works_source_content:raw('data/works.json'),links:read('data/links.json')};
 }
 
 function main() {

@@ -9,6 +9,7 @@ import {collectSources,paginationGaps,tv5mondeSources,tele7joursSources,TELE7JOU
 import {buildProductionPlan, productionContextFromGit} from './editorial-production-plan.mjs';
 import {buildSourceInventoryHandoff} from './editorial-source-import.mjs';
 import {buildTeleramaHandoff} from './editorial-telerama-import.mjs';
+import {resolvePosters as resolveWorkPosters, buildPosterHandoff, summarize as summarizePosters} from './poster-resolver.mjs';
 import {addDays, weekForSaturday, parisToday} from './week-calendar.mjs';
 
 export function issueStart(week) {
@@ -61,8 +62,9 @@ export async function extractTeleramaPdf({week,pdf,out,libraryFileId,scope,cwd=p
 
 export async function prepareProductionFlow({week, ref, outDir, sourcePlan = null,
   sourceReport = null, collectOfficial = false, collectWide = false, today = undefined, cacheDir = null, refresh = false, limit = 6, offset = 0, cwd = process.cwd(),
-  teleramaPdf=null,teleramaReport=null,teleramaLibraryId=null,teleramaEditorial=null,useTelerama=true},
-  {readContext = productionContextFromGit, collect = collectSources, buildPlan = buildProductionPlan,extractPdf=extractTeleramaPdf} = {}) {
+  teleramaPdf=null,teleramaReport=null,teleramaLibraryId=null,teleramaEditorial=null,useTelerama=true,resolvePosters=false},
+  {readContext = productionContextFromGit, collect = collectSources, buildPlan = buildProductionPlan,extractPdf=extractTeleramaPdf,
+  posterResolver=resolveWorkPosters} = {}) {
   assert(outDir && typeof outDir === 'string', 'outDir required');
   assert(!fs.existsSync(outDir), 'output directory must be new; preserve the previous batch');
   assert(!(sourcePlan && sourceReport), 'use sourcePlan or sourceReport, not both');
@@ -117,7 +119,24 @@ export async function prepareProductionFlow({week, ref, outDir, sourcePlan = nul
     limit, offset, compact:true});
   assert.equal(plan.source_sha, context.sha, 'batch source SHA changed');
   assert.equal(plan.publication_ready, false, 'preparation must not certify publication');
+  // Posters are resolved for the batch being selected, so a refused hotlink
+  // surfaces now rather than at seal time. Opt-in: this mode uses the network.
+  let posters=null;
+  if(resolvePosters) {
+    const byId=new Map((context.works?.works || []).map(work=>[work.id,work])),checked=today || parisToday();
+    const targets=[...new Set(plan.queue.filter(row=>row.canonical_candidates?.length===1).map(row=>row.canonical_candidates[0].work_id))]
+      .map(id=>byId.get(id)).filter(Boolean);
+    const results=await posterResolver({works:context.works?.works || [],links:context.links?.links || {},targets,complete:true,repair:true,
+      tmdbKey:process.env.TMDB_API_KEY || null,today:checked,root:cwd});
+    posters={results,...buildPosterHandoff(context,results,{today:checked})};
+  }
   fs.mkdirSync(outDir,{recursive:true});
+  if(posters) {
+    fs.writeFileSync(path.join(outDir,'poster-resolution.json'),JSON.stringify({source_sha:context.sha,publication_ready:false,
+      note:'Exact identity links only; each image passed a no-Referer probe. Apply poster-handoff.json after review.',
+      summary:summarizePosters(posters.results),refused:posters.refused || null,results:posters.results},null,2)+'\n');
+    if(posters.bundle) fs.writeFileSync(path.join(outDir,'poster-handoff.json'),JSON.stringify(posters.bundle,null,2)+'\n');
+  }
   if(teleramaEditorial)fs.writeFileSync(path.join(outDir,'telerama-editorial.json'),JSON.stringify(teleramaEditorial,null,2)+'\n');
   if (report) fs.writeFileSync(path.join(outDir,'source-report.json'),JSON.stringify(report,null,2)+'\n');
   if(paperReport) {
@@ -142,6 +161,8 @@ export async function prepareProductionFlow({week, ref, outDir, sourcePlan = nul
     duplicate_observations:inventoryImport.report.duplicate_observations,excluded_observations:inventoryImport.report.excluded_observations,
     conflicting_events:inventoryImport.report.conflicting_events.length,
     handoff:inventoryImport.bundle.files.length ? path.join(outDir,'inventory-handoff.json') : null};
+  if(posters)summary.poster_resolution={...summarizePosters(posters.results),changed:posters.changed,refused:posters.refused || null,
+    report:path.join(outDir,'poster-resolution.json'),handoff:posters.bundle?path.join(outDir,'poster-handoff.json'):null};
   if(plan.supplementary_sources?.length)summary.supplementary_sources=plan.supplementary_sources;
   if(plan.editorial_review_summary)summary.editorial_review=plan.editorial_review_summary;
   if(plan.initial_editorial_suggestions_summary)summary.initial_editorial_suggestions={...plan.initial_editorial_suggestions_summary,
@@ -150,7 +171,8 @@ export async function prepareProductionFlow({week, ref, outDir, sourcePlan = nul
     sha256:paperReport.source.sha256,coverage_certified:false,
     handoff:paperImport.bundle.files.length?path.join(outDir,'telerama-handoff.json'):null};
   fs.writeFileSync(path.join(outDir,'summary.json'),JSON.stringify(summary,null,2)+'\n');
-  return {summary,plan,source_report:report,inventory_import:inventoryImport,telerama_report:paperReport,telerama_import:paperImport};
+  return {summary,plan,source_report:report,inventory_import:inventoryImport,telerama_report:paperReport,telerama_import:paperImport,
+    poster_resolution:posters};
 }
 
 export function parseCli(args) {
@@ -161,6 +183,7 @@ export function parseCli(args) {
     if (flag==='--collect-official') {options.collectOfficial=true;continue;}
     if (flag==='--collect-wide') {options.collectWide=true;continue;}
     if (flag==='--without-telerama') {options.useTelerama=false;continue;}
+    if (flag==='--resolve-posters') {options.resolvePosters=true;continue;}
     assert(['--ref','--out-dir','--source-plan','--source-report','--cache-dir','--limit','--offset',
       '--telerama-pdf','--telerama-report','--telerama-library-id','--telerama-editorial'].includes(flag), 'unknown flag '+flag);
     const value=args[++index]; assert(value && !value.startsWith('--'), 'missing value '+flag);

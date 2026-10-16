@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
-import {allowedPaths} from './editorial-handoff.mjs';
+import {assertCandidatePaths} from './editorial-handoff.mjs';
 import {reviewedCandidate} from './weekly-publisher.mjs';
 import {withEditorialLease} from './editorial-lease.mjs';
 import {checkProgressStructures} from './editorial-progress.mjs';
@@ -46,9 +46,8 @@ export function preflight(week,git){
   }
   const base=git(['merge-base',main,head]);
   const paths=git(['diff','--name-only',base,head]).split('\n').filter(Boolean);
-  const allowed=allowedPaths(week);
-  for(const p of paths)assert(allowed.has(p),'candidate cannot change code/configuration: '+p);
   const read=p=>git(['ls-tree','--name-only',head,'--',p])?git(['show',`${head}:${p}`]):null;
+  assertCandidatePaths(week,paths,read);
   const raw=read(`data/research/${week}.json`);assert(raw!==null,'research checkpoint missing at HEAD');
   const progress=JSON.parse(raw);
   assert.equal(progress.week,week);checkProgressStructures(progress);

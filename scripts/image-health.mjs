@@ -1,3 +1,49 @@
+import {htmlText} from './html-text.mjs';
+
+export const normTitle=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+
+// Titles shown as posters for one issue. validate-image-sources.mjs and
+// poster-resolver.mjs share this set so selection and seal see the same works.
+export function visualWorkTitles(week,{legacyGridOnly=false,radar=null}={}){
+ // S41 predates the global remote-image gate, but Android TV turns its
+ // commented-grid rows into poster cards. Probe those rows now so the current
+ // Fire TV fix cannot ship with another set of dead poster URLs.
+ const visualTitles=new Set();
+ const visualClass=/\b(?:week-card|feature|list-card|platform|release-card|expire-card|radar-card|torrent-card|card|listitem|radarcard)\b/;
+ for(const page of week.pages||[]){
+   const html=page.html||'';
+   const re=/<article class="([^"]+)"[^>]*>([\s\S]*?)<\/article>/g;let m;
+   while((m=re.exec(html))){
+     if(!visualClass.test(m[1]))continue;
+     if(!legacyGridOnly){
+       const title=htmlText((m[2].match(/<h3>([\s\S]*?)<\/h3>/)||[])[1]);
+       if(title)visualTitles.add(title);
+     }
+   }
+   // Android TV promotes each commented-grid table row to a poster tile.
+   // Probe those canonical images too, even though the desktop magazine keeps
+   // the same entries as text rows.
+   if(/-grille(?:-2)?$/.test(page.id||'')){
+     for(const row of html.matchAll(/<td class="prog">([^<]+)<\/td>/g)){
+       const title=htmlText(row[1]);
+       if(title)visualTitles.add(title);
+     }
+   }
+ }
+ if(!legacyGridOnly){
+   for(const pool of Object.values(week.personalization?.pools||{})){
+     for(const c of pool.candidates||[])if(c.title)visualTitles.add(c.title);
+   }
+   const rr=typeof radar==='function'?radar():radar;
+   if(rr){
+     for(const key of ['popular_scan','popular_deep','hd1','hd2']){
+       for(const c of rr[key]?.candidates||[])if(c.title)visualTitles.add(c.title);
+     }
+   }
+ }
+ return visualTitles;
+}
+
 // Check response bytes, not filename suffixes (CDNs can return HTML at .jpg URLs).
 export function hasImageSignature(bytes){
  const b=Buffer.from(bytes);

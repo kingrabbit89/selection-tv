@@ -201,10 +201,12 @@
   };
   const catalogPromise=Promise.all([
     fetch(new URL('../../data/links.json?v=20260925-private',document.currentScript?.src||location.href),{cache:'no-store'}).then(r=>r.ok?r.json():{links:{}}),
-    fetch(new URL('../../data/works.json?v=20260925-private',document.currentScript?.src||location.href),{cache:'no-store'}).then(r=>r.ok?r.json():{works:[]})
+    fetch(new URL('../../data/works.json?v=20260925-private',document.currentScript?.src||location.href),{cache:'no-store'})
+      .then(r=>r.ok?r.json().then(d=>({...d,base:new URL('../',r.url||new URL('data/works.json',ROOT))})):{works:[]})
   ]).then(([ld,wd])=>({
     links:new Map(Object.entries(ld.links||{}).map(([k,v])=>[norm(k),v])),
-    works:new Map((wd.works||[]).map(w=>[norm(w.title),w]))
+    // A poster copied into the site (assets/posters/…) is relative to its root.
+    works:new Map((wd.works||[]).map(w=>[norm(w.title),w.image&&wd.base&&!/^(?:[a-z][a-z0-9+.-]*:|\/\/)/i.test(w.image)?{...w,image:new URL(w.image,wd.base).href}:w]))
   })).catch(()=>({links:new Map(),works:new Map()}));
 
   // Older Plugin Pages shells can load this bridge without the new issue

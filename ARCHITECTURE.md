@@ -141,12 +141,15 @@ Les réserves conservent les mêmes métadonnées, notes, liens de fiches et bou
 ## Images et affiches
 
 `data/works.json` est la source canonique des visuels d’œuvre. Une œuvre affichée sous forme de carte visuelle ou placée dans une réserve éditoriale doit normalement posséder :
-- `image` : visuel principal ;
+- `image` : visuel principal, de préférence la copie WebP servie par le site (`assets/posters/<id>.webp`) ;
+- `image_remote` : URL distante d’origine d’une copie locale, reprise en tête des secours ;
 - `image_source_url` : page/source ayant permis de vérifier le visuel ;
 - `image_checked` : date de la dernière vérification ;
 - `image_fallbacks` : URLs alternatives lorsqu’elles existent.
 
 La recherche suit une cascade : source officielle ou éditeur, base cinéma fiable, puis recherche d’images web ciblée (`titre + année + poster/affiche` ; pour une réédition, `titre + Blu-ray/4K cover`). Une miniature de moteur de recherche n’est pas considérée comme source canonique : elle sert à retrouver et vérifier le fichier/source d’origine.
+
+`scripts/poster-resolver.mjs` applique d’abord, dès la sélection, une échelle standard fondée sur les seuls liens d’identité exacts (SensCritique, IMDb, TMDb, page officielle ARTE/FranceTVPro/TV5MONDE) ; chaque visuel retenu passe le même contrôle sans Referer que `validate-image-sources.mjs`. Voir [EDITORIAL-DATAFLOW.md](docs/EDITORIAL-DATAFLOW.md#affiches-à-la-sélection).
 
 `assets/js/image-resolver.js` hydrate les cartes à partir du catalogue canonique et essaie automatiquement les URLs de secours si un hébergeur refuse le hotlink ou si une image disparaît. Les cartes générées dynamiquement par le système `Vu` bénéficient du même traitement. Les numéros d’archive S37 à S39 utilisent le même résolveur : les anciens `poster-fallback` sont remplacés à l’affichage dès qu’un visuel canonique existe dans `works.json`.
 
