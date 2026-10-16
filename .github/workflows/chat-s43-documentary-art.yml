@@ -44,8 +44,14 @@ jobs:
                 page=it['source_page'];path=urllib.parse.urlsplit(page).path
                 assert path.startswith(('/fr/videos/','/film/','/serie/'))
                 b,s,f,m=fetch(page,pages,8_000_000);assert m=='text/html';p=Parser();p.feed(b.decode('utf-8'))
-                r.update(source_page=page,page_status=s,page_title=p.meta.get('og:title'),image_candidates=p.images[:40]);u=p.meta.get('og:image');assert u,'No programme og:image found'
-                # Expose only selected image metadata, not copyrighted page/article text.
+                r.update(source_page=page,page_status=s,page_title=p.meta.get('og:title'),image_candidates=p.images[:40])
+                if it.get('prefer_poster'):
+                  assert urllib.parse.urlsplit(page).hostname=='www.senscritique.com'
+                  candidates=[x for x in p.images if re.match(r'^https://media.senscritique.com/media/[0-9]+/300/',x['url']) and not x['alt'].startswith('Cover ')]
+                  assert len(candidates)==1,'Exact poster element absent or ambiguous'
+                  u=candidates[0]['url'];r['discovery']='unique exact film poster image, not og:image'
+                else:u=p.meta.get('og:image')
+                assert u,'No exact programme artwork found'
               r['url']=html.unescape(u);b,s,f,m=fetch(r['url'],image_hosts,12_000_000);assert m.startswith('image/')
               name=it['id']+{'image/png':'.png','image/webp':'.webp'}.get(m,'.jpg');(out/name).write_bytes(b)
               r.update(status=s,final_url=f,mime=m,bytes=len(b),sha256=hashlib.sha256(b).hexdigest(),file=name)
