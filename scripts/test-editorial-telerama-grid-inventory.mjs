@@ -62,15 +62,15 @@ test('the printed grid becomes a grid-authority inventory whose rows cite the PD
 test('the printed scope is measured per channel and stated as limits, never as complete coverage',()=>{
   const {coverage}=buildGridInventoryHandoff(context(),report(),options);
   const scope=coverage.grid_inventory.printed_scope;
-  assert.equal(scope.TF1.kind,'day_and_night');
-  assert.equal(scope.TMC.kind,'partial_day_and_evening');
-  assert.equal(scope['Ciné+ Festival'].kind,'evening');
-  assert.equal(scope['Ciné+ Festival'].night_days,0);
+  assert.deepEqual(scope.TF1,{days:7,night_days:7,typical_first_daytime_start:'06:30',typical_longest_gap_minutes:880});
+  assert.deepEqual(scope.TMC,{days:7,night_days:0,typical_first_daytime_start:'14:00',typical_longest_gap_minutes:425});
+  assert.equal(scope['Ciné+ Festival'].typical_first_daytime_start,'20:50');
   const limits=coverage.grid_inventory.limits.join('\n');
-  assert.match(limits,/Jour et nuit imprimés : Arte, TF1\./);
-  assert.match(limits,/Soirée seulement imprimée : Ciné\+ Festival\./);
+  assert.doesNotMatch(limits,/complet|jour et nuit/i,'the printed scope is never presented as complete');
+  assert.match(limits,/Soirée seulement imprimée \(première ligne de journée après 17:00\) : Ciné\+ Festival\./);
+  assert.match(limits,/Écart habituel de plus de 4 h 00 .*: TF1 \(14 h 40\), Arte \(13 h 55\), TMC \(7 h 05\)\./);
   assert.match(limits,/Aucune ligne 00:00–05:59 imprimée : Ciné\+ Festival, TMC\./);
-  assert.match(limits,/heures non imprimées ne sont pas relevées/);
+  assert.match(limits,/aucune chaîne n’est relevée comme complète/);
   assert.match(limits,/premier samedi/);
   assert.deepEqual(printedScope([]),{});
 });

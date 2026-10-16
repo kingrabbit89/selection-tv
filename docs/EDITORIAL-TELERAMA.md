@@ -161,9 +161,11 @@ Un inventaire Web déjà enregistré n’est remplacé qu’avec
 `--replace-web-inventory` ; il reste dans Git au SHA de base, et
 `full_week_reaudit_completed` repasse à faux. Un inventaire de grille déjà
 enregistré pour ce PDF n’est jamais reconstruit par-dessus ses corrections.
-Les heures que le magazine n’imprime pas (nuits et matinées des chaînes cinéma,
-journée de la plupart des chaînes hors TNT principales) restent consignées
-comme limites, jamais comme relevées.
+La portée imprimée est mesurée par chaîne : jours et nuits imprimés, première
+ligne de journée habituelle et plus long écart habituel entre deux horaires.
+Les heures que le magazine n’imprime pas (nuits et matinées des chaînes
+cinéma, journée de la plupart des chaînes du câble) restent consignées comme
+limites, jamais comme relevées. Aucune chaîne n’est déclarée complète.
 
 ## Méthode simple depuis un nouveau chat
 

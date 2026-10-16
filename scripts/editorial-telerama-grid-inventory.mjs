@@ -20,37 +20,48 @@ const array=value=>Array.isArray(value)?value:[];
 const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
 const NIGHT=/^0[0-5]:/;
 const byText=(a,b)=>a.localeCompare(b,'fr');
-const median=values=>{const sorted=[...values].sort();return sorted.length?sorted[Math.floor((sorted.length-1)/2)]:null;};
+const median=values=>{const sorted=[...values].sort((a,b)=>a<b?-1:a>b?1:0);return sorted.length?sorted[Math.floor((sorted.length-1)/2)]:null;};
 const rowsOf=inventory=>array(inventory?.days).reduce((sum,day)=>sum+array(day.items).length,0);
 
-// Per channel: days printed, nights printed and the usual first daytime start.
+const minutes=start=>Number(start.slice(0,2))*60+Number(start.slice(3));
+const duration=value=>`${Math.floor(value/60)} h ${String(value%60).padStart(2,'0')}`;
+
+// Measured, not certified: per channel, the days and nights printed, the usual
+// first daytime start and the usual longest gap between two printed starts of
+// a day. A long gap is either a long block or hours the magazine does not print.
 export function printedScope(days) {
   const channels=new Map();
   for(const day of days) for(const item of day.items) {
-    const entry=channels.get(item.channel)||{days:new Set(),nights:new Set(),first:new Map()};
-    entry.days.add(day.date);
+    const entry=channels.get(item.channel)||{days:new Map(),nights:new Set()};
+    const starts=entry.days.get(day.date)||new Set();starts.add(item.start);entry.days.set(day.date,starts);
     if(NIGHT.test(item.start))entry.nights.add(day.date);
-    else if(!entry.first.has(day.date) || item.start<entry.first.get(day.date))entry.first.set(day.date,item.start);
     channels.set(item.channel,entry);
   }
   const scope={};
   for(const [channel,entry] of [...channels].sort(([a],[b])=>byText(a,b))) {
-    const typical=median([...entry.first.values()]);
-    const kind=entry.nights.size>=6 && typical<='09:00'?'day_and_night':typical>='17:00'?'evening':'partial_day_and_evening';
-    scope[channel]={kind,days:entry.days.size,night_days:entry.nights.size,typical_first_daytime_start:typical};
+    const first=[],gaps=[];
+    for(const starts of entry.days.values()) {
+      const sorted=[...starts].sort(),daytime=sorted.find(start=>!NIGHT.test(start));
+      if(daytime)first.push(daytime);
+      gaps.push(sorted.slice(1).reduce((gap,start,i)=>Math.max(gap,minutes(start)-minutes(sorted[i])),0));
+    }
+    scope[channel]={days:entry.days.size,night_days:entry.nights.size,typical_first_daytime_start:median(first),
+      typical_longest_gap_minutes:median(gaps)};
   }
   return scope;
 }
 
-export function scopeLimits(scope,warnings=[]) {
-  const list=kind=>Object.entries(scope).filter(([,value])=>value.kind===kind).map(([channel])=>channel);
-  const limits=[];
+export function scopeLimits(scope,warnings=[],{longGapMinutes=240}={}) {
+  const entries=Object.entries(scope),limits=[];
   const add=(label,channels)=>{if(channels.length)limits.push(label+channels.join(', ')+'.');};
-  add('Jour et nuit imprimés : ',list('day_and_night'));
-  add('Créneaux de journée choisis et soirée seulement imprimés : ',list('partial_day_and_evening'));
-  add('Soirée seulement imprimée : ',list('evening'));
-  add('Aucune ligne 00:00–05:59 imprimée : ',Object.entries(scope).filter(([,value])=>!value.night_days).map(([channel])=>channel));
-  limits.push('Les heures non imprimées ne sont pas relevées : les films de nuit ou du matin des chaînes cinéma peuvent manquer. Les compléter par l’import Web ordinaire seulement si une piste l’exige.');
+  add('Soirée seulement imprimée (première ligne de journée après 17:00) : ',
+    entries.filter(([,value])=>value.typical_first_daytime_start>='17:00').map(([channel])=>channel));
+  add(`Écart habituel de plus de ${duration(longGapMinutes)} entre deux horaires imprimés d’une journée (heures non imprimées ou longs blocs) : `,
+    entries.filter(([,value])=>value.typical_longest_gap_minutes>longGapMinutes && value.typical_first_daytime_start<'17:00')
+      .sort((a,b)=>b[1].typical_longest_gap_minutes-a[1].typical_longest_gap_minutes)
+      .map(([channel,value])=>`${channel} (${duration(value.typical_longest_gap_minutes)})`));
+  add('Aucune ligne 00:00–05:59 imprimée : ',entries.filter(([,value])=>!value.night_days).map(([channel])=>channel));
+  limits.push('Le magazine n’imprime pas toutes les heures : aucune chaîne n’est relevée comme complète. Les heures non imprimées (films de nuit ou du matin des chaînes cinéma notamment) ne sont pas relevées ; les compléter par l’import Web ordinaire seulement si une piste l’exige.');
   for(const warning of warnings)if(/first Saturday|preceding-night/i.test(warning))limits.push('La nuit 00:00–05:59 du premier samedi est imprimée dans le numéro précédent.');
   return limits;
 }
