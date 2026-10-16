@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import {auditRecordedRun} from './editorial-continuation.mjs';
+import {auditSessionRun, isSessionRun} from './editorial-session.mjs';
 
 // Optional working structures of data/research/YYYY-Sxx.json. They organise
 // production; they never certify a requirement, a card or a publication.
@@ -80,6 +81,8 @@ export function checkProgressStructures(progress) {
 export function lastRunGaps(progress) {
   const run = array(progress.run_metrics).at(-1);
   if (!run) return ['no run_metrics entry recorded'];
+  // A continuous session is timed by phase; pass-mode fields do not apply.
+  if (isSessionRun(run)) return auditSessionRun(run);
   const missing = runMetricFields.filter(field => run[field] === undefined || run[field] === '' ||
     (field === 'deliverables_changed' && !Array.isArray(run[field])))
     .map(field => 'last run_metrics entry lacks ' + field + (field === 'started_at' || field === 'ended_at' ? ' (record null with a reason if unknown; never reconstruct it)' : ''));

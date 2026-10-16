@@ -6,6 +6,7 @@ import {pathToFileURL} from 'node:url';
 import {dailyReserveCandidates} from './editorial-contracts.mjs';
 import {htmlText as cleanHtmlTitle} from './html-text.mjs';
 import {shortlistSummary} from './editorial-progress.mjs';
+import {isSessionRun, sessionSummary} from './editorial-session.mjs';
 
 export const normalizedTitle = value => String(value || '').normalize('NFD')
   .replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/œ/g, 'oe').replace(/æ/g, 'ae')
@@ -143,7 +144,7 @@ export function buildWorkPacket({week, sha, research, inventory, coverage, works
       note: 'Exposure uses validate-freshness title/public/daily-reserve/occurrence semantics. It is a history warning, not identity proof, an artistic ranking or an automatic exclusion. Ratios and exceptions are decided by the unchanged validator on the complete issue.'
     },
     delivery: {files, public_latest: manifest?.latest || null, candidate_status: issue?.publication_status || null},
-    last_run: array(research?.run_metrics).slice(-1).map(run => ({date: run.date, elapsed_seconds: run.elapsed_seconds,
+    last_run: array(research?.run_metrics).slice(-1).map(run => isSessionRun(run) ? sessionSummary(run) : ({date: run.date, elapsed_seconds: run.elapsed_seconds,
       stage: run.stage || null, completed_batches: array(run.completed_batches),
       stop_reason: run.stop_reason || 'not_recorded', next_useful_batch: run.next_useful_batch || run.next_batch || null,
       completed_dossiers: run.newly_completed_editorial_dossiers ?? null,

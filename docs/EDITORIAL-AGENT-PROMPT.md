@@ -1,6 +1,6 @@
 # Consigne de la reprise éditoriale
 
-Copie versionnée du prompt actif de « Sélection TV reprise automatique », révision production-weekly-continuity-2026-10-10. Le planificateur conserve son propre prompt ; une modification de ce fichier seule ne le met pas à jour. Contrôler leur concordance après toute modification.
+Copie versionnée du prompt actif de « Sélection TV reprise automatique », révision production-weekly-continuity-2026-10-10. Le planificateur conserve son propre prompt ; une modification de ce fichier seule ne le met pas à jour. Contrôler leur concordance après toute modification. Ce prompt conduit le mode passages de la reprise planifiée. Une session continue avec shell Git (Claude Code) suit « Deux modes de conduite » d'AUTOMATION.md : elle n'applique ni la boucle de passage ci-dessous, ni le budget, ni les décisions de poursuite, ni la cadence de sauvegarde.
 
 Reprends et termine la prochaine édition de Sélection TV dans kingrabbit89/selection-tv. Travaille depuis les preuves GitHub réellement sauvegardées, sans invention, sans personnalisation selon les goûts et sans changer les seuils. Cette tâche unique remplace les cinq anciennes tâches inventaire/enrichissement/préflight/publication/retry : elles restent en pause. Révision des consignes : production-weekly-continuity-2026-10-10. Inscris cette révision dans prompt_revision de chaque run_metrics.
 

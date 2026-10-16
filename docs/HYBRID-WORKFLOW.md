@@ -2,7 +2,15 @@
 
 ## Rôles et limite actuelle
 
-Chat peut effectuer la recherche Web, comparer les critiques, sélectionner et rédiger selon AUTOMATION.md. Work sert à l'intégration difficile et aux corrections techniques. GitHub exécute les contrôles et le publicateur mécanique. Tous utilisent les mêmes fichiers et les mêmes critères, notamment la prospection documentaire sourcée, sans personnalisation selon les goûts.
+Chat peut effectuer la recherche Web, comparer les critiques, sélectionner et rédiger selon AUTOMATION.md. Work sert à l'intégration difficile et aux corrections techniques. GitHub exécute les contrôles et le publicateur mécanique. Tous utilisent les mêmes fichiers et les mêmes critères, notamment la prospection documentaire sourcée, sans personnalisation selon les goûts. Une session continue disposant d'un shell Git réunit recherche, rédaction et intégration (section suivante).
+
+## Session continue avec un shell Git (production normale)
+
+Depuis le 16 octobre 2026, une session unique, par exemple Claude Code, produit le numéro. Elle dispose d'un clone local, de Git et de `gh` authentifié, mène le numéro du PDF Télérama à la remise de la candidate scellée, puis suit la chaîne protégée jusqu'au site public. Elle applique localement les lots des outils (`editorial-handoff.mjs check|apply`) et commite sur `auto/YYYY-Sxx` ; aucun transfert manuel ni workflow d'import n'est nécessaire. Sa seule écriture distante est `push-candidate.mjs`, sous le bail court de `docs/CHAT-LEASE-PROTOCOL.md`.
+
+Les règles propres à ce mode sont dans AUTOMATION.md, « Deux modes de conduite » : une entrée `run_metrics` chronométrée par phase avec `scripts/editorial-session.mjs`, des preuves compactes, aucune décision de poursuite, aucun budget de passage et aucune cadence de sauvegarde de dix minutes. Les contrôles, la revue scellée et la publication ne changent pas. Les sections suivantes décrivent le mode passages de la tâche horaire de secours. Une reprise planifiée repart du dernier checkpoint poussé, y compris celui d'une session interrompue.
+
+## Reprise dans Chat et Work (mode passages)
 
 Les outils de gestion des cinq tâches permettent de modifier leur prompt et leur calendrier, pas de sélectionner Chat à la place de Work ni de basculer sur un quota différent. Leur moteur n'est donc PAS migré par cette modification. La reprise dans Chat est explicite. Un prompt demandant « utiliser Chat » ne crée ni un autre moteur ni un budget supplémentaire.
 
@@ -34,7 +42,7 @@ Pour la reprise, appliquer la section « Progression de la recherche et impasses
 
 Le registre additionnel `research_attempts` conserve les impasses et leurs conditions de reprise. Un dossier non retenu reste documenté, mais ne doit pas monopoliser les passages sans piste nouvelle. Les lacunes de couverture obligatoire et les défauts des recommandations/réserves restent bloquants. La réorganisation de `remaining` doit conserver chaque exigence ouverte ; ni report ni regroupement ne vaut achèvement.
 
-Une sauvegarde de checkpoint n'achève pas automatiquement le passage : appliquer « Enchaîner les lots pendant un passage » d'AUTOMATION.md, continuer immédiatement tant qu'un lot utile peut avancer, puis consigner `stop_reason` et le prochain lot dans `run_metrics` lorsque l'exécution le permet. La reprise horaire récupère une interruption ; elle ne limite pas le passage à une seule fiche.
+En mode passages, une sauvegarde de checkpoint n'achève pas automatiquement le passage : appliquer « Enchaîner les lots pendant un passage » d'AUTOMATION.md, continuer immédiatement tant qu'un lot utile peut avancer, puis consigner `stop_reason` et le prochain lot dans `run_metrics` lorsque l'exécution le permet. La reprise horaire récupère une interruption ; elle ne limite pas le passage à une seule fiche.
 
 Un clone peut extraire une vue de travail en lecture seule avec `node scripts/editorial-work-packet.mjs YYYY-Sxx --ref SHA_CANDIDATE`, puis `--title "Titre exact"` pour réunir les données et preuves d'une œuvre. Le SHA doit être celui du checkpoint réellement lu. Ce paquet ciblé est distinct du handoff d'import ; il ne contient aucune attestation de qualité ou autorisation de publication.
 
