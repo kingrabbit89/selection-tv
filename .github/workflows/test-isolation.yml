@@ -1,0 +1,37 @@
+name: Test isolation and weekly cycles
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: test-isolation-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  test-isolation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # Temporary audit transport: tracked public repository objects only;
+      # no workspace, credentials, environment dump or runner files included.
+      - name: Export exact tracked audit snapshot
+        run: |
+          mkdir -p /tmp/selection-tv-test-audit
+          git bundle create /tmp/selection-tv-test-audit/source.bundle HEAD
+          git rev-parse HEAD > /tmp/selection-tv-test-audit/checkout-sha.txt
+          sha256sum /tmp/selection-tv-test-audit/source.bundle > /tmp/selection-tv-test-audit/source.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: test-audit-source
+          path: /tmp/selection-tv-test-audit/
+          retention-days: 1
+          if-no-files-found: error
+      - name: Confirm previous isolation regression
+        run: node --test scripts/test-editorial-task-board.mjs
