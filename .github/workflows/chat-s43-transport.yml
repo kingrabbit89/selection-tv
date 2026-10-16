@@ -3,33 +3,113 @@ on:
   pull_request:
     branches: [main]
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: chat-s43-transport
   cancel-in-progress: false
 jobs:
-  export:
+  prepare-batch:
     if: github.head_ref == 'ops/chat-s43-20261016' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: e7490f2ceb64bfe2d951df3ec8380c6fee2245fc
+          ref: 268c6243f5335b4cd7375e17ba4ad01f7212ffd5
           fetch-depth: 0
           persist-credentials: false
-      - name: Export immutable public tracked objects only
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Render only the pinned reviewed editorial decisions
         shell: bash
         run: |
-          git cat-file -e a887823251edc926c78c6ce2efdf32b460f5b28a
-          git update-ref refs/heads/chat-source-main e7490f2ceb64bfe2d951df3ec8380c6fee2245fc
-          git update-ref refs/heads/chat-source-candidate a887823251edc926c78c6ce2efdf32b460f5b28a
-          mkdir -p /tmp/chat-s43-context
-          git bundle create /tmp/chat-s43-context/source.bundle refs/heads/chat-source-main refs/heads/chat-source-candidate
-          sha256sum /tmp/chat-s43-context/source.bundle > /tmp/chat-s43-context/source.sha256
+          mkdir -p /tmp/chat-s43-result
+          git show 20952104e8b94c6b1070f79c36d2ca797276fa47:handoffs/chat-s43-batch1.mjs > /tmp/chat-s43-batch1.mjs
+          echo '5c1f7d57cb3950035a59769eb32f71c9764d6ff529bc283d3d8ac853c1a2a71f  /tmp/chat-s43-batch1.mjs' | sha256sum -c -
+          node /tmp/chat-s43-batch1.mjs /tmp/chat-s43-result
+          node scripts/editorial-handoff.mjs check /tmp/chat-s43-result/handoff.json
+          node scripts/editorial-handoff.mjs apply /tmp/chat-s43-result/handoff.json
+          SELECTION_TV_VALIDATE_WEEK=2026-S43 SELECTION_TV_CANDIDATE=1 node scripts/validate-links.mjs
+          SELECTION_TV_VALIDATE_WEEK=2026-S43 SELECTION_TV_CANDIDATE=1 node scripts/validate-freshness.mjs
+          node scripts/preparation-gaps.mjs 2026-S43 --json /tmp/chat-s43-result/gaps.json > /tmp/chat-s43-result/gaps.txt
+      - name: Install isolated browser runtime
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Inspect the four changed pages without publishing
+        shell: bash
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import {createServer} from 'node:http';
+          import path from 'node:path';
+          import assert from 'node:assert/strict';
+          import {chromium} from 'playwright';
+          const root=process.cwd(),out='/tmp/chat-s43-result';
+          const server=createServer((req,res)=>{
+            const pathname=new URL(req.url,'http://localhost').pathname;
+            const f=path.resolve(root,'.'+decodeURIComponent(pathname).replace(/\/$/,'/index.html'));
+            if(!f.startsWith(root+'/')){res.writeHead(403);res.end();return;}
+            try{res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json'})[path.extname(f)]||'application/octet-stream');res.end(fs.readFileSync(f));}catch{res.writeHead(404);res.end();}
+          });
+          await new Promise(r=>server.listen(0,'127.0.0.1',r));
+          const browser=await chromium.launch({headless:true,args:['--disable-gpu','--disable-dev-shm-usage']});
+          try{
+            const p=await browser.newPage({viewport:{width:1440,height:1100}}),errors=[];
+            p.on('pageerror',e=>errors.push(e.message));
+            await p.goto(`http://127.0.0.1:${server.address().port}/semaines/2026-S43/?preview=1`,{waitUntil:'domcontentloaded'});
+            await p.waitForFunction(()=>window.SelectionTVLayout&&document.querySelector('#rendezvous-2'));
+            await p.evaluate(()=>document.querySelectorAll('img').forEach(i=>i.loading='eager'));
+            await p.waitForTimeout(3500);
+            await p.evaluate(()=>window.SelectionTVLayout.layout());
+            await p.waitForTimeout(500);
+            const report=await p.evaluate(()=>({overflow:document.body.dataset.layoutOverflow||'',pages:['couverture','sommaire','rendezvous-1','rendezvous-2'].map(id=>{const e=document.getElementById(id);return {id,exists:!!e,cards:e?.querySelectorAll('article.week-card').length,visible:e?getComputedStyle(e).display!=='none':false};})}));
+            report.errors=errors;
+            fs.writeFileSync(out+'/visual-report.json',JSON.stringify(report,null,2));
+            for(const id of ['couverture','sommaire','rendezvous-1','rendezvous-2'])await p.locator('#'+id).screenshot({path:out+'/'+id+'.png'});
+            assert.deepEqual(errors,[]);assert(report.pages.every(p=>p.exists&&p.visible));
+            for(const r of report.pages.filter(p=>p.id.startsWith('rendezvous-')))assert.equal(r.cards,5);
+            assert.equal(report.overflow,'');
+          }finally{await browser.close();await new Promise(r=>server.close(r));}
+          JS
+      - name: Stage verified Git objects only; no branch update or publication
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          import {createHash} from 'node:crypto';
+          import {github,preflightCommitFiles,branchSha} from './scripts/github-weekly-api.mjs';
+          import {manageLease} from './scripts/editorial-lease.mjs';
+          import {validateBundle} from './scripts/editorial-handoff.mjs';
+          const base='268c6243f5335b4cd7375e17ba4ad01f7212ffd5',out='/tmp/chat-s43-result';
+          const bundle=validateBundle(JSON.parse(fs.readFileSync(out+'/handoff.json','utf8')));
+          assert.equal(bundle.base_sha,base);assert.equal(bundle.stage,'enrichment');
+          const expected={
+            'data/manifest.json':'188b9b99a6ddd276d9a975204aa58c2386253637',
+            'data/weeks/2026-S43.json':'5a4d9916d95059b77f6935ad287f17c7a7f89e89',
+            'data/coverage/2026-S43.json':'ea0b445ff084fd1b4b57b0c3897bec4330aa3da0',
+            'data/research/2026-S43.json':'5590a7b6613336423ab174ceebfdada45e457cdc'
+          };
+          assert.deepEqual(bundle.files.map(f=>f.path).sort(),Object.keys(expected).sort());
+          for(const f of bundle.files){const hash=createHash('sha1').update(`blob ${Buffer.byteLength(f.content)}\0`).update(f.content).digest('hex');assert.equal(hash,expected[f.path]);}
+          const api=github('kingrabbit89/selection-tv');
+          assert.equal(branchSha(api,'main'),'e7490f2ceb64bfe2d951df3ec8380c6fee2245fc');
+          assert.equal(branchSha(api,'auto/2026-S43'),base);
+          const lease=manageLease(api,{week:'2026-S43',action:'check',owner:'6ab73bf5-bcc9-42ad-9a17-c8fa5933d3a7'});
+          const prepared=preflightCommitFiles(bundle.files);
+          const tree=api('git/trees','POST',{base_tree:'a3bb4b439644796addbed6a504b1c3f07ce93aa3',tree:prepared.tree});
+          assert.equal(tree.sha,'121e5216ab64da5739cebc0b3bdd359a4024f58e');
+          const staged={base_sha:base,tree_sha:tree.sha,fingerprints:prepared.fingerprints,expected_blobs:expected,lease_owner:lease.owner,staged_at:new Date().toISOString(),ref_advanced:false};
+          fs.writeFileSync(out+'/staged.json',JSON.stringify(staged,null,2));console.log(JSON.stringify(staged));
+          JS
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: chat-s43-context
-          path: /tmp/chat-s43-context/
-          retention-days: 1
+          name: chat-s43-batch1-reviewed
+          path: /tmp/chat-s43-result/
+          retention-days: 3
           if-no-files-found: error
