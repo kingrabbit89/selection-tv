@@ -117,28 +117,68 @@ test('reusing a gap artifact requires the same inputs, week and CI execution', t
   assert.equal(matchingReport(report, inputSnapshot(week, {root, env})), false);
 });
 
-test('generation report displays declared paragraphs and rejects a stale calculation', t => {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'selection-generation-board-'));
+// Exercise both the published-issue fallback and explicit candidate overrides.
+// Every subprocess gets the SAME isolated environment as its saved snapshot;
+// the outer CI week/date must not leak into these temporary fixture files.
+const reportCases = [
+  {name: 'manifest fallback', target: week, overrides: {}},
+  {name: 'validation override', target: '2026-S43', overrides: {SELECTION_TV_VALIDATE_WEEK: '2026-S43'}},
+  {name: 'preparation override', target: '2026-S43', overrides: {SELECTION_TV_PREPARATION_WEEK: '2026-S43'}},
+  {name: 'preparation takes precedence', target: '2026-S43',
+    overrides: {SELECTION_TV_PREPARATION_WEEK: '2026-S43', SELECTION_TV_VALIDATE_WEEK: week}}
+];
+
+for (const {name, target, overrides} of reportCases) {
+  test(`generation report displays declared paragraphs and rejects a stale calculation: ${name}`, t => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'selection-generation-board-'));
+    t.after(() => fs.rmSync(root, {recursive: true, force: true}));
+    const write = (name, value) => {
+      fs.mkdirSync(path.dirname(path.join(root, name)), {recursive: true});
+      fs.writeFileSync(path.join(root, name), JSON.stringify(value));
+    };
+    const env = {...process.env, SELECTION_TV_TODAY: '2026-10-10'};
+    delete env.SELECTION_TV_PREPARATION_WEEK;
+    delete env.SELECTION_TV_VALIDATE_WEEK;
+    delete env.GITHUB_STEP_SUMMARY;
+    Object.assign(env, overrides);
+    write('data/manifest.json', {latest: week, weeks: [
+      {week, status: 'draft'}, {week: '2026-S43', status: 'draft'}
+    ]});
+    write(`data/research/${target}.json`, {remaining: Array(35).fill('À réconcilier'), editorial_review: {completed: false}, editorial_review_completed: true});
+    write('preparation-gaps.json', buildReport({week: target, from: target === week ? '2026-10-10' : '2026-10-17', sections: [], progress: {},
+      results: validators.map(validator => ({validator, status: 0, output: '✓ ok'})), snapshot: inputSnapshot(target, {root, env})}));
+    const command = fileURLToPath(new URL('./generation-report.mjs', import.meta.url));
+    const run = () => spawnSync(process.execPath, [command], {cwd: root, env, encoding: 'utf8', timeout: 10000});
+    const valid = run();
+    assert.equal(valid.status, 0, valid.error?.message || valid.stderr);
+    assert.ok(valid.stdout.startsWith('# Sélection TV · rapport de génération ' + target + '\n'));
+    assert.match(valid.stdout, /35 paragraphes à réconcilier/);
+    assert.match(valid.stdout, /Revue éditoriale déclarée achevée : non/);
+    assert.doesNotMatch(valid.stdout, /Travaux restants : 35/);
+    assert.match(valid.stdout, /0 message\(s\) bloquant/);
+    write(`data/weeks/${target}.json`, {week: target, pages: [{id: 'new'}]});
+    const stale = run();
+    assert.equal(stale.status, 0, stale.error?.message || stale.stderr);
+    assert.match(stale.stdout, /Contrôles actuels indisponibles/);
+    assert.doesNotMatch(stale.stdout, /0 message\(s\) bloquant/);
+  });
+}
+
+test('report fixtures ignore a foreign CI week and do not write its step summary', t => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'selection-report-parent-env-'));
   t.after(() => fs.rmSync(root, {recursive: true, force: true}));
-  const write = (name, value) => {
-    fs.mkdirSync(path.dirname(path.join(root, name)), {recursive: true});
-    fs.writeFileSync(path.join(root, name), JSON.stringify(value));
-  };
-  write('data/manifest.json', {latest: week, weeks: [{week, status: 'draft'}]});
-  write(`data/research/${week}.json`, {remaining: Array(35).fill('À réconcilier'), editorial_review: {completed: false}, editorial_review_completed: true});
-  write('preparation-gaps.json', buildReport({week, from: '2026-10-10', sections: [], progress: {},
-    results: validators.map(validator => ({validator, status: 0, output: '✓ ok'})), snapshot: inputSnapshot(week, {root})}));
-  const command = fileURLToPath(new URL('./generation-report.mjs', import.meta.url));
-  const run = () => spawnSync(process.execPath, [command], {cwd: root, encoding: 'utf8'});
-  const valid = run();
-  assert.equal(valid.status, 0, valid.stderr);
-  assert.match(valid.stdout, /35 paragraphes à réconcilier/);
-  assert.match(valid.stdout, /Revue éditoriale déclarée achevée : non/);
-  assert.doesNotMatch(valid.stdout, /Travaux restants : 35/);
-  assert.match(valid.stdout, /0 message\(s\) bloquant/);
-  write(`data/weeks/${week}.json`, {week, pages: [{id: 'new'}]});
-  const stale = run();
-  assert.equal(stale.status, 0, stale.stderr);
-  assert.match(stale.stdout, /Contrôles actuels indisponibles/);
-  assert.doesNotMatch(stale.stdout, /0 message\(s\) bloquant/);
+  const summary = path.join(root, 'summary.md');
+  const original = 'Real CI summary: must not contain fixture output.\n';
+  fs.writeFileSync(summary, original);
+  const env = {...process.env,
+    SELECTION_TV_PREPARATION_WEEK: '2099-S01', SELECTION_TV_VALIDATE_WEEK: '2099-S02',
+    SELECTION_TV_TODAY: '2099-01-01', GITHUB_STEP_SUMMARY: summary};
+  // A nested test runner must not inherit the parent's internal IPC context.
+  delete env.NODE_TEST_CONTEXT;
+  const run = spawnSync(process.execPath, ['--test', '--test-reporter=tap',
+    '--test-name-pattern=^generation report displays declared paragraphs', fileURLToPath(import.meta.url)],
+  {env, encoding: 'utf8', timeout: 30000});
+  assert.equal(run.status, 0, run.error?.message || run.stderr || run.stdout);
+  assert.match(run.stdout, /ok \d+ - generation report displays declared paragraphs/);
+  assert.equal(fs.readFileSync(summary, 'utf8'), original);
 });
