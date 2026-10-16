@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {digest,allowedPaths,validateBundle,planImport} from './editorial-handoff.mjs';
-import {checksPass,inPublicationWindow,reviewedCandidate} from './weekly-publisher.mjs';
+import * as publisher from './weekly-publisher.mjs';
+const {checksPass,reviewedCandidate}=publisher;
 const week='2026-S42',manifest=JSON.stringify({latest:'2026-S41',weeks:[{week:'2026-S41',status:'published'}]});
 const fixture=()=>({schema_version:1,week,base_sha:'a'.repeat(40),stage:'inventory',remaining:['verify sources'],files:[{path:`data/inventory/${week}.json`,base_sha256:null,content:JSON.stringify({week,days:[]})}]});
 const read=p=>p==='data/manifest.json'?manifest:null;
@@ -14,5 +15,5 @@ test('ready cannot conceal remaining work',()=>{const b=fixture();b.stage='ready
 const checks=()=>['data-and-policy','browser-presentation'].map((name,i)=>({id:i+1,name,status:'completed',conclusion:'success',app:{id:1,slug:'github-actions'}}));
 test('all gates must finish successfully on trusted app',()=>{assert(checksPass(checks()));assert(!checksPass([]));for(const conclusion of ['failure','skipped','neutral',null]){const c=checks();c[0].conclusion=conclusion;assert(!checksPass(c));}const c=checks();c[0].app.slug='someone-else';assert(!checksPass(c));assert(!checksPass(checks(),[{state:'pending'}]));});
 test('rerun pending overrides older success',()=>{const c=checks();c.push({...c[0],id:10,status:'in_progress',conclusion:null});assert(!checksPass(c));});
-test('Friday gate observes Paris summer and winter hours',()=>{assert(!inPublicationWindow(new Date('2026-10-09T17:59:00Z')));assert(inPublicationWindow(new Date('2026-10-09T18:00:00Z')));assert(!inPublicationWindow(new Date('2026-12-04T18:59:00Z')));assert(inPublicationWindow(new Date('2026-12-04T19:00:00Z')));assert(inPublicationWindow(new Date('2026-10-10T06:00:00Z')));assert(!inPublicationWindow(new Date('2026-10-11T06:00:00Z')));});
+test('publication has no weekday window',()=>{assert.equal(publisher.inPublicationWindow,undefined);});
 test('editorial review binds all deliverables and rejects code changes',()=>{const paths=[...allowedPaths(week)].filter(p=>!p.includes('/research/'));const progress={week,stage:'ready',editorial_review_completed:true,remaining:[],reviewed_files:Object.fromEntries(paths.map(p=>[p,digest('content')]))};reviewedCandidate(week,progress,()=> 'content',paths);assert.throws(()=>reviewedCandidate(week,progress,()=> 'changed',paths),/stale/);assert.throws(()=>reviewedCandidate(week,progress,()=> 'content',['scripts/example.mjs']),/code/);});

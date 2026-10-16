@@ -10,7 +10,9 @@ L'automatisation est volontairement séparée en deux fonctions : le producteur 
 
 La cible est le prochain numéro commençant samedi et se terminant vendredi, calculé dans le fuseau Europe/Paris. La commande canonique est `node scripts/next-target.mjs`. Le samedi, la cible reste le samedi courant. Si un cycle a échoué, le cycle suivant saute les éditions non publiées devenues obsolètes : il produit la cible calendaire actuelle, sans rattrapage de programmes périmés. Les validateurs et la promotion appliquent cette même règle ; leurs logs nomment les cycles sautés. Les anciens brouillons restent non publics. Aucun seuil éditorial ne change.
 
-Le cycle officiel conserve cinq jalons dans le fuseau Europe/Paris : inventaire jeudi 08:00, enrichissement vendredi 08:00, préflight vendredi 17:00, publication vendredi 20:00, puis retry samedi 08:00 si nécessaire. Ces jalons sont désormais exécutés par une seule tâche de reprise horaire (jeudi–samedi, 8 h–23 h Europe/Paris) ; les cinq anciennes tâches sont en pause. Chaque étape vérifie d'abord si la cible est déjà publiée et évite tout travail ou doublon inutile. La configuration machine-readable est data/automation-config.json.
+La production démarre dès que le PDF Télérama du numéro est fourni au producteur. **La publication suit la validation, sans fenêtre horaire** : dès qu'une candidate scellée de la cible calendaire a tous ses contrôles verts, le publicateur protégé la fusionne, la revalidation post-fusion l'atteste, puis la PR de promotion la publie, quel que soit le jour (`review.mode: as-soon-as-validated`). Aucun contrôle, seuil ni attestation n'est allégé ; seule l'attente du vendredi disparaît. Le numéro publié en avance remplace le précédent sur l'accueil, qui reste consultable dans les archives.
+
+Les cinq jalons du fuseau Europe/Paris deviennent des **échéances au plus tard** : inventaire jeudi 08:00, enrichissement vendredi 08:00, préflight vendredi 17:00, publication vendredi 20:00, puis retry samedi 08:00 si nécessaire. Ils restent la référence de la tâche de reprise horaire de secours (jeudi–samedi, 8 h–23 h Europe/Paris) ; les cinq anciennes tâches sont en pause. Chaque étape vérifie d'abord si la cible est déjà publiée et évite tout travail ou doublon inutile. La configuration machine-readable est data/automation-config.json.
 
 ## Candidate
 
@@ -217,13 +219,13 @@ Le registre Vu du navigateur classique reste local au navigateur. Vos Uploads es
 
 ## Surveillance et échec
 
-Le watchdog GitHub s'exécute le samedi à 10:00 UTC, après la fenêtre de retry. Il vérifie le déploiement public du numéro attendu. Toute PR candidate ou de promotion encore ouverte est un état en attente, signalé par une issue et un job rouge avec les checks dans le résumé. Un numéro manquant ou un brouillon bloqué provoque également une alerte.
+Le watchdog GitHub s'exécute le samedi à 10:00 UTC, après l'échéance de retry. Il vérifie le déploiement public du numéro attendu. Toute PR candidate ou de promotion encore ouverte est un état en attente, signalé par une issue et un job rouge avec les checks dans le résumé. Un numéro manquant ou un brouillon bloqué provoque également une alerte.
 
 Si une source devient inaccessible, incomplète ou ambiguë : essayer une source distincte pertinente selon la règle Web, consigner la dégradation et conserver le numéro en draft si les seuils minimaux ne sont plus démontrables. Ne jamais inventer pour faire passer le CI.
 
 ## Reprise automatique et preuve de fusion
 
-La revalidation du brouillon courant est aussi déclenchée après chaque modification de main et toutes les heures les vendredis et samedis. Elle fige le SHA de main au début du run et ne travaille que sur la cible calendaire encore draft. Une panne transitoire ou une attestation devenue ancienne peut ainsi être reprise sans intervention ; une erreur éditoriale continue de bloquer.
+La revalidation du brouillon courant est aussi déclenchée après chaque modification de main et toutes les heures, chaque jour. Elle fige le SHA de main au début du run et ne travaille que sur la cible calendaire encore draft. Une panne transitoire ou une attestation devenue ancienne peut ainsi être reprise sans intervention ; une erreur éditoriale continue de bloquer.
 
 Avant chaque fusion, le producteur relit main et le SHA de tête de la PR, exige que main soit ancêtre de cette tête (sinon synchroniser la branche et attendre les nouveaux checks), puis utilise la fusion avec SHA de tête attendu. Pour une promotion, l’attestation doit correspondre au main ainsi relu. Ne jamais fusionner sur la seule base d’un ancien résultat vert. La ruleset reste inchangée ; la fenêtre de concurrence entre cette dernière lecture et la fusion n’est pas atomiquement supprimée sans règle GitHub de branche à jour.
 

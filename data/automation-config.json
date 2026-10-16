@@ -13,8 +13,9 @@
     "missed_cycle_policy": "Skip unpublished obsolete cycles; keep latest unchanged until the current calendar candidate passes every gate. Never generate backlog editions."
   },
   "review": {
-    "scheduled_day": "Friday",
-    "scheduled_time_local": "20:00",
+    "mode": "as-soon-as-validated",
+    "deadline_day": "Friday",
+    "deadline_time_local": "20:00",
     "merge_only_when_required_checks_green": true
   },
   "required_outputs": [

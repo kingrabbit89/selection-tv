@@ -1,6 +1,6 @@
 # Bail éditorial court — production pilotée dans Chat
 
-Le mode Chat, lancé manuellement, n'est pas une tâche planifiée. Ce document complète `docs/HYBRID-WORKFLOW.md` sans modifier les seuils éditoriaux, les contrôles GitHub, la fenêtre de publication ni les protections de `main`.
+Le mode Chat, lancé manuellement, n'est pas une tâche planifiée. Ce document complète `docs/HYBRID-WORKFLOW.md` sans modifier les seuils éditoriaux, les contrôles GitHub ni les protections de `main`.
 
 ## À quel moment verrouiller ?
 
@@ -47,7 +47,7 @@ node scripts/push-candidate.mjs 2026-S44 --dry-run   # contrôles seuls, sans ba
 node scripts/push-candidate.mjs 2026-S44             # bail court, push sans force, libération
 ```
 
-Le script enchaîne exactement la séquence ci-dessus : il refuse une branche `auto/YYYY-Sxx` distante qui n'est pas un ancêtre de `HEAD` (réconcilier d'abord, jamais forcer), tout chemin hors des livrables autorisés de la semaine, et, pour un checkpoint `ready`, toute empreinte `reviewed_files` qui ne correspond pas aux blobs **commités** (une copie de travail aux fins de ligne converties ne peut donc pas faire passer une revue périmée). Il acquiert ensuite un bail de dix minutes avec `withEditorialLease`, relit la tête distante, pousse `HEAD` vers `auto/YYYY-Sxx` sans force, vérifie la nouvelle tête puis libère le bail, y compris en cas d'échec du push. Un bail tiers actif bloque l'exécution. Le script ne touche ni `main` ni la promotion : la CI et le publicateur protégé restent seuls à fusionner.
+Le script enchaîne exactement la séquence ci-dessus : il refuse une branche `auto/YYYY-Sxx` distante qui n'est pas un ancêtre de `HEAD` (réconcilier d'abord, jamais forcer), tout chemin hors des livrables autorisés de la semaine, et, pour un checkpoint `ready`, toute empreinte `reviewed_files` qui ne correspond pas aux blobs **commités** (une copie de travail aux fins de ligne converties ne peut donc pas faire passer une revue périmée). Il acquiert ensuite un bail de dix minutes avec `withEditorialLease`, relit la tête distante, pousse `HEAD` vers `auto/YYYY-Sxx` sans force, vérifie la nouvelle tête puis libère le bail, y compris en cas d'échec du push. Un bail tiers actif bloque l'exécution. Pour un checkpoint `ready` seulement, il ouvre ensuite la PR `auto/YYYY-Sxx` → `main` (non brouillon) ou, si elle existe en brouillon, la marque prête ; un checkpoint de préparation n'ouvre ni ne modifie aucune PR. Le script ne touche ni `main` ni la promotion : la CI et le publicateur protégé restent seuls à fusionner, dès que les contrôles sont verts et sans attendre vendredi.
 
 ## Chat avec connecteur GitHub, sans terminal Git authentifié
 

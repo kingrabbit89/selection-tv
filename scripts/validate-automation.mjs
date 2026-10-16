@@ -32,7 +32,8 @@ if(fs.existsSync('data/automation-config.json')){
   if(cfg.generation?.orchestrator!=='external-research-agent')bad('weekly producer must be declared as external-research-agent');
   if(cfg.generation?.candidate_manifest_status!=='draft'||cfg.generation?.candidate_publication_status!=='draft')bad('candidate must stay draft before promotion');
   if(cfg.generation?.scheduled_day!=='Thursday'||cfg.generation?.scheduled_time_local!=='08:00')bad('generation stage must start Thursday 08:00 Europe/Paris');
-  if(cfg.review?.scheduled_day!=='Friday'||cfg.review?.scheduled_time_local!=='20:00')bad('publication review must run Friday 20:00 Europe/Paris');
+  if(cfg.review?.mode!=='as-soon-as-validated'||cfg.review?.merge_only_when_required_checks_green!==true)bad('publication must follow green validation of a sealed candidate, with no weekday window');
+  if(cfg.review?.deadline_day!=='Friday'||cfg.review?.deadline_time_local!=='20:00')bad('publication deadline must stay Friday 20:00 Europe/Paris');
   const expectedPhases={
     inventory:['Thursday','08:00'],
     enrichment:['Friday','08:00'],
@@ -117,6 +118,9 @@ if(fs.existsSync('.github/workflows/guard-direct-publication.yml')){
 }
 if(read('.github/workflows/guard-direct-publication.yml').includes('git push origin HEAD:main'))bad('guard must not bypass protected main');
 
+for(const [p,cron] of [['.github/workflows/weekly-publisher.yml',"'25,55 * * * *'"],['.github/workflows/promote-validated-week.yml','"15 * * * *"']]){
+  if(fs.existsSync(p)&&!read(p).includes('cron: '+cron))bad(p+' must poll every day: publication follows validation, not a weekday window');
+}
 if(fs.existsSync('.github/workflows/weekly-automation-watchdog.yml')){
   const wf=read('.github/workflows/weekly-automation-watchdog.yml');
   if(!wf.includes('schedule:')||!wf.includes('next-target.mjs'))bad('weekly watchdog is not scheduled or cannot resolve target');
