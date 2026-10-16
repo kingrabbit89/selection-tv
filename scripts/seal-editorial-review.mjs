@@ -6,6 +6,8 @@ const file=`data/research/${week}.json`;
 const previous=fs.existsSync(file)?JSON.parse(fs.readFileSync(file)):{};
 if(!Array.isArray(previous.remaining)||previous.remaining.length)throw Error('Set remaining to [] only after resolving each unfinished item.');
 const reviewed_files=Object.fromEntries([...allowedPaths(week)].filter(p=>p!==file).map(p=>[p,digest(fs.readFileSync(p,'utf8'))]));
+const reviewed_at=new Date().toISOString();
 fs.mkdirSync('data/research',{recursive:true});
-fs.writeFileSync(file,JSON.stringify({...previous,week,stage:'ready',editorial_review_completed:true,reviewed_at:new Date().toISOString(),reviewed_files},null,2)+'\n');
+fs.writeFileSync(file,JSON.stringify({...previous,week,stage:'ready',editorial_review_completed:true,
+  editorial_review:{...previous.editorial_review,completed:true,reviewed_at},reviewed_at,reviewed_files},null,2)+'\n');
 console.log('Review recorded. CI gates still required; this marker does not prove source accuracy.');
