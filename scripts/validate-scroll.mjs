@@ -46,7 +46,12 @@ try{
    posterReleased=false;
    const page=await browser.newPage({viewport:{width:1440,height:1000}});
    const errors=[];page.on('pageerror',e=>errors.push(e.message));
-   await page.route('**/*',route=>new URL(route.request().url()).origin===origin?route.continue():route.abort());
+   // Every poster source fails here, remote hosts and the site's own WebP
+   // copies alike, so the late failure really ends in the text fallback.
+   await page.route('**/*',route=>{
+    const url=new URL(route.request().url());
+    return url.origin===origin&&!url.pathname.startsWith('/assets/posters/')?route.continue():route.abort();
+   });
    const preview=process.env.SELECTION_TV_VALIDATE_WEEK&&week===target?'?preview=1':'';
    await page.goto(`${origin}/semaines/${week}/${preview}`,{waitUntil:'domcontentloaded'});
    await page.waitForFunction(()=>window.SelectionTVLayout&&window.SelectionTVBindImage&&document.querySelector('#jeudi-selection article.feature'));
