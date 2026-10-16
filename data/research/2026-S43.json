@@ -161,7 +161,8 @@
     "Chat 16 octobre, intégration GitHub sécurisée de batch05 physical et des 6 fichiers éditoriaux exacts sur auto/2026-S43, commit 534c8bcbbc8df65b4cae703121b802abbb0d37fc ; bail court acquis puis libéré ; aucune publication.",
     "Chat 16 octobre, lot radar UHD page 1 : cinq cartes complètes (Vivre, Nadja, Phenomena, Annihilation, Le Loup-garou de Londres), différenciant restauration 4K et SteelBooks ; sources produit et critiques datées, identité canonique conservée, CINQ cartes visibles, ZÉRO réserve HD à ce stade. Pages de radar et sommaire générées via editorial-draft-cards et contrôlées par handoff ; les autres radars restent à construire.",
     "Chat 16 octobre : abonnement page 2, trois cartes de films entièrement rédigées et validées localement (L’Attachement, Hamnet, L’Intérêt d’Adam), CANAL+ France offres 50001/50002 vérifiées, notes publiques relues, métadonnées et véritables affiches, sans confusion avec location 40099 ; génération section et sommaire par editorial-draft-cards, contrôle handoff ; reste à revoir navigateur et sources images à distance.",
-    "Chat 16 octobre : troisième page abonnement de trois films d’auteur sur CANAL+ France (Dossier 137, La Tour de glace, Nouvelle Vague). Liens directs _50001, identité forte, synopsis et analyse rédigés, réception contrastée documentée, affiche officielle Haut et Court/Metropolitan ou affiche Criterion réutilisée, durées de portée cinéma/plateforme séparées ; générateur et contrôles locaux vérifiés. Ne signifie ni revue générale ni finalisation des radars."
+    "Chat 16 octobre : troisième page abonnement de trois films d’auteur sur CANAL+ France (Dossier 137, La Tour de glace, Nouvelle Vague). Liens directs _50001, identité forte, synopsis et analyse rédigés, réception contrastée documentée, affiche officielle Haut et Court/Metropolitan ou affiche Criterion réutilisée, durées de portée cinéma/plateforme séparées ; générateur et contrôles locaux vérifiés. Ne signifie ni revue générale ni finalisation des radars.",
+    "Chat 16 octobre : radar de popularité, cinq choix visibles, cinq sillonnages sur deuxième page et cinq alternatives datées et distinctes (15 work_id du catalogue existant, aucun lien de téléchargement), extrait du classement TorrentFreak du 12 octobre et d’archives explicitement datées. Les signaux des anciens mois ne sont pas présentés comme une actualité S43. Contrôles locaux sur la candidate S43 : canonical IDs, liens exacts, réserve quotidienne et fraîcheur verts. Le numéro n’est pas prêt : radar UHD, arrivées streaming et relecture de couverture restent bloquants."
   ],
   "blockers": [],
   "research_attempts": [
@@ -7849,6 +7850,323 @@
       "applies_to": "2026-S43 platform_subscription page 3",
       "evidence_note": "Nouvelle Vague (Richard Linklater, 2025) retraçant le tournage du film À bout de souffle de Godard, et non le film de Godard lui-même ; lien d’abonnement CANAL+ _50001 distinct de _40099 VOD. 106 min IMDb/AlloCiné et édition Criterion ; 105 min SensCritique, 101 min CANAL+. IMDb 7,3/10 (12 k votes), SensCritique 6,7/10, AlloCiné presse 4,0/5 (35 critiques) ; réserves de réception relues sur SensCritique. Propositions retenues après critiques et réserves contradictoires ; la plateforme seule ne prouve pas la réception critique. Affiches Haut et Court / Metropolitan visibles et correspondantes ; contrôle HTTP/images de candidate restant.",
       "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-popularity-spider-man-brand-new-day-2026",
+      "work_id": "spider-man-brand-new-day-2026",
+      "fields": [
+        "radar.popularity",
+        "signal.date",
+        "signal.rank",
+        "work.identity_stable",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "urls": [
+        "https://torrentfreak.com/top-10-most-torrented-pirated-movies/?week=2026-09-28",
+        "https://www.sonypictures.com/movies/spidermanbrandnewday"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "public_ranking_weekly_signal",
+      "applies_to": "2026-S43 popular_deep",
+      "evidence_note": "TorrentFreak, 12 octobre : 1er (4e le 5 octobre). Spider-Man: Brand New Day (2026), Destin Daniel Cretton, titre du film et non d'un autre objet homonyme. Source signal uniquement : ne prouve ni streaming français, ni disponibilité, ni qualité critique. Les informations stables du catalogue ont été réutilisées et les métadonnées manquantes recontrôlées lorsque nécessaire.",
+      "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-popularity-the-end-of-oak-street-2026",
+      "work_id": "the-end-of-oak-street-2026",
+      "fields": [
+        "radar.popularity",
+        "signal.date",
+        "signal.rank",
+        "work.identity_stable",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "urls": [
+        "https://torrentfreak.com/top-10-most-torrented-pirated-movies/?week=2026-09-28",
+        "https://www.theendofoakstreetmovie.com.au/synopsis/"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "public_ranking_weekly_signal",
+      "applies_to": "2026-S43 popular_deep",
+      "evidence_note": "TorrentFreak, 12 octobre : 2e (également 2e le 5 octobre). The End of Oak Street (2026), David Robert Mitchell, titre du film et non d'un autre objet homonyme. Source signal uniquement : ne prouve ni streaming français, ni disponibilité, ni qualité critique. Les informations stables du catalogue ont été réutilisées et les métadonnées manquantes recontrôlées lorsque nécessaire.",
+      "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-popularity-project-hail-mary-2026",
+      "work_id": "project-hail-mary-2026",
+      "fields": [
+        "radar.popularity",
+        "signal.date",
+        "signal.rank",
+        "work.identity_stable",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "urls": [
+        "https://torrentfreak.com/top-10-most-torrented-pirated-movies/?week=2026-09-28",
+        "https://www.imdb.com/title/tt12042730/"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "public_ranking_weekly_signal",
+      "applies_to": "2026-S43 popular_deep",
+      "evidence_note": "TorrentFreak, 12 octobre : 7e, de retour dans le classement. Project Hail Mary (2026), Phil Lord / Christopher Miller, titre du film et non d'un autre objet homonyme. Source signal uniquement : ne prouve ni streaming français, ni disponibilité, ni qualité critique. Les informations stables du catalogue ont été réutilisées et les métadonnées manquantes recontrôlées lorsque nécessaire.",
+      "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-popularity-toy-story-5-2026",
+      "work_id": "toy-story-5-2026",
+      "fields": [
+        "radar.popularity",
+        "signal.date",
+        "signal.rank",
+        "work.identity_stable",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "urls": [
+        "https://torrentfreak.com/top-10-most-torrented-pirated-movies/?week=2026-09-28",
+        "https://www.imdb.com/title/tt29355505/"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "public_ranking_weekly_signal",
+      "applies_to": "2026-S43 popular_deep",
+      "evidence_note": "TorrentFreak, 12 octobre : 8e (7e la semaine précédente). Toy Story 5 (2026), Andrew Stanton / McKenna Harris, titre du film et non d'un autre objet homonyme. Source signal uniquement : ne prouve ni streaming français, ni disponibilité, ni qualité critique. Les informations stables du catalogue ont été réutilisées et les métadonnées manquantes recontrôlées lorsque nécessaire.",
+      "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-popularity-the-odyssey-2026",
+      "work_id": "the-odyssey-2026",
+      "fields": [
+        "radar.popularity",
+        "signal.date",
+        "signal.rank",
+        "work.identity_stable",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "urls": [
+        "https://torrentfreak.com/top-10-most-torrented-pirated-movies/?week=2026-09-28",
+        "https://www.imdb.com/title/tt33764258/"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "public_ranking_weekly_signal",
+      "applies_to": "2026-S43 popular_deep",
+      "evidence_note": "TorrentFreak, 12 octobre : 10e (5e le 5 octobre). The Odyssey (2026), Christopher Nolan, titre du film et non d'un autre objet homonyme. Source signal uniquement : ne prouve ni streaming français, ni disponibilité, ni qualité critique. Les informations stables du catalogue ont été réutilisées et les métadonnées manquantes recontrôlées lorsque nécessaire.",
+      "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-popularity-disclosure-day-2026",
+      "work_id": "disclosure-day-2026",
+      "fields": [
+        "radar.popularity",
+        "signal.date",
+        "signal.rank",
+        "work.identity_stable",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "urls": [
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/",
+        "https://www.imdb.com/title/tt15047880/"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "public_ranking_weekly_signal",
+      "applies_to": "2026-S43 popular_deep",
+      "evidence_note": "Archive TorrentFreak : 1er le 27 juillet 2026. Signal ancien, utilisé comme alternative patrimoniale récente. Disclosure Day (2026), Steven Spielberg, titre du film et non d'un autre objet homonyme. Source signal uniquement : ne prouve ni streaming français, ni disponibilité, ni qualité critique. Les informations stables du catalogue ont été réutilisées et les métadonnées manquantes recontrôlées lorsque nécessaire.",
+      "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-popularity-backrooms-2026",
+      "work_id": "backrooms-2026",
+      "fields": [
+        "radar.popularity",
+        "signal.date",
+        "signal.rank",
+        "work.identity_stable",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "urls": [
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/",
+        "https://a24films.com/films/backrooms"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "public_ranking_weekly_signal",
+      "applies_to": "2026-S43 popular_deep",
+      "evidence_note": "Archive TorrentFreak : 4e le 27 juillet 2026. Ancien pic, alternatif uniquement. Backrooms (2026), Kane Parsons, titre du film et non d'un autre objet homonyme. Source signal uniquement : ne prouve ni streaming français, ni disponibilité, ni qualité critique. Les informations stables du catalogue ont été réutilisées et les métadonnées manquantes recontrôlées lorsque nécessaire.",
+      "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-popularity-evil-dead-burn-2026",
+      "work_id": "evil-dead-burn-2026",
+      "fields": [
+        "radar.popularity",
+        "signal.date",
+        "signal.rank",
+        "work.identity_stable",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "urls": [
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/",
+        "https://www.evildeadburn.co.uk/synopsis/"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "public_ranking_weekly_signal",
+      "applies_to": "2026-S43 popular_deep",
+      "evidence_note": "Archive TorrentFreak : 9e le 17 août 2026. Signal antérieur à S43. Evil Dead Burn (2026), Sébastien Vanicek, titre du film et non d'un autre objet homonyme. Source signal uniquement : ne prouve ni streaming français, ni disponibilité, ni qualité critique. Les informations stables du catalogue ont été réutilisées et les métadonnées manquantes recontrôlées lorsque nécessaire.",
+      "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-popularity-mortal-kombat-ii-2026",
+      "work_id": "mortal-kombat-ii-2026",
+      "fields": [
+        "radar.popularity",
+        "signal.date",
+        "signal.rank",
+        "work.identity_stable",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "urls": [
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/",
+        "https://www.mortalkombatmovie.com/synopsis/",
+        "https://www.imdb.com/title/tt17490712/"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "public_ranking_weekly_signal",
+      "applies_to": "2026-S43 popular_deep",
+      "evidence_note": "Archive TorrentFreak : 3e le 15 juin 2026. Signal historique distinct du top de S43. Mortal Kombat II (2026), Simon McQuoid, titre du film et non d'un autre objet homonyme. Source signal uniquement : ne prouve ni streaming français, ni disponibilité, ni qualité critique. Les informations stables du catalogue ont été réutilisées et les métadonnées manquantes recontrôlées lorsque nécessaire.",
+      "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-popularity-masters-of-the-universe-2026",
+      "work_id": "masters-of-the-universe-2026",
+      "fields": [
+        "radar.popularity",
+        "signal.date",
+        "signal.rank",
+        "work.identity_stable",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "urls": [
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/",
+        "https://www.imdb.com/title/tt0427340/"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "public_ranking_weekly_signal",
+      "applies_to": "2026-S43 popular_deep",
+      "evidence_note": "Archive TorrentFreak : 9e le 17 août 2026, non classé le 12 octobre. Masters of the Universe (2026), Travis Knight, titre du film et non d'un autre objet homonyme. Source signal uniquement : ne prouve ni streaming français, ni disponibilité, ni qualité critique. Les informations stables du catalogue ont été réutilisées et les métadonnées manquantes recontrôlées lorsque nécessaire.",
+      "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-popularity-coyote-vs-acme-2026",
+      "work_id": "coyote-vs-acme-2026",
+      "fields": [
+        "radar.popularity",
+        "signal.date",
+        "signal.rank",
+        "work.identity_stable",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "urls": [
+        "https://torrentfreak.com/top-10-most-torrented-pirated-movies/?week=2026-09-28",
+        "https://www.coyotevsacme.com/synopsis/"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "public_ranking_weekly_signal",
+      "applies_to": "2026-S43 popular_scan",
+      "evidence_note": "TorrentFreak, 12 octobre : 9e (1er le 5 octobre). Coyote vs. Acme (2026), Dave Green, titre du film et non d'un autre objet homonyme. Source signal uniquement : ne prouve ni streaming français, ni disponibilité, ni qualité critique. Les informations stables du catalogue ont été réutilisées et les métadonnées manquantes recontrôlées lorsque nécessaire.",
+      "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-popularity-animals-2026",
+      "work_id": "animals-2026",
+      "fields": [
+        "radar.popularity",
+        "signal.date",
+        "signal.rank",
+        "work.identity_stable",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "urls": [
+        "https://torrentfreak.com/top-10-most-torrented-pirated-movies/?week=2026-09-28",
+        "https://www.netflix.com/title/81757047",
+        "https://www.imdb.com/title/tt31049299/"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "public_ranking_weekly_signal",
+      "applies_to": "2026-S43 popular_scan",
+      "evidence_note": "TorrentFreak, 12 octobre : 6e, nouvelle entrée. Animals (2026), Ben Affleck, titre du film et non d'un autre objet homonyme. Source signal uniquement : ne prouve ni streaming français, ni disponibilité, ni qualité critique. Les informations stables du catalogue ont été réutilisées et les métadonnées manquantes recontrôlées lorsque nécessaire.",
+      "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-popularity-obsession-2025",
+      "work_id": "obsession-2025",
+      "fields": [
+        "radar.popularity",
+        "signal.date",
+        "signal.rank",
+        "work.identity_stable",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "urls": [
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/",
+        "https://www.imdb.com/title/tt37287335/"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "public_ranking_weekly_signal",
+      "applies_to": "2026-S43 popular_scan",
+      "evidence_note": "Archive TorrentFreak : 8e le 5 octobre 2026. Obsession (2025), Curry Barker, titre du film et non d'un autre objet homonyme. Source signal uniquement : ne prouve ni streaming français, ni disponibilité, ni qualité critique. Les informations stables du catalogue ont été réutilisées et les métadonnées manquantes recontrôlées lorsque nécessaire.",
+      "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-popularity-runner-2026",
+      "work_id": "runner-2026",
+      "fields": [
+        "radar.popularity",
+        "signal.date",
+        "signal.rank",
+        "work.identity_stable",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "urls": [
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/",
+        "https://www.angel.com/movies/runner"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "public_ranking_weekly_signal",
+      "applies_to": "2026-S43 popular_scan",
+      "evidence_note": "Archive TorrentFreak : 3e le 5 octobre 2026, absent du top 10 du 12 octobre. Runner (2026), Scott Waugh, titre du film et non d'un autre objet homonyme. Source signal uniquement : ne prouve ni streaming français, ni disponibilité, ni qualité critique. Les informations stables du catalogue ont été réutilisées et les métadonnées manquantes recontrôlées lorsque nécessaire.",
+      "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-popularity-mayday-2026",
+      "work_id": "mayday-2026",
+      "fields": [
+        "radar.popularity",
+        "signal.date",
+        "signal.rank",
+        "work.identity_stable",
+        "editorial.summary",
+        "editorial.why"
+      ],
+      "urls": [
+        "https://torrentfreak.com/most-pirated-movies-of-2026-weekly-archive/",
+        "https://tv.apple.com/fr/movie/mayday/umc.cmc.shin43vzfoz3h4ggx41z8rf"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "public_ranking_weekly_signal",
+      "applies_to": "2026-S43 popular_scan",
+      "evidence_note": "Archive TorrentFreak : 9e le 5 octobre 2026. Mayday (2026), John Francis Daley / Jonathan Goldstein, titre du film et non d'un autre objet homonyme. Source signal uniquement : ne prouve ni streaming français, ni disponibilité, ni qualité critique. Les informations stables du catalogue ont été réutilisées et les métadonnées manquantes recontrôlées lorsque nécessaire.",
+      "status": "reviewed_card_draft"
     }
   ],
   "source_issues": [
@@ -10400,8 +10718,8 @@
     "first_incomplete_stage": "enrichment",
     "next_actions": [
       "Rubrique abonnement : trois pages, neuf fiches maintenant rédigées. Vérifier réellement le rendu/HTTP des affiches des pages 2-3, différencier offre CANAL+ et VOD et confirmer les sources périssables juste avant seal.",
+      "Radar populaire : quinze cartes et trois groupes (5 choix, 5 sillonnages, 5 réserves) intégrés au brouillon après contrôle des sources datées. Revoir la provenance des affiches et les limitations géographiques / liens avant seal. Les réserves anciennes sont explicitement signalées, sans transposition des rangs passés au 12 octobre.",
       "Compléter les deux nouvelles arrivées streaming S43 : choisir uniquement deux films avec date officielle dans le 17-23 octobre et URL de visionnage français direct, métadonnées/notes/affiches exactes. Examiner Furcy, né libre (20 octobre) et Météors (22 octobre), en remplacement si une preuve manque.",
-      "Construire le radar popularité : 5 choix, 5 sillonnages et 5 réserves distinctes, avec signaux datés et analyse éditoriale ; aucun téléchargement illicite.",
       "Compléter radar UHD : deuxième page de cinq primaires, puis au moins six alternatives réelles distinctes des dix choix visibles, respect des versions et provenances UHD vs simple SteelBook.",
       "Achever le recoupement des omissions Télérama/Web par jour, chaîne et nuit, et la passe documentaire. coverage.full_week_reaudit_completed reste faux tant que non achevé.",
       "Contrôler images, liens, interface navigateur et CI sur la tête exacte ; ne sceller l’édition qu’après revue effective et remaining réellement vide."
@@ -21424,9 +21742,34 @@
       },
       "existing_works_enriched": 1,
       "draft_section_cards_added": 9
+    },
+    {
+      "prompt_revision": "chat-manual-s43-2026-10-16",
+      "execution_context": "interactive_chat_user_requested",
+      "started_at": null,
+      "ended_at": "2026-10-16T16:38:14Z",
+      "run_state": "stopped",
+      "duration_basis": "Durée de cette session non établie par une horloge de début persistée ; aucune durée imputée",
+      "completed_batches": [
+        "Radar popularité : 5 choix + 5 sillonnages + 5 réserves, 15 cartes composées avec 15 work_id préexistants et rangs datés."
+      ],
+      "deliverables_changed": [
+        "data/weeks/2026-S43.json",
+        "data/manifest.json",
+        "data/works.json",
+        "data/radar-reserves/2026-S43.json",
+        "data/research/2026-S43.json"
+      ],
+      "complete_cards_added": 0,
+      "draft_cards_added": 15,
+      "draft_reserves_added": 5,
+      "new_works": 0,
+      "reused_existing_cards": 15,
+      "stop_reason": "checkpoint_after_batch",
+      "next_useful_batch": "Compléter deux sorties streaming à disponibilité et liens directs France vérifiés, puis les réserves du radar UHD et seconde revue de couverture."
     }
   ],
-  "updated_at": "2026-10-16T16:08:32Z",
+  "updated_at": "2026-10-16T16:38:14Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
