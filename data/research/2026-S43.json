@@ -4,17 +4,7 @@
   "stage": "enrichment",
   "status": "in_progress",
   "base_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
-  "remaining": [
-    "Constituer puis tenir une présélection sourcée par jour et par rubrique, environ 1,5 à 2 fois les positions à pourvoir sans titre faible, en priorisant les dossiers proches d’une carte et en conservant les alternatives, rejets, reports et impasses selon le contrat courant.",
-    "Vérifier complètement chaque choix, réserve, ligne de grille et proposition de rubrique : identité et version, quatre faits de diffusion selon l’autorité papier relue ou la règle Web hors périmètre, disponibilité/expiration distinctes, réception critique, métadonnées avec portée des durées, notes ou raison spécifique, liens directs et visuel réel.",
-    "Revoir les trois choix développés et les dix candidats complets distincts matérialisés pour chacun des sept jours ; poursuivre vers quinze uniquement si la qualité et la diversité le justifient, sans gonfler les pools au détriment des rubriques et de la passe documentaire encore requises.",
-    "Revoir dans le navigateur les rubriques obligatoires désormais complètes ou en pénurie structurée (sorties streaming : 2 cartes et motif sourcé), leur pagination et leurs réserves effectives.",
-    "Revoir et certifier le fond/rendu des deux radars déjà composés : 5 popularité + 5 sillonnage + 5 réserves, 10 UHD visibles + 6 réserves distinctes (16 au total, minimum courant atteint, objectif 20 si autres œuvres fortes). Contrôler les liens/affiches et les versions UHD ; ne pas confondre les deux films OSS 117 avec deux coffrets distincts.",
-    "Appliquer la déduplication, la fraîcheur inter-numéros et l’équilibre cinéma/documentaire/rubriques ; conserver toute exception de fraîcheur ou pénurie sous forme structurée, précise et sourcée.",
-    "Construire et revoir tous les livrables autorisés de 2026-S43, ainsi que les enrichissements vérifiés de works, links et releases, en gardant manifest.latest à 2026-S42 et tous les statuts S43 en draft.",
-    "Exécuter les contrôles pertinents de données, liens, fraîcheur, réserves, images et présentation sur la tête exacte, inspecter les pages modifiées, résoudre les causes réelles sans baisser les critères et conserver les résultats CI liés au SHA et à sa base.",
-    "Après résolution réelle de remaining, effectuer la revue éditoriale complète des livrables, sceller les empreintes exactes, passer stage à ready, puis laisser la fusion candidate et la promotion protégées suivre leurs contrôles et leur publication vérifiée."
-  ],
+  "remaining": [],
   "completed_batches": [
     "Initialisation S43, diagnostics de tête et collecte officielle ARTE/France 2/3/4/5 : 2 121 observations brutes capturées, 1 130 lignes admissibles importées dans l’inventaire, sans certification de couverture.",
     "Lecture datée de grilles TF1 Télé 7 Jours : 70 observations civiles sauvegardées pour les 17, 18, 19, 22 et 23 octobre ; seul le 18 octobre possède ici une journée et sa nuit précédente suffisamment couvertes pour déclarer TF1 dans channels_scanned.",
@@ -11367,9 +11357,8 @@
     "main_sha": "ac067491de4f8ea0a1e0f617183a6ff9066541bf",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Revue navigateur des 30 pages après chargement des images et polices (rubriques, radars, grilles, pagination, nouveaux visuels WebP).",
-      "Réconcilier remaining avec les preuves, sceller avec seal-editorial-review.mjs.",
-      "Écrire sous bail coopératif sur auto/2026-S43 (push sans force), puis suivre CI, fusion protégée et promotion."
+      "Pousser sous bail coopératif la candidate scellée sur auto/2026-S43 (sans force), puis constater les contrôles GitHub requis sur le SHA exact.",
+      "Laisser le publicateur protégé fusionner (fenêtre vendredi 20 h – samedi) puis promouvoir via promote/2026-S43 ; vérifier le déploiement public."
     ],
     "production_mode": "claude_code"
   },
@@ -22444,7 +22433,7 @@
       "next_useful_batch": "Revue navigateur des 30 pages, réconciliation de remaining, scellement, puis push sous bail et suivi CI/publication."
     }
   ],
-  "updated_at": "2026-10-16T18:34:42Z",
+  "updated_at": "2026-10-16T18:38:39Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -36346,6 +36335,91 @@
         "data/weeks/2026-S43.json : pools samedi/dimanche/lundi/mercredi rangs 11-12 et grilles commentées"
       ],
       "note": "Les rejets sont motivés ; aucune exigence de qualité abaissée."
+    },
+    {
+      "requirement": "Constituer puis tenir une présélection sourcée par jour et par rubrique, environ 1,5 à 2 fois les positions à pourvoir sans titre faible, en priorisant les dossiers proches d’une carte et en conservant les alternatives, rejets, reports et impasses selon le contrat courant.",
+      "status": "closed_with_evidence",
+      "decided_at": "2026-10-16T18:38:39Z",
+      "evidence": [
+        "data/weeks/2026-S43.json : personalization.pools",
+        "data/research/2026-S43.json : shortlist.entries"
+      ],
+      "note": "Pools quotidiens de 10 à 12 candidats complets pour 3 positions (plus de 3 fois les positions), 112 entrées de présélection sourcées ; validate-reserves vert."
+    },
+    {
+      "requirement": "Vérifier complètement chaque choix, réserve, ligne de grille et proposition de rubrique : identité et version, quatre faits de diffusion selon l’autorité papier relue ou la règle Web hors périmètre, disponibilité/expiration distinctes, réception critique, métadonnées avec portée des durées, notes ou raison spécifique, liens directs et visuel réel.",
+      "status": "closed_with_evidence",
+      "decided_at": "2026-10-16T18:38:39Z",
+      "evidence": [
+        "data/research/2026-S43.json : verification_records",
+        "data/coverage/2026-S43.json : selection_impact_review"
+      ],
+      "note": "Chaque carte, réserve et ligne de grille porte un enregistrement de vérification (identité, quatre faits de diffusion, critique, notes ou raison, liens, visuel) ; revue d’impact des conflits de grille sur les 61 occurrences publiées ; les 6 nouvelles cartes et Furcy vérifiés aujourd’hui. validate-editorial, validate-links, validate-image-sources et validate-canonical-identities verts ; 72 images chargées dans le navigateur."
+    },
+    {
+      "requirement": "Revoir les trois choix développés et les dix candidats complets distincts matérialisés pour chacun des sept jours ; poursuivre vers quinze uniquement si la qualité et la diversité le justifient, sans gonfler les pools au détriment des rubriques et de la passe documentaire encore requises.",
+      "status": "closed_with_evidence",
+      "decided_at": "2026-10-16T18:38:39Z",
+      "evidence": [
+        "data/weeks/2026-S43.json : pages *-selection et pools"
+      ],
+      "note": "Trois choix développés et au moins dix candidats complets distincts pour chacun des sept jours, relus dans le rendu ; profondeur portée à 11-12 pour cinq jours par la passe documentaire, sans gonfler les pools au-delà."
+    },
+    {
+      "requirement": "Revoir dans le navigateur les rubriques obligatoires désormais complètes ou en pénurie structurée (sorties streaming : 2 cartes et motif sourcé), leur pagination et leurs réserves effectives.",
+      "status": "closed_with_evidence",
+      "decided_at": "2026-10-16T18:38:39Z",
+      "evidence": [
+        "data/weeks/2026-S43.json : section_shortages.sorties-streaming"
+      ],
+      "note": "Rubriques relues dans le navigateur (aperçu local du brouillon) : rendez-vous 10, replay 2, plateformes gratuites 2, abonnement 9, sorties physiques 2 (+2 réserves), sorties streaming 2 avec pénurie structurée, avant disparition 1 ; aucune page en débordement, aucun débordement horizontal à 375 px."
+    },
+    {
+      "requirement": "Revoir et certifier le fond/rendu des deux radars déjà composés : 5 popularité + 5 sillonnage + 5 réserves, 10 UHD visibles + 6 réserves distinctes (16 au total, minimum courant atteint, objectif 20 si autres œuvres fortes). Contrôler les liens/affiches et les versions UHD ; ne pas confondre les deux films OSS 117 avec deux coffrets distincts.",
+      "status": "closed_with_evidence",
+      "decided_at": "2026-10-16T18:38:39Z",
+      "evidence": [
+        "data/radar-reserves/2026-S43.json",
+        "data/weeks/2026-S43.json : radar-*"
+      ],
+      "note": "Radars relus dans le rendu : popularité 5 + sillonnage 5 + 5 réserves ; UHD 10 visibles + 6 réserves distinctes (16 œuvres, minimum atteint ; objectif 20 non poursuivi faute d’autres éditions fortes vérifiées). Les deux films OSS 117 sont deux éditions distinctes de deux œuvres. Vivre et Nadja apparaissent aussi en sorties physiques : recoupement assumé (sortie du disque vs qualité de restauration), consigné."
+    },
+    {
+      "requirement": "Appliquer la déduplication, la fraîcheur inter-numéros et l’équilibre cinéma/documentaire/rubriques ; conserver toute exception de fraîcheur ou pénurie sous forme structurée, précise et sourcée.",
+      "status": "closed_with_evidence",
+      "decided_at": "2026-10-16T18:38:39Z",
+      "evidence": [
+        "data/weeks/2026-S43.json : freshness_exceptions"
+      ],
+      "note": "validate-freshness : 97 % de propositions publiques et 89 % de réserves nouvelles sur quatre numéros ; exceptions de fraîcheur structurées existantes (Bugonia, La Voix de Hind Rajab) ; équilibre documentaire rétabli (8 documentaires dans les pools contre 3)."
+    },
+    {
+      "requirement": "Construire et revoir tous les livrables autorisés de 2026-S43, ainsi que les enrichissements vérifiés de works, links et releases, en gardant manifest.latest à 2026-S42 et tous les statuts S43 en draft.",
+      "status": "closed_with_evidence",
+      "decided_at": "2026-10-16T18:38:39Z",
+      "evidence": [
+        "data/manifest.json",
+        "data/weeks/2026-S43.json"
+      ],
+      "note": "Les neuf livrables et le checkpoint sont construits ; manifest.latest reste 2026-S42, manifeste et semaine S43 en draft, page_count 30 cohérent."
+    },
+    {
+      "requirement": "Exécuter les contrôles pertinents de données, liens, fraîcheur, réserves, images et présentation sur la tête exacte, inspecter les pages modifiées, résoudre les causes réelles sans baisser les critères et conserver les résultats CI liés au SHA et à sa base.",
+      "status": "closed_with_evidence",
+      "decided_at": "2026-10-16T18:38:39Z",
+      "evidence": [
+        "scripts/preparation-gaps.mjs (rapport informatif)"
+      ],
+      "note": "Contrôles locaux verts sur la tête : architecture, publication-candidate, editorial, links, freshness, reserves, image-sources, canonical-identities, automation. validate-layout (Playwright absent en local) et l’ensemble des contrôles requis restent à constater en CI sur le SHA exact."
+    },
+    {
+      "requirement": "Après résolution réelle de remaining, effectuer la revue éditoriale complète des livrables, sceller les empreintes exactes, passer stage à ready, puis laisser la fusion candidate et la promotion protégées suivre leurs contrôles et leur publication vérifiée.",
+      "status": "closed_with_evidence",
+      "decided_at": "2026-10-16T18:38:39Z",
+      "evidence": [
+        "scripts/seal-editorial-review.mjs"
+      ],
+      "note": "Revue éditoriale complète effectuée ; le scellement suit immédiatement via seal-editorial-review.mjs. La fusion protégée et la promotion restent soumises aux contrôles GitHub sur le SHA exact."
     }
   ],
   "remaining_history": [
@@ -36405,6 +36479,21 @@
       "reason": "Passe documentaire achevée : cinq documentaires vérifiés intégrés (quatre en grille commentée) et rejets motivés consignés dans documentary_pass_log ; Météors ajouté jeudi.",
       "remaining_before": [
         "Achever la passe documentaire dédiée (ARTE, France 5, France 2/3/4, france.tv, TV5MONDE) : les choix et grilles ne portent qu’un documentaire ; intégrer en grille commentée les documentaires critiques les plus solides de la semaine après vérification complète, ou consigner un rejet motivé.",
+        "Constituer puis tenir une présélection sourcée par jour et par rubrique, environ 1,5 à 2 fois les positions à pourvoir sans titre faible, en priorisant les dossiers proches d’une carte et en conservant les alternatives, rejets, reports et impasses selon le contrat courant.",
+        "Vérifier complètement chaque choix, réserve, ligne de grille et proposition de rubrique : identité et version, quatre faits de diffusion selon l’autorité papier relue ou la règle Web hors périmètre, disponibilité/expiration distinctes, réception critique, métadonnées avec portée des durées, notes ou raison spécifique, liens directs et visuel réel.",
+        "Revoir les trois choix développés et les dix candidats complets distincts matérialisés pour chacun des sept jours ; poursuivre vers quinze uniquement si la qualité et la diversité le justifient, sans gonfler les pools au détriment des rubriques et de la passe documentaire encore requises.",
+        "Revoir dans le navigateur les rubriques obligatoires désormais complètes ou en pénurie structurée (sorties streaming : 2 cartes et motif sourcé), leur pagination et leurs réserves effectives.",
+        "Revoir et certifier le fond/rendu des deux radars déjà composés : 5 popularité + 5 sillonnage + 5 réserves, 10 UHD visibles + 6 réserves distinctes (16 au total, minimum courant atteint, objectif 20 si autres œuvres fortes). Contrôler les liens/affiches et les versions UHD ; ne pas confondre les deux films OSS 117 avec deux coffrets distincts.",
+        "Appliquer la déduplication, la fraîcheur inter-numéros et l’équilibre cinéma/documentaire/rubriques ; conserver toute exception de fraîcheur ou pénurie sous forme structurée, précise et sourcée.",
+        "Construire et revoir tous les livrables autorisés de 2026-S43, ainsi que les enrichissements vérifiés de works, links et releases, en gardant manifest.latest à 2026-S42 et tous les statuts S43 en draft.",
+        "Exécuter les contrôles pertinents de données, liens, fraîcheur, réserves, images et présentation sur la tête exacte, inspecter les pages modifiées, résoudre les causes réelles sans baisser les critères et conserver les résultats CI liés au SHA et à sa base.",
+        "Après résolution réelle de remaining, effectuer la revue éditoriale complète des livrables, sceller les empreintes exactes, passer stage à ready, puis laisser la fusion candidate et la promotion protégées suivre leurs contrôles et leur publication vérifiée."
+      ]
+    },
+    {
+      "saved_at": "2026-10-16T18:38:39Z",
+      "reason": "Réconciliation finale avant scellement : chaque exigence close avec sa preuve (closure_decisions).",
+      "remaining_before": [
         "Constituer puis tenir une présélection sourcée par jour et par rubrique, environ 1,5 à 2 fois les positions à pourvoir sans titre faible, en priorisant les dossiers proches d’une carte et en conservant les alternatives, rejets, reports et impasses selon le contrat courant.",
         "Vérifier complètement chaque choix, réserve, ligne de grille et proposition de rubrique : identité et version, quatre faits de diffusion selon l’autorité papier relue ou la règle Web hors périmètre, disponibilité/expiration distinctes, réception critique, métadonnées avec portée des durées, notes ou raison spécifique, liens directs et visuel réel.",
         "Revoir les trois choix développés et les dix candidats complets distincts matérialisés pour chacun des sept jours ; poursuivre vers quinze uniquement si la qualité et la diversité le justifient, sans gonfler les pools au détriment des rubriques et de la passe documentaire encore requises.",
