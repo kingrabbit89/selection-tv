@@ -14,6 +14,7 @@ import collections
 import datetime as dt
 import hashlib
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -245,6 +246,11 @@ def text_date_header(text, start):
 
 
 def poppler_index(path, expected_pages):
+    # Triage is an optimisation only. Git for Windows ships a pdftotext whose
+    # output made half of the S43 grid pages look like non-grid pages; off
+    # forces the full glyph scan of every page.
+    if os.environ.get("SELECTION_TV_PDF_TRIAGE", "auto").lower() == "off":
+        return None
     executable = shutil.which("pdftotext")
     if not executable:
         return None
