@@ -160,7 +160,8 @@
     "Chat 16 octobre : quatre dossiers de sorties physiques du 20/10 complétés (Vivre, Nadja, Secrets et mensonges, Naked) ; deux choix prévus et deux réserves ; handoff préparé localement, non transféré. Dates éditoriales, versions et disponibilités sourcées ; imagerie/CI non certifiées.",
     "Chat 16 octobre, intégration GitHub sécurisée de batch05 physical et des 6 fichiers éditoriaux exacts sur auto/2026-S43, commit 534c8bcbbc8df65b4cae703121b802abbb0d37fc ; bail court acquis puis libéré ; aucune publication.",
     "Chat 16 octobre, lot radar UHD page 1 : cinq cartes complètes (Vivre, Nadja, Phenomena, Annihilation, Le Loup-garou de Londres), différenciant restauration 4K et SteelBooks ; sources produit et critiques datées, identité canonique conservée, CINQ cartes visibles, ZÉRO réserve HD à ce stade. Pages de radar et sommaire générées via editorial-draft-cards et contrôlées par handoff ; les autres radars restent à construire.",
-    "Chat 16 octobre : abonnement page 2, trois cartes de films entièrement rédigées et validées localement (L’Attachement, Hamnet, L’Intérêt d’Adam), CANAL+ France offres 50001/50002 vérifiées, notes publiques relues, métadonnées et véritables affiches, sans confusion avec location 40099 ; génération section et sommaire par editorial-draft-cards, contrôle handoff ; reste à revoir navigateur et sources images à distance."
+    "Chat 16 octobre : abonnement page 2, trois cartes de films entièrement rédigées et validées localement (L’Attachement, Hamnet, L’Intérêt d’Adam), CANAL+ France offres 50001/50002 vérifiées, notes publiques relues, métadonnées et véritables affiches, sans confusion avec location 40099 ; génération section et sommaire par editorial-draft-cards, contrôle handoff ; reste à revoir navigateur et sources images à distance.",
+    "Chat 16 octobre : troisième page abonnement de trois films d’auteur sur CANAL+ France (Dossier 137, La Tour de glace, Nouvelle Vague). Liens directs _50001, identité forte, synopsis et analyse rédigés, réception contrastée documentée, affiche officielle Haut et Court/Metropolitan ou affiche Criterion réutilisée, durées de portée cinéma/plateforme séparées ; générateur et contrôles locaux vérifiés. Ne signifie ni revue générale ni finalisation des radars."
   ],
   "blockers": [],
   "research_attempts": [
@@ -7761,6 +7762,93 @@
       "applies_to": "2026-S43 platform_subscription page 2",
       "evidence_note": "L’Intérêt d’Adam (2025) de Laura Wandel, pas une série ni un programme portant un titre similaire ; l’offre CANAL+ _50001 est une offre d’abonnement. Durée originale annoncée Memento 78 min, durée plateforme CANAL+ 74 min, sans inférer une coupe. IMDb 6,5/10 sur 633 votes et SensCritique 6,3/10 relevés le 16 octobre, à côté de notes AlloCiné déjà sourcées en octobre 2026. Affiche canonique existante réutilisée sans réinitialiser son contrôle image initial. Réception critique mixte ou réservée précisée dans le paragraphe éditorial.",
       "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-subscription-page3-dossier-137",
+      "work_id": "dossier-137",
+      "fields": [
+        "section.platform_subscription",
+        "platform.offer",
+        "platform.service",
+        "work.identity",
+        "work.director",
+        "work.year",
+        "work.country",
+        "work.duration",
+        "work.ratings",
+        "work.image"
+      ],
+      "urls": [
+        "https://www.canalplus.com/cinema/dossier-137/h/30902170_50001",
+        "https://www.hautetcourt.com/films/dossier-137/",
+        "https://www.festival-cannes.com/f/dossier-137/",
+        "https://www.imdb.com/title/tt34794183/",
+        "https://www.senscritique.com/film/dossier_137/104127657",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000008860.html",
+        "https://www.canalplus.com/cinema/dossier-137/h/30902170_40099"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "weekly_offer_current",
+      "applies_to": "2026-S43 platform_subscription page 3",
+      "evidence_note": "Dossier 137 (Dominik Moll, 2025, avec Léa Drucker) : film sur une enquêtrice de l’IGPN, pas un reportage sur les manifestations ; l’offre par abonnement _50001 est différente de la location à l’unité _40099. 2025, France, policier/drame. Durée distributeur Haut et Court et IMDb 116 min, CANAL+ 111 min (durée de la copie annoncée par la plateforme, non preuve de coupe). IMDb 7,2/10 (~4,1 k évaluations), SensCritique 7/10, AlloCiné presse 3,9/5 (40 critiques) et spectateurs 4,1/5 (environ 7 000 notes). Affiche haute définition fournie par Haut et Court, consultée sur le site officiel. Propositions retenues après critiques et réserves contradictoires ; la plateforme seule ne prouve pas la réception critique. Affiches Haut et Court / Metropolitan visibles et correspondantes ; contrôle HTTP/images de candidate restant.",
+      "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-subscription-page3-la-tour-de-glace-2025",
+      "work_id": "la-tour-de-glace-2025",
+      "fields": [
+        "section.platform_subscription",
+        "platform.offer",
+        "platform.service",
+        "work.identity",
+        "work.director",
+        "work.year",
+        "work.country",
+        "work.duration",
+        "work.ratings",
+        "work.image"
+      ],
+      "urls": [
+        "https://www.canalplus.com/cinema/la-tour-de-glace/h/30103893_50001/resume-casting/",
+        "https://metrofilms.com/film/la-tour-de-glace/",
+        "https://www.imdb.com/title/tt28171985/",
+        "https://www.senscritique.com/film/la_tour_de_glace/63414644",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=258216.html",
+        "https://www.justwatch.com/fr/film/la-tour-de-glace"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "weekly_offer_current",
+      "applies_to": "2026-S43 platform_subscription page 3",
+      "evidence_note": "La Tour de glace de Lucile Hadžihalilović, production diffusée comme film 2025 et sortie française septembre 2025, avec Marion Cotillard et Clara Pacini ; ne pas confondre avec le récit d’Andersen ni une captation La Reine des neiges. France/Allemagne/Italie selon CANAL+ ; 117 min sur IMDb/SensCritique, 118 min AlloCiné et 112 min fiche CANAL. IMDb 6,0/10 (~1,8 k votes), SensCritique 5,7/10 et AlloCiné presse 3,5/5 (24 critiques), spectateurs 2,2/5 ; appréciations publiées mêlées, sans inventer un consensus. Propositions retenues après critiques et réserves contradictoires ; la plateforme seule ne prouve pas la réception critique. Affiches Haut et Court / Metropolitan visibles et correspondantes ; contrôle HTTP/images de candidate restant.",
+      "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-subscription-page3-nouvelle-vague-2025",
+      "work_id": "nouvelle-vague-2025",
+      "fields": [
+        "section.platform_subscription",
+        "platform.offer",
+        "platform.service",
+        "work.identity",
+        "work.director",
+        "work.year",
+        "work.country",
+        "work.duration",
+        "work.ratings",
+        "work.image"
+      ],
+      "urls": [
+        "https://www.canalplus.com/cinema/nouvelle-vague/h/30533660_50001",
+        "https://www.criterion.com/films/35769-nouvelle-vague",
+        "https://www.imdb.com/title/tt31688586/",
+        "https://www.senscritique.com/film/nouvelle_vague/73835085",
+        "https://www.allocine.fr/film/fichefilm_gen_cfilm=323491.html"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "weekly_offer_current",
+      "applies_to": "2026-S43 platform_subscription page 3",
+      "evidence_note": "Nouvelle Vague (Richard Linklater, 2025) retraçant le tournage du film À bout de souffle de Godard, et non le film de Godard lui-même ; lien d’abonnement CANAL+ _50001 distinct de _40099 VOD. 106 min IMDb/AlloCiné et édition Criterion ; 105 min SensCritique, 101 min CANAL+. IMDb 7,3/10 (12 k votes), SensCritique 6,7/10, AlloCiné presse 4,0/5 (35 critiques) ; réserves de réception relues sur SensCritique. Propositions retenues après critiques et réserves contradictoires ; la plateforme seule ne prouve pas la réception critique. Affiches Haut et Court / Metropolitan visibles et correspondantes ; contrôle HTTP/images de candidate restant.",
+      "status": "reviewed_card_draft"
     }
   ],
   "source_issues": [
@@ -10231,6 +10319,60 @@
         ],
         "decision_note": "Seconde page abonnement ; offre vérifiée sur plateforme réelle, fiche _50001/_50002. Écart de durée signalé sans inférer un montage différent ; le numéro complet ne peut pas être clôturé à partir de cette page.",
         "alternatives": []
+      },
+      {
+        "id": "sl-s43-subscription-p3-dossier-137",
+        "title": "Dossier 137",
+        "work_id": "dossier-137",
+        "scope": {
+          "rubrique": "platform_subscription"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "official_subscribed_film",
+            "note": "CANAL+ lien de film dans abonnement _50001 vérifié le 16 octobre et plusieurs sources critiques revues, dont critiques divergentes.",
+            "source_url": "https://www.canalplus.com/cinema/dossier-137/h/30902170_50001"
+          }
+        ],
+        "decision_note": "Troisième page abonnement, offre France sans achat à l’unité ; écarts de métrage non transformés en coupe démontrée, images officielles vraies ; visuels HTTP et rendu à vérifier sur candidate.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-s43-subscription-p3-la-tour-de-glace-2025",
+        "title": "La Tour de glace",
+        "work_id": "la-tour-de-glace-2025",
+        "scope": {
+          "rubrique": "platform_subscription"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "official_subscribed_film",
+            "note": "CANAL+ lien de film dans abonnement _50001 vérifié le 16 octobre et plusieurs sources critiques revues, dont critiques divergentes.",
+            "source_url": "https://www.canalplus.com/cinema/la-tour-de-glace/h/30103893_50001/resume-casting/"
+          }
+        ],
+        "decision_note": "Troisième page abonnement, offre France sans achat à l’unité ; écarts de métrage non transformés en coupe démontrée, images officielles vraies ; visuels HTTP et rendu à vérifier sur candidate.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-s43-subscription-p3-nouvelle-vague-2025",
+        "title": "Nouvelle Vague",
+        "work_id": "nouvelle-vague-2025",
+        "scope": {
+          "rubrique": "platform_subscription"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "official_subscribed_film",
+            "note": "CANAL+ lien de film dans abonnement _50001 vérifié le 16 octobre et plusieurs sources critiques revues, dont critiques divergentes.",
+            "source_url": "https://www.canalplus.com/cinema/nouvelle-vague/h/30533660_50001"
+          }
+        ],
+        "decision_note": "Troisième page abonnement, offre France sans achat à l’unité ; écarts de métrage non transformés en coupe démontrée, images officielles vraies ; visuels HTTP et rendu à vérifier sur candidate.",
+        "alternatives": []
       }
     ]
   },
@@ -10257,12 +10399,12 @@
     "main_sha": "ac067491de4f8ea0a1e0f617183a6ff9066541bf",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Finaliser 3 films pour page plateformes-abonnement 3 : de préférence films artistiquement singuliers, abonnements France directs et image, notes, durées, critiques relus ; six cartes sur neuf présentes.",
-      "Compléter deux nouvelles arrivées streaming en semaine S43, dont Météors (22 octobre) et Furcy, né libre (20 octobre) si les titres, offres SVOD France et durées sont prouvés ; ne pas transformer programme TV en replay automatique.",
-      "Construire radar popularité : cinq choix, cinq sillonnage, cinq réserves distinctes, sources TorrentFreak du 12 octobre et autres signaux publics ; aucune URL de téléchargement.",
-      "Compléter radar UHD : radar-2 cinq primaires, puis au minimum six alternatives HD réelles distinctes des dix choix visibles ; ne pas qualifier édition SteelBook de restauration nouvelle sans preuve.",
-      "Reprendre la seconde lecture des omissions Télérama + TV Web jour/nuit et la passe documentaire. coverage.full_week_reaudit_completed reste faux jusqu’à la revue réelle.",
-      "Contrôler les images distantes, les liens, le navigateur et la CI sur le SHA final ; ne sceller review que lorsque remaining vide et toutes les exigences satisfaites."
+      "Rubrique abonnement : trois pages, neuf fiches maintenant rédigées. Vérifier réellement le rendu/HTTP des affiches des pages 2-3, différencier offre CANAL+ et VOD et confirmer les sources périssables juste avant seal.",
+      "Compléter les deux nouvelles arrivées streaming S43 : choisir uniquement deux films avec date officielle dans le 17-23 octobre et URL de visionnage français direct, métadonnées/notes/affiches exactes. Examiner Furcy, né libre (20 octobre) et Météors (22 octobre), en remplacement si une preuve manque.",
+      "Construire le radar popularité : 5 choix, 5 sillonnages et 5 réserves distinctes, avec signaux datés et analyse éditoriale ; aucun téléchargement illicite.",
+      "Compléter radar UHD : deuxième page de cinq primaires, puis au moins six alternatives réelles distinctes des dix choix visibles, respect des versions et provenances UHD vs simple SteelBook.",
+      "Achever le recoupement des omissions Télérama/Web par jour, chaîne et nuit, et la passe documentaire. coverage.full_week_reaudit_completed reste faux tant que non achevé.",
+      "Contrôler images, liens, interface navigateur et CI sur la tête exacte ; ne sceller l’édition qu’après revue effective et remaining réellement vide."
     ],
     "production_mode": "user_led_chat"
   },
@@ -21284,7 +21426,7 @@
       "draft_section_cards_added": 9
     }
   ],
-  "updated_at": "2026-10-16T15:44:28Z",
+  "updated_at": "2026-10-16T16:08:32Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
