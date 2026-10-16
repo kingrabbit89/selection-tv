@@ -3,65 +3,120 @@ on:
   pull_request:
     branches: [main]
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: chat-s43-transport
   cancel-in-progress: false
 jobs:
-  sources:
+  prepare-batch:
     if: github.head_ref == 'ops/chat-s43-20261016' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
-      - name: Read public exact sources without authentication or bypass
+      - uses: actions/checkout@v4
+        with:
+          ref: dc90984a8fad7e3c746ab1617b9f400cbce0afb0
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Render the pinned reviewed editorial batch
         shell: bash
         run: |
-          mkdir -p /tmp/s43-source-evidence
-          python3 <<'PY'
-          import urllib.request,urllib.parse,json,hashlib,datetime,pathlib,concurrent.futures
-          from html.parser import HTMLParser
-          out=pathlib.Path('/tmp/s43-source-evidence')
-          sources={
-            'potiche':'https://www.unifrance.org/film/30941/potiche',
-            'potiche-sc':'https://www.senscritique.com/film/potiche/367361',
-            'peter':'https://diaphana.fr/film/peter-von-kant/',
-            'peter-arte':'https://www.arte.tv/fr/videos/129843-000-A/peter-von-kant/',
-            'deneuve':'https://www.arte.tv/fr/videos/112478-000-A/catherine-deneuve-a-son-image/',
-            'hommes':'https://www.festival-cannes.com/f/all-the-president-s-men/',
-            'hommes-sc':'https://www.senscritique.com/film/les_hommes_du_president/373061'
-          }
-          class Parser(HTMLParser):
-            def __init__(self):super().__init__();self.meta={};self.text=[];self.links=[]
-            def handle_starttag(self,tag,attrs):
-              a=dict(attrs)
-              if tag=='meta' and a.get('content'):self.meta[a.get('property',a.get('name',''))]=a['content']
-              if tag=='a' and a.get('href'):self.links.append(a['href'])
-            def handle_data(self,d):self.text.append(d)
-          def get(url):
-            req=urllib.request.Request(url,headers={'User-Agent':'SelectionTV-source-review/1.0','Accept':'text/html,image/*;q=0.9,*/*;q=0.5'})
-            with urllib.request.urlopen(req,timeout=30) as r:
-              data=r.read(6000001)
-              if len(data)>6000000:raise ValueError('oversize')
-              return data,r.geturl(),r.headers.get('Content-Type',''),r.status
-          def one(item):
-            key,url=item;row={'key':key,'url':url,'checked_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'status':'unavailable'}
-            try:
-              data,final,mime,status=get(url);row.update(final_url=final,mime=mime,http_status=status,sha256=hashlib.sha256(data).hexdigest(),bytes=len(data));(out/(key+'.html')).write_bytes(data)
-              parser=Parser();parser.feed(data.decode('utf-8',errors='replace'));row['meta']=parser.meta;row['image_links']=[x for x in parser.links if any(e in x.lower() for e in ('.jpg','.png','.jpeg','.webp'))][:12]
-              text='\n'.join(x.strip() for x in parser.text if x.strip());(out/(key+'.txt')).write_text(text)
-              image=parser.meta.get('og:image') or parser.meta.get('twitter:image')
-              if image:
-                image=urllib.parse.urljoin(final,image);im,ifu,imime,istatus=get(image);row['image']={'url':image,'final_url':ifu,'mime':imime,'http_status':istatus,'bytes':len(im),'sha256':hashlib.sha256(im).hexdigest()}
-                if imime.startswith('image/'):(out/(key+'.image')).write_bytes(im)
-              row['status']='acquired'
-            except Exception as e:row['error']=str(e)
-            return row
-          with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex:rows=list(ex.map(one,sources.items()))
-          (out/'sources.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2));print(json.dumps(rows,ensure_ascii=False,indent=2))
-          PY
+          mkdir -p /tmp/chat-s43-result
+          for i in 0 1 2 3; do git show bbc5c7c86bd92c613ab8633da2975eada8a8697b:handoffs/chat-s43-batch2-part$i.b64; done | base64 -d | gzip -d > /tmp/chat-s43-batch2.mjs
+          echo '10ee99061631b0276eb6f7d45857f18eeee18aa0aa03beef467088bd7f23622f  /tmp/chat-s43-batch2.mjs' | sha256sum -c -
+          node /tmp/chat-s43-batch2.mjs /tmp/chat-s43-result
+          node scripts/editorial-handoff.mjs check /tmp/chat-s43-result/handoff.json
+          node scripts/editorial-handoff.mjs apply /tmp/chat-s43-result/handoff.json
+          node scripts/validate-canonical-identities.mjs
+          SELECTION_TV_VALIDATE_WEEK=2026-S43 SELECTION_TV_CANDIDATE=1 node scripts/validate-links.mjs
+          SELECTION_TV_VALIDATE_WEEK=2026-S43 SELECTION_TV_CANDIDATE=1 node scripts/validate-freshness.mjs
+          GITHUB_HEAD_REF=auto/2026-S43 node scripts/preparation-gaps.mjs 2026-S43 --json /tmp/chat-s43-result/gaps.json > /tmp/chat-s43-result/gaps.txt
+      - name: Install isolated browser runtime
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Inspect replay, corrected poster and actual reserve replacement
+        shell: bash
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import {createServer} from 'node:http';
+          import path from 'node:path';
+          import assert from 'node:assert/strict';
+          import {chromium} from 'playwright';
+          const root=process.cwd(),out='/tmp/chat-s43-result';
+          const issue=JSON.parse(fs.readFileSync('data/weeks/2026-S43.json'));
+          const server=createServer((req,res)=>{
+            const pathname=new URL(req.url,'http://localhost').pathname;
+            const f=path.resolve(root,'.'+decodeURIComponent(pathname).replace(/\/$/,'/index.html'));
+            if(!f.startsWith(root+'/')){res.writeHead(403);res.end();return;}
+            try{res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json'})[path.extname(f)]||'application/octet-stream');res.end(fs.readFileSync(f));}catch{res.writeHead(404);res.end();}
+          });
+          await new Promise(r=>server.listen(0,'127.0.0.1',r));
+          const browser=await chromium.launch({headless:true,args:['--disable-gpu','--disable-dev-shm-usage']});
+          try{
+            const p=await browser.newPage({viewport:{width:1440,height:1100}}),errors=[];
+            p.on('pageerror',e=>errors.push(e.message));
+            const url=`http://127.0.0.1:${server.address().port}/semaines/2026-S43/?preview=1`;
+            await p.goto(url,{waitUntil:'domcontentloaded'});
+            await p.waitForFunction(()=>window.SelectionTVLayout&&document.querySelector('#replay-1'));
+            await p.evaluate(()=>document.querySelectorAll('img').forEach(i=>i.loading='eager'));
+            await p.waitForTimeout(4500);
+            await p.evaluate(()=>window.SelectionTVLayout.layout());await p.waitForTimeout(500);
+            const imageState=()=>p.evaluate(()=>['replay-1','rendezvous-2','mercredi-selection'].map(id=>({id,images:[...document.querySelectorAll('#'+id+' img')].map(i=>({src:i.currentSrc,loaded:i.complete&&i.naturalWidth>0}))})));
+            const before=await imageState();
+            for(const id of ['replay-1','rendezvous-2','sommaire'])await p.locator('#'+id).screenshot({path:out+'/'+id+'.png'});
+            const seen=Object.fromEntries(issue.personalization.pools['mercredi-selection'].candidates.slice(0,7).map(c=>[c.work_id,{title:c.title,work_id:c.work_id,seen_at:'2026-10-16T10:50:14Z'}]));
+            await p.evaluate(seen=>{localStorage.setItem('selectionTV_seen_v2',JSON.stringify(seen));localStorage.setItem('selectionTV_hide_seen_v1','1');},seen);
+            await p.reload({waitUntil:'domcontentloaded'});
+            await p.waitForFunction(()=>document.querySelector('#mercredi-selection [data-work-id="potiche-2010"]'));
+            await p.evaluate(()=>document.querySelectorAll('img').forEach(i=>i.loading='eager'));
+            await p.waitForTimeout(4500);await p.evaluate(()=>window.SelectionTVLayout.layout());await p.waitForTimeout(500);
+            const after=await imageState();
+            await p.locator('#mercredi-selection').screenshot({path:out+'/mercredi-replacements.png'});
+            const state=await p.evaluate(()=>({overflow:document.body.dataset.layoutOverflow||'',ids:[...document.querySelectorAll('#mercredi-selection article.feature')].filter(e=>getComputedStyle(e).display!=='none').map(e=>e.dataset.workId)}));
+            const report={before,after,state,errors};fs.writeFileSync(out+'/visual-report.json',JSON.stringify(report,null,2));
+            assert.deepEqual(errors,[]);assert.equal(state.overflow,'');
+            assert.deepEqual(state.ids,['potiche-2010','peter-von-kant-2022','catherine-deneuve-a-son-image-2023']);
+            assert(before.find(r=>r.id==='replay-1').images.every(i=>i.loaded),'replay images missing');
+            assert(before.find(r=>r.id==='rendezvous-2').images.every(i=>i.loaded),'rendezvous image missing');
+            assert(after.find(r=>r.id==='mercredi-selection').images.every(i=>i.loaded),'reserve images missing');
+          }finally{await browser.close();await new Promise(r=>server.close(r));}
+          JS
+      - name: Stage exact reviewed objects without advancing a branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          import {createHash} from 'node:crypto';
+          import {github,preflightCommitFiles,branchSha} from './scripts/github-weekly-api.mjs';
+          import {manageLease} from './scripts/editorial-lease.mjs';
+          import {validateBundle} from './scripts/editorial-handoff.mjs';
+          const base='dc90984a8fad7e3c746ab1617b9f400cbce0afb0',out='/tmp/chat-s43-result';
+          const bundle=validateBundle(JSON.parse(fs.readFileSync(out+'/handoff.json','utf8')));
+          assert.equal(bundle.base_sha,base);assert.equal(bundle.stage,'enrichment');
+          const expected={'data/works.json':'b43bbc06a9c753a406cd5a0d8ec48b2c00166b5b','data/links.json':'96f9cbae9900cb768c3e82028224521a8d1fa782','data/weeks/2026-S43.json':'b8bc2e74e2e8c866fddb4efabcb0bec005f19689','data/manifest.json':'59fbc6426018963febd036dc3932ba447ada3ce0','data/coverage/2026-S43.json':'86dbf4380029f7902708e9783830619bfb397f44','data/research/2026-S43.json':'4d417b8aa43a8ff1301d990d7ab8658f56977239'};
+          assert.deepEqual(bundle.files.map(f=>f.path).sort(),Object.keys(expected).sort());
+          for(const f of bundle.files){const hash=createHash('sha1').update(`blob ${Buffer.byteLength(f.content)}\0`).update(f.content).digest('hex');assert.equal(hash,expected[f.path]);}
+          const api=github('kingrabbit89/selection-tv');
+          assert.equal(branchSha(api,'main'),'e7490f2ceb64bfe2d951df3ec8380c6fee2245fc');assert.equal(branchSha(api,'auto/2026-S43'),base);
+          const lease=manageLease(api,{week:'2026-S43',action:'check',owner:'6ab73bf5-bcc9-42ad-9a17-c8fa5933d3a7'});
+          const prepared=preflightCommitFiles(bundle.files);
+          const tree=api('git/trees','POST',{base_tree:'121e5216ab64da5739cebc0b3bdd359a4024f58e',tree:prepared.tree});
+          assert.equal(tree.sha,'ad9ece44ac816b5ac64126720bba16f33a79a405');
+          const staged={base_sha:base,tree_sha:tree.sha,fingerprints:prepared.fingerprints,expected_blobs:expected,lease_owner:lease.owner,staged_at:new Date().toISOString(),ref_advanced:false};
+          fs.writeFileSync(out+'/staged.json',JSON.stringify(staged,null,2));console.log(JSON.stringify(staged));
+          JS
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: chat-s43-source-evidence
-          path: /tmp/s43-source-evidence/
+          name: chat-s43-batch2-reviewed
+          path: /tmp/chat-s43-result/
           retention-days: 3
           if-no-files-found: error
