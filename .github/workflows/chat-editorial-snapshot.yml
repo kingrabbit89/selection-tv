@@ -1,0 +1,32 @@
+name: Chat editorial snapshot
+on:
+  pull_request:
+    branches: [main]
+    paths: [.github/workflows/chat-editorial-snapshot.yml]
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    if: github.head_ref == 'handoff/s43-chat-production-20261016'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dc90984a8fad7e3c746ab1617b9f400cbce0afb0
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Export tracked public Git objects only
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = dc90984a8fad7e3c746ab1617b9f400cbce0afb0
+          mkdir -p /tmp/chat-editorial-source
+          git bundle create /tmp/chat-editorial-source/source.bundle HEAD
+          git rev-parse HEAD > /tmp/chat-editorial-source/checkout-sha.txt
+          cd /tmp/chat-editorial-source
+          sha256sum source.bundle > source.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chat-s43-source
+          path: /tmp/chat-editorial-source/
+          retention-days: 1
