@@ -42,3 +42,15 @@ test('a neutral candidate-not-ready run cannot clear an alert: an open candidate
   assert.equal(result.ok,false);assert.equal(result.reason,'publication-pending');
  }
 });
+
+test('a neutral checks-running run cannot clear an alert: an open candidate or promotion stays pending',async()=>{
+ // Running checks end the advance step with exit 0: reconcile-only on workflow_run, never "deployed".
+ const advanced=()=>[{run_id:5,name:'publish',steps:[{name:'Advance one verified publication stage',status:'completed',conclusion:'success'}]}];
+ assert(watchdogTrigger('workflow_run',{workflow_run:{id:5,conclusion:'success'}},advanced).allowed);
+ for(const ref of ['auto/'+week,'promote/'+week]){
+  const result=await run({status:'draft'},[{state:'open',head:{ref},html_url:'https://github.com/owner/repo/pull/9'}]);
+  assert.equal(result.ok,false);assert.equal(result.reason,'publication-pending');
+ }
+ // Failed, stuck or unapproved checks fail the publisher run: always reconciled.
+ for(const conclusion of ['failure','timed_out','cancelled'])assert(watchdogTrigger('workflow_run',{workflow_run:{id:5,conclusion}},()=>[]).allowed);
+});

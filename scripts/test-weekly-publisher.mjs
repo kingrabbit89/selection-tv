@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
-import {runPublisher,verifyAttestation,AttestationPending} from './weekly-publisher.mjs';
+import {runPublisher,verifyAttestation,AttestationPending,checksProgress,CHECKS_RUNNING_LIMIT_MS} from './weekly-publisher.mjs';
 import {PENDING_EXIT} from './verify-promotion-attestation.mjs';
 import {allowedPaths,digest} from './editorial-handoff.mjs';
 
@@ -10,12 +10,29 @@ const encode=value=>({encoding:'base64',content:Buffer.from(JSON.stringify(value
 const notFound=()=>Object.assign(Error('Not Found'),{stderr:'gh: Not Found (HTTP 404)'});
 const promotionPR={number:7,draft:false,base:{ref:'main'},head:{sha:head,ref:'promote/'+week,repo:{full_name:repo}}};
 
+// S42 on 9 Oct: d3eddf73 was pushed at 23:40:41, its two jobs started at
+// 23:40:50 and finished at 23:41:15 and 23:41:58. The publisher run of 23:41:08
+// read them in progress and failed red; the run of 23:42:00 merged the candidate.
+const checksStarted='2026-10-09T23:40:50Z',publisherNow=Date.parse('2026-10-09T23:41:20Z');
+const actions={id:15368,slug:'github-actions'};
+let checkId=0;
+const checkRun=(name,status='completed',conclusion=status==='completed'?'success':null,extra={})=>
+  ({id:++checkId,name,app:actions,status,conclusion,started_at:checksStarted,...extra});
+const green=()=>[checkRun('data-and-policy'),checkRun('browser-presentation')];
+const running=(status='in_progress')=>[checkRun('data-and-policy',status),checkRun('browser-presentation',status)];
+const checkEndpoints=(checks,statuses)=>({
+  [`commits/${head}/check-runs?per_page=100`]:{total_count:checks.length,check_runs:checks},
+  [`commits/${head}/status?per_page=100`]:{total_count:statuses.length,statuses}});
+
 // S43 at 18:57 UTC: the draft is merged on main, no candidate or promotion PR is open.
-function fixture({promotion=false}={}){
+function fixture({promotion=false,checks=green(),statuses=[],now=publisherNow}={}){
   const manifest={latest:'2026-S42',updated:'2026-10-16',weeks:[{week:'2026-S42',status:'published'},{week,status:'draft'}]};
-  const mutations=[],logs=[],verified=[];
+  const mutations=[],logs=[],verified=[],checkReads=checkEndpoints(checks,statuses);
   const api=(path,method='GET',body)=>{
     if(method!=='GET')mutations.push({path,method,body});
+    if(method==='GET'&&checkReads[path])return checkReads[path];
+    if(path==='pulls/7/merge'&&method==='PUT')return {merged:true};
+    if(path==='pages/builds'&&method==='POST')return {status:'queued'};
     if(path==='git/ref/heads/main')return {object:{sha:main}};
     if(path==='git/ref/heads/promote/'+week)throw notFound();
     if(path===`contents/data/manifest.json?ref=${main}`)return encode(manifest);
@@ -32,7 +49,7 @@ function fixture({promotion=false}={}){
     if(path==='pulls'&&method==='POST')return {html_url:`https://github.com/${repo}/pull/8`};
     throw Error('Unexpected API call: '+method+' '+path);
   };
-  const run=outcome=>runPublisher({api,repo,week,log:s=>logs.push(s),verify:(target,base)=>{
+  const run=outcome=>runPublisher({api,repo,week,log:s=>logs.push(s),now:()=>now,verify:(target,base)=>{
     verified.push({week:target,base});
     if(outcome instanceof Error)throw outcome;
     return true;
@@ -80,13 +97,14 @@ const enrichment=(extra={})=>({schema_version:1,week,stage:'enrichment',editoria
   remaining:Array.from({length:34},(_,i)=>`Requirement ${i+1}`),...extra});
 const sealed=(extra={})=>({schema_version:1,week,stage:'ready',editorial_review_completed:true,remaining:[],
   reviewed_files:Object.fromEntries(deliverables.map(p=>[p,digest(contentAt(p))])),...extra});
-function candidateFixture({progress=enrichment(),relation='ahead',draft=false,extraPaths=[],checks='success'}={}){
+function candidateFixture({progress=enrichment(),relation='ahead',draft=false,extraPaths=[],checks=green(),statuses=[],now=publisherNow}={}){
   const manifest={latest:'2026-S42',updated:'2026-10-16',weeks:[{week:'2026-S42',status:'published'}]};
   const pr={number:9,draft,base:{ref:'main'},head:{sha:head,ref:'auto/'+week,repo:{full_name:repo}}};
   const text=value=>({encoding:'base64',content:Buffer.from(value).toString('base64')});
-  const mutations=[],logs=[],verified=[];
+  const mutations=[],logs=[],verified=[],checkReads=checkEndpoints(checks,statuses);
   const api=(path,method='GET',body)=>{
     if(method!=='GET')mutations.push({path,method,body});
+    if(method==='GET'&&checkReads[path])return checkReads[path];
     if(path==='git/ref/heads/main')return {object:{sha:main}};
     if(path===`contents/data/manifest.json?ref=${main}`)return encode(manifest);
     if(path==='pulls?state=open&base=main&per_page=100')return [pr];
@@ -96,14 +114,11 @@ function candidateFixture({progress=enrichment(),relation='ahead',draft=false,ex
     if(path===`contents/${research}?ref=${head}`){if(progress===null)throw notFound();return text(JSON.stringify(progress));}
     const atHead=/^contents\/(.+)\?ref=([a-f0-9]{40})$/.exec(path);
     if(atHead?.[2]===head)return text(contentAt(atHead[1]));
-    if(path===`commits/${head}/check-runs?per_page=100`)return {total_count:2,check_runs:['data-and-policy','browser-presentation'].map((name,i)=>
-      ({id:i+1,name,app:{id:15368,slug:'github-actions'},status:checks==='success'?'completed':'in_progress',conclusion:checks==='success'?'success':null}))};
-    if(path===`commits/${head}/status?per_page=100`)return {total_count:0,statuses:[]};
     if(path==='pulls/9/merge'&&method==='PUT')return {merged:true};
     if(path==='actions/workflows/promote-validated-week.yml/dispatches'&&method==='POST')return null;
     throw Error('Unexpected API call: '+method+' '+path);
   };
-  const run=()=>runPublisher({api,repo,week,log:s=>logs.push(s),verify:(target,base)=>{verified.push({week:target,base});return true;}});
+  const run=()=>runPublisher({api,repo,week,log:s=>logs.push(s),now:()=>now,verify:(target,base)=>{verified.push({week:target,base});return true;}});
   return {mutations,logs,verified,run};
 }
 
@@ -138,7 +153,7 @@ test('every real refusal of a candidate still fails the run, without writes or n
     [{progress:sealed({remaining:['Relire la grille du dimanche.']})},/unfinished editorial work/],
     [{progress:sealed({reviewed_files:{...sealed().reviewed_files,'data/works.json':'0'.repeat(64)}})},/review is stale for data\/works\.json/],
     [{progress:sealed(),relation:'behind'},/behind\/diverged from main/],
-    [{progress:sealed(),checks:'pending'},/checks missing, pending/],
+    [{progress:sealed(),checks:[checkRun('data-and-policy'),checkRun('browser-presentation','completed','failure')]},/checks missing, pending, failed/],
   ];
   for(const [options,reason] of cases){
     const f=candidateFixture(options);
@@ -155,6 +170,97 @@ test('a sealed, green, up-to-date candidate still merges and starts its revalida
     {path:'pulls/9/merge',method:'PUT',body:{sha:head,merge_method:'squash'}},
     {path:'actions/workflows/promote-validated-week.yml/dispatches',method:'POST',body:{ref:'main',inputs:{week}}}]);
   assert.deepEqual(f.logs,[`Merged protected PR #9 at ${head}.`]);
+});
+
+// The two red runs of 9 Oct: at 23:34:05 browser-presentation of e6f5b9b1 had
+// already failed (23:33:58), a real refusal; at 23:41:08 d3eddf73 was still running.
+const otherApp={id:1,slug:'someone-else'};
+const startedAgo=ms=>new Date(publisherNow-ms).toISOString();
+const stillRunning=[
+  running(),running('queued'),
+  [checkRun('data-and-policy'),checkRun('browser-presentation','in_progress')],
+  // A re-run replaces the older success of the same check until it finishes.
+  [...green(),checkRun('browser-presentation','queued')],
+  // A successful check from another app does not block, as in checksPass.
+  [...running(),checkRun('external-review','completed','success',{app:otherApp})],
+  running().map(c=>({...c,started_at:startedAgo(CHECKS_RUNNING_LIMIT_MS)})),
+];
+const refusedChecks=[
+  [checkRun('data-and-policy'),checkRun('browser-presentation','completed','failure')],
+  ...['failure','cancelled','timed_out','skipped','neutral','action_required','stale',null].map(conclusion=>
+    [checkRun('data-and-policy','in_progress'),checkRun('browser-presentation','completed',conclusion)]),
+  ...['waiting','requested','pending'].map(status=>[checkRun('data-and-policy','in_progress'),checkRun('browser-presentation',status)]),
+  [],[checkRun('data-and-policy','in_progress')],
+  [checkRun('data-and-policy','in_progress'),checkRun('browser-presentation','in_progress',null,{app:otherApp})],
+  [...running(),checkRun('external-review','in_progress',null,{app:otherApp})],
+];
+const refusedStatuses=['failure','error','pending'].map(state=>[{state,context:'external/ci'}]);
+const stuckChecks=[
+  running().map(c=>({...c,started_at:startedAgo(CHECKS_RUNNING_LIMIT_MS+1000)})),
+  [checkRun('data-and-policy','in_progress'),checkRun('browser-presentation','queued',null,{started_at:null})],
+  [checkRun('data-and-policy','in_progress',null,{started_at:undefined}),checkRun('browser-presentation')],
+];
+
+test('a sealed candidate whose checks are still running ends neutral and logged (S42, 9 Oct 23:41 UTC)',async()=>{
+  for(const checks of stillRunning){
+    const f=candidateFixture({progress:sealed(),checks});
+    assert.deepEqual(await f.run(),{pending:true},JSON.stringify(checks));
+    assert.deepEqual(f.mutations,[],'nothing is merged or dispatched while checks run');
+    assert.equal(f.logs.length,1);
+    assert.match(f.logs[0],/^Candidate checks still running for 2026-S43; next run will continue\. PR #9 at b{40}: \S+ (queued|in_progress)/);
+  }
+  const f=candidateFixture({progress:sealed(),checks:running()});
+  await f.run();
+  assert.deepEqual(f.logs,[`Candidate checks still running for 2026-S43; next run will continue. PR #9 at ${head}: data-and-policy in_progress, browser-presentation in_progress.`]);
+});
+
+test('promotion checks still running end neutral and logged, after the attestation',async()=>{
+  for(const checks of stillRunning){
+    const f=fixture({promotion:true,checks});
+    assert.deepEqual(await f.run(true),{pending:true},JSON.stringify(checks));
+    assert.deepEqual(f.verified,[{week,base:main}],'the attestation is still required first');
+    assert.deepEqual(f.mutations,[],'nothing is merged or built while checks run');
+    assert.equal(f.logs.length,1);
+    assert.match(f.logs[0],/^Promotion checks still running for 2026-S43; next run will continue\. PR #7 at b{40}: /);
+  }
+});
+
+test('failed, skipped, foreign, missing, unapproved or stuck checks still fail the candidate and the promotion',async()=>{
+  const cases=[
+    ...refusedChecks.map(checks=>[{checks},/checks missing, pending, failed, skipped or awaiting approval/]),
+    ...refusedStatuses.map(statuses=>[{checks:running(),statuses},/checks missing, pending, failed, skipped or awaiting approval/]),
+    ...stuckChecks.map(checks=>[{checks},/checks unfinished for more than 60 minutes or since an unknown time \(.+\); they are stuck, not running/]),
+  ];
+  for(const [options,reason] of cases){
+    const candidate=candidateFixture({progress:sealed(),...options});
+    await assert.rejects(candidate.run(),reason,JSON.stringify(options));
+    assert.deepEqual(candidate.mutations,[]);
+    assert.deepEqual(candidate.logs,[]);
+    const promotion=fixture({promotion:true,...options});
+    await assert.rejects(promotion.run(true),reason,JSON.stringify(options));
+    assert.deepEqual(promotion.mutations,[]);
+    assert.deepEqual(promotion.logs,[]);
+  }
+});
+
+test('a green, attested promotion still merges and requests Pages',async()=>{
+  const f=fixture({promotion:true});
+  assert.deepEqual(await f.run(true),{pending:false});
+  assert.deepEqual(f.mutations,[
+    {path:'pulls/7/merge',method:'PUT',body:{sha:head,merge_method:'squash'}},
+    {path:'pages/builds',method:'POST',body:{}}]);
+  assert.deepEqual(f.logs,[`Merged protected PR #7 at ${head}.`]);
+});
+
+test('checks run for at most 60 minutes, measured from their own start',()=>{
+  const at=ms=>running().map(c=>({...c,started_at:startedAgo(ms)}));
+  assert.equal(checksProgress(green(),[],publisherNow).state,'success');
+  assert.equal(checksProgress(at(0),[],publisherNow).state,'running');
+  assert.equal(checksProgress(at(CHECKS_RUNNING_LIMIT_MS),[],publisherNow).state,'running');
+  assert.equal(checksProgress(at(CHECKS_RUNNING_LIMIT_MS+1),[],publisherNow).state,'stuck');
+  assert.equal(checksProgress(running().map(c=>({...c,started_at:null})),[],publisherNow).state,'stuck');
+  assert.equal(checksProgress(running(),[],Date.parse(checksStarted)+61*60000).state,'stuck');
+  assert.equal(checksProgress(refusedChecks[0],[],publisherNow).state,'refused');
 });
 
 test('only the verifier pending exit status becomes AttestationPending',()=>{

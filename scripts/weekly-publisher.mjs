@@ -16,6 +16,11 @@ export class AttestationPending extends Error {}
 // The open candidate is still in production (inventory or enrichment): it is
 // neither merged nor synchronized. Pushing its sealed version wakes the publisher.
 export class CandidateNotReady extends Error {}
+// The PR's own required checks are still queued or running and nothing has
+// failed. Their completion (Validate architecture) wakes the publisher again.
+export class ChecksRunning extends Error {
+  constructor(kind,message){super(message);this.kind=kind;}
+}
 export function verifyAttestation(week,base,exec=execFileSync){
   try{exec(process.execPath,['scripts/verify-promotion-attestation.mjs',week,base],{stdio:'pipe'});return true;}
   catch(e){
@@ -24,12 +29,35 @@ export function verifyAttestation(week,base,exec=execFileSync){
   }
 }
 
-export function checksPass(checks,statuses=[]){
+const requiredChecks=['data-and-policy','browser-presentation'];
+const trustedCheck=c=>c.app?.slug==='github-actions';
+const passedCheck=c=>c.status==='completed'&&c.conclusion==='success';
+function latestChecks(checks){
   const latest=new Map();
   for(const c of checks){const key=`${c.app?.id}:${c.name}`;if(!latest.has(key)||latest.get(key).id<c.id)latest.set(key,c);}
-  const list=[...latest.values()];
-  return ['data-and-policy','browser-presentation'].every(name=>list.some(c=>c.name===name&&c.app?.slug==='github-actions'&&c.status==='completed'&&c.conclusion==='success'))
-    &&list.every(c=>c.status==='completed'&&c.conclusion==='success')&&statuses.every(s=>s.state==='success');
+  return [...latest.values()];
+}
+export function checksPass(checks,statuses=[]){
+  const list=latestChecks(checks);
+  return requiredChecks.every(name=>list.some(c=>c.name===name&&trustedCheck(c)&&passedCheck(c)))
+    &&list.every(passedCheck)&&statuses.every(s=>s.state==='success');
+}
+// The validation jobs take minutes (browser-presentation times out at 15). A
+// check unfinished for longer, or since an unknown time, is stuck, not running.
+export const CHECKS_RUNNING_LIMIT_MS=60*60*1000;
+// 'running' only while nothing is refused: both required checks exist on the
+// trusted app, every other check passed, every commit status succeeded, and
+// each unfinished check is a trusted one still queued or in progress. A
+// failure, cancellation, skip, approval wait or foreign app is never 'running'.
+export function checksProgress(checks,statuses=[],now=Date.now()){
+  if(checksPass(checks,statuses))return {state:'success',unfinished:[]};
+  const list=latestChecks(checks),unfinished=list.filter(c=>!passedCheck(c));
+  const waiting=statuses.every(s=>s.state==='success')
+    &&requiredChecks.every(name=>list.some(c=>c.name===name&&trustedCheck(c)))
+    &&unfinished.every(c=>trustedCheck(c)&&['queued','in_progress'].includes(c.status));
+  if(!waiting)return {state:'refused',unfinished};
+  const stale=c=>{const started=Date.parse(c.started_at??'');return !Number.isFinite(started)||now-started>CHECKS_RUNNING_LIMIT_MS;};
+  return {state:unfinished.some(stale)?'stuck':'running',unfinished};
 }
 export function reviewedCandidate(week,progress,read,paths){
   assert.equal(progress.week,week);assert.equal(progress.stage,'ready');assert.equal(progress.editorial_review_completed,true);
@@ -50,21 +78,22 @@ export function inPreparation(week,progress,read,paths){
   assertCandidatePaths(week,paths,read,'automatic candidate merge cannot change code/configuration: ');
   return true;
 }
-// A pending attestation and a candidate still in preparation are the only
-// neutral stops. Mismatches, failed or stuck revalidations, stale or incoherent
-// candidates and every other refusal still fail the run.
+// A pending attestation, a candidate still in preparation and PR checks still
+// running are the only neutral stops. Mismatches, failed or stuck revalidations
+// or checks, stale or incoherent candidates and every other refusal still fail the run.
 export async function runPublisher({api=github(),repo=process.env.GITHUB_REPOSITORY,week=calendarTarget().week,
-  verify=verifyAttestation,log=summaryLog}={}){
-  try{await advancePublication({api,repo,week,verify,log});}
+  verify=verifyAttestation,log=summaryLog,now=Date.now}={}){
+  try{await advancePublication({api,repo,week,verify,log,now});}
   catch(e){
     if(e instanceof AttestationPending)log(`Attestation pending for ${week}; next run will continue. ${e.message}`);
     else if(e instanceof CandidateNotReady)log(`Candidate not ready for ${week}; next run will continue. ${e.message}`);
+    else if(e instanceof ChecksRunning)log(`${e.kind} checks still running for ${week}; next run will continue. ${e.message}`);
     else throw e;
     return {pending:true};
   }
   return {pending:false};
 }
-async function advancePublication({api,repo,week,verify,log}){
+async function advancePublication({api,repo,week,verify,log,now}){
   // No weekday window: a sealed candidate of the calendar target advances as
   // soon as its checks are green. Friday 20:00 is the deadline, not the start.
   let main=branchSha(api,'main');
@@ -124,6 +153,12 @@ async function advancePublication({api,repo,week,verify,log}){
     assert(checks.total_count<=100,'too many checks');
     const status=api(`commits/${head}/status?per_page=100`);
     assert(status.total_count<=100,'too many statuses');
+    // Nothing has been written yet: a neutral stop here advances nothing.
+    const checkState=checksProgress(checks.check_runs,status.statuses,now());
+    const unfinished=checkState.unfinished.map(c=>`${c.name} ${c.status}`).join(', ');
+    if(checkState.state==='running')
+      throw new ChecksRunning(isPromotion?'Promotion':'Candidate',`PR #${pr.number} at ${head}: ${unfinished}.`);
+    assert(checkState.state!=='stuck',`checks unfinished for more than ${CHECKS_RUNNING_LIMIT_MS/60000} minutes or since an unknown time (${unfinished}); they are stuck, not running`);
     assert(checksPass(checks.check_runs,status.statuses),'checks missing, pending, failed, skipped or awaiting approval');
     assert.equal(branchSha(api,'main'),main,'main moved; retry');
     assert.equal(api('pulls/'+pr.number).head.sha,head,'PR moved; retry');
