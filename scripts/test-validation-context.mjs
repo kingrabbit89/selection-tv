@@ -47,6 +47,26 @@ test('wrong week/date, stale cycle, false review and incorrect counts fail prepa
   }
   const f=fixture();assert.throws(()=>validationContext(branch,p=>f.files[p]??null,()=>null,[], '2026-10-15'),/current cycle/);
 });
+test('a Télérama grid-authority inventory cites the PDF saved on the base, never one supplied by the candidate',()=>{
+  const sha='c'.repeat(64),input=`data/editorial-inputs/${week}/telerama.json`;
+  const f=fixture();f.inventory.mode='telerama-grid-authority';
+  f.inventory.days[0].items[0]={title:'Film',channel:'Arte',start:'00:30',source_type:'telerama_pdf',source_ref:'sha256:'+sha,pdf_page:4,bbox:[1,2,3,4]};
+  f.save();
+  const saved={'data/manifest.json':manifest,'data/editorial-config.json':JSON.stringify({quality_gates:{telerama_grid_authority_from_week:week}}),
+    [input]:JSON.stringify({week,source:{sha256:sha}})};
+  const resolve=(changes={})=>validationContext(branch,p=>f.files[p]??null,p=>({...saved,...changes})[p]??null,
+    Object.keys(f.files).filter(p=>p!=='data/manifest.json'),today);
+  assert.equal(resolve().mode,'preparation');
+  f.files[input]=saved[input];
+  assert.throws(()=>resolve({[input]:null}),/candidate cannot change code\/configuration/);
+  delete f.files[input];
+  assert.throws(()=>resolve({[input]:null}),/editorial-inputs\/2026-S42\/telerama\.json/);
+  assert.throws(()=>resolve({'data/editorial-config.json':'{}'}),/not enabled/);
+  f.inventory.days[0].items[0].source_ref='sha256:'+'d'.repeat(64);f.save();
+  assert.throws(()=>resolve(),/another file/);
+  f.inventory.mode='inventory-first';f.inventory.days[0].items[0].source_ref='sha256:'+sha;f.save();
+  assert.throws(()=>resolve(),/source_url missing/);
+});
 test('ready requires all exact reviewed deliverables; incomplete or stale review fails',()=>{
   const f=fixture();f.progress.stage='ready';f.progress.remaining=[];f.save();assert.throws(f.resolve);
   f.progress.editorial_review_completed=true;

@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import {validateCandidateCalendar,addDays} from './week-calendar.mjs';
+import {gridAuthority,itemEvidenceError,sourceDiversityError,coverageAuthorityErrors,inventoryReviewIndex} from './inventory-evidence.mjs';
 
 const target=process.env.SELECTION_TV_VALIDATE_WEEK||'';
 if(!target){
@@ -49,8 +50,12 @@ if(exists('data/weeks/'+target+'.json')){
   if(entry&&Number(entry.page_count)!==Number(week.page_count))bad('manifest/week page_count mismatch');
 }
 
+let authority=null,inv=null;
 if(exists('data/inventory/'+target+'.json')){
-  const inv=read('data/inventory/'+target+'.json');
+  inv=read('data/inventory/'+target+'.json');
+  const teleramaPath='data/editorial-inputs/'+target+'/telerama.json';
+  const resolved=gridAuthority({week:target,inventory:inv,config:editorial,teleramaInput:exists(teleramaPath)?read(teleramaPath):null});
+  if(resolved.error)bad(resolved.error);authority=resolved.authority;
   const days=inv.days||[];
   const minItems=Number(q.strict_inventory_min_items_per_day??automation.candidate_validation.minimum_raw_inventory_items_per_day??30);
   const minSources=Number(q.raw_inventory_source_pages_min??automation.candidate_validation.minimum_source_pages_per_day??2);
@@ -65,8 +70,8 @@ if(exists('data/inventory/'+target+'.json')){
     const sources=day.source_pages||[];
     const channels=new Set((day.channels_scanned||[]).map(norm));
     if(items.length<minItems)bad(day.date+': raw inventory '+items.length+' < '+minItems);
-    const hosts=new Set(sources.map(value=>{try{return new URL(typeof value==='string'?value:value.url).hostname.replace(/^www\./,'')}catch{return ''}}).filter(Boolean));
-    if(hosts.size<2)bad(day.date+': two distinct source domains required for source diversity; independence is reviewed separately');
+    const diversity=sourceDiversityError(sources,authority);
+    if(diversity)bad(day.date+': '+diversity);
     const slots=new Set();
     for(const item of items){const slot=[norm(item.title),norm(item.channel),item.start||item.time].join('|');if(slots.has(slot))bad(day.date+': duplicate inventory programme '+item.title);slots.add(slot)}
     if(sources.length<minSources)bad(day.date+': source_pages '+sources.length+' < '+minSources);
@@ -89,7 +94,8 @@ if(exists('data/inventory/'+target+'.json')){
       if(!String(item.title||'').trim())bad(day.date+' item '+i+': title missing');
       if(!String(item.channel||'').trim())bad(day.date+' item '+i+': channel missing');
       if(!/^\d{2}:\d{2}$/.test(String(item.start||item.time||'')))bad(day.date+' item '+i+': HH:MM start missing');
-      if(!/^https?:\/\//.test(String(item.source_url||'')))bad(day.date+' item '+i+': source_url missing');
+      const evidence=itemEvidenceError(item,authority);
+      if(evidence)bad(day.date+' item '+i+': '+evidence);
     }
   }
 }
@@ -99,6 +105,8 @@ if(exists('data/coverage/'+target+'.json')){
   if(cov.week!==target)bad('coverage week mismatch');
   if(cov.full_week_reaudit_completed!==true)bad('coverage full_week_reaudit_completed must be true');
   if((cov.days||[]).length!==7)bad('coverage must contain 7 days');
+  // A Télérama grid-authority inventory is audited by its sampled transcription review.
+  if(authority)for(const error of coverageAuthorityErrors(cov,authority,{dates:(inv.days||[]).map(d=>d.date),index:inventoryReviewIndex(inv,authority)}))bad(error);
 }
 
 if(fail.length){

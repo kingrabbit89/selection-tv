@@ -123,6 +123,50 @@ plan de travail applique le parcours Web complet de `AUTOMATION.md`, sans
 attendre de magazine ni de preuve d’amont EPG. La cadence, le budget,
 les seuils et la publication protégée gardent leurs règles actuelles.
 
+## Inventaire tiré de la grille complète (à partir de S44)
+
+À partir de `quality_gates.telerama_grid_authority_from_week`, la grille
+imprimée complète peut constituer l’inventaire brut de la semaine, sans relevé
+Web des grilles (règle complète dans `AUTOMATION.md`). L’entrée
+`data/editorial-inputs/YYYY-Sxx/telerama.json` du même PDF doit d’abord être
+fusionnée sur `main` par le protocole d’import ci-dessous : c’est elle qui fixe
+l’empreinte que chaque ligne cite. Ensuite :
+
+```sh
+node scripts/editorial-telerama-grid-inventory.mjs YYYY-Sxx --ref SHA_CANDIDATE \
+  --out-dir /tmp/grille-nouvelle --telerama-pdf /chemin/magazine.pdf
+```
+
+`--report extraction.json` reprend une extraction `--scope all-programmes` déjà
+faite (environ 80 s pour un numéro). Sous Windows, le flux désactive le tri
+`pdftotext` (`SELECTION_TV_PDF_TRIAGE=off`) et appelle `python`. Le dossier
+contient :
+
+- `grid-inventory-handoff.json` : l’inventaire (mode `telerama-grid-authority`)
+  et la couverture (`coverage.grid_inventory`), à importer sous bail avec
+  `editorial-handoff.mjs check|apply` comme les autres checkpoints ;
+- `grid-inventory-report.json` : lignes par jour, doublons exacts écartés,
+  créneaux où deux titres coexistent (à relire), portée imprimée par chaîne,
+  limites et `transcription_review_template`.
+
+Le modèle de revue propose une page par jour et cinq lignes de cette page. Ce
+n’est pas une revue : relire réellement chaque page entière contre l’extraction,
+puis noter chaque ligne `matches`, `corrected` ou `added` (avec une note), la
+date réelle, la méthode et les écarts. Corriger ou ajouter les lignes dans
+l’inventaire ; une ligne ajoutée porte sa page et sa position. Les validateurs
+refusent une revue de moins de 7 pages ou de 35 lignes, ou une ligne absente
+de l’inventaire.
+
+Un inventaire Web déjà enregistré n’est remplacé qu’avec
+`--replace-web-inventory` ; il reste dans Git au SHA de base, et
+`full_week_reaudit_completed` repasse à faux. Un inventaire de grille déjà
+enregistré pour ce PDF n’est jamais reconstruit par-dessus ses corrections.
+La portée imprimée est mesurée par chaîne : jours et nuits imprimés, première
+ligne de journée habituelle et plus long écart habituel entre deux horaires.
+Les heures que le magazine n’imprime pas (nuits et matinées des chaînes
+cinéma, journée de la plupart des chaînes du câble) restent consignées comme
+limites, jamais comme relevées. Aucune chaîne n’est déclarée complète.
+
 ## Méthode simple depuis un nouveau chat
 
 Pour chaque prochain magazine, ouvrir un nouveau chat **Work** dans le projet
