@@ -49,9 +49,10 @@ export function wideSourcePlan(week,{today=parisToday()}={}) {
 // Windows installs a Microsoft Store stub named python3; use python there.
 export const pythonCommand=(env=process.env,platform=process.platform)=>env.SELECTION_TV_PYTHON||(platform==='win32'?'python':'python3');
 
-export async function extractTeleramaPdf({week,pdf,out,libraryFileId,cwd=process.cwd()}) {
+export async function extractTeleramaPdf({week,pdf,out,libraryFileId,scope,cwd=process.cwd()}) {
   const args=[path.join(cwd,'scripts/editorial-telerama-pdf.py'),path.resolve(pdf),'--week',week,'--output',path.resolve(out)];
   if(libraryFileId)args.push('--library-file-id',libraryFileId);
+  if(scope)args.push('--scope',scope);
   // On Windows the pdftotext page triage skipped half of the S43 grid pages: scan every page.
   const env={...process.env,...(process.platform==='win32'&&!process.env.SELECTION_TV_PDF_TRIAGE?{SELECTION_TV_PDF_TRIAGE:'off'}:{})};
   await promisify(execFile)(pythonCommand(),args,{cwd,env,timeout:180000,maxBuffer:2*1024*1024});

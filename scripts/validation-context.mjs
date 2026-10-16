@@ -6,6 +6,7 @@ import {allowedPaths, digest, planImport} from './editorial-handoff.mjs';
 import {reviewedCandidate} from './weekly-publisher.mjs';
 import {calendarTarget, addDays} from './week-calendar.mjs';
 import {checkProgressStructures} from './editorial-progress.mjs';
+import {GRID_AUTHORITY_MODE, gridAuthority, itemEvidenceError} from './inventory-evidence.mjs';
 
 // Preparation is observable, but can never satisfy the publication gate.
 export function validationContext(branch, read, baseRead, paths, today) {
@@ -50,6 +51,13 @@ export function validationContext(branch, read, baseRead, paths, today) {
     const inventory = JSON.parse(inventoryText);
     assert.equal(inventory.week, week);
     assert(Array.isArray(inventory.days), 'inventory days must be an array');
+    // Configuration and the Télérama input cannot change on a candidate: read them from the base.
+    const json = text => text === null ? null : JSON.parse(text);
+    const {authority, error} = inventory.mode === GRID_AUTHORITY_MODE
+      ? gridAuthority({week, inventory, config: json(baseRead('data/editorial-config.json')),
+        teleramaInput: json(baseRead(`data/editorial-inputs/${week}/telerama.json`))})
+      : {authority: null, error: null};
+    assert(!error, error);
     const dates = new Set();
     for (const day of inventory.days) {
       assert([0,1,2,3,4,5,6].map(n => addDays(target.from,n)).includes(day.date), 'inventory date outside candidate');
@@ -58,7 +66,8 @@ export function validationContext(branch, read, baseRead, paths, today) {
       for (const item of day.items) {
         assert(String(item.title || '').trim() && String(item.channel || '').trim(), 'inventory title/channel missing');
         assert.match(String(item.start || item.time || ''), /^(?:[01]\d|2[0-3]):[0-5]\d$/, 'invalid inventory start');
-        assert.match(String(item.source_url || ''), /^https?:\/\//, 'inventory source missing');
+        const evidence = itemEvidenceError(item, authority);
+        assert(!evidence, 'inventory source missing: '+evidence);
       }
       for (const [channel, count] of Object.entries(day.channel_counts || {})) {
         assert(Number.isInteger(count) && count >= 0, 'invalid channel count');
