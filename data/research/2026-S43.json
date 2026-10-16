@@ -11,7 +11,7 @@
     "Vérifier complètement chaque choix, réserve, ligne de grille et proposition de rubrique : identité et version, quatre faits de diffusion selon l’autorité papier relue ou la règle Web hors périmètre, disponibilité/expiration distinctes, réception critique, métadonnées avec portée des durées, notes ou raison spécifique, liens directs et visuel réel.",
     "Revoir les trois choix développés et les dix candidats complets distincts matérialisés pour chacun des sept jours ; poursuivre vers quinze uniquement si la qualité et la diversité le justifient, sans gonfler les pools au détriment des rubriques et de la passe documentaire encore requises.",
     "Compléter les rubriques obligatoires et leurs seuils sans remplissage faible : rendez-vous, replay, plateformes gratuites et abonnement film-first, sorties physiques et streaming, expirations et sommaire, avec pagination lisible et réserves effectives lorsqu’elles sont requises.",
-    "Compléter les radars selon les seuils inchangés : popularité avec cinq choix, cinq cartes de sillonnage et au moins cinq réserves distinctes, puis radar 1080p avec dix choix visibles et une réserve distincte visant dix œuvres, sans compter les primaires comme réserves.",
+    "Revoir et certifier le fond/rendu des deux radars déjà composés : 5 popularité + 5 sillonnage + 5 réserves, 10 UHD visibles + 6 réserves distinctes (16 au total, minimum courant atteint, objectif 20 si autres œuvres fortes). Contrôler les liens/affiches et les versions UHD ; ne pas confondre les deux films OSS 117 avec deux coffrets distincts.",
     "Appliquer la déduplication, la fraîcheur inter-numéros et l’équilibre cinéma/documentaire/rubriques ; conserver toute exception de fraîcheur ou pénurie sous forme structurée, précise et sourcée.",
     "Construire et revoir tous les livrables autorisés de 2026-S43, ainsi que les enrichissements vérifiés de works, links et releases, en gardant manifest.latest à 2026-S42 et tous les statuts S43 en draft.",
     "Exécuter les contrôles pertinents de données, liens, fraîcheur, réserves, images et présentation sur la tête exacte, inspecter les pages modifiées, résoudre les causes réelles sans baisser les critères et conserver les résultats CI liés au SHA et à sa base.",
@@ -162,7 +162,8 @@
     "Chat 16 octobre, lot radar UHD page 1 : cinq cartes complètes (Vivre, Nadja, Phenomena, Annihilation, Le Loup-garou de Londres), différenciant restauration 4K et SteelBooks ; sources produit et critiques datées, identité canonique conservée, CINQ cartes visibles, ZÉRO réserve HD à ce stade. Pages de radar et sommaire générées via editorial-draft-cards et contrôlées par handoff ; les autres radars restent à construire.",
     "Chat 16 octobre : abonnement page 2, trois cartes de films entièrement rédigées et validées localement (L’Attachement, Hamnet, L’Intérêt d’Adam), CANAL+ France offres 50001/50002 vérifiées, notes publiques relues, métadonnées et véritables affiches, sans confusion avec location 40099 ; génération section et sommaire par editorial-draft-cards, contrôle handoff ; reste à revoir navigateur et sources images à distance.",
     "Chat 16 octobre : troisième page abonnement de trois films d’auteur sur CANAL+ France (Dossier 137, La Tour de glace, Nouvelle Vague). Liens directs _50001, identité forte, synopsis et analyse rédigés, réception contrastée documentée, affiche officielle Haut et Court/Metropolitan ou affiche Criterion réutilisée, durées de portée cinéma/plateforme séparées ; générateur et contrôles locaux vérifiés. Ne signifie ni revue générale ni finalisation des radars.",
-    "Chat 16 octobre : radar de popularité, cinq choix visibles, cinq sillonnages sur deuxième page et cinq alternatives datées et distinctes (15 work_id du catalogue existant, aucun lien de téléchargement), extrait du classement TorrentFreak du 12 octobre et d’archives explicitement datées. Les signaux des anciens mois ne sont pas présentés comme une actualité S43. Contrôles locaux sur la candidate S43 : canonical IDs, liens exacts, réserve quotidienne et fraîcheur verts. Le numéro n’est pas prêt : radar UHD, arrivées streaming et relecture de couverture restent bloquants."
+    "Chat 16 octobre : radar de popularité, cinq choix visibles, cinq sillonnages sur deuxième page et cinq alternatives datées et distinctes (15 work_id du catalogue existant, aucun lien de téléchargement), extrait du classement TorrentFreak du 12 octobre et d’archives explicitement datées. Les signaux des anciens mois ne sont pas présentés comme une actualité S43. Contrôles locaux sur la candidate S43 : canonical IDs, liens exacts, réserve quotidienne et fraîcheur verts. Le numéro n’est pas prêt : radar UHD, arrivées streaming et relecture de couverture restent bloquants.",
+    "Chat 16 octobre : deux pages HD complètes, 10 primaires plus 6 alternatives distinctes (8 sur radar-1, 8 sur radar-2) et cartes enrichies par sources produit officielles/commerciales, IMDb, critiques et affiches identifiées ; génération mécanique editorial-draft-cards, contrôle des identités/réserves/liens/fraîcheur réussi. Différence explicite entre restauration véritable, nouvelle UHD et import/SteelBook. S43 reste draft : streaming et couverture de grille non clos."
   ],
   "blockers": [],
   "research_attempts": [
@@ -8167,6 +8168,190 @@
       "applies_to": "2026-S43 popular_scan",
       "evidence_note": "Archive TorrentFreak : 9e le 5 octobre 2026. Mayday (2026), John Francis Daley / Jonathan Goldstein, titre du film et non d'un autre objet homonyme. Source signal uniquement : ne prouve ni streaming français, ni disponibilité, ni qualité critique. Les informations stables du catalogue ont été réutilisées et les métadonnées manquantes recontrôlées lorsque nécessaire.",
       "status": "reviewed_card_draft"
+    },
+    {
+      "id": "chat-s43-hd2-reserve-20261016-blood-simple-1984",
+      "work_id": "blood-simple-1984",
+      "fields": [
+        "work.identity",
+        "work.director",
+        "work.year",
+        "work.country",
+        "work.genre",
+        "work.duration",
+        "work.image",
+        "work.ratings",
+        "radar.added",
+        "radar.added_source_url",
+        "radar.summary",
+        "radar.why",
+        "radar.reserve_rank"
+      ],
+      "urls": [
+        "https://www.fnac.com/a23206980/Blood-Simple-Edition-Limitee-SteelBook-Blu-ray-4K-Ultra-HD-Dan-Hedaya-Blu-ray-4K",
+        "https://www.imdb.com/title/tt0086979/",
+        "https://www.originalfilmart.com/products/blood-simple-linen",
+        "https://www.criterion.com/films/28852-blood-simple"
+      ],
+      "checked_at": "2026-10-16",
+      "reused_in": "2026-S43",
+      "stability": "stable-film-fields-and-cycle-specific-retail-edition",
+      "applies_to": "radar-1",
+      "evidence_note": "Édition française Studiocanal UHD 4K SteelBook du 7 octobre 2026 ; remaster inédit non attesté Vérification du produit exact : https://www.fnac.com/a23206980/Blood-Simple-Edition-Limitee-SteelBook-Blu-ray-4K-Ultra-HD-Dan-Hedaya-Blu-ray-4K. Une édition UHD ne prouve pas en soi un nouveau master restauré. États-Unis; 97 min (édition française Studiocanal 2026) ; IMDb : 99 min; Film noir / thriller; note IMDb 7,5/10 (115 k votes) consultée le 16 octobre 2026, poster original attribué à la source. La durée suit la portée de la source citée.",
+      "status": "reviewed-for-draft"
+    },
+    {
+      "id": "chat-s43-hd2-reserve-20261016-inside-llewyn-davis-2013",
+      "work_id": "inside-llewyn-davis-2013",
+      "fields": [
+        "work.identity",
+        "work.director",
+        "work.year",
+        "work.country",
+        "work.genre",
+        "work.duration",
+        "work.image",
+        "work.ratings",
+        "radar.added",
+        "radar.added_source_url",
+        "radar.summary",
+        "radar.why",
+        "radar.reserve_rank"
+      ],
+      "urls": [
+        "https://www.fnac.com/a23206982/Inside-Llewyn-Davis-Blu-ray-4K-Ultra-HD-Oscar-Isaac-Blu-ray-4K",
+        "https://www.imdb.com/title/tt2042568/",
+        "https://www.rottentomatoes.com/m/inside_llewyn_davis_2013"
+      ],
+      "checked_at": "2026-10-16",
+      "reused_in": "2026-S43",
+      "stability": "stable-film-fields-and-cycle-specific-retail-edition",
+      "applies_to": "radar-1",
+      "evidence_note": "Édition française UHD 4K Studiocanal du 7 octobre 2026 ; remaster inédit non attesté Vérification du produit exact : https://www.fnac.com/a23206982/Inside-Llewyn-Davis-Blu-ray-4K-Ultra-HD-Oscar-Isaac-Blu-ray-4K. Une édition UHD ne prouve pas en soi un nouveau master restauré. États-Unis / France; 104 min (IMDb); Drame musical / comédie noire; note IMDb 7,4/10 (174 k votes) consultée le 16 octobre 2026, poster original attribué à la source. La durée suit la portée de la source citée.",
+      "status": "reviewed-for-draft"
+    },
+    {
+      "id": "chat-s43-hd2-reserve-20261016-un-homme-et-une-femme-1966",
+      "work_id": "un-homme-et-une-femme-1966",
+      "fields": [
+        "work.identity",
+        "work.director",
+        "work.year",
+        "work.country",
+        "work.genre",
+        "work.duration",
+        "work.image",
+        "work.ratings",
+        "radar.added",
+        "radar.added_source_url",
+        "radar.summary",
+        "radar.why",
+        "radar.reserve_rank"
+      ],
+      "urls": [
+        "https://www.fnac.com/a23372723/Un-homme-et-une-femme-Edition-Collector-Limitee-SteelBook-Blu-ray-4K-Ultra-HD-Jean-Louis-Trintignant-Blu-ray-4K",
+        "https://www.imdb.com/title/tt0061138/",
+        "https://www.1stdibs.com/furniture/wall-decorations/photography/un-homme-et-une-femme-man-woman/id-f_40633682/",
+        "https://www.hdnumerique.com/actualite/articles/22795-homme-femme-4k.html"
+      ],
+      "checked_at": "2026-10-16",
+      "reused_in": "2026-S43",
+      "stability": "stable-film-fields-and-cycle-specific-retail-edition",
+      "applies_to": "radar-1",
+      "evidence_note": "Restauration 4K du négatif 35 mm (Éclair Classics), première UHD française SteelBook le 23 octobre 2026 Vérification du produit exact : https://www.fnac.com/a23372723/Un-homme-et-une-femme-Edition-Collector-Limitee-SteelBook-Blu-ray-4K-Ultra-HD-Jean-Louis-Trintignant-Blu-ray-4K. Une édition UHD ne prouve pas en soi un nouveau master restauré. France; 102 min (IMDb); Drame romantique; note IMDb 7,5/10 (14 k votes) consultée le 16 octobre 2026, poster original attribué à la source. La durée suit la portée de la source citée.",
+      "status": "reviewed-for-draft"
+    },
+    {
+      "id": "chat-s43-hd2-reserve-20261016-martyrs-2008",
+      "work_id": "martyrs-2008",
+      "fields": [
+        "work.identity",
+        "work.director",
+        "work.year",
+        "work.country",
+        "work.genre",
+        "work.duration",
+        "work.image",
+        "work.ratings",
+        "radar.added",
+        "radar.added_source_url",
+        "radar.summary",
+        "radar.why",
+        "radar.reserve_rank"
+      ],
+      "urls": [
+        "https://www.fnac.com/a23355976/Martyrs-Edition-Collector-Limitee-Blu-ray-4K-Ultra-HD-Morjana-Alaoui-Blu-ray-4K",
+        "https://www.imdb.com/title/tt1029234/",
+        "https://www.imdb.com/title/tt1029234/mediaviewer/rm441123072/"
+      ],
+      "checked_at": "2026-10-16",
+      "reused_in": "2026-S43",
+      "stability": "stable-film-fields-and-cycle-specific-retail-edition",
+      "applies_to": "radar-2",
+      "evidence_note": "Première édition collector UHD 4K française Wild Bunch le 23 octobre 2026 Vérification du produit exact : https://www.fnac.com/a23355976/Martyrs-Edition-Collector-Limitee-Blu-ray-4K-Ultra-HD-Morjana-Alaoui-Blu-ray-4K. Une édition UHD ne prouve pas en soi un nouveau master restauré. France / Canada; 99 min (IMDb); Horreur psychologique / thriller; note IMDb 7,0/10 (123 k votes) consultée le 16 octobre 2026, poster original attribué à la source. La durée suit la portée de la source citée.",
+      "status": "reviewed-for-draft"
+    },
+    {
+      "id": "chat-s43-hd2-reserve-20261016-the-furious-2025",
+      "work_id": "the-furious-2025",
+      "fields": [
+        "work.identity",
+        "work.director",
+        "work.year",
+        "work.country",
+        "work.genre",
+        "work.duration",
+        "work.image",
+        "work.ratings",
+        "radar.added",
+        "radar.added_source_url",
+        "radar.summary",
+        "radar.why",
+        "radar.reserve_rank"
+      ],
+      "urls": [
+        "https://www.fnac.com/a23244927/The-Furious-Edition-Collector-Limitee-HK-Video-Blu-ray-4K-Ultra-HD-Miao-Xie-Blu-ray-4K",
+        "https://www.imdb.com/title/tt33311069/",
+        "https://www.georgeatthemovies.com/post/the-furious",
+        "https://metrofilms.com/film/furious/",
+        "https://www.rottentomatoes.com/m/the_furious_2025"
+      ],
+      "checked_at": "2026-10-16",
+      "reused_in": "2026-S43",
+      "stability": "stable-film-fields-and-cycle-specific-retail-edition",
+      "applies_to": "radar-2",
+      "evidence_note": "Collector UHD 4K HK Vidéo/Metropolitan, 23 octobre 2026 ; visuel de coffret provisoire, affiche cinéma originale retenue Vérification du produit exact : https://www.fnac.com/a23244927/The-Furious-Edition-Collector-Limitee-HK-Video-Blu-ray-4K-Ultra-HD-Miao-Xie-Blu-ray-4K. Une édition UHD ne prouve pas en soi un nouveau master restauré. Hong Kong / Chine; 112 min (fiche Metropolitan) ; IMDb : 113 min; Arts martiaux / thriller; note IMDb 7,2/10 (27 k votes) consultée le 16 octobre 2026, poster original attribué à la source. La durée suit la portée de la source citée.",
+      "status": "reviewed-for-draft"
+    },
+    {
+      "id": "chat-s43-hd2-reserve-20261016-star-wars-the-mandalorian-and-grogu",
+      "work_id": "star-wars-the-mandalorian-and-grogu",
+      "fields": [
+        "work.identity",
+        "work.director",
+        "work.year",
+        "work.country",
+        "work.genre",
+        "work.duration",
+        "work.image",
+        "work.ratings",
+        "radar.added",
+        "radar.added_source_url",
+        "radar.summary",
+        "radar.why",
+        "radar.reserve_rank"
+      ],
+      "urls": [
+        "https://www.fnac.com/a22774108/Star-Wars-The-Mandalorian-And-Grogu-Edition-Collector-Limitee-Beskar-Blu-ray-4K-Ultra-HD-Pedro-Pascal-Blu-ray-4K",
+        "https://www.imdb.com/title/tt30825738/",
+        "https://artofthemovies.co.uk/products/star-wars-the-mandalorian-and-grogu-2026-ds-os-release-901"
+      ],
+      "checked_at": "2026-10-16",
+      "reused_in": "2026-S43",
+      "stability": "stable-film-fields-and-cycle-specific-retail-edition",
+      "applies_to": "radar-2",
+      "evidence_note": "Collector Beskar UHD 4K français (+ Blu-ray, SteelBook et 2 posters métalliques) le 21 octobre 2026 ; édition distincte de l’import standard Vérification du produit exact : https://www.fnac.com/a22774108/Star-Wars-The-Mandalorian-And-Grogu-Edition-Collector-Limitee-Beskar-Blu-ray-4K-Ultra-HD-Pedro-Pascal-Blu-ray-4K. Une édition UHD ne prouve pas en soi un nouveau master restauré. États-Unis; 132 min (édition française / IMDb); Science-fiction / aventure; note IMDb 6,8/10 (110 k votes, IMDb version française) consultée le 16 octobre 2026, poster original attribué à la source. La durée suit la portée de la source citée.",
+      "status": "reviewed-for-draft"
     }
   ],
   "source_issues": [
@@ -10720,7 +10905,7 @@
       "Rubrique abonnement : trois pages, neuf fiches maintenant rédigées. Vérifier réellement le rendu/HTTP des affiches des pages 2-3, différencier offre CANAL+ et VOD et confirmer les sources périssables juste avant seal.",
       "Radar populaire : quinze cartes et trois groupes (5 choix, 5 sillonnages, 5 réserves) intégrés au brouillon après contrôle des sources datées. Revoir la provenance des affiches et les limitations géographiques / liens avant seal. Les réserves anciennes sont explicitement signalées, sans transposition des rangs passés au 12 octobre.",
       "Compléter les deux nouvelles arrivées streaming S43 : choisir uniquement deux films avec date officielle dans le 17-23 octobre et URL de visionnage français direct, métadonnées/notes/affiches exactes. Examiner Furcy, né libre (20 octobre) et Météors (22 octobre), en remplacement si une preuve manque.",
-      "Compléter radar UHD : deuxième page de cinq primaires, puis au moins six alternatives réelles distinctes des dix choix visibles, respect des versions et provenances UHD vs simple SteelBook.",
+      "Radar UHD : deux pages de cinq cartes visibles et six réserves distinctes sont désormais rédigées (8+8, 16 œuvres différentes). Revoir les images/compatibilités, les liens directs, la provenance de chaque édition et le rendu navigateur avant seal ; objectif de profondeur 20 souhaité mais minimum 16 atteint.",
       "Achever le recoupement des omissions Télérama/Web par jour, chaîne et nuit, et la passe documentaire. coverage.full_week_reaudit_completed reste faux tant que non achevé.",
       "Contrôler images, liens, interface navigateur et CI sur la tête exacte ; ne sceller l’édition qu’après revue effective et remaining réellement vide."
     ],
@@ -21769,7 +21954,7 @@
       "next_useful_batch": "Compléter deux sorties streaming à disponibilité et liens directs France vérifiés, puis les réserves du radar UHD et seconde revue de couverture."
     }
   ],
-  "updated_at": "2026-10-16T16:38:14Z",
+  "updated_at": "2026-10-16T17:17:14Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
