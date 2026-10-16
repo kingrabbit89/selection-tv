@@ -153,7 +153,8 @@
     "Chat 16 octobre : radar de popularité, cinq choix visibles, cinq sillonnages sur deuxième page et cinq alternatives datées et distinctes (15 work_id du catalogue existant, aucun lien de téléchargement), extrait du classement TorrentFreak du 12 octobre et d’archives explicitement datées. Les signaux des anciens mois ne sont pas présentés comme une actualité S43. Contrôles locaux sur la candidate S43 : canonical IDs, liens exacts, réserve quotidienne et fraîcheur verts. Le numéro n’est pas prêt : radar UHD, arrivées streaming et relecture de couverture restent bloquants.",
     "Chat 16 octobre : deux pages HD complètes, 10 primaires plus 6 alternatives distinctes (8 sur radar-1, 8 sur radar-2) et cartes enrichies par sources produit officielles/commerciales, IMDb, critiques et affiches identifiées ; génération mécanique editorial-draft-cards, contrôle des identités/réserves/liens/fraîcheur réussi. Différence explicite entre restauration véritable, nouvelle UHD et import/SteelBook. S43 reste draft : streaming et couverture de grille non clos.",
     "Claude Code 2026-10-16 : seconde lecture TV5MONDE sur sept jours contre la grille officielle du diffuseur, revue d’impact des 64 cases en conflit sur les 61 occurrences publiées (Left-Handed Girl 18:55 conservé), full_week_reaudit_completed vrai ; sorties streaming : Furcy, né libre (CANAL+ 20/10) + pénurie structurée ; affiches L’Attachement et La Voix de Hind Rajab réparées ; page_count du manifeste 29 → 30.",
-    "Claude Code 2026-10-16 : passe documentaire achevée — Monuments éternels (sam.), États-Unis – Chine (dim.), Le Grand Jeu de Jessica Chastain (dim., réserve), Bilal Hassani (lun.), Victor Hugo / Les Docs de La Grande Librairie (mer.) ; Météors (jeu.) ; six fiches catalogue complètes, visuels officiels inspectés, notes ou raisons d’absence spécifiques ; rendu mécanique editorial-draft-cards append_days."
+    "Claude Code 2026-10-16 : passe documentaire achevée — Monuments éternels (sam.), États-Unis – Chine (dim.), Le Grand Jeu de Jessica Chastain (dim., réserve), Bilal Hassani (lun.), Victor Hugo / Les Docs de La Grande Librairie (mer.) ; Météors (jeu.) ; six fiches catalogue complètes, visuels officiels inspectés, notes ou raisons d’absence spécifiques ; rendu mécanique editorial-draft-cards append_days.",
+    "Claude Code 2026-10-16 : correction des échecs CI du run 38949245414 — affiches Les Hommes du président et Baccalauréat (CDN Cannes en 403 depuis les runners) remplacées ; textes des 20 cartes radars resserrés pour supprimer le débordement des pages fixes."
   ],
   "blockers": [],
   "research_attempts": [
@@ -8593,6 +8594,47 @@
       "applies_to": "jeudi-selection rang 11 et grille commentée",
       "evidence_note": "Film de Hubert Charuel (2025, Un Certain Regard, avec Paul Kircher, Idir Azougli, Salif Cissé) ; IMDb tt33772384 et SensCritique 109917329 (Hubert Charuel, Claude Le Pape) désignent la même œuvre sortie en salles le 8 octobre 2025. L’affiche crédite la réalisation à Hubert Charuel, en collaboration avec Claude Le Pape. Durées conservées avec leur portée ; IMDb 6,4/10 sur 319 votes et SensCritique 6,2/10 sur 1 237 notes relevés le 16/10/2026. Deux guides d’éditeurs distincts concordants : Télé 7 Jours relu le 16/10/2026 (Canal+ Cinéma(s), jeudi 22 octobre, 21:00, 105 min) et TV-programme.com (relevé primaire, 21:00) ; Télérama p. 133 (21.00) concordant. Provenance amont inconnue. Synopsis reformulé d’après la fiche officielle du Festival de Cannes ; justification fondée sur la critique Télérama relue (Jérémie Couston, « Très bien », p. 133, /reviews/31).",
       "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "id": "vr-2026-10-16T18:51:53Z-ci-poster-repair",
+      "work_id": null,
+      "fields": [
+        "image"
+      ],
+      "urls": [
+        "https://www.senscritique.com/film/les_hommes_du_president/373061",
+        "https://www.senscritique.com/film/baccalaureat/13426527",
+        "https://github.com/kingrabbit89/selection-tv/actions/runs/38949245414"
+      ],
+      "checked_at": "2026-10-16T18:51:53Z",
+      "stability": "stable_with_remote_health_check",
+      "applies_to": [
+        "Les Hommes du président",
+        "Baccalauréat"
+      ],
+      "evidence_note": "CI run 38949245414 : img.festival-cannes.com répond 403 au client sans référent des runners GitHub pour ces deux affiches. Remplacées par les affiches françaises exactes SensCritique, inspectées visuellement, HTTP 200 sans référent.",
+      "status": "reviewed"
+    },
+    {
+      "id": "vr-2026-10-16T18:51:53Z-radar-copy-fit",
+      "work_id": null,
+      "fields": [
+        "editorial_copy",
+        "layout"
+      ],
+      "urls": [
+        "https://github.com/kingrabbit89/selection-tv/actions/runs/38949245414"
+      ],
+      "checked_at": "2026-10-16T18:51:53Z",
+      "stability": "cycle_specific",
+      "applies_to": [
+        "radar-torrent",
+        "radar-torrent-sillonnage",
+        "radar-1",
+        "radar-2"
+      ],
+      "evidence_note": "validate-layout (CI) : débordement des pages fixes des quatre radars, reproduit localement à 1440 px. Synopsis, justifications, en-têtes et lignes de repère des 20 cartes resserrés à la longueur des radars S42 (environ 450 à 620 caractères par carte), sans nouveau fait ni suppression de réserve sur une édition ou une restauration ; aucun débordement à 1440 px, avec affiches réelles comme avec visuels de repli.",
+      "status": "reviewed"
     }
   ],
   "source_issues": [
@@ -22416,7 +22458,8 @@
         "Sorties streaming : Furcy, né libre",
         "Réparation de deux affiches",
         "Manifeste : page_count",
-        "Passe documentaire et Météors : six cartes en réserve, cinq lignes de grille commentée"
+        "Passe documentaire et Météors : six cartes en réserve, cinq lignes de grille commentée",
+        "Correctifs CI : affiches et longueur des radars"
       ],
       "deliverables_changed": [
         "data/coverage/2026-S43.json",
@@ -22433,7 +22476,7 @@
       "next_useful_batch": "Revue navigateur des 30 pages, réconciliation de remaining, scellement, puis push sous bail et suivi CI/publication."
     }
   ],
-  "updated_at": "2026-10-16T18:38:39Z",
+  "updated_at": "2026-10-16T18:51:53Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -36420,6 +36463,16 @@
         "scripts/seal-editorial-review.mjs"
       ],
       "note": "Revue éditoriale complète effectuée ; le scellement suit immédiatement via seal-editorial-review.mjs. La fusion protégée et la promotion restent soumises aux contrôles GitHub sur le SHA exact."
+    },
+    {
+      "requirement": "Correction des contrôles CI échoués sur 9254588 (validate-image-sources, validate-layout).",
+      "status": "closed_with_evidence",
+      "decided_at": "2026-10-16T18:51:53Z",
+      "evidence": [
+        "data/works.json : les-hommes-du-president-1976, baccalaureat-2016",
+        "data/weeks/2026-S43.json : radar-*"
+      ],
+      "note": "Résultat CI à constater sur le nouveau SHA."
     }
   ],
   "remaining_history": [
