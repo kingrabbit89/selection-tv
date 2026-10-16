@@ -1,2 +1,15 @@
 # Posters copied into the site are binary; never convert line endings.
 *.webp binary
+
+# Text deliverables and the code that seals or validates them are committed
+# with LF and checked out with LF on every OS, whatever core.autocrlf says.
+# Sealed review digests (seal-editorial-review.mjs) hash the working copy;
+# push-candidate and the publisher compare them with the committed blobs.
+*.json text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.mjs text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.yml text eol=lf
+*.py text eol=lf
