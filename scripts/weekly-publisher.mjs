@@ -7,6 +7,19 @@ import {synchronizePromotion} from './synchronize-promotion.mjs';
 import {calendarTarget} from './week-calendar.mjs';
 import {allowedPaths,assertCandidatePaths,digest} from './editorial-handoff.mjs';
 import {github,readContent,commitFiles,branchSha,openPR} from './github-weekly-api.mjs';
+import {PENDING_EXIT} from './verify-promotion-attestation.mjs';
+
+const summaryLog=s=>{console.log(s);if(process.env.GITHUB_STEP_SUMMARY)fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,s+'\n');};
+// No attestation exists yet: a revalidation of this exact main is still running.
+// Nothing advances; its completion (or the next cron) wakes the publisher again.
+export class AttestationPending extends Error {}
+export function verifyAttestation(week,base,exec=execFileSync){
+  try{exec(process.execPath,['scripts/verify-promotion-attestation.mjs',week,base],{stdio:'pipe'});return true;}
+  catch(e){
+    if(e?.status===PENDING_EXIT)throw new AttestationPending(String(e.stderr??'').trim()||`Revalidation of ${week} at ${base} still running.`);
+    throw e;
+  }
+}
 
 export function checksPass(checks,statuses=[]){
   const latest=new Map();
@@ -23,9 +36,19 @@ export function reviewedCandidate(week,progress,read,paths){
   for(const p of expected){const content=read(p);assert(content!==null,'missing output '+p);assert.equal(progress.reviewed_files?.[p],digest(content),'review is stale for '+p);}
   assertCandidatePaths(week,paths,read,'automatic candidate merge cannot change code/configuration: ');
 }
-export async function runPublisher(){
-  const api=github(),repo=process.env.GITHUB_REPOSITORY,week=calendarTarget().week;
-  const log=s=>{console.log(s);if(process.env.GITHUB_STEP_SUMMARY)fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,s+'\n');};
+// A pending attestation is the only neutral stop. Mismatches, failed or stuck
+// revalidations and every other refusal still fail the run.
+export async function runPublisher({api=github(),repo=process.env.GITHUB_REPOSITORY,week=calendarTarget().week,
+  verify=verifyAttestation,log=summaryLog}={}){
+  try{await advancePublication({api,repo,week,verify,log});}
+  catch(e){
+    if(!(e instanceof AttestationPending))throw e;
+    log(`Attestation pending for ${week}; next run will continue. ${e.message}`);
+    return {pending:true};
+  }
+  return {pending:false};
+}
+async function advancePublication({api,repo,week,verify,log}){
   // No weekday window: a sealed candidate of the calendar target advances as
   // soon as its checks are green. Friday 20:00 is the deadline, not the start.
   let main=branchSha(api,'main');
@@ -56,10 +79,7 @@ export async function runPublisher(){
       if(process.env.HAS_DEDICATED_TOKEN!=='true')
         log('Promotion synchronization uses the built-in token: new PR checks may require explicit approval. The watchdog retains publication-pending; autonomy without approval is not established.');
       const synced=synchronizePromotion(api,repo,week,main,head,{prNumber:pr.number,
-        verifyAttestation:(target,base)=>{
-          execFileSync(process.execPath,['scripts/verify-promotion-attestation.mjs',target,base],{stdio:'pipe'});
-          return true;
-        }});
+        verifyAttestation:(target,base)=>verify(target,base)});
       log(`Synchronized exact promotion PR #${pr.number} at ${synced.sha}; new checks must pass before any merge.`);
       return;
     }
@@ -71,7 +91,7 @@ export async function runPublisher(){
       assert.equal(m.latest,manifest.latest);assert.equal(m.weeks.find(w=>w.week===week)?.status,'draft');
       assert.equal(JSON.parse(readContent(api,head,`data/weeks/${week}.json`)).publication_status,'draft');
     }else{
-      execFileSync(process.execPath,['scripts/verify-promotion-attestation.mjs',week,main],{stdio:'pipe'});
+      verify(week,main);
       assert.deepEqual(files.map(f=>f.filename).sort(),['data/manifest.json',`data/weeks/${week}.json`].sort());
     }
     const checks=api(`commits/${head}/check-runs?per_page=100`);
@@ -93,7 +113,7 @@ export async function runPublisher(){
   if(pendingCandidate){await mergeGreen(pendingCandidate,false);return;}
   if(entry?.status!=='draft'){log('No ready candidate: editorial production is still needed.');return;}
   // A successful run attests this exact base. No marker, old SHA or skipped run can replace it.
-  execFileSync(process.execPath,['scripts/verify-promotion-attestation.mjs',week,main],{stdio:'pipe'});
+  verify(week,main);
   assert.equal(branchSha(api,'main'),main,'main moved after attestation');
   const oldBranch=branchSha(api,promotion);
   if(oldBranch){

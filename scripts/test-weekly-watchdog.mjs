@@ -18,3 +18,16 @@ test('late Saturday UTC/Sunday Paris still supervises the same issue',()=>{
  assert.equal(watchdogTarget('2026-10-12'),'2026-S43');
  assert.equal(watchdogTarget('2027-01-03'),watchdogTarget('2027-01-02'));
 });
+
+import {watchdogTrigger} from './publication-trigger-context.mjs';
+test('a neutral attestation-pending run cannot clear an alert; a real publisher failure still reaches the watchdog',async()=>{
+ const event=conclusion=>({workflow_run:{id:5,conclusion}});
+ const advanced=()=>[{run_id:5,name:'publish',steps:[{name:'Advance one verified publication stage',status:'completed',conclusion:'success'}]}];
+ // Pending exits 0 from the advance step: the watchdog still reconciles, and an
+ // unpublished draft (with or without its promotion PR) is never "deployed".
+ assert(watchdogTrigger('workflow_run',event('success'),advanced).allowed);
+ assert.equal((await run({status:'draft'})).reason,'draft-stuck');
+ assert.equal((await run({status:'draft'},[{state:'open',head:{ref:'promote/'+week},html_url:'fixture'}])).reason,'publication-pending');
+ // A mismatch, failed or stuck revalidation fails the run: always reconciled.
+ for(const conclusion of ['failure','timed_out','cancelled'])assert(watchdogTrigger('workflow_run',event(conclusion),()=>[]).allowed);
+});

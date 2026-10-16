@@ -53,6 +53,8 @@ node scripts/seal-editorial-review.mjs 2026-S42 --review-completed
 
 La dernière commande enregistre les SHA-256 des neuf livrables après revue ; elle ne vérifie pas les sources. Dans Chat sans shell, produire les mêmes empreintes avec l'outil d'analyse de fichiers s'il est disponible. Sinon confier cette seule opération au préflight Work. Toute modification d'un livrable rend la revue enregistrée périmée ; revoir les changements avant de la renouveler.
 
+Ces empreintes portent sur la copie de travail, alors que le préflight et le publicateur les comparent aux blobs commités (LF). `.gitattributes` impose donc LF à l'extraction pour JSON, HTML, Markdown, JS/MJS, CSS, YAML et Python, quel que soit `core.autocrlf`. Un clone ou worktree créé après cette règle est déjà en LF. Une copie Windows plus ancienne garde ses fichiers CRLF jusqu'à leur réécriture : sur un arbre propre, supprimer puis restaurer avec `git checkout --` les fichiers que `git ls-files --eol` montre en `w/crlf` avec `eol=lf`, avant de sceller.
+
 ## Publicateur GitHub
 
 **Weekly protected publisher** avance au maximum une étape par passage, **n'importe quel jour** : la publication suit la validation, sans fenêtre horaire. Il est déclenché après chaque validation réussie (candidate, revalidation post-fusion, promotion), si bien qu'une candidate scellée et verte est publiée sans attente ; un passage planifié toutes les demi-heures sert de reprise (les heures GitHub peuvent être retardées). Vendredi 20 h reste l'échéance au plus tard surveillée par le watchdog du samedi.
@@ -71,6 +73,8 @@ Sur une préparation qui ne change que research/inventory/coverage, `preparation
 Les événements de validation reçus par le publicateur sont limités à main, auto/** et promote/** ; les corrections techniques continuent d'être validées sans lancer un publicateur sans travail possible. Les schedules et déclenchements manuels demeurent.
 
 Une revalidation de promotion dont seul le job `resolve` réussit ne permet pas d'avancer : le publicateur exige le job `validate-promotion` et son étape d'attestation réellement réussis. Le watchdog ne réconcilie pas un publicateur vert dont l'étape d'avancement a été sautée ; les échecs ou preuves API illisibles conservent la surveillance. Quelques exécutions légères restent visibles pour inspecter les jobs sources, sans publication ni traitement d'alerte lorsqu'elles ne trouvent aucun travail.
+
+Attestation en attente : si la revalidation du SHA exact de main est encore en file ou en cours depuis moins de 60 minutes, `verify-promotion-attestation.mjs` refuse avec le code 75 au lieu de 1. Le publicateur s'arrête alors sans échec, consigne « Attestation pending … next run will continue » et n'avance rien ; la fin de cette revalidation ou le passage planifié suivant le relance. Ce code reste un refus pour tout autre appelant, dont le check de la PR de promotion. Une attestation absente, rouge, annulée, sans artefact ou d'une autre base, ainsi qu'une revalidation inachevée depuis plus de 60 minutes ou sans horodatage, font toujours échouer le run. Le watchdog n'en dépend pas : un run neutre ne ferme aucune alerte, et le contrôle planifié du samedi signale toujours un brouillon non publié.
 
 ## Authentification GitHub : autonomie complète conditionnelle
 
