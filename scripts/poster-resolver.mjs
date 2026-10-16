@@ -18,7 +18,7 @@ export const LADDER=['senscritique','imdb','tmdb','arte','francetvpro','tv5monde
 
 // Only canonical work pages count as identity. Guides, grids without a
 // programme id, search results and review pages never match.
-const IDENTITY_PATTERNS={
+export const IDENTITY_PATTERNS={
   senscritique:[/^https:\/\/www\.senscritique\.com\/(film|serie)\/[^/?#]+\/(\d+)\/?$/,m=>({id:m[2],kind:m[1]})],
   imdb:[/^https:\/\/www\.imdb\.com\/(?:fr\/)?title\/(tt\d+)\/?$/,m=>({id:m[1]})],
   tmdb:[/^https:\/\/www\.themoviedb\.org\/(movie|tv)\/(\d+)(?:-[^/?#]*)?\/?$/,m=>({id:m[2],kind:m[1]})],
@@ -40,7 +40,7 @@ export function linkClaims(works){
   return claims;
 }
 
-export function exactIdentity(work,{links={},claims=linkClaims([work])}={}){
+export function exactIdentity(work,{links={},claims=linkClaims([work]),patterns=IDENTITY_PATTERNS}={}){
   const names=new Set([work.title,...array(work.aliases)].map(normTitle).filter(Boolean));
   const sources=[],notes=[];
   for(const [key,value] of Object.entries(work.links||{}))sources.push({origin:'works.json#links.'+key,value});
@@ -52,7 +52,7 @@ export function exactIdentity(work,{links={},claims=linkClaims([work])}={}){
   const found={};
   for(const {origin,value} of sources){
     if(typeof value!=='string')continue;
-    for(const [kind,[pattern,pick]] of Object.entries(IDENTITY_PATTERNS)){
+    for(const [kind,[pattern,pick]] of Object.entries(patterns)){
       const match=value.trim().match(pattern);
       if(match)(found[kind]||=[]).push({...pick(match),url:value.trim(),origin});
     }
@@ -96,14 +96,14 @@ async function readText(res,maxBytes){
 }
 
 // One plain request. A bot challenge is reported, never retried or bypassed.
-function fetchDocument(url,ctx,options={}){
+export function fetchDocument(url,ctx,options={}){
   return ctx.pace(url,()=>fetchDocumentNow(url,ctx,options));
 }
 async function fetchDocumentNow(url,ctx,{accept='text/html,application/xhtml+xml',headers={},maxBytes=6*1024*1024,timeoutMs=15000}={}){
   const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeoutMs);
   try{
     const res=await ctx.fetch(url,{redirect:'follow',signal:controller.signal,
-      headers:{'User-Agent':USER_AGENT,'Accept':accept,'Accept-Language':'fr-FR,fr;q=0.9,en;q=0.5',...headers}});
+      headers:{'User-Agent':ctx.userAgent||USER_AGENT,'Accept':accept,'Accept-Language':'fr-FR,fr;q=0.9,en;q=0.5',...headers}});
     const waf=res.headers.get('x-amzn-waf-action')||res.headers.get('cf-mitigated');
     if(waf||res.status===202){await res.body?.cancel();return {ok:false,status:res.status,challenge:true,why:'bot challenge ('+(waf||'HTTP 202')+'), not bypassed'};}
     if(!res.ok){await res.body?.cancel();return {ok:false,status:res.status,why:'HTTP '+res.status};}
@@ -111,7 +111,7 @@ async function fetchDocumentNow(url,ctx,{accept='text/html,application/xhtml+xml
   }catch(error){return {ok:false,why:error.name==='AbortError'?'timeout':error.message}}
   finally{clearTimeout(timer)}
 }
-async function fetchJson(url,ctx,options={}){
+export async function fetchJson(url,ctx,options={}){
   const page=await fetchDocument(url,ctx,{accept:'application/json',...options});
   if(!page.ok)return page;
   try{return {...page,json:JSON.parse(page.text)}}catch{return {ok:false,status:page.status,why:'invalid JSON'}}
