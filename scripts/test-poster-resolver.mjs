@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
-import {exactIdentity, linkClaims, hostPacer, resolvePosters, applyResolutions, buildPosterHandoff,
+import {exactIdentity, linkClaims, identityOwners, workIdentity, hostPacer, resolvePosters, applyResolutions, buildPosterHandoff,
   weekTargets, parseCli, summarize} from './poster-resolver.mjs';
 import {visualWorkTitles} from './image-health.mjs';
 import {planImport, digest} from './editorial-handoff.mjs';
@@ -70,6 +70,38 @@ test('only exact identity links count, and a links.json key shared by two works 
     {links:{C:{imdb:'https://www.imdb.com/title/tt2/'}}});
   assert.equal(conflict.identity.imdb,undefined);
   assert.deepEqual(conflict.conflicts,[{kind:'imdb',ids:['tt1','tt2']}]);
+});
+
+test('an identifier claimed by two works identifies neither, from works.json links or links.json', async () => {
+  const series='https://www.senscritique.com/serie/the_bear/40985616';
+  const s1={id:'the-bear-s1',title:'The Bear (saison 1)',links:{sc:series,imdb:'https://www.imdb.com/title/tt14452776/'}};
+  const s2={id:'the-bear-s2',title:'The Bear (saison 2)',links:{sc:series}};
+  const remake={id:'remake',title:'Remake',links:{imdb:'https://www.imdb.com/title/tt7/'}};
+  const original={id:'original',title:'Original'};
+  const film={id:'film',title:'Film',links:{tmdb:'https://www.themoviedb.org/movie/136315'}};
+  const show={id:'show',title:'Show',links:{tmdb:'https://www.themoviedb.org/tv/136315-show'}};
+  const links={Original:{imdb:'https://www.imdb.com/title/tt7/'}};
+  const works=[s1,s2,remake,original,film,show];
+  const owners=identityOwners(works,{links});
+  const first=workIdentity(s1,{links,owners});
+  assert.deepEqual(Object.keys(first.identity),['imdb'],'the season keeps its own identifier');
+  assert.deepEqual(first.notes,['senscritique serie/40985616 also claimed by the-bear-s2, ignored']);
+  for(const work of [remake,original])
+    assert.equal(workIdentity(work,{links,owners}).identity.imdb,undefined,'a works.json link and a links.json key claim alike');
+  assert.equal(workIdentity(film,{links,owners}).identity.tmdb.kind,'movie','TMDb movie/N and tv/N are two works');
+  assert.equal(workIdentity(show,{links,owners}).identity.tmdb.kind,'tv');
+  // Two ids of one kind on a work: both stay claimed by it.
+  const muddled={id:'muddled',title:'Muddled',links:{a:'https://www.imdb.com/title/tt8/',b:'https://www.imdb.com/title/tt9/'}};
+  const clean={id:'clean',title:'Clean',links:{imdb:'https://www.imdb.com/title/tt9/'}};
+  assert.deepEqual(workIdentity(clean,{owners:identityOwners([muddled,clean])}).notes,['imdb tt9 also claimed by muddled, ignored']);
+
+  // The other season would get the series poster: nothing is fetched for it.
+  const {fetcher,calls}=fakeWeb({});
+  const [result]=await resolvePosters({works,links,targets:[s2],fetcher,...options});
+  assert.equal(result.status,'unresolved');
+  assert.match(result.why,/no exact identity link/);
+  assert.deepEqual(result.notes,['senscritique serie/40985616 also claimed by the-bear-s1, ignored']);
+  assert.equal(calls.length,0);
 });
 
 test('ladder: SensCritique poster first, IMDb challenge reported not bypassed, French TMDb poster as fallback', async () => {

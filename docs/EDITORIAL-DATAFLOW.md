@@ -139,7 +139,17 @@ Chaque candidate passe le contrôle de `validate-image-sources.mjs` (sans Refere
 signature d'image réelle). Une page redirigée vers un autre identifiant, une
 année incohérente ou un challenge anti-robot (IMDb répond souvent par un AWS WAF)
 est consignée et jamais contournée. Pas de page de recherche, de Google Images ni
-de CAPTCHA. Une clé `links.json` partagée par plusieurs œuvres est ignorée.
+de CAPTCHA.
+
+Une identité revendiquée par plusieurs œuvres n'identifie aucune d'elles : elle
+est ignorée, avec une note qui nomme les autres œuvres. Cela vaut pour une clé
+`links.json` partagée comme pour un même identifiant (type + id) présent pour deux
+œuvres, que ce soit dans leurs `links` ou dans `links.json` : deux saisons sur la
+fiche SensCritique de la série, une série et son épisode 1 sur la même page ARTE.
+Sans cela, la saison 2 recevrait l'affiche de la série. Une œuvre qui porte deux
+identifiants d'un même type les revendique tous les deux. TMDb numérote films et
+séries à part : `movie/N` et `tv/N` restent deux œuvres. Une œuvre privée ainsi de
+toute identité reste `unresolved` : lui donner son lien exact propre.
 
 ```sh
 # Visuels de la semaine (même ensemble que validate-image-sources) :
