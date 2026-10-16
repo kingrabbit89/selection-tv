@@ -38,6 +38,17 @@ await withEditorialLease(github(), {week: '2026-S43'}, async ({check, renew}) =>
 
 `withEditorialLease` signale si la libération échoue : il ne doit pas masquer silencieusement une erreur de sauvegarde. Il ne fournit **pas** à lui seul une garantie transactionnelle entre le bail et la mise à jour de la candidate : le contrôle de propriétaire, l'absence de force et la réconciliation de la branche sont toujours nécessaires.
 
+## Pousser la candidate en une commande (Claude Code ou terminal local)
+
+Depuis un clone local où `gh auth login` a été fait et où les commits de la semaine sont déjà créés :
+
+```sh
+node scripts/push-candidate.mjs 2026-S44 --dry-run   # contrôles seuls, sans bail ni push
+node scripts/push-candidate.mjs 2026-S44             # bail court, push sans force, libération
+```
+
+Le script enchaîne exactement la séquence ci-dessus : il refuse une branche `auto/YYYY-Sxx` distante qui n'est pas un ancêtre de `HEAD` (réconcilier d'abord, jamais forcer), tout chemin hors des livrables autorisés de la semaine, et, pour un checkpoint `ready`, toute empreinte `reviewed_files` qui ne correspond pas aux blobs **commités** (une copie de travail aux fins de ligne converties ne peut donc pas faire passer une revue périmée). Il acquiert ensuite un bail de dix minutes avec `withEditorialLease`, relit la tête distante, pousse `HEAD` vers `auto/YYYY-Sxx` sans force, vérifie la nouvelle tête puis libère le bail, y compris en cas d'échec du push. Un bail tiers actif bloque l'exécution. Le script ne touche ni `main` ni la promotion : la CI et le publicateur protégé restent seuls à fusionner.
+
 ## Chat avec connecteur GitHub, sans terminal Git authentifié
 
 Appliquer les mêmes opérations à l'aide des commandes GitHub **réellement disponibles** :
