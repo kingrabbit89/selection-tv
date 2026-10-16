@@ -13,6 +13,7 @@ import {validateTeleramaReport,teleramaExtractionContent} from './editorial-tele
 import {joinTeleramaEditorial,prepareInitialTeleramaSuggestions} from './editorial-telerama-signals.mjs';
 import {teleramaAuthorityPolicy,reviewTeleramaGrid,authoritativeTitleConflictAction} from './editorial-telerama-authority.mjs';
 import {webBroadcastPolicy,savedWebSourceDetails,planWebBroadcastReview} from './editorial-web-broadcast-policy.mjs';
+import {normalizeEvidenceRecord} from './editorial-evidence.mjs';
 
 const days = ['samedi','dimanche','lundi','mardi','mercredi','jeudi','vendredi'];
 const array = value => Array.isArray(value) ? value : [];
@@ -116,7 +117,8 @@ function pauseFor(attempt, observation, names, ids, week) {
 
 function indexedRows(context) {
   const sha = context.sha, week = context.week, rows = [], dossiers = [], cards = [];
-  array(context.research?.verification_records).forEach((record,index) => rows.push({record,
+  // Compact records (url, checked_at, field, result) read like legacy ones.
+  array(context.research?.verification_records).forEach((record,index) => rows.push({record:normalizeEvidenceRecord(record),
     provenance:provenance(sha,`data/research/${week}.json`,`/verification_records/${index}`)}));
   for (const [field,path] of [['research_dossiers',`data/research/${week}.json`],['dossiers',`data/research/${week}.json`]]) {
     array(context.research?.[field]).forEach((dossier,index) => dossiers.push({dossier,
@@ -446,7 +448,8 @@ export function buildProductionPlan(context, options={}) {
       saved_verification_records:records.map(({record,provenance})=>({fields:record.fields,status:record.status,stability:record.stability || null,
         fields_excluded_due_to_scope:record.fields_excluded_due_to_scope || [],
         stable_identity_fields_reused_outside_original_scope:record.stable_identity_fields_reused_outside_original_scope===true,
-        checked_at:record.checked_at || null,source_urls:array(record.source_urls),applies_to:record.applies_to,provenance})),
+        checked_at:record.checked_at || null,source_urls:array(record.source_urls),applies_to:record.applies_to,
+        ...(record.result?{result:record.result,value:record.value ?? null}:{}),provenance})),
       cached_links:exactLinks.map(([title,value])=>({title,value,certification:'not_certified_by_this_plan',
         provenance:provenance(sha,'data/links.json','/links/'+token(title))})),
       current_cards:currentCards.map(item=>({rank:item.candidate.rank,work_id:item.candidate.work_id,provenance:item.provenance})),

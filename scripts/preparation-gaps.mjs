@@ -3,6 +3,7 @@ import {spawnSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
 import {addDays, calendarTarget, parisToday} from './week-calendar.mjs';
 import {days, lastRunGaps, shortlistSummary} from './editorial-progress.mjs';
+import {compactEvidenceGaps} from './editorial-evidence.mjs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {buildTaskBoard, taskBoardMarkdown} from './editorial-task-board.mjs';
@@ -86,6 +87,7 @@ export function buildReport({week, from, sections, results, progress, snapshot =
     gap_count: gaps.filter(g => g.severity === 'blocking').length,
     warnings: gaps.filter(g => g.severity === 'warning').length, by_scope: byScope, gaps,
     process: {last_run_gaps: progress ? lastRunGaps(progress) : ['research checkpoint unreadable'],
+      evidence_gaps: progress ? compactEvidenceGaps(progress) : [],
       shortlist: progress ? shortlistSummary(progress) : null,
       structured_remaining: Array.isArray(progress?.remaining_items)}};
 }
@@ -100,6 +102,7 @@ export function markdown(report) {
   if (report.task_board) lines.push('', taskBoardMarkdown(report.task_board));
   lines.push('', '### Suivi de production');
   for (const gap of report.process.last_run_gaps) lines.push('- ' + gap);
+  for (const gap of report.process.evidence_gaps || []) lines.push('- Preuve compacte : ' + gap);
   lines.push(`- Présélection : ${report.process.shortlist?.entries ?? 0} piste(s) ; remaining_items ${report.process.structured_remaining ? 'présent' : 'absent'}.`);
   return lines.join('\n') + '\n';
 }

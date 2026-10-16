@@ -93,9 +93,90 @@ Une piste dont l'identité, la disponibilité ou l'intérêt restent insuffisamm
 
 Les tentatives qui attendent un fait nouveau portent un `retry_gate` explicitement revu et lié aux textes exacts des actions. `editorial-research-triage.mjs` affiche séparément les actions accessibles, les attentes et les annotations à revoir, sans supprimer aucune exigence. Le contrôleur de la nouvelle révision donne priorité au prochain lot du passage courant et écarte des recommandations les seules attentes valides ; les anciens passages conservent leur politique. Une réouverture demande une preuve nouvelle datée, pas seulement une autre URL répondant à la même question sans résultat. Aucun registre historique ne certifie à lui seul que toutes les tâches de ce passage sont bloquées.
 
-Dans `run_metrics`, distinguer nouvelles pistes, dossiers incomplets suivis, fiches complètes et exigences de couverture résolues. Deux passages successifs après le relevé primaire sans fiche complète déclenchent une revue de priorité au passage suivant : expliquer la cause, choisir des dossiers proches de l'achèvement ou traiter leur blocage précis, sans recommencer la collecte générale. Aucun chiffre ne constitue une certification éditoriale ni une obligation de remplir avec un titre faible.
+En mode passages, dans `run_metrics`, distinguer nouvelles pistes, dossiers incomplets suivis, fiches complètes et exigences de couverture résolues. Deux passages successifs après le relevé primaire sans fiche complète déclenchent une revue de priorité au passage suivant : expliquer la cause, choisir des dossiers proches de l'achèvement ou traiter leur blocage précis, sans recommencer la collecte générale. Aucun chiffre ne constitue une certification éditoriale ni une obligation de remplir avec un titre faible.
+
+### Deux modes de conduite : session continue ou passages
+
+Le même contrat s'applique dans deux modes de conduite de la production, déclarés par le champ `mode` de chaque entrée `run_metrics` : inventaire, preuves, seuils, validateurs, revue scellée, bail et chaîne de publication.
+
+- **Session continue** (`mode: "session"`) : une seule session tient du début à la fin un clone local avec un shell Git et `gh` authentifié, par exemple Claude Code. Elle mène le numéro du PDF Télérama jusqu'à la remise de la candidate scellée au publicateur, puis suit la chaîne jusqu'au site public. C'est le mode normal de production depuis le 16 octobre 2026.
+- **Passages** (entrée sans `mode`) : reprises de la tâche planifiée dans ChatGPT, de 50 minutes utiles, décrites dans « Enchaîner les lots pendant un passage » et `docs/EDITORIAL-AGENT-PROMPT.md`. Ce mode reste la voie de secours de la tâche horaire et peut reprendre un numéro laissé par une session.
+
+#### Ce qu'une session continue ne fait pas
+
+- Aucun budget de 55/50 minutes ni réserve de sauvegarde : la session continue jusqu'à la remise ou jusqu'à un vrai blocage.
+- Aucune décision `editorial-continuation.mjs` après chaque checkpoint ni champ `continuation_decision(s)`.
+- Aucune relecture des contrats à chaque passage ni trace `contract_reads` : la session lit les contrats une fois au début. Si `main` change pendant la session, elle relit seulement les blobs modifiés avant de synchroniser.
+- Aucune sauvegarde distante toutes les dix minutes. La session commite localement à la fin de chaque phase ou lot cohérent, et n'écrit sur GitHub que par `push-candidate.mjs`, sous son bail court (`docs/CHAT-LEASE-PROTOCOL.md`). Avant un arrêt prévu sans remise (fin de journée, blocage), elle pousse le checkpoint de préparation de la même façon, pour que la reprise planifiée reparte de l'état réel.
+- Aucun journal additionnel (`closure_decisions`, `remaining_history`, `documentary_pass_log`) : aucun outil ni validateur ne les lit, dans aucun mode. Une exigence se ferme par le livrable lui-même et sa preuve. `research_attempts` ne consigne que les impasses encore ouvertes à la fin de la session ; une impasse résolue ou remplacée pendant la session n'a pas besoin de registre.
+
+Tout le reste est identique : inventaire avant sélection et revue de transcription, seconde lecture et rappel éditorial, passe documentaire et son bilan de couverture, enrichissement complet, seuils, `remaining` faisant autorité (vidé seulement exigence par exigence), validateurs locaux puis CI, revue scellée par `seal-editorial-review.mjs`, publicateur protégé et attestation. Des sous-agents de recherche en lecture seule sont permis ; un seul propriétaire écrit.
+
+#### Une entrée `run_metrics` par session
+
+`scripts/editorial-session.mjs` lit l'horloge à chaque transition. Aucune option ne permet de fournir une heure : les heures ne sont jamais reconstituées.
+
+```sh
+node scripts/editorial-session.mjs start 2026-S44
+node scripts/editorial-session.mjs phase 2026-S44 import start
+node scripts/editorial-session.mjs phase 2026-S44 import end --note "PR de sources fusionnée"
+# … grid_inventory, shortlist, cards, sections, checks de la même façon
+node scripts/editorial-session.mjs phase 2026-S44 publication_chain start
+node scripts/seal-editorial-review.mjs 2026-S44 --review-completed
+node scripts/editorial-session.mjs finish 2026-S44 --stop-reason ready_handed_off
+git commit …   # puis
+node scripts/push-candidate.mjs 2026-S44
+```
+
+| Phase | Ce qu'elle couvre |
+|---|---|
+| `import` | PDF vers `telerama.json` et `telerama-editorial.json`, lecture des critiques, PR de sources fusionnée |
+| `grid_inventory` | inventaire de grille (relevé Web avant S44), revue de transcription, import du lot |
+| `shortlist` | présélection par jour et par rubrique |
+| `cards` | recherche et cartes des jours : choix, grilles commentées, réserves, passe documentaire |
+| `sections` | rubriques hors grille : replay, plateformes, sorties, expirations, radars, sommaire, couverture |
+| `checks` | validateurs locaux, revue navigateur, corrections |
+| `publication_chain` | scellement, push, CI, fusion par le publicateur, revalidation, promotion, Pages, `latest.html` |
+
+```json
+{"mode": "session", "prompt_revision": "production-session-2026-10-16",
+ "started_at": "2026-10-24T08:00:12.000Z", "ended_at": "2026-10-24T13:41:05.000Z", "run_state": "stopped",
+ "duration_basis": "Horloge réelle relevée par scripts/editorial-session.mjs …",
+ "phases": {"import": {"started_at": "…", "ended_at": "…"}, "…": {},
+   "publication_chain": {"started_at": "…", "ended_at": null, "basis": "La chaîne protégée continue sur GitHub …"}},
+ "deliverables_changed": ["data/weeks/2026-S44.json", "…"], "stop_reason": "ready_handed_off", "next_useful_batch": null}
+```
+
+- Les phases se suivent mais peuvent se chevaucher (sous-agents en parallèle) : leurs empans ne s'additionnent pas. Une phase reprise, par exemple `cards` après un contrôle, garde son premier début et note la reprise dans `reopened_at`. Une phase sans objet est sautée avec son motif (`skip … --reason`), par exemple un import déjà fusionné par une session précédente.
+- Avant que le checkpoint de la semaine existe (import sur `main`), l'entrée attend dans un journal du répertoire Git (`selection-tv-session-YYYY-Sxx.json`, jamais commité). Elle passe dans `run_metrics` à la première commande qui trouve `data/research/YYYY-Sxx.json`.
+- `ended_at` est la remise, c'est-à-dire le dernier commit de la candidate. La chaîne de publication continue ensuite sur GitHub : `publication_chain.ended_at` reste `null` avec son motif dans `basis`. La fin constatée sur `latest.html` figure dans le compte rendu de la session, et les horodatages des exécutions GitHub en gardent la trace.
+- `finish --stop-reason ready_handed_off` exige toutes les autres phases terminées ou sautées et la chaîne commencée. Un arrêt avant la remise exige `--next` (le prochain lot utile) et ferme les phases en cours à l'heure réelle de l'arrêt. `deliverables_changed` est calculé depuis Git (base `origin/main`), ou fourni par `--deliverables`.
+- Si la CI de la candidate échoue après la remise, la même session exécute `resume`, rouvre `checks`, corrige, puis `finish` de nouveau.
+- Une session interrompue sans bilan reste `running`. La session suivante démarre avec `start --supersede`, qui la marque `interrupted_unobserved` sans lui inventer de fin. Une reprise planifiée ajoute sa propre entrée de passage.
+- `node scripts/editorial-session.mjs check YYYY-Sxx` et le rapport `preparation-gaps` auditent cette entrée par phase, à titre informatif. L'audit des passages (décision de poursuite, seuil de 50 minutes) ne s'applique pas à une entrée de session.
+
+#### Preuves compactes
+
+En session, chaque preuve nouvelle est un enregistrement de `verification_records` qui énonce un fait, sans prose :
+
+```json
+{"work_id": "le-pont-de-la-riviere-kwai-1957", "url": "https://www.arte.tv/fr/guide/2026-10-18/",
+ "checked_at": "2026-10-15T10:27:11Z", "field": "broadcast.start", "result": "verified", "value": "13:30",
+ "applies_to": {"date": "2026-10-18", "channel": "Arte", "start": "13:30"}}
+```
+
+- `url` : la page réellement lue, ou `sha256:EMPREINTE#page=N` pour une page du PDF fourni ; jamais une page de résultats de recherche.
+- `checked_at` : l'heure réelle de la lecture.
+- `field` : le fait vérifié, par exemple `director`, `year`, `duration`, `broadcast.start`, `offer.expires`, `ratings.imdb`, `image` ou `critique`.
+- `result` : `verified`, `corrected`, `contradicted`, `unavailable` ou `not_found`. Pour `corrected` et `contradicted`, `value` donne la valeur observée.
+- Sujet : `work_id` si l'identité est certaine, sinon `title`, ou `applies_to` (date, chaîne, heure) pour une grille.
+- Facultatifs : `value` (300 caractères au plus), `note` (280 caractères au plus, seulement ce que les champs ne disent pas) et `stability` (`stable` par défaut pour les champs d'identité, `cycle_specific` sinon).
+
+Un enregistrement porte un fait et une source : deux guides concordants font deux enregistrements. `editorial-production-plan.mjs` et `editorial-work-packet.mjs` les lisent comme les enregistrements historiques, qui restent valides. Les dossiers en prose (`research_dossiers`) ne sont plus nécessaires : les faits vont dans ces enregistrements, la décision dans `shortlist.entries` (statut, `decision_note`), l'argument critique dans la carte et, pour un documentaire, dans le bilan de couverture exigé plus bas. Sur le parcours Web, `coverage.web_schedule_reviews` prend la même forme : une ligne par date et chaîne avec `url`, `checked_at`, `segment` (journée, nuit), `compared_with`, `omissions` (liste) et `result`, plus une `limit` courte si nécessaire. `preparation-gaps` et `editorial-session.mjs check` signalent un enregistrement compact mal formé ; ce signalement est informatif et ne change aucune barrière de publication.
 
 ### Enchaîner les lots pendant un passage
+
+Cette section s'applique au mode passages ; une session continue suit « Deux modes de conduite » ci-dessus.
 
 La cadence horaire est un filet de reprise, pas un quota d'un lot par exécution. La révision `production-web-evidence-2026-10-09`, comme les précédentes `production-telerama-first-suggestions-2026-10-09`, `production-telerama-authority-2026-10-09`, `production-proof-policy-2026-10-09`, `production-closure-2026-10-09`, `production-telerama-editorial-2026-10-09`, `production-telerama-optional-2026-10-09`, `production-dataflow-2026-10-09`, `production-integrity-2026-10-09` et `production-efficiency-2026-10-09`, utilise une durée cible de 55 minutes de temps écoulé observé, dont cinq minutes réservées à la dernière sauvegarde et à la libération du bail (50 minutes utiles). C'est une convention de travail à mesurer, pas une limite de la plateforme ni une mesure de quota. La révision historique `production-continuation-2026-10-09` utilisait35minutes ; ses observations restent auditées selon ce plafond, sans réécriture des faits. Sauvegarder régulièrement, puis continuer immédiatement sur le prochain lot utile tant que le temps restant, les outils et le bail permettent le travail et une sauvegarde finale sûre. Renouveler le bail après20minutes selon le protocole existant. Une sauvegarde, un dossier achevé, un changement de phase ou un contrôle CI en cours ne sont pas, à eux seuls, des motifs d'arrêt. Éviter les attentes répétées : pendant un contrôle, poursuivre les recherches indépendantes qui peuvent progresser, en gardant la validation finale liée au SHA exact.
 
@@ -137,7 +218,7 @@ Travailler ensuite par lots cohérents : `editorial-work-packet.mjs --title` pou
 
 Au début du passage, lire un rapport d'écarts correspondant à la tête/base courante ou l'exécuter une fois. Préparer quelques dossiers proches d'une carte (en général trois à six, sans quota), avec leurs champs manquants, périssables ou contradictoires. Regrouper les consultations indépendantes quand les outils le permettent et poursuivre les œuvres accessibles pendant qu'une piste attend une source. Ne pas rouvrir les contrats inchangés, les preuves stables déjà relues ni une impasse sans fait nouveau ; les dates originales et l'identité/version restent conservées.
 
-Fournir un seul plan de plusieurs cartes revues à l'outil de brouillon, incluant si prêts plusieurs jours, rubriques ou réserves. Conserver les pools complets existants lors de leur remplacement. Réutiliser une même preuve stable dans plusieurs emplacements seulement après confirmation de l'identité et de sa portée ; vérifier les diffusions/offres propres au cycle. Sauvegarder un lot cohérent ou les preuves partielles réellement obtenues environ toutes les dix minutes, avec un statut exact.
+Fournir un seul plan de plusieurs cartes revues à l'outil de brouillon, incluant si prêts plusieurs jours, rubriques ou réserves. Conserver les pools complets existants lors de leur remplacement. Réutiliser une même preuve stable dans plusieurs emplacements seulement après confirmation de l'identité et de sa portée ; vérifier les diffusions/offres propres au cycle. En mode passages, sauvegarder un lot cohérent ou les preuves partielles réellement obtenues environ toutes les dix minutes, avec un statut exact ; en session continue, commiter localement à la fin de chaque phase ou lot.
 
 Contrôler après modification les données, textes, liens, fraîcheur et pages concernés. Les tests de l'outillage ne sont pas à rejouer après chaque carte si le code n'a pas changé. Un contrôle identique sur les mêmes fichiers/paramètres n'est relancé qu'après changement, échec ou incertitude. Actualiser le rapport d'écarts après un lot qui modifie les livrables, pas avant chaque choix de titre ni après une simple écriture de métrique. Un rapport ancien n'oriente que le travail et ne certifie pas la nouvelle tête. Les contrôles complets sur le SHA/base final, images/navigateur/Jellyfin compris, restent obligatoires avant publication.
 
@@ -235,7 +316,7 @@ Le protocole Android minimal requis est défini par la configuration et le contr
 
 ## Production hybride et reprise dans Chat
 
-Le protocole opérationnel est `docs/HYBRID-WORKFLOW.md`. Les tâches inventaire et enrichissement privilégient les résultats éditoriaux et les checkpoints ; les contrôles répétitifs et la publication mécanique sont confiés à GitHub. Les cinq anciennes tâches sont conservées en pause, remplacées par une tâche unique de reprise horaire ; son moteur et son quota ne sont pas migrés automatiquement vers Chat.
+La production normale est une session continue (« Deux modes de conduite » ci-dessus) ; le protocole opérationnel des reprises est `docs/HYBRID-WORKFLOW.md`. Les tâches inventaire et enrichissement privilégient les résultats éditoriaux et les checkpoints ; les contrôles répétitifs et la publication mécanique sont confiés à GitHub. Les cinq anciennes tâches sont conservées en pause, remplacées par une tâche unique de reprise horaire ; son moteur et son quota ne sont pas migrés automatiquement vers Chat.
 
 `prepare-editorial-handoff.yml` exporte le contexte, `import-editorial-handoff.yml` importe les lots communs depuis une branche handoff, et `weekly-publisher.yml` peut effectuer les fusions protégées et créer la PR de promotion. Il exige une revue éditoriale explicite liée aux empreintes des livrables, en plus de tous les contrôles existants. Il ne remplace aucune validation de qualité par un simple marqueur. Toute modification invalide la revue des fichiers concernés.
 
