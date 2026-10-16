@@ -6,7 +6,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {pathToFileURL} from 'node:url';
 import {normTitle} from './image-health.mjs';
-import {IDENTITY_PATTERNS,exactIdentity,linkClaims,hostPacer,fetchDocument,fetchJson,jsonLd,metaContent,weekTargets} from './poster-resolver.mjs';
+import {IDENTITY_PATTERNS,identityOwners as posterIdentityOwners,workIdentity as posterWorkIdentity,linkClaims,hostPacer,
+  fetchDocument,fetchJson,jsonLd,metaContent,weekTargets} from './poster-resolver.mjs';
 
 const array=value=>Array.isArray(value)?value:value===undefined||value===null?[]:[value];
 const unique=list=>[...new Set(list)];
@@ -22,7 +23,6 @@ export const RATINGS=['senscritique','imdb'];
 export const PATTERNS={...IDENTITY_PATTERNS,
   wikidata:[/^https:\/\/www\.wikidata\.org\/wiki\/(Q\d+)\/?$/,m=>({id:m[1]})],
   wikipedia:[/^https:\/\/(fr|en)\.wikipedia\.org\/wiki\/([^/?#]+)$/,m=>({id:m[1]+':'+m[2],lang:m[1],page:m[2]})]};
-const refId=ref=>ref.grid?ref.grid+'#'+ref.id:ref.id;
 
 // Comparison key that keeps every script (normTitle drops Hangul, kanji…).
 const key=value=>String(value??'').normalize('NFD').replace(/\p{M}/gu,'').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
@@ -69,29 +69,10 @@ function catalogueValue(work,field){
   return splitNames(raw);
 }
 
-// links.json is keyed by title and works.json carries its own links: an
-// identifier that several works claim identifies none of them.
-export function identityOwners(works,{links={},claims=linkClaims(works)}={}){
-  const owners=new Map();
-  for(const work of works){
-    for(const [kind,ref] of Object.entries(exactIdentity(work,{links,claims,patterns:PATTERNS}).identity)){
-      const id=kind+':'+refId(ref);
-      if(!owners.has(id))owners.set(id,new Set());
-      owners.get(id).add(work.id);
-    }
-  }
-  return owners;
-}
-export function workIdentity(work,{links={},claims=linkClaims([work]),owners=new Map()}={}){
-  const {identity,conflicts,notes}=exactIdentity(work,{links,claims,patterns:PATTERNS});
-  for(const [kind,ref] of Object.entries(identity)){
-    const others=[...(owners.get(kind+':'+refId(ref))||[])].filter(id=>id!==work.id);
-    if(!others.length)continue;
-    delete identity[kind];
-    notes.push(`${kind} ${refId(ref)} also identifies ${others.join(', ')}, ignored`);
-  }
-  return {identity,conflicts,notes};
-}
+// Same rule as the posters: an identifier that several works claim identifies
+// none of them. Wikidata and Wikipedia links are claims too.
+export const identityOwners=(works,options={})=>posterIdentityOwners(works,{...options,patterns:PATTERNS});
+export const workIdentity=(work,options={})=>posterWorkIdentity(work,{...options,patterns:PATTERNS});
 
 // SensCritique appends an alias in parentheses: "Kane Parsons (Kane Pixels)".
 const persons=value=>unique(array(value).filter(item=>item&&typeof item==='object'&&(!item['@type']||item['@type']==='Person'))

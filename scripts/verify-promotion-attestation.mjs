@@ -7,12 +7,27 @@ import {pathToFileURL} from 'node:url';
 
 export const workflowPath = '.github/workflows/promote-validated-week.yml';
 export const attestStep = 'Attest the validated base commit';
+// Exit status when a revalidation of the exact base has not finished yet. It is
+// still a refusal: only the publisher treats it as "wait for the next run".
+export const PENDING_EXIT = 75;
+// Two serialized revalidations (25-minute job timeout each) plus queueing. An
+// older unfinished run is stuck, not pending, and fails like any other refusal.
+export const PENDING_LIMIT_MS = 60 * 60 * 1000;
 
 const succeeded = x => x?.status === 'completed' && x.conclusion === 'success';
 
+function unfinished(run, base, now) {
+  const still = `Revalidation run ${run.id} for ${base} is still ${run.status}`;
+  const started = Date.parse(run.run_started_at ?? run.created_at ?? '');
+  if (!Number.isFinite(started)) return {verified: false, reason: `${still} since an unknown time; it cannot be proven pending.`};
+  if (now - started > PENDING_LIMIT_MS)
+    return {verified: false, reason: `${still} after more than ${PENDING_LIMIT_MS / 60000} minutes; it is stuck, not pending.`};
+  return {verified: false, pending: true, reason: `${still}; wait for its result.`};
+}
+
 // The latest revalidation of the exact base decides. An older success never
 // hides a newer failed, cancelled, re-run or still-running revalidation.
-export function selectAttestation({runs, jobsFor, artifactsFor, readProof, week, base, repo}) {
+export function selectAttestation({runs, jobsFor, artifactsFor, readProof, week, base, repo, now = Date.now()}) {
   assert.match(week || '', /^\d{4}-S\d{2}$/, 'Invalid week');
   assert.match(base || '', /^[a-f0-9]{40}$/, 'Invalid base');
   const relevant = runs.filter(run => run.head_sha === base && run.path === workflowPath &&
@@ -21,8 +36,7 @@ export function selectAttestation({runs, jobsFor, artifactsFor, readProof, week,
   for (const run of relevant) {
     // A queued rerun keeps its old run ID. Do not let any unfinished attempt
     // disappear behind a newer ID whose earlier attempt succeeded.
-    if (run.status !== 'completed')
-      return {verified: false, reason: `Revalidation run ${run.id} for ${base} is still ${run.status}; wait for its result.`};
+    if (run.status !== 'completed') return unfinished(run, base, now);
     // filter=latest returns the jobs of the newest attempt; refuse stale attempts.
     const jobs = jobsFor(run).filter(job => job.run_id === run.id &&
       (run.run_attempt === undefined || job.run_attempt === undefined || job.run_attempt === run.run_attempt));
@@ -90,8 +104,19 @@ function main() {
       } finally {fs.rmSync(dir, {recursive: true, force: true});}
     }
   });
-  if (!result.verified) throw Error(result.reason + ' Run promote-validated-week on current main; never bypass this gate.');
-  console.log('✓ ' + result.reason);
+  const {exitCode, message} = cliOutcome(result);
+  if (exitCode === 1) throw Error(message);
+  if (exitCode === PENDING_EXIT) console.error(message); else console.log(message);
+  process.exitCode = exitCode;
+}
+
+// CLI contract: exit 0 with a proof, PENDING_EXIT while the exact-base
+// revalidation is still running, a thrown refusal (exit 1) for everything else.
+export function cliOutcome(result) {
+  if (result.verified === true) return {exitCode: 0, message: '✓ ' + result.reason};
+  if (result.pending === true)
+    return {exitCode: PENDING_EXIT, message: result.reason + ' Attestation pending: no proof exists yet; never bypass this gate.'};
+  return {exitCode: 1, message: result.reason + ' Run promote-validated-week on current main; never bypass this gate.'};
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();

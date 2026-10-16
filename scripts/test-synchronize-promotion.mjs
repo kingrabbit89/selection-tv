@@ -60,6 +60,7 @@ function fixture(fault = {}) {
     if (fault.headMovedBefore) branchRef = other;
     if (fault.closedBefore) prClosed = true;
     if (fault.attestationThrows) throw Error('Latest exact-base revalidation is red');
+    if (fault.attestationPending) throw fault.attestationPending;
     return !fault.attestationFalse;
   };
   return {api, mutations, attestations, currentManifest, currentWeek, branch: () => branchRef,
@@ -101,6 +102,16 @@ for (const flag of ['mainMovedAfter', 'headMovedAfter', 'closedAfter']) {
     assert.equal(f.branch(), flag === 'headMovedAfter' ? other : head);
   });
 }
+
+test('a still-running revalidation of the new main propagates unchanged before any Git write', () => {
+  // The publisher recognises this exact error as "attestation pending" and stops neutrally.
+  const pending = Error('Revalidation run 1 for ' + base + ' is still in_progress; wait for its result.');
+  const f = fixture({attestationPending: pending});
+  assert.throws(() => f.run(), error => error === pending);
+  assert.deepEqual(f.attestations, [{week, base}]);
+  assert.deepEqual(f.mutations, []);
+  assert.equal(f.branch(), head);
+});
 
 test('a concurrent sibling update is never forced or retried over its new head', () => {
   const f = fixture({concurrentSibling: true});

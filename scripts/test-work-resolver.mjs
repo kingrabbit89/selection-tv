@@ -74,7 +74,7 @@ test('identity: Wikidata and Wikipedia links count; an identifier claimed by sev
   const s6=workIdentity(works[2],{claims,owners});
   assert.equal(s6.identity.imdb,undefined,'the series IMDb id names two works');
   assert.equal(s6.identity.senscritique.id,'43702519');
-  assert.match(s6.notes[0],/imdb tt5875444 also identifies slow-horses-s5, ignored/);
+  assert.match(s6.notes[0],/imdb tt5875444 also claimed by slow-horses-s5, ignored/);
   // Search pages and guides are never identities.
   const search=workIdentity({id:'x',title:'X',links:{a:'https://fr.wikipedia.org/w/index.php?search=X',b:'https://www.wikidata.org/w/index.php?search=X'}});
   assert.deepEqual(search.identity,{});
