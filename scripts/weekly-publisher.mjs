@@ -22,6 +22,7 @@ export function checksPass(checks,statuses=[]){
 export function reviewedCandidate(week,progress,read,paths){
   assert.equal(progress.week,week);assert.equal(progress.stage,'ready');assert.equal(progress.editorial_review_completed,true);
   assert.deepEqual(progress.remaining,[],'unfinished editorial work');
+  assert(progress.editorial_review?.completed!==false,'current editorial review is incomplete; legacy flag cannot override it');
   const expected=[...allowedPaths(week)].filter(p=>p!==`data/research/${week}.json`);
   for(const p of expected){const content=read(p);assert(content!==null,'missing output '+p);assert.equal(progress.reviewed_files?.[p],digest(content),'review is stale for '+p);}
   for(const p of paths)assert(allowedPaths(week).has(p),'automatic candidate merge cannot change code/configuration: '+p);
