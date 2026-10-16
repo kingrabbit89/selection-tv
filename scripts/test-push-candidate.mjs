@@ -4,11 +4,14 @@ import {pushCandidate,preflight,repositoryFromRemote,gitRunner} from './push-can
 import {allowedPaths,digest} from './editorial-handoff.mjs';
 import {manageLease} from './editorial-lease.mjs';
 
-const week='2026-S43',branch='auto/'+week,lock='locks/editorial-'+week;
+const week='2026-S43',branch='auto/'+week,lock='locks/editorial-'+week,repoName='kingrabbit89/selection-tv';
 
-function leaseApi(){
+function leaseApi(existingPR=null){
   const refs={main:'main'},commits={main:{sha:'main',tree:{sha:'tree'}}};let n=0;
+  const prs=existingPR?[existingPR]:[],created=[],readied=[];
   const api=(p,method='GET',body)=>{
+    if(p===`pulls?state=open&base=main&head=${encodeURIComponent('kingrabbit89:'+branch)}`)return prs;
+    if(p==='pulls'&&method==='POST'){assert.equal(body.head,branch);assert.equal(body.base,'main');const pr={number:90+created.length,html_url:'https://github.com/'+repoName+'/pull/90',draft:body.draft};created.push(body);prs.push(pr);return pr;}
     if(p.startsWith('git/ref/heads/')){const key=p.slice(14);if(!refs[key]){const e=Error('missing');e.stderr='HTTP 404';throw e;}return {object:{sha:refs[key]}};}
     if(p==='git/commits'&&method==='POST'){const sha='l'+(++n);commits[sha]={...body,sha,tree:{sha:body.tree}};return {sha};}
     if(p.startsWith('git/commits/'))return commits[p.slice(12)];
@@ -17,7 +20,7 @@ function leaseApi(){
     throw Error('Unexpected '+p);
   };
   const state=()=>refs[lock]?JSON.parse(commits[refs[lock]].message):null;
-  return {api,state};
+  return {api,state,created,readied,markReady:number=>readied.push(number)};
 }
 
 function repo({stage='ready',extraPath=null,stale=false,remote='old',ancestor=true}={}){
@@ -47,8 +50,8 @@ function repo({stage='ready',extraPath=null,stale=false,remote='old',ancestor=tr
 }
 
 test('a sealed candidate is pushed fast-forward under a released chat lease',async()=>{
-  const r=repo(),{api,state}=leaseApi();
-  const out=await pushCandidate(week,{git:r.git,api,clock:()=>0});
+  const r=repo(),{api,state,markReady}=leaseApi();
+  const out=await pushCandidate(week,{git:r.git,api,repo:repoName,markReady,clock:()=>0});
   assert.equal(out.pushed,true);assert.deepEqual(r.pushes,['head:refs/heads/'+branch]);
   assert.equal(r.remotes[branch],'head');assert.equal(state().released,true);assert.equal(state().mode,'chat');
 });
@@ -79,6 +82,27 @@ test('a failing push still releases the lease',async()=>{
   const failing=args=>{if(args[0]==='push')throw Error('rejected');return r.git(args);};
   await assert.rejects(pushCandidate(week,{git:failing,api,clock:()=>0}),/rejected/);
   assert.equal(state().released,true);
+});
+
+test('a sealed candidate opens one non-draft PR, reused when rerun',async()=>{
+  const r=repo(),l=leaseApi();
+  const first=await pushCandidate(week,{git:r.git,api:l.api,repo:repoName,markReady:l.markReady,clock:()=>0});
+  assert.equal(first.pull_request.number,90);assert.equal(l.created.length,1);assert.equal(l.created[0].draft,false);
+  const again=await pushCandidate(week,{git:r.git,api:l.api,repo:repoName,markReady:l.markReady,clock:()=>0});
+  assert.equal(again.reason,'already up to date');assert.equal(again.pull_request.number,90);
+  assert.equal(l.created.length,1);assert.deepEqual(l.readied,[]);
+});
+
+test('an existing draft PR is marked ready once the candidate is sealed',async()=>{
+  const r=repo(),l=leaseApi({number:69,html_url:'https://github.com/'+repoName+'/pull/69',draft:true});
+  const out=await pushCandidate(week,{git:r.git,api:l.api,repo:repoName,markReady:l.markReady,clock:()=>0});
+  assert.deepEqual(l.readied,[69]);assert.equal(out.pull_request.marked_ready,true);assert.equal(l.created.length,0);
+});
+
+test('a preparation checkpoint is pushed without opening or readying a PR',async()=>{
+  const r=repo({stage:'enrichment'}),l=leaseApi({number:69,html_url:'x',draft:true});
+  const out=await pushCandidate(week,{git:r.git,api:l.api,repo:repoName,markReady:l.markReady,clock:()=>0});
+  assert.equal(out.pushed,true);assert.equal(out.pull_request,undefined);assert.deepEqual(l.readied,[]);assert.equal(l.created.length,0);
 });
 
 test('dry run and preparation checkpoints never take the lease',async()=>{

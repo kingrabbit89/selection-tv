@@ -8,7 +8,7 @@ import {fileURLToPath} from 'node:url';
 import {addDays, calendarTarget, validateCandidateCalendar} from './week-calendar.mjs';
 import {allowedPaths, digest, planImport} from './editorial-handoff.mjs';
 import {inputSnapshot, buildReport, validators} from './preparation-gaps.mjs';
-import {reviewedCandidate, inPublicationWindow, checksPass} from './weekly-publisher.mjs';
+import {reviewedCandidate, checksPass} from './weekly-publisher.mjs';
 import {inspectWeek, watchdogTarget} from './weekly-watchdog.mjs';
 import {validateTransition} from './validate-promotion-transition.mjs';
 import {testEnvironment} from './run-test-isolation.mjs';
@@ -157,12 +157,7 @@ test('missed cycle cannot be promoted later and does not displace the next calen
   assert.equal(JSON.parse(success(f.run('./next-target.mjs', [], env))).week, '2026-S43');
 });
 
-test('publication boundaries remain Paris-based on both sides of DST and new year', () => {
-  for (const boundary of ['2026-03-27T19:00:00Z', '2026-04-03T18:00:00Z',
-    '2026-10-23T18:00:00Z', '2026-10-30T19:00:00Z', '2027-01-01T19:00:00Z']) {
-    assert.equal(inPublicationWindow(new Date(Date.parse(boundary) - 1000)), false, boundary);
-    assert.equal(inPublicationWindow(new Date(boundary)), true, boundary);
-  }
+test('every required check must succeed before an automatic merge', () => {
   const checks = ['data-and-policy', 'browser-presentation'].map((name, i) => ({id: i + 1, name,
     app: {id: 1, slug: 'github-actions'}, status: 'completed', conclusion: 'success'}));
   assert(checksPass(checks));

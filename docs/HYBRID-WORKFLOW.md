@@ -55,7 +55,7 @@ La dernière commande enregistre les SHA-256 des neuf livrables après revue ; e
 
 ## Publicateur GitHub
 
-**Weekly protected publisher** avance au maximum une étape par passage, le vendredi à partir de 20 h et le samedi, fuseau Europe/Paris. Il est déclenché après les validations réussies et toutes les demi-heures vendredi/samedi (les heures GitHub peuvent être retardées).
+**Weekly protected publisher** avance au maximum une étape par passage, **n'importe quel jour** : la publication suit la validation, sans fenêtre horaire. Il est déclenché après chaque validation réussie (candidate, revalidation post-fusion, promotion), si bien qu'une candidate scellée et verte est publiée sans attente ; un passage planifié toutes les demi-heures sert de reprise (les heures GitHub peuvent être retardées). Vendredi 20 h reste l'échéance au plus tard surveillée par le watchdog du samedi.
 
 - Candidate : même dépôt, branche auto de la cible, uniquement fichiers éditoriaux autorisés, revue explicite liée aux contenus, tous les checks applicables terminés/successful, dont data-and-policy et browser-presentation. Main doit être ancêtre de la tête. Fusion avec SHA attendu, sans bypass.
 - Brouillon fusionné : revalidation post-fusion existante. Le publicateur exige l'artefact promotion-ready pour le SHA exact de main avant de créer la PR promote.
