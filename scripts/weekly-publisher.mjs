@@ -13,6 +13,9 @@ const summaryLog=s=>{console.log(s);if(process.env.GITHUB_STEP_SUMMARY)fs.append
 // No attestation exists yet: a revalidation of this exact main is still running.
 // Nothing advances; its completion (or the next cron) wakes the publisher again.
 export class AttestationPending extends Error {}
+// The open candidate is still in production (inventory or enrichment): it is
+// neither merged nor synchronized. Pushing its sealed version wakes the publisher.
+export class CandidateNotReady extends Error {}
 export function verifyAttestation(week,base,exec=execFileSync){
   try{exec(process.execPath,['scripts/verify-promotion-attestation.mjs',week,base],{stdio:'pipe'});return true;}
   catch(e){
@@ -36,14 +39,27 @@ export function reviewedCandidate(week,progress,read,paths){
   for(const p of expected){const content=read(p);assert(content!==null,'missing output '+p);assert.equal(progress.reviewed_files?.[p],digest(content),'review is stale for '+p);}
   assertCandidatePaths(week,paths,read,'automatic candidate merge cannot change code/configuration: ');
 }
-// A pending attestation is the only neutral stop. Mismatches, failed or stuck
-// revalidations and every other refusal still fail the run.
+// True for a coherent preparation checkpoint, which only waits. It still cannot
+// carry code, claim a finished review or omit its unfinished work. Any other
+// stage is left to reviewedCandidate, which accepts only a sealed 'ready'.
+export function inPreparation(week,progress,read,paths){
+  if(!['inventory','enrichment'].includes(progress.stage))return false;
+  assert.equal(progress.week,week);
+  assert(Array.isArray(progress.remaining)&&progress.remaining.length>0,'preparation must describe unfinished work');
+  assert(progress.editorial_review_completed!==true&&progress.editorial_review?.completed!==true,'unfinished preparation cannot claim completed review');
+  assertCandidatePaths(week,paths,read,'automatic candidate merge cannot change code/configuration: ');
+  return true;
+}
+// A pending attestation and a candidate still in preparation are the only
+// neutral stops. Mismatches, failed or stuck revalidations, stale or incoherent
+// candidates and every other refusal still fail the run.
 export async function runPublisher({api=github(),repo=process.env.GITHUB_REPOSITORY,week=calendarTarget().week,
   verify=verifyAttestation,log=summaryLog}={}){
   try{await advancePublication({api,repo,week,verify,log});}
   catch(e){
-    if(!(e instanceof AttestationPending))throw e;
-    log(`Attestation pending for ${week}; next run will continue. ${e.message}`);
+    if(e instanceof AttestationPending)log(`Attestation pending for ${week}; next run will continue. ${e.message}`);
+    else if(e instanceof CandidateNotReady)log(`Candidate not ready for ${week}; next run will continue. ${e.message}`);
+    else throw e;
     return {pending:true};
   }
   return {pending:false};
@@ -83,16 +99,26 @@ async function advancePublication({api,repo,week,verify,log}){
       log(`Synchronized exact promotion PR #${pr.number} at ${synced.sha}; new checks must pass before any merge.`);
       return;
     }
-    assert(['ahead','identical'].includes(relation.status),'branch behind/diverged from main; normal synchronization required');
     const files=api(`pulls/${pr.number}/files?per_page=100`);assert(files.length<100,'too many files for safe automatic review');
+    const paths=files.map(f=>f.filename),read=p=>readContent(api,head,p);
+    let progress=null;
     if(!isPromotion){
-      reviewedCandidate(week,JSON.parse(readContent(api,head,`data/research/${week}.json`)),p=>readContent(api,head,p),files.map(f=>f.filename));
-      const m=JSON.parse(readContent(api,head,'data/manifest.json'));
+      const checkpoint=read(`data/research/${week}.json`);assert(checkpoint!==null,'research checkpoint missing at candidate head');
+      progress=JSON.parse(checkpoint);
+      // Before the synchronization check: main moving under a candidate in
+      // production is expected. Only a sealed candidate must be up to date.
+      if(inPreparation(week,progress,read,paths))
+        throw new CandidateNotReady(`PR #${pr.number} is at stage '${progress.stage}' with ${progress.remaining.length} remaining item(s).`);
+    }
+    assert(['ahead','identical'].includes(relation.status),'branch behind/diverged from main; normal synchronization required');
+    if(!isPromotion){
+      reviewedCandidate(week,progress,read,paths);
+      const m=JSON.parse(read('data/manifest.json'));
       assert.equal(m.latest,manifest.latest);assert.equal(m.weeks.find(w=>w.week===week)?.status,'draft');
-      assert.equal(JSON.parse(readContent(api,head,`data/weeks/${week}.json`)).publication_status,'draft');
+      assert.equal(JSON.parse(read(`data/weeks/${week}.json`)).publication_status,'draft');
     }else{
       verify(week,main);
-      assert.deepEqual(files.map(f=>f.filename).sort(),['data/manifest.json',`data/weeks/${week}.json`].sort());
+      assert.deepEqual([...paths].sort(),['data/manifest.json',`data/weeks/${week}.json`].sort());
     }
     const checks=api(`commits/${head}/check-runs?per_page=100`);
     assert(checks.total_count<=100,'too many checks');

@@ -31,3 +31,14 @@ test('a neutral attestation-pending run cannot clear an alert; a real publisher 
  // A mismatch, failed or stuck revalidation fails the run: always reconciled.
  for(const conclusion of ['failure','timed_out','cancelled'])assert(watchdogTrigger('workflow_run',event(conclusion),()=>[]).allowed);
 });
+
+test('a neutral candidate-not-ready run cannot clear an alert: an open candidate in preparation stays pending',async()=>{
+ // The publisher exits 0 from the advance step, so the watchdog reconciles (reconcile-only on workflow_run).
+ const advanced=()=>[{run_id:5,name:'publish',steps:[{name:'Advance one verified publication stage',status:'completed',conclusion:'success'}]}];
+ assert(watchdogTrigger('workflow_run',{workflow_run:{id:5,conclusion:'success'}},advanced).allowed);
+ const preparation=[{state:'open',head:{ref:'auto/'+week},html_url:'https://github.com/owner/repo/pull/9'}];
+ for(const entry of [null,{status:'draft'}]){
+  const result=await run(entry,preparation);
+  assert.equal(result.ok,false);assert.equal(result.reason,'publication-pending');
+ }
+});
