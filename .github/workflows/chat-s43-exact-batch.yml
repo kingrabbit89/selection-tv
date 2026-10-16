@@ -1,0 +1,41 @@
+name: Chat S43 exact reviewed batch
+on:
+  push:
+    branches: ['transport/chat-s43-20261016']
+    paths: ['.github/workflows/chat-s43-exact-batch.yml', 'handoffs/chat-s43-20261016/apply-exact.py']
+permissions:
+  contents: write
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SELECTION_TV_VALIDATE_WEEK: 2026-S43
+      SELECTION_TV_CANDIDATE: '1'
+      CANDIDATE: ${{ github.workspace }}/candidate
+      OUT: ${{ runner.temp }}/chat-s43-exact
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: transport
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: dc90984a8fad7e3c746ab1617b9f400cbce0afb0
+          fetch-depth: 0
+          path: candidate
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify original hashes, import handoff, check links and freshness, create objects only
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 transport/handoffs/chat-s43-20261016/apply-exact.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: chat-s43-exact-${{ github.sha }}
+          path: ${{ runner.temp }}/chat-s43-exact/
+          retention-days: 3
+          if-no-files-found: error
