@@ -157,7 +157,9 @@
     "2026-10-16T13:09:06Z — chat-batch02-nine-daily-reserves : neuf occurrences de huit œuvres relues, dont le catalogue Alcatraz enrichi et sept œuvres ajoutées. Les sept journées disposent maintenant de dix candidats complets ; trois primaires par jour inchangés. Ce seuil ne certifie ni omissions, ni rubriques manquantes, ni publication.",
     "2026-10-16T13:50:44Z — chat-batch03-replay-gratuit : 2 replays (H24, Le prisonnier d’Alcatraz), 2 plateformes gratuites documentaires (Mary Cassatt, Les Étonnantes Techniques des bâtisseurs de la pyramide de Khéops). Trois nouvelles œuvres canoniques et une œuvre réutilisée. Données, offres et visuels exacts relus ; cartes matérialisées localement, liens et fraîcheur passent ; rendu non encore validé.",
     "2026-10-16T14:01:30Z — chat-batch04-abonnement-arrivee-retrait : première page abonnement complète (Kirikou, Oasis, Mes morts tristes), arrivée Oasis Disney+ France au 9/10 et échéance H24 ARTE au 22/10. Trois nouvelles œuvres, cinq cartes ; miniserie correctement séparée de son montage cinéma. Abonnement 3/9, streaming 1/3 : rubriques non achevées. Liens/fraîcheur passent, pas de validation du rendu.",
-    "Chat 16 octobre : quatre dossiers de sorties physiques du 20/10 complétés (Vivre, Nadja, Secrets et mensonges, Naked) ; deux choix prévus et deux réserves ; handoff préparé localement, non transféré. Dates éditoriales, versions et disponibilités sourcées ; imagerie/CI non certifiées."
+    "Chat 16 octobre : quatre dossiers de sorties physiques du 20/10 complétés (Vivre, Nadja, Secrets et mensonges, Naked) ; deux choix prévus et deux réserves ; handoff préparé localement, non transféré. Dates éditoriales, versions et disponibilités sourcées ; imagerie/CI non certifiées.",
+    "Chat 16 octobre, intégration GitHub sécurisée de batch05 physical et des 6 fichiers éditoriaux exacts sur auto/2026-S43, commit 534c8bcbbc8df65b4cae703121b802abbb0d37fc ; bail court acquis puis libéré ; aucune publication.",
+    "Chat 16 octobre, lot radar UHD page 1 : cinq cartes complètes (Vivre, Nadja, Phenomena, Annihilation, Le Loup-garou de Londres), différenciant restauration 4K et SteelBooks ; sources produit et critiques datées, identité canonique conservée, CINQ cartes visibles, ZÉRO réserve HD à ce stade. Pages de radar et sommaire générées via editorial-draft-cards et contrôlées par handoff ; les autres radars restent à construire."
   ],
   "blockers": [],
   "research_attempts": [
@@ -7567,6 +7569,106 @@
         "available_until": "2026-10-22",
         "last_day": "2026-10-22"
       }
+    },
+    {
+      "id": "chat-s43-hd1-vivre-1952-20261016",
+      "work_id": "vivre-1952",
+      "fields": [
+        "radar_hd.added",
+        "radar_hd.added_source_url",
+        "radar_hd.editorial_copy",
+        "work.identity_version",
+        "work.image_previously_sourced"
+      ],
+      "urls": [
+        "https://laboutique.carlottafilms.com/products/vivre-de-akira-kurosawa",
+        "https://laboutique.carlottafilms.com/collections/clients-suisse/products/pack-octobre-2026"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "release_edition_current",
+      "applies_to": "2026-S43 radar-1 UHD release edition",
+      "evidence_note": "Nouvelle restauration 4K Carlotta, édition française du 20 octobre 2026, deux éléments distincts de preuve. Critique ancienne et métadonnées stables reprises sans inventer un nouveau checked_at distant.",
+      "status": "reviewed_partial_radar"
+    },
+    {
+      "id": "chat-s43-hd1-nadja-1994-20261016",
+      "work_id": "nadja-1994",
+      "fields": [
+        "radar_hd.added",
+        "radar_hd.added_source_url",
+        "radar_hd.editorial_copy",
+        "work.identity_version",
+        "work.image_previously_sourced"
+      ],
+      "urls": [
+        "https://laboutique.carlottafilms.com/products/nadja-de-michael-almereyda",
+        "https://laboutique.carlottafilms.com/collections/clients-suisse/products/pack-octobre-2026"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "release_edition_current",
+      "applies_to": "2026-S43 radar-1 UHD release edition",
+      "evidence_note": "Restauration 4K, Director’s Cut 97 min et version cinéma 93 min; 20 octobre. Critique ancienne et métadonnées stables reprises sans inventer un nouveau checked_at distant.",
+      "status": "reviewed_partial_radar"
+    },
+    {
+      "id": "chat-s43-hd1-phenomena-1985-20261016",
+      "work_id": "phenomena-1985",
+      "fields": [
+        "radar_hd.added",
+        "radar_hd.added_source_url",
+        "radar_hd.editorial_copy",
+        "work.identity_version",
+        "work.image_previously_sourced"
+      ],
+      "urls": [
+        "https://www.fnac.com/a23469757/Phenomena-Edition-Collector-Blu-ray-4K-Ultra-HD-Jennifer-Connelly-Blu-ray-4K",
+        "https://digitalcine.fr/4k-bluray-dvd/news-bluray-dvd/98489-planning-blu-ray-et-bluray-4k-octobre-2026/"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "release_edition_current",
+      "applies_to": "2026-S43 radar-1 UHD release edition",
+      "evidence_note": "Édition collector française 4K du 14 octobre, ne prouve pas une restauration nouvelle. Critique ancienne et métadonnées stables reprises sans inventer un nouveau checked_at distant.",
+      "status": "reviewed_partial_radar"
+    },
+    {
+      "id": "chat-s43-hd1-annihilation-2018-20261016",
+      "work_id": "annihilation-2018",
+      "fields": [
+        "radar_hd.added",
+        "radar_hd.added_source_url",
+        "radar_hd.editorial_copy",
+        "work.identity_version",
+        "work.image_previously_sourced"
+      ],
+      "urls": [
+        "https://esc-boutique.com/produit/annihilation-steelbook-edition-limitee/",
+        "https://www.metacritic.com/movie/annihilation/"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "release_edition_current",
+      "applies_to": "2026-S43 radar-1 UHD release edition",
+      "evidence_note": "SteelBook français 4K 14 octobre, master inédit non attesté. Metacritic historique conservé. Critique ancienne et métadonnées stables reprises sans inventer un nouveau checked_at distant.",
+      "status": "reviewed_partial_radar"
+    },
+    {
+      "id": "chat-s43-hd1-le-loup-garou-de-londres-1981-20261016",
+      "work_id": "le-loup-garou-de-londres-1981",
+      "fields": [
+        "radar_hd.added",
+        "radar_hd.added_source_url",
+        "radar_hd.editorial_copy",
+        "work.identity_version",
+        "work.image_previously_sourced"
+      ],
+      "urls": [
+        "https://esc-boutique.com/produit/le-loup-garou-de-londres-steelbook-edition-limitee/",
+        "https://www.universalpicturesathome.com/movies/an-american-werewolf-in-london"
+      ],
+      "checked_at": "2026-10-16",
+      "stability": "release_edition_current",
+      "applies_to": "2026-S43 radar-1 UHD release edition",
+      "evidence_note": "SteelBook français 4K 14 octobre, pas de nouveau remaster attesté. Critique ancienne et métadonnées stables reprises sans inventer un nouveau checked_at distant.",
+      "status": "reviewed_partial_radar"
     }
   ],
   "source_issues": [
@@ -9893,6 +9995,96 @@
         "alternatives": [],
         "status": "card_drafted",
         "decision_note": "Carte de rubrique complète matérialisée localement ; validation finale non déclarée."
+      },
+      {
+        "id": "sl-s43-hd1-vivre-1952",
+        "title": "Vivre",
+        "work_id": "vivre-1952",
+        "scope": {
+          "rubrique": "radar_hd"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "new_4k_release_edition",
+            "note": "Nouvelle restauration 4K Carlotta, édition française du 20 octobre 2026, deux éléments distincts de preuve.",
+            "source_url": "https://laboutique.carlottafilms.com/products/vivre-de-akira-kurosawa"
+          }
+        ],
+        "decision_note": "Carte HD1 visible, sauvegardée en brouillon, pas une certification de réserve ni de disponibilité 1080p en ligne. Ne pas interpréter la nouvelle édition SteelBook comme une nouvelle restauration.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-s43-hd1-nadja-1994",
+        "title": "Nadja",
+        "work_id": "nadja-1994",
+        "scope": {
+          "rubrique": "radar_hd"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "new_4k_release_edition",
+            "note": "Restauration 4K, Director’s Cut 97 min et version cinéma 93 min; 20 octobre.",
+            "source_url": "https://laboutique.carlottafilms.com/products/nadja-de-michael-almereyda"
+          }
+        ],
+        "decision_note": "Carte HD1 visible, sauvegardée en brouillon, pas une certification de réserve ni de disponibilité 1080p en ligne. Ne pas interpréter la nouvelle édition SteelBook comme une nouvelle restauration.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-s43-hd1-phenomena-1985",
+        "title": "Phenomena",
+        "work_id": "phenomena-1985",
+        "scope": {
+          "rubrique": "radar_hd"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "new_4k_release_edition",
+            "note": "Édition collector française 4K du 14 octobre, ne prouve pas une restauration nouvelle.",
+            "source_url": "https://www.fnac.com/a23469757/Phenomena-Edition-Collector-Blu-ray-4K-Ultra-HD-Jennifer-Connelly-Blu-ray-4K"
+          }
+        ],
+        "decision_note": "Carte HD1 visible, sauvegardée en brouillon, pas une certification de réserve ni de disponibilité 1080p en ligne. Ne pas interpréter la nouvelle édition SteelBook comme une nouvelle restauration.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-s43-hd1-annihilation-2018",
+        "title": "Annihilation",
+        "work_id": "annihilation-2018",
+        "scope": {
+          "rubrique": "radar_hd"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "new_4k_release_edition",
+            "note": "SteelBook français 4K 14 octobre, master inédit non attesté. Metacritic historique conservé.",
+            "source_url": "https://esc-boutique.com/produit/annihilation-steelbook-edition-limitee/"
+          }
+        ],
+        "decision_note": "Carte HD1 visible, sauvegardée en brouillon, pas une certification de réserve ni de disponibilité 1080p en ligne. Ne pas interpréter la nouvelle édition SteelBook comme une nouvelle restauration.",
+        "alternatives": []
+      },
+      {
+        "id": "sl-s43-hd1-le-loup-garou-de-londres-1981",
+        "title": "Le Loup-garou de Londres",
+        "work_id": "le-loup-garou-de-londres-1981",
+        "scope": {
+          "rubrique": "radar_hd"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "new_4k_release_edition",
+            "note": "SteelBook français 4K 14 octobre, pas de nouveau remaster attesté.",
+            "source_url": "https://esc-boutique.com/produit/le-loup-garou-de-londres-steelbook-edition-limitee/"
+          }
+        ],
+        "decision_note": "Carte HD1 visible, sauvegardée en brouillon, pas une certification de réserve ni de disponibilité 1080p en ligne. Ne pas interpréter la nouvelle édition SteelBook comme une nouvelle restauration.",
+        "alternatives": []
       }
     ]
   },
@@ -9916,14 +10108,14 @@
   },
   "resume": {
     "candidate_branch": "auto/2026-S43",
-    "main_sha": "e7490f2ceb64bfe2d951df3ec8380c6fee2245fc",
+    "main_sha": "ac067491de4f8ea0a1e0f617183a6ff9066541bf",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Importer sous bail le lot local batch05 physical basé sur b65ff0132256b6c6bf7bd6654a3ee7046bae5851 ou le réconcilier avec une nouvelle tête ; contrôler les quatre images via HTTP + rendu, puis préparer les réserves physiques additionnelles (cible de 4 réserves).",
-      "Achever abonnement (6 films supplémentaires ; cible globale 8 films sur 9), streaming (2 arrivées datées), sorties physiques : intégrer et vérifier le lot local 2 + 2, radars popularité/HD, puis omissions et validations de la candidate réelle.",
-      "Produire le replay, les plateformes, les sorties, les expirations et les radars encore absents, depuis des disponibilités réelles et des preuves critiques.",
-      "Achever la couverture et la prospection documentaire : le fichier de couverture contient les preuves sauvegardées, sans certification globale.",
-      "Vérifier le rendu et la santé distante sur la candidate exacte : essai Chromium local bloqué par ERR_BLOCKED_BY_ADMINISTRATOR à la navigation locale, aucun résultat de rendu revendiqué.",
+      "Page radar UHD 1 : 5 cartes primaires rédigées, ajouter 5 autres primaires radar-2 et des alternatives distinctes pour satisfaire les minima globaux après contrôle images, sans recycler les choix et réserves S42.",
+      "Compléter plateformes abonnement : 6 autres films sur CANAL+/autres services, vérifier les fiches 50001 abonnement contre les fiches 40099 location et les variantes de durée ; objectif global 9 dont 8 films ; puis sorties streaming 2 arrivées confirmées supplémentaires.",
+      "Créer les radars popularité, sillonnage et réserves distinctes à partir de signaux publics datés du 12 octobre 2026 ; éviter les redondances de S42 et les liens de téléchargement.",
+      "Poursuivre la seconde lecture des omissions jour/chaîne/nuit et la passe documentaire sans certifier coverage.full_week_reaudit_completed tant que les grilles manquantes ne sont pas revues.",
+      "Contrôler physiquement les visuels des quatre sorties du 20 octobre et des cinq fiches UHD, puis rendu et CI sur SHA actuel avant revue des empreintes.",
       "Résoudre le conflit de titre France 3 du 17 octobre à 01:35 sans écraser la ligne officielle, ou avancer une rubrique indépendante.",
       "Poursuivre les secondes lectures datées, jour/chaîne/nuit, sur la seule chaîne encore sans revue hebdomadaire complète ; sauvegarder comparaisons, omissions et limites.",
       "Observer la CI de la prochaine tête exacte sans interrompre les travaux indépendants ; ne traiter que sa cause réelle si elle diffère du rouge attendu d’une candidate incomplète.",
@@ -20961,7 +21153,7 @@
       "draft_section_cards_added": 9
     }
   ],
-  "updated_at": "2026-10-16T14:01:30Z",
+  "updated_at": "2026-10-16T15:28:24Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
