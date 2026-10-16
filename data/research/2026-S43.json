@@ -5,7 +5,6 @@
   "status": "in_progress",
   "base_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
   "remaining": [
-    "Achever la passe documentaire dédiée (ARTE, France 5, France 2/3/4, france.tv, TV5MONDE) : les choix et grilles ne portent qu’un documentaire ; intégrer en grille commentée les documentaires critiques les plus solides de la semaine après vérification complète, ou consigner un rejet motivé.",
     "Constituer puis tenir une présélection sourcée par jour et par rubrique, environ 1,5 à 2 fois les positions à pourvoir sans titre faible, en priorisant les dossiers proches d’une carte et en conservant les alternatives, rejets, reports et impasses selon le contrat courant.",
     "Vérifier complètement chaque choix, réserve, ligne de grille et proposition de rubrique : identité et version, quatre faits de diffusion selon l’autorité papier relue ou la règle Web hors périmètre, disponibilité/expiration distinctes, réception critique, métadonnées avec portée des durées, notes ou raison spécifique, liens directs et visuel réel.",
     "Revoir les trois choix développés et les dix candidats complets distincts matérialisés pour chacun des sept jours ; poursuivre vers quinze uniquement si la qualité et la diversité le justifient, sans gonfler les pools au détriment des rubriques et de la passe documentaire encore requises.",
@@ -163,7 +162,8 @@
     "Chat 16 octobre : troisième page abonnement de trois films d’auteur sur CANAL+ France (Dossier 137, La Tour de glace, Nouvelle Vague). Liens directs _50001, identité forte, synopsis et analyse rédigés, réception contrastée documentée, affiche officielle Haut et Court/Metropolitan ou affiche Criterion réutilisée, durées de portée cinéma/plateforme séparées ; générateur et contrôles locaux vérifiés. Ne signifie ni revue générale ni finalisation des radars.",
     "Chat 16 octobre : radar de popularité, cinq choix visibles, cinq sillonnages sur deuxième page et cinq alternatives datées et distinctes (15 work_id du catalogue existant, aucun lien de téléchargement), extrait du classement TorrentFreak du 12 octobre et d’archives explicitement datées. Les signaux des anciens mois ne sont pas présentés comme une actualité S43. Contrôles locaux sur la candidate S43 : canonical IDs, liens exacts, réserve quotidienne et fraîcheur verts. Le numéro n’est pas prêt : radar UHD, arrivées streaming et relecture de couverture restent bloquants.",
     "Chat 16 octobre : deux pages HD complètes, 10 primaires plus 6 alternatives distinctes (8 sur radar-1, 8 sur radar-2) et cartes enrichies par sources produit officielles/commerciales, IMDb, critiques et affiches identifiées ; génération mécanique editorial-draft-cards, contrôle des identités/réserves/liens/fraîcheur réussi. Différence explicite entre restauration véritable, nouvelle UHD et import/SteelBook. S43 reste draft : streaming et couverture de grille non clos.",
-    "Claude Code 2026-10-16 : seconde lecture TV5MONDE sur sept jours contre la grille officielle du diffuseur, revue d’impact des 64 cases en conflit sur les 61 occurrences publiées (Left-Handed Girl 18:55 conservé), full_week_reaudit_completed vrai ; sorties streaming : Furcy, né libre (CANAL+ 20/10) + pénurie structurée ; affiches L’Attachement et La Voix de Hind Rajab réparées ; page_count du manifeste 29 → 30."
+    "Claude Code 2026-10-16 : seconde lecture TV5MONDE sur sept jours contre la grille officielle du diffuseur, revue d’impact des 64 cases en conflit sur les 61 occurrences publiées (Left-Handed Girl 18:55 conservé), full_week_reaudit_completed vrai ; sorties streaming : Furcy, né libre (CANAL+ 20/10) + pénurie structurée ; affiches L’Attachement et La Voix de Hind Rajab réparées ; page_count du manifeste 29 → 30.",
+    "Claude Code 2026-10-16 : passe documentaire achevée — Monuments éternels (sam.), États-Unis – Chine (dim.), Le Grand Jeu de Jessica Chastain (dim., réserve), Bilal Hassani (lun.), Victor Hugo / Les Docs de La Grande Librairie (mer.) ; Météors (jeu.) ; six fiches catalogue complètes, visuels officiels inspectés, notes ou raisons d’absence spécifiques ; rendu mécanique editorial-draft-cards append_days."
   ],
   "blockers": [],
   "research_attempts": [
@@ -8441,6 +8441,168 @@
       ],
       "evidence_note": "validate-image-sources : anciennes affiches festival-cabourg.com et mobbee.fr en 404 ; remplacées par les affiches françaises exactes des fiches SensCritique, inspectées visuellement, HTTP 200 sans référent.",
       "status": "reviewed"
+    },
+    {
+      "id": "vr-2026-10-16T18:34:42Z-monuments-eternels-sainte-sophie-devoilee-2013",
+      "work_id": "monuments-eternels-sainte-sophie-devoilee-2013",
+      "fields": [
+        "identity",
+        "canonical_fields",
+        "ratings_or_reason",
+        "image",
+        "broadcast_title",
+        "broadcast_channel",
+        "broadcast_date",
+        "broadcast_time",
+        "criticism",
+        "editorial_copy",
+        "draft_card"
+      ],
+      "urls": [
+        "https://www.arte.tv/fr/videos/047933-000-A/monuments-eternels/",
+        "https://www.arte.tv/fr/guide/20261017/",
+        "https://www.imdb.com/title/tt12287740/"
+      ],
+      "checked_at": "2026-10-16T18:34:42Z",
+      "stability": "mixed_stable_identity_and_cycle_specific_broadcast",
+      "applies_to": "samedi-selection rang 11 et grille commentée",
+      "evidence_note": "Page officielle ARTE : « Monuments éternels – Sainte-Sophie dévoilée », réalisation Gary Glassman et Olivier Julien, France, 2013, 88 min ; fiche IMDb tt12287740 de même titre et mêmes réalisateurs (épisode daté 2014 par sa diffusion, 1 h 27). Même identité ; année de production ARTE retenue. Réalisateurs, pays, année et durée de la page officielle ARTE ; IMDb 7,5/10 sur 8 votes relevé le 16/10/2026, faible effectif signalé ici ; aucune fiche SensCritique exacte trouvée. Guide officiel ARTE du 17/10/2026 et page programme : « À la télévision le samedi 17 octobre à 22:25 » ; concorde avec Télérama p. 103 (22.25). Page arte.tv indiquant une disponibilité jusqu’au 21/12/2026, non utilisée comme offre replay de rubrique. Synopsis reformulé d’après la présentation officielle ARTE ; justification fondée sur la critique Télérama relue (Emmanuelle Skyvington, « Très bien », p. 103, /reviews/3).",
+      "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "id": "vr-2026-10-16T18:34:42Z-etats-unis-chine-le-clash-des-superpuissances-2026",
+      "work_id": "etats-unis-chine-le-clash-des-superpuissances-2026",
+      "fields": [
+        "identity",
+        "canonical_fields",
+        "ratings_or_reason",
+        "image",
+        "broadcast_title",
+        "broadcast_channel",
+        "broadcast_date",
+        "broadcast_time",
+        "criticism",
+        "editorial_copy",
+        "draft_card"
+      ],
+      "urls": [
+        "https://www.francetvpro.fr/grille-xml/france-5/17-10-2026",
+        "https://www.francetvpro.fr/contenu-de-presse/77460307",
+        "https://www.advanced-television.com/2026/03/10/clash-of-the-superpowers-america-vs-china-coming-to-bbc/"
+      ],
+      "checked_at": "2026-10-16T18:34:42Z",
+      "stability": "mixed_stable_identity_and_cycle_specific_broadcast",
+      "applies_to": "dimanche-selection rang 11 et grille commentée",
+      "evidence_note": "Grille officielle France Télévisions : « Etats-Unis- Chine : le Clash des Superpuissances », un film de Norma Percy, Tania Rakhmanova et Tim Stirzaker, production Les Films d’ici / Brook Lapping avec France Télévisions, BBC et Public Sénat. Version française unitaire de la série BBC Two diffusée en mars 2026. Réalisation et production d’après la grille officielle ; durée 90 min du dossier de presse (case 1 h 33) ; année 2026 et coproduction britannique d’après l’annonce BBC/Brook Lapping. Aucune note transférée depuis la série BBC. Grille XML officielle France Télévisions relue le 16/10/2026 : France 5, dimanche 18/10/2026, 21:07. Le communiqué du 29/09 annonce 21.05 et Télérama p. 108 21.10 ; l’horaire de la grille officielle la plus précise est retenu, les autres valeurs sont conservées ici. Synopsis reformulé d’après la présentation officielle de la grille ; justification fondée sur la critique Télérama relue (Emmanuelle Skyvington, « Bien », p. 108, /reviews/5).",
+      "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "id": "vr-2026-10-16T18:34:42Z-le-grand-jeu-de-jessica-chastain-2025",
+      "work_id": "le-grand-jeu-de-jessica-chastain-2025",
+      "fields": [
+        "identity",
+        "canonical_fields",
+        "ratings_or_reason",
+        "image",
+        "broadcast_title",
+        "broadcast_channel",
+        "broadcast_date",
+        "broadcast_time",
+        "criticism",
+        "editorial_copy",
+        "draft_card"
+      ],
+      "urls": [
+        "https://www.arte.tv/fr/videos/127462-000-A/le-grand-jeu-de-jessica-chastain/",
+        "https://www.arte.tv/fr/guide/20261018/"
+      ],
+      "checked_at": "2026-10-16T18:34:42Z",
+      "stability": "mixed_stable_identity_and_cycle_specific_broadcast",
+      "applies_to": "dimanche-selection rang 12",
+      "evidence_note": "Page officielle ARTE : réalisation Patrick Boudet, France, 2025, 53 min. Champs repris de la page officielle ARTE ; aucune note publique exacte. Page officielle ARTE : « À la télévision le dimanche 18 octobre à 20:05 » ; guide officiel ARTE du 18/10 et Télérama p. 108 (20.05) concordants. Synopsis reformulé d’après la présentation officielle ARTE ; justification fondée sur la critique Télérama relue (Jérémie Couston, « Bien », p. 108, /reviews/6).",
+      "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "id": "vr-2026-10-16T18:34:42Z-bilal-hassani-bats-toi-comme-une-fille-mon-fils-2026",
+      "work_id": "bilal-hassani-bats-toi-comme-une-fille-mon-fils-2026",
+      "fields": [
+        "identity",
+        "canonical_fields",
+        "ratings_or_reason",
+        "image",
+        "broadcast_title",
+        "broadcast_channel",
+        "broadcast_date",
+        "broadcast_time",
+        "criticism",
+        "editorial_copy",
+        "draft_card"
+      ],
+      "urls": [
+        "https://www.francetvpro.fr/grille-xml/france-4/19-10-2026",
+        "https://www.francetvpro.fr/contenu-de-presse/77306802"
+      ],
+      "checked_at": "2026-10-16T18:34:42Z",
+      "stability": "mixed_stable_identity_and_cycle_specific_broadcast",
+      "applies_to": "lundi-selection rang 11 et grille commentée",
+      "evidence_note": "Grille officielle et communiqué France Télévisions : documentaire réalisé par Mireille Dumas, production MD Productions avec France Télévisions, 70 min, mis en ligne sur france.tv le 12/10/2026. Réalisatrice, pays, durée et année de première mise en ligne d’après les documents officiels France Télévisions ; aucune note publique. Grille XML officielle France Télévisions relue le 16/10/2026 : France 4, lundi 19/10/2026, 21:00 ; communiqué du 22/09 et Télérama p. 114 (21.00) concordants. Synopsis reformulé d’après le communiqué officiel ; justification fondée sur la critique Télérama relue (Marie-Joëlle Gros, « Bien », p. 114, /reviews/13).",
+      "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "id": "vr-2026-10-16T18:34:42Z-les-docs-de-la-grande-librairie-victor-hugo-2026",
+      "work_id": "les-docs-de-la-grande-librairie-victor-hugo-2026",
+      "fields": [
+        "identity",
+        "canonical_fields",
+        "ratings_or_reason",
+        "image",
+        "broadcast_title",
+        "broadcast_channel",
+        "broadcast_date",
+        "broadcast_time",
+        "criticism",
+        "editorial_copy",
+        "draft_card"
+      ],
+      "urls": [
+        "https://www.francetvpro.fr/grille-xml/france-5/17-10-2026",
+        "https://www.francetvpro.fr/contenu-de-presse/77074240",
+        "https://actualitte.com/article/131375/television/les-docs-de-la-grande-librairie-rendent-hommage-a-victor-hugo"
+      ],
+      "checked_at": "2026-10-16T18:34:42Z",
+      "stability": "mixed_stable_identity_and_cycle_specific_broadcast",
+      "applies_to": "mercredi-selection rang 11 et grille commentée",
+      "evidence_note": "Grille officielle France Télévisions : « Les Docs de la Grande Librairie - Victor Hugo », réalisation Camille Dalbéra, scénario Margaux Opinel, raconté par François Busnel avec la voix de Denis Podalydès, Rosebud Productions / France Télévisions, 2026. Rediffusion : première diffusion annoncée le 3 juin 2026 par le communiqué du 11/05/2026. Crédits et année d’après la grille officielle ; durée de la case de grille ; intervenants d’après le communiqué France Télévisions repris par ActuaLitté ; aucune note d’épisode. Grille XML officielle France Télévisions relue le 16/10/2026 : France 5, mercredi 21/10/2026, 21:05 ; communiqué du 29/09 et Télérama p. 126 (21.05) concordants. Synopsis reformulé d’après la présentation officielle ; justification fondée sur la critique Télérama relue (Pauline Demange Dilasser, « Bien », p. 126, /reviews/23).",
+      "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "id": "vr-2026-10-16T18:34:42Z-meteors-2025",
+      "work_id": "meteors-2025",
+      "fields": [
+        "identity",
+        "canonical_fields",
+        "ratings_or_reason",
+        "image",
+        "broadcast_title",
+        "broadcast_channel",
+        "broadcast_date",
+        "broadcast_time",
+        "criticism",
+        "editorial_copy",
+        "draft_card"
+      ],
+      "urls": [
+        "https://www.programme-television.org/tv/chaines/canal-cinema-s/jeudi",
+        "https://tv-programme.com/canal-plus-cinema/jeudi-22-octobre-2026/",
+        "https://www.festival-cannes.com/f/meteors/",
+        "https://www.imdb.com/title/tt33772384/",
+        "https://www.senscritique.com/film/meteors/109917329"
+      ],
+      "checked_at": "2026-10-16T18:34:42Z",
+      "stability": "mixed_stable_identity_and_cycle_specific_broadcast",
+      "applies_to": "jeudi-selection rang 11 et grille commentée",
+      "evidence_note": "Film de Hubert Charuel (2025, Un Certain Regard, avec Paul Kircher, Idir Azougli, Salif Cissé) ; IMDb tt33772384 et SensCritique 109917329 (Hubert Charuel, Claude Le Pape) désignent la même œuvre sortie en salles le 8 octobre 2025. L’affiche crédite la réalisation à Hubert Charuel, en collaboration avec Claude Le Pape. Durées conservées avec leur portée ; IMDb 6,4/10 sur 319 votes et SensCritique 6,2/10 sur 1 237 notes relevés le 16/10/2026. Deux guides d’éditeurs distincts concordants : Télé 7 Jours relu le 16/10/2026 (Canal+ Cinéma(s), jeudi 22 octobre, 21:00, 105 min) et TV-programme.com (relevé primaire, 21:00) ; Télérama p. 133 (21.00) concordant. Provenance amont inconnue. Synopsis reformulé d’après la fiche officielle du Festival de Cannes ; justification fondée sur la critique Télérama relue (Jérémie Couston, « Très bien », p. 133, /reviews/31).",
+      "status": "verified_for_draft_card_ci_pending"
     }
   ],
   "source_issues": [
@@ -10993,6 +11155,192 @@
         "alternatives": [],
         "status": "card_drafted",
         "decision_note": "Carte de rubrique complète ; validation finale non déclarée. Pistes écartées pour la même rubrique : Sacrifice (Romain Gavras, Netflix 16/10), accueil critique faible (AV Club C-, Rotten Tomatoes 37 % selon Omelete) ; Ouija 1 et 2, Halloween et Halloween Kills (Netflix 17 et 20/10), reprises de catalogue de genre."
+      },
+      {
+        "id": "sl-samedi-monuments-eternels-sainte-sophie-devoilee-2013",
+        "work_id": "monuments-eternels-sainte-sophie-devoilee-2013",
+        "title": "Monuments éternels : Sainte-Sophie dévoilée",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "publisher": "Télérama",
+            "native_rating": "Très bien",
+            "source_ref": "sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d",
+            "pdf_page": 103,
+            "provenance": {
+              "path": "data/editorial-inputs/2026-S43/telerama-editorial.json",
+              "json_pointer": "/reviews/3"
+            },
+            "note": "Critique Télérama relue à l’import : appréciation native « Très bien » ; paraphrase dans la carte."
+          },
+          {
+            "kind": "official_or_concordant_broadcast",
+            "source_url": "https://www.arte.tv/fr/videos/047933-000-A/monuments-eternels/",
+            "checked_at": "2026-10-16",
+            "note": "Guide officiel ARTE du 17/10/2026 et page programme : « À la télévision le samedi 17 octobre à 22:25 » ; concorde avec Télérama p. 103 (22.25). Page arte.tv indiquant une disponibilité jusqu’au 21/12/2026, non utilisée comme offre replay de rubrique."
+          }
+        ],
+        "alternatives": [],
+        "decision_note": "Réserve samedi rang 11 avec ligne de grille commentée ajoutée lors de la passe documentaire du 2026-10-16 ; validation finale non déclarée."
+      },
+      {
+        "id": "sl-dimanche-etats-unis-chine-le-clash-des-superpuissances-2026",
+        "work_id": "etats-unis-chine-le-clash-des-superpuissances-2026",
+        "title": "États-Unis – Chine, le clash des superpuissances",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "publisher": "Télérama",
+            "native_rating": "Bien",
+            "source_ref": "sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d",
+            "pdf_page": 108,
+            "provenance": {
+              "path": "data/editorial-inputs/2026-S43/telerama-editorial.json",
+              "json_pointer": "/reviews/5"
+            },
+            "note": "Critique Télérama relue à l’import : appréciation native « Bien » ; paraphrase dans la carte."
+          },
+          {
+            "kind": "official_or_concordant_broadcast",
+            "source_url": "https://www.francetvpro.fr/grille-xml/france-5/17-10-2026",
+            "checked_at": "2026-10-16",
+            "note": "Grille XML officielle France Télévisions relue le 16/10/2026 : France 5, dimanche 18/10/2026, 21:07. Le communiqué du 29/09 annonce 21.05 et Télérama p. 108 21.10 ; l’horaire de la grille officielle la plus précise est retenu, les autres valeurs sont conservées ici."
+          }
+        ],
+        "alternatives": [],
+        "decision_note": "Réserve dimanche rang 11 avec ligne de grille commentée ajoutée lors de la passe documentaire du 2026-10-16 ; validation finale non déclarée."
+      },
+      {
+        "id": "sl-dimanche-le-grand-jeu-de-jessica-chastain-2025",
+        "work_id": "le-grand-jeu-de-jessica-chastain-2025",
+        "title": "Le Grand Jeu de Jessica Chastain",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "publisher": "Télérama",
+            "native_rating": "Bien",
+            "source_ref": "sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d",
+            "pdf_page": 108,
+            "provenance": {
+              "path": "data/editorial-inputs/2026-S43/telerama-editorial.json",
+              "json_pointer": "/reviews/6"
+            },
+            "note": "Critique Télérama relue à l’import : appréciation native « Bien » ; paraphrase dans la carte."
+          },
+          {
+            "kind": "official_or_concordant_broadcast",
+            "source_url": "https://www.arte.tv/fr/videos/127462-000-A/le-grand-jeu-de-jessica-chastain/",
+            "checked_at": "2026-10-16",
+            "note": "Page officielle ARTE : « À la télévision le dimanche 18 octobre à 20:05 » ; guide officiel ARTE du 18/10 et Télérama p. 108 (20.05) concordants."
+          }
+        ],
+        "alternatives": [],
+        "decision_note": "Réserve dimanche rang 12 ajoutée lors de la passe documentaire du 2026-10-16 ; validation finale non déclarée."
+      },
+      {
+        "id": "sl-lundi-bilal-hassani-bats-toi-comme-une-fille-mon-fils-2026",
+        "work_id": "bilal-hassani-bats-toi-comme-une-fille-mon-fils-2026",
+        "title": "Bilal Hassani, bats-toi comme une fille mon fils",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "publisher": "Télérama",
+            "native_rating": "Bien",
+            "source_ref": "sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d",
+            "pdf_page": 114,
+            "provenance": {
+              "path": "data/editorial-inputs/2026-S43/telerama-editorial.json",
+              "json_pointer": "/reviews/13"
+            },
+            "note": "Critique Télérama relue à l’import : appréciation native « Bien » ; paraphrase dans la carte."
+          },
+          {
+            "kind": "official_or_concordant_broadcast",
+            "source_url": "https://www.francetvpro.fr/grille-xml/france-4/19-10-2026",
+            "checked_at": "2026-10-16",
+            "note": "Grille XML officielle France Télévisions relue le 16/10/2026 : France 4, lundi 19/10/2026, 21:00 ; communiqué du 22/09 et Télérama p. 114 (21.00) concordants."
+          }
+        ],
+        "alternatives": [],
+        "decision_note": "Réserve lundi rang 11 avec ligne de grille commentée ajoutée lors de la passe documentaire du 2026-10-16 ; validation finale non déclarée."
+      },
+      {
+        "id": "sl-mercredi-les-docs-de-la-grande-librairie-victor-hugo-2026",
+        "work_id": "les-docs-de-la-grande-librairie-victor-hugo-2026",
+        "title": "Les Docs de La Grande Librairie : Victor Hugo",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "publisher": "Télérama",
+            "native_rating": "Bien",
+            "source_ref": "sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d",
+            "pdf_page": 126,
+            "provenance": {
+              "path": "data/editorial-inputs/2026-S43/telerama-editorial.json",
+              "json_pointer": "/reviews/23"
+            },
+            "note": "Critique Télérama relue à l’import : appréciation native « Bien » ; paraphrase dans la carte."
+          },
+          {
+            "kind": "official_or_concordant_broadcast",
+            "source_url": "https://www.francetvpro.fr/grille-xml/france-5/17-10-2026",
+            "checked_at": "2026-10-16",
+            "note": "Grille XML officielle France Télévisions relue le 16/10/2026 : France 5, mercredi 21/10/2026, 21:05 ; communiqué du 29/09 et Télérama p. 126 (21.05) concordants."
+          }
+        ],
+        "alternatives": [],
+        "decision_note": "Réserve mercredi rang 11 avec ligne de grille commentée ajoutée lors de la passe documentaire du 2026-10-16 ; validation finale non déclarée."
+      },
+      {
+        "id": "sl-jeudi-meteors-2025",
+        "work_id": "meteors-2025",
+        "title": "Météors",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "publisher": "Télérama",
+            "native_rating": "Très bien",
+            "source_ref": "sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d",
+            "pdf_page": 133,
+            "provenance": {
+              "path": "data/editorial-inputs/2026-S43/telerama-editorial.json",
+              "json_pointer": "/reviews/31"
+            },
+            "note": "Critique Télérama relue à l’import : appréciation native « Très bien » ; paraphrase dans la carte."
+          },
+          {
+            "kind": "official_or_concordant_broadcast",
+            "source_url": "https://www.programme-television.org/tv/chaines/canal-cinema-s/jeudi",
+            "checked_at": "2026-10-16",
+            "note": "Deux guides d’éditeurs distincts concordants : Télé 7 Jours relu le 16/10/2026 (Canal+ Cinéma(s), jeudi 22 octobre, 21:00, 105 min) et TV-programme.com (relevé primaire, 21:00) ; Télérama p. 133 (21.00) concordant. Provenance amont inconnue."
+          }
+        ],
+        "alternatives": [],
+        "decision_note": "Réserve jeudi rang 11 avec ligne de grille commentée ajoutée lors de la passe documentaire du 2026-10-16 ; validation finale non déclarée."
       }
     ]
   },
@@ -11019,9 +11367,9 @@
     "main_sha": "ac067491de4f8ea0a1e0f617183a6ff9066541bf",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Passe documentaire et rappel : vérifier puis ajouter en grilles commentées les documentaires les plus solides (ARTE 17/10 22:25 Monuments éternels, 18/10 20:05 Le Grand Jeu de Jessica Chastain, 20/10 23:35 Yémen ; France 5 18/10 21:10 États-Unis–Chine, 21/10 21:05 Victor Hugo) et Météors (Canal+ Cinéma 22/10 21:00), ou consigner un rejet motivé.",
-      "Revue navigateur des 30 pages après chargement des images et polices ; contrôle des radars, plateformes, sorties et pagination.",
-      "Réconcilier remaining, sceller avec seal-editorial-review.mjs puis suivre CI, fusion protégée et promotion."
+      "Revue navigateur des 30 pages après chargement des images et polices (rubriques, radars, grilles, pagination, nouveaux visuels WebP).",
+      "Réconcilier remaining avec les preuves, sceller avec seal-editorial-review.mjs.",
+      "Écrire sous bail coopératif sur auto/2026-S43 (push sans force), puis suivre CI, fusion protégée et promotion."
     ],
     "production_mode": "claude_code"
   },
@@ -22078,7 +22426,8 @@
         "Couverture : TV5MONDE + revue d’impact + clôture de la seconde lecture",
         "Sorties streaming : Furcy, né libre",
         "Réparation de deux affiches",
-        "Manifeste : page_count"
+        "Manifeste : page_count",
+        "Passe documentaire et Météors : six cartes en réserve, cinq lignes de grille commentée"
       ],
       "deliverables_changed": [
         "data/coverage/2026-S43.json",
@@ -22089,13 +22438,13 @@
         "data/releases.json",
         "data/research/2026-S43.json"
       ],
-      "complete_cards_added": 1,
-      "new_works": 1,
+      "complete_cards_added": 7,
+      "new_works": 7,
       "stop_reason": null,
-      "next_useful_batch": "Passe documentaire : intégrer en grille les documentaires critiques solides (ARTE Monuments éternels, Yémen, Le Grand Jeu de Jessica Chastain, France 5 États-Unis–Chine, Victor Hugo) et Météors, puis revue navigateur complète et scellement."
+      "next_useful_batch": "Revue navigateur des 30 pages, réconciliation de remaining, scellement, puis push sous bail et suivi CI/publication."
     }
   ],
-  "updated_at": "2026-10-16T18:20:12Z",
+  "updated_at": "2026-10-16T18:34:42Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -35987,6 +36336,16 @@
         "data/coverage/2026-S43.json : full_week_reaudit"
       ],
       "note": "independent_crosscheck_complete reste faux ; les divergences brutes sans effet restent ouvertes dans leurs relectures."
+    },
+    {
+      "requirement": "Achever la passe documentaire dédiée (ARTE, France 5, France 2/3/4, france.tv, TV5MONDE) : les choix et grilles ne portent qu’un documentaire ; intégrer en grille commentée les documentaires critiques les plus solides de la semaine après vérification complète, ou consigner un rejet motivé.",
+      "status": "closed_with_evidence",
+      "decided_at": "2026-10-16T18:34:42Z",
+      "evidence": [
+        "data/research/2026-S43.json : documentary_pass_log (dernière entrée, complete: true)",
+        "data/weeks/2026-S43.json : pools samedi/dimanche/lundi/mercredi rangs 11-12 et grilles commentées"
+      ],
+      "note": "Les rejets sont motivés ; aucune exigence de qualité abaissée."
     }
   ],
   "remaining_history": [
@@ -36040,6 +36399,22 @@
         "Exécuter les contrôles pertinents de données, liens, fraîcheur, réserves, images et présentation sur la tête exacte, inspecter les pages modifiées, résoudre les causes réelles sans baisser les critères et conserver les résultats CI liés au SHA et à sa base.",
         "Après résolution réelle de remaining, effectuer la revue éditoriale complète des livrables, sceller les empreintes exactes, passer stage à ready, puis laisser la fusion candidate et la promotion protégées suivre leurs contrôles et leur publication vérifiée."
       ]
+    },
+    {
+      "saved_at": "2026-10-16T18:34:42Z",
+      "reason": "Passe documentaire achevée : cinq documentaires vérifiés intégrés (quatre en grille commentée) et rejets motivés consignés dans documentary_pass_log ; Météors ajouté jeudi.",
+      "remaining_before": [
+        "Achever la passe documentaire dédiée (ARTE, France 5, France 2/3/4, france.tv, TV5MONDE) : les choix et grilles ne portent qu’un documentaire ; intégrer en grille commentée les documentaires critiques les plus solides de la semaine après vérification complète, ou consigner un rejet motivé.",
+        "Constituer puis tenir une présélection sourcée par jour et par rubrique, environ 1,5 à 2 fois les positions à pourvoir sans titre faible, en priorisant les dossiers proches d’une carte et en conservant les alternatives, rejets, reports et impasses selon le contrat courant.",
+        "Vérifier complètement chaque choix, réserve, ligne de grille et proposition de rubrique : identité et version, quatre faits de diffusion selon l’autorité papier relue ou la règle Web hors périmètre, disponibilité/expiration distinctes, réception critique, métadonnées avec portée des durées, notes ou raison spécifique, liens directs et visuel réel.",
+        "Revoir les trois choix développés et les dix candidats complets distincts matérialisés pour chacun des sept jours ; poursuivre vers quinze uniquement si la qualité et la diversité le justifient, sans gonfler les pools au détriment des rubriques et de la passe documentaire encore requises.",
+        "Revoir dans le navigateur les rubriques obligatoires désormais complètes ou en pénurie structurée (sorties streaming : 2 cartes et motif sourcé), leur pagination et leurs réserves effectives.",
+        "Revoir et certifier le fond/rendu des deux radars déjà composés : 5 popularité + 5 sillonnage + 5 réserves, 10 UHD visibles + 6 réserves distinctes (16 au total, minimum courant atteint, objectif 20 si autres œuvres fortes). Contrôler les liens/affiches et les versions UHD ; ne pas confondre les deux films OSS 117 avec deux coffrets distincts.",
+        "Appliquer la déduplication, la fraîcheur inter-numéros et l’équilibre cinéma/documentaire/rubriques ; conserver toute exception de fraîcheur ou pénurie sous forme structurée, précise et sourcée.",
+        "Construire et revoir tous les livrables autorisés de 2026-S43, ainsi que les enrichissements vérifiés de works, links et releases, en gardant manifest.latest à 2026-S42 et tous les statuts S43 en draft.",
+        "Exécuter les contrôles pertinents de données, liens, fraîcheur, réserves, images et présentation sur la tête exacte, inspecter les pages modifiées, résoudre les causes réelles sans baisser les critères et conserver les résultats CI liés au SHA et à sa base.",
+        "Après résolution réelle de remaining, effectuer la revue éditoriale complète des livrables, sceller les empreintes exactes, passer stage à ready, puis laisser la fusion candidate et la promotion protégées suivre leurs contrôles et leur publication vérifiée."
+      ]
     }
   ],
   "contract_read_history": [
@@ -36073,6 +36448,31 @@
         "Khéops : titre exact résolu ; ne pas confondre avec le documentaire sur une chambre secrète.",
         "Pistes France Télévisions à poursuivre par sources autorisées : Petite Solange, Bâtiment 5. Pages france.tv bloquées par le navigateur de recherche ; ne pas contourner ce blocage ni convertir une ancienne annonce presse en preuve de droits actuels.",
         "FKA Twigs, Vie de marin vie de chien et sources TV5MONDE restent à examiner ; aucune passe globale déclarée achevée."
+      ]
+    },
+    {
+      "recorded_at": "2026-10-16T18:34:42Z",
+      "scope": "Passe documentaire dédiée S43 : ARTE, France 5, France 2/3/4, france.tv, TV5MONDE ; critiques Télérama relues des documentaires de la semaine et grilles officielles (ARTE, France Télévisions, TV5MONDE).",
+      "complete": true,
+      "retained": [
+        "Monuments éternels : Sainte-Sophie dévoilée (ARTE, sam. 22:25, grille)",
+        "États-Unis – Chine, le clash des superpuissances (France 5, dim. 21:07, grille)",
+        "Le Grand Jeu de Jessica Chastain (ARTE, dim. 20:05, réserve)",
+        "Bilal Hassani, bats-toi comme une fille mon fils (France 4, lun. 21:00, grille)",
+        "Les Docs de La Grande Librairie : Victor Hugo (France 5, mer. 21:05, grille)",
+        "Déjà présents : Kibboutz Nir Oz, aux portes de Gaza et Yémen, carrefour de toutes les guerres (ARTE, mar.), Put Your Soul on Your Hand and Walk (Ciné+ Festival, ven.)"
+      ],
+      "rejected": [
+        "Byzance, mille ans qui ont changé le monde (ARTE, sam. 20:55) : Télérama « Bof », fresque jugée trop survolée ; Monuments éternels du même soir retenu à la place.",
+        "Israël : comment sauver la démocratie ? (ARTE, mar. 21:00, « Bien ») : mardi porte déjà deux documentaires ARTE sur le Proche-Orient et le Yémen ; non ajouté pour garder l’équilibre du jour.",
+        "« La Guerre des mondes » : quand Mars attaque… (ARTE, dim. 23:45, « Bien ») et Une vie pour l’art : Gustave Fayet (ARTE, dim. 17:45, « Bien ») : grille du dimanche à capacité ; le documentaire France 5 sur la rivalité sino-américaine est privilégié pour son importance.",
+        "Camille enquête (France 5, lun.), La Fabuleuse H des dinosaures (France 5, jeu.), Hantés ! (France 5, ven.), Violences dans le football (Canal+), La Meute en réseau (Téva) : critiques Télérama « Bof ».",
+        "TV5MONDE : grille officielle relue sur sept jours (Nus & culottés, Échappées belles, La vigne en héritage, Destination francophonie…) ; magazines et rediffusions sans critique ni singularité suffisantes pour une carte.",
+        "Petite Solange, Bâtiment 5, FKA Twigs, Vie de marin vie de chien : absents de l’inventaire linéaire des sept jours et des grilles XML officielles France 4 / France 5 relues ; pistes de plateforme issues des pages rubriques du magazine, dont l’offre france.tv n’a pas pu être établie (recherche france.tv sans résultat exploitable le 16/10/2026) ; non retenues, sans jugement sur leur qualité."
+      ],
+      "notes": [
+        "Sources : grilles officielles ARTE (guides du 17 et 18/10), grille XML France Télévisions France 5 et France 4 (semaine du 17/10), API du guide officiel TV5MONDE+, critiques Télérama relues à l’import.",
+        "Les documentaires sans note publique portent une raison d’absence spécifique ; la note IMDb de la série BBC n’est pas transférée à la version France 5."
       ]
     }
   ]
