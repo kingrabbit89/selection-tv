@@ -106,6 +106,50 @@ contrôles navigateur et revue finale restent du travail éditorial obligatoire.
 
 À partir de S43, les appréciations positives d’un Télérama importé constituent les premières pistes de la présélection, avec leurs critiques attribuées, avant de compléter et équilibrer depuis les autres sources. `initial_editorial_suggestions` reste disponible en entier ; la priorité de file ne s’applique qu’avant la première shortlist, sans réécrire les décisions sauvegardées. Un PDF Télérama peut compléter les lots selon [EDITORIAL-TELERAMA.md](EDITORIAL-TELERAMA.md), avec page et empreinte d’origine. Sans PDF ni supplément sauvegardé, le lot expose `web_schedule_evidence` : preuve officielle ou recoupement concordant de guides actuels, revue réelle des omissions et provenance technique consignée séparément. `--without-telerama` permet de préparer un lot depuis les seules sources courantes.
 
+## Affiches à la sélection
+
+Les affiches se résolvent quand l'œuvre est choisie, pas au scellement. Le
+résolveur part des seuls liens d'identité exacts déjà vérifiés (`data/links.json`
+et `links` de l'œuvre) et suit une échelle fixe :
+
+| Rang | Source | Visuel |
+|---|---|---|
+| 1 | fiche SensCritique exacte (`/film/…/ID` ou `/serie/…/ID`) | affiche du JSON-LD (`/600/`), sinon `og:image` (photo paysage) |
+| 2 | fiche IMDb exacte `/title/tt…` | `og:image` m.media-amazon.com |
+| 3 | API TMDb (si `TMDB_API_KEY`) | affiche w500, française d'abord ; `/find/tt…` sans identifiant TMDb |
+| 4 | page officielle du programme | ARTE api-cdn, FranceTVPro `contenu-de-presse/ID`, grille TV5MONDE `…programs-grid?channel=N&day=AAAA-MM-JJ#program=ID` |
+| 5 | aucune | `image_exception_reason` existante conservée |
+
+Chaque candidate passe le contrôle de `validate-image-sources.mjs` (sans Referer,
+signature d'image réelle). Une page redirigée vers un autre identifiant, une
+année incohérente ou un challenge anti-robot (IMDb répond souvent par un AWS WAF)
+est consignée et jamais contournée. Pas de page de recherche, de Google Images ni
+de CAPTCHA. Une clé `links.json` partagée par plusieurs œuvres est ignorée.
+
+```sh
+# Visuels de la semaine (même ensemble que validate-image-sources) :
+# image manquante, ou image sans secours.
+node scripts/poster-resolver.mjs --week YYYY-Sxx --dry-run
+# Remplacer seulement les images principales qui échouent aujourd'hui.
+node scripts/poster-resolver.mjs --week YYYY-Sxx --repair
+node scripts/poster-resolver.mjs --repair --work ID --work ID2 --report /tmp/affiches.json
+```
+
+L'écriture renseigne `image`, `image_type`, `image_source_url`, `image_checked`,
+`image_strategy` (`resolver:senscritique`, `resolver:arte`…) et une à deux
+`image_fallbacks` d'un autre hôte de l'échelle. Une image principale qui répond
+n'est jamais remplacée. En réparation, les secours qui répondent encore sont
+gardés et les morts retirés. Les requêtes vers un même hôte sont espacées
+(`--pace-ms`, 1200 par défaut). Une œuvre sans lien exact, ou dont toutes les
+sources échouent, reste `unresolved` (code de sortie 1) : ajouter d'abord son
+identité exacte. Les affiches restent liées à distance, jamais copiées dans le dépôt.
+
+Dans le flow, `--resolve-posters` traite les lignes du lot qui ont un seul
+candidat canonique. Il écrit `poster-resolution.json` et, s'il y a des
+changements, `poster-handoff.json` (`data/works.json` à la base exacte), à
+vérifier puis appliquer avec `editorial-handoff.mjs` sous bail. Ce mode utilise
+le réseau ; il est refusé pour un checkpoint `ready` ou scellé.
+
 ## Clôture depuis les défauts actuels
 
 ```sh

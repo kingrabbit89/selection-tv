@@ -1,9 +1,7 @@
-import {probeRemoteImage,hasImageSignature} from './image-health.mjs';
-import {htmlText} from './html-text.mjs';
+import {probeRemoteImage,hasImageSignature,visualWorkTitles,normTitle as norm} from './image-health.mjs';
 import fs from 'node:fs';
 
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
-const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
 const manifest=read('data/manifest.json');
 const targetWeek=process.env.SELECTION_TV_VALIDATE_WEEK||manifest.latest;
 const config=read('data/editorial-config.json');
@@ -12,44 +10,8 @@ const works=read('data/works.json').works||[];
 const byTitle=new Map(works.map(w=>[norm(w.title),w]));
 const from=config.quality_gates?.remote_image_health_from_week||'9999-S99';
 const legacyGridOnly=targetWeek<from;
-
-// S41 predates the global remote-image gate, but Android TV turns its
-// commented-grid rows into poster cards. Probe those rows now so the current
-// Fire TV fix cannot ship with another set of dead poster URLs.
-const visualTitles=new Set();
-const visualClass=/\b(?:week-card|feature|list-card|platform|release-card|expire-card|radar-card|torrent-card|card|listitem|radarcard)\b/;
-for(const page of week.pages||[]){
-  const html=page.html||'';
-  const re=/<article class="([^"]+)"[^>]*>([\s\S]*?)<\/article>/g;let m;
-  while((m=re.exec(html))){
-    if(!visualClass.test(m[1]))continue;
-    if(!legacyGridOnly){
-      const title=htmlText((m[2].match(/<h3>([\s\S]*?)<\/h3>/)||[])[1]);
-      if(title)visualTitles.add(title);
-    }
-  }
-  // Android TV promotes each commented-grid table row to a poster tile.
-  // Probe those canonical images too, even though the desktop magazine keeps
-  // the same entries as text rows.
-  if(/-grille(?:-2)?$/.test(page.id||'')){
-    for(const row of html.matchAll(/<td class="prog">([^<]+)<\/td>/g)){
-      const title=htmlText(row[1]);
-      if(title)visualTitles.add(title);
-    }
-  }
-}
-if(!legacyGridOnly){
-  for(const pool of Object.values(week.personalization?.pools||{})){
-    for(const c of pool.candidates||[])if(c.title)visualTitles.add(c.title);
-  }
-  const radarPath='data/radar-reserves/'+targetWeek+'.json';
-  if(fs.existsSync(radarPath)){
-    const rr=read(radarPath);
-    for(const key of ['popular_scan','popular_deep','hd1','hd2']){
-      for(const c of rr[key]?.candidates||[])if(c.title)visualTitles.add(c.title);
-    }
-  }
-}
+const radarPath='data/radar-reserves/'+targetWeek+'.json';
+const visualTitles=visualWorkTitles(week,{legacyGridOnly,radar:()=>fs.existsSync(radarPath)?read(radarPath):null});
 
 async function probe(url){
   if(!/^https?:\/\//i.test(url)){
