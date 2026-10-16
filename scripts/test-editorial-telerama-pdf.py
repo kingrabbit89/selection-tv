@@ -148,6 +148,11 @@ class TeleramaTests(unittest.TestCase):
         self.assertEqual(MODULE.text_date_header("AUTRES CHAÎNES SAMEDI 20", start),
                          (None, "date header does not match the issue range and weekday"))
 
+    def test_text_triage_can_be_switched_off_for_a_full_glyph_scan(self):
+        with patch.dict("os.environ", {"SELECTION_TV_PDF_TRIAGE": "off"}), patch.object(MODULE.shutil, "which", return_value="/usr/bin/pdftotext") as which:
+            self.assertIsNone(MODULE.poppler_index(Path("issue.pdf"), 4))
+            which.assert_not_called()
+
     def test_invalid_header_cancels_inherited_date_until_next_valid_header(self):
         class Page:
             width, height = 592.44, 771.02

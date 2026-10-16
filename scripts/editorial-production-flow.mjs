@@ -52,7 +52,9 @@ export const pythonCommand=(env=process.env,platform=process.platform)=>env.SELE
 export async function extractTeleramaPdf({week,pdf,out,libraryFileId,cwd=process.cwd()}) {
   const args=[path.join(cwd,'scripts/editorial-telerama-pdf.py'),path.resolve(pdf),'--week',week,'--output',path.resolve(out)];
   if(libraryFileId)args.push('--library-file-id',libraryFileId);
-  await promisify(execFile)(pythonCommand(),args,{cwd,timeout:180000,maxBuffer:2*1024*1024});
+  // On Windows the pdftotext page triage skipped half of the S43 grid pages: scan every page.
+  const env={...process.env,...(process.platform==='win32'&&!process.env.SELECTION_TV_PDF_TRIAGE?{SELECTION_TV_PDF_TRIAGE:'off'}:{})};
+  await promisify(execFile)(pythonCommand(),args,{cwd,env,timeout:180000,maxBuffer:2*1024*1024});
   return JSON.parse(fs.readFileSync(out,'utf8'));
 }
 
