@@ -139,7 +139,17 @@ Chaque candidate passe le contrôle de `validate-image-sources.mjs` (sans Refere
 signature d'image réelle). Une page redirigée vers un autre identifiant, une
 année incohérente ou un challenge anti-robot (IMDb répond souvent par un AWS WAF)
 est consignée et jamais contournée. Pas de page de recherche, de Google Images ni
-de CAPTCHA. Une clé `links.json` partagée par plusieurs œuvres est ignorée.
+de CAPTCHA.
+
+Une identité revendiquée par plusieurs œuvres n'identifie aucune d'elles : elle
+est ignorée, avec une note qui nomme les autres œuvres. Cela vaut pour une clé
+`links.json` partagée comme pour un même identifiant (type + id) présent pour deux
+œuvres, que ce soit dans leurs `links` ou dans `links.json` : deux saisons sur la
+fiche SensCritique de la série, une série et son épisode 1 sur la même page ARTE.
+Sans cela, la saison 2 recevrait l'affiche de la série. Une œuvre qui porte deux
+identifiants d'un même type les revendique tous les deux. TMDb numérote films et
+séries à part : `movie/N` et `tv/N` restent deux œuvres. Une œuvre privée ainsi de
+toute identité reste `unresolved` : lui donner son lien exact propre.
 
 ```sh
 # Visuels de la semaine (même ensemble que validate-image-sources) :
@@ -200,6 +210,73 @@ publicateur). Le scellé couvre `works.json`, donc les empreintes : `--check` re
 une affiche modifiée après la revue. Ces fichiers binaires ne passent jamais par un
 handoff texte : depuis ChatGPT, seules les URL distantes sont enregistrées et la
 copie se fait ensuite en local.
+
+## Métadonnées des œuvres à la sélection
+
+Une fois l'identité exacte d'une œuvre trouvée, `scripts/work-resolver.mjs`
+pré-remplit les champs mécaniques de la carte. La recherche ne porte plus que sur
+ce qui ne se lit pas dans une page d'identité. Le résolveur part des mêmes liens
+exacts que celui des affiches, avec les mêmes règles : pas de page de recherche,
+pas de CAPTCHA ni de contournement de WAF, une identité revendiquée par plusieurs
+œuvres est ignorée. Cela vaut pour une clé `links.json` partagée comme pour un
+même identifiant dans les `links` de deux œuvres, par exemple deux saisons sur la
+fiche de la série.
+
+| Rang | Source | Lu |
+|---|---|---|
+| 1 | JSON-LD de la fiche SensCritique exacte | année, réalisateur (film) ou créateur (série), durée (film), genres, titre original (`alternateName`), note et nombre de notes |
+| 2 | JSON-LD de la fiche IMDb exacte | année, réalisateur ou créateur, durée, note et nombre de votes ; IMDb répond presque toujours par un challenge AWS WAF, consigné une fois puis plus redemandé pendant l'exécution |
+| 3 | API TMDb (si `TMDB_API_KEY`), libellés français | année, réalisateur ou créateurs, pays de production, durée (film), genres, titre original ; `/find/tt…` sans identifiant TMDb |
+| 4 | Wikidata, les données structurées des infobox Wikipédia | année (première date de publication), réalisateur ou créateur, pays d'origine, durée, titre original |
+| 5 | page officielle du programme | durée de la version diffusée par ARTE (API du lecteur, programme unitaire `-000-` seulement) |
+
+Wikidata n'est jamais cherché par titre. L'élément est atteint par un lien
+`wikidata.org/wiki/Q…`, un article `fr|en.wikipedia.org/wiki/…` (ni redirection ni
+page d'homonymie), ou par une requête exacte sur l'identifiant IMDb (P345),
+SensCritique (P10100) ou TMDb (P4947/P4983) déjà connu. Tous ces chemins doivent
+mener au même élément, et l'élément ne doit pas porter un autre identifiant IMDb ou
+SensCritique que la fiche liée. Les identifiants que Wikidata connaît mais que le
+catalogue n'a pas sont listés dans `links_to_verify`, jamais suivis. FranceTVPro et
+TV5MONDE n'exposent pas de métadonnées d'œuvre : leurs pages ne servent qu'aux
+affiches.
+
+Règles de l'année, comme pour les affiches : l'année attendue est celle du
+catalogue, sinon celle qui termine l'identifiant canonique (`le-samourai-1967`).
+Une source de film à plus de deux ans d'écart est écartée. Sans année attendue,
+des sources de film à plus de deux ans d'écart arrêtent l'œuvre
+(`identity_conflict`) : rien n'est proposé avant vérification de l'identité. La
+date de début d'une série ne date pas une saison (« — saison 6 ») et les durées
+d'épisode ne chronomètrent pas une série.
+
+```sh
+# Rapport seul (par défaut) : chaque champ avec sa valeur, sa source et checked_at.
+node scripts/work-resolver.mjs --week YYYY-Sxx --report /tmp/metadonnees.json
+node scripts/work-resolver.mjs --week YYYY-Sxx --work ID --work ID2
+# Écrire les propositions dans data/works.json, champs vides seulement.
+node scripts/work-resolver.mjs --week YYYY-Sxx --apply
+```
+
+Chaque champ reçoit un statut : `proposed` (vide au catalogue, sources
+concordantes), `agrees`, `differs` (le catalogue garde sa valeur vérifiée),
+`conflict` (les sources se contredisent : aucune valeur proposée, toutes les
+valeurs listées), `blocked` (vide mais non écrit, avec la raison) ou
+`same_as_title`. Deux durées différentes d'une minute sont un conflit : le choix
+de la version reste éditorial. Pour les genres, dont les vocabulaires diffèrent,
+un libellé commun suffit à la concordance ; la proposition reprend la première
+source de l'échelle.
+
+`--apply` n'écrit que des champs encore vides et ne remplace jamais une valeur
+vérifiée : `year`, `director` ou `creator`, `country`, `duration` (avec
+`duration_source_url`), `genre`, `aliases` (titre original, si la liste est vide et
+qu'aucune autre œuvre ne porte déjà ce titre), et `ratings` seulement si l'œuvre
+n'a encore aucune note ni `ratings_unavailable_reason`. Dans ce cas, il écrit aussi
+`ratings_checked` et un `ratings_note` au format maison (note, nombre de votes,
+date de relevé). Les champs écrits sont listés dans `metadata_prefill`, avec la
+source de chacun : la recherche les contrôle avant revue. Le synopsis, la
+justification éditoriale, la vérification de l'identité, la chaîne et l'horaire
+restent du travail éditorial. `--apply` est refusé sur une semaine dont le
+checkpoint est `ready` ou scellé : il faut la rouvrir d'abord. Les requêtes vers un
+même hôte sont espacées (`--pace-ms`, 1200 par défaut).
 
 ## Clôture depuis les défauts actuels
 

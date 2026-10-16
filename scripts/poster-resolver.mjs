@@ -18,7 +18,7 @@ export const LADDER=['senscritique','imdb','tmdb','arte','francetvpro','tv5monde
 
 // Only canonical work pages count as identity. Guides, grids without a
 // programme id, search results and review pages never match.
-const IDENTITY_PATTERNS={
+export const IDENTITY_PATTERNS={
   senscritique:[/^https:\/\/www\.senscritique\.com\/(film|serie)\/[^/?#]+\/(\d+)\/?$/,m=>({id:m[2],kind:m[1]})],
   imdb:[/^https:\/\/www\.imdb\.com\/(?:fr\/)?title\/(tt\d+)\/?$/,m=>({id:m[1]})],
   tmdb:[/^https:\/\/www\.themoviedb\.org\/(movie|tv)\/(\d+)(?:-[^/?#]*)?\/?$/,m=>({id:m[2],kind:m[1]})],
@@ -28,6 +28,8 @@ const IDENTITY_PATTERNS={
   tv5monde:[/^https:\/\/www\.tv5mondeplus\.com\/api\/psi\/programs-grid\?((?=[^#]*\bchannel=\d+)(?=[^#]*\bday=\d{4}-\d{2}-\d{2})[^#]+)#program=(\d+)$/,
     m=>({id:m[2],grid:'https://www.tv5mondeplus.com/api/psi/programs-grid?'+m[1]})]
 };
+// TMDb numbers movies and series separately: movie/5 and tv/5 are two works.
+const refId=ref=>ref.grid?ref.grid+'#'+ref.id:(ref.kind?ref.kind+'/':'')+ref.id;
 
 // links.json is keyed by title: a key shared by several works is not an identity.
 export function linkClaims(works){
@@ -40,7 +42,7 @@ export function linkClaims(works){
   return claims;
 }
 
-export function exactIdentity(work,{links={},claims=linkClaims([work])}={}){
+export function exactIdentity(work,{links={},claims=linkClaims([work]),patterns=IDENTITY_PATTERNS}={}){
   const names=new Set([work.title,...array(work.aliases)].map(normTitle).filter(Boolean));
   const sources=[],notes=[];
   for(const [key,value] of Object.entries(work.links||{}))sources.push({origin:'works.json#links.'+key,value});
@@ -52,15 +54,42 @@ export function exactIdentity(work,{links={},claims=linkClaims([work])}={}){
   const found={};
   for(const {origin,value} of sources){
     if(typeof value!=='string')continue;
-    for(const [kind,[pattern,pick]] of Object.entries(IDENTITY_PATTERNS)){
+    for(const [kind,[pattern,pick]] of Object.entries(patterns)){
       const match=value.trim().match(pattern);
       if(match)(found[kind]||=[]).push({...pick(match),url:value.trim(),origin});
     }
   }
   const identity={},conflicts=[];
   for(const [kind,list] of Object.entries(found)){
-    const ids=[...new Set(list.map(ref=>ref.grid?ref.grid+'#'+ref.id:ref.id))];
+    const ids=[...new Set(list.map(refId))];
     if(ids.length>1)conflicts.push({kind,ids});else identity[kind]=list[0];
+  }
+  return {identity,conflicts,notes};
+}
+
+// works.json carries its own links too: an identifier that several works claim
+// (two seasons on the series page) identifies none of them. A work that names
+// two ids of one kind still claims both.
+export function identityOwners(works,{links={},claims=linkClaims(works),patterns=IDENTITY_PATTERNS}={}){
+  const owners=new Map();
+  for(const work of works){
+    const {identity,conflicts}=exactIdentity(work,{links,claims,patterns});
+    const ids=[...Object.entries(identity).map(([kind,ref])=>kind+':'+refId(ref)),
+      ...conflicts.flatMap(({kind,ids})=>ids.map(id=>kind+':'+id))];
+    for(const id of ids){
+      if(!owners.has(id))owners.set(id,new Set());
+      owners.get(id).add(work.id);
+    }
+  }
+  return owners;
+}
+export function workIdentity(work,{links={},claims=linkClaims([work]),owners=new Map(),patterns=IDENTITY_PATTERNS}={}){
+  const {identity,conflicts,notes}=exactIdentity(work,{links,claims,patterns});
+  for(const [kind,ref] of Object.entries(identity)){
+    const others=[...(owners.get(kind+':'+refId(ref))||[])].filter(id=>id!==work.id);
+    if(!others.length)continue;
+    delete identity[kind];
+    notes.push(`${kind} ${refId(ref)} also claimed by ${others.join(', ')}, ignored`);
   }
   return {identity,conflicts,notes};
 }
@@ -96,14 +125,14 @@ async function readText(res,maxBytes){
 }
 
 // One plain request. A bot challenge is reported, never retried or bypassed.
-function fetchDocument(url,ctx,options={}){
+export function fetchDocument(url,ctx,options={}){
   return ctx.pace(url,()=>fetchDocumentNow(url,ctx,options));
 }
 async function fetchDocumentNow(url,ctx,{accept='text/html,application/xhtml+xml',headers={},maxBytes=6*1024*1024,timeoutMs=15000}={}){
   const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeoutMs);
   try{
     const res=await ctx.fetch(url,{redirect:'follow',signal:controller.signal,
-      headers:{'User-Agent':USER_AGENT,'Accept':accept,'Accept-Language':'fr-FR,fr;q=0.9,en;q=0.5',...headers}});
+      headers:{'User-Agent':ctx.userAgent||USER_AGENT,'Accept':accept,'Accept-Language':'fr-FR,fr;q=0.9,en;q=0.5',...headers}});
     const waf=res.headers.get('x-amzn-waf-action')||res.headers.get('cf-mitigated');
     if(waf||res.status===202){await res.body?.cancel();return {ok:false,status:res.status,challenge:true,why:'bot challenge ('+(waf||'HTTP 202')+'), not bypassed'};}
     if(!res.ok){await res.body?.cancel();return {ok:false,status:res.status,why:'HTTP '+res.status};}
@@ -111,7 +140,7 @@ async function fetchDocumentNow(url,ctx,{accept='text/html,application/xhtml+xml
   }catch(error){return {ok:false,why:error.name==='AbortError'?'timeout':error.message}}
   finally{clearTimeout(timer)}
 }
-async function fetchJson(url,ctx,options={}){
+export async function fetchJson(url,ctx,options={}){
   const page=await fetchDocument(url,ctx,{accept:'application/json',...options});
   if(!page.ok)return page;
   try{return {...page,json:JSON.parse(page.text)}}catch{return {ok:false,status:page.status,why:'invalid JSON'}}
@@ -322,11 +351,11 @@ export async function resolvePosters({works,links={},targets,complete=true,repai
   const pace=hostPacer({intervalMs,...(sleep?{sleep}:{}),...(now?{now}:{})});
   const probe=url=>pace(url,()=>probeRemoteImage(url,{fetcher,...(probeDelay?{delay:probeDelay}:{})}));
   const ctx={fetch:fetcher,pace,tmdbKey,today,probe,probeAny:url=>/^https?:\/\//i.test(url)?probe(url):localProbe(url,root)};
-  const claims=linkClaims(works),results=new Array(targets.length);let next=0;
+  const claims=linkClaims(works),owners=identityOwners(works,{links,claims}),results=new Array(targets.length);let next=0;
   await Promise.all(Array.from({length:Math.min(concurrency,targets.length)},async()=>{
     while(next<targets.length){
       const index=next++,work=targets[index];
-      results[index]=await resolveWork(work,exactIdentity(work,{links,claims}),ctx,{complete,repair});
+      results[index]=await resolveWork(work,workIdentity(work,{links,claims,owners}),ctx,{complete,repair});
     }
   }));
   return results;
