@@ -1,0 +1,63 @@
+name: Chat S43 documentary artwork
+on:
+  push:
+    branches: ['transport/chat-s43-20261016']
+    paths: ['handoffs/chat-s43-doc-images.json', '.github/workflows/chat-s43-documentary-art.yml']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Read explicit public pages and image metadata, never video streams
+        env:
+          OUT: ${{ runner.temp }}/art
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, os, re, html, hashlib, datetime, urllib.request, urllib.parse, concurrent.futures
+          from html.parser import HTMLParser
+          out=pathlib.Path(os.environ['OUT']);out.mkdir()
+          class Parser(HTMLParser):
+            def __init__(self):super().__init__();self.meta={};self.images=[]
+            def handle_starttag(self,t,attrs):
+              a=dict(attrs)
+              if t=='meta' and a.get('property'):self.meta[a['property']]=a.get('content','')
+              if t=='img':
+                u=a.get('src','');alt=a.get('alt','')
+                if u:self.images.append({'url':u,'alt':alt})
+          pages={'www.arte.tv','www.senscritique.com'}
+          image_hosts={'media.senscritique.com','api-cdn.arte.tv','static-cdn.arte.tv','www.arte.tv','images.telerama.fr','m.media-amazon.com','fr.web.img2.acsta.net'}
+          def fetch(u,hosts,limit):
+            assert urllib.parse.urlsplit(u).scheme=='https' and urllib.parse.urlsplit(u).hostname in hosts
+            with urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'SelectionTV-EditorialArtworkReview/1.0'}),timeout=25) as r:
+              assert urllib.parse.urlsplit(r.url).scheme=='https' and urllib.parse.urlsplit(r.url).hostname in hosts
+              b=r.read(limit+1);assert len(b)<=limit;return b,r.status,r.url,r.headers.get_content_type()
+          def go(it):
+            assert re.fullmatch('[a-z0-9-]+',it['id']);r={'id':it['id'],'checked_at':datetime.datetime.now(datetime.timezone.utc).isoformat()}
+            try:
+              u=it.get('url')
+              if not u:
+                page=it['source_page'];path=urllib.parse.urlsplit(page).path
+                assert path.startswith(('/fr/videos/','/film/','/serie/'))
+                b,s,f,m=fetch(page,pages,8_000_000);assert m=='text/html';p=Parser();p.feed(b.decode('utf-8'))
+                r.update(source_page=page,page_status=s,page_title=p.meta.get('og:title'),image_candidates=p.images[:40]);u=p.meta.get('og:image');assert u,'No programme og:image found'
+                # Expose only selected image metadata, not copyrighted page/article text.
+              r['url']=html.unescape(u);b,s,f,m=fetch(r['url'],image_hosts,12_000_000);assert m.startswith('image/')
+              name=it['id']+{'image/png':'.png','image/webp':'.webp'}.get(m,'.jpg');(out/name).write_bytes(b)
+              r.update(status=s,final_url=f,mime=m,bytes=len(b),sha256=hashlib.sha256(b).hexdigest(),file=name)
+            except Exception as e:r.update(status='failed',error=str(e))
+            return r
+          items=json.load(open('handoffs/chat-s43-doc-images.json'))['items'];assert len(items)<=40
+          with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex:results=list(ex.map(go,items))
+          (out/'report.json').write_text(json.dumps(results,ensure_ascii=False,indent=2));print(json.dumps([{k:v for k,v in r.items() if k!='image_candidates'} for r in results],ensure_ascii=False,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: documentary-art-${{ github.sha }}
+          path: ${{ runner.temp }}/art/
+          retention-days: 3
+          if-no-files-found: error
