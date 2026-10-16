@@ -5,7 +5,7 @@
 import {createRequire} from 'node:module';
 import {createServer} from 'node:http';
 import {readFile} from 'node:fs/promises';
-import {resolve,extname} from 'node:path';
+import {resolve,extname,sep} from 'node:path';
 import assert from 'node:assert/strict';
 
 const {chromium}=createRequire(import.meta.url)('playwright');
@@ -31,7 +31,7 @@ const server=createServer(async(req,res)=>{
   return;
  }
  const path=resolve(root,'.'+decodeURIComponent(requestUrl.pathname).replace(/\/$/,'/index.html'));
- if(!path.startsWith(root+'/')){res.writeHead(403);res.end();return}
+ if(!path.startsWith(root+sep)){res.writeHead(403);res.end();return}
  try{
   res.setHeader('Content-Type',({'.js':'text/javascript','.css':'text/css','.json':'application/json','.html':'text/html'})[extname(path)]||'application/octet-stream');
   res.end(await readFile(path));

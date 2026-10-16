@@ -48,6 +48,8 @@ Les formats supportés ont été vérifiés sur de vraies réponses :
 | `arte-guide-html` | `https://www.arte.tv/fr/guide/YYYYMMDD/`, chaîne `Arte` ; jour de grille décalé, passage de minuit conservé |
 | `francetvpro-grid-html` | `https://www.francetvpro.fr/grille/france-N/DD-MM-YYYY/DD-MM-YYYY`, France 2/3/4/5 ; heure civile Paris depuis le datetime explicite |
 | `francetvpro-grid-xml` | `https://www.francetvpro.fr/grille-xml/france-N/DD-MM-YYYY`, France 2/3/4/5 ; XML officiel response/item hebdomadaire, fin de nuit D+7 avant 06h |
+| `tv5monde-psi-json` | `https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=YYYY-MM-DD&page=N&limit=10`, chaîne `TV5MONDE` (flux France Belgique Suisse Monaco) ; guide officiel paginé (10 programmes par page), journée de diffusion 04h–04h, heure civile Paris depuis l'offset explicite ; une page après la dernière est `beyond_last_page`, jamais une grille vide |
+| `tele7jours-html` | `https://www.programme-television.org/tv/chaines/<slug>/<jour>[-prochain]`, table explicite de 28 chaînes (`TELE7JOURS_CHANNELS`) ; pages relatives (« jour » = 1 à 7 jours, « jour-prochain » = 8 à 13 jours), **date prouvée par le titre de la page**, page sans date refusée, bascule après minuit ; guide tiers à provenance amont inconnue |
 
 `--collect-official` remplace le plan par huit guides ARTE (veille incluse) et
 huit XML France 2/3/4/5 (semaine actuelle et précédente pour la première nuit).
@@ -55,6 +57,19 @@ Cette amorce couvre **cinq chaînes
 seulement** : couverture large et rappel indépendant restent à faire. Les
 fournisseurs non supportés et pages bloquées restent des lacunes, jamais des
 guides vides certifiés. Aucun contournement de challenge n'est prévu.
+
+`--collect-wide` ajoute à cette amorce la grille officielle TV5MONDE (veille
+incluse, pages 1 à 6) et Télé 7 Jours **pour les seules chaînes sans grille
+officielle** (23 chaînes) : une même émission n'est donc jamais importée deux fois
+avec des minutes différentes. Les requêtes vers un même hôte sont espacées de
+1,5 s et une réponse 429 attend `Retry-After` ; Télé 7 Jours refuse les rafales.
+Le résumé expose `pagination_gaps` (pages TV5MONDE manquantes ou incomplètes) et
+`unreachable_guide_dates` (dates hors de la fenêtre de 1 à 13 jours de Télé 7
+Jours), à collecter un autre jour. Comme pour l'amorce officielle, ces
+observations restent brutes : la seconde lecture des omissions, la comparaison
+avec un autre guide et le contrôle tardif des créneaux retenus restent à faire.
+Sous Windows, l'extraction du PDF Télérama utilise `python` (ou
+`SELECTION_TV_PYTHON`), `python3` y étant un raccourci du Microsoft Store.
 
 La collecte borne concurrence, délais, octets et reprises transitoires. Le cache
 est vérifié par empreinte et garde sa date originale. Un cache expiré provoque
