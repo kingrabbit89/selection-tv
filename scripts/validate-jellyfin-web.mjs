@@ -1,7 +1,7 @@
 import {createRequire} from 'node:module';
 import {createServer} from 'node:http';
 import {readFile} from 'node:fs/promises';
-import {resolve,extname} from 'node:path';
+import {resolve,extname,sep} from 'node:path';
 import assert from 'node:assert/strict';
 
 const {chromium}=createRequire(import.meta.url)('playwright');
@@ -19,7 +19,7 @@ const actualWeeklyUrl=new URL(latestWeek.path,'https://kingrabbit89.github.io/se
 const server=createServer(async(req,res)=>{
   const u=new URL(req.url,'http://localhost');
   const p=resolve(root,'.'+decodeURIComponent(u.pathname).replace(/\/$/,'/index.html'));
-  if(!p.startsWith(root+'/')){res.writeHead(403);res.end();return}
+  if(!p.startsWith(root+sep)){res.writeHead(403);res.end();return}
   try{
     res.setHeader('Content-Type',({'.js':'text/javascript','.css':'text/css','.json':'application/json','.html':'text/html'})[extname(p)]||'application/octet-stream');
     res.end(await readFile(p));
@@ -190,7 +190,7 @@ try{
     if(url.origin==='https://kingrabbit89.github.io'&&url.pathname.startsWith('/selection-tv/')){
       const relative=url.pathname.slice('/selection-tv'.length).replace(/\/$/,'/index.html');
       const file=resolve(root,'.'+relative);
-      if(!file.startsWith(root+'/')){await route.abort();return}
+      if(!file.startsWith(root+sep)){await route.abort();return}
       try{await route.fulfill({status:200,contentType:({'.js':'text/javascript','.css':'text/css','.json':'application/json','.html':'text/html'})[extname(file)]||'application/octet-stream',body:await readFile(file)})}catch{await route.fulfill({status:404,body:'missing'})}
       return;
     }

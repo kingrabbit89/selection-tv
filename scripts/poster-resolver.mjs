@@ -224,6 +224,7 @@ async function tv5monde(ref,ctx){
   if(!grid.ok)return grid;
   const program=array(grid.json?.data?.programs).find(item=>String(item.id)===ref.id);
   if(!program)return {why:'programme '+ref.id+' absent from the official TV5MONDE grid'};
+  if(String(program.channelId??'')!==new URL(ref.grid).searchParams.get('channel'))return {why:'programme '+ref.id+' belongs to another TV5MONDE channel'};
   if(!/^https:\/\/psi\.tv5monde\.com\//.test(program.image||''))return {why:'no TV5MONDE programme image'};
   return {source_url:ref.url,candidates:[{url:program.image,image_type:'official-program-art'}]};
 }

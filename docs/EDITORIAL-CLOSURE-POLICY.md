@@ -32,6 +32,20 @@ Cette autorité ne s’étend ni aux offres replay, expirations, images ou criti
 ni aux métadonnées/version non prouvées par la ligne. Sans PDF pour la cible,
 le parcours Web ci-dessous permet de terminer sans attendre de magazine.
 
+### Inventaire tiré de la grille imprimée
+
+À partir de `quality_gates.telerama_grid_authority_from_week`, l’inventaire peut
+être la grille imprimée complète (`mode: "telerama-grid-authority"`, voir
+`AUTOMATION.md`). La revue de transcription par sondage, consignée dans
+`coverage.grid_inventory.transcription_review`, tient lieu de seconde lecture.
+Elle compte au moins 7 pages relues en entier et 35 lignes relues, dont 3 par
+jour, avec leurs décisions, corrections et ajouts appliqués à l’inventaire.
+Les heures que le magazine n’imprime pas sont consignées dans
+`coverage.grid_inventory.limits`. Elles ne sont ni des omissions à
+rechercher ni des heures relevées : elles sont hors périmètre par décision de
+l’utilisateur. Une proposition placée sur ces heures garde la preuve Web
+ordinaire de ses quatre faits.
+
 ## Évaluer les sources
 
 Pour chaque recoupement, conserver les URLs ou captures réellement lues, leur

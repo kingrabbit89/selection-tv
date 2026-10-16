@@ -158,8 +158,8 @@ test('fallbacks come from another host than the kept primary; official programme
   const {fetcher,calls}=fakeWeb({[SC_URL]:html(scPage()),
     [ftv]:html(`<meta property="og:url" content="${ftv}" /><meta property="og:image" content="${og.replace('&','&amp;')}" />`),
     [original]:image(),
-    [grid]:json({success:true,data:{programs:[{id:41,image:'https://psi.tv5monde.com/media/image/960px/1.jpg'},
-      {id:42,image:'https://psi.tv5monde.com/media/image/960px/2.jpg'}]}}),
+    [grid]:json({success:true,data:{programs:[{id:41,channelId:6,image:'https://psi.tv5monde.com/media/image/960px/1.jpg'},
+      {id:42,channelId:6,image:'https://psi.tv5monde.com/media/image/960px/2.jpg'}]}}),
     'https://psi.tv5monde.com/media/image/960px/2.jpg':image()});
   const [result]=await resolvePosters({works:[work],targets:[work],fetcher,...options});
   assert.equal(result.status,'fallbacks_added');
@@ -167,12 +167,16 @@ test('fallbacks come from another host than the kept primary; official programme
   assert(!calls.some(c=>c.url.startsWith('https://media.senscritique.com/')),'same-host SensCritique images are not fallbacks');
 
   const wrong=fakeWeb({[ftv]:html(`<meta property="og:url" content="https://www.francetvpro.fr/contenu-de-presse/1" /><meta property="og:image" content="${og}" />`),
-    [grid]:json({data:{programs:[{id:41,image:'https://psi.tv5monde.com/media/image/960px/1.jpg'}]}})});
+    [grid]:json({data:{programs:[{id:41,channelId:6,image:'https://psi.tv5monde.com/media/image/960px/1.jpg'}]}})});
   const bare={id:'doc',title:'Doc',links:{official:ftv,tv5:grid+'#program=42'}};
   const [refused]=await resolvePosters({works:[bare],targets:[bare],fetcher:wrong.fetcher,...options});
   assert.equal(refused.status,'unresolved');
   assert.match(refused.attempts.find(a=>a.rung==='francetvpro').why,/is not 76812156/);
   assert.match(refused.attempts.find(a=>a.rung==='tv5monde').why,/absent from the official TV5MONDE grid/);
+  const other=fakeWeb({[grid]:json({data:{programs:[{id:42,channelId:7,image:'https://psi.tv5monde.com/media/image/960px/2.jpg'}]}})});
+  const tv5Only={id:'doc',title:'Doc',links:{tv5:grid+'#program=42'}};
+  const [otherChannel]=await resolvePosters({works:[tv5Only],targets:[tv5Only],fetcher:other.fetcher,...options});
+  assert.match(otherChannel.attempts.find(a=>a.rung==='tv5monde').why,/another TV5MONDE channel/);
 });
 
 test('without exact identity the existing exception mechanism stays; nothing is fetched', async () => {

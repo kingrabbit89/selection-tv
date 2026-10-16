@@ -5,12 +5,12 @@ import path from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
-import {collectSources} from './editorial-source-collector.mjs';
+import {collectSources,paginationGaps,tv5mondeSources,tele7joursSources,TELE7JOURS_CHANNELS} from './editorial-source-collector.mjs';
 import {buildProductionPlan, productionContextFromGit} from './editorial-production-plan.mjs';
 import {buildSourceInventoryHandoff} from './editorial-source-import.mjs';
 import {buildTeleramaHandoff} from './editorial-telerama-import.mjs';
 import {resolvePosters as resolveWorkPosters, buildPosterHandoff, summarize as summarizePosters} from './poster-resolver.mjs';
-import {addDays, weekForSaturday} from './week-calendar.mjs';
+import {addDays, weekForSaturday, parisToday} from './week-calendar.mjs';
 
 export function issueStart(week) {
   assert.match(week || '', /^\d{4}-S\d{2}$/);
@@ -37,15 +37,31 @@ export function officialSourcePlan(week) {
   return {schema_version:1,week,sources,note:'Five official channels only; raw observations, no coverage certification.'};
 }
 
-export async function extractTeleramaPdf({week,pdf,out,libraryFileId,cwd=process.cwd()}) {
+// Official ARTE/France Télévisions grids, the official TV5MONDE FBS grid, and
+// Télé 7 Jours only for channels without an official source, so one programme
+// is never imported twice with different minutes. Raw observations only.
+const OFFICIAL_GRID_CHANNELS=new Set(['Arte','France 2','France 3','France 4','France 5','TV5MONDE']);
+export function wideSourcePlan(week,{today=parisToday()}={}) {
+  const official=officialSourcePlan(week),from=issueStart(week);
+  const guide=tele7joursSources(from,{today,channels:Object.values(TELE7JOURS_CHANNELS).filter(c=>!OFFICIAL_GRID_CHANNELS.has(c))});
+  return {schema_version:1,week,sources:[...official.sources,...tv5mondeSources(from),...guide.sources],unreachable_guide_dates:guide.unreachable,
+    note:'Official ARTE, France Télévisions and TV5MONDE grids plus Télé 7 Jours for the other channels; raw observations, no coverage certification. Unreachable Télé 7 Jours dates must be collected on another day.'};
+}
+// Windows installs a Microsoft Store stub named python3; use python there.
+export const pythonCommand=(env=process.env,platform=process.platform)=>env.SELECTION_TV_PYTHON||(platform==='win32'?'python':'python3');
+
+export async function extractTeleramaPdf({week,pdf,out,libraryFileId,scope,cwd=process.cwd()}) {
   const args=[path.join(cwd,'scripts/editorial-telerama-pdf.py'),path.resolve(pdf),'--week',week,'--output',path.resolve(out)];
   if(libraryFileId)args.push('--library-file-id',libraryFileId);
-  await promisify(execFile)('python3',args,{cwd,timeout:180000,maxBuffer:2*1024*1024});
+  if(scope)args.push('--scope',scope);
+  // On Windows the pdftotext page triage skipped half of the S43 grid pages: scan every page.
+  const env={...process.env,...(process.platform==='win32'&&!process.env.SELECTION_TV_PDF_TRIAGE?{SELECTION_TV_PDF_TRIAGE:'off'}:{})};
+  await promisify(execFile)(pythonCommand(),args,{cwd,env,timeout:180000,maxBuffer:2*1024*1024});
   return JSON.parse(fs.readFileSync(out,'utf8'));
 }
 
 export async function prepareProductionFlow({week, ref, outDir, sourcePlan = null,
-  sourceReport = null, collectOfficial = false, cacheDir = null, refresh = false, limit = 6, offset = 0, cwd = process.cwd(),
+  sourceReport = null, collectOfficial = false, collectWide = false, today = undefined, cacheDir = null, refresh = false, limit = 6, offset = 0, cwd = process.cwd(),
   teleramaPdf=null,teleramaReport=null,teleramaLibraryId=null,teleramaEditorial=null,useTelerama=true,resolvePosters=false},
   {readContext = productionContextFromGit, collect = collectSources, buildPlan = buildProductionPlan,extractPdf=extractTeleramaPdf,
   posterResolver=resolveWorkPosters} = {}) {
@@ -56,7 +72,9 @@ export async function prepareProductionFlow({week, ref, outDir, sourcePlan = nul
   assert(useTelerama || !(teleramaPdf || teleramaReport || teleramaEditorial),'cannot import Telerama while disabling the supplement');
   assert(!teleramaLibraryId || teleramaPdf,'library reference requires a PDF input');
   assert(!collectOfficial || !(sourcePlan || sourceReport),'official seed cannot be mixed with another source input');
+  assert(!collectWide || !(collectOfficial || sourcePlan || sourceReport),'wide seed cannot be mixed with another source input');
   if(collectOfficial) sourcePlan=officialSourcePlan(week);
+  if(collectWide) sourcePlan=wideSourcePlan(week,today?{today}:{});
   assert(!refresh || sourcePlan,'refresh requires explicit collection');
   assert(Number.isInteger(limit) && limit >= 1 && limit <= 40, 'limit must be 1..40');
   assert(Number.isInteger(offset) && offset >= 0, 'offset must be nonnegative');
@@ -81,7 +99,9 @@ export async function prepareProductionFlow({week, ref, outDir, sourcePlan = nul
       assert(typeof source.date === 'string' && (precedingXml || source.date >= addDays(from,-1) && source.date <= to),
         'source page date must cover this week or its first overnight');
     }
-    report = await collect(sourcePlan, {cacheDir, snapshotDir:path.join(outDir,'sources'), refresh});
+    // Télé 7 Jours answers HTTP 429 to bursts: wide collections are paced per host.
+    report = await collect(sourcePlan, {cacheDir, snapshotDir:path.join(outDir,'sources'), refresh,
+      ...(collectWide?{minIntervalMs:1500,retries:2}:{})});
   }
   if (report) {
     if (report.week !== undefined) assert.equal(report.week, week, 'source report belongs to another week');
@@ -103,12 +123,12 @@ export async function prepareProductionFlow({week, ref, outDir, sourcePlan = nul
   // surfaces now rather than at seal time. Opt-in: this mode uses the network.
   let posters=null;
   if(resolvePosters) {
-    const byId=new Map((context.works?.works || []).map(work=>[work.id,work])),today=new Date().toISOString().slice(0,10);
+    const byId=new Map((context.works?.works || []).map(work=>[work.id,work])),checked=today || parisToday();
     const targets=[...new Set(plan.queue.filter(row=>row.canonical_candidates?.length===1).map(row=>row.canonical_candidates[0].work_id))]
       .map(id=>byId.get(id)).filter(Boolean);
     const results=await posterResolver({works:context.works?.works || [],links:context.links?.links || {},targets,complete:true,repair:true,
-      tmdbKey:process.env.TMDB_API_KEY || null,today,root:cwd});
-    posters={results,...buildPosterHandoff(context,results,{today})};
+      tmdbKey:process.env.TMDB_API_KEY || null,today:checked,root:cwd});
+    posters={results,...buildPosterHandoff(context,results,{today:checked})};
   }
   fs.mkdirSync(outDir,{recursive:true});
   if(posters) {
@@ -132,6 +152,8 @@ export async function prepareProductionFlow({week, ref, outDir, sourcePlan = nul
     source_mode:sourcePlan ? 'collected_explicit_sources' : report ? 'saved_source_report' : 'saved_inventory',
     collected_observations:report?.observations.length || 0,
     source_results:report?.source_results?.map(row => ({id:row.id,status:row.status,observations_count:row.observations_count})) || [],
+    pagination_gaps:paginationGaps(report?.source_results),
+    ...(sourcePlan?.unreachable_guide_dates?.length?{unreachable_guide_dates:sourcePlan.unreachable_guide_dates}:{}),
     queue_total:plan.queue_total,batch_items:plan.queue.length,next_offset:plan.next_offset,
     classifications:plan.queue.reduce((counts,item) => {counts[item.classification]=(counts[item.classification]||0)+1;return counts;},{}),
     scope_deficits:plan.scope_deficits,work_batch:path.join(outDir,'work-batch.json')};
@@ -159,6 +181,7 @@ export function parseCli(args) {
     const flag=args[index];
     if (flag==='--refresh') {options.refresh=true;continue;}
     if (flag==='--collect-official') {options.collectOfficial=true;continue;}
+    if (flag==='--collect-wide') {options.collectWide=true;continue;}
     if (flag==='--without-telerama') {options.useTelerama=false;continue;}
     if (flag==='--resolve-posters') {options.resolvePosters=true;continue;}
     assert(['--ref','--out-dir','--source-plan','--source-report','--cache-dir','--limit','--offset',

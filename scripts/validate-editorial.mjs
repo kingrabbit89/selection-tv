@@ -1,7 +1,13 @@
 import {sectionPageMatches} from './editorial-contracts.mjs';
 import {htmlText} from './html-text.mjs';
+import {gridAuthority,itemEvidenceError,sourceRefError,sourceDiversityError,coverageAuthorityErrors,inventoryReviewIndex} from './inventory-evidence.mjs';
 import fs from 'node:fs';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+const readIfExists=p=>fs.existsSync(p)?read(p):null;
+// A week's raw inventory may cite the provided Télérama PDF instead of Web pages
+// once quality_gates.telerama_grid_authority_from_week allows it.
+const authorityFor=(week,inventory)=>gridAuthority({week,inventory,config:read('data/editorial-config.json'),
+  teleramaInput:readIfExists('data/editorial-inputs/'+week+'/telerama.json')});
 const manifest=read('data/manifest.json');
 const latest=process.env.SELECTION_TV_VALIDATE_WEEK||manifest.latest;
 const candidateMode=Boolean(process.env.SELECTION_TV_VALIDATE_WEEK)&&process.env.SELECTION_TV_CANDIDATE==='1';
@@ -175,6 +181,11 @@ if(strict){
    if(days.length!==config.quality_gates.days_scanned){console.error('✗ Coverage must contain 7 days');process.exitCode=1}
    const req=new Set(config.required_core_channels.map(norm));
    for(const day of days){const got=new Set((day.channels_scanned||[]).map(norm));const miss=[...req].filter(x=>!got.has(x));if(miss.length){console.error('✗ '+day.date+' missing required channels: '+miss.join(', '));process.exitCode=1}}
+   const inventory=readIfExists('data/inventory/'+latest+'.json');
+   const {authority}=authorityFor(latest,inventory);
+   if(authority)for(const error of coverageAuthorityErrors(cov,authority,{dates:(inventory.days||[]).map(d=>d.date),index:inventoryReviewIndex(inventory,authority)})){
+     console.error('✗ '+error);process.exitCode=1;
+   }
  }
 }
 
@@ -359,6 +370,8 @@ if(strict){
        failPub(entry.week,'raw inventory file missing: '+invPath);
      }else{
        const inv=read(invPath);
+       const {authority,error:authorityError}=authorityFor(entry.week,inv);
+       if(authorityError)failPub(entry.week,authorityError);
        if(!Array.isArray(inv.days)||inv.days.length!==7){
          failPub(entry.week,'raw inventory must contain 7 days');
        }else{
@@ -377,10 +390,12 @@ if(strict){
            if(sourcePages.length<minSources){
              failPub(entry.week,'raw inventory '+(day.date||'?')+' lacks source pages: '+sourcePages.length+' < '+minSources);
            }
-           const malformed=items.filter(x=>!x.title||!x.channel||!x.start||!(x.source||x.source_url));
+           const malformed=items.filter(x=>!x.title||!x.channel||!x.start||(authority?itemEvidenceError(x,authority):!(x.source||x.source_url)));
            if(malformed.length){
              failPub(entry.week,'raw inventory '+(day.date||'?')+' has '+malformed.length+' items without title/channel/start/source evidence');
            }
+           const diversity=authority&&sourceDiversityError(sourcePages,authority);
+           if(diversity)failPub(entry.week,'raw inventory '+(day.date||'?')+': '+diversity);
 
            // S42+: a bare declaration that every channel was "scanned" is no
            // longer evidence. Every required channel must carry its own source
@@ -399,7 +414,7 @@ if(strict){
              for(const channel of config.required_core_channels){
                const key=norm(channel),raw=srcByNorm.get(key);
                const urls=Array.isArray(raw)?raw:[raw].filter(Boolean);
-               if(!urls.length||urls.some(u=>!/^https?:\/\//i.test(String(u)))){
+               if(!urls.length||urls.some(u=>sourceRefError(String(u),authority))){
                  failPub(entry.week,'strict raw inventory '+(day.date||'?')+' missing valid channel_sources for '+channel);
                }
                const actual=items.filter(x=>norm(x.channel)===key).length;

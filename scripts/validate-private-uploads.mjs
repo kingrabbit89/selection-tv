@@ -2,7 +2,7 @@ import {createRequire} from 'node:module';
 import {createServer} from 'node:http';
 import {createHash} from 'node:crypto';
 import {readFile} from 'node:fs/promises';
-import {resolve, extname} from 'node:path';
+import {resolve, extname, sep} from 'node:path';
 import assert from 'node:assert/strict';
 
 const {chromium, firefox} = createRequire(import.meta.url)('playwright');
@@ -29,7 +29,7 @@ const server = createServer(async (req, res) => {
     return;
   }
   const file = resolve(root, '.' + decodeURIComponent(url.pathname).replace(/\/$/, '/index.html'));
-  if (!file.startsWith(root + '/')) {res.writeHead(403); res.end(); return;}
+  if (!file.startsWith(root + sep)) {res.writeHead(403); res.end(); return;}
   try {res.setHeader('Content-Type', types[extname(file)] || 'application/octet-stream'); res.end(await readFile(file));}
   catch {res.writeHead(404); res.end();}
 });
@@ -107,7 +107,7 @@ async function mount(browser, week, {hidden = false, standalone = false, histori
         return;
       }
       const file = resolve(root, '.' + url.pathname.slice('/selection-tv'.length).replace(/\/$/, '/index.html'));
-      if (!file.startsWith(root + '/')) {await route.abort(); return;}
+      if (!file.startsWith(root + sep)) {await route.abort(); return;}
       try {
         let body = await readFile(file);
         if (url.pathname.endsWith('/issue-loader.js')) {
