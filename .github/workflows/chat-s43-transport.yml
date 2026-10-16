@@ -1,0 +1,35 @@
+name: S43 Chat handoff transport
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: chat-s43-transport
+  cancel-in-progress: false
+jobs:
+  export:
+    if: github.head_ref == 'ops/chat-s43-20261016' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: e7490f2ceb64bfe2d951df3ec8380c6fee2245fc
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Export immutable public tracked objects only
+        shell: bash
+        run: |
+          git cat-file -e a887823251edc926c78c6ce2efdf32b460f5b28a
+          git update-ref refs/heads/chat-source-main e7490f2ceb64bfe2d951df3ec8380c6fee2245fc
+          git update-ref refs/heads/chat-source-candidate a887823251edc926c78c6ce2efdf32b460f5b28a
+          mkdir -p /tmp/chat-s43-context
+          git bundle create /tmp/chat-s43-context/source.bundle refs/heads/chat-source-main refs/heads/chat-source-candidate
+          sha256sum /tmp/chat-s43-context/source.bundle > /tmp/chat-s43-context/source.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chat-s43-context
+          path: /tmp/chat-s43-context/
+          retention-days: 1
+          if-no-files-found: error
