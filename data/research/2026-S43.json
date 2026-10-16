@@ -5,12 +5,11 @@
   "status": "in_progress",
   "base_sha": "3c713aa01b4a253972d1666cdf5f4124f62d745b",
   "remaining": [
-    "Achever la seconde lecture des omissions pour chaque jour, chaîne et nuit : lignes imprimées du Télérama fourni relues sur leur périmètre, grilles Web datées hors périmètre papier ; conserver comparaisons, sources, limites et indépendance connue ou inconnue, sans inventer une preuve de flux.",
-    "Effectuer le rappel éditorial et la prospection documentaire dédiée Arte, France 5, France 2/3/4, france.tv, TV5MONDE et autres sources pertinentes, avec offres linéaires/replay/avant-premières/exclusivités/expirations, décisions et preuves critiques exactes sauvegardées.",
+    "Achever la passe documentaire dédiée (ARTE, France 5, France 2/3/4, france.tv, TV5MONDE) : les choix et grilles ne portent qu’un documentaire ; intégrer en grille commentée les documentaires critiques les plus solides de la semaine après vérification complète, ou consigner un rejet motivé.",
     "Constituer puis tenir une présélection sourcée par jour et par rubrique, environ 1,5 à 2 fois les positions à pourvoir sans titre faible, en priorisant les dossiers proches d’une carte et en conservant les alternatives, rejets, reports et impasses selon le contrat courant.",
     "Vérifier complètement chaque choix, réserve, ligne de grille et proposition de rubrique : identité et version, quatre faits de diffusion selon l’autorité papier relue ou la règle Web hors périmètre, disponibilité/expiration distinctes, réception critique, métadonnées avec portée des durées, notes ou raison spécifique, liens directs et visuel réel.",
     "Revoir les trois choix développés et les dix candidats complets distincts matérialisés pour chacun des sept jours ; poursuivre vers quinze uniquement si la qualité et la diversité le justifient, sans gonfler les pools au détriment des rubriques et de la passe documentaire encore requises.",
-    "Compléter les rubriques obligatoires et leurs seuils sans remplissage faible : rendez-vous, replay, plateformes gratuites et abonnement film-first, sorties physiques et streaming, expirations et sommaire, avec pagination lisible et réserves effectives lorsqu’elles sont requises.",
+    "Revoir dans le navigateur les rubriques obligatoires désormais complètes ou en pénurie structurée (sorties streaming : 2 cartes et motif sourcé), leur pagination et leurs réserves effectives.",
     "Revoir et certifier le fond/rendu des deux radars déjà composés : 5 popularité + 5 sillonnage + 5 réserves, 10 UHD visibles + 6 réserves distinctes (16 au total, minimum courant atteint, objectif 20 si autres œuvres fortes). Contrôler les liens/affiches et les versions UHD ; ne pas confondre les deux films OSS 117 avec deux coffrets distincts.",
     "Appliquer la déduplication, la fraîcheur inter-numéros et l’équilibre cinéma/documentaire/rubriques ; conserver toute exception de fraîcheur ou pénurie sous forme structurée, précise et sourcée.",
     "Construire et revoir tous les livrables autorisés de 2026-S43, ainsi que les enrichissements vérifiés de works, links et releases, en gardant manifest.latest à 2026-S42 et tous les statuts S43 en draft.",
@@ -163,7 +162,8 @@
     "Chat 16 octobre : abonnement page 2, trois cartes de films entièrement rédigées et validées localement (L’Attachement, Hamnet, L’Intérêt d’Adam), CANAL+ France offres 50001/50002 vérifiées, notes publiques relues, métadonnées et véritables affiches, sans confusion avec location 40099 ; génération section et sommaire par editorial-draft-cards, contrôle handoff ; reste à revoir navigateur et sources images à distance.",
     "Chat 16 octobre : troisième page abonnement de trois films d’auteur sur CANAL+ France (Dossier 137, La Tour de glace, Nouvelle Vague). Liens directs _50001, identité forte, synopsis et analyse rédigés, réception contrastée documentée, affiche officielle Haut et Court/Metropolitan ou affiche Criterion réutilisée, durées de portée cinéma/plateforme séparées ; générateur et contrôles locaux vérifiés. Ne signifie ni revue générale ni finalisation des radars.",
     "Chat 16 octobre : radar de popularité, cinq choix visibles, cinq sillonnages sur deuxième page et cinq alternatives datées et distinctes (15 work_id du catalogue existant, aucun lien de téléchargement), extrait du classement TorrentFreak du 12 octobre et d’archives explicitement datées. Les signaux des anciens mois ne sont pas présentés comme une actualité S43. Contrôles locaux sur la candidate S43 : canonical IDs, liens exacts, réserve quotidienne et fraîcheur verts. Le numéro n’est pas prêt : radar UHD, arrivées streaming et relecture de couverture restent bloquants.",
-    "Chat 16 octobre : deux pages HD complètes, 10 primaires plus 6 alternatives distinctes (8 sur radar-1, 8 sur radar-2) et cartes enrichies par sources produit officielles/commerciales, IMDb, critiques et affiches identifiées ; génération mécanique editorial-draft-cards, contrôle des identités/réserves/liens/fraîcheur réussi. Différence explicite entre restauration véritable, nouvelle UHD et import/SteelBook. S43 reste draft : streaming et couverture de grille non clos."
+    "Chat 16 octobre : deux pages HD complètes, 10 primaires plus 6 alternatives distinctes (8 sur radar-1, 8 sur radar-2) et cartes enrichies par sources produit officielles/commerciales, IMDb, critiques et affiches identifiées ; génération mécanique editorial-draft-cards, contrôle des identités/réserves/liens/fraîcheur réussi. Différence explicite entre restauration véritable, nouvelle UHD et import/SteelBook. S43 reste draft : streaming et couverture de grille non clos.",
+    "Claude Code 2026-10-16 : seconde lecture TV5MONDE sur sept jours contre la grille officielle du diffuseur, revue d’impact des 64 cases en conflit sur les 61 occurrences publiées (Left-Handed Girl 18:55 conservé), full_week_reaudit_completed vrai ; sorties streaming : Furcy, né libre (CANAL+ 20/10) + pénurie structurée ; affiches L’Attachement et La Voix de Hind Rajab réparées ; page_count du manifeste 29 → 30."
   ],
   "blockers": [],
   "research_attempts": [
@@ -8352,6 +8352,95 @@
       "applies_to": "radar-2",
       "evidence_note": "Collector Beskar UHD 4K français (+ Blu-ray, SteelBook et 2 posters métalliques) le 21 octobre 2026 ; édition distincte de l’import standard Vérification du produit exact : https://www.fnac.com/a22774108/Star-Wars-The-Mandalorian-And-Grogu-Edition-Collector-Limitee-Beskar-Blu-ray-4K-Ultra-HD-Pedro-Pascal-Blu-ray-4K. Une édition UHD ne prouve pas en soi un nouveau master restauré. États-Unis; 132 min (édition française / IMDb); Science-fiction / aventure; note IMDb 6,8/10 (110 k votes, IMDb version française) consultée le 16 octobre 2026, poster original attribué à la source. La durée suit la portée de la source citée.",
       "status": "reviewed-for-draft"
+    },
+    {
+      "id": "vr-2026-10-16T18:20:12Z-tv5monde-second-reading",
+      "work_id": null,
+      "fields": [
+        "coverage_second_reading",
+        "omissions",
+        "night_segments"
+      ],
+      "urls": [
+        "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-17",
+        "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-18",
+        "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-19",
+        "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-20",
+        "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-21",
+        "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-22",
+        "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-23",
+        "https://www.tv5mondeplus.com/fr/guide-tv",
+        "https://www.linternaute.com/television/programme-tv5monde-samedi/"
+      ],
+      "checked_at": "2026-10-16T17:56:11.334Z",
+      "stability": "cycle_specific",
+      "applies_to": "coverage TV5MONDE 2026-10-17 → 2026-10-23",
+      "evidence_note": "Grille officielle TV5MONDE FBS (API du guide TV5MONDE+, canal 6) téléchargée pour les jours de diffusion du 16 au 24 octobre et comparée aux 342 départs sauvegardés ; L’Internaute samedi relu et concordant avec l’officiel sur la nuit (Lou et Sophie 00:29, C’est du belge 03:05). Écarts et omissions consignés dans coverage.web_schedule_reviews ; aucun effet sur une proposition.",
+      "status": "reviewed"
+    },
+    {
+      "id": "vr-2026-10-16T18:20:12Z-left-handed-girl-slot",
+      "work_id": "left-handed-girl-2025",
+      "fields": [
+        "broadcast_time_conflict_review"
+      ],
+      "urls": [
+        "https://www.programme-television.org/tv/chaines/cine-club/mardi"
+      ],
+      "checked_at": "2026-10-16T18:20:12Z",
+      "stability": "cycle_specific",
+      "applies_to": [
+        "mardi-selection rang 1",
+        "mardi-grille",
+        "rendezvous-1 rang 5"
+      ],
+      "evidence_note": "Télé 7 Jours (Ciné+ Club = Ciné+ Festival) relu le 2026-10-16 : Mollusk 18:51 (13 min), Left-handed girl 19:04 (106 min). Créneau publié 18:55 conservé (Télérama imprimé et deux guides du 15/10) car plus précoce et sans contradiction de date, chaîne ou identité ; décision consignée dans coverage.selection_impact_review.",
+      "status": "reviewed_conflict_non_blocking"
+    },
+    {
+      "id": "vr-2026-10-16T18:20:12Z-furcy-streaming",
+      "work_id": "furcy-ne-libre-2025",
+      "fields": [
+        "identity",
+        "canonical_fields",
+        "ratings",
+        "image",
+        "offer_arrival_date",
+        "criticism",
+        "editorial_copy",
+        "draft_card"
+      ],
+      "urls": [
+        "https://www.canalplus.com/cinema/furcy-ne-libre-film-biopic/h/31282426_50001",
+        "https://www.canalplus.com/programme-tv/",
+        "https://www.imdb.com/title/tt31183235/",
+        "https://www.senscritique.com/film/furcy_ne_libre/76518949",
+        "https://www.serie-news.com/tnt/canal/canal-cinema/57375-furcy-ne-libre-sur-canal-cinema-le-combat-judiciaire-dun-homme-pour-arracher-sa-liberte-a-la-reunion-14-10-2026/"
+      ],
+      "checked_at": "2026-10-16T18:20:12Z",
+      "stability": "mixed_stable_dynamic_and_cycle_specific",
+      "applies_to": "sorties-streaming rang 2",
+      "evidence_note": "Fiche officielle CANAL+ : « Diffusion mardi à 21h10 sur CANAL+ », film biopic 1 h 44, 2025, Abd Al Malik, Makita Samba, Romain Duris, Ana Girardot ; guide officiel CANAL+ du mardi 20/10 (Soirée) : 21h10 Furcy, né libre. Télérama p. 121 (critique relue à l’import, Frédéric Strauss, « Bien ») ; ligne imprimée p. 124 : Canal+ 21.10, inédit. Seconde diffusion Canal+ Cinéma mercredi 21/10 21:00 selon Série News. IMDb 6,3 (181 votes, 109 min) ; SensCritique 6,2 (732 notes, 108 min). Affiche SensCritique inspectée. La carte annonce la première diffusion sur CANAL+ ; aucune disponibilité à la demande n’est affirmée.",
+      "status": "verified_for_draft_card_ci_pending"
+    },
+    {
+      "id": "vr-2026-10-16T18:20:12Z-image-repairs",
+      "work_id": null,
+      "fields": [
+        "image"
+      ],
+      "urls": [
+        "https://www.senscritique.com/film/l_attachement/60890899",
+        "https://www.senscritique.com/film/la_voix_de_hind_rajab/119592780"
+      ],
+      "checked_at": "2026-10-16T18:20:12Z",
+      "stability": "stable_with_remote_health_check",
+      "applies_to": [
+        "L’Attachement",
+        "La Voix de Hind Rajab"
+      ],
+      "evidence_note": "validate-image-sources : anciennes affiches festival-cabourg.com et mobbee.fr en 404 ; remplacées par les affiches françaises exactes des fiches SensCritique, inspectées visuellement, HTTP 200 sans référent.",
+      "status": "reviewed"
     }
   ],
   "source_issues": [
@@ -10876,6 +10965,34 @@
         ],
         "decision_note": "Troisième page abonnement, offre France sans achat à l’unité ; écarts de métrage non transformés en coupe démontrée, images officielles vraies ; visuels HTTP et rendu à vérifier sur candidate.",
         "alternatives": []
+      },
+      {
+        "id": "sl-streaming_release-furcy-ne-libre-2025",
+        "work_id": "furcy-ne-libre-2025",
+        "title": "Furcy, né libre",
+        "scope": {
+          "rubrique": "streaming_release"
+        },
+        "signals": [
+          {
+            "kind": "official_platform_premiere",
+            "source_url": "https://www.canalplus.com/cinema/furcy-ne-libre-film-biopic/h/31282426_50001",
+            "checked_at": "2026-10-16",
+            "note": "Première diffusion sur CANAL+ le mardi 20 octobre à 21h10 (fiche et guide officiels CANAL+)."
+          },
+          {
+            "kind": "provided_magazine_criticism",
+            "source_ref": "sha256:c5c7df779d134932bf1cfb256a5bfe1a7252f3d14a0abac445ea8a06e10b479d",
+            "pdf_page": 121,
+            "native_rating": "Bien",
+            "author": "Frédéric Strauss",
+            "availability_authority": false,
+            "coverage_certified": false
+          }
+        ],
+        "alternatives": [],
+        "status": "card_drafted",
+        "decision_note": "Carte de rubrique complète ; validation finale non déclarée. Pistes écartées pour la même rubrique : Sacrifice (Romain Gavras, Netflix 16/10), accueil critique faible (AV Club C-, Rotten Tomatoes 37 % selon Omelete) ; Ouija 1 et 2, Halloween et Halloween Kills (Netflix 17 et 20/10), reprises de catalogue de genre."
       }
     ]
   },
@@ -10902,14 +11019,11 @@
     "main_sha": "ac067491de4f8ea0a1e0f617183a6ff9066541bf",
     "first_incomplete_stage": "enrichment",
     "next_actions": [
-      "Rubrique abonnement : trois pages, neuf fiches maintenant rédigées. Vérifier réellement le rendu/HTTP des affiches des pages 2-3, différencier offre CANAL+ et VOD et confirmer les sources périssables juste avant seal.",
-      "Radar populaire : quinze cartes et trois groupes (5 choix, 5 sillonnages, 5 réserves) intégrés au brouillon après contrôle des sources datées. Revoir la provenance des affiches et les limitations géographiques / liens avant seal. Les réserves anciennes sont explicitement signalées, sans transposition des rangs passés au 12 octobre.",
-      "Compléter les deux nouvelles arrivées streaming S43 : choisir uniquement deux films avec date officielle dans le 17-23 octobre et URL de visionnage français direct, métadonnées/notes/affiches exactes. Examiner Furcy, né libre (20 octobre) et Météors (22 octobre), en remplacement si une preuve manque.",
-      "Radar UHD : deux pages de cinq cartes visibles et six réserves distinctes sont désormais rédigées (8+8, 16 œuvres différentes). Revoir les images/compatibilités, les liens directs, la provenance de chaque édition et le rendu navigateur avant seal ; objectif de profondeur 20 souhaité mais minimum 16 atteint.",
-      "Achever le recoupement des omissions Télérama/Web par jour, chaîne et nuit, et la passe documentaire. coverage.full_week_reaudit_completed reste faux tant que non achevé.",
-      "Contrôler images, liens, interface navigateur et CI sur la tête exacte ; ne sceller l’édition qu’après revue effective et remaining réellement vide."
+      "Passe documentaire et rappel : vérifier puis ajouter en grilles commentées les documentaires les plus solides (ARTE 17/10 22:25 Monuments éternels, 18/10 20:05 Le Grand Jeu de Jessica Chastain, 20/10 23:35 Yémen ; France 5 18/10 21:10 États-Unis–Chine, 21/10 21:05 Victor Hugo) et Météors (Canal+ Cinéma 22/10 21:00), ou consigner un rejet motivé.",
+      "Revue navigateur des 30 pages après chargement des images et polices ; contrôle des radars, plateformes, sorties et pagination.",
+      "Réconcilier remaining, sceller avec seal-editorial-review.mjs puis suivre CI, fusion protégée et promotion."
     ],
-    "production_mode": "user_led_chat"
+    "production_mode": "claude_code"
   },
   "run_metrics": [
     {
@@ -21952,9 +22066,36 @@
       "reused_existing_cards": 15,
       "stop_reason": "checkpoint_after_batch",
       "next_useful_batch": "Compléter deux sorties streaming à disponibilité et liens directs France vérifiés, puis les réserves du radar UHD et seconde revue de couverture."
+    },
+    {
+      "prompt_revision": "claude-code-s43-completion-2026-10-16",
+      "execution_context": "claude_code_user_requested",
+      "started_at": "2026-10-16T17:49:27Z",
+      "ended_at": null,
+      "run_state": "running",
+      "duration_basis": "Début observé à la première commande de ce passage ; fin non encore atteinte.",
+      "completed_batches": [
+        "Couverture : TV5MONDE + revue d’impact + clôture de la seconde lecture",
+        "Sorties streaming : Furcy, né libre",
+        "Réparation de deux affiches",
+        "Manifeste : page_count"
+      ],
+      "deliverables_changed": [
+        "data/coverage/2026-S43.json",
+        "data/weeks/2026-S43.json",
+        "data/manifest.json",
+        "data/works.json",
+        "data/links.json",
+        "data/releases.json",
+        "data/research/2026-S43.json"
+      ],
+      "complete_cards_added": 1,
+      "new_works": 1,
+      "stop_reason": null,
+      "next_useful_batch": "Passe documentaire : intégrer en grille les documentaires critiques solides (ARTE Monuments éternels, Yémen, Le Grand Jeu de Jessica Chastain, France 5 États-Unis–Chine, Victor Hugo) et Météors, puis revue navigateur complète et scellement."
     }
   ],
-  "updated_at": "2026-10-16T17:17:14Z",
+  "updated_at": "2026-10-16T18:20:12Z",
   "research_dossiers": [
     {
       "title": "La Prisonnière du désert",
@@ -34584,10 +34725,1236 @@
           "Les URL datées L’Internaute peuvent rediriger vers un slug de jour de semaine ; contenu et navigation lus correspondent à la date ciblée."
         ],
         "status": "reread_complete_no_omissions_episode_labels_limited"
+      },
+      {
+        "date": "2026-10-17",
+        "channels": [
+          "TV5MONDE"
+        ],
+        "flow": "TV5MONDE France Belgique Suisse Monaco (FBS, canal 6 du guide officiel)",
+        "publisher": "TV5MONDE — guide officiel TV5MONDE+ (relevé primaire : TV-programme.com / Tabom)",
+        "urls": [
+          "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-17",
+          "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-16",
+          "https://www.tv5mondeplus.com/fr/guide-tv"
+        ],
+        "checked_at": "2026-10-16T17:56:11.334Z",
+        "reviewed_at": "2026-10-16T18:16:09Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "Seconde lecture distincte : grille officielle du diffuseur (jours de diffusion 04:00–04:00 du jour et de la veille, reclassés en jour civil Europe/Paris) comparée ligne à ligne aux départs TV5MONDE sauvegardés depuis TV-programme.com ; rapprochement par titre puis par intitulé de case pour les journaux relayés, tolérance de 90 minutes, écart horaire signalé au-delà de cinq minutes.",
+        "independent_crosscheck_complete": false,
+        "comparison": {
+          "saved_observations": 47,
+          "source_rows_reviewed": 52,
+          "matched": 42,
+          "label_normalizations": [
+            {
+              "saved_start": "05:00",
+              "saved_title": "Nus et culottés Objectif Manche",
+              "official_start": "04:54",
+              "official_title": "Nus & culottés — Objectif Manche"
+            },
+            {
+              "saved_start": "13:30",
+              "saved_title": "JT 13h (La Une)",
+              "official_start": "13:30",
+              "official_title": "Le journal de la RTBF — EDITION DU 17/10/2026 - 13H"
+            },
+            {
+              "saved_start": "18:00",
+              "saved_title": "64’ le monde en français",
+              "official_start": "18:00",
+              "official_title": "64' Actu — EDITION DU 17/10/2026"
+            },
+            {
+              "saved_start": "18:30",
+              "saved_title": "64’ le monde en français",
+              "official_start": "18:30",
+              "official_title": "64' Débat — EDITION DU 17/10/2026"
+            },
+            {
+              "saved_start": "20:01",
+              "saved_title": "Le 19h30",
+              "official_start": "20:00",
+              "official_title": "Le journal de la RTS — EDITION DU 17/10/2026"
+            },
+            {
+              "saved_start": "20:30",
+              "saved_title": "Journal 20h00",
+              "official_start": "20:30",
+              "official_title": "Le journal de France 2 — EDITION DU 17/10/2026 - 20H"
+            }
+          ],
+          "schedule_contradictions": [
+            {
+              "saved_start": "00:41",
+              "official_start": "00:29",
+              "title": "Lou et Sophie S02E05 Pas si bien"
+            },
+            {
+              "saved_start": "01:23",
+              "official_start": "01:12",
+              "title": "Lou et Sophie S02E06 Ça va être correct peut-être"
+            },
+            {
+              "saved_start": "02:10",
+              "official_start": "01:57",
+              "title": "Le journal Afrique"
+            },
+            {
+              "saved_start": "02:38",
+              "official_start": "02:27",
+              "title": "Rendez-vous au parc Regionaler Naturpark Schauffhausen"
+            },
+            {
+              "saved_start": "04:30",
+              "official_start": "04:23",
+              "title": "Pistes vertes Du bio dans le bocage"
+            },
+            {
+              "saved_start": "05:00",
+              "official_start": "04:54",
+              "title": "Nus et culottés Objectif Manche"
+            },
+            {
+              "saved_start": "06:00",
+              "official_start": "05:47",
+              "title": "Savourer S04E06 Pour ou contre la friteuse à air?"
+            },
+            {
+              "saved_start": "06:41",
+              "official_start": "06:25",
+              "title": "Le dessous des cartes Asie-Afrique : forces et faiblesses"
+            },
+            {
+              "saved_start": "08:24",
+              "official_start": "08:30",
+              "title": "basik"
+            },
+            {
+              "saved_start": "22:37",
+              "official_start": "22:45",
+              "title": "L’invité"
+            },
+            {
+              "saved_start": "22:44",
+              "official_start": "22:58",
+              "title": "Météo"
+            },
+            {
+              "saved_start": "22:53",
+              "official_start": "23:04",
+              "title": "OPJ S04E13 Urbex 974"
+            },
+            {
+              "saved_start": "23:42",
+              "official_start": "23:53",
+              "title": "OPJ S04E14 Urbex 974"
+            }
+          ],
+          "inventory_only": [
+            {
+              "start": "00:05",
+              "title": "L’actu"
+            },
+            {
+              "start": "03:17",
+              "title": "Chic en vf S08E03"
+            },
+            {
+              "start": "20:56",
+              "title": "La rencontre, francophonie et ambassadeurs Lituanie"
+            },
+            {
+              "start": "21:01",
+              "title": "Le mensonge S01E01 La chute"
+            },
+            {
+              "start": "21:47",
+              "title": "Le mensonge S01E02 L’engrenage"
+            }
+          ],
+          "omissions": [
+            {
+              "official_start": "03:05",
+              "title": "C'est du belge — La Villa Empain : joyau de l'Art déco belge",
+              "category": "Magazines",
+              "duration": "00:26",
+              "kind": "programme"
+            },
+            {
+              "official_start": "03:31",
+              "title": "Appelle-moi Poésie — « Tu es morte », Hortense Raynal",
+              "category": "Programme court",
+              "duration": "00:03",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "06:38",
+              "title": "MATIERE GRISE EXPRESS — Greffes de foie chez l'enfant",
+              "category": "Programme court",
+              "duration": "00:05",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "07:52",
+              "title": "La fabrique culturelle.tv — Papeterie Saint-Gilles",
+              "category": "Programme court",
+              "duration": "00:05",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "10:23",
+              "title": "Un lieu, une prise — Stéphanie Boulay - « On s'haïssait pas »",
+              "category": "Programme court",
+              "duration": "00:05",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "11:21",
+              "title": "Tarmac comedy — Weilfar Kaya - Les sorciers",
+              "category": "Programme court",
+              "duration": "00:05",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "13:59",
+              "title": "Appelle-moi Poésie — « Révolution 3.0 », D' de Kabal",
+              "category": "Programme court",
+              "duration": "00:03",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "17:41",
+              "title": "La vigne en héritage — Domaine Le Clos des Tourelles",
+              "category": "Documentaires",
+              "duration": "00:13",
+              "kind": "programme"
+            },
+            {
+              "official_start": "21:01",
+              "title": "JE SAIS PAS — Épisode 3",
+              "category": "Séries",
+              "duration": "00:52",
+              "kind": "programme"
+            },
+            {
+              "official_start": "21:53",
+              "title": "JE SAIS PAS — Épisode 4",
+              "category": "Séries",
+              "duration": "00:52",
+              "kind": "programme"
+            }
+          ]
+        },
+        "decisions": [
+          "42 des 47 départs sauvegardés sont retrouvés dans la grille officielle TV5MONDE (flux France Belgique Suisse Monaco), dont 6 sous un autre intitulé de case (journaux relayés RTBF/RTS/France 2, 64', Route du Rhum) ; 13 écart(s) horaire(s) supérieurs à cinq minutes sont conservés.",
+          "10 ligne(s) officielle(s) absentes de l'inventaire ont été examinées : 6 programme(s) court(s) de dix minutes ou moins, 0 édition(s) d'information et 4 programme(s) de plus de dix minutes (03:05 C'est du belge — La Villa Empain : joyau de l'Art déco belge ; 17:41 La vigne en héritage — Domaine Le Clos des Tourelles ; 21:01 JE SAIS PAS — Épisode 3 ; 21:53 JE SAIS PAS — Épisode 4).",
+          "TV5MONDE ne porte aucune carte, réserve ni ligne commentée du numéro S43 ; aucun écart ne touche une proposition. Les omissions examinées ne contiennent ni film ni documentaire inédit justifiant une piste éditoriale nouvelle ; l’inventaire primaire est conservé sans réécriture et les écarts restent visibles ici.",
+          "Départs sauvegardés sans équivalent officiel ce jour : 00:05 L’actu ; 03:17 Chic en vf S08E03 ; 20:56 La rencontre, francophonie et ambassadeurs Lituanie ; 21:01 Le mensonge S01E01 La chute ; 21:47 Le mensonge S01E02 L’engrenage. Ils restent dans l’inventaire comme relevé primaire non confirmé, sans effet sur une proposition."
+        ],
+        "limits": [
+          "La grille officielle est une observation primaire du diffuseur pour le flux FBS ; elle ne certifie pas l’indépendance du relevé TV-programme.com, dont la provenance amont reste inconnue.",
+          "Les programmes courts et interstitiels figurent dans la grille officielle mais pas dans le relevé primaire ; ils sont recensés sans import dans l’inventaire.",
+          "Le jour de diffusion officiel commence vers 04:00 ; la nuit 00:00–03:59 du jour civil a été lue dans la grille de la veille."
+        ],
+        "status": "reread_complete_official_grid_divergences_no_selection_impact"
+      },
+      {
+        "date": "2026-10-18",
+        "channels": [
+          "TV5MONDE"
+        ],
+        "flow": "TV5MONDE France Belgique Suisse Monaco (FBS, canal 6 du guide officiel)",
+        "publisher": "TV5MONDE — guide officiel TV5MONDE+ (relevé primaire : TV-programme.com / Tabom)",
+        "urls": [
+          "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-18",
+          "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-17",
+          "https://www.tv5mondeplus.com/fr/guide-tv"
+        ],
+        "checked_at": "2026-10-16T17:56:12.485Z",
+        "reviewed_at": "2026-10-16T18:16:09Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "Seconde lecture distincte : grille officielle du diffuseur (jours de diffusion 04:00–04:00 du jour et de la veille, reclassés en jour civil Europe/Paris) comparée ligne à ligne aux départs TV5MONDE sauvegardés depuis TV-programme.com ; rapprochement par titre puis par intitulé de case pour les journaux relayés, tolérance de 90 minutes, écart horaire signalé au-delà de cinq minutes.",
+        "independent_crosscheck_complete": false,
+        "comparison": {
+          "saved_observations": 40,
+          "source_rows_reviewed": 39,
+          "matched": 39,
+          "label_normalizations": [
+            {
+              "saved_start": "13:30",
+              "saved_title": "JT 13h (La Une)",
+              "official_start": "13:30",
+              "official_title": "Le journal de la RTBF — EDITION DU 18/10/2026 - 13H"
+            },
+            {
+              "saved_start": "18:00",
+              "saved_title": "64’ le monde en français",
+              "official_start": "18:00",
+              "official_title": "64' Actu — EDITION DU 18/10/2026"
+            },
+            {
+              "saved_start": "18:30",
+              "saved_title": "64’ le monde en français",
+              "official_start": "18:30",
+              "official_title": "64' Débat — EDITION DU 18/10/2026"
+            },
+            {
+              "saved_start": "20:00",
+              "saved_title": "Le 19h30",
+              "official_start": "20:00",
+              "official_title": "Le journal de la RTS — EDITION DU 18/10/2026"
+            },
+            {
+              "saved_start": "20:30",
+              "saved_title": "Journal 20h00",
+              "official_start": "20:30",
+              "official_title": "Le journal de France 2 — EDITION DU 18/10/2026 - 20H"
+            }
+          ],
+          "schedule_contradictions": [
+            {
+              "saved_start": "12:32",
+              "official_start": "12:25",
+              "title": "C’est du belge"
+            },
+            {
+              "saved_start": "13:00",
+              "official_start": "12:54",
+              "title": "Rassemblance Mamari (Rwanda)"
+            },
+            {
+              "saved_start": "23:21",
+              "official_start": "23:30",
+              "title": "Météo"
+            },
+            {
+              "saved_start": "23:28",
+              "official_start": "23:34",
+              "title": "Objectif Monde Chine, une superpuissance fragile ?"
+            }
+          ],
+          "inventory_only": [
+            {
+              "start": "20:56",
+              "title": "La rencontre, francophonie et ambassadeurs Qatar"
+            }
+          ],
+          "omissions": []
+        },
+        "decisions": [
+          "39 des 40 départs sauvegardés sont retrouvés dans la grille officielle TV5MONDE (flux France Belgique Suisse Monaco), dont 5 sous un autre intitulé de case (journaux relayés RTBF/RTS/France 2, 64', Route du Rhum) ; 4 écart(s) horaire(s) supérieurs à cinq minutes sont conservés.",
+          "0 ligne(s) officielle(s) absentes de l'inventaire ont été examinées : 0 programme(s) court(s) de dix minutes ou moins, 0 édition(s) d'information et 0 programme(s) de plus de dix minutes.",
+          "TV5MONDE ne porte aucune carte, réserve ni ligne commentée du numéro S43 ; aucun écart ne touche une proposition. Les omissions examinées ne contiennent ni film ni documentaire inédit justifiant une piste éditoriale nouvelle ; l’inventaire primaire est conservé sans réécriture et les écarts restent visibles ici.",
+          "Départs sauvegardés sans équivalent officiel ce jour : 20:56 La rencontre, francophonie et ambassadeurs Qatar. Ils restent dans l’inventaire comme relevé primaire non confirmé, sans effet sur une proposition."
+        ],
+        "limits": [
+          "La grille officielle est une observation primaire du diffuseur pour le flux FBS ; elle ne certifie pas l’indépendance du relevé TV-programme.com, dont la provenance amont reste inconnue.",
+          "Les programmes courts et interstitiels figurent dans la grille officielle mais pas dans le relevé primaire ; ils sont recensés sans import dans l’inventaire.",
+          "Le jour de diffusion officiel commence vers 04:00 ; la nuit 00:00–03:59 du jour civil a été lue dans la grille de la veille."
+        ],
+        "status": "reread_complete_official_grid_divergences_no_selection_impact"
+      },
+      {
+        "date": "2026-10-19",
+        "channels": [
+          "TV5MONDE"
+        ],
+        "flow": "TV5MONDE France Belgique Suisse Monaco (FBS, canal 6 du guide officiel)",
+        "publisher": "TV5MONDE — guide officiel TV5MONDE+ (relevé primaire : TV-programme.com / Tabom)",
+        "urls": [
+          "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-19",
+          "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-18",
+          "https://www.tv5mondeplus.com/fr/guide-tv"
+        ],
+        "checked_at": "2026-10-16T17:56:14.228Z",
+        "reviewed_at": "2026-10-16T18:16:09Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "Seconde lecture distincte : grille officielle du diffuseur (jours de diffusion 04:00–04:00 du jour et de la veille, reclassés en jour civil Europe/Paris) comparée ligne à ligne aux départs TV5MONDE sauvegardés depuis TV-programme.com ; rapprochement par titre puis par intitulé de case pour les journaux relayés, tolérance de 90 minutes, écart horaire signalé au-delà de cinq minutes.",
+        "independent_crosscheck_complete": false,
+        "comparison": {
+          "saved_observations": 49,
+          "source_rows_reviewed": 53,
+          "matched": 47,
+          "label_normalizations": [
+            {
+              "saved_start": "13:30",
+              "saved_title": "JT 13h (La Une)",
+              "official_start": "13:30",
+              "official_title": "Le journal de la RTBF — EDITION DU 19/10/2026 - 13H"
+            },
+            {
+              "saved_start": "18:00",
+              "saved_title": "64’ le monde en français",
+              "official_start": "18:00",
+              "official_title": "64' Actu — EDITION DU 19/10/2026"
+            },
+            {
+              "saved_start": "18:30",
+              "saved_title": "64’ le monde en français",
+              "official_start": "18:30",
+              "official_title": "64' Débat — EDITION DU 19/10/2026"
+            },
+            {
+              "saved_start": "20:00",
+              "saved_title": "Le 19h30",
+              "official_start": "20:00",
+              "official_title": "Le journal de la RTS — EDITION DU 19/10/2026"
+            },
+            {
+              "saved_start": "20:30",
+              "saved_title": "Journal 20h00",
+              "official_start": "20:30",
+              "official_title": "Le journal de France 2 — EDITION DU 19/10/2026 - 20H"
+            },
+            {
+              "saved_start": "22:26",
+              "saved_title": "La Route du Rhum - Destination Guadeloupe La quotidienne",
+              "official_start": "22:31",
+              "official_title": "Route du Rhum 2026 - Destination Guadeloupe — 19/10/2026"
+            }
+          ],
+          "schedule_contradictions": [
+            {
+              "saved_start": "00:52",
+              "official_start": "00:58",
+              "title": "Météo"
+            },
+            {
+              "saved_start": "00:59",
+              "official_start": "01:05",
+              "title": "Amore mio"
+            },
+            {
+              "saved_start": "02:20",
+              "official_start": "02:29",
+              "title": "De vrais Suisses"
+            },
+            {
+              "saved_start": "03:40",
+              "official_start": "03:51",
+              "title": "Parlons Eco"
+            },
+            {
+              "saved_start": "04:00",
+              "official_start": "04:07",
+              "title": "Escapades en Suisse Italienne S02E04 Val Bavona"
+            },
+            {
+              "saved_start": "05:00",
+              "official_start": "04:53",
+              "title": "Tendance XXI S12E19 Spéciale mode"
+            },
+            {
+              "saved_start": "08:30",
+              "official_start": "08:18",
+              "title": "Télématin"
+            },
+            {
+              "saved_start": "16:18",
+              "official_start": "16:26",
+              "title": "Escapades en Suisse Italienne S02E03 Via del Ceneri"
+            },
+            {
+              "saved_start": "16:47",
+              "official_start": "16:56",
+              "title": "13h15, le samedi... Devenir médecin à 67 ans"
+            },
+            {
+              "saved_start": "22:30",
+              "official_start": "22:38",
+              "title": "L’actu"
+            }
+          ],
+          "inventory_only": [
+            {
+              "start": "08:54",
+              "title": "Chic en vf S08E04"
+            },
+            {
+              "start": "17:15",
+              "title": "20h30 le vendredi Aïcha, du bloc à la scène"
+            }
+          ],
+          "omissions": [
+            {
+              "official_start": "05:20",
+              "title": "Appelle-moi Poésie — « À la ligne », Ismaël Allem",
+              "category": "Programme court",
+              "duration": "00:04",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "06:57",
+              "title": "Très très bonne leçon — Champagne",
+              "category": "Programme court",
+              "duration": "00:02",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "07:22",
+              "title": "Klass — Pourquoi les transports publics ne sont pas gratuits ?",
+              "category": "Programme court",
+              "duration": "00:03",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "08:45",
+              "title": "6h info — LE 6H00 DU 19/10/2026",
+              "category": "Information",
+              "duration": "00:24",
+              "kind": "information"
+            },
+            {
+              "official_start": "09:37",
+              "title": "La fabrique culturelle.tv — Louise Abbott",
+              "category": "Programme court",
+              "duration": "00:05",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "19:51",
+              "title": "Clin d'oeil sur le monde — Bakou, terre de feu (Azerbaïdjan)",
+              "category": "Programme court",
+              "duration": "00:03",
+              "kind": "programme_court"
+            }
+          ]
+        },
+        "decisions": [
+          "47 des 49 départs sauvegardés sont retrouvés dans la grille officielle TV5MONDE (flux France Belgique Suisse Monaco), dont 6 sous un autre intitulé de case (journaux relayés RTBF/RTS/France 2, 64', Route du Rhum) ; 10 écart(s) horaire(s) supérieurs à cinq minutes sont conservés.",
+          "6 ligne(s) officielle(s) absentes de l'inventaire ont été examinées : 5 programme(s) court(s) de dix minutes ou moins, 1 édition(s) d'information et 0 programme(s) de plus de dix minutes.",
+          "TV5MONDE ne porte aucune carte, réserve ni ligne commentée du numéro S43 ; aucun écart ne touche une proposition. Les omissions examinées ne contiennent ni film ni documentaire inédit justifiant une piste éditoriale nouvelle ; l’inventaire primaire est conservé sans réécriture et les écarts restent visibles ici.",
+          "Départs sauvegardés sans équivalent officiel ce jour : 08:54 Chic en vf S08E04 ; 17:15 20h30 le vendredi Aïcha, du bloc à la scène. Ils restent dans l’inventaire comme relevé primaire non confirmé, sans effet sur une proposition."
+        ],
+        "limits": [
+          "La grille officielle est une observation primaire du diffuseur pour le flux FBS ; elle ne certifie pas l’indépendance du relevé TV-programme.com, dont la provenance amont reste inconnue.",
+          "Les programmes courts et interstitiels figurent dans la grille officielle mais pas dans le relevé primaire ; ils sont recensés sans import dans l’inventaire.",
+          "Le jour de diffusion officiel commence vers 04:00 ; la nuit 00:00–03:59 du jour civil a été lue dans la grille de la veille."
+        ],
+        "status": "reread_complete_official_grid_divergences_no_selection_impact"
+      },
+      {
+        "date": "2026-10-20",
+        "channels": [
+          "TV5MONDE"
+        ],
+        "flow": "TV5MONDE France Belgique Suisse Monaco (FBS, canal 6 du guide officiel)",
+        "publisher": "TV5MONDE — guide officiel TV5MONDE+ (relevé primaire : TV-programme.com / Tabom)",
+        "urls": [
+          "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-20",
+          "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-19",
+          "https://www.tv5mondeplus.com/fr/guide-tv"
+        ],
+        "checked_at": "2026-10-16T17:56:15.831Z",
+        "reviewed_at": "2026-10-16T18:16:09Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "Seconde lecture distincte : grille officielle du diffuseur (jours de diffusion 04:00–04:00 du jour et de la veille, reclassés en jour civil Europe/Paris) comparée ligne à ligne aux départs TV5MONDE sauvegardés depuis TV-programme.com ; rapprochement par titre puis par intitulé de case pour les journaux relayés, tolérance de 90 minutes, écart horaire signalé au-delà de cinq minutes.",
+        "independent_crosscheck_complete": false,
+        "comparison": {
+          "saved_observations": 47,
+          "source_rows_reviewed": 51,
+          "matched": 45,
+          "label_normalizations": [
+            {
+              "saved_start": "13:30",
+              "saved_title": "JT 13h (La Une)",
+              "official_start": "13:30",
+              "official_title": "Le journal de la RTBF — EDITION DU 20/10/2026 - 13H"
+            },
+            {
+              "saved_start": "15:58",
+              "saved_title": "Chroniques méditerranéennes La vallée de la Clarée",
+              "official_start": "15:59",
+              "official_title": "Chroniques méditerranéennes nature — La vallée de la Clarée"
+            },
+            {
+              "saved_start": "18:00",
+              "saved_title": "64' le monde en français",
+              "official_start": "18:00",
+              "official_title": "64' Actu — EDITION DU 20/10/2026"
+            },
+            {
+              "saved_start": "18:30",
+              "saved_title": "64' le monde en français",
+              "official_start": "18:30",
+              "official_title": "64' Débat — EDITION DU 20/10/2026"
+            },
+            {
+              "saved_start": "20:00",
+              "saved_title": "Le 19h30",
+              "official_start": "20:00",
+              "official_title": "Le journal de la RTS — EDITION DU 20/10/2026"
+            },
+            {
+              "saved_start": "20:30",
+              "saved_title": "Journal 20h00",
+              "official_start": "20:30",
+              "official_title": "Le journal de France 2 — EDITION DU 20/10/2026 - 20H"
+            },
+            {
+              "saved_start": "22:41",
+              "saved_title": "La Route du Rhum - Destination Guadeloupe La quotidienne",
+              "official_start": "22:50",
+              "official_title": "Route du Rhum 2026 - Destination Guadeloupe — 20/10/2026"
+            }
+          ],
+          "schedule_contradictions": [
+            {
+              "saved_start": "00:39",
+              "official_start": "00:45",
+              "title": "Le journal Afrique"
+            },
+            {
+              "saved_start": "01:07",
+              "official_start": "01:15",
+              "title": "C'est qui le chef ?"
+            },
+            {
+              "saved_start": "02:42",
+              "official_start": "02:52",
+              "title": "Rendez-vous au parc Parc Jura Vaudois"
+            },
+            {
+              "saved_start": "05:00",
+              "official_start": "04:53",
+              "title": "Rassemblance Mamari (Rwanda)"
+            },
+            {
+              "saved_start": "08:30",
+              "official_start": "08:18",
+              "title": "Télématin"
+            },
+            {
+              "saved_start": "17:29",
+              "official_start": "17:21",
+              "title": "Tendance XXI S12E20 Spéciale luxe et palaces"
+            },
+            {
+              "saved_start": "22:41",
+              "official_start": "22:50",
+              "title": "La Route du Rhum - Destination Guadeloupe La quotidienne"
+            },
+            {
+              "saved_start": "22:46",
+              "official_start": "22:54",
+              "title": "L'actu"
+            },
+            {
+              "saved_start": "23:18",
+              "official_start": "23:29",
+              "title": "Toute la vie S03E21 Mardi 15 mars 2022"
+            }
+          ],
+          "inventory_only": [
+            {
+              "start": "08:54",
+              "title": "Chic en vf S08E05"
+            },
+            {
+              "start": "23:59",
+              "title": "Toute la vie S03E22 Mardi 22 mars 2022"
+            }
+          ],
+          "omissions": [
+            {
+              "official_start": "05:21",
+              "title": "L'HEURE H — Juan Pujol Garcia, l'espion d'Hitler",
+              "category": "Programme court",
+              "duration": "00:03",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "08:11",
+              "title": "Capsules Jardins et loisirs — JARDINS ET LOISIRS -EP035-FELIX, LE SCULPTEUR A LA TRONÇONNEUSE",
+              "category": "Programme court",
+              "duration": "00:03",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "08:45",
+              "title": "6h info — LE 6H00 DU 20/10/2026",
+              "category": "Information",
+              "duration": "00:24",
+              "kind": "information"
+            },
+            {
+              "official_start": "09:38",
+              "title": "Version française — Le musée national de la Marine",
+              "category": "Programme court",
+              "duration": "00:05",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "17:48",
+              "title": "Les belges histoires — Collectif Farm Prod",
+              "category": "Programme court",
+              "duration": "00:06",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "19:52",
+              "title": "Anne-So what ? — Le macareux moine",
+              "category": "Programme court",
+              "duration": "00:03",
+              "kind": "programme_court"
+            }
+          ]
+        },
+        "decisions": [
+          "45 des 47 départs sauvegardés sont retrouvés dans la grille officielle TV5MONDE (flux France Belgique Suisse Monaco), dont 7 sous un autre intitulé de case (journaux relayés RTBF/RTS/France 2, 64', Route du Rhum) ; 9 écart(s) horaire(s) supérieurs à cinq minutes sont conservés.",
+          "6 ligne(s) officielle(s) absentes de l'inventaire ont été examinées : 5 programme(s) court(s) de dix minutes ou moins, 1 édition(s) d'information et 0 programme(s) de plus de dix minutes.",
+          "TV5MONDE ne porte aucune carte, réserve ni ligne commentée du numéro S43 ; aucun écart ne touche une proposition. Les omissions examinées ne contiennent ni film ni documentaire inédit justifiant une piste éditoriale nouvelle ; l’inventaire primaire est conservé sans réécriture et les écarts restent visibles ici.",
+          "Départs sauvegardés sans équivalent officiel ce jour : 08:54 Chic en vf S08E05 ; 23:59 Toute la vie S03E22 Mardi 22 mars 2022. Ils restent dans l’inventaire comme relevé primaire non confirmé, sans effet sur une proposition."
+        ],
+        "limits": [
+          "La grille officielle est une observation primaire du diffuseur pour le flux FBS ; elle ne certifie pas l’indépendance du relevé TV-programme.com, dont la provenance amont reste inconnue.",
+          "Les programmes courts et interstitiels figurent dans la grille officielle mais pas dans le relevé primaire ; ils sont recensés sans import dans l’inventaire.",
+          "Le jour de diffusion officiel commence vers 04:00 ; la nuit 00:00–03:59 du jour civil a été lue dans la grille de la veille."
+        ],
+        "status": "reread_complete_official_grid_divergences_no_selection_impact"
+      },
+      {
+        "date": "2026-10-21",
+        "channels": [
+          "TV5MONDE"
+        ],
+        "flow": "TV5MONDE France Belgique Suisse Monaco (FBS, canal 6 du guide officiel)",
+        "publisher": "TV5MONDE — guide officiel TV5MONDE+ (relevé primaire : TV-programme.com / Tabom)",
+        "urls": [
+          "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-21",
+          "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-20",
+          "https://www.tv5mondeplus.com/fr/guide-tv"
+        ],
+        "checked_at": "2026-10-16T17:56:17.443Z",
+        "reviewed_at": "2026-10-16T18:16:09Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "Seconde lecture distincte : grille officielle du diffuseur (jours de diffusion 04:00–04:00 du jour et de la veille, reclassés en jour civil Europe/Paris) comparée ligne à ligne aux départs TV5MONDE sauvegardés depuis TV-programme.com ; rapprochement par titre puis par intitulé de case pour les journaux relayés, tolérance de 90 minutes, écart horaire signalé au-delà de cinq minutes.",
+        "independent_crosscheck_complete": false,
+        "comparison": {
+          "saved_observations": 55,
+          "source_rows_reviewed": 61,
+          "matched": 52,
+          "label_normalizations": [
+            {
+              "saved_start": "13:30",
+              "saved_title": "JT 13h (La Une)",
+              "official_start": "13:30",
+              "official_title": "Le journal de la RTBF — EDITION DU 21/10/2026 - 13H"
+            },
+            {
+              "saved_start": "18:00",
+              "saved_title": "64' le monde en français",
+              "official_start": "18:00",
+              "official_title": "64' Actu — EDITION DU 21/10/2026"
+            },
+            {
+              "saved_start": "18:30",
+              "saved_title": "64' le monde en français",
+              "official_start": "18:30",
+              "official_title": "64' Débat — EDITION DU 21/10/2026"
+            },
+            {
+              "saved_start": "20:00",
+              "saved_title": "Le 19h30",
+              "official_start": "20:00",
+              "official_title": "Le journal de la RTS — EDITION DU 21/10/2026"
+            },
+            {
+              "saved_start": "20:30",
+              "saved_title": "Journal 20h00",
+              "official_start": "20:30",
+              "official_title": "Le journal de France 2 — EDITION DU 21/10/2026 - 20H"
+            },
+            {
+              "saved_start": "22:50",
+              "saved_title": "La Route du Rhum - Destination Guadeloupe La quotidienne",
+              "official_start": "23:01",
+              "official_title": "Route du Rhum 2026 - Destination Guadeloupe — 21/10/2026"
+            }
+          ],
+          "schedule_contradictions": [
+            {
+              "saved_start": "00:49",
+              "official_start": "00:58",
+              "title": "Le journal Afrique"
+            },
+            {
+              "saved_start": "01:20",
+              "official_start": "01:29",
+              "title": "Un alibi"
+            },
+            {
+              "saved_start": "02:52",
+              "official_start": "03:04",
+              "title": "Vestiaires S11E01 À chacun sa thérapie"
+            },
+            {
+              "saved_start": "02:54",
+              "official_start": "03:07",
+              "title": "Vestiaires S11E02 A taaaaaaaable"
+            },
+            {
+              "saved_start": "02:58",
+              "official_start": "03:10",
+              "title": "Vestiaires S11E03 Affreux, seuls et méchants"
+            },
+            {
+              "saved_start": "03:02",
+              "official_start": "03:14",
+              "title": "Vestiaires S11E04 Alternance"
+            },
+            {
+              "saved_start": "03:05",
+              "official_start": "03:17",
+              "title": "Vestiaires S11E05 Avec vous, il faut avoir les épaules larges"
+            },
+            {
+              "saved_start": "03:08",
+              "official_start": "03:20",
+              "title": "Vestiaires S11E06 Axella"
+            },
+            {
+              "saved_start": "03:11",
+              "official_start": "03:23",
+              "title": "Vestiaires S11E07 Ce que pensent les autres"
+            },
+            {
+              "saved_start": "03:15",
+              "official_start": "03:27",
+              "title": "Vestiaires S11E08 Cendrillon"
+            },
+            {
+              "saved_start": "05:00",
+              "official_start": "04:53",
+              "title": "Suisse en scène"
+            },
+            {
+              "saved_start": "08:30",
+              "official_start": "08:15",
+              "title": "Télématin"
+            },
+            {
+              "saved_start": "10:45",
+              "official_start": "10:39",
+              "title": "basik Quand l'IA recrute"
+            },
+            {
+              "saved_start": "16:46",
+              "official_start": "16:54",
+              "title": "Le point La relève agricole, un chemin semé d'embûches"
+            },
+            {
+              "saved_start": "22:10",
+              "official_start": "22:16",
+              "title": "Jeanne Lanvin ou l'instinct du luxe"
+            },
+            {
+              "saved_start": "22:50",
+              "official_start": "23:01",
+              "title": "La Route du Rhum - Destination Guadeloupe La quotidienne"
+            },
+            {
+              "saved_start": "22:53",
+              "official_start": "23:05",
+              "title": "L'actu"
+            },
+            {
+              "saved_start": "23:26",
+              "official_start": "23:40",
+              "title": "Un dimanche à la campagne"
+            }
+          ],
+          "inventory_only": [
+            {
+              "start": "03:18",
+              "title": "Chic en vf S08E05"
+            },
+            {
+              "start": "08:54",
+              "title": "Chic en vf S08E06"
+            },
+            {
+              "start": "17:43",
+              "title": "Chic en vf S08E06"
+            }
+          ],
+          "omissions": [
+            {
+              "official_start": "00:11",
+              "title": "Toute la vie — Mardi 22 mars 2022",
+              "category": "Séries",
+              "duration": "00:43",
+              "kind": "programme"
+            },
+            {
+              "official_start": "03:30",
+              "title": "La minute de Max Bird — Le dragon bleu des mers",
+              "category": "Programme court",
+              "duration": "00:04",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "05:19",
+              "title": "Voyages vert vous — Québec : l'Abitibi-Témiscamingue",
+              "category": "Programme court",
+              "duration": "00:05",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "06:24",
+              "title": "Très très bonne leçon — Carbonara",
+              "category": "Programme court",
+              "duration": "00:02",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "08:11",
+              "title": "Première page — Le Horla",
+              "category": "Programme court",
+              "duration": "00:02",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "08:46",
+              "title": "6h info — LE 6H00 DU 21/10/2026",
+              "category": "Information",
+              "duration": "00:24",
+              "kind": "information"
+            },
+            {
+              "official_start": "17:45",
+              "title": "Enquête de sens — Les mangas",
+              "category": "Programme court",
+              "duration": "00:10",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "19:51",
+              "title": "Klass — Quelle est la meilleure façon d'investir son argent ?",
+              "category": "Programme court",
+              "duration": "00:03",
+              "kind": "programme_court"
+            },
+            {
+              "official_start": "20:27",
+              "title": "La p'tite librairie — LA P'TITE LIBRAIRIE-L'ESPRIT DE RÉSISTANCE",
+              "category": "Programme court",
+              "duration": "00:02",
+              "kind": "programme_court"
+            }
+          ]
+        },
+        "decisions": [
+          "52 des 55 départs sauvegardés sont retrouvés dans la grille officielle TV5MONDE (flux France Belgique Suisse Monaco), dont 6 sous un autre intitulé de case (journaux relayés RTBF/RTS/France 2, 64', Route du Rhum) ; 18 écart(s) horaire(s) supérieurs à cinq minutes sont conservés.",
+          "9 ligne(s) officielle(s) absentes de l'inventaire ont été examinées : 7 programme(s) court(s) de dix minutes ou moins, 1 édition(s) d'information et 1 programme(s) de plus de dix minutes (00:11 Toute la vie — Mardi 22 mars 2022).",
+          "TV5MONDE ne porte aucune carte, réserve ni ligne commentée du numéro S43 ; aucun écart ne touche une proposition. Les omissions examinées ne contiennent ni film ni documentaire inédit justifiant une piste éditoriale nouvelle ; l’inventaire primaire est conservé sans réécriture et les écarts restent visibles ici.",
+          "Départs sauvegardés sans équivalent officiel ce jour : 03:18 Chic en vf S08E05 ; 08:54 Chic en vf S08E06 ; 17:43 Chic en vf S08E06. Ils restent dans l’inventaire comme relevé primaire non confirmé, sans effet sur une proposition."
+        ],
+        "limits": [
+          "La grille officielle est une observation primaire du diffuseur pour le flux FBS ; elle ne certifie pas l’indépendance du relevé TV-programme.com, dont la provenance amont reste inconnue.",
+          "Les programmes courts et interstitiels figurent dans la grille officielle mais pas dans le relevé primaire ; ils sont recensés sans import dans l’inventaire.",
+          "Le jour de diffusion officiel commence vers 04:00 ; la nuit 00:00–03:59 du jour civil a été lue dans la grille de la veille."
+        ],
+        "status": "reread_complete_official_grid_divergences_no_selection_impact"
+      },
+      {
+        "date": "2026-10-22",
+        "channels": [
+          "TV5MONDE"
+        ],
+        "flow": "TV5MONDE France Belgique Suisse Monaco (FBS, canal 6 du guide officiel)",
+        "publisher": "TV5MONDE — guide officiel TV5MONDE+ (relevé primaire : TV-programme.com / Tabom)",
+        "urls": [
+          "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-22",
+          "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-21",
+          "https://www.tv5mondeplus.com/fr/guide-tv"
+        ],
+        "checked_at": "2026-10-16T17:56:19.292Z",
+        "reviewed_at": "2026-10-16T18:16:09Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "Seconde lecture distincte : grille officielle du diffuseur (jours de diffusion 04:00–04:00 du jour et de la veille, reclassés en jour civil Europe/Paris) comparée ligne à ligne aux départs TV5MONDE sauvegardés depuis TV-programme.com ; rapprochement par titre puis par intitulé de case pour les journaux relayés, tolérance de 90 minutes, écart horaire signalé au-delà de cinq minutes.",
+        "independent_crosscheck_complete": false,
+        "comparison": {
+          "saved_observations": 49,
+          "source_rows_reviewed": 50,
+          "matched": 48,
+          "label_normalizations": [
+            {
+              "saved_start": "04:00",
+              "saved_title": "Chroniques méditerranéennes La vallée de la Clarée",
+              "official_start": "04:00",
+              "official_title": "Chroniques méditerranéennes nature — La vallée de la Clarée"
+            },
+            {
+              "saved_start": "10:15",
+              "saved_title": "20h30 le vendredi Marianne, Dame de papier",
+              "official_start": "10:15",
+              "official_title": "Les rencontres de 20h30 — Marianne, dame papier"
+            },
+            {
+              "saved_start": "13:30",
+              "saved_title": "JT 13h (La Une)",
+              "official_start": "13:30",
+              "official_title": "Le journal de la RTBF — EDITION DU 22/10/2026 - 13H"
+            },
+            {
+              "saved_start": "18:00",
+              "saved_title": "64' le monde en français",
+              "official_start": "18:00",
+              "official_title": "64' Actu — EDITION DU 22/10/2026"
+            },
+            {
+              "saved_start": "18:30",
+              "saved_title": "64' le monde en français",
+              "official_start": "18:30",
+              "official_title": "64' Débat — EDITION DU 22/10/2026"
+            },
+            {
+              "saved_start": "20:00",
+              "saved_title": "Le 19h30",
+              "official_start": "20:00",
+              "official_title": "Le journal de la RTS — EDITION DU 22/10/2026"
+            },
+            {
+              "saved_start": "20:30",
+              "saved_title": "Journal 20h00",
+              "official_start": "20:30",
+              "official_title": "Le journal de France 2 — EDITION DU 22/10/2026 - 20H"
+            },
+            {
+              "saved_start": "22:50",
+              "saved_title": "La Route du Rhum - Destination Guadeloupe La quotidienne",
+              "official_start": "22:50",
+              "official_title": "Route du Rhum 2026 - Destination Guadeloupe — Route du Rhum - 22/10/2026"
+            }
+          ],
+          "schedule_contradictions": [
+            {
+              "saved_start": "01:16",
+              "official_start": "01:32",
+              "title": "Le journal Afrique"
+            },
+            {
+              "saved_start": "01:47",
+              "official_start": "02:00",
+              "title": "Les Maîtres des Saveurs Les maîtres des champignons"
+            },
+            {
+              "saved_start": "02:38",
+              "official_start": "02:52",
+              "title": "Les Maîtres des Saveurs Les maîtres du maïs"
+            },
+            {
+              "saved_start": "03:35",
+              "official_start": "03:43",
+              "title": "Un si grand soleil S05E1003"
+            },
+            {
+              "saved_start": "08:30",
+              "official_start": "08:15",
+              "title": "Télématin"
+            }
+          ],
+          "inventory_only": [
+            {
+              "start": "08:54",
+              "title": "Chic en vf S08E07"
+            }
+          ],
+          "omissions": [
+            {
+              "official_start": "08:45",
+              "title": "6h info — LE 6H00 DU 22/10/2026",
+              "category": "Information",
+              "duration": "00:24",
+              "kind": "information"
+            },
+            {
+              "official_start": "21:01",
+              "title": "LA RENCONTRE — Qatar",
+              "category": "Programme court",
+              "duration": "00:05",
+              "kind": "programme_court"
+            }
+          ]
+        },
+        "decisions": [
+          "48 des 49 départs sauvegardés sont retrouvés dans la grille officielle TV5MONDE (flux France Belgique Suisse Monaco), dont 8 sous un autre intitulé de case (journaux relayés RTBF/RTS/France 2, 64', Route du Rhum) ; 5 écart(s) horaire(s) supérieurs à cinq minutes sont conservés.",
+          "2 ligne(s) officielle(s) absentes de l'inventaire ont été examinées : 1 programme(s) court(s) de dix minutes ou moins, 1 édition(s) d'information et 0 programme(s) de plus de dix minutes.",
+          "TV5MONDE ne porte aucune carte, réserve ni ligne commentée du numéro S43 ; aucun écart ne touche une proposition. Les omissions examinées ne contiennent ni film ni documentaire inédit justifiant une piste éditoriale nouvelle ; l’inventaire primaire est conservé sans réécriture et les écarts restent visibles ici.",
+          "Départs sauvegardés sans équivalent officiel ce jour : 08:54 Chic en vf S08E07. Ils restent dans l’inventaire comme relevé primaire non confirmé, sans effet sur une proposition."
+        ],
+        "limits": [
+          "La grille officielle est une observation primaire du diffuseur pour le flux FBS ; elle ne certifie pas l’indépendance du relevé TV-programme.com, dont la provenance amont reste inconnue.",
+          "Les programmes courts et interstitiels figurent dans la grille officielle mais pas dans le relevé primaire ; ils sont recensés sans import dans l’inventaire.",
+          "Le jour de diffusion officiel commence vers 04:00 ; la nuit 00:00–03:59 du jour civil a été lue dans la grille de la veille."
+        ],
+        "status": "reread_complete_official_grid_divergences_no_selection_impact"
+      },
+      {
+        "date": "2026-10-23",
+        "channels": [
+          "TV5MONDE"
+        ],
+        "flow": "TV5MONDE France Belgique Suisse Monaco (FBS, canal 6 du guide officiel)",
+        "publisher": "TV5MONDE — guide officiel TV5MONDE+ (relevé primaire : TV-programme.com / Tabom)",
+        "urls": [
+          "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-23",
+          "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-10-22",
+          "https://www.tv5mondeplus.com/fr/guide-tv"
+        ],
+        "checked_at": "2026-10-16T17:56:21.016Z",
+        "reviewed_at": "2026-10-16T18:16:09Z",
+        "segments_reviewed": [
+          "00:00–05:59",
+          "06:00–23:59"
+        ],
+        "review_method": "Seconde lecture distincte : grille officielle du diffuseur (jours de diffusion 04:00–04:00 du jour et de la veille, reclassés en jour civil Europe/Paris) comparée ligne à ligne aux départs TV5MONDE sauvegardés depuis TV-programme.com ; rapprochement par titre puis par intitulé de case pour les journaux relayés, tolérance de 90 minutes, écart horaire signalé au-delà de cinq minutes.",
+        "independent_crosscheck_complete": false,
+        "comparison": {
+          "saved_observations": 55,
+          "source_rows_reviewed": 56,
+          "matched": 54,
+          "label_normalizations": [
+            {
+              "saved_start": "13:30",
+              "saved_title": "JT 13h (La Une)",
+              "official_start": "13:30",
+              "official_title": "Le journal de la RTBF — EDITION DU 23/10/2026 - 13H"
+            },
+            {
+              "saved_start": "18:00",
+              "saved_title": "64' le monde en français",
+              "official_start": "18:00",
+              "official_title": "64' Actu — EDITION DU 23/10/2026"
+            },
+            {
+              "saved_start": "20:00",
+              "saved_title": "Le 19h30",
+              "official_start": "20:00",
+              "official_title": "Le journal de la RTS — EDITION DU 23/10/2026"
+            },
+            {
+              "saved_start": "20:30",
+              "saved_title": "Journal 20h00",
+              "official_start": "20:30",
+              "official_title": "Le journal de France 2 — EDITION DU 23/10/2026 - 20H"
+            },
+            {
+              "saved_start": "23:17",
+              "saved_title": "La Route du Rhum - Destination Guadeloupe La quotidienne",
+              "official_start": "23:16",
+              "official_title": "Route du Rhum 2026 - Destination Guadeloupe — Route du Rhum - 23/10/2026"
+            }
+          ],
+          "schedule_contradictions": [
+            {
+              "saved_start": "08:30",
+              "official_start": "08:15",
+              "title": "Télématin"
+            }
+          ],
+          "inventory_only": [
+            {
+              "start": "08:54",
+              "title": "Chic en vf S08E08"
+            }
+          ],
+          "omissions": [
+            {
+              "official_start": "08:45",
+              "title": "6h info — LE 6H00 DU 23/10/2026",
+              "category": "Information",
+              "duration": "00:24",
+              "kind": "information"
+            },
+            {
+              "official_start": "20:56",
+              "title": "LA RENCONTRE — Maroc",
+              "category": "Programme court",
+              "duration": "00:05",
+              "kind": "programme_court"
+            }
+          ]
+        },
+        "decisions": [
+          "54 des 55 départs sauvegardés sont retrouvés dans la grille officielle TV5MONDE (flux France Belgique Suisse Monaco), dont 5 sous un autre intitulé de case (journaux relayés RTBF/RTS/France 2, 64', Route du Rhum) ; 1 écart(s) horaire(s) supérieurs à cinq minutes sont conservés.",
+          "2 ligne(s) officielle(s) absentes de l'inventaire ont été examinées : 1 programme(s) court(s) de dix minutes ou moins, 1 édition(s) d'information et 0 programme(s) de plus de dix minutes.",
+          "TV5MONDE ne porte aucune carte, réserve ni ligne commentée du numéro S43 ; aucun écart ne touche une proposition. Les omissions examinées ne contiennent ni film ni documentaire inédit justifiant une piste éditoriale nouvelle ; l’inventaire primaire est conservé sans réécriture et les écarts restent visibles ici.",
+          "Départs sauvegardés sans équivalent officiel ce jour : 08:54 Chic en vf S08E08. Ils restent dans l’inventaire comme relevé primaire non confirmé, sans effet sur une proposition."
+        ],
+        "limits": [
+          "La grille officielle est une observation primaire du diffuseur pour le flux FBS ; elle ne certifie pas l’indépendance du relevé TV-programme.com, dont la provenance amont reste inconnue.",
+          "Les programmes courts et interstitiels figurent dans la grille officielle mais pas dans le relevé primaire ; ils sont recensés sans import dans l’inventaire.",
+          "Le jour de diffusion officiel commence vers 04:00 ; la nuit 00:00–03:59 du jour civil a été lue dans la grille de la veille."
+        ],
+        "status": "reread_complete_official_grid_divergences_no_selection_impact"
       }
     ],
     "independent_crosscheck_complete": false,
-    "full_week_reaudit_completed": false
+    "full_week_reaudit_completed": true,
+    "selection_impact_review": {
+      "reviewed_at": "2026-10-16T18:18:13Z",
+      "method": "Toutes les cases jour × chaîne dont la relecture conserve un conflit, une contradiction, une omission ou une identité ouverte (64 cases sur 203) ont été croisées avec les 61 occurrences de diffusion publiées (choix développés, grilles commentées) et les rendez-vous de la semaine, par date, chaîne et titre normalisé, puis avec les titres des pools de personnalisation.",
+      "published_broadcast_occurrences": 61,
+      "affected": [
+        {
+          "date": "2026-10-20",
+          "channel": "Ciné+ Festival",
+          "work_id": "left-handed-girl-2025",
+          "slots": [
+            "mardi-selection rang 1",
+            "mardi-grille",
+            "rendezvous-1 rang 5"
+          ],
+          "conflict": "Télérama imprimé p. 124 et deux guides relus le 15/10 à 13:21 (TV-programme.com, ProgrammeTVCeSoir) : 18:55 ; Télé 7 Jours relu le 2026-10-16 et TV-programme.com relu le 15/10 matin : court métrage Mollusk à 18:51 puis film à 19:04.",
+          "decision": "Créneau publié 18:55 conservé : date, chaîne et identité concordent partout ; l’écart de neuf minutes porte sur l’insertion d’un court métrage avant le film et 18:55 reste l’heure la plus précoce, sans risque de manquer le début. Aucune correction officielle datée du diffuseur n’a été trouvée.",
+          "evidence": [
+            "https://www.programme-television.org/tv/chaines/cine-club/mardi",
+            "https://tv-programme.com/cine-plus-festival/mardi-20-octobre-2026/",
+            "https://www.programmetvcesoir.net/chaine/cine-festival/2026-10-20"
+          ]
+        }
+      ],
+      "aliases_checked": [
+        {
+          "published": "The Last Boy Scout (RTL9, 17/10 20:55)",
+          "inventory": "Le dernier samaritain 20:55",
+          "decision": "Même œuvre (Tony Scott, 1991) ; titre original publié, créneau concordant."
+        }
+      ],
+      "unaffected_conclusion": "Les autres conflits ouverts (France 2/3/4/5, W9, Gulli, Canal+, Action, RMC Découverte, Ciné+ Family/Frisson/Festival, TFX, TV5MONDE) portent sur des cases sans carte, réserve ni ligne commentée : divergences brutes conservées et sourcées, sans effet démontré sur une proposition. Les omissions examinées (courts métrages, interstitiels, rediffusions de séries, cases « Fin des programmes », éditions d’information) ne révèlent aucune œuvre justifiant une nouvelle piste."
+    },
+    "full_week_reaudit": {
+      "completed_at": "2026-10-16T18:18:13Z",
+      "scope": "7 jours civils × 29 chaînes obligatoires/pertinentes, journées 06:00–23:59 et nuits 00:00–05:59",
+      "method": "Seconde lecture des omissions par jour, chaîne et nuit : 156 relectures Web datées (dont 7 TV5MONDE contre la grille officielle du diffuseur ajoutées le 2026-10-16), 13 lignes imprimées Télérama relues pour des cartes, revue d’impact de chaque conflit restant sur les propositions publiées.",
+      "limits": [
+        "L’indépendance des sources reste inconnue pour la plupart des chaînes ; independent_crosscheck_complete reste faux.",
+        "Les divergences brutes sans effet sur une proposition restent ouvertes et visibles dans leurs relectures ; l’inventaire primaire n’est pas réécrit.",
+        "La transcription Télérama n’a pas été relue ligne à ligne : seules les lignes des cartes listées dans grid_authority_reviews font autorité."
+      ]
+    }
   },
   "closure_decisions": [
     {
@@ -34609,6 +35976,17 @@
         "Last Stop : Yuma County — TV-programme et L’Internaute concordants à 19:27 le 23 octobre sur Canal+ Cinéma"
       ],
       "note": "Le dossier La Nuit du chasseur reste différé ; seule l’exigence portant sur une carte retenue défectueuse est close."
+    },
+    {
+      "requirement": "Achever la seconde lecture des omissions pour chaque jour, chaîne et nuit : lignes imprimées du Télérama fourni relues sur leur périmètre, grilles Web datées hors périmètre papier ; conserver comparaisons, sources, limites et indépendance connue ou inconnue, sans inventer une preuve de flux.",
+      "status": "closed_with_evidence",
+      "decided_at": "2026-10-16T18:20:12Z",
+      "evidence": [
+        "data/coverage/2026-S43.json : web_schedule_reviews (156, dont 7 TV5MONDE contre la grille officielle)",
+        "data/coverage/2026-S43.json : selection_impact_review",
+        "data/coverage/2026-S43.json : full_week_reaudit"
+      ],
+      "note": "independent_crosscheck_complete reste faux ; les divergences brutes sans effet restent ouvertes dans leurs relectures."
     }
   ],
   "remaining_history": [
@@ -34640,6 +36018,23 @@
         "Revoir les trois choix développés et les dix candidats complets distincts matérialisés pour chacun des sept jours ; poursuivre vers quinze uniquement si la qualité et la diversité le justifient, sans gonfler les pools au détriment des rubriques et de la passe documentaire encore requises.",
         "Compléter les rubriques obligatoires et leurs seuils sans remplissage faible : rendez-vous, replay, plateformes gratuites et abonnement film-first, sorties physiques et streaming, expirations et sommaire, avec pagination lisible et réserves effectives lorsqu’elles sont requises.",
         "Compléter les radars selon les seuils inchangés : popularité avec cinq choix, cinq cartes de sillonnage et au moins cinq réserves distinctes, puis radar 1080p avec dix choix visibles et une réserve distincte visant dix œuvres, sans compter les primaires comme réserves.",
+        "Appliquer la déduplication, la fraîcheur inter-numéros et l’équilibre cinéma/documentaire/rubriques ; conserver toute exception de fraîcheur ou pénurie sous forme structurée, précise et sourcée.",
+        "Construire et revoir tous les livrables autorisés de 2026-S43, ainsi que les enrichissements vérifiés de works, links et releases, en gardant manifest.latest à 2026-S42 et tous les statuts S43 en draft.",
+        "Exécuter les contrôles pertinents de données, liens, fraîcheur, réserves, images et présentation sur la tête exacte, inspecter les pages modifiées, résoudre les causes réelles sans baisser les critères et conserver les résultats CI liés au SHA et à sa base.",
+        "Après résolution réelle de remaining, effectuer la revue éditoriale complète des livrables, sceller les empreintes exactes, passer stage à ready, puis laisser la fusion candidate et la promotion protégées suivre leurs contrôles et leur publication vérifiée."
+      ]
+    },
+    {
+      "saved_at": "2026-10-16T18:20:12Z",
+      "reason": "Seconde lecture des omissions achevée (TV5MONDE ajouté, revue d’impact enregistrée) ; rubrique streaming close par 2 cartes et pénurie structurée ; passe documentaire réouverte précisément.",
+      "remaining_before": [
+        "Achever la seconde lecture des omissions pour chaque jour, chaîne et nuit : lignes imprimées du Télérama fourni relues sur leur périmètre, grilles Web datées hors périmètre papier ; conserver comparaisons, sources, limites et indépendance connue ou inconnue, sans inventer une preuve de flux.",
+        "Effectuer le rappel éditorial et la prospection documentaire dédiée Arte, France 5, France 2/3/4, france.tv, TV5MONDE et autres sources pertinentes, avec offres linéaires/replay/avant-premières/exclusivités/expirations, décisions et preuves critiques exactes sauvegardées.",
+        "Constituer puis tenir une présélection sourcée par jour et par rubrique, environ 1,5 à 2 fois les positions à pourvoir sans titre faible, en priorisant les dossiers proches d’une carte et en conservant les alternatives, rejets, reports et impasses selon le contrat courant.",
+        "Vérifier complètement chaque choix, réserve, ligne de grille et proposition de rubrique : identité et version, quatre faits de diffusion selon l’autorité papier relue ou la règle Web hors périmètre, disponibilité/expiration distinctes, réception critique, métadonnées avec portée des durées, notes ou raison spécifique, liens directs et visuel réel.",
+        "Revoir les trois choix développés et les dix candidats complets distincts matérialisés pour chacun des sept jours ; poursuivre vers quinze uniquement si la qualité et la diversité le justifient, sans gonfler les pools au détriment des rubriques et de la passe documentaire encore requises.",
+        "Compléter les rubriques obligatoires et leurs seuils sans remplissage faible : rendez-vous, replay, plateformes gratuites et abonnement film-first, sorties physiques et streaming, expirations et sommaire, avec pagination lisible et réserves effectives lorsqu’elles sont requises.",
+        "Revoir et certifier le fond/rendu des deux radars déjà composés : 5 popularité + 5 sillonnage + 5 réserves, 10 UHD visibles + 6 réserves distinctes (16 au total, minimum courant atteint, objectif 20 si autres œuvres fortes). Contrôler les liens/affiches et les versions UHD ; ne pas confondre les deux films OSS 117 avec deux coffrets distincts.",
         "Appliquer la déduplication, la fraîcheur inter-numéros et l’équilibre cinéma/documentaire/rubriques ; conserver toute exception de fraîcheur ou pénurie sous forme structurée, précise et sourcée.",
         "Construire et revoir tous les livrables autorisés de 2026-S43, ainsi que les enrichissements vérifiés de works, links et releases, en gardant manifest.latest à 2026-S42 et tous les statuts S43 en draft.",
         "Exécuter les contrôles pertinents de données, liens, fraîcheur, réserves, images et présentation sur la tête exacte, inspecter les pages modifiées, résoudre les causes réelles sans baisser les critères et conserver les résultats CI liés au SHA et à sa base.",
