@@ -14,6 +14,25 @@ export function allowedPaths(week) {
     ...['inventory','coverage','weeks','radar-reserves','research'].map(p=>`data/${p}/${week}.json`),
     `semaines/${week}/index.html`]);
 }
+// A candidate may also carry posters copied into the site. They are binary, so
+// they never travel in a text handoff or in reviewed_files: works.json (sealed)
+// names each file and its image_sha256, which poster-copy.mjs --check verifies.
+const POSTER_PATH=/^assets\/posters\/([a-z0-9]+(?:-[a-z0-9]+)*)\.webp$/;
+export const isCandidatePoster=p=>POSTER_PATH.test(p);
+export function assertCandidatePaths(week,paths,read,label='candidate cannot change code/configuration: '){
+  const allowed=allowedPaths(week);
+  for(const p of paths)assert(allowed.has(p)||isCandidatePoster(p),label+p);
+  const posters=paths.filter(isCandidatePoster);
+  if(!posters.length)return;
+  const worksText=read('data/works.json');
+  const works=worksText===null?[]:JSON.parse(worksText).works||[];
+  for(const p of posters){
+    const id=p.match(POSTER_PATH)[1];
+    if(read(p)!==null)assert(works.some(w=>w.id===id&&w.image===p&&/^[a-f0-9]{64}$/.test(w.image_sha256||'')),
+      'candidate poster is not the fingerprinted image of its work in data/works.json: '+p);
+    else assert(!works.some(w=>w.image===p),'candidate deletes a poster still used by data/works.json: '+p);
+  }
+}
 export function validateBundle(bundle) {
   assert.equal(bundle.schema_version,1);
   assert.match(bundle.week,/^\d{4}-S\d{2}$/);

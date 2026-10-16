@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {webpInfo, copyPosters, checkPosterAssets, posterPath, isPosterPath, parseCli} from './poster-copy.mjs';
+import {webpInfo, copyPosters, checkPosterAssets, posterPath, isPosterPath, posterDigest, parseCli} from './poster-copy.mjs';
 import {applyResolutions} from './poster-resolver.mjs';
 
 const JPEG=Buffer.from([0xff,0xd8,0xff,0xe0,0,16,74,70,73,70,0,1]);
@@ -56,8 +56,10 @@ test('copy keeps the healthy original as image_remote and first fallback, drops 
   try {
     const [result]=await copyPosters({works:[work],targets:[work],fetcher,root,...options});
     assert.equal(result.status,'copied');
-    assert.deepEqual(result.update,{image:'assets/posters/usual-suspects-1995.webp',image_remote:ok,image_fallbacks:[ok,other]});
-    assert.deepEqual(webpInfo(fs.readFileSync(path.join(root,result.file))),{width:360,height:540});
+    const written=fs.readFileSync(path.join(root,result.file));
+    assert.deepEqual(result.update,{image:'assets/posters/usual-suspects-1995.webp',image_remote:ok,image_fallbacks:[ok,other],
+      image_sha256:posterDigest(written)});
+    assert.deepEqual(webpInfo(written),{width:360,height:540});
     assert(calls.every(call=>!call.headers.Referer&&!call.headers.referer));
     assert.equal(calls.some(call=>call.url===other),false,'stops at the first healthy source');
     const {doc}=applyResolutions({works:[work]},[result],{today:'2026-10-16'});
@@ -76,6 +78,16 @@ test('copy keeps the healthy original as image_remote and first fallback, drops 
     assert.equal(same.update,undefined,'identical values leave works.json untouched');
     assert.equal(applyResolutions({updated:'2026-10-01',works:[local]},[same],{today:'2026-10-20'}).doc.updated,'2026-10-01');
     assert.equal(refresh.calls[0].url,ok,'a local poster refreshes from image_remote');
+
+    // An older copy without fingerprint gets one, offline; a file changed behind
+    // works.json is reported instead of silently re-fingerprinted.
+    const {image_sha256,...legacy}=local;
+    const [backfilled]=await copyPosters({works:[legacy],targets:[legacy],fetcher:again.fetcher,root,...options});
+    assert.deepEqual(backfilled.update,{image_sha256});
+    fs.writeFileSync(path.join(root,local.image),webp(360,540,3));
+    const [tampered]=await copyPosters({works:[local],targets:[local],fetcher:again.fetcher,root,...options});
+    assert.equal(tampered.status,'failed');assert.match(tampered.why,/differs from image_sha256/);
+    assert.equal(again.calls.length,0);
   } finally {fs.rmSync(root,{recursive:true,force:true});}
 });
 
@@ -99,7 +111,8 @@ test('dry run writes no file; HTML, SVG, missing sources and unsafe ids are not 
 test('CI check: each local poster is a small WebP named after its work, with its remote original kept', () => {
   const root=tempRoot(),dir=path.join(root,'assets/posters');
   fs.mkdirSync(dir,{recursive:true});
-  const good={id:'good',image:'assets/posters/good.webp',image_remote:'https://cdn.example.test/g.jpg',image_fallbacks:['https://cdn.example.test/g.jpg']};
+  const good={id:'good',image:'assets/posters/good.webp',image_remote:'https://cdn.example.test/g.jpg',image_fallbacks:['https://cdn.example.test/g.jpg'],
+    image_sha256:posterDigest(webp(360,540))};
   try {
     fs.writeFileSync(path.join(dir,'good.webp'),webp(360,540));
     let report=checkPosterAssets({works:[good,{id:'remote',image:'https://cdn.example.test/r.jpg'}],root});
@@ -117,6 +130,7 @@ test('CI check: each local poster is a small WebP named after its work, with its
     assert.match(text,/big: .*800×1200, above 360×540/);
     assert.match(text,/fake: .* is not a WebP file/);
     assert.match(text,/fake: image_fallbacks must start with image_remote/);
+    assert.match(text,/big: .*does not match image_sha256/);
     assert.match(text,/renamed: poster path must be assets\/posters\/renamed\.webp/);
     assert.match(text,/missing: missing assets\/posters\/missing\.webp/);
     assert.match(text,/assets\/posters\/orphan\.webp: not the image of any work/);

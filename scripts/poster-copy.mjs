@@ -6,10 +6,12 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {execFile} from 'node:child_process';
+import {createHash} from 'node:crypto';
 import {promisify} from 'node:util';
 import {pathToFileURL} from 'node:url';
 import {hasImageSignature} from './image-health.mjs';
 import {hostPacer,applyResolutions,weekTargets} from './poster-resolver.mjs';
+import {isCandidatePoster} from './editorial-handoff.mjs';
 
 export const POSTER_DIR='assets/posters';
 export const MAX_POSTER_BYTES=120*1024;
@@ -17,7 +19,9 @@ export const MAX_POSTER_SIZE={width:360,height:540};
 const SAFE_ID=/^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const array=value=>Array.isArray(value)?value:[];
 const remote=url=>/^https?:\/\//i.test(url||'');
-export const isPosterPath=value=>/^assets\/posters\/[a-z0-9]+(?:-[a-z0-9]+)*\.webp$/.test(value||'');
+export const isPosterPath=value=>isCandidatePoster(value||'');
+// The sealed works.json records each file's fingerprint, binding its bytes to the review.
+export const posterDigest=bytes=>createHash('sha256').update(bytes).digest('hex');
 export function posterPath(id){assert.match(id||'',SAFE_ID,'unsafe work id for a poster file: '+id);return `${POSTER_DIR}/${id}.webp`;}
 
 // Dimensions from the RIFF/WEBP header; null when the bytes are not a WebP.
@@ -81,8 +85,13 @@ export async function copyPosters({works,targets,fetcher=fetch,convert=pythonCon
         if(!work.image){result.why='no image';continue;}
         if(!SAFE_ID.test(work.id||'')){result.why='unsafe work id';continue;}
         if(isPosterPath(work.image)&&!refresh){
-          const file=path.join(root,work.image);
-          if(fs.existsSync(file)&&webpInfo(fs.readFileSync(file))){result.status='kept';continue;}
+          const file=path.join(root,work.image),bytes=fs.existsSync(file)?fs.readFileSync(file):null;
+          if(bytes&&webpInfo(bytes)){
+            const sha=posterDigest(bytes);
+            if(!work.image_sha256){result.status='kept';result.update={image_sha256:sha};continue;}
+            if(work.image_sha256===sha){result.status='kept';continue;}
+            result.status='failed';result.why='poster file differs from image_sha256; rerun with --refresh';continue;
+          }
         }
         const sources=sourcesOf(work);
         if(!sources.length){result.status='failed';result.why='no remote source to copy';continue;}
@@ -111,7 +120,7 @@ export async function copyPosters({works,targets,fetcher=fetch,convert=pythonCon
       const previous=[...new Set([work.image,work.image_remote,...array(work.image_fallbacks)].filter(remote))];
       Object.assign(result,{status:'copied',file:target,file_changed:!same,bytes:bytes.length,width:info.width,height:info.height,
         source:url,bytes_in:item.bytes_in,
-        update:{image:target,image_remote:url,image_fallbacks:[url,...previous.filter(u=>u!==url&&!failed.has(u))]}});
+        update:{image:target,image_remote:url,image_fallbacks:[url,...previous.filter(u=>u!==url&&!failed.has(u))],image_sha256:posterDigest(bytes)}});
       // Identical values are no change: a re-run must not touch works.json.
       if(Object.entries(result.update).every(([key,value])=>JSON.stringify(work[key])===JSON.stringify(value)))delete result.update;
     }
@@ -133,6 +142,7 @@ export function checkPosterAssets({works,root=process.cwd()}){
     if(!info)errors.push(`${work.id}: ${image} is not a WebP file`);
     else if(info.width>MAX_POSTER_SIZE.width||info.height>MAX_POSTER_SIZE.height)errors.push(`${work.id}: ${image} is ${info.width}×${info.height}, above ${MAX_POSTER_SIZE.width}×${MAX_POSTER_SIZE.height}`);
     if(content.length>MAX_POSTER_BYTES)errors.push(`${work.id}: ${image} weighs ${content.length} bytes, above ${MAX_POSTER_BYTES}`);
+    if(work.image_sha256!==posterDigest(content))errors.push(`${work.id}: ${image} does not match image_sha256 recorded in works.json`);
     if(!remote(work.image_remote))errors.push(`${work.id}: image_remote must keep the original remote URL`);
     else if(array(work.image_fallbacks)[0]!==work.image_remote)errors.push(`${work.id}: image_fallbacks must start with image_remote`);
   }

@@ -5,7 +5,7 @@ import {pathToFileURL} from 'node:url';
 import {recoverPromotion} from './recover-promotion.mjs';
 import {synchronizePromotion} from './synchronize-promotion.mjs';
 import {calendarTarget} from './week-calendar.mjs';
-import {allowedPaths,digest} from './editorial-handoff.mjs';
+import {allowedPaths,assertCandidatePaths,digest} from './editorial-handoff.mjs';
 import {github,readContent,commitFiles,branchSha,openPR} from './github-weekly-api.mjs';
 
 export function checksPass(checks,statuses=[]){
@@ -21,7 +21,7 @@ export function reviewedCandidate(week,progress,read,paths){
   assert(progress.editorial_review?.completed!==false,'current editorial review is incomplete; legacy flag cannot override it');
   const expected=[...allowedPaths(week)].filter(p=>p!==`data/research/${week}.json`);
   for(const p of expected){const content=read(p);assert(content!==null,'missing output '+p);assert.equal(progress.reviewed_files?.[p],digest(content),'review is stale for '+p);}
-  for(const p of paths)assert(allowedPaths(week).has(p),'automatic candidate merge cannot change code/configuration: '+p);
+  assertCandidatePaths(week,paths,read,'automatic candidate merge cannot change code/configuration: ');
 }
 export async function runPublisher(){
   const api=github(),repo=process.env.GITHUB_REPOSITORY,week=calendarTarget().week;

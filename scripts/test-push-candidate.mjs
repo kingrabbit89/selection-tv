@@ -23,16 +23,17 @@ function leaseApi(existingPR=null){
   return {api,state,created,readied,markReady:number=>readied.push(number)};
 }
 
-function repo({stage='ready',extraPath=null,stale=false,remote='old',ancestor=true}={}){
+function repo({stage='ready',extraPath=null,extraFiles={},stale=false,remote='old',ancestor=true}={}){
   const files={};
   for(const p of allowedPaths(week))files[p]=JSON.stringify({week,path:p})+'\n';
+  Object.assign(files,extraFiles);
   const reviewed=Object.fromEntries([...allowedPaths(week)].filter(p=>p!==`data/research/${week}.json`).map(p=>[p,digest(files[p])]));
   if(stale)files[`data/weeks/${week}.json`]+='changed after review\n';
   files[`data/research/${week}.json`]=JSON.stringify(stage==='ready'
     ?{schema_version:1,week,stage,remaining:[],editorial_review_completed:true,editorial_review:{completed:true},reviewed_files:reviewed}
     :{schema_version:1,week,stage,remaining:['Finir la revue']});
   const remotes={main:'main1',[branch]:remote},pushes=[];
-  const paths=[...allowedPaths(week),...(extraPath?[extraPath]:[])];
+  const paths=[...new Set([...allowedPaths(week),...(extraPath?[extraPath]:[]),...Object.keys(extraFiles)])];
   const git=args=>{
     const [cmd,...a]=args;
     if(cmd==='rev-parse')return 'head';
@@ -64,6 +65,16 @@ test('a moved remote candidate is refused before any lease or push',async()=>{
 
 test('code or configuration paths cannot travel with a weekly candidate',()=>{
   assert.throws(()=>preflight(week,repo({extraPath:'scripts/validate-editorial.mjs'}).git),/code\/configuration/);
+});
+
+test('a poster copied into the site may travel with the candidate only as the fingerprinted image of its work',()=>{
+  const poster='assets/posters/la-firme.webp',sha='a'.repeat(64);
+  const works=image=>JSON.stringify({works:[{id:'la-firme',title:'La Firme',image,image_sha256:sha}]})+'\n';
+  assert.equal(preflight(week,repo({extraFiles:{'data/works.json':works(poster),[poster]:'RIFF-WEBP'}}).git).stage,'ready');
+  assert.throws(()=>preflight(week,repo({extraFiles:{'data/works.json':works('https://cdn.example.test/p.jpg'),[poster]:'RIFF-WEBP'}}).git),
+    /fingerprinted image of its work/);
+  assert.throws(()=>preflight(week,repo({extraFiles:{'data/works.json':works(poster),'assets/posters/../x.webp':'x'}}).git),/code\/configuration/);
+  assert.throws(()=>preflight(week,repo({extraFiles:{'data/works.json':works(poster),'assets/js/image-resolver.js':'x'}}).git),/code\/configuration/);
 });
 
 test('a sealed review must match the committed blobs, not the working tree',()=>{

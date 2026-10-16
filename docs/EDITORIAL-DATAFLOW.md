@@ -192,8 +192,14 @@ Les chemins `assets/posters/…` sont relatifs à la racine du site : `image-res
 `data/works.json`. Sur une page hebdomadaire qui affiche encore l'original distant,
 la copie le remplace tant que l'image distante n'est pas déjà visible.
 
-Ces fichiers binaires ne font pas partie des chemins d'une candidate
-(`allowedPaths`) ni d'un handoff : ils passent par une PR ordinaire vers `main`.
+Une candidate `auto/YYYY-Sxx` peut ajouter ou modifier `assets/posters/<id>.webp`
+seulement si son `data/works.json` en fait l'image de l'œuvre `<id>` avec son
+`image_sha256`, et supprimer un fichier que plus aucune œuvre n'utilise. Tout autre
+fichier hors `allowedPaths` reste refusé (validation-context, push-candidate,
+publicateur). Le scellé couvre `works.json`, donc les empreintes : `--check` refuse
+une affiche modifiée après la revue. Ces fichiers binaires ne passent jamais par un
+handoff texte : depuis ChatGPT, seules les URL distantes sont enregistrées et la
+copie se fait ensuite en local.
 
 ## Clôture depuis les défauts actuels
 

@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
-import {allowedPaths, digest, planImport} from './editorial-handoff.mjs';
+import {assertCandidatePaths, isCandidatePoster, digest, planImport} from './editorial-handoff.mjs';
 import {reviewedCandidate} from './weekly-publisher.mjs';
 import {calendarTarget, addDays} from './week-calendar.mjs';
 import {checkProgressStructures} from './editorial-progress.mjs';
@@ -13,8 +13,7 @@ export function validationContext(branch, read, baseRead, paths, today) {
   if (!branch.startsWith('auto/')) return {mode: 'published'};
   const week = branch.slice(5);
   assert.match(week, /^\d{4}-S\d{2}$/, 'invalid weekly candidate branch');
-  const allowed = allowedPaths(week);
-  for (const p of paths) assert(allowed.has(p), 'candidate cannot change code/configuration: '+p);
+  assertCandidatePaths(week, paths, read);
   const raw = read(`data/research/${week}.json`);
   // Older complete candidates without a checkpoint still receive every gate.
   if (raw === null) return {mode: 'candidate', week};
@@ -35,7 +34,8 @@ export function validationContext(branch, read, baseRead, paths, today) {
   const target = calendarTarget(today);
   assert.equal(week, target.week, 'preparation must match current cycle');
   // Reuse the import invariants: latest and all other issues remain unchanged.
-  const files = paths.map(p => {
+  // Posters are binary: their bytes are checked by poster-copy.mjs --check.
+  const files = paths.filter(p => !isCandidatePoster(p)).map(p => {
     const content = read(p);
     assert(content !== null, 'preparation cannot delete an artifact: '+p);
     if (p.endsWith('.json')) {
