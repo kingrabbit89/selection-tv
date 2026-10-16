@@ -2,31 +2,23 @@ name: Chat editorial snapshot
 on:
   pull_request:
     branches: [main]
-    paths: [.github/workflows/chat-editorial-snapshot.yml]
+    paths: [.github/workflows/chat-editorial-snapshot.yml, scripts/chat-s43-source-check.py]
 permissions:
   contents: read
 jobs:
-  snapshot:
+  sources:
     if: github.head_ref == 'handoff/s43-chat-production-20261016'
     runs-on: ubuntu-latest
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: dc90984a8fad7e3c746ab1617b9f400cbce0afb0
-          fetch-depth: 0
           persist-credentials: false
-      - name: Export tracked public Git objects only
-        shell: bash
-        run: |
-          set -euo pipefail
-          test "$(git rev-parse HEAD)" = dc90984a8fad7e3c746ab1617b9f400cbce0afb0
-          mkdir -p /tmp/chat-editorial-source
-          git bundle create /tmp/chat-editorial-source/source.bundle HEAD
-          git rev-parse HEAD > /tmp/chat-editorial-source/checkout-sha.txt
-          cd /tmp/chat-editorial-source
-          sha256sum source.bundle > source.sha256
+      - name: Read exact public publisher pages and preserve dated evidence
+        run: python3 scripts/chat-s43-source-check.py
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: chat-s43-source
-          path: /tmp/chat-editorial-source/
+          name: chat-s43-public-evidence
+          path: /tmp/chat-s43-evidence/
           retention-days: 1
