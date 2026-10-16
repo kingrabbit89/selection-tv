@@ -13,34 +13,44 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Fetch images, with explicit limits and no authentication
+      - name: Fetch exact public artwork without authentication
         env:
           OUT: ${{ runner.temp }}/artwork
         run: |
           python3 - <<'PY'
-          import json, os, pathlib, hashlib, datetime, urllib.request, urllib.parse, concurrent.futures, re
+          import json, os, pathlib, hashlib, datetime, urllib.request, urllib.parse, concurrent.futures, re, html
+          from html.parser import HTMLParser
           out=pathlib.Path(os.environ['OUT']); out.mkdir()
-          items=json.load(open('handoffs/chat-s43-images.json'))['items']
-          assert len(items)<=100
+          items=json.load(open('handoffs/chat-s43-images.json'))['items']; assert len(items)<=100
           allowed={'media.senscritique.com','s3.amazonaws.com','m.media-amazon.com','fr.web.img2.acsta.net','medias.unifrance.org','upload.wikimedia.org','images.telerama.fr','www.arte.tv','api-cdn.arte.tv','static-cdn.arte.tv'}
+          class Meta(HTMLParser):
+            def __init__(self): super().__init__(); self.image=None
+            def handle_starttag(self,tag,attrs):
+              a=dict(attrs)
+              if tag=='meta' and a.get('property')=='og:image': self.image=a.get('content')
+          def fetch(url,hosts,limit):
+            assert urllib.parse.urlsplit(url).scheme=='https' and urllib.parse.urlsplit(url).hostname in hosts
+            with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'SelectionTV-ArtworkReview/1.0'}),timeout=25) as res:
+              assert urllib.parse.urlsplit(res.url).scheme=='https' and urllib.parse.urlsplit(res.url).hostname in hosts
+              b=res.read(limit+1); assert len(b)<=limit
+              return b,res.status,res.url,res.headers.get_content_type()
           def get(it):
             assert re.fullmatch(r'[a-z0-9-]+',it['id'])
-            url=it['url']; assert urllib.parse.urlsplit(url).scheme=='https' and urllib.parse.urlsplit(url).hostname in allowed
-            r={'id':it['id'],'url':url,'checked_at':datetime.datetime.now(datetime.timezone.utc).isoformat()}
+            r={'id':it['id'],'checked_at':datetime.datetime.now(datetime.timezone.utc).isoformat()}
             try:
-              req=urllib.request.Request(url,headers={'User-Agent':'SelectionTV-ArtworkReview/1.0'})
-              with urllib.request.urlopen(req,timeout=25) as res:
-                assert urllib.parse.urlsplit(res.url).scheme=='https' and urllib.parse.urlsplit(res.url).hostname in allowed
-                mime=res.headers.get_content_type(); assert mime.startswith('image/'),mime
-                b=res.read(12_000_001); assert len(b)<=12_000_000
-                r.update(status=res.status,final_url=res.url,mime=mime,bytes=len(b),sha256=hashlib.sha256(b).hexdigest())
-                ext={'image/png':'.png','image/webp':'.webp'}.get(mime,'.jpg');name=it['id']+ext
-                (out/name).write_bytes(b);r['file']=name
+              if it.get('source_page'):
+                page=it['source_page']; assert urllib.parse.urlsplit(page).hostname=='www.senscritique.com' and urllib.parse.urlsplit(page).path.startswith('/film/')
+                body,status,final,mime=fetch(page,{'www.senscritique.com'},4_000_000); assert mime=='text/html'
+                p=Meta(); p.feed(body.decode('utf-8')); assert p.image
+                url=html.unescape(p.image);r.update(source_page=page,page_status=status,discovery='og:image from exact film page')
+              else: url=it['url']
+              r['url']=url; b,status,final,mime=fetch(url,allowed,12_000_000); assert mime.startswith('image/'),mime
+              r.update(status=status,final_url=final,mime=mime,bytes=len(b),sha256=hashlib.sha256(b).hexdigest())
+              name=it['id']+{'image/png':'.png','image/webp':'.webp'}.get(mime,'.jpg'); (out/name).write_bytes(b);r['file']=name
             except Exception as e: r.update(status='failed',error=str(e))
             return r
           with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex: result=list(ex.map(get,items))
-          (out/'report.json').write_text(json.dumps(result,ensure_ascii=False,indent=2))
-          print(json.dumps(result,ensure_ascii=False,indent=2))
+          (out/'report.json').write_text(json.dumps(result,ensure_ascii=False,indent=2));print(json.dumps(result,ensure_ascii=False,indent=2))
           PY
       - uses: actions/upload-artifact@v4
         with:
