@@ -13,7 +13,7 @@ jobs:
       SELECTION_TV_VALIDATE_WEEK: 2026-S43
       SELECTION_TV_CANDIDATE: '1'
       CANDIDATE: ${{ github.workspace }}/candidate
-      OUT: ${{ runner.temp }}/chat-s43-exact
+      OUT: ${{ github.workspace }}/chat-s43-exact
     steps:
       - uses: actions/checkout@v4
         with:
@@ -36,6 +36,6 @@ jobs:
         if: always()
         with:
           name: chat-s43-exact-${{ github.sha }}
-          path: ${{ runner.temp }}/chat-s43-exact/
+          path: ${{ github.workspace }}/chat-s43-exact/
           retention-days: 3
           if-no-files-found: error
