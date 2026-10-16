@@ -157,13 +157,43 @@ n'est jamais remplacée. En réparation, les secours qui répondent encore sont
 gardés et les morts retirés. Les requêtes vers un même hôte sont espacées
 (`--pace-ms`, 1200 par défaut). Une œuvre sans lien exact, ou dont toutes les
 sources échouent, reste `unresolved` (code de sortie 1) : ajouter d'abord son
-identité exacte. Les affiches restent liées à distance, jamais copiées dans le dépôt.
+identité exacte.
 
 Dans le flow, `--resolve-posters` traite les lignes du lot qui ont un seul
 candidat canonique. Il écrit `poster-resolution.json` et, s'il y a des
 changements, `poster-handoff.json` (`data/works.json` à la base exacte), à
 vérifier puis appliquer avec `editorial-handoff.mjs` sous bail. Ce mode utilise
 le réseau ; il est refusé pour un checkpoint `ready` ou scellé.
+
+### Copies WebP dans le site
+
+Une fois l'image distante choisie (à la main ou par le résolveur), une copie légère
+est servie par le site lui-même : `assets/posters/<id>.webp`, 360 × 540 au plus,
+qualité 76, sans métadonnées (environ 30 Ko). `image` pointe vers ce fichier ;
+l'URL distante d'origine reste dans `image_remote` et en tête d'`image_fallbacks`.
+`image_source_url`, `image_strategy` et les autres champs éditoriaux ne changent pas.
+
+```sh
+node scripts/poster-copy.mjs --week YYYY-Sxx    # ou --work ID..., --all
+node scripts/poster-copy.mjs --all --refresh    # retélécharge depuis image_remote
+node scripts/poster-copy.mjs --check            # contrôle CI, sans réseau
+```
+
+L'encodage (Pillow, `scripts/poster-webp.py`, lancé avec `python` sous Windows ou
+`SELECTION_TV_PYTHON`) ne tourne qu'en local ; la CI vérifie seulement les fichiers.
+Le téléchargement utilise le même client sans Referer que `validate-image-sources`,
+s'arrête à la première source saine et écarte HTML et SVG. Une copie existante
+n'est pas refaite : relancer la commande ne crée aucune différence. `--check`
+exige un vrai WebP nommé d'après l'œuvre, dans la limite de taille, l'original
+distant conservé et aucun fichier orphelin.
+
+Les chemins `assets/posters/…` sont relatifs à la racine du site : `image-resolver.js`,
+`android-tv-mode.js` et `jellyfin-bridge.js` les résolvent depuis l'URL de
+`data/works.json`. Sur une page hebdomadaire qui affiche encore l'original distant,
+la copie le remplace tant que l'image distante n'est pas déjà visible.
+
+Ces fichiers binaires ne font pas partie des chemins d'une candidate
+(`allowedPaths`) ni d'un handoff : ils passent par une PR ordinaire vers `main`.
 
 ## Clôture depuis les défauts actuels
 

@@ -4,6 +4,14 @@ const CARD_SELECTOR='article.week-card,article.feature,article.list-card,article
 const uniq=a=>[...new Set(a.filter(Boolean))];
 const titleOf=card=>(card.dataset.title||card.querySelector('h3')?.textContent||'').trim();
 let map=new Map();
+// works.json may name a poster copied into the site (assets/posters/<id>.webp):
+// resolve such paths against the site root, whatever page loads this script.
+const siteUrl=(u,base)=>{try{return u&&!/^(?:[a-z][a-z0-9+.-]*:|\/\/)/i.test(u)?new URL(u,base).href:u}catch{return u}};
+const siteImages=(w,base)=>{
+ if(w?.image)w.image=siteUrl(w.image,base);
+ if(Array.isArray(w?.image_fallbacks))w.image_fallbacks=w.image_fallbacks.map(u=>siteUrl(u,base));
+ return w;
+};
 
 function record(title){return map.get(norm(title))||null}
 function sources(title,extra=[]){
@@ -29,7 +37,13 @@ function fallbackFor(img,card,title){
  card.dataset.imageFallback='1';
 }
 function bind(img,title,card,extra=[]){
- const current=img.getAttribute('src');
+ const w=record(title);
+ let current=img.getAttribute('src');
+ // The page may still name the remote original of a copied poster: use the
+ // site copy instead, unless the remote picture is already on screen.
+ if(current&&w?.image_remote===current&&w.image&&w.image!==current&&!(img.complete&&img.naturalWidth>0)){
+   current=w.image;img.src=current;
+ }
  // Preserve an already-working image from the page. The previous revision
  // always replaced it with works.json image, which could turn a visible poster
  // into a broken one when the canonical host rejected hotlinking.
@@ -191,7 +205,8 @@ window.SelectionTVImagesReady=(async()=>{
    const res=await fetch('../../data/works.json?v=20260924-imagecanon2',{cache:'no-store'});
    if(!res.ok)throw new Error('HTTP '+res.status);
    const data=await res.json();
-   map=new Map((data.works||[]).map(w=>[norm(w.title),w]));
+   const base=new URL('../',res.url||new URL('../../data/works.json',location.href));
+   map=new Map((data.works||[]).map(w=>[norm(w.title),siteImages(w,base)]));
    window.SelectionTVImageMap=map;
    hydrateTree(document);
    const book=document.querySelector('.book');

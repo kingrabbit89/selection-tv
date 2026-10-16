@@ -141,7 +141,8 @@ Les réserves conservent les mêmes métadonnées, notes, liens de fiches et bou
 ## Images et affiches
 
 `data/works.json` est la source canonique des visuels d’œuvre. Une œuvre affichée sous forme de carte visuelle ou placée dans une réserve éditoriale doit normalement posséder :
-- `image` : visuel principal ;
+- `image` : visuel principal, de préférence la copie WebP servie par le site (`assets/posters/<id>.webp`) ;
+- `image_remote` : URL distante d’origine d’une copie locale, reprise en tête des secours ;
 - `image_source_url` : page/source ayant permis de vérifier le visuel ;
 - `image_checked` : date de la dernière vérification ;
 - `image_fallbacks` : URLs alternatives lorsqu’elles existent.
