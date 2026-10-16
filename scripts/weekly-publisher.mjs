@@ -8,10 +8,6 @@ import {calendarTarget} from './week-calendar.mjs';
 import {allowedPaths,digest} from './editorial-handoff.mjs';
 import {github,readContent,commitFiles,branchSha,openPR} from './github-weekly-api.mjs';
 
-export function inPublicationWindow(now=new Date()){
-  const p=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'Europe/Paris',weekday:'short',hour:'2-digit',hourCycle:'h23'}).formatToParts(now).map(x=>[x.type,x.value]));
-  return p.weekday==='Sat'||(p.weekday==='Fri'&&Number(p.hour)>=20);
-}
 export function checksPass(checks,statuses=[]){
   const latest=new Map();
   for(const c of checks){const key=`${c.app?.id}:${c.name}`;if(!latest.has(key)||latest.get(key).id<c.id)latest.set(key,c);}
@@ -30,7 +26,8 @@ export function reviewedCandidate(week,progress,read,paths){
 export async function runPublisher(){
   const api=github(),repo=process.env.GITHUB_REPOSITORY,week=calendarTarget().week;
   const log=s=>{console.log(s);if(process.env.GITHUB_STEP_SUMMARY)fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,s+'\n');};
-  if(!inPublicationWindow()){log('Outside Friday 20:00–Saturday Europe/Paris; no mutation.');return;}
+  // No weekday window: a sealed candidate of the calendar target advances as
+  // soon as its checks are green. Friday 20:00 is the deadline, not the start.
   let main=branchSha(api,'main');
   const manifest=JSON.parse(readContent(api,main,'data/manifest.json'));
   const entry=manifest.weeks.find(w=>w.week===week);

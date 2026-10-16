@@ -1,7 +1,7 @@
 name: Weekly protected publisher
 on:
   schedule:
-    - cron: '25,55 * * * 5,6'
+    - cron: '25,55 * * * *'
   workflow_dispatch:
   workflow_run:
     workflows: ['Validate architecture', 'Validate merged weekly issue for promotion']
