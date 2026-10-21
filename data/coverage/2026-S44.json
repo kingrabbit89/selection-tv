@@ -404,7 +404,7 @@
     "extraction_scope": "all-programmes",
     "parser": "telerama_six_column_graphik_v1",
     "grid_pages": 28,
-    "rows": 3477,
+    "rows": 3481,
     "imported_at": "2026-10-21T13:38:53.134Z",
     "printed_scope": {
       "13e Rue": {
@@ -721,7 +721,556 @@
       "Le magazine n’imprime pas toutes les heures : aucune chaîne n’est relevée comme complète. Les heures non imprimées (films de nuit ou du matin des chaînes cinéma notamment) ne sont pas relevées ; les compléter par l’import Web ordinaire seulement si une piste l’exige.",
       "La nuit 00:00–05:59 du premier samedi est imprimée dans le numéro précédent."
     ],
-    "transcription_review": null
+    "transcription_review": {
+      "reviewed_at": "2026-10-21T13:49:16.000Z",
+      "method": "Pages 100, 106, 112, 118, 124, 130 et 136 rendues à 4× avec pypdfium2, découpées en six vues (journée en trois bandes de deux colonnes, soirée, deux demi-bas de page) et relues entièrement à l'œil colonne par colonne contre les lignes extraites regroupées par chaîne ; pdfplumber n'a servi qu'à repérer les heures en gras sans ligne associée et à mesurer les positions, chaque écart ayant été tranché sur l'image. Les deux conflits Canal+ ont été relus sur les pages 126 et 138 rendues à 5×.",
+      "pages_reread": [
+        100,
+        106,
+        112,
+        118,
+        124,
+        130,
+        136
+      ],
+      "sampled_rows": [
+        {
+          "date": "2026-10-24",
+          "pdf_page": 100,
+          "title": "Jeunesse...",
+          "start": "05:05",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-24",
+          "pdf_page": 100,
+          "title": "Le goût des rencontres Nouvelle-Aquitaine",
+          "start": "11:15",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-24",
+          "pdf_page": 100,
+          "title": "Réflexe !",
+          "start": "17:20",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-24",
+          "pdf_page": 100,
+          "title": "JT 20h",
+          "start": "20:00",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-24",
+          "pdf_page": 100,
+          "title": "Grizzy et les lemmings",
+          "start": "13:30",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-25",
+          "pdf_page": 106,
+          "title": "Jeunesse...",
+          "start": "05:05",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-25",
+          "pdf_page": 106,
+          "title": "Les Délices de Ligurie",
+          "start": "10:25",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-25",
+          "pdf_page": 106,
+          "title": "JT 13h",
+          "start": "13:00",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-25",
+          "pdf_page": 106,
+          "title": "C politique, la suite",
+          "start": "20:00",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-25",
+          "pdf_page": 106,
+          "title": "Beau geste",
+          "start": "23:10",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-26",
+          "pdf_page": 112,
+          "title": "Jeunesse...",
+          "start": "05:05",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-26",
+          "pdf_page": 112,
+          "title": "C’est succulent !",
+          "start": "11:00",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-26",
+          "pdf_page": 112,
+          "title": "Journal Météo climat",
+          "start": "13:40",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-26",
+          "pdf_page": 112,
+          "title": "C à vous, la suite",
+          "start": "20:00",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-26",
+          "pdf_page": 112,
+          "title": "Mot de passe",
+          "start": "17:25",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-27",
+          "pdf_page": 118,
+          "title": "Jeunesse...",
+          "start": "05:10",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-27",
+          "pdf_page": 118,
+          "title": "Les Feux de l’amour",
+          "start": "10:55",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-27",
+          "pdf_page": 118,
+          "title": "Journal météo climat",
+          "start": "13:40",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-27",
+          "pdf_page": 118,
+          "title": "Météo régionale",
+          "start": "20:20",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-27",
+          "pdf_page": 118,
+          "title": "C dans l’air",
+          "start": "23:55",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-28",
+          "pdf_page": 124,
+          "title": "Jeunesse",
+          "start": "05:05",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : « 5.05 Jeunesse » (sans points de suspension ce jour-là), chaîne France 4."
+        },
+        {
+          "date": "2026-10-28",
+          "pdf_page": 124,
+          "title": "Petits plats en équilibre",
+          "start": "13:50",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-28",
+          "pdf_page": 124,
+          "title": "28 minutes",
+          "start": "20:05",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-28",
+          "pdf_page": 124,
+          "title": "La p’tite librairie",
+          "start": "23:45",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-28",
+          "pdf_page": 124,
+          "title": "Copains Perdus",
+          "start": "11:10",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-29",
+          "pdf_page": 130,
+          "title": "Jeunesse...",
+          "start": "05:05",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-29",
+          "pdf_page": 130,
+          "title": "C’est succulent !",
+          "start": "11:00",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-29",
+          "pdf_page": 130,
+          "title": "Journal météo climat",
+          "start": "13:40",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-29",
+          "pdf_page": 130,
+          "title": "C dans l’air",
+          "start": "17:40",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-29",
+          "pdf_page": 130,
+          "title": "Les Enquêtes de Lady Grace",
+          "start": "20:10",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-30",
+          "pdf_page": 136,
+          "title": "Jeunesse...",
+          "start": "05:05",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-30",
+          "pdf_page": 136,
+          "title": "Les Feux de l’amour",
+          "start": "10:55",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-30",
+          "pdf_page": 136,
+          "title": "Silence, ça pousse !",
+          "start": "13:35",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-30",
+          "pdf_page": 136,
+          "title": "Mot de passe",
+          "start": "17:25",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-30",
+          "pdf_page": 136,
+          "title": "JT 20h",
+          "start": "20:00",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Ligne relue sur l'imprimé : heure, chaîne et titre identiques."
+        },
+        {
+          "date": "2026-10-24",
+          "pdf_page": 100,
+          "title": "Affaires sensibles",
+          "start": "17:00",
+          "channel": "France 2",
+          "decision": "corrected",
+          "note": "Titre corrigé d'après l'imprimé relu : Ligature « ff » perdue à l'extraction ; l'imprimé porte « ff ».",
+          "extracted_title": "Afaires sensibles"
+        },
+        {
+          "date": "2026-10-24",
+          "pdf_page": 100,
+          "title": "43e Festival mondial du cirque de demain",
+          "start": "15:30",
+          "channel": "Arte",
+          "decision": "corrected",
+          "note": "Titre corrigé d'après l'imprimé relu : Le « e » en exposant de « 43e » est perdu à l'extraction.",
+          "extracted_title": "43 Festival mondial du cirque de demain"
+        },
+        {
+          "date": "2026-10-25",
+          "pdf_page": 100,
+          "title": "Programmes de nuit",
+          "start": "00:55",
+          "channel": "TF1",
+          "decision": "added",
+          "note": "Ligne imprimée absente de l'extraction (heure et titre en gras, colonne TF1) ; intitulé générique de fin d'antenne, ajouté pour couvrir la nuit TF1 comme « La nuit France 5 ».",
+          "bbox": [
+            22.8,
+            570.4,
+            85,
+            583.9
+          ]
+        },
+        {
+          "date": "2026-10-26",
+          "pdf_page": 106,
+          "title": "Programmes de nuit",
+          "start": "01:30",
+          "channel": "TF1",
+          "decision": "added",
+          "note": "Ligne imprimée absente de l'extraction (heure et titre en gras, colonne TF1) ; intitulé générique de fin d'antenne, ajouté pour couvrir la nuit TF1 comme « La nuit France 5 ».",
+          "bbox": [
+            22.8,
+            644.9,
+            91,
+            658.4
+          ]
+        },
+        {
+          "date": "2026-10-26",
+          "pdf_page": 112,
+          "title": "Affaire conclue, tout le monde a quelque chose à vendre",
+          "start": "16:20",
+          "channel": "France 2",
+          "decision": "corrected",
+          "note": "Titre corrigé d'après l'imprimé relu : Ligature « ff » perdue à l'extraction ; l'imprimé porte « ff ».",
+          "extracted_title": "Afaire conclue, tout le monde a quelque chose à vendre"
+        },
+        {
+          "date": "2026-10-27",
+          "pdf_page": 112,
+          "title": "Affaire conclue, tout le monde a quelque chose à vendre",
+          "start": "03:20",
+          "channel": "France 2",
+          "decision": "corrected",
+          "note": "Titre corrigé d'après l'imprimé relu : Ligature « ff » perdue à l'extraction ; l'imprimé porte « ff ».",
+          "extracted_title": "Afaire conclue, tout le monde a quelque chose à vendre"
+        },
+        {
+          "date": "2026-10-27",
+          "pdf_page": 118,
+          "title": "Affaire conclue, tout le monde a quelque chose à vendre",
+          "start": "16:25",
+          "channel": "France 2",
+          "decision": "corrected",
+          "note": "Titre corrigé d'après l'imprimé relu : Ligature « ff » perdue à l'extraction ; l'imprimé porte « ff ».",
+          "extracted_title": "Afaire conclue, tout le monde a quelque chose à vendre"
+        },
+        {
+          "date": "2026-10-28",
+          "pdf_page": 118,
+          "title": "Affaire conclue, tout le monde a quelque chose à vendre",
+          "start": "03:35",
+          "channel": "France 2",
+          "decision": "corrected",
+          "note": "Titre corrigé d'après l'imprimé relu : Ligature « ff » perdue à l'extraction ; l'imprimé porte « ff ».",
+          "extracted_title": "Afaire conclue, tout le monde a quelque chose à vendre"
+        },
+        {
+          "date": "2026-10-27",
+          "pdf_page": 118,
+          "title": "Grignote-moi si tu peux, les dessous de l’apéritif",
+          "start": "10:55",
+          "channel": "France 5",
+          "decision": "corrected",
+          "note": "Titre corrigé d'après l'imprimé relu : Césure de fin de ligne mal recollée : l'imprimé porte « Grignote-moi » (trait d'union, sans espace).",
+          "extracted_title": "Grignote- moi si tu peux, les dessous de l’apéritif"
+        },
+        {
+          "date": "2026-10-27",
+          "pdf_page": 118,
+          "title": "Baffin, une île au cœur de la banquise",
+          "start": "12:00",
+          "channel": "France 5",
+          "decision": "corrected",
+          "note": "Titre corrigé d'après l'imprimé relu : Ligature « ff » perdue à l'extraction ; l'imprimé porte « ff ».",
+          "extracted_title": "Bafin, une île au cœur de la banquise"
+        },
+        {
+          "date": "2026-10-28",
+          "pdf_page": 124,
+          "title": "Affaire conclue, tout le monde a quelque chose à vendre",
+          "start": "16:25",
+          "channel": "France 2",
+          "decision": "corrected",
+          "note": "Titre corrigé d'après l'imprimé relu : Ligature « ff » perdue à l'extraction ; l'imprimé porte « ff ».",
+          "extracted_title": "Afaire conclue, tout le monde a quelque chose à vendre"
+        },
+        {
+          "date": "2026-10-29",
+          "pdf_page": 124,
+          "title": "Affaire conclue, tout le monde a quelque chose à vendre",
+          "start": "02:40",
+          "channel": "France 2",
+          "decision": "corrected",
+          "note": "Titre corrigé d'après l'imprimé relu : Ligature « ff » perdue à l'extraction ; l'imprimé porte « ff ».",
+          "extracted_title": "Afaire conclue, tout le monde a quelque chose à vendre"
+        },
+        {
+          "date": "2026-10-28",
+          "pdf_page": 124,
+          "title": "Programmes de nuit",
+          "start": "23:30",
+          "channel": "TF1",
+          "decision": "added",
+          "note": "Ligne imprimée absente de l'extraction (heure et titre en gras, colonne TF1) ; intitulé générique de fin d'antenne, ajouté pour couvrir la nuit TF1 comme « La nuit France 5 ».",
+          "bbox": [
+            21.2,
+            651.9,
+            87.4,
+            665.4
+          ]
+        },
+        {
+          "date": "2026-10-29",
+          "pdf_page": 130,
+          "title": "Affaire conclue, tout le monde a quelque chose à vendre",
+          "start": "16:25",
+          "channel": "France 2",
+          "decision": "corrected",
+          "note": "Titre corrigé d'après l'imprimé relu : Ligature « ff » perdue à l'extraction ; l'imprimé porte « ff ».",
+          "extracted_title": "Afaire conclue, tout le monde a quelque chose à vendre"
+        },
+        {
+          "date": "2026-10-30",
+          "pdf_page": 130,
+          "title": "Affaire conclue, tout le monde a quelque chose à vendre",
+          "start": "04:15",
+          "channel": "France 2",
+          "decision": "corrected",
+          "note": "Titre corrigé d'après l'imprimé relu : Ligature « ff » perdue à l'extraction ; l'imprimé porte « ff ».",
+          "extracted_title": "Afaire conclue, tout le monde a quelque chose à vendre"
+        },
+        {
+          "date": "2026-10-30",
+          "pdf_page": 130,
+          "title": "Programmes de nuit",
+          "start": "01:25",
+          "channel": "TF1",
+          "decision": "added",
+          "note": "Ligne imprimée absente de l'extraction (heure et titre en gras, colonne TF1) ; intitulé générique de fin d'antenne, ajouté pour couvrir la nuit TF1 comme « La nuit France 5 ».",
+          "bbox": [
+            22.8,
+            633.4,
+            91,
+            646.9
+          ]
+        },
+        {
+          "date": "2026-10-30",
+          "pdf_page": 136,
+          "title": "Affaire conclue, tout le monde a quelque chose à vendre",
+          "start": "16:20",
+          "channel": "France 2",
+          "decision": "corrected",
+          "note": "Titre corrigé d'après l'imprimé relu : Ligature « ff » perdue à l'extraction ; l'imprimé porte « ff ».",
+          "extracted_title": "Afaire conclue, tout le monde a quelque chose à vendre"
+        },
+        {
+          "date": "2026-10-30",
+          "pdf_page": 136,
+          "title": "La p’tite librairie",
+          "start": "09:55",
+          "channel": "France 5",
+          "decision": "corrected",
+          "note": "Titre corrigé d'après l'imprimé relu : Guillemet ouvrant du sous-titre italique « «Mémoires», par Roger de Bussy-Rabutin » collé au titre.",
+          "extracted_title": "La p’tite librairie «"
+        }
+      ],
+      "discrepancies": [
+        "Omission (4 lignes) : TF1 « Programmes de nuit » jamais extrait — 25/10 0:55 (p. 100), 26/10 1:30 (p. 106), 28/10 23:30 (p. 124), 30/10 1:25 (p. 130) ; intitulé générique, alors que « La nuit France 5 » et « Les matinales » sont extraits.",
+        "Ligature ff perdue : « Afaire conclue » au lieu de « Affaire conclue » (France 2, 9 occurrences sur les pages relues : 26/10 16:20, 27/10 3:20, 27/10 16:25, 28/10 3:35, 28/10 16:25, 29/10 2:40, 29/10 16:25, 30/10 4:15, 30/10 16:20), « Afaires sensibles » (France 2, 24/10 17:00), « Bafin » pour « Baffin » (France 5, 27/10 12:00).",
+        "Césure mal recollée : « Grignote- moi si tu peux » pour « Grignote-moi si tu peux » (France 5, 27/10 10:55).",
+        "Exposant perdu : « 43 Festival mondial du cirque de demain » pour « 43e Festival… » (Arte, 24/10 15:30).",
+        "Guillemet parasite : « La p’tite librairie « » pour « La p’tite librairie » (France 5, 30/10 9:55).",
+        "Aucune erreur d'heure ni de chaîne trouvée sur les 7 pages ; les 35 lignes du sondage concordent.",
+        "Hors semaine par construction (non comptées) : 21 lignes de la nuit du 30 au 31/10 en bas de la p. 136 (outside_issue_entries).",
+        "Conflits de créneau Canal+ (28/10 18:40, 30/10 20:00) : deux programmes imprimés à la même heure, à garder tous les deux.",
+        "Indice hors pages relues (non vérifié à l'imprimé) : le même défaut ff touche probablement « Afaire/afaires » p. 113, 114, 120, 125, 131, 132, « Grife » p. 103, « Lagafe » p. 119, « Oficial » p. 120, « afiche » et « Betrofenheit » p. 121, « afrontement » p. 109, « chaufeur »/« cofre » p. 119, « efort » p. 108, « ofice » p. 101 ; et la césure « X- y » touche « Beaux- parents » p. 102, « chauves- souris » p. 103, « L’Homme- léopard » p. 103, « Super- héros » p. 113, « Balladur- Chirac » p. 119, « Non- Stop » p. 132, « sapeurs- pompiers » p. 138, plus des noms propres Mezzo p. 109, 133, 139.",
+        "Passe de correction appliquée à l’inventaire entier pour les mêmes défauts d’extraction (ligature « ff » perdue, césure brisée) hors pages relues : 30 titres corrigés.",
+        "Créneau à deux titres Canal+ 2026-10-28 18:40 (La boîte à questions / Têtàtête(s)) : Page 126, colonne Canal+ : deux lignes consécutives sont bien imprimées toutes deux à « 18.40 » (« La boîte à questions » puis « Têtàtête(s) », suivies de 18.55 En aparté). Ce n'est pas une erreur d'attribution : le magazine donne la même heure à un module très court et au programme suivant. Les deux lignes sont conservées ; aucun programme retenu n’est concerné.",
+        "Créneau à deux titres Canal+ 2026-10-30 20:00 (Un Clique par jour / En aparté) : Page 138, colonne Canal+ : « 20.00 Un Clique par jour » puis « 20.00 En aparté » sont imprimés l'un sous l'autre à la même heure (suivis de 20.40 Super plan). Les deux appartiennent bien à Canal+ ; l'ordre imprimé est Un Clique par jour puis En aparté. Les deux lignes sont conservées ; aucun programme retenu n’est concerné.",
+        "Revue d’impact : aucun des créneaux corrigés ou ajoutés ni des deux créneaux à deux titres ne touche une proposition retenue (films et documentaires des pools quotidiens)."
+      ],
+      "corrections_applied": {
+        "page_corrections": 14,
+        "global_corrections": 30,
+        "rows_added": 4
+      }
+    }
   },
   "updated_at": "2026-10-21T13:38:53.134Z"
 }
