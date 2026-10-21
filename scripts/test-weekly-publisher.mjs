@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
-import {runPublisher,verifyAttestation,AttestationPending,checksProgress,CHECKS_RUNNING_LIMIT_MS,listPullFiles} from './weekly-publisher.mjs';
+import {runPublisher,verifyAttestation,AttestationPending,checksProgress,CHECKS_RUNNING_LIMIT_MS,listPullFiles,phantomCheck,PHANTOM_GRACE_MS} from './weekly-publisher.mjs';
 import {PENDING_EXIT} from './verify-promotion-attestation.mjs';
 import {allowedPaths,digest} from './editorial-handoff.mjs';
 
@@ -25,7 +25,7 @@ const checkEndpoints=(checks,statuses)=>({
   [`commits/${head}/status?per_page=100`]:{total_count:statuses.length,statuses}});
 
 // S43 at 18:57 UTC: the draft is merged on main, no candidate or promotion PR is open.
-function fixture({promotion=false,checks=green(),statuses=[],now=publisherNow}={}){
+function fixture({promotion=false,checks=green(),statuses=[],now=publisherNow,actions={}}={}){
   const manifest={latest:'2026-S42',updated:'2026-10-16',weeks:[{week:'2026-S42',status:'published'},{week,status:'draft'}]};
   const mutations=[],logs=[],verified=[],checkReads=checkEndpoints(checks,statuses);
   const api=(path,method='GET',body)=>{
@@ -47,6 +47,8 @@ function fixture({promotion=false,checks=green(),statuses=[],now=publisherNow}={
     if(path==='git/refs'&&method==='POST')return {ref:body.ref};
     if(path.startsWith('pulls?state=open&base=main&head='))return [];
     if(path==='pulls'&&method==='POST')return {html_url:`https://github.com/${repo}/pull/8`};
+    if(method==='GET'&&actions[path]!==undefined)return actions[path];
+    if(method==='POST'&&/^actions\/runs\/\d+\/rerun$/.test(path))return null;
     throw Error('Unexpected API call: '+method+' '+path);
   };
   const run=outcome=>runPublisher({api,repo,week,log:s=>logs.push(s),now:()=>now,verify:(target,base)=>{
@@ -97,7 +99,7 @@ const enrichment=(extra={})=>({schema_version:1,week,stage:'enrichment',editoria
   remaining:Array.from({length:34},(_,i)=>`Requirement ${i+1}`),...extra});
 const sealed=(extra={})=>({schema_version:1,week,stage:'ready',editorial_review_completed:true,remaining:[],
   reviewed_files:Object.fromEntries(deliverables.map(p=>[p,digest(contentAt(p))])),...extra});
-function candidateFixture({progress=enrichment(),relation='ahead',draft=false,extraPaths=[],checks=green(),statuses=[],now=publisherNow}={}){
+function candidateFixture({progress=enrichment(),relation='ahead',draft=false,extraPaths=[],checks=green(),statuses=[],now=publisherNow,actions={}}={}){
   const manifest={latest:'2026-S42',updated:'2026-10-16',weeks:[{week:'2026-S42',status:'published'}]};
   const pr={number:9,changed_files:[...allowedPaths(week),...extraPaths].length,draft,base:{ref:'main'},head:{sha:head,ref:'auto/'+week,repo:{full_name:repo}}};
   const text=value=>({encoding:'base64',content:Buffer.from(value).toString('base64')});
@@ -116,6 +118,8 @@ function candidateFixture({progress=enrichment(),relation='ahead',draft=false,ex
     if(atHead?.[2]===head)return text(contentAt(atHead[1]));
     if(path==='pulls/9/merge'&&method==='PUT')return {merged:true};
     if(path==='actions/workflows/promote-validated-week.yml/dispatches'&&method==='POST')return null;
+    if(method==='GET'&&actions[path]!==undefined)return actions[path];
+    if(method==='POST'&&/^actions\/runs\/\d+\/rerun$/.test(path))return null;
     throw Error('Unexpected API call: '+method+' '+path);
   };
   const run=()=>runPublisher({api,repo,week,log:s=>logs.push(s),now:()=>now,verify:(target,base)=>{verified.push({week:target,base});return true;}});
@@ -293,4 +297,54 @@ test('a candidate with more than 100 files is listed page by page and proved com
   assert.throws(()=>listPullFiles(api,{number:92}),/incomplete PR file listing/);
   const full=()=>names.slice(0,100);
   assert.throws(()=>listPullFiles(full,{number:93,changed_files:3500}),/incomplete PR file listing/,'beyond the GitHub listing limit the review is still refused');
+});
+
+// S44 on 21 Oct: the promotion's data-and-policy check stayed in_progress after
+// its job's last step (14:57:50Z); run 39621296044 was rerun by hand at 15:10Z.
+const phantomNow=Date.parse('2026-10-21T15:09:00Z');
+const jobUrl='https://github.com/owner/repo/actions/runs/39621296044/job/119295118257';
+const phantomChecks=()=>[checkRun('data-and-policy','in_progress',null,{started_at:'2026-10-21T14:56:39Z',details_url:jobUrl}),
+  checkRun('browser-presentation','completed','success',{started_at:'2026-10-21T14:56:39Z'})];
+const actionsFor=({status='completed',attempt=1,stepStatus='completed',ended='2026-10-21T14:57:50Z'}={})=>({
+  'actions/runs/39621296044':{id:39621296044,status,run_attempt:attempt},
+  'actions/jobs/119295118257':{steps:[{name:'Set up job',status:'completed',completed_at:'2026-10-21T14:56:45Z'},
+    {name:'Complete job',status:stepStatus,completed_at:stepStatus==='completed'?ended:null}]}});
+const rerun={path:'actions/runs/39621296044/rerun',method:'POST',body:undefined};
+
+test('a check left in_progress after its job finished is rerun once, without merging (S44 promotion, 21 Oct)',async()=>{
+  const candidate=candidateFixture({progress:sealed(),checks:phantomChecks(),now:phantomNow,actions:actionsFor()});
+  assert.deepEqual(await candidate.run(),{pending:true});
+  assert.deepEqual(candidate.mutations,[rerun],'only the rerun is requested: no merge, dispatch or build');
+  assert.deepEqual(candidate.logs,[
+    `Rerun requested for data-and-policy: job 119295118257 of run 39621296044 finished at 2026-10-21T14:57:50.000Z but its check is still in_progress at ${head}.`,
+    `Candidate checks still running for 2026-S43; next run will continue. PR #9 at ${head}: data-and-policy rerun requested.`]);
+  const promotion=fixture({promotion:true,checks:phantomChecks(),now:phantomNow,actions:actionsFor()});
+  assert.deepEqual(await promotion.run(true),{pending:true});
+  assert.deepEqual(promotion.verified,[{week,base:main}],'the attestation is still required first');
+  assert.deepEqual(promotion.mutations,[rerun]);
+  assert.match(promotion.logs[1],/^Promotion checks still running for 2026-S43; next run will continue\. PR #7 at b{40}: data-and-policy rerun requested\.$/);
+});
+
+test('no rerun for a second attempt, an unfinished run or job, a recent end or a check without its job',async()=>{
+  const recent=new Date(phantomNow-PHANTOM_GRACE_MS).toISOString();
+  const cases=[[phantomChecks(),actionsFor({attempt:2})],[phantomChecks(),actionsFor({status:'in_progress'})],
+    [phantomChecks(),actionsFor({stepStatus:'in_progress'})],[phantomChecks(),actionsFor({ended:recent})],
+    [phantomChecks().map(c=>({...c,details_url:undefined})),{}]];
+  for(const [checks,actions] of cases){
+    const f=candidateFixture({progress:sealed(),checks,now:phantomNow,actions});
+    assert.deepEqual(await f.run(),{pending:true},JSON.stringify(actions));
+    assert.deepEqual(f.mutations,[]);
+    assert.deepEqual(f.logs,[`Candidate checks still running for 2026-S43; next run will continue. PR #9 at ${head}: data-and-policy in_progress.`]);
+  }
+  assert.equal(phantomCheck(path=>actionsFor()[path],phantomChecks()[0],phantomNow)?.run,'39621296044');
+});
+
+test('a stuck phantom is rerun instead of failing; a stuck second attempt still fails red',async()=>{
+  const late=phantomNow+CHECKS_RUNNING_LIMIT_MS;
+  const first=candidateFixture({progress:sealed(),checks:phantomChecks(),now:late,actions:actionsFor()});
+  assert.deepEqual(await first.run(),{pending:true});
+  assert.deepEqual(first.mutations,[rerun]);
+  const second=candidateFixture({progress:sealed(),checks:phantomChecks(),now:late,actions:actionsFor({attempt:2})});
+  await assert.rejects(second.run(),/they are stuck, not running/);
+  assert.deepEqual(second.mutations,[]);
 });

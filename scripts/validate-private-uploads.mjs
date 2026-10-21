@@ -212,7 +212,9 @@ async function checkForumAuthenticationError(browser, name, week) {
       'unrecognised private response details must stay inside the parent');
     await page.evaluate(() => Object.assign(window.__privateFixture, {mode: 'items'}));
     await child.locator('.private-retry').click();
-    await child.locator(cardSelector).first().waitFor({state: 'attached'});
+    // The retried feed sometimes needs more than the default 30 s on CI runners
+    // (run 39608489873, 21 Oct): wait longer, the assertions are unchanged.
+    await child.locator(cardSelector).first().waitFor({state: 'attached', timeout: 60000});
     const title = await child.locator(cardSelector + ' h3').first().textContent();
     await retry(page, child, 'auth-error');
     await child.waitForFunction(() => document.querySelector('.jellyfin-private-uploads-page')?.dataset.privateState === 'error');

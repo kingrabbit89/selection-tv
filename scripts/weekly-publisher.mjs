@@ -59,6 +59,24 @@ export function checksProgress(checks,statuses=[],now=Date.now()){
   const stale=c=>{const started=Date.parse(c.started_at??'');return !Number.isFinite(started)||now-started>CHECKS_RUNNING_LIMIT_MS;};
   return {state:unfinished.some(stale)?'stuck':'running',unfinished};
 }
+// GitHub can leave a check in_progress after its job finished: on 21 Oct the
+// data-and-policy check of the S44 promotion (PR #94) stayed in_progress after
+// "Complete job" at 14:57:50Z until run 39621296044 was rerun by hand at 15:10Z.
+// Such a phantom is rerun once, 10 minutes after its job's last step. A rerun
+// repeats the same checks; a second phantom of the same run is left to the
+// running/stuck rule above.
+export const PHANTOM_GRACE_MS=10*60*1000;
+export function phantomCheck(api,check,now=Date.now()){
+  const ids=/\/actions\/runs\/(\d+)\/job\/(\d+)/.exec(check.details_url||check.html_url||'');
+  if(!ids)return null;
+  const run=api(`actions/runs/${ids[1]}`);
+  if(run?.status!=='completed'||run.run_attempt!==1)return null;
+  const steps=api(`actions/jobs/${ids[2]}`)?.steps||[];
+  if(!steps.length||!steps.every(step=>step.status==='completed'))return null;
+  const ended=Math.max(...steps.map(step=>Date.parse(step.completed_at??'')));
+  if(!Number.isFinite(ended)||now-ended<=PHANTOM_GRACE_MS)return null;
+  return {run:ids[1],job:ids[2],ended:new Date(ended).toISOString()};
+}
 // Every changed path must reach the path review below. Read every page of the
 // PR's file list and prove it complete against the PR's own count; GitHub lists
 // at most 3000 files, so a larger PR is still refused. A weekly candidate now
@@ -170,6 +188,15 @@ async function advancePublication({api,repo,week,verify,log,now}){
     // Nothing has been written yet: a neutral stop here advances nothing.
     const checkState=checksProgress(checks.check_runs,status.statuses,now());
     const unfinished=checkState.unfinished.map(c=>`${c.name} ${c.status}`).join(', ');
+    // Only trusted checks are unfinished in these states. Nothing is merged here:
+    // the rerun's completion (Validate architecture) wakes the publisher again.
+    if(['running','stuck'].includes(checkState.state))for(const check of checkState.unfinished){
+      const phantom=phantomCheck(api,check,now());
+      if(!phantom)continue;
+      api(`actions/runs/${phantom.run}/rerun`,'POST');
+      log(`Rerun requested for ${check.name}: job ${phantom.job} of run ${phantom.run} finished at ${phantom.ended} but its check is still ${check.status} at ${head}.`);
+      throw new ChecksRunning(isPromotion?'Promotion':'Candidate',`PR #${pr.number} at ${head}: ${check.name} rerun requested.`);
+    }
     if(checkState.state==='running')
       throw new ChecksRunning(isPromotion?'Promotion':'Candidate',`PR #${pr.number} at ${head}: ${unfinished}.`);
     assert(checkState.state!=='stuck',`checks unfinished for more than ${CHECKS_RUNNING_LIMIT_MS/60000} minutes or since an unknown time (${unfinished}); they are stuck, not running`);
