@@ -1272,5 +1272,795 @@
       }
     }
   },
-  "updated_at": "2026-10-21T13:38:53.134Z"
+  "updated_at": "2026-10-21T13:38:53.134Z",
+  "documentary_pass": {
+    "checked_at": "2026-10-21",
+    "scope": "Passe dédiée ARTE (guide 24–30 octobre et replay), France 5, France 2/3/4 (grilles XML France TV), france.tv, Ciné+ Family/Festival, Canal+ Docs, Histoire TV et TV5MONDE via la grille Télérama relue.",
+    "sources_consulted": [
+      {
+        "url": "https://www.arte.tv/fr/guide/20261024/",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Guide TV ARTE samedi 24/10 (HTML serveur analysé : horaires, titres, durées, liens)"
+      },
+      {
+        "url": "https://www.arte.tv/fr/guide/20261025/",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Guide TV ARTE dimanche 25/10"
+      },
+      {
+        "url": "https://www.arte.tv/fr/guide/20261026/",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Guide TV ARTE lundi 26/10"
+      },
+      {
+        "url": "https://www.arte.tv/fr/guide/20261027/",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Guide TV ARTE mardi 27/10"
+      },
+      {
+        "url": "https://www.arte.tv/fr/guide/20261028/",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Guide TV ARTE mercredi 28/10"
+      },
+      {
+        "url": "https://www.arte.tv/fr/guide/20261029/",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Guide TV ARTE jeudi 29/10"
+      },
+      {
+        "url": "https://www.arte.tv/fr/guide/20261030/",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Guide TV ARTE vendredi 30/10"
+      },
+      {
+        "url": "https://api.arte.tv/api/player/v2/config/fr/<programId>",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "API lecteur ARTE (rights.begin/end, image, durée) pour une trentaine de programmes (100227-000-A, 128062/3/4-000-A, 128865-000-A, 128808-000-A, 117725-000-A, 115521-000-A, 126221-000-A, 122792-000-A, 132648-000-A, 100242-000-A, 086946-000-A, 101411-001-A, 112849-000-A, 109771-000-A, 134665-000-A, 132633-001-A, 083910-000-A, 111754-000-A, 122185-000-A, 114812-000-A, 005307-000-F, 109743-000-A, 127503-000-A, 108685-000-A, 111781-000-A)"
+      },
+      {
+        "url": "https://www.arte.tv/fr/videos/<programId>/<slug>/",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Pages programme ARTE des mêmes IDs : « Disponible jusqu'au », « À la télévision le », crédits Réalisation/Pays/Année, texte long"
+      },
+      {
+        "url": "https://www.arte.tv/fr/videos/documentaires-et-reportages/",
+        "read_at": "2026-10-21T13:50:00Z",
+        "what": "Page Documentaires arte.tv (HTML) — seules les premières rangées sont rendues côté serveur"
+      },
+      {
+        "url": "https://api.arte.tv/api/emac/v4/fr/web/pages/DOR/",
+        "read_at": "2026-10-21T13:50:00Z",
+        "what": "API EMAC de la page Documentaires arte.tv : toutes les rangées (En ce moment, Incontournables, Regards sur le monde, Culture, Histoire, Portraits, Société, Animaux, Sciences, Évasion, Documentaires d'auteur, Plus vues) avec dates de disponibilité"
+      },
+      {
+        "url": "https://api.arte.tv/api/emac/v4/fr/web/collections/RC-028235/",
+        "read_at": "2026-10-21T13:50:00Z",
+        "what": "Collection ARTE « Hommage à Frederick Wiseman » (Welfare, Titicut Follies, Law and Order, Central Park ; jusqu'au 31/07/2027)"
+      },
+      {
+        "url": "https://api.arte.tv/api/emac/v4/fr/web/programs/<programId>/",
+        "read_at": "2026-10-21T13:50:00Z",
+        "what": "Libellés de disponibilité ARTE pour programmes à venir (128808-000-A, 115521-000-A, 086946-000-A, 109771-000-A)"
+      },
+      {
+        "url": "https://www.francetvpro.fr/grille-xml/france-2/25-10-2026",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Grille XML France 2, semaine du 24 au 31/10 (titres, horaires, durées, crédits dans teaser)"
+      },
+      {
+        "url": "https://www.francetvpro.fr/grille-xml/france-3/25-10-2026",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Grille XML France 3, semaine du 24 au 31/10"
+      },
+      {
+        "url": "https://www.francetvpro.fr/grille-xml/france-4/25-10-2026",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Grille XML France 4, semaine du 24 au 31/10"
+      },
+      {
+        "url": "https://www.francetvpro.fr/grille-xml/france-5/25-10-2026",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Grille XML France 5, semaine du 24 au 31/10"
+      },
+      {
+        "url": "https://www.france.tv/documentaires/",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Page Documentaires france.tv (liens rendus côté serveur)"
+      },
+      {
+        "url": "https://www.france.tv/documentaires/documentaires-societe/",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Rubrique Documentaires société france.tv"
+      },
+      {
+        "url": "https://www.france.tv/documentaires/documentaires-histoire/",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Rubrique Documentaires histoire france.tv"
+      },
+      {
+        "url": "https://www.france.tv/documentaires/documentaires-science/",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Rubrique Documentaires science france.tv (Chauvet absent)"
+      },
+      {
+        "url": "https://www.france.tv/documentaires/toutes-les-videos/",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Toutes les vidéos documentaires france.tv"
+      },
+      {
+        "url": "https://www.france.tv/france-5/science-grand-format/",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Collection Science grand format (Chauvet absent)"
+      },
+      {
+        "url": "https://www.france.tv/france-2/25-nuances-de-doc/",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Collection 25 nuances de doc"
+      },
+      {
+        "url": "https://www.france.tv/documentaires/documentaires-societe/8945760-lache-ton-tel.html",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Replay Lâche ton tel (réalisateur, durée, disponibilité)"
+      },
+      {
+        "url": "https://www.france.tv/documentaires/documentaires-societe/8928528-israel-comment-sauver-la-democratie.html",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Autre film sur Israël (Noam Pinchas) — homonyme à écarter"
+      },
+      {
+        "url": "https://www.france.tv/documentaires/8622371-cancer-ce-qui-nous-tient-debout.html",
+        "read_at": "2026-10-21T13:50:00Z",
+        "what": "Ce qui nous tient debout (Lartot, Burel) — 1re diffusion France 5 le 15/09/2026, rediffusion France 2 le 28/10 22:40, dispo jusqu'au 27/11/2028"
+      },
+      {
+        "url": "https://www.francetvpro.fr/contenu-de-presse/78821709",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Communiqué Israël, une démocratie en péril"
+      },
+      {
+        "url": "https://www.francetvpro.fr/contenu-de-presse/78821712",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Communiqué soirée écrans France 2 / Lâche ton tel"
+      },
+      {
+        "url": "https://www.prixbayeux.org/en/programme/israel-the-battle-for-democracy-premiere/",
+        "read_at": "2026-10-21T13:38:00Z",
+        "what": "Avant-première Prix Bayeux 2026 du film de Lucas Menget"
+      }
+    ],
+    "retained": [
+      {
+        "title": "Amérique : la nouvelle histoire des premiers hommes",
+        "placements": [
+          "samedi-selection rang 10 (20:55 Arte)"
+        ]
+      },
+      {
+        "title": "Israël, une démocratie en péril",
+        "placements": [
+          "dimanche-selection rang 5 (21:00 France 5)"
+        ]
+      },
+      {
+        "title": "Trump contre la Californie",
+        "placements": [
+          "mardi-selection rang 5 (22:35 Arte)"
+        ]
+      },
+      {
+        "title": "Chauvet, voyage aux origines",
+        "placements": [
+          "jeudi-selection rang 4 (21:10 France 5)"
+        ]
+      },
+      {
+        "title": "Les Saisons",
+        "placements": [
+          "mardi-selection rang 10 (01:30 Ciné+ Family)"
+        ]
+      }
+    ],
+    "examined_not_retained": [
+      {
+        "title": "La Bataille de Harvard",
+        "slots": [
+          "2026-10-27 21:00 Arte (1/3 La peur)",
+          "2026-10-27 21:30 Arte (2/3 L'argent)",
+          "2026-10-27 22:00 Arte (3/3 La justice)"
+        ],
+        "decision": "Non retenu en carte : série de trois épisodes de 30 min (Télérama « Bien ») ; le même soir ARTE, Trump contre la Californie (« Très bien ») couvre la même actualité américaine avec un traitement jugé plus limpide."
+      },
+      {
+        "title": "The Rocky Horror Show : éternel, culte et transgressif",
+        "slots": [
+          "2026-10-30 22:35 Arte"
+        ],
+        "decision": "Non retenu en carte : complément documentaire (Télérama « Bien ») du film The Rocky Horror Picture Show, retenu en réserve du vendredi ; mis en ligne sur arte.tv le 23 octobre."
+      },
+      {
+        "title": "King of the Apocalypse, les fous de Trump",
+        "slots": [
+          "2026-10-28 21:00 Canal+ Docs"
+        ],
+        "decision": "Non retenu : Télérama (« Bien ») note une narration qui flirte avec le sensationnalisme ; aucune autre critique trouvée ; deux documentaires américains plus solides retenus."
+      },
+      {
+        "title": "Lâche ton tel",
+        "slots": [
+          "2026-10-27 22:50 France 2"
+        ],
+        "decision": "Non retenu en carte : documentaire de société (Télérama « Bien ») sans autre réception trouvée ; disponible sur france.tv jusqu’au 04/04/2029."
+      },
+      {
+        "title": "La Panthère des neiges",
+        "slots": [
+          "2026-10-27 22:30 Ciné+ Family"
+        ],
+        "decision": "Non retenu : César 2022 du documentaire mais déjà largement diffusé ; Les Saisons, autre documentaire animalier de Ciné+ Family, retenu en réserve du mardi."
+      },
+      {
+        "title": "Je n'avais que le néant : Shoah par Lanzmann",
+        "slots": [
+          "2026-10-28 00:15 Histoire TV"
+        ],
+        "decision": "Non retenu en carte : diffusion sur Histoire TV à 00:15 ; Berlinale Special 2025, critiques de Libération et du Monde : candidat conservé comme alternative documentaire."
+      }
+    ],
+    "additional_proposals": [
+      {
+        "title": "Trois femmes reporters au cœur de la guerre",
+        "availability": {
+          "service": "ARTE",
+          "url": "https://www.arte.tv/fr/videos/086946-000-A/trois-femmes-reporters-au-coeur-de-la-guerre/",
+          "available_until": "2027-01-24",
+          "available_from": "2026-10-27",
+          "read_at": "2026-10-21T13:50:00Z",
+          "note": "API EMAC ARTE : « Disponible du 27/10/2026 au 24/01/2027 »."
+        },
+        "signals": [
+          {
+            "note": "Grimme-Preis 2024, compétition Information & Kultur, et prix du public de la Marler Gruppe ; Deutscher Kamerapreis 2024 du meilleur montage documentaire.",
+            "source_url": "https://filmportal.de/en/node/1657364"
+          },
+          {
+            "note": "Première internationale à l'IDFA 2022 (Amsterdam).",
+            "source_url": "https://idfa.nl/en/film/7a9aeb35-3e86-4eef-81d7-0a00602fdc78/trained-to-see-three-women-and-the-war"
+          }
+        ]
+      },
+      {
+        "title": "L'histoire de « Scénario »",
+        "availability": {
+          "service": "ARTE",
+          "url": "https://www.arte.tv/fr/videos/101411-001-A/l-histoire-de-scenario/",
+          "available_until": "2027-01-06",
+          "available_from": "2026-07-30",
+          "read_at": "2026-10-21T13:38:00Z",
+          "note": "Page ARTE : « Disponible jusqu'au 06/01/2027 » ; déjà en ligne."
+        },
+        "signals": [
+          {
+            "note": "Scénarios, dernier film de Godard qui clôt le programme, a été présenté en première mondiale en Sélection officielle au Festival de Cannes 2024 (article du festival du 17/05/2024).",
+            "source_url": "https://www.festival-cannes.com/en/2024/scenarios-scenarios-jean-luc-godard-s-last-gift-to-cinema/"
+          }
+        ]
+      },
+      {
+        "title": "Roberto Rossellini – Vivre sans scénario",
+        "availability": {
+          "service": "ARTE",
+          "url": "https://www.arte.tv/fr/videos/115521-000-A/roberto-rossellini-vivre-sans-scenario/",
+          "available_until": "2031-11-29",
+          "available_from": "2026-10-25",
+          "read_at": "2026-10-21T13:50:00Z",
+          "note": "API EMAC ARTE : « Disponible du 25/10/2026 au 29/11/2031 »."
+        },
+        "signals": [
+          {
+            "note": "Sélectionné à la Festa del Cinema di Roma (section Festa del cinema), version de 86 min ; montré aussi au DOK.fest de Munich en mai 2026 (résultat de recherche).",
+            "source_url": "https://filmguide.romacinemafest.org/en/detail/?id=14106"
+          }
+        ]
+      },
+      {
+        "title": "Man in Black",
+        "availability": {
+          "service": "ARTE",
+          "url": "https://www.arte.tv/fr/videos/114812-000-A/man-in-black/",
+          "available_until": "2026-12-31",
+          "available_from": "2026-07-20",
+          "read_at": "2026-10-21T13:50:00Z",
+          "note": "Page ARTE : « Disponible jusqu'au 31/12/2026 » (API : rights.end 2026-12-30T23:00Z)."
+        },
+        "signals": [
+          {
+            "note": "Séance spéciale de la Sélection officielle, Festival de Cannes 2023 (Wang Bing avait aussi Jeunesse (Le Printemps) en compétition).",
+            "source_url": "https://www.festival-cannes.com/2023/man-in-black-scene-ouverte-pour-wang-xilin/"
+          }
+        ]
+      },
+      {
+        "title": "Titicut Follies (rétrospective Frederick Wiseman)",
+        "availability": {
+          "service": "ARTE",
+          "url": "https://www.arte.tv/fr/videos/005307-000-F/titicut-follies/",
+          "available_until": "2027-07-30",
+          "available_from": "2026-09-15",
+          "read_at": "2026-10-21T13:50:00Z",
+          "note": "Page ARTE : « Disponible jusqu'au 30/07/2027 ». Collection : https://www.arte.tv/fr/videos/RC-028235/hommage-a-frederick-wiseman/"
+        },
+        "signals": [
+          {
+            "note": "Inscrit en 2022 au National Film Registry de la Bibliothèque du Congrès.",
+            "source_url": "https://en.wikipedia.org/wiki/Titicut_Follies"
+          },
+          {
+            "note": "Interdit de diffusion publique par la justice du Massachusetts de 1968 à 1991 (sauf publics professionnels) ; Festival dei Popoli 1967 (meilleur film sur la condition humaine).",
+            "source_url": "https://en.wikipedia.org/wiki/Titicut_Follies"
+          }
+        ]
+      },
+      {
+        "title": "Les livres que Hitler n'a pas brûlés",
+        "availability": {
+          "service": "ARTE",
+          "url": "https://www.arte.tv/fr/videos/100242-000-A/les-livres-que-hitler-n-a-pas-brules/",
+          "available_until": "2027-04-10",
+          "available_from": "2026-10-06",
+          "read_at": "2026-10-21T13:38:00Z",
+          "note": "Page ARTE : « Disponible jusqu'au 10/04/2027 »."
+        },
+        "signals": [
+          {
+            "note": "En compétition au Raindance Film Festival 2023 (Londres) et projeté au Film at Lincoln Center avec le réalisateur Jascha Hannover (résultats de recherche, pages non ouvertes).",
+            "source_url": "https://www.filmlinc.org/films/the-books-he-didnt-burn/"
+          }
+        ]
+      }
+    ],
+    "also_noted": [
+      {
+        "title": "Gene Tierney, une star oubliée",
+        "slot": "2026-10-25 20:05 Arte",
+        "director": "Clara et Julia Kuperberg",
+        "year": 2016,
+        "duration_min": 53,
+        "url": "https://www.arte.tv/fr/videos/117725-000-A/gene-tierney-une-star-oubliee/",
+        "available_until": "2026-12-30",
+        "note": "Portrait éclairé par Martin Scorsese (texte ARTE). Avant La Maison du docteur Edwardes."
+      },
+      {
+        "title": "Couples mythiques du cinéma : Ingrid Bergman et Roberto Rossellini",
+        "slot": "2026-10-25 22:50 Arte",
+        "director": "Bertrand Tessier",
+        "year": 2018,
+        "duration_min": 52,
+        "url": "https://www.arte.tv/fr/videos/126221-000-A/couples-mythiques-du-cinema/",
+        "available_until": "2027-08-31"
+      },
+      {
+        "title": "Irrésistible Gary Cooper",
+        "slot": "2026-10-26 22:35 Arte",
+        "director": "Clara et Julia Kuperberg",
+        "year": 2019,
+        "duration_min": 54,
+        "url": "https://www.arte.tv/fr/videos/122792-000-A/irresistible-gary-cooper/",
+        "available_until": "2027-05-23"
+      },
+      {
+        "title": "Brésil, le pouvoir des évangéliques",
+        "slot": "2026-10-27 23:30 Arte",
+        "director": "Souleyman Messalti",
+        "year": 2026,
+        "duration_min": 52,
+        "url": "https://www.arte.tv/fr/videos/132648-000-A/bresil-le-pouvoir-des-evangeliques/",
+        "available_until": "2026-10-27",
+        "note": "Page ARTE : « Disponible jusqu'au 27 octobre 2026 à 05:00 » — expire avant la diffusion du 27 au soir : incohérence à revérifier."
+      },
+      {
+        "title": "Grotte Chauvet – Dans les pas des artistes de la Préhistoire",
+        "slot": "2026-10-29 09:55 Arte",
+        "director": "Alexis de Favitski",
+        "year": 2024,
+        "duration_min": 89,
+        "url": "https://www.arte.tv/fr/videos/112849-000-A/grotte-chauvet-dans-les-pas-des-artistes-de-la-prehistoire/",
+        "available_until": "2027-03-17",
+        "note": "Complément / homonyme partiel du film France 5 du même soir."
+      },
+      {
+        "title": "L'Amérique lui doit son nom : Amerigo Vespucci",
+        "slot": "2026-10-24 22:25 Arte",
+        "director": "Eike Schmitz",
+        "year": 2023,
+        "duration_min": 50,
+        "url": "https://www.arte.tv/fr/videos/109771-000-A/l-amerique-lui-doit-son-nom-amerigo-vespucci/",
+        "available_until": "2026-11-22"
+      },
+      {
+        "title": "Thorin, le dernier Néandertalien",
+        "slot": "2026-10-30 02:55 Arte",
+        "director": "Pascal Cuissot",
+        "year": 2024,
+        "duration_min": 53,
+        "url": "https://www.arte.tv/fr/videos/083910-000-A/thorin-le-dernier-neandertalien/",
+        "available_until": "2026-11-14"
+      },
+      {
+        "title": "Turbulence – Lettres à une mère (replay)",
+        "slot": null,
+        "director": "Anne Aghion",
+        "year": 2023,
+        "duration_min": 69,
+        "url": "https://www.arte.tv/fr/videos/109743-000-A/turbulence/",
+        "available_until": "2026-11-21",
+        "note": "Film à la première personne ; ARTE dit 2023, sources tierces 2024."
+      },
+      {
+        "title": "Western Lands (replay)",
+        "slot": null,
+        "director": "Nicolas Drolc, Andy Dale Petty",
+        "year": 2024,
+        "duration_min": 83,
+        "url": "https://www.arte.tv/fr/videos/127503-000-A/western-lands/",
+        "available_until": "2026-12-21"
+      },
+      {
+        "title": "Russie : le prix de la vérité (replay, nouveau 21/10)",
+        "slot": "2026-10-22 01:55 Arte (hors semaine)",
+        "director": "Patrick Forbes",
+        "year": 2022,
+        "duration_min": 88,
+        "url": "https://www.arte.tv/fr/videos/108685-000-A/russie-le-prix-de-la-verite/",
+        "available_until": "2026-12-24",
+        "note": "Novaïa Gazeta, 20 ans après la mort d'Anna Politkovskaïa."
+      },
+      {
+        "title": "Bélarus, tes résistantes (replay)",
+        "slot": null,
+        "director": "Volia Chajkouskaya",
+        "year": 2024,
+        "duration_min": 87,
+        "url": "https://www.arte.tv/fr/videos/111781-000-A/belarus-tes-resistantes/",
+        "available_until": "2026-12-15"
+      },
+      {
+        "title": "Ce qui nous tient debout",
+        "slot": "2026-10-28 22:40 France 2",
+        "director": "Matthieu Lartot, Anouk Burel",
+        "year": 2026,
+        "duration_min": 91,
+        "url": "https://www.france.tv/documentaires/8622371-cancer-ce-qui-nous-tient-debout.html",
+        "available_until": "2028-11-27",
+        "note": "Rediffusion (1re diffusion France 5 le 15/09/2026)."
+      },
+      {
+        "title": "De plomb et de charbon",
+        "slot": "2026-10-29 00:15 France 2 (25 nuances de doc)",
+        "director": null,
+        "year": null,
+        "duration_min": 85,
+        "url": null,
+        "available_until": null,
+        "note": "Mineurs dans les mines désaffectées de l'Est marocain (grille XML) ; réalisateur non relevé."
+      },
+      {
+        "title": "Kibboutz Revadim, l'utopie des pionniers",
+        "slot": "2026-10-25 22:45 France 5",
+        "director": "Léa Wolber",
+        "year": null,
+        "duration_min": 53,
+        "url": null,
+        "available_until": null,
+        "note": "Suite de soirée Israël (grille XML)."
+      },
+      {
+        "title": "Premiers résistants, seuls contre tous !",
+        "slot": "2026-10-25 16:45 France 5",
+        "director": "Véronique Lagoarde-Ségot",
+        "year": null,
+        "duration_min": 94,
+        "url": "https://www.france.tv/documentaires/documentaires-histoire/7221809-premiers-resistants-seuls-contre-tous.html",
+        "available_until": null,
+        "note": "Rediffusion ; page france.tv repérée, non lue."
+      }
+    ],
+    "limits": [
+      "Aucune note IMDb lisible (mur anti-robot) ; notes SensCritique relevées quand une fiche exacte existe.",
+      "Pages replay france.tv d’Israël, une démocratie en péril et de Chauvet, voyage aux origines non encore en ligne au 21 octobre.",
+      "Canal+ Docs et Histoire TV : pages de programme officielles non trouvées ; grille Télérama relue."
+    ],
+    "distribution": {
+      "daily_cards": 74,
+      "daily_distinct_works": 68,
+      "documentary_cards": 6,
+      "documentary_distinct_works": 6,
+      "note": "Dominante cinéma sans quota : 6 documentaires distincts dans les pools quotidiens (dont Nuestra tierra en choix développé), complétés par les rubriques replay et plateformes gratuites."
+    }
+  },
+  "editorial_reminder": {
+    "checked_at": "2026-10-21",
+    "source": "data/editorial-inputs/2026-S44/telerama-editorial.json (40 critiques relues)",
+    "decisions": [
+      {
+        "review": "/reviews/0",
+        "title": "Adieu Philippine",
+        "rating": "Bravo",
+        "slot": "2026-10-25 00:15 France 3",
+        "decision": "retenu : dimanche-selection rang 1 (00:15 France 3) ; rendezvous-1 rang 2 (00:15 France 3)"
+      },
+      {
+        "review": "/reviews/1",
+        "title": "Madame la préfète",
+        "rating": "Bien",
+        "slot": "2026-10-24 21:00 LCP-Public Sénat",
+        "decision": "Non retenu : documentaire d’immersion institutionnelle (« Bien »), sans autre réception trouvée ; quatre diffusions LCP, priorité aux documentaires « Très bien » de la semaine."
+      },
+      {
+        "review": "/reviews/2",
+        "title": "Les Contes du pommier",
+        "rating": "Bien",
+        "slot": "2026-10-24 08:30 Ciné+ Family",
+        "decision": "retenu : samedi-selection rang 9 (08:30 Ciné+ Family)"
+      },
+      {
+        "review": "/reviews/3",
+        "title": "Trump contre la loi",
+        "rating": "Bien",
+        "slot": "2026-10-24 22:30 LCP-PS",
+        "decision": "Non retenu : Télérama (« Bien ») juge la mise en images lassante ; le sujet est mieux servi par Trump contre la Californie (« Très bien »), retenu mardi."
+      },
+      {
+        "review": "/reviews/4",
+        "title": "On change les règles",
+        "rating": "Bien",
+        "slot": "2026-10-24 21:00 Téva",
+        "decision": "Non retenu : divertissement de sketchs jugé inégal par Télérama (« Bien »), hors des types de programmes du numéro."
+      },
+      {
+        "review": "/reviews/5",
+        "title": "Amérique : la nouvelle histoire des premiers hommes",
+        "rating": "Très bien",
+        "slot": "2026-10-24 20:55 Arte",
+        "decision": "retenu : samedi-selection rang 10 (20:55 Arte)"
+      },
+      {
+        "review": "/reviews/6",
+        "title": "Israël, une démocratie en péril",
+        "rating": "Très bien",
+        "slot": "2026-10-25 21:00 France 5",
+        "decision": "retenu : dimanche-selection rang 5 (21:00 France 5)"
+      },
+      {
+        "review": "/reviews/7",
+        "title": "Kibboutz Revadim, l’utopie des pionniers",
+        "rating": "Bof",
+        "slot": "2026-10-25 22:45 France 5",
+        "decision": "Non retenu : avis réservé (« Bof ») attribué ; angle mort historique signalé par la critique. Israël, une démocratie en péril, retenu dimanche."
+      },
+      {
+        "review": "/reviews/8",
+        "title": "La Maison du Dr Edwardes",
+        "rating": "Très bien",
+        "slot": "2026-10-25 21:00 Arte",
+        "decision": "retenu : dimanche-selection rang 2 (21:00 Arte) ; rendez-vous page 2."
+      },
+      {
+        "review": "/reviews/9",
+        "title": "The Loop",
+        "rating": "Bien",
+        "slot": "2026-10-25 21:00 France 4",
+        "decision": "Non retenu : captation de théâtre de boulevard (« Bien »), hors des types de programmes du numéro."
+      },
+      {
+        "review": "/reviews/10",
+        "title": "Polisse",
+        "rating": "Très bien",
+        "slot": "2026-10-25 21:00 LCP-Assemblée nationale",
+        "decision": "retenu : dimanche-selection rang 6 (21:00 LCP-Assemblée nationale)"
+      },
+      {
+        "review": "/reviews/11",
+        "title": "Guy Martin et le train qui a changé le monde",
+        "rating": "Bien",
+        "slot": "2026-10-25 20:55 Planète+",
+        "decision": "Non retenu : documentaire de vulgarisation (« Bien ») au commentaire emphatique selon la critique, sur Planète+ ; documentaires plus forts retenus."
+      },
+      {
+        "review": "/reviews/12",
+        "title": "L’Homme de l’Ouest",
+        "rating": "Bravo",
+        "slot": "2026-10-26 20:55 Arte",
+        "decision": "retenu : lundi-selection rang 1 (20:55 Arte) ; rendezvous-1 rang 3 (20:55 Arte)"
+      },
+      {
+        "review": "/reviews/13",
+        "title": "Opération Hao",
+        "rating": "Bof",
+        "slot": "2026-10-26 23:10 France 3",
+        "decision": "Non retenu : avis réservé (« Bof ») sur un documentaire jugé dépourvu de distance."
+      },
+      {
+        "review": "/reviews/14",
+        "title": "Sarah Bernhardt, la Divine",
+        "rating": "Très bien",
+        "slot": "2026-10-26 21:10 TF1 Séries Films",
+        "decision": "retenu : lundi-selection rang 5 (21:10 TF1 Séries Films)"
+      },
+      {
+        "review": "/reviews/15",
+        "title": "Spinners",
+        "rating": "Bien",
+        "slot": "2026-10-26 21:55 Canal+",
+        "decision": "Non retenu : saison 2 d’une série (« Bien ») jugée solide mais classique ; la règle série exige un événement éditorial."
+      },
+      {
+        "review": "/reviews/16",
+        "title": "Yellow Letters",
+        "rating": "Bien",
+        "slot": "2026-10-26 20:50 Ciné+ Festival",
+        "decision": "retenu : lundi-selection rang 6 (20:50 Ciné+ Festival)"
+      },
+      {
+        "review": "/reviews/17",
+        "title": "Trump contre la Californie",
+        "rating": "Très bien",
+        "slot": "2026-10-27 22:35 Arte",
+        "decision": "retenu : mardi-selection rang 5 (22:35 Arte)"
+      },
+      {
+        "review": "/reviews/18",
+        "title": "La Bataille de Harvard",
+        "rating": "Bien",
+        "slot": "2026-10-27 21:00 Arte",
+        "decision": "Non retenu en carte : série de trois épisodes de 30 min (Télérama « Bien ») ; le même soir ARTE, Trump contre la Californie (« Très bien ») couvre la même actualité américaine avec un traitement jugé plus limpide."
+      },
+      {
+        "review": "/reviews/19",
+        "title": "Lâche ton tel",
+        "rating": "Bien",
+        "slot": "2026-10-27 22:50 France 2",
+        "decision": "Non retenu en carte : documentaire de société (Télérama « Bien ») sans autre réception trouvée ; disponible sur france.tv jusqu’au 04/04/2029."
+      },
+      {
+        "review": "/reviews/20",
+        "title": "Les Rayons et les Ombres",
+        "rating": "Très bien",
+        "slot": "2026-10-27 21:10 Canal+",
+        "decision": "retenu : mardi-selection rang 1 (21:10 Canal+) ; jeudi-selection rang 11 (13:40 Canal+ Cinéma) ; rendezvous-1 rang 5 (21:10 Canal+)"
+      },
+      {
+        "review": "/reviews/21",
+        "title": "Les Farouches",
+        "rating": "Bien",
+        "slot": "2026-10-27 21:10 France 3",
+        "decision": "Non retenu : téléfilm policier (« Bien »), divertissement plaisant sans singularité suffisante face aux films retenus mardi."
+      },
+      {
+        "review": "/reviews/22",
+        "title": "Nuestra tierra",
+        "rating": "Très bien",
+        "slot": "2026-10-27 20:50 Ciné+ Festival",
+        "decision": "retenu : mardi-selection rang 2 (20:50 Ciné+ Festival) ; rendezvous-2 rang 7 (20:50 Ciné+ Festival)"
+      },
+      {
+        "review": "/reviews/23",
+        "title": "Au sein des autres",
+        "rating": "Très bien",
+        "slot": "2026-10-28 21:10 France 2",
+        "decision": "Non retenu en carte : téléfilm France 2 (« Très bien », prix de la réalisation et de l’interprétation à La Rochelle) ; mercredi déjà complet avec onze films et documentaires plus singuliers. Alternative conservée."
+      },
+      {
+        "review": "/reviews/24",
+        "title": "The Game",
+        "rating": "Bien",
+        "slot": "2026-10-28 21:00 Arte",
+        "decision": "Non retenu : Télérama (« Bien ») juge le thriller de Fincher vite contradictoire ; mercredi privilégie Ring (« Très bien ») sur ARTE."
+      },
+      {
+        "review": "/reviews/25",
+        "title": "Court-circuit",
+        "rating": "Bien",
+        "slot": "2026-10-29 00:35 Arte",
+        "decision": "Non retenu : magazine du court métrage (« Bien ») diffusé à 00:35, hors des types de programmes du numéro."
+      },
+      {
+        "review": "/reviews/26",
+        "title": "King of the Apocalypse, les fous de Trump",
+        "rating": "Bien",
+        "slot": "2026-10-28 21:00 Canal+ Docs",
+        "decision": "Non retenu : Télérama (« Bien ») note une narration qui flirte avec le sensationnalisme ; aucune autre critique trouvée ; deux documentaires américains plus solides retenus."
+      },
+      {
+        "review": "/reviews/27",
+        "title": "Charlie et la chocolaterie",
+        "rating": "Très bien",
+        "slot": "2026-10-28 21:25 TMC",
+        "decision": "retenu : mercredi-selection rang 7 (21:25 TMC)"
+      },
+      {
+        "review": "/reviews/28",
+        "title": "Ring",
+        "rating": "Très bien",
+        "slot": "2026-10-28 23:05 Arte",
+        "decision": "retenu : mercredi-selection rang 2 (23:05 Arte) ; rendezvous-2 rang 9 (23:05 Arte)"
+      },
+      {
+        "review": "/reviews/29",
+        "title": "Chauvet, voyage aux origines",
+        "rating": "Très bien",
+        "slot": "2026-10-29 21:10 France 5",
+        "decision": "retenu : jeudi-selection rang 4 (21:10 France 5)"
+      },
+      {
+        "review": "/reviews/30",
+        "title": "Mission : Impossible 2",
+        "rating": "Bien",
+        "slot": "2026-10-29 21:10 Novo 19",
+        "decision": "Non retenu : film d’action de John Woo (« Bien ») sur Novo 19 ; jeudi privilégie des œuvres plus singulières."
+      },
+      {
+        "review": "/reviews/31",
+        "title": "Un jour on fera l’amour",
+        "rating": "Très bien",
+        "slot": "2026-10-29 20:55 Arte",
+        "decision": "Non retenu en carte : mini-série ARTE (« Très bien ») ; la règle série exige un événement éditorial et jeudi est complet. Alternative conservée pour le replay."
+      },
+      {
+        "review": "/reviews/32",
+        "title": "SOS fantômes : L’Héritage",
+        "rating": "Bien",
+        "slot": "2026-10-29 23:10 TF1",
+        "decision": "Non retenu : suite familiale (« Bien ») ; jeudi privilégie Fantastic Mr. Fox (« Très bien ») à la même heure."
+      },
+      {
+        "review": "/reviews/33",
+        "title": "Fantastic Mr. Fox",
+        "rating": "Très bien",
+        "slot": "2026-10-29 21:00 France 4",
+        "decision": "retenu : jeudi-selection rang 1 (21:00 France 4) ; rendezvous-2 rang 6 (21:00 France 4)"
+      },
+      {
+        "review": "/reviews/34",
+        "title": "Tarantula",
+        "rating": "Bien",
+        "slot": "2026-10-29 20:50 TCM Cinema",
+        "decision": "retenu : jeudi-selection rang 5 (20:50 TCM Cinéma)"
+      },
+      {
+        "review": "/reviews/35",
+        "title": "The Rocky Horror Show",
+        "rating": "Bien",
+        "slot": "2026-10-30 22:35 Arte",
+        "decision": "Non retenu en carte : complément documentaire (« Bien ») du film The Rocky Horror Picture Show, retenu vendredi."
+      },
+      {
+        "review": "/reviews/36",
+        "title": "Harry Potter et la Coupe de feu",
+        "rating": "Bien",
+        "slot": "2026-10-30 21:25 TMC",
+        "decision": "Non retenu : blockbuster familial (« Bien ») très diffusé ; vendredi est complet."
+      },
+      {
+        "review": "/reviews/37",
+        "title": "The Rocky Horror Picture Show",
+        "rating": "Bien",
+        "slot": "2026-10-30 20:55 Arte",
+        "decision": "retenu : vendredi-selection rang 8 (20:55 Arte)"
+      },
+      {
+        "review": "/reviews/38",
+        "title": "Scream 7",
+        "rating": "Hélas",
+        "slot": "2026-10-30 21:10 Canal+",
+        "decision": "Non retenu : avis négatif (« Hélas ») attribué."
+      },
+      {
+        "review": "/reviews/39",
+        "title": "Punishment Park",
+        "rating": "Bien",
+        "slot": "2026-10-30 20:50 Ciné+ Classic",
+        "decision": "retenu : vendredi-selection rang 3 (20:50 Ciné+ Classic) ; rendezvous-2 rang 1 (20:50 Ciné+ Classic)"
+      }
+    ]
+  }
 }
