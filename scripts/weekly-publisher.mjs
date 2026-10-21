@@ -59,6 +59,20 @@ export function checksProgress(checks,statuses=[],now=Date.now()){
   const stale=c=>{const started=Date.parse(c.started_at??'');return !Number.isFinite(started)||now-started>CHECKS_RUNNING_LIMIT_MS;};
   return {state:unfinished.some(stale)?'stuck':'running',unfinished};
 }
+// Every changed path must reach the path review below. Read every page of the
+// PR's file list and prove it complete against the PR's own count; GitHub lists
+// at most 3000 files, so a larger PR is still refused. A weekly candidate now
+// carries its WebP posters, which took S44 past the former single page of 100.
+export function listPullFiles(api,pr){
+  const files=[];
+  for(let page=1;page<=30;page++){
+    const batch=api(`pulls/${pr.number}/files?per_page=100&page=${page}`);
+    files.push(...batch);
+    if(batch.length<100)break;
+  }
+  assert(Number.isInteger(pr.changed_files)&&files.length===pr.changed_files,'incomplete PR file listing; automatic review refused');
+  return files;
+}
 export function reviewedCandidate(week,progress,read,paths){
   assert.equal(progress.week,week);assert.equal(progress.stage,'ready');assert.equal(progress.editorial_review_completed,true);
   assert.deepEqual(progress.remaining,[],'unfinished editorial work');
@@ -128,7 +142,7 @@ async function advancePublication({api,repo,week,verify,log,now}){
       log(`Synchronized exact promotion PR #${pr.number} at ${synced.sha}; new checks must pass before any merge.`);
       return;
     }
-    const files=api(`pulls/${pr.number}/files?per_page=100`);assert(files.length<100,'too many files for safe automatic review');
+    const files=listPullFiles(api,pr);
     const paths=files.map(f=>f.filename),read=p=>readContent(api,head,p);
     let progress=null;
     if(!isPromotion){
