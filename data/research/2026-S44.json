@@ -1,24 +1,19 @@
 {
   "schema_version": 1,
   "week": "2026-S44",
-  "stage": "enrichment",
+  "stage": "ready",
   "status": "in_progress",
   "base_sha": "3f4cbf49d17b2f49a9bead0dfad027ad90184483",
-  "remaining": [
-    "Constituer et sauvegarder l’inventaire primaire des sept jours du 24 au 30 octobre 2026 depuis la grille imprimée du Télérama fourni (mode telerama-grid-authority, empreinte sha256:e4202f33986eefd4fe1e20baece6206c5d399ac416357379d9db411fdb99e203), avec au moins 30 lignes par jour, une ligne de nuit par jour, toutes les chaînes actives obligatoires, pages, comptes par chaîne, portée imprimée et limites consignées.",
-    "Effectuer et sauvegarder la revue de transcription par sondage de l’inventaire de grille (au moins 7 pages relues en entier, au moins 35 lignes dont 3 par jour, décisions matches/corrected/added, créneaux à deux titres relus) dans coverage.grid_inventory.transcription_review, puis la revue d’impact des conflits publiés.",
-    "Effectuer le rappel éditorial et la prospection documentaire dédiée Arte, France 5, France 2/3/4, france.tv, TV5MONDE et autres sources pertinentes, avec offres linéaires/replay/exclusivités/expirations, décisions et preuves critiques exactes sauvegardées dans le bilan de couverture.",
-    "Constituer puis tenir une présélection sourcée par jour et par rubrique, environ 1,5 à 2 fois les positions à pourvoir sans titre faible, en priorisant les appréciations Télérama positives importées et en conservant alternatives, rejets et reports.",
-    "Vérifier complètement chaque choix, réserve, ligne de grille et proposition de rubrique au niveau 3 : identité et version, diffusion (grille Télérama relue sur son périmètre, sinon preuve Web admissible), disponibilité ou expiration, réception critique, métadonnées, notes ou raison spécifique, liens directs exacts et visuel réel.",
-    "Produire trois choix développés par jour et au moins dix candidats complets distincts par jour, objectif quinze si la qualité le permet, avec synopsis et justification propres, pools de réserves publiables et toute pénurie structurée réellement sourcée.",
-    "Compléter les rubriques obligatoires et leurs seuils sans remplissage faible : rendez-vous, replay, plateformes gratuites et abonnement film-first, sorties physiques et streaming, expirations et sommaire, avec pagination lisible et réserves effectives lorsqu’elles sont requises.",
-    "Compléter les radars selon les seuils inchangés : popularité avec cinq choix, cinq cartes de sillonnage et au moins cinq réserves distinctes, puis radar 1080p avec dix choix visibles et une réserve distincte visant dix œuvres, sans compter les primaires comme réserves.",
-    "Appliquer la déduplication, la fraîcheur inter-numéros et l’équilibre cinéma/documentaire/rubriques ; conserver toute exception de fraîcheur ou pénurie sous forme structurée, précise et sourcée.",
-    "Construire et revoir tous les livrables autorisés de 2026-S44, ainsi que les enrichissements vérifiés de works, links et releases, en gardant manifest.latest à 2026-S43 et tous les statuts S44 en draft.",
-    "Exécuter les contrôles pertinents de données, liens, fraîcheur, réserves, images et présentation sur la tête exacte, inspecter les pages modifiées, résoudre les causes réelles sans baisser les critères et conserver les résultats liés au SHA et à sa base.",
-    "Après résolution réelle de remaining, effectuer la revue éditoriale complète des livrables, sceller les empreintes exactes, passer stage à ready, puis laisser la fusion candidate et la promotion protégées suivre leurs contrôles et leur publication vérifiée."
+  "remaining": [],
+  "completed_batches": [
+    "Import Télérama (PR #91) et 40 critiques relues",
+    "Inventaire de grille PDF et revue de transcription (7 pages, 53 lignes)",
+    "74 cartes quotidiennes et grilles commentées",
+    "Rendez-vous, replay, plateformes, sorties, avant disparition",
+    "Radars popularité et 1080p",
+    "Couverture, sommaire, passe documentaire, rappel éditorial",
+    "Contrôles locaux et revue navigateur"
   ],
-  "completed_batches": [],
   "blockers": [],
   "research_attempts": [],
   "verification_records": [
@@ -4664,9 +4659,9 @@
   "resume": {
     "candidate_branch": "auto/2026-S44",
     "main_sha": "3f4cbf49d17b2f49a9bead0dfad027ad90184483",
-    "first_incomplete_stage": "inventory",
+    "first_incomplete_stage": null,
     "next_actions": [
-      "Construire l’inventaire de grille depuis le PDF Télérama et sa revue de transcription, puis la présélection."
+      "Scellement, push sous bail court et suivi de la chaîne protégée jusqu’à latest.html."
     ]
   },
   "run_metrics": [
@@ -4674,8 +4669,8 @@
       "mode": "session",
       "prompt_revision": "production-session-2026-10-16",
       "started_at": "2026-10-21T13:29:02.213Z",
-      "ended_at": null,
-      "run_state": "running",
+      "ended_at": "2026-10-21T14:21:56.477Z",
+      "run_state": "stopped",
       "duration_basis": "Horloge réelle relevée par scripts/editorial-session.mjs à chaque transition ; les phases peuvent se chevaucher et ne s’additionnent pas.",
       "phases": {
         "import": {
@@ -4705,13 +4700,50 @@
         },
         "checks": {
           "started_at": "2026-10-21T14:15:53.248Z",
-          "ended_at": null
+          "ended_at": "2026-10-21T14:21:17.724Z",
+          "note": "9 validateurs locaux et validate-layout verts ; revue navigateur des 30 pages"
+        },
+        "publication_chain": {
+          "started_at": "2026-10-21T14:21:17.894Z",
+          "ended_at": null,
+          "basis": "La chaîne protégée continue sur GitHub après le dernier commit de la candidate ; sa fin se constate sur latest.html et figure dans le compte rendu de la session."
         }
       },
-      "deliverables_changed": [],
-      "stop_reason": null,
+      "deliverables_changed": [
+        "data/coverage/2026-S44.json",
+        "data/inventory/2026-S44.json",
+        "data/links.json",
+        "data/manifest.json",
+        "data/radar-reserves/2026-S44.json",
+        "data/releases.json",
+        "data/research/2026-S44.json",
+        "data/weeks/2026-S44.json",
+        "data/works.json",
+        "semaines/2026-S44/index.html",
+        "assets/posters/*.webp (110)"
+      ],
+      "stop_reason": "ready_handed_off",
       "next_useful_batch": null
     }
   ],
-  "updated_at": "2026-10-21T14:07:36Z"
+  "updated_at": "2026-10-21T14:07:36Z",
+  "editorial_review": {
+    "reviewer": "Claude Code (session continue)",
+    "scope": "Relecture des 30 pages rendues, des fiches catalogue, des liens exacts, des affiches et des preuves compactes ; validateurs locaux et validate-layout verts sur la tête locale.",
+    "completed": true,
+    "reviewed_at": "2026-10-21T14:21:50.768Z"
+  },
+  "editorial_review_completed": true,
+  "reviewed_at": "2026-10-21T14:21:50.768Z",
+  "reviewed_files": {
+    "data/works.json": "73a0953181075303a69f0a5021261b7293ed8603eaa2beb200320bb85f2240f2",
+    "data/links.json": "4832ae2c9d68ae54b3c67ab14ef3acb0b034863bbac7b840c477d02dc3830833",
+    "data/releases.json": "ee04308ad610ab33e334ec2ac3c6b62bf141b954b252cf395743dad1af35d263",
+    "data/manifest.json": "a6fab18c5075bddc93ff96aaf509161f74654926cd20648c2eacf97b057beebf",
+    "data/inventory/2026-S44.json": "8b2c67d04b1130254b87019ad159c99c72384ae8329f684c3b8b5bbc31a743c0",
+    "data/coverage/2026-S44.json": "ea38994b4f09ddcfae4af2f9cd022ed270c61c5d2db7414d04f237a4b1aa6a2d",
+    "data/weeks/2026-S44.json": "751e7b9c9eefb03cd9e3740167d875dffade06a8c112aec08d48f0c86957105c",
+    "data/radar-reserves/2026-S44.json": "a80ba1b15fbb35bd4b6b3d9cdf6843aeee8d50a7b372d8e18cfdd342246f5da2",
+    "semaines/2026-S44/index.html": "9c713082c3907b58f87593101c5ce71b6e299e9e51832af0997cb397bd96ba9c"
+  }
 }
