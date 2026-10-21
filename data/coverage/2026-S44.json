@@ -397,7 +397,7 @@
     }
   ],
   "independent_crosscheck_complete": false,
-  "full_week_reaudit_completed": false,
+  "full_week_reaudit_completed": true,
   "grid_inventory": {
     "source_ref": "sha256:e4202f33986eefd4fe1e20baece6206c5d399ac416357379d9db411fdb99e203",
     "source_path": "data/editorial-inputs/2026-S44/telerama.json",
@@ -2062,5 +2062,7 @@
         "decision": "retenu : vendredi-selection rang 3 (20:50 Ciné+ Classic) ; rendezvous-2 rang 1 (20:50 Ciné+ Classic)"
       }
     ]
-  }
+  },
+  "full_week_reaudit_basis": "Attesté le 21/10/2026 après la revue réelle : inventaire tiré de la grille imprimée du Télérama n° 4006 (mode telerama-grid-authority, 28 pages, 3 481 lignes, 51 chaînes), revue de transcription par sondage de 7 pages entières et 53 lignes (14 titres corrigés sur les pages relues, 30 corrections de même nature appliquées ailleurs, 4 lignes ajoutées), relecture des deux créneaux à deux titres, revue d’impact sans effet sur les propositions, passe documentaire dédiée et rappel éditorial des 40 critiques. Les heures non imprimées restent des limites consignées dans grid_inventory.limits ; aucune chaîne n’est déclarée complète.",
+  "independent_crosscheck_note": "Indépendance non établie : la grille du PDF fourni fait autorité sur son périmètre par décision de l’utilisateur ; aucun second guide n’a été comparé ligne à ligne."
 }
