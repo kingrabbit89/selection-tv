@@ -1,14 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
-import {runPublisher,verifyAttestation,AttestationPending,checksProgress,CHECKS_RUNNING_LIMIT_MS} from './weekly-publisher.mjs';
+import {runPublisher,verifyAttestation,AttestationPending,checksProgress,CHECKS_RUNNING_LIMIT_MS,listPullFiles} from './weekly-publisher.mjs';
 import {PENDING_EXIT} from './verify-promotion-attestation.mjs';
 import {allowedPaths,digest} from './editorial-handoff.mjs';
 
 const week='2026-S43',repo='owner/repo',main='a'.repeat(40),head='b'.repeat(40);
 const encode=value=>({encoding:'base64',content:Buffer.from(JSON.stringify(value)).toString('base64')});
 const notFound=()=>Object.assign(Error('Not Found'),{stderr:'gh: Not Found (HTTP 404)'});
-const promotionPR={number:7,draft:false,base:{ref:'main'},head:{sha:head,ref:'promote/'+week,repo:{full_name:repo}}};
+const promotionPR={number:7,changed_files:2,draft:false,base:{ref:'main'},head:{sha:head,ref:'promote/'+week,repo:{full_name:repo}}};
 
 // S42 on 9 Oct: d3eddf73 was pushed at 23:40:41, its two jobs started at
 // 23:40:50 and finished at 23:41:15 and 23:41:58. The publisher run of 23:41:08
@@ -40,7 +40,7 @@ function fixture({promotion=false,checks=green(),statuses=[],now=publisherNow}={
     if(path==='pulls?state=open&base=main&per_page=100')return promotion?[promotionPR]:[];
     if(path==='pulls/7')return promotionPR;
     if(path===`compare/${main}...${head}`)return {status:'ahead'};
-    if(path==='pulls/7/files?per_page=100')return [{filename:'data/manifest.json'},{filename:`data/weeks/${week}.json`}];
+    if(path==='pulls/7/files?per_page=100&page=1')return [{filename:'data/manifest.json'},{filename:`data/weeks/${week}.json`}];
     if(path==='git/commits/'+main)return {tree:{sha:'d'.repeat(40)}};
     if(path==='git/trees'&&method==='POST')return {sha:'e'.repeat(40)};
     if(path==='git/commits'&&method==='POST')return {sha:'f'.repeat(40)};
@@ -99,7 +99,7 @@ const sealed=(extra={})=>({schema_version:1,week,stage:'ready',editorial_review_
   reviewed_files:Object.fromEntries(deliverables.map(p=>[p,digest(contentAt(p))])),...extra});
 function candidateFixture({progress=enrichment(),relation='ahead',draft=false,extraPaths=[],checks=green(),statuses=[],now=publisherNow}={}){
   const manifest={latest:'2026-S42',updated:'2026-10-16',weeks:[{week:'2026-S42',status:'published'}]};
-  const pr={number:9,draft,base:{ref:'main'},head:{sha:head,ref:'auto/'+week,repo:{full_name:repo}}};
+  const pr={number:9,changed_files:[...allowedPaths(week),...extraPaths].length,draft,base:{ref:'main'},head:{sha:head,ref:'auto/'+week,repo:{full_name:repo}}};
   const text=value=>({encoding:'base64',content:Buffer.from(value).toString('base64')});
   const mutations=[],logs=[],verified=[],checkReads=checkEndpoints(checks,statuses);
   const api=(path,method='GET',body)=>{
@@ -110,7 +110,7 @@ function candidateFixture({progress=enrichment(),relation='ahead',draft=false,ex
     if(path==='pulls?state=open&base=main&per_page=100')return [pr];
     if(path==='pulls/9')return pr;
     if(path===`compare/${main}...${head}`)return {status:relation};
-    if(path==='pulls/9/files?per_page=100')return [...allowedPaths(week),...extraPaths].map(filename=>({filename}));
+    if(path==='pulls/9/files?per_page=100&page=1')return [...allowedPaths(week),...extraPaths].map(filename=>({filename}));
     if(path===`contents/${research}?ref=${head}`){if(progress===null)throw notFound();return text(JSON.stringify(progress));}
     const atHead=/^contents\/(.+)\?ref=([a-f0-9]{40})$/.exec(path);
     if(atHead?.[2]===head)return text(contentAt(atHead[1]));
@@ -281,4 +281,16 @@ test('a real child process exit status reaches the publisher unchanged',()=>{
   assert.throws(()=>verifyAttestation(week,main,child(PENDING_EXIT)),error=>error instanceof AttestationPending&&/child says 75/.test(error.message));
   assert.throws(()=>verifyAttestation(week,main,child(1)),error=>!(error instanceof AttestationPending)&&error.status===1);
   assert.equal(verifyAttestation(week,main,child(0)),true);
+});
+
+test('a candidate with more than 100 files is listed page by page and proved complete (S44, 21 Oct: 120 files with posters)',()=>{
+  const names=Array.from({length:120},(_,i)=>({filename:`assets/posters/oeuvre-${i}.webp`}));
+  const calls=[];
+  const api=path=>{calls.push(path);const page=Number(/&page=(\d+)$/.exec(path)[1]);return names.slice((page-1)*100,page*100);};
+  assert.equal(listPullFiles(api,{number:92,changed_files:120}).length,120);
+  assert.deepEqual(calls,['pulls/92/files?per_page=100&page=1','pulls/92/files?per_page=100&page=2']);
+  assert.throws(()=>listPullFiles(api,{number:92,changed_files:121}),/incomplete PR file listing/);
+  assert.throws(()=>listPullFiles(api,{number:92}),/incomplete PR file listing/);
+  const full=()=>names.slice(0,100);
+  assert.throws(()=>listPullFiles(full,{number:93,changed_files:3500}),/incomplete PR file listing/,'beyond the GitHub listing limit the review is still refused');
 });
