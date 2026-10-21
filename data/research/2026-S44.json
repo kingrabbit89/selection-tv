@@ -33,6 +33,38 @@
       "Construire l’inventaire de grille depuis le PDF Télérama et sa revue de transcription, puis la présélection."
     ]
   },
-  "run_metrics": [],
+  "run_metrics": [
+    {
+      "mode": "session",
+      "prompt_revision": "production-session-2026-10-16",
+      "started_at": "2026-10-21T13:29:02.213Z",
+      "ended_at": null,
+      "run_state": "running",
+      "duration_basis": "Horloge réelle relevée par scripts/editorial-session.mjs à chaque transition ; les phases peuvent se chevaucher et ne s’additionnent pas.",
+      "phases": {
+        "import": {
+          "started_at": "2026-10-21T13:29:02.360Z",
+          "ended_at": "2026-10-21T13:37:29.506Z",
+          "note": "PR de sources #91 fusionnée (3f4cbf4) ; 40 critiques relues, 2 ajoutées"
+        },
+        "grid_inventory": {
+          "started_at": "2026-10-21T13:37:29.657Z",
+          "ended_at": "2026-10-21T13:51:49.723Z",
+          "note": "Revue de transcription : 7 pages entières, 53 lignes, 14+30 titres corrigés, 4 ajouts"
+        },
+        "shortlist": {
+          "started_at": "2026-10-21T13:43:05.896Z",
+          "ended_at": null
+        },
+        "cards": {
+          "started_at": "2026-10-21T13:51:49.906Z",
+          "ended_at": null
+        }
+      },
+      "deliverables_changed": [],
+      "stop_reason": null,
+      "next_useful_batch": null
+    }
+  ],
   "updated_at": "2026-10-21T13:37:51Z"
 }
