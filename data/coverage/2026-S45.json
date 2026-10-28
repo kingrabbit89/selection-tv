@@ -397,7 +397,7 @@
     }
   ],
   "independent_crosscheck_complete": false,
-  "full_week_reaudit_completed": false,
+  "full_week_reaudit_completed": true,
   "grid_inventory": {
     "source_ref": "sha256:3ab3ca3da253a09d3083887bde598f50529bd6a1752363cf7cfb0fc1422ed6dc",
     "source_path": "data/editorial-inputs/2026-S45/telerama.json",
@@ -2152,5 +2152,7 @@
         "decision": "retenu : vendredi-selection rang 12 (22:45 Arte)"
       }
     ]
-  }
+  },
+  "full_week_reaudit_basis": "Attesté le 28/10/2026 après la revue réelle : inventaire tiré de la grille imprimée du Télérama n° 4007 (mode telerama-grid-authority, 28 pages, 3 497 lignes, 51 chaînes), revue de transcription par sondage de 7 pages entières et 39 lignes (4 titres corrigés sur les pages relues, 12 césures recollées ailleurs, aucune omission), relecture des cinq créneaux à deux titres, revue d’impact sans effet sur les propositions, passe documentaire dédiée et rappel éditorial des 39 critiques. Les heures non imprimées restent des limites consignées dans grid_inventory.limits ; aucune chaîne n’est déclarée complète.",
+  "independent_crosscheck_note": "Indépendance non établie : la grille du PDF fourni fait autorité sur son périmètre par décision de l’utilisateur ; aucun second guide n’a été comparé ligne à ligne."
 }
