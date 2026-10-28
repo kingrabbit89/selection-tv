@@ -1,0 +1,77 @@
+{
+  "agent": "F1",
+  "generated_at": "2026-12-23T10:15:00+01:00",
+  "works": [
+    {
+      "query": "Film A",
+      "slots": [
+        "2026-12-26 21:00 Arte"
+      ],
+      "identity": {
+        "title_fr": "Film A",
+        "original_title": "Film A (version originale)",
+        "year": 1950,
+        "director": "Réalisation Film A",
+        "country": "France, Italie",
+        "duration_min": 91
+      },
+      "identity_confidence": "exact",
+      "version_note": "Version de 1950, pas le remake.",
+      "links": {
+        "sc": "https://www.senscritique.com/film/film_101/101",
+        "imdb": "https://www.imdb.com/title/tt0000101/"
+      },
+      "synopsis_source_url": "https://fr.wikipedia.org/wiki/Film_A",
+      "critical_signals": [
+        {
+          "kind": "award",
+          "note": "Prix du jury 1951.",
+          "source_url": "https://fr.wikipedia.org/wiki/Film_A"
+        }
+      ]
+    },
+    {
+      "query": "Le Titre imprimé",
+      "identity": {
+        "title_fr": "Le Titre imprimé",
+        "original_title": "The Original Title",
+        "year": 2020
+      },
+      "identity_confidence": "exact",
+      "links": {
+        "sc": "https://www.senscritique.com/film/film_102/102"
+      },
+      "critical_signals": [
+        {
+          "kind": "critique",
+          "note": "Critique argumentée.",
+          "source_url": "https://www.example.org/critique"
+        }
+      ]
+    },
+    {
+      "query": "Nouveau film",
+      "identity": {
+        "title_fr": "Nouveau film",
+        "original_title": "New Film (2025)",
+        "year": 2025,
+        "country": "Belgique",
+        "duration_min": 100
+      },
+      "links": {
+        "sc": "https://www.senscritique.com/film/film_104/104",
+        "imdb": "https://www.imdb.com/title/tt0000104/"
+      }
+    },
+    {
+      "query": "Copie conforme",
+      "identity": {
+        "title_fr": "Copie conforme",
+        "year": 2010
+      },
+      "links": {
+        "sc": "https://www.senscritique.com/film/film_105/105"
+      }
+    }
+  ]
+}

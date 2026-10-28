@@ -1,0 +1,78 @@
+{
+  "reviewed_at": "2026-12-23T11:00:00+01:00",
+  "method": "Pages rendues et relues en entier, comparées ligne à ligne.",
+  "pages": [
+    {
+      "pdf_page": 12,
+      "misreads": [
+        {
+          "extracted": "2026-12-27 | 20:00 | France 3 | Stade 2 la",
+          "correct": {
+            "title": "Stade 2 la quotidienne"
+          },
+          "note": "Titre coupé."
+        }
+      ],
+      "omissions": []
+    }
+  ],
+  "sampled_rows": [
+    {
+      "date": "2026-12-27",
+      "pdf_page": 12,
+      "title": "Stade 2 la quotidienne",
+      "start": "20:00",
+      "channel": "France 3",
+      "decision": "corrected",
+      "note": "Titre coupé au retour à la ligne."
+    },
+    {
+      "date": "2026-12-27",
+      "pdf_page": 12,
+      "title": "Le Titre imprimé",
+      "start": "20:50",
+      "channel": "Ciné+ OCS",
+      "decision": "matches"
+    },
+    {
+      "date": "2026-12-29",
+      "pdf_page": 13,
+      "title": "Programme oublié",
+      "start": "21:00",
+      "channel": "France 5",
+      "decision": "added",
+      "note": "Ligne imprimée absente de l’extraction.",
+      "bbox": [
+        20,
+        60,
+        90,
+        68
+      ]
+    }
+  ],
+  "slot_conflicts": [
+    {
+      "date": "2026-12-28",
+      "channel": "Arte",
+      "start": "22:00",
+      "titles": [
+        "X",
+        "Y"
+      ],
+      "printed": "Deux lignes imprimées à 22.00.",
+      "resolution": "keep both"
+    }
+  ],
+  "discrepancies": [
+    "p. 12 — France 3 20:00 : « Stade 2 la » tronqué."
+  ],
+  "replacements": [
+    {
+      "find": "\\bAfaire",
+      "replace": "Affaire"
+    }
+  ],
+  "replacements_label": "ligature « ff » perdue",
+  "fix_broken_hyphenation": true,
+  "impact_review": "Revue d’impact : aucune proposition retenue n’est touchée."
+}

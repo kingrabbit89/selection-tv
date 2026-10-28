@@ -205,6 +205,12 @@ python3 scripts/prepare-telerama-input.py /chemin/magazine.pdf \
    Une critique non lue garde son résumé null et son état non revu. Corriger
    explicitement un titre dans `reviewed_title` après lecture de la page,
    sans perdre le titre brut. Ne publier aucun texte d'article ni le PDF.
+   En session, écrire ces notes dans `review-notes.json` du dossier de travail
+   et les reporter avec `node scripts/editorial-kit.mjs review-notes YYYY-Sxx
+   --work W` (`docs/EDITORIAL-KIT.md`). Un en-tête de critique s'arrête au
+   premier blanc de plus de 8 pt : une légende ou la colonne voisine sur la
+   même ligne n'y est pas collée. Une critique « Pour / Contre » à deux
+   appréciations n'a pas de glyphe natif unique : la consigner en avertissement.
 4. Valider les rapports avec `validateTeleramaReport` et
    `validateTeleramaEditorial`, puis tester le rapprochement sur le SHA réel
    de la candidate avec `--telerama-report` et `--telerama-editorial`.
