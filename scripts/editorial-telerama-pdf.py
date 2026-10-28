@@ -57,13 +57,19 @@ def issue_range(week):
 
 def cover_range(text):
     text = normalize_text(text)
-    match = re.search(r"\bDu\s+(\d{1,2})\s+au\s+(\d{1,2})\s*/\s*(\d{1,2})\s*/\s*(\d{4})\b", text, re.I)
+    # The first date may carry its own month (and year) across a month change: "Du 31 / 10 au 6 / 11 / 2026".
+    match = re.search(r"\bDu\s+(\d{1,2})(?:\s*/\s*(\d{1,2})(?:\s*/\s*(\d{4}))?)?\s+au\s+"
+                      r"(\d{1,2})\s*/\s*(\d{1,2})\s*/\s*(\d{4})\b", text, re.I)
     if not match:
         raise ValueError("the cover has no supported, readable seven-day date range")
-    first, last, month, year = map(int, match.groups())
+    first, first_month, first_year, last, month, year = (int(value) if value else None for value in match.groups())
     end = dt.date(year, month, last)
-    start_month = month - 1 if first > last else month
-    start_year = year - 1 if start_month == 0 else year
+    if first_month:
+        start_month = first_month
+        start_year = first_year or (year - 1 if first_month > month else year)
+    else:
+        start_month = month - 1 if first > last else month
+        start_year = year - 1 if start_month == 0 else year
     start = dt.date(start_year, start_month or 12, first)
     if (end - start).days != 6 or start.weekday() != 5:
         raise ValueError("the cover is not a Saturday-to-Friday issue")
