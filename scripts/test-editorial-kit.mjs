@@ -89,7 +89,8 @@ test('picks map to canonical works by exact link; a bare title clash is never re
   const extra = picksWorkPlan({picks: normalizePicks([{date: '2026-12-29', time: '21:00', channel: 'Arte', printed: 'Nouveau film'},
     {date: '2026-12-29', time: '23:00', channel: 'Arte', printed: 'Copie conforme'}, {date: '2026-12-30', time: '21:00', channel: 'Arte', printed: 'Sans dossier'},
     {date: '2026-12-30', time: '23:00', channel: 'Arte', printed: 'Nouveau film'}], dates), dossiers, catalogue});
-  assert.deepEqual(extra.map(row => [row.work_id, row.status]), [['nouveau-film-2025', 'new'], [null, 'clash'], [null, 'needs_dossier'], ['nouveau-film-2025', 'duplicate']]);
+  assert.deepEqual(extra.map(row => [row.work_id, row.status]), [['nouveau-film-2025', 'new'], [null, 'clash'], [null, 'needs_dossier'], ['nouveau-film-2025', 'repeat']]);
+  assert.deepEqual([extra[3].date, extra[3].time, extra[3].primary], ['2026-12-30', '23:00', false]);
   assert.deepEqual(extra[1].clash, ['copie-conforme-1947']);
   const applied = applyWorkPlan(catalogue, extra);
   assert.deepEqual(applied.added, ['nouveau-film-2025']);
@@ -138,6 +139,8 @@ test('daily ranks put primaries first, or follow explicit ranks', () => {
   const rows = [{date: '2026-12-26', title: 'b'}, {date: '2026-12-26', title: 'a', primary: true}, {date: '2026-12-27', title: 'c'}];
   assert.deepEqual(orderDailyRows(rows).map(row => [row.title, row.rank]), [['a', 1], ['b', 2], ['c', 1]]);
   assert.deepEqual(orderDailyRows([{date: '2026-12-26', title: 'x', rank: 2}, {date: '2026-12-26', title: 'y', rank: 1}]).map(row => row.title), ['y', 'x']);
+  const repeat = orderDailyRows([{date: '2026-12-26', title: 'a', primary: true}, {date: '2026-12-28', title: 'a', status: 'repeat'}]);
+  assert.deepEqual(repeat.map(row => [row.date, row.rank]), [['2026-12-26', 1], ['2026-12-28', 1]], 'a rebroadcast keeps its own card');
 });
 
 test('the day plan states matched provenance, renders the poster from its remote URL and passes the draft checks', () => {

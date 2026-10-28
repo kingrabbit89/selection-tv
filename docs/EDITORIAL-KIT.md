@@ -91,7 +91,8 @@ du fichier (ou selon `rank` explicite). `catalogue` rattache chaque choix à
 son dossier (par `query` ou titre) puis au catalogue par lien IMDb ou
 SensCritique exact, sinon par titre et année : `existing`, `new` (ID
 `titre-année`), `clash` (homonyme à départager), `needs_dossier`,
-`needs_year` ou `duplicate`. `work_id` explicite tranche une identité.
+`needs_year` ou `repeat` (autre diffusion d'une œuvre déjà rattachée, qui garde
+sa propre carte ce jour-là). `work_id` explicite tranche une identité.
 
 ## Dossiers de recherche
 

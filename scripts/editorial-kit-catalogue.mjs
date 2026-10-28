@@ -83,7 +83,11 @@ export function picksWorkPlan({picks, dossiers, catalogue}) {
   const seen = new Map();
   return picks.map(pick => {
     const key = norm(pick.title);
-    if (seen.has(key)) return {...seen.get(key), ...slotOf(pick), status: 'duplicate'};
+    // Another broadcast of a work already mapped: same identity, its own slot.
+    if (seen.has(key)) {
+      const {rank: _rank, display_channel: _display, ...identity} = seen.get(key);
+      return {...identity, ...slotOf(pick), status: 'repeat'};
+    }
     const dossier = dossierFor(dossiers, pick.title, pick.printed);
     const row = {...slotOf(pick), title: pick.title, dossier: dossier ? `${dossier._file}#${dossier._key}` : null};
     if (pick.work_id) {

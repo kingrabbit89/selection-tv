@@ -26,7 +26,7 @@ const dossierDate = (dossier, checked) => /^\d{4}-\d{2}-\d{2}/.test(dossier?._at
 // Ranks restart at 1 every day; an explicit rank keeps its place.
 export function orderDailyRows(rows) {
   const byDay = new Map();
-  for (const row of rows.filter(row => row.status !== 'duplicate')) {
+  for (const row of rows) {
     if (!byDay.has(row.date)) byDay.set(row.date, []);
     byDay.get(row.date).push(row);
   }
