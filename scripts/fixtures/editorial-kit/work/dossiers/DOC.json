@@ -1,0 +1,50 @@
+{
+  "agent": "DOC",
+  "generated_at": "2026-12-23T10:15:00+01:00",
+  "works": [
+    {
+      "query": "Documentaire B",
+      "slots": [
+        "2027-01-01 00:30 LCP"
+      ],
+      "identity": {
+        "title_fr": "Documentaire B : le titre officiel",
+        "year": 2026
+      },
+      "links": {
+        "official": "https://www.france.tv/documentaires/documentaire-b.html"
+      },
+      "critical_signals": [
+        {
+          "kind": "festival",
+          "note": "Sélection officielle 2026.",
+          "source_url": "https://www.example.org/festival"
+        }
+      ]
+    },
+    {
+      "query": "Doc non retenu",
+      "slots": [
+        "2026-12-29 21:00 France 5"
+      ],
+      "identity": {
+        "year": 2026
+      }
+    },
+    {
+      "query": "Proposition",
+      "role": "proposition",
+      "availability": {
+        "service": "france.tv",
+        "url": "https://www.france.tv/proposition.html"
+      },
+      "critical_signals": []
+    }
+  ],
+  "sources_consulted": [
+    "https://www.france.tv/"
+  ],
+  "other_leads": [
+    "Piste notée."
+  ]
+}

@@ -174,6 +174,40 @@ En session, chaque preuve nouvelle est un enregistrement de `verification_record
 
 Un enregistrement porte un fait et une source : deux guides concordants font deux enregistrements. `editorial-production-plan.mjs` et `editorial-work-packet.mjs` les lisent comme les enregistrements historiques, qui restent valides. Les dossiers en prose (`research_dossiers`) ne sont plus nécessaires : les faits vont dans ces enregistrements, la décision dans `shortlist.entries` (statut, `decision_note`), l'argument critique dans la carte et, pour un documentaire, dans le bilan de couverture exigé plus bas. Sur le parcours Web, `coverage.web_schedule_reviews` prend la même forme : une ligne par date et chaîne avec `url`, `checked_at`, `segment` (journée, nuit), `compared_with`, `omissions` (liste) et `result`, plus une `limit` courte si nécessaire. `preparation-gaps` et `editorial-session.mjs check` signalent un enregistrement compact mal formé ; ce signalement est informatif et ne change aucune barrière de publication.
 
+#### Kit de production : l'enchaînement par commandes du dépôt
+
+Les étapes d'aide d'une session continue, menées à la main pendant S44 et S45, sont des commandes du dépôt : `scripts/editorial-kit.mjs` (Node) et `scripts/editorial-telerama-kit.py` (lecture du PDF). Elles ne connaissent aucune semaine : dates, empreinte du PDF, numéro Télérama et SHA des sources viennent de l'identifiant de semaine, des fichiers enregistrés sur la branche et de `production.json`. Les textes (synopsis, justifications, en-têtes, motifs de rejet, notes de critique) restent des fichiers JSON d'entrée écrits par le producteur dans un **dossier de travail** hors du dépôt (`W`, dans le scratchpad), dont la structure et les formats sont décrits dans `docs/EDITORIAL-KIT.md`.
+
+Chaque commande lit les sources de la semaine et `W`, affiche un rapport JSON et n'écrit dans le dépôt qu'avec `--write`. Les plans de cartes sont construits depuis un commit (`--ref`, `HEAD` par défaut) : la commande refuse de travailler si `data/works.json` diffère de ce commit, car `editorial-draft-cards.mjs` ne verrait pas l'édition. Un rapport qui signale des problèmes sort avec un code non nul.
+
+| Étape (phase `run_metrics`) | Commande | Produit |
+|---|---|---|
+| Import (`import`) | `python scripts/prepare-telerama-input.py PDF --out-dir W/import` puis `python scripts/editorial-telerama-kit.py grid-samples --pdf PDF --report W/import/telerama.json --out-dir W/grid-review` | extraction, planches de trois lignes par page pour `import_review` |
+| | `node scripts/editorial-kit.mjs review-notes YYYY-Sxx --work W` | `W/import/telerama-editorial.json` complété par `W/review-notes.json` (auteur, résumé relu, titre corrigé), brut gardé en `.raw.json` ; puis PR de sources |
+| Checkpoint | `node scripts/editorial-kit.mjs init YYYY-Sxx --write` | `data/research/YYYY-Sxx.json` (étape `inventory`, `remaining` de la semaine) ; refusé s'il existe déjà |
+| Grille (`grid_inventory`) | `editorial-telerama-grid-inventory.mjs` (inchangé), puis `node scripts/editorial-kit.mjs grid-review YYYY-Sxx --work W --write` | corrections et ajouts de `W/grid-review.json` appliqués à l'inventaire, `transcription_review` ; refusé tant que les seuils de revue ne sont pas atteints |
+| Présélection (`shortlist`) | `python scripts/editorial-telerama-kit.py grid-ratings --pdf PDF --report …/telerama.json --out W/grid-ratings.json`, `node scripts/editorial-kit.mjs candidates YYYY-Sxx --work W` | `W/out/candidates.txt` : titres classés par appréciation native, publication récente (fraîcheur) et fiche existante |
+| | `python scripts/editorial-telerama-kit.py printed --pdf PDF --report …/telerama.json --picks W/picks.json --out W/printed.json` | lignes imprimées des choix, données aux sous-agents de recherche (dossiers dans `W/dossiers/`) |
+| Cartes (`cards`) | `node scripts/editorial-kit.mjs catalogue YYYY-Sxx --work W --write` (choix) ou `--dossier RAD.json --keys hd,hd_reserve` (rubriques) | `W/out/works-plan.json`, œuvres nouvelles et liens exacts manquants dans `data/works.json`, commandes des résolveurs |
+| | `work-resolver.mjs --report R` puis `--apply`, `node scripts/editorial-kit.mjs fill-fields YYYY-Sxx --work W --report R --write`, `poster-resolver.mjs`, commit | champs laissés en conflit remplis depuis la page exacte ; champs encore manquants listés |
+| | `node scripts/editorial-kit.mjs day-plan YYYY-Sxx --work W [--days samedi,…] [--replace]` | `W/out/plan-days.json` |
+| | `node scripts/editorial-kit.mjs render YYYY-Sxx --work W --plan out/plan-days.json`, `editorial-handoff.mjs check` puis `apply`, `poster-copy.mjs --week YYYY-Sxx`, commit | paquet au nom nouveau à chaque rendu |
+| Rubriques (`sections`) | `node scripts/editorial-kit.mjs section-plan YYYY-Sxx --work W --spec sections/radar-hd.json [--replace]`, puis `render`, `apply`, `poster-copy`, commit | rendez-vous, replay, plateformes, sorties, expirations, radars, couverture et sommaire |
+| Preuves (`checks`) | `node scripts/editorial-kit.mjs shortlist YYYY-Sxx --work W --write` puis `coverage-pass YYYY-Sxx --work W --write` | `shortlist.entries` et `verification_records` compacts ; `documentary_pass` et `editorial_reminder` du bilan de couverture |
+
+Les pièges des sessions S44 et S45 sont intégrés aux commandes :
+
+- une critique Télérama se rattache à une carte par date, heure et titre, sinon par date, heure et chaîne quand le titre officiel diffère du titre imprimé, sinon par date, chaîne et titre quand l'en-tête de la critique et la grille impriment deux heures différentes ; une œuvre sans créneau n'emprunte jamais une critique sur son seul titre ;
+- un créneau se rapproche de l'inventaire par heure, chaîne et titre imprimé ou officiel ; quand le titre de la fiche est en version originale, la ligne unique de l'inventaire à cette heure et sur cette chaîne fait foi. Un créneau absent de l'inventaire exige une preuve écrite (`review.current_broadcast`) ;
+- une fiche dont l'affiche est déjà copiée dans `assets/posters` est rendue avec `work.image` distante (`image_remote`) ; `poster-copy.mjs --week` doit être relancé après chaque `apply`, avant le scellement ;
+- une page rendez-vous ou sorties physiques porte sa cible plus la réserve minimale de `data/personalization-config.json` (soit dix cartes par page rendez-vous) ; la commande refuse un plan plus court ;
+- une œuvre n'est reprise du catalogue que par un lien exact ou par titre et année ; un homonyme sur le seul titre est signalé (`clash`), jamais réutilisé. Deux dossiers de la même rubrique pour une même œuvre doivent être départagés en nommant le fichier ;
+- `render` écrit un nouveau paquet à chaque appel : un ancien paquet ne peut plus être appliqué par erreur après un rendu refusé ;
+- le parseur des critiques (`editorial-telerama-editorial.py`) coupe l'en-tête et le titre d'une critique au premier blanc large et reconnaît aussi les genres « Divertissement » et « Doc » : les critiques perdues ou faussées en S45 (trois) et en S44 (deux) sont extraites sans ajout manuel ; `review-notes.json` remplace le script de relecture recopié de session en session ;
+- les cartes de radar dont le texte visible dépasse `radar_card_max_chars` (500 par défaut) et une profondeur HD ou popularité inférieure aux minimums de configuration sont signalées avant le rendu.
+
+Le kit ne choisit, ne classe ni ne rédige rien : il ne coche aucun flag, ne vide jamais `remaining`, ne scelle ni ne publie. Les validateurs, la revue scellée, `push-candidate.mjs` et la chaîne de publication protégée restent identiques. Tests : `node --test scripts/test-editorial-kit.mjs`, `python3 scripts/test-editorial-telerama-kit.py`.
+
 ### Enchaîner les lots pendant un passage
 
 Cette section s'applique au mode passages ; une session continue suit « Deux modes de conduite » ci-dessus.

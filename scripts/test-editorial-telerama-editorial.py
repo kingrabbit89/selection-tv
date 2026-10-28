@@ -83,6 +83,16 @@ class EditorialTests(unittest.TestCase):
         for data in [review(time='25.00'),review(time='21.99'),review(mark='z')]:
             self.assertEqual(module.header_candidates(data),[])
 
+    def test_entertainment_and_short_documentary_headers_are_daily_reviews(self):
+        # S44: « 21.00 Téva Divertissement » and « 20.50 Ciné+ Festival Doc » were missed.
+        for kind in ['Divertissement','Doc']:
+            data=chars('u',24,100,icon=True)+chars('21.00 Téva '+kind,34,100)+chars('A show',24,114,size=11,bold=True)
+            rows,_=module.page_reviews(data,dt.date(2026,10,24),99,592)
+            self.assertEqual([(r['channel_printed'],r['programme_kind']) for r in rows],[('Téva',kind)])
+        data=chars('u',24,100,icon=True)+chars('21.00 Canal+ Docs Documentaire',34,100)+chars('A film',24,114,size=11,bold=True)
+        rows,_=module.page_reviews(data,dt.date(2026,10,24),99,592)
+        self.assertEqual((rows[0]['channel_printed'],rows[0]['programme_kind']),('Canal+ Docs','Documentaire'))
+
 
 if __name__=='__main__':
     unittest.main()

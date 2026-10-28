@@ -1,0 +1,82 @@
+{
+  "works": [
+    {
+      "id": "film-a-1950",
+      "title": "Film A",
+      "director": "Réalisation Film A",
+      "country": "France",
+      "genre": "Drame",
+      "duration": "90 min",
+      "image": "assets/posters/film-a-1950.webp",
+      "image_source_url": "https://www.senscritique.com/film/film_101/101",
+      "image_checked": "2026-12-20",
+      "ratings": {
+        "senscritique": "7,0/10"
+      },
+      "ratings_checked": "2026-12-20",
+      "aliases": [
+        "Film A (version originale)"
+      ],
+      "year": 1950,
+      "image_remote": "https://media.example.org/film-a.jpg",
+      "image_fallbacks": [
+        "https://media.example.org/film-a.jpg"
+      ],
+      "links": {
+        "sc": "https://www.senscritique.com/film/film_101/101",
+        "imdb": "https://www.imdb.com/title/tt0000101/"
+      },
+      "metadata_prefill": {
+        "checked": "2026-12-20",
+        "tool": "work-resolver",
+        "fields": {
+          "year": "https://www.senscritique.com/film/film_101/101",
+          "country": "https://www.wikidata.org/wiki/Q101"
+        }
+      }
+    },
+    {
+      "id": "the-original-title-2020",
+      "title": "The Original Title",
+      "director": "Réalisation The Original Title",
+      "country": "France",
+      "genre": "Drame",
+      "duration": "90 min",
+      "image": "https://media.example.org/the-original-title-2020.jpg",
+      "image_source_url": "https://www.senscritique.com/film/film_102/102",
+      "image_checked": "2026-12-20",
+      "ratings": {
+        "senscritique": "7,0/10"
+      },
+      "ratings_checked": "2026-12-20",
+      "year": 2020,
+      "links": {
+        "sc": "https://www.senscritique.com/film/film_102/102"
+      }
+    },
+    {
+      "id": "documentaire-b-2026",
+      "title": "Documentaire B : le titre officiel",
+      "director": "Réalisation Documentaire B : le titre officiel",
+      "country": "France",
+      "genre": "Documentaire",
+      "duration": "52 min",
+      "image": "https://media.example.org/documentaire-b-2026.jpg",
+      "image_source_url": "https://www.france.tv/documentaires/documentaire-b.html",
+      "image_checked": "2026-12-20",
+      "year": 2026,
+      "ratings_unavailable_reason": "Documentaire inédit : aucune fiche notée sur SensCritique ni IMDb au 20/12/2026.",
+      "links": {
+        "official": "https://www.france.tv/documentaires/documentaire-b.html"
+      }
+    },
+    {
+      "id": "copie-conforme-1947",
+      "title": "Copie conforme",
+      "year": 1947,
+      "links": {
+        "imdb": "https://www.imdb.com/title/tt0000103/"
+      }
+    }
+  ]
+}

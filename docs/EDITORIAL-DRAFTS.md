@@ -123,6 +123,11 @@ images, liens et navigateur restent obligatoires avant toute publication.
 
 Test ciblé : `node --test scripts/editorial-draft.test.mjs`.
 
+En session continue, `scripts/editorial-kit.mjs` construit ces plans à partir
+des choix, dossiers et textes du dossier de travail (`day-plan`,
+`section-plan`) et rend chaque plan dans un paquet au nom nouveau (`render`) :
+voir `docs/EDITORIAL-KIT.md`.
+
 ## Vérifier la profondeur réelle
 
 Pour les deux pages HD, le minimum configuré porte sur les œuvres distinctes : un primaire de l’autre page ne devient pas une réserve. Les réserves de popularité doivent être distinctes des choix principaux et des cartes de sillonnage. Contrôler les ensembles de `work_id` avant la sauvegarde. Les cartes de réserve gardent toutes les exigences de preuves et de qualité.
