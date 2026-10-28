@@ -143,7 +143,8 @@ export function applyWorkPlan(catalogue, rows) {
       catalogue.push(work); added.push(work.id);
       continue;
     }
-    if (!work) continue;
+    // Links are added only to a work matched by an exact link or chosen explicitly.
+    if (!work || !['link', 'explicit'].includes(row.basis)) continue;
     for (const [key, value] of Object.entries(row.links)) {
       if (!work.links?.[key]) {work.links = {...(work.links || {}), [key]: value}; linked.push(`${work.id}.${key}`);}
       else if (work.links[key] !== value) conflicts.push(`${work.id}.${key}: ${work.links[key]} ≠ ${value}`);

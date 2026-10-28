@@ -181,7 +181,9 @@ export function buildShortlist(context, {decisions = {}, dossiers = [], sameChan
   }
   const rebuilt = new Set(entries.map(entry => entry.id));
   const saved = array(research?.shortlist?.entries).filter(entry => !rebuilt.has(entry.id));
-  const kept = saved.filter(entry => !['card_drafted', 'card_complete'].includes(entry.status));
+  // Only a card entry of a pool this draft still has is stale; radar and hand-kept entries stay.
+  const pools = Object.keys(issue?.personalization?.pools || {});
+  const kept = saved.filter(entry => !['card_drafted', 'card_complete'].includes(entry.status) || !pools.some(id => entry.id.startsWith(`sl-${id}-`)));
   const dropped = saved.filter(entry => !kept.includes(entry)).map(entry => entry.id);
   const key = record => [record.work_id, record.field, record.url, JSON.stringify(record.applies_to || null)].join('|');
   const existing = array(research?.verification_records), known = new Set(existing.map(key));

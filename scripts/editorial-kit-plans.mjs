@@ -44,7 +44,7 @@ export function buildDayPlan(context, {rows, copyFor, dossiers = [], sameChannel
   const {week, sha, remaining, works, inventory, editorial, pdfSha} = context;
   assert.match(pdfSha || '', /^[a-f0-9]{64}$/, 'PDF SHA-256 of the saved Télérama grid required');
   const byId = new Map(works.map(work => [work.id, work]));
-  const cards = [], problems = [], matches = {inventory: {}, reviews: {}};
+  const cards = [], problems = [], warnings = [], matches = {inventory: {}, reviews: {}};
   const count = (group, basis) => {matches[group][basis] = (matches[group][basis] || 0) + 1;};
   for (const row of orderDailyRows(rows)) {
     if (onlyDays.length && !onlyDays.includes(row.day)) continue;
@@ -54,6 +54,7 @@ export function buildDayPlan(context, {rows, copyFor, dossiers = [], sameChannel
     const titles = [row.printed, row.title, work.title, ...array(work.aliases)];
     const slot = inventorySlot(inventory, {date: row.date, time: row.time, channel: row.channel, titles}, sameChannel);
     count('inventory', slot.basis);
+    if (slot.basis === 'single_row') warnings.push(`${label}: seule ligne de l'inventaire à ce créneau, « ${slot.item.title} » ; vérifier qu'il s'agit bien de l'œuvre`);
     if (!slot.item && !text(copy.review?.current_broadcast)) {
       problems.push(`${label}: créneau absent de l'inventaire (${slot.basis}) ; ajouter review.current_broadcast avec sa preuve ou corriger le choix`);
       continue;
@@ -81,7 +82,7 @@ export function buildDayPlan(context, {rows, copyFor, dossiers = [], sameChannel
   }
   const extra = {cards};
   if (replaceDays.length) extra.replace_days = replaceDays;
-  return {plan: planEnvelope(week, sha, remaining, extra), report: {cards: cards.length, problems, matches}};
+  return {plan: planEnvelope(week, sha, remaining, extra), report: {cards: cards.length, problems, warnings, matches}};
 }
 
 // A dossier entry named by file, key and query (exact, else a unique prefix).

@@ -57,6 +57,9 @@ test('inventory slots match the printed title, or a single row when the card tit
   const vo = inventorySlot(inventory, {date: '2026-12-27', time: '20:50', channel: 'Ciné+ OCS', titles: ['The Original Title']});
   assert.equal(vo.basis, 'single_row');
   assert.equal(vo.item.title, 'Le Titre imprimé');
+  assert.deepEqual(dayPlan().report.warnings, []);
+  const rows = workPlan().map(row => row.work_id === 'the-original-title-2020' ? {...row, printed: 'The Original Title', title: 'The Original Title'} : row);
+  assert.match(dayPlan({rows}).report.warnings[0], /seule ligne de l'inventaire à ce créneau, « Le Titre imprimé »/);
   assert.equal(inventorySlot(inventory, {date: '2026-12-28', time: '22:00', channel: 'Arte', titles: ['Z']}).basis, 'ambiguous');
   assert.equal(inventorySlot(inventory, {date: '2026-12-26', time: '21:00', channel: 'Canal+ Cinéma', titles: ['Encore un film']}).basis, 'absent');
   assert.equal(inventorySlot(inventory, {date: '2026-12-26', time: '16:40', channel: 'Arte', titles: ['Guinée-Bissau, l’île sanctuaire']}).basis, 'title');
@@ -245,14 +248,15 @@ test('the shortlist cites committed review pointers, records compact evidence an
   const issue = JSON.parse(bundle.files.find(file => file.path === `data/weeks/${WEEK}.json`).content);
   const research = {schema_version: 1, week: WEEK, remaining: ['x'], shortlist: {entries: [
     {id: 'lead', title: 'Piste', scope: {day: 'lundi'}, status: 'to_research', signals: [{kind: 'critique', note: 'n', source_url: 'https://www.example.org/'}]},
-    {id: 'sl-samedi-selection-ancien', title: 'Ancien', scope: {day: 'samedi'}, status: 'card_drafted', signals: []}]}, verification_records: []};
+    {id: 'sl-samedi-selection-ancien', title: 'Ancien', scope: {day: 'samedi'}, status: 'card_drafted', signals: []},
+    {id: 'sl-radar-1-film', title: 'Radar', scope: {rubrique: 'radar-1'}, status: 'card_complete', signals: [{kind: 'hd_edition', note: 'n', source_url: 'https://www.example.org/'}]}]}, verification_records: []};
   const result = buildShortlist({week: WEEK, dates, issue, works: fixture('works.json').works, editorial: fixture('telerama-editorial.json'), editorialSha: 'e'.repeat(40),
     inventory: fixture('inventory.json'), pdfSha: PDF, research}, {decisions: fixture('work/decisions.json'), dossiers: dir.dossiers(),
     sameChannel: dir.sameChannel, checked: '2026-12-23', now: '2026-12-23T12:00:00Z'});
   assert.deepEqual(result.errors, []);
   assert.deepEqual(result.problems, []);
   const entries = result.research.shortlist.entries;
-  assert.deepEqual(entries.map(entry => entry.id), ['lead', 'sl-samedi-selection-film-a-1950', 'sl-dimanche-selection-the-original-title-2020',
+  assert.deepEqual(entries.map(entry => entry.id), ['lead', 'sl-radar-1-film', 'sl-samedi-selection-film-a-1950', 'sl-dimanche-selection-the-original-title-2020',
     'sl-vendredi-selection-documentaire-b-2026', 'sl-x-piste-ecartee']);
   assert.deepEqual(result.report.dropped, ['sl-samedi-selection-ancien']);
   const doc = entries.find(entry => entry.work_id === 'documentaire-b-2026');

@@ -83,7 +83,8 @@ const commands = {
 
   'review-notes'(options, work) {
     const current = work.file('import/telerama-editorial.json'), raw = work.file('import/telerama-editorial.raw.json');
-    if (!fs.existsSync(raw)) fs.copyFileSync(current, raw);
+    // A fresh extraction (no reviewed summary yet) becomes the new raw base.
+    if (!fs.existsSync(raw) || !readJson(current).reviews.some(review => review.summary_reviewed)) fs.copyFileSync(current, raw);
     const {report, unreviewed} = mergeReviewNotes(readJson(raw), readJson(work.file('review-notes.json')), {now: nowInstant()});
     writeJson(current, report);
     print({reviews: report.reviews.length, summaries_reviewed: report.summary.summaries_reviewed, unreviewed, output: current});
