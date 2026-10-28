@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "week": "2026-S45",
+  "stage": "inventory",
+  "status": "in_progress",
+  "base_sha": "9f64de26108bd4d794a65e3cf8b4079ed59c6303",
+  "remaining": [
+    "Constituer et sauvegarder l’inventaire primaire des sept jours du 31 octobre au 6 novembre 2026 depuis la grille imprimée du Télérama fourni (mode telerama-grid-authority, empreinte sha256:3ab3ca3da253a09d3083887bde598f50529bd6a1752363cf7cfb0fc1422ed6dc), avec au moins 30 lignes par jour, une ligne de nuit par jour, toutes les chaînes actives obligatoires, pages, comptes par chaîne, portée imprimée et limites consignées.",
+    "Effectuer et sauvegarder la revue de transcription par sondage de l’inventaire de grille (au moins 7 pages relues en entier, au moins 35 lignes dont 3 par jour, décisions matches/corrected/added, créneaux à deux titres relus) dans coverage.grid_inventory.transcription_review, puis la revue d’impact des conflits publiés.",
+    "Effectuer le rappel éditorial et la prospection documentaire dédiée Arte, France 5, France 2/3/4, france.tv, TV5MONDE et autres sources pertinentes, avec offres linéaires/replay/exclusivités/expirations, décisions et preuves critiques exactes sauvegardées dans le bilan de couverture.",
+    "Constituer puis tenir une présélection sourcée par jour et par rubrique, environ 1,5 à 2 fois les positions à pourvoir sans titre faible, en priorisant les appréciations Télérama positives importées et en conservant alternatives, rejets et reports.",
+    "Vérifier complètement chaque choix, réserve, ligne de grille et proposition de rubrique au niveau 3 : identité et version, diffusion (grille Télérama relue sur son périmètre, sinon preuve Web admissible), disponibilité ou expiration, réception critique, métadonnées, notes ou raison spécifique, liens directs exacts et visuel réel.",
+    "Produire trois choix développés par jour et au moins dix candidats complets distincts par jour, objectif quinze si la qualité le permet, avec synopsis et justification propres, pools de réserves publiables et toute pénurie structurée réellement sourcée.",
+    "Compléter les rubriques obligatoires et leurs seuils sans remplissage faible : rendez-vous, replay, plateformes gratuites et abonnement film-first, sorties physiques et streaming, expirations et sommaire, avec pagination lisible et réserves effectives lorsqu’elles sont requises.",
+    "Compléter les radars selon les seuils inchangés : popularité avec cinq choix, cinq cartes de sillonnage et au moins cinq réserves distinctes, puis radar 1080p avec dix choix visibles et une réserve distincte visant dix œuvres, sans compter les primaires comme réserves.",
+    "Appliquer la déduplication, la fraîcheur inter-numéros et l’équilibre cinéma/documentaire/rubriques ; conserver toute exception de fraîcheur ou pénurie sous forme structurée, précise et sourcée.",
+    "Construire et revoir tous les livrables autorisés de 2026-S45, ainsi que les enrichissements vérifiés de works, links et releases, en gardant manifest.latest à 2026-S44 et tous les statuts S44 en draft.",
+    "Exécuter les contrôles pertinents de données, liens, fraîcheur, réserves, images et présentation sur la tête exacte, inspecter les pages modifiées, résoudre les causes réelles sans baisser les critères et conserver les résultats liés au SHA et à sa base.",
+    "Après résolution réelle de remaining, effectuer la revue éditoriale complète des livrables, sceller les empreintes exactes, passer stage à ready, puis laisser la fusion candidate et la promotion protégées suivre leurs contrôles et leur publication vérifiée."
+  ],
+  "completed_batches": [],
+  "blockers": [],
+  "research_attempts": [],
+  "verification_records": [],
+  "shortlist": {
+    "entries": []
+  },
+  "resume": {
+    "candidate_branch": "auto/2026-S45",
+    "main_sha": "9f64de26108bd4d794a65e3cf8b4079ed59c6303",
+    "first_incomplete_stage": "inventory",
+    "next_actions": [
+      "Construire l’inventaire de grille depuis le PDF Télérama et sa revue de transcription, puis la présélection."
+    ]
+  },
+  "run_metrics": [
+    {
+      "mode": "session",
+      "prompt_revision": "production-session-2026-10-16",
+      "started_at": "2026-10-28T10:52:18.052Z",
+      "ended_at": null,
+      "run_state": "running",
+      "duration_basis": "Horloge réelle relevée par scripts/editorial-session.mjs à chaque transition ; les phases peuvent se chevaucher et ne s’additionnent pas.",
+      "phases": {
+        "import": {
+          "started_at": "2026-10-28T10:52:18.195Z",
+          "ended_at": "2026-10-28T11:01:10.775Z",
+          "note": "PDF reçu à 10:37Z ; correctif de couverture #97 puis PR de sources #98 fusionnées (9f64de2) ; 39 critiques relues, 2 ajoutées"
+        },
+        "grid_inventory": {
+          "started_at": "2026-10-28T11:01:10.916Z",
+          "ended_at": null
+        }
+      },
+      "deliverables_changed": [],
+      "stop_reason": null,
+      "next_useful_batch": null
+    }
+  ],
+  "updated_at": "2026-10-28T11:00:51Z"
+}
