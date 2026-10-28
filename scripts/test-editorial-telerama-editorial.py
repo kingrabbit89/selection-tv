@@ -41,6 +41,26 @@ class EditorialTests(unittest.TestCase):
         rows,_=module.page_reviews(data,dt.date(2026,10,10),116,592)
         self.assertEqual(rows[1]['title'],'Chine Russie et Cie')
 
+    def test_text_after_a_wide_gap_on_the_header_line_does_not_hide_the_review(self):
+        # S45: a caption or the credits of the next column sat on the header baseline.
+        data=review('u','Julian',x=181,time='22.30')+chars('I. Carré et Agnès',x=330,top=100)
+        rows,rejected=module.page_reviews(data,dt.date(2026,11,3),117,592)
+        self.assertEqual(rejected,[])
+        self.assertEqual([(r['title'],r['start'],r['channel_printed']) for r in rows],[('Julian','22:30','Arte')])
+
+    def test_unrated_neighbour_review_does_not_join_header_or_title(self):
+        # S45: a split-opinion review has no mark, so it sets no column boundary.
+        data=review('t','Trois Pères et un bébé',x=21,time='22.40')
+        for top,size in [(114,11),(118,19)]:
+            neighbour=chars('23.35 Arte Film',x=181,top=100)+chars('La Chimère',x=181,top=top,size=size,bold=True)
+            rows,_=module.page_reviews(data+neighbour,dt.date(2026,11,4),123,592)
+            self.assertEqual([(r['title'],r['channel_printed']) for r in rows],[('Trois Pères et un bébé','Arte')])
+
+    def test_two_line_title_keeps_its_second_line(self):
+        data=review('u','Résistance en lumière :',x=24)+chars('l’engagement',x=24,top=126,size=11,bold=True)
+        rows,_=module.page_reviews(data,dt.date(2026,11,5),129,592)
+        self.assertEqual(rows[0]['title'],'Résistance en lumière : l’engagement')
+
     def test_after_midnight_keeps_printed_day_and_next_civil_day(self):
         rows,_=module.page_reviews(review(time='0.20'),dt.date(2026,10,10),99,592)
         self.assertEqual(rows[0]['date'],'2026-10-11')
