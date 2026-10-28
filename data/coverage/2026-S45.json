@@ -721,7 +721,393 @@
       "Le magazine n’imprime pas toutes les heures : aucune chaîne n’est relevée comme complète. Les heures non imprimées (films de nuit ou du matin des chaînes cinéma notamment) ne sont pas relevées ; les compléter par l’import Web ordinaire seulement si une piste l’exige.",
       "La nuit 00:00–05:59 du premier samedi est imprimée dans le numéro précédent."
     ],
-    "transcription_review": null
+    "transcription_review": {
+      "reviewed_at": "2026-10-28T11:18:38.000Z",
+      "method": "Chaque page de grille a été rendue avec pypdfium2 à l'échelle 4 et découpée en six bandes (trois paires de colonnes × deux moitiés), lues visuellement en entier puis comparées ligne à ligne, chaîne par chaîne, aux lignes extraites ; pdfplumber n'a servi qu'à localiser les lignes et leurs coordonnées. Les créneaux à deux titres de Canal+ Kids et Canal+ Box Office ont été vérifiés sur des agrandissements à l'échelle 5 des pages 120, 126, 132 et 138.",
+      "pages_reread": [
+        100,
+        106,
+        112,
+        118,
+        124,
+        130,
+        136
+      ],
+      "sampled_rows": [
+        {
+          "date": "2026-10-31",
+          "pdf_page": 100,
+          "title": "Jeunesse...",
+          "start": "05:00",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Imprimé « 5.00 Jeunesse... » en tête de colonne France 5."
+        },
+        {
+          "date": "2026-10-31",
+          "pdf_page": 100,
+          "title": "Mission info",
+          "start": "11:40",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Imprimé « 11.40 Mission info », colonne France 4."
+        },
+        {
+          "date": "2026-10-31",
+          "pdf_page": 100,
+          "title": "C’est bon à savoir",
+          "start": "20:25",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Imprimé « 20.25 C'est bon à savoir », colonne France 3."
+        },
+        {
+          "date": "2026-10-31",
+          "pdf_page": 100,
+          "title": "Les Enfants du vaudou",
+          "start": "23:55",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Imprimé « 23.55 Les Enfants du vaudou (Fr/All, 2026) », colonne Arte."
+        },
+        {
+          "date": "2026-10-31",
+          "pdf_page": 100,
+          "title": "Dora, la jeune loutre géante",
+          "start": "13:40",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Imprimé « 13.40 Dora, la jeune loutre géante (Can, 2022) », colonne France 5."
+        },
+        {
+          "date": "2026-11-01",
+          "pdf_page": 106,
+          "title": "Les matinales",
+          "start": "05:05",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Imprimé « 5.05 Les matinales » en tête de colonne France 3."
+        },
+        {
+          "date": "2026-11-01",
+          "pdf_page": 106,
+          "title": "Échappées belles",
+          "start": "10:20",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Imprimé « 10.20 Échappées belles », colonne France 5."
+        },
+        {
+          "date": "2026-11-01",
+          "pdf_page": 106,
+          "title": "Journal",
+          "start": "13:00",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Imprimé « 13.00 Journal », colonne France 2."
+        },
+        {
+          "date": "2026-11-01",
+          "pdf_page": 106,
+          "title": "Le jeu des 1000 euros",
+          "start": "17:25",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Imprimé « 17.25 Le jeu des 1000 euros » (sans espace sur cette page), colonne France 3."
+        },
+        {
+          "date": "2026-11-01",
+          "pdf_page": 106,
+          "title": "Météo régionale",
+          "start": "20:00",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Imprimé « 20.00 Météo régionale », colonne France 3."
+        },
+        {
+          "date": "2026-11-02",
+          "pdf_page": 112,
+          "title": "Pays et marchés du monde",
+          "start": "05:00",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Imprimé « 5.00 Pays et marchés du monde (Fr, 2022) » en tête de colonne France 2."
+        },
+        {
+          "date": "2026-11-02",
+          "pdf_page": 112,
+          "title": "Impossible",
+          "start": "13:35",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Imprimé « 13.35 Impossible », téléfilm d'Emmanuel Finkiel, colonne Arte."
+        },
+        {
+          "date": "2026-11-02",
+          "pdf_page": 112,
+          "title": "C dans l’air l’invité",
+          "start": "17:25",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Imprimé « 17.25 C dans l'air l'invité », colonne France 5."
+        },
+        {
+          "date": "2026-11-02",
+          "pdf_page": 112,
+          "title": "JT 20h",
+          "start": "20:00",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Imprimé « 20.00 JT 20h », colonne TF1."
+        },
+        {
+          "date": "2026-11-02",
+          "pdf_page": 112,
+          "title": "Pen Duick VI : de père en fille",
+          "start": "23:10",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Imprimé « 23.10 Pen Duick VI : de père en fille », colonne France 3."
+        },
+        {
+          "date": "2026-11-03",
+          "pdf_page": 118,
+          "title": "Jeunesse",
+          "start": "05:05",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Imprimé « 5.05 Jeunesse VM. » (VM est une mention, pas le titre), colonne France 4."
+        },
+        {
+          "date": "2026-11-03",
+          "pdf_page": 118,
+          "title": "Transylvanie, un bestiaire fantastique",
+          "start": "11:25",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Imprimé « 11.25 Transylvanie, un bestiaire fantastique », colonne Arte."
+        },
+        {
+          "date": "2026-11-03",
+          "pdf_page": 118,
+          "title": "C dans l’air",
+          "start": "17:40",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Imprimé « 17.40 C dans l'air En direct. », colonne France 5."
+        },
+        {
+          "date": "2026-11-03",
+          "pdf_page": 118,
+          "title": "Un si grand soleil",
+          "start": "20:25",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Imprimé « 20.25 Un si grand soleil Série. », colonne France 3."
+        },
+        {
+          "date": "2026-11-03",
+          "pdf_page": 118,
+          "title": "Okoo-koo",
+          "start": "13:50",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Imprimé « 13.50 Okoo-koo », colonne France 4."
+        },
+        {
+          "date": "2026-11-04",
+          "pdf_page": 124,
+          "title": "Okoo",
+          "start": "05:00",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Imprimé « 5.00 Okoo » en tête de colonne France 5."
+        },
+        {
+          "date": "2026-11-04",
+          "pdf_page": 124,
+          "title": "Petits plats en équilibre",
+          "start": "13:50",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Imprimé « 13.50 Petits plats en équilibre », colonne TF1."
+        },
+        {
+          "date": "2026-11-04",
+          "pdf_page": 124,
+          "title": "Plastic Odyssey",
+          "start": "20:15",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Imprimé « 20.15 Plastic Odyssey », colonne France 3."
+        },
+        {
+          "date": "2026-11-04",
+          "pdf_page": 124,
+          "title": "Mère nature",
+          "start": "11:00",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Imprimé « 11.00 Mère nature (GB, 2022) », colonne France 5."
+        },
+        {
+          "date": "2026-11-04",
+          "pdf_page": 124,
+          "title": "C dans l’air l’invité",
+          "start": "17:25",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Imprimé « 17.25 C dans l'air l'invité », colonne France 5."
+        },
+        {
+          "date": "2026-11-05",
+          "pdf_page": 130,
+          "title": "Tout le monde veut prendre sa place",
+          "start": "05:05",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Imprimé « 5.05 Tout le monde veut prendre sa place » en tête de colonne France 2."
+        },
+        {
+          "date": "2026-11-05",
+          "pdf_page": 130,
+          "title": "Les Trésors naturels de Bornéo",
+          "start": "10:55",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Imprimé « 10.55 Les Trésors naturels de Bornéo (GB, 2023) », colonne France 5."
+        },
+        {
+          "date": "2026-11-05",
+          "pdf_page": 130,
+          "title": "28 minutes",
+          "start": "20:05",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Imprimé « 20.05 28 minutes », colonne Arte."
+        },
+        {
+          "date": "2026-11-05",
+          "pdf_page": 130,
+          "title": "Silence, ça pousse !",
+          "start": "13:35",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Imprimé « 13.35 Silence, ça pousse ! », colonne France 5."
+        },
+        {
+          "date": "2026-11-05",
+          "pdf_page": 130,
+          "title": "C dans l’air l’invité",
+          "start": "17:25",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Imprimé « 17.25 C dans l'air l'invité », colonne France 5."
+        },
+        {
+          "date": "2026-11-06",
+          "pdf_page": 136,
+          "title": "Jeunesse",
+          "start": "05:05",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Imprimé « 5.05 Jeunesse » en tête de colonne France 4."
+        },
+        {
+          "date": "2026-11-06",
+          "pdf_page": 136,
+          "title": "C dans l’air",
+          "start": "17:40",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Imprimé « 17.40 C dans l'air En direct. », colonne France 5."
+        },
+        {
+          "date": "2026-11-06",
+          "pdf_page": 136,
+          "title": "Météo régionale",
+          "start": "20:20",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Imprimé « 20.20 Météo régionale », colonne France 3."
+        },
+        {
+          "date": "2026-11-06",
+          "pdf_page": 136,
+          "title": "Moi à ton âge",
+          "start": "11:20",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Imprimé « 11.20 Moi à ton âge », colonne France 4."
+        },
+        {
+          "date": "2026-11-06",
+          "pdf_page": 136,
+          "title": "Okoo-koo",
+          "start": "13:45",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Imprimé « 13.45 Okoo-koo », colonne France 4."
+        },
+        {
+          "date": "2026-11-02",
+          "pdf_page": 112,
+          "title": "Stade 2 la quotidienne",
+          "start": "20:00",
+          "channel": "France 3",
+          "decision": "corrected",
+          "note": "Ligne extraite « Stade 2 la » corrigée d'après l'imprimé : Titre coupé au retour à la ligne : l'imprimé porte « 20.00 Stade 2 la / quotidienne En direct. »."
+        },
+        {
+          "date": "2026-11-03",
+          "pdf_page": 118,
+          "title": "Poilão, l’île sanctuaire de Guinée-Bissau",
+          "start": "16:40",
+          "channel": "Arte",
+          "decision": "corrected",
+          "note": "Ligne extraite « Poilão, l’île sanctuaire de Guinée- Bissau » corrigée d'après l'imprimé : Césure de fin de ligne mal recollée : l'imprimé coupe « Guinée-/Bissau » au trait d'union, sans espace."
+        },
+        {
+          "date": "2026-11-04",
+          "pdf_page": 118,
+          "title": "Gustav Mahler : Symphonie nº 2 « Résurrection », Festival Mahler, Leipzig 2023",
+          "start": "01:50",
+          "channel": "Arte",
+          "decision": "corrected",
+          "note": "Ligne extraite « Gustav Mahler : » corrigée d'après l'imprimé : Titre tronqué après la première ligne ; le titre gras imprimé continue sur trois lignes (« Symphonie nº 2 / « Résurrection », Festival / Mahler, Leipzig 2023 »)."
+        },
+        {
+          "date": "2026-11-05",
+          "pdf_page": 130,
+          "title": "Scooby-Doo et la malédiction du 13e fantôme",
+          "start": "14:10",
+          "channel": "France 4",
+          "decision": "corrected",
+          "note": "Ligne extraite « Scooby-Doo et la malédiction » corrigée d'après l'imprimé : Titre tronqué à la troisième ligne, celle qui contient l'exposant « e » : l'imprimé porte « Scooby-Doo / et la malédiction / du 13e fantôme »."
+        }
+      ],
+      "discrepancies": [
+        "p. 112 — France 3, lundi 2 nov. 20:00 : « Stade 2 la » tronqué → « Stade 2 la quotidienne ».",
+        "p. 118 — Arte, mardi 3 nov. 16:40 : césure « Guinée- Bissau » → « Guinée-Bissau ».",
+        "p. 118 — Arte, mercredi 4 nov. 01:50 (nuit du 3 au 4) : « Gustav Mahler : » tronqué → « Gustav Mahler : Symphonie nº 2 « Résurrection », Festival Mahler, Leipzig 2023 ».",
+        "p. 130 — France 4, jeudi 5 nov. 14:10 : « Scooby-Doo et la malédiction » tronqué → « Scooby-Doo et la malédiction du 13e fantôme ».",
+        "Aucune omission de programme dans la semaine sur les 7 pages ; aucune erreur d'heure ni de chaîne relevée.",
+        "Exclusions volontaires, conformes (pas des erreurs) : TF1 « 0.50 Programmes de nuit » (p. 100) et « 2.05 Programmes de nuit » (p. 130), filtrés par l'extracteur ; 21 lignes de la nuit du 6 au 7 nov. (p. 136) hors de la semaine ; 9 heures d'épisodes imprimées dans des résumés (p. 106, 112, 118, 124, 130, 136), à juste titre non retenues comme programmes.",
+        "Les 5 créneaux à deux titres (Canal+ Kids 3, 5 et 6 nov., Canal+ Box Office 5 nov. 00:40) sont imprimés tels quels, avec deux lignes à la même heure : conserver les deux titres.",
+        "Passe de correction appliquée à l’inventaire entier pour les mêmes défauts d’extraction (ligature « ff » perdue, césure brisée) hors pages relues : 12 titres corrigés.",
+        "Créneau à deux titres Canal+ Kids 2026-11-03 20:00 (Au tableau ! / Nos mots nomades) : Page 120, colonne Canal+ Kids : deux lignes consécutives imprimées toutes deux à 20.00, « 20.00 Nos mots nomades » puis « 20.00 Au tableau ! », avant « 20.30 Jams ». Deux programmes courts annoncés à la même heure ; l'extraction reproduit fidèlement l'imprimé, sans erreur de chaîne. Les deux lignes sont conservées ; aucun programme retenu n’est concerné.",
+        "Créneau à deux titres Canal+ Kids 2026-11-03 22:10 (Les Croquemoutard / L’Histoire racontée par des chaussettes) : Page 120 : « 22.10 L'Histoire racontée par des chaussettes » puis « 22.10 Les Croquemoutard → 22.40 », les deux à 22.10. Deux courts programmes à la même heure imprimée, aucune mauvaise attribution. Les deux lignes sont conservées ; aucun programme retenu n’est concerné.",
+        "Créneau à deux titres Canal+ Box Office 2026-11-05 00:40 (La Nuit des clowns / Un Clique par jour) : Page 126 (grille du mercredi 4, nuit du 4 au 5), colonne Canal+ Box Office : « 0.40 Un Clique par jour » puis « 0.40 La Nuit des clowns, film d'horreur d'Eli Craig (USA/Lux/GB, 2025) → 2.20 ». Les deux lignes sont imprimées à 0.40 ; Un Clique par jour est le court programme qui précède le film, comme sur les autres chaînes Canal+ (20.55 sur Canal+ Cinéma(s)). La date du 5 est correcte (après minuit). Les deux lignes sont conservées ; aucun programme retenu n’est concerné.",
+        "Créneau à deux titres Canal+ Kids 2026-11-05 20:00 (L’histoire racontée par des chaussettes / Vide ton sac) : Page 132, colonne Canal+ Kids : « 20.00 L'histoire racontée par des chaussettes (La poussée d'Archimède) » puis « 20.00 Vide ton sac », avant « 20.20 Les Enfants contre le harcèlement ». Deux programmes imprimés à la même heure, fidèlement extraits. Les deux lignes sont conservées ; aucun programme retenu n’est concerné.",
+        "Créneau à deux titres Canal+ Kids 2026-11-06 20:00 (La Rivière à l’envers / Pif et Hercule se mettent au vert) : Page 138, colonne Canal+ Kids : « 20.00 Pif et Hercule se mettent au vert (Le plastique et les tortues de mer) » puis « 20.00 La Rivière à l'envers (Il était une fois...) », heures toutes deux en bleu, avant « 20.30 La Rose écarlate ». Deux programmes à la même heure imprimée, aucune erreur de chaîne. Les deux lignes sont conservées ; aucun programme retenu n’est concerné.",
+        "Revue d’impact : aucun des quatre titres corrigés, aucun des titres recollés ailleurs ni aucun des cinq créneaux à deux titres (Canal+ Kids et Canal+ Box Office) ne touche une proposition retenue (films et documentaires des pools quotidiens)."
+      ],
+      "corrections_applied": {
+        "page_corrections": 4,
+        "global_corrections": 12,
+        "rows_added": 0
+      }
+    }
   },
   "updated_at": "2026-10-28T11:02:03.474Z"
 }
