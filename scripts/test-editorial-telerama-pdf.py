@@ -46,10 +46,15 @@ class TeleramaTests(unittest.TestCase):
         self.assertEqual(MODULE.cover_range("Nº 4004 Du 10 au 16 / 10 / 2026"), MODULE.issue_range("2026-S42"))
         self.assertEqual(MODULE.cover_range("Du 31 au 6 / 11 / 2026"), MODULE.issue_range("2026-S45"))
         self.assertEqual(MODULE.cover_range("Du 26 au 1 / 1 / 2027"), MODULE.issue_range("2026-S53"))
+        self.assertEqual(MODULE.cover_range("No 4007 Du 31 / 10 au 6 / 11 / 2026"), MODULE.issue_range("2026-S45"))
+        self.assertEqual(MODULE.cover_range("Du 3 / 10 au 9 / 10 / 2026"), MODULE.issue_range("2026-S41"))
+        self.assertEqual(MODULE.cover_range("Du 26 / 12 au 1 / 1 / 2027"), MODULE.issue_range("2026-S53"))
+        self.assertEqual(MODULE.cover_range("Du 26 / 12 / 2026 au 1 / 1 / 2027"), MODULE.issue_range("2026-S53"))
         for value in ["S42", "2026-S00", "2026-S99"]:
             with self.assertRaises(ValueError):
                 MODULE.issue_range(value)
-        for value in ["Du 10 au 17 / 10 / 2026", "Du 32 au 38 / 10 / 2026", "No readable date"]:
+        for value in ["Du 10 au 17 / 10 / 2026", "Du 32 au 38 / 10 / 2026", "No readable date",
+                      "Du 31 / 9 au 6 / 11 / 2026", "Du 30 / 10 au 6 / 11 / 2026", "Du 26 / 12 / 2025 au 1 / 1 / 2027"]:
             with self.assertRaises(ValueError):
                 MODULE.cover_range(value)
         self.assertEqual(MODULE.cover_publication_date("Mercredi 7 / 10 / 2026"), "2026-10-07")
