@@ -22,6 +22,17 @@ GENRES = ("Seul-en-scène", "Documentaire", "Téléfilm", "Spectacle", "Théâtr
           "Magazine", "Animation", "Concert", "Série", "Film", "Opéra")
 
 
+def contiguous(chars, max_gap):
+    # Keep the leftmost run of a printed line: a caption or the next column on
+    # the same baseline starts after a wide gap and must not join a heading.
+    run = []
+    for c in sorted(chars, key=lambda c: c["x0"]):
+        if run and c["x0"] - run[-1]["x1"] > max_gap:
+            break
+        run.append(c)
+    return run
+
+
 def header_candidates(chars):
     result = []
     for line in grid.line_groups(chars):
@@ -29,8 +40,8 @@ def header_candidates(chars):
                  and 7.5 <= c["size"] <= 10 and 40 <= c["top"] < 715]
         for index, mark in enumerate(marks):
             right = marks[index + 1]["x0"] - 2 if index + 1 < len(marks) else 10000
-            header = [c for c in line if mark["x0"] <= c["x0"] < right and
-                      "Graphik" in c.get("fontname", "") and 7.5 <= c["size"] <= 10]
+            header = contiguous([c for c in line if mark["x0"] <= c["x0"] < right and
+                                 "Graphik" in c.get("fontname", "") and 7.5 <= c["size"] <= 10], 8)
             text = grid.compose(header)
             matched = re.fullmatch(r"(\d{1,2})[.:](\d{2})\s+(.+?)\s+(" + "|".join(GENRES) + r")", text)
             if not matched or int(matched[1]) > 23 or int(matched[2]) > 59:
@@ -61,6 +72,10 @@ def page_reviews(chars, nominal_date, pdf_page, width):
         for line in lines:
             if previous_bottom is not None and min(c["top"] for c in line) - previous_bottom > 8:
                 break
+            line = contiguous(line, 12)
+            # A neighbour's heading may sit slightly lower; a title continues at its own margin.
+            if title_chars and min(c["x0"] for c in line) > min(c["x0"] for c in title_chars) + 12:
+                continue
             title_chars.extend(line)
             previous_bottom = max(c["bottom"] for c in line)
         title = grid.normalize_text(" ".join(grid.compose(line) for line in grid.line_groups(title_chars)))
