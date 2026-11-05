@@ -182,7 +182,7 @@ Chaque commande lit les sources de la semaine et `W`, affiche un rapport JSON et
 
 | Étape (phase `run_metrics`) | Commande | Produit |
 |---|---|---|
-| Import (`import`) | `python scripts/prepare-telerama-input.py PDF --out-dir W/import` puis `python scripts/editorial-telerama-kit.py grid-samples --pdf PDF --report W/import/telerama.json --out-dir W/grid-review` | extraction, planches de trois lignes par page pour `import_review` |
+| Import (`import`) | `python scripts/prepare-telerama-input.py PDF --out-dir W/import` (avec `--reference-pdf` si le PDF n'a aucun caractère, `docs/EDITORIAL-TELERAMA.md`) puis `python scripts/editorial-telerama-kit.py grid-samples --pdf PDF --report W/import/telerama.json --out-dir W/grid-review` | extraction, planches de trois lignes par page pour `import_review` |
 | | `node scripts/editorial-kit.mjs review-notes YYYY-Sxx --work W` | `W/import/telerama-editorial.json` complété par `W/review-notes.json` (auteur, résumé relu, titre corrigé), brut gardé en `.raw.json` ; puis PR de sources |
 | Checkpoint | `node scripts/editorial-kit.mjs init YYYY-Sxx --write` | `data/research/YYYY-Sxx.json` (étape `inventory`, `remaining` de la semaine) ; refusé s'il existe déjà |
 | Grille (`grid_inventory`) | `editorial-telerama-grid-inventory.mjs` (inchangé), puis `node scripts/editorial-kit.mjs grid-review YYYY-Sxx --work W --write` | corrections et ajouts de `W/grid-review.json` appliqués à l'inventaire, `transcription_review` ; refusé tant que les seuils de revue ne sont pas atteints |

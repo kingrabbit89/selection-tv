@@ -101,8 +101,7 @@ def page_reviews(chars, nominal_date, pdf_page, width):
     return reviews, rejected
 
 
-def extract(path, week, library_file_id=None):
-    import pdfplumber
+def extract(path, week, library_file_id=None, reference_pdfs=None):
     path = pathlib.Path(path)
     raw = path.read_bytes()
     if not raw or len(raw) > 100 * 1024 * 1024:
@@ -118,7 +117,7 @@ def extract(path, week, library_file_id=None):
                            "Summaries require reading and review; no article body is exported."]}
     if library_file_id:
         report["source"]["library_file_id"] = library_file_id
-    with pdfplumber.open(path) as document:
+    with grid.open_pdf(path, reference_pdfs) as document:
         if not 1 <= len(document.pages) <= 400:
             raise ValueError("PDF page count invalid")
         report["source"]["pages"] = len(document.pages)
@@ -129,7 +128,9 @@ def extract(path, week, library_file_id=None):
         publication_date = grid.cover_publication_date(cover)
         if publication_date:
             report["source"]["publication_date"] = publication_date
-        index = grid.poppler_index(path, len(document.pages))
+        # The editorial schema has no parser field: a rebuilt text layer is traced in the warnings.
+        rebuilt = grid.rebuilt_layer_notice(document, report)
+        index = None if rebuilt else grid.poppler_index(path, len(document.pages))
         # Only a daily non-grid page with an explicit weekday/day header, or
         # its immediately preceding TNT review page, supplies a civil date.
         targets = {}
@@ -173,11 +174,13 @@ def main():
     parser.add_argument("--week", required=True)
     parser.add_argument("--output", required=True)
     parser.add_argument("--library-file-id")
+    parser.add_argument("--reference-pdf", action="append", default=[], metavar="PDF",
+                        help="Earlier text issue, needed only when this PDF has no text layer; repeat it")
     args = parser.parse_args()
     out = pathlib.Path(args.output)
     if out.exists():
         parser.error("output already exists")
-    result = extract(args.pdf, args.week, args.library_file_id)
+    result = extract(args.pdf, args.week, args.library_file_id, args.reference_pdf)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf8")
     print(json.dumps(result["summary"], ensure_ascii=False))

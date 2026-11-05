@@ -62,7 +62,8 @@ reste rejetée et tracée, jamais reconstituée.
 
 Les scans sans texte, autres mises en page et pages non reconnues demandent une
 revue manuelle ou une préparation OCR distincte ; ils ne deviennent pas une
-grille complète validée. La première nuit du samedi peut être dans le numéro
+grille complète validée. Un PDF dont le texte est converti en tracés suit la
+section ci-dessous. La première nuit du samedi peut être dans le numéro
 précédent ; cette limite reste visible. Les lignes retenues doivent être relues ; leur titre imprimé, chaîne, jour et
 heure font alors autorité sans enquête sur le fournisseur EPG. Les corrections
 officielles ultérieures datées restent consignées. Certaines ligatures du PDF peuvent
@@ -75,6 +76,61 @@ l'empreinte, la taille et le nombre de pages du PDF, les pages/rectangles des
 observations, la date de grille et les dates civiles. La publication du magazine,
 l'extraction et l'import sont distincts d'une consultation du diffuseur : aucune
 date `checked_at` ni URL Web n'est inventée.
+
+## PDF dont le texte est converti en tracés
+
+Un numéro peut arriver sans aucune couche de texte, chaque glyphe étant un tracé
+vectoriel (n° 4008, S46). Le rendu reste net et `pdfplumber` n'y lit aucun
+caractère. `scripts/telerama-outline-text.py` reconstruit alors les caractères en
+identifiant chaque tracé parmi les polices embarquées de numéros précédents qui
+ont du texte, puis les parseurs habituels s'exécutent sur ce résultat avec leurs
+contrôles. La bascule n'a lieu que si aucune page du PDF n'a de caractère ; une
+couverture seule sans texte ne la déclenche pas.
+
+```sh
+python3 -m pip install pdfplumber==0.11.9 fonttools==4.68.0
+python3 scripts/telerama-outline-text.py /chemin/magazine.pdf \
+  --reference-pdf /chemin/numero-precedent-1.pdf \
+  --reference-pdf /chemin/numero-precedent-2.pdf \
+  --reference-pdf /chemin/numero-precedent-3.pdf
+```
+
+Cette commande est facultative : elle prépare à l'avance la reconstruction (environ
+6 minutes pour 148 pages et trois références) dans un cache temporaire, réutilisée ensuite
+tant que le PDF, les références et l'outil n'ont pas changé. `--out-dir` l'écrit dans
+un dossier nouveau pour l'inspecter ; le dépôt est refusé comme destination, car ni
+PDF, ni texte reconstruit, ni contour de police n'y sont conservés.
+`SELECTION_TV_TELERAMA_OUTLINE_CACHE` déplace le cache.
+
+`prepare-telerama-input.py`, `editorial-telerama-pdf.py`,
+`editorial-telerama-editorial.py` et les commandes `grid-ratings` et `printed` de
+`editorial-telerama-kit.py` acceptent les mêmes `--reference-pdf`. Sans cette option
+ils lisent `SELECTION_TV_TELERAMA_REFERENCE_PDFS` (chemins séparés par `;` sous
+Windows, `:` ailleurs), seule voie pour `editorial-production-flow.mjs` et
+`editorial-telerama-grid-inventory.mjs`. Sans référence, un PDF sans texte est refusé
+avec ce message. `grid-samples` ne lit que des images et n'a besoin de rien.
+
+Contrôles et limites :
+
+- Un tracé qui ne correspond à aucune référence n'entre jamais dans le texte. Les
+  tracés inconnus comprennent aussi les filets et logos, leur nombre (`unknown_paths`
+  dans `parser`) n'est donc pas un taux d'erreur.
+- `parser.text_layer` et `parser.text_layer_references` (empreintes des références)
+  tracent l'origine du texte de `telerama.json`. Le schéma de
+  `telerama-editorial.json` n'a pas ces champs : un avertissement le signale dans
+  `warnings`, comme dans `telerama.json`.
+- Une forme proche peut être mal identifiée. La revue d'import compare donc les
+  lignes reconstruites à des images de page, distinctes du texte reconstruit, et les
+  titres de critique lus sur l'image corrigent `reviewed_title`.
+- Les références doivent venir de numéros récents : une police absente laisse ses
+  glyphes hors du texte, donc des lignes rejetées et tracées, jamais inventées.
+- Deux ajustements du parseur sont propres à ces positions reconstruites. La
+  distance d'une heure à sa marge de colonne passe de 3 à 3,4 pt pour un texte
+  reconstruit seulement (S46 : heures à un chiffre jusqu'à 3,3 pt, autres lignes à 5,1 pt
+  ou plus). Une heure sans blanc avant un titre commençant par un nombre
+  (« 11.10100% immo ») n'est coupée que si le chiffre suivant saute au-delà du pas
+  régulier des minutes ; « 12.345 » reste rejeté. Les PDF avec texte gardent leur
+  extraction inchangée.
 
 ## Réemploi d'une extraction
 
@@ -188,7 +244,8 @@ l'utilisateur : l'assistant lit la couverture et exécute le protocole ci-dessou
 
 1. Lire les instructions actuelles et les SHA sur GitHub. Garder la candidate
    et les baux des producteurs intacts ; préparer les sources dans un clone
-   isolé de main. Installer `pdfplumber` seulement si nécessaire.
+   isolé de main. Installer `pdfplumber` seulement si nécessaire. Si le PDF n'a
+   aucun caractère, ajouter `--reference-pdf` (section sur les tracés).
 2. Préparer les deux entrées dans un dossier nouveau avec la semaine dérivée
    de la couverture (le changement de mois/année est pris en charge dans le
    format de couverture reconnu) :

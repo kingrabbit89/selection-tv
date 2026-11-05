@@ -85,9 +85,8 @@ def load_picks(path):
 
 
 def run_grid_ratings(args):
-    import pdfplumber
     report = json.loads(pathlib.Path(args.report).read_text(encoding="utf8"))
-    with pdfplumber.open(args.pdf) as document:
+    with grid.open_pdf(args.pdf, args.reference_pdf) as document:
         result = grid_ratings(report, lambda page: grid.dedupe_chars(document.pages[page - 1].chars))
     pathlib.Path(args.out).write_text(json.dumps(result, ensure_ascii=False, indent=1) + "\n", encoding="utf8")
     counts = {}
@@ -143,10 +142,9 @@ def run_grid_samples(args):
 
 
 def run_printed(args):
-    import pdfplumber
     report = json.loads(pathlib.Path(args.report).read_text(encoding="utf8"))
     result = []
-    with pdfplumber.open(args.pdf) as document:
+    with grid.open_pdf(args.pdf, args.reference_pdf) as document:
         for pick in load_picks(args.picks):
             index, observation = match_pick(report, pick)
             if observation is None:
@@ -170,10 +168,12 @@ def main(argv=None):
         command = commands.add_parser(name)
         command.add_argument("--pdf", required=True)
         command.add_argument("--report", required=True, help="telerama.json of the same PDF")
-        if name == "grid-samples":
+        if name == "grid-samples":  # Page images only: no text layer is read.
             command.add_argument("--out-dir", required=True)
         else:
             command.add_argument("--out", required=True)
+            command.add_argument("--reference-pdf", action="append", default=[], metavar="PDF",
+                                 help="Earlier text issue, needed only when this PDF has no text layer; repeat it")
         if name == "printed":
             command.add_argument("--picks", required=True, help="picks.json of the work directory")
     args = parser.parse_args(argv)

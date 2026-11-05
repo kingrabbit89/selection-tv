@@ -18,10 +18,9 @@ def module(filename, name):
     return result
 
 
-def detect_week(path):
-    import pdfplumber
+def detect_week(path, reference_pdfs=None):
     grid = module("editorial-telerama-pdf.py", "telerama_grid_prepare")
-    with pdfplumber.open(path) as pdf:
+    with grid.open_pdf(path, reference_pdfs) as pdf:
         if not pdf.pages:
             raise ValueError("empty PDF")
         text = "\n".join(grid.compose(line) for line in grid.line_groups(grid.dedupe_chars(pdf.pages[0].chars)))
@@ -36,17 +35,22 @@ def main():
     parser.add_argument("--out-dir", required=True)
     parser.add_argument("--week")
     parser.add_argument("--library-file-id")
+    parser.add_argument("--reference-pdf", action="append", default=[], metavar="PDF",
+                        help="Earlier text issue, needed only when this PDF has no text layer; repeat it")
     args = parser.parse_args()
     out = pathlib.Path(args.out_dir)
     if out.exists():
         parser.error("output directory must be new")
-    week = detect_week(args.pdf)
+    try:
+        week = detect_week(args.pdf, args.reference_pdf)
+    except (ValueError, RuntimeError) as exc:
+        parser.exit(2, f"error: {exc}\n")
     if args.week and args.week != week:
         parser.error("PDF cover does not match requested week")
     grid = module("editorial-telerama-pdf.py", "telerama_grid_prepare")
     editorial = module("editorial-telerama-editorial.py", "telerama_reviews_prepare")
-    schedule = grid.extract_pdf(args.pdf, week, args.library_file_id)
-    reviews = editorial.extract(args.pdf, week, args.library_file_id)
+    schedule = grid.extract_pdf(args.pdf, week, args.library_file_id, reference_pdfs=args.reference_pdf)
+    reviews = editorial.extract(args.pdf, week, args.library_file_id, args.reference_pdf)
     if schedule["source"]["sha256"] != reviews["source"]["sha256"]:
         raise ValueError("PDF changed during preparation")
     summary = {"week": week, "range": schedule["range"], "source_sha256": schedule["source"]["sha256"],

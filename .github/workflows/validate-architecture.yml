@@ -58,6 +58,7 @@ jobs:
           python3 scripts/test-editorial-telerama-pdf.py
           python3 scripts/test-editorial-telerama-editorial.py
           python3 scripts/test-editorial-telerama-kit.py
+          python3 scripts/test-telerama-outline-text.py
       - run: node scripts/validate-automation.mjs
       - run: node scripts/validate-canonical-identities.mjs
       - run: node scripts/sync-asset-versions.mjs --check
