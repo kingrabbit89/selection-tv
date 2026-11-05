@@ -4,7 +4,8 @@
 Requires pdfplumber. It reads the supplied PDF, never changes repository data,
 and never exports review/article paragraphs, editorial ratings or coverage flags.
 Only the observed six-column Graphik grid layout is supported. Other layouts,
-image-only pages and ambiguous entries are reported for manual review.
+image-only pages and ambiguous entries are reported for manual review. A PDF
+holding no character at all goes through telerama-outline-text.py.
 """
 
 from __future__ import annotations
@@ -13,6 +14,7 @@ import argparse
 import collections
 import datetime as dt
 import hashlib
+import importlib.util
 import json
 import os
 import re
@@ -25,6 +27,12 @@ from pathlib import Path
 SCHEMA_VERSION = 1
 DAYS = ("LUNDI", "MARDI", "MERCREDI", "JEUDI", "VENDREDI", "SAMEDI", "DIMANCHE")
 CLOCK = re.compile(r"^(\d{1,2})\.(\d{2})(?:\s|$)")
+GLUED_CLOCK = re.compile(r"^(\d{1,2})\.(\d{2})(?=\d)")
+# Distance allowed between a time and its column margin. A rebuilt text layer
+# (telerama-outline-text.py) puts single-digit hours up to 3.3 pt off on S46, the
+# next printed lines at 5.1 pt or more; native PDFs stay at 3 pt.
+TIME_ALIGNMENT = 3
+REBUILT_TIME_ALIGNMENT = 3.4
 CHANNEL_ALIASES = {
     "arte": "Arte", "tv5 monde": "TV5MONDE", "ocs": "Ciné+ OCS",
     "canal+ cinema(s)": "Canal+ Cinéma", "canal+ box ofice": "Canal+ Box Office",
@@ -32,6 +40,23 @@ CHANNEL_ALIASES = {
     "cine+ emotion": "Ciné+ Emotion", "13 rue": "13e Rue",
     "rmc lifestory": "RMC Story", "rmc life": "RMC Life", "rmc story": "RMC Story",
 }
+
+
+def open_pdf(path, reference_pdfs=None):
+    """pdfplumber's document or, for a PDF without any character, its rebuilt text layer."""
+    spec = importlib.util.spec_from_file_location("telerama_outline_text", Path(__file__).with_name("telerama-outline-text.py"))
+    outline = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(outline)
+    return outline.open_text_pdf(path, reference_pdfs)
+
+
+def rebuilt_layer_notice(document, report):
+    """Trace a rebuilt text layer in the report and return its parser fields ({} for a native one)."""
+    layer = getattr(document, "text_layer", None)
+    if not layer:
+        return {}
+    report["warnings"].append(document.warning)
+    return layer
 
 
 def normalize_text(value):
@@ -58,7 +83,8 @@ def issue_range(week):
 def cover_range(text):
     text = normalize_text(text)
     # The first date may carry its own month (and year) across a month change: "Du 31 / 10 au 6 / 11 / 2026".
-    match = re.search(r"\bDu\s+(\d{1,2})(?:\s*/\s*(\d{1,2})(?:\s*/\s*(\d{4}))?)?\s+au\s+"
+    # A rebuilt text layer can lose the kerned blank of "Du 7 au": the date checks below still decide.
+    match = re.search(r"\bDu\s+(\d{1,2})(?:\s*/\s*(\d{1,2})(?:\s*/\s*(\d{4}))?)?\s*au\s+"
                       r"(\d{1,2})\s*/\s*(\d{1,2})\s*/\s*(\d{4})\b", text, re.I)
     if not match:
         raise ValueError("the cover has no supported, readable seven-day date range")
@@ -298,11 +324,27 @@ def header_sections(lines):
     return starts
 
 
-def time_row(line, left):
+def glued_clock(plain, text):
+    """A time whose rebuilt line has no blank before a title starting with a number ("11.10100% immo").
+
+    Only a jump beyond the regular pitch of the minute digits separates them: "12.345" stays one number.
+    """
+    match = GLUED_CLOCK.match(text)
+    if not match:
+        return None
+    marks = [c for c in plain if c.get("text", "").strip()][len(match[1]) + 1:len(match[1]) + 4]
+    if len(marks) != 3:
+        return None
+    tens, units, following = marks
+    pitch = units["x0"] - tens["x0"]
+    return match if following["x0"] - units["x0"] > pitch + .15 * float(units.get("size", 6.5)) else None
+
+
+def time_row(line, left, alignment=TIME_ALIGNMENT):
     plain = [c for c in line if not icon(c)]
     text = compose(plain)
-    match = CLOCK.match(text)
-    if not match or not plain or abs(min(c["x0"] for c in plain) - left) > 3:
+    match = CLOCK.match(text) or glued_clock(plain, text)
+    if not match or not plain or abs(min(c["x0"] for c in plain) - left) > alignment:
         return None
     digits = [c for c in plain if c.get("text", "").strip()][:len(match[1]) + 3]
     if not all(graphik_bold(c) for c in digits):
@@ -356,7 +398,7 @@ def title_from_segment(lines, time):
     return title, genre, bbox(title_chars)
 
 
-def extract_grid(chars, nominal_date, page_number, print_page, source_ref, scope="films-docs"):
+def extract_grid(chars, nominal_date, page_number, print_page, source_ref, scope="films-docs", alignment=TIME_ALIGNMENT):
     columns = grid_columns(chars)
     if not columns:
         return None
@@ -371,7 +413,7 @@ def extract_grid(chars, nominal_date, page_number, print_page, source_ref, scope
             stop = sections[section_index + 1]["index"] if section_index + 1 < len(sections) else len(lines)
             rows = []
             for index in range(section["body_index"], stop):
-                time = time_row(lines[index], left)
+                time = time_row(lines[index], left, alignment)
                 if time is not None:
                     rows.append((index, time))
             previous, day_offset, timeline_valid = None, 0, True
@@ -417,11 +459,7 @@ def extract_grid(chars, nominal_date, page_number, print_page, source_ref, scope
     return {"observations": observations, "rejected": rejected, "channels": sorted(set(channels))}
 
 
-def extract_pdf(pdf_path, week, library_file_id=None, scope="films-docs"):
-    try:
-        import pdfplumber
-    except ImportError as exc:
-        raise RuntimeError("pdfplumber is required; install with python3 -m pip install pdfplumber") from exc
+def extract_pdf(pdf_path, week, library_file_id=None, scope="films-docs", reference_pdfs=None):
     if scope not in ("films-docs", "all-programmes"):
         raise ValueError("unsupported scope")
     start, end = issue_range(week)
@@ -441,7 +479,7 @@ def extract_pdf(pdf_path, week, library_file_id=None, scope="films-docs"):
                            "No review paragraphs or editorial rating symbols are imported."]}
     if library_file_id:
         report["source"]["library_file_id"] = library_file_id
-    with pdfplumber.open(path) as document:
+    with open_pdf(path, reference_pdfs) as document:
         report["source"]["pages"] = len(document.pages)
         if not document.pages or len(document.pages) > 400:
             raise ValueError("unsupported PDF page count")
@@ -453,10 +491,12 @@ def extract_pdf(pdf_path, week, library_file_id=None, scope="films-docs"):
         publication_date = cover_publication_date(text)
         if publication_date:
             report["source"]["publication_date"] = publication_date
-        text_index = poppler_index(path, len(document.pages))
+        layer = rebuilt_layer_notice(document, report)
+        # pdftotext reads no text from outlines: it would mark every page as a non-grid page.
+        text_index = None if layer else poppler_index(path, len(document.pages))
         report["parser"] = {"layout": "telerama_six_column_graphik_v1",
                              "text_triage": "pdftotext" if text_index else "none",
-                             "facts": "pdfplumber_glyph_positions_and_styles"}
+                             "facts": "pdfplumber_glyph_positions_and_styles", **layer}
         nominal_date, date_context_error, seen = None, None, set()
         for number, page in enumerate(document.pages, 1):
             if text_index:
@@ -493,7 +533,8 @@ def extract_pdf(pdf_path, week, library_file_id=None, scope="films-docs"):
                 page.flush_cache()
                 continue
             print_number = printed_page(chars)
-            grid = extract_grid(chars, nominal_date, number, print_number, source_ref, scope)
+            grid = extract_grid(chars, nominal_date, number, print_number, source_ref, scope,
+                                REBUILT_TIME_ALIGNMENT if layer else TIME_ALIGNMENT)
             accepted, outside = 0, 0
             for observation in grid["observations"]:
                 if not start.isoformat() <= observation["date"] <= end.isoformat():
@@ -531,12 +572,14 @@ def main(argv=None):
     parser.add_argument("--output", required=True, help="New report JSON path")
     parser.add_argument("--library-file-id")
     parser.add_argument("--scope", choices=("films-docs", "all-programmes"), default="films-docs")
+    parser.add_argument("--reference-pdf", action="append", default=[], metavar="PDF",
+                        help="Earlier text issue, needed only when this PDF has no text layer; repeat it")
     args = parser.parse_args(argv)
     target = Path(args.output)
     if target.exists():
         parser.error("output already exists; choose a new path")
     try:
-        report = extract_pdf(args.pdf, args.week, args.library_file_id, args.scope)
+        report = extract_pdf(args.pdf, args.week, args.library_file_id, args.scope, args.reference_pdf)
         target.parent.mkdir(parents=True, exist_ok=True)
         with target.open("x", encoding="utf-8") as stream:
             json.dump(report, stream, ensure_ascii=False, indent=2)

@@ -56,7 +56,9 @@ export async function extractTeleramaPdf({week,pdf,out,libraryFileId,scope,cwd=p
   if(scope)args.push('--scope',scope);
   // On Windows the pdftotext page triage skipped half of the S43 grid pages: scan every page.
   const env={...process.env,...(process.platform==='win32'&&!process.env.SELECTION_TV_PDF_TRIAGE?{SELECTION_TV_PDF_TRIAGE:'off'}:{})};
-  await promisify(execFile)(pythonCommand(),args,{cwd,env,timeout:180000,maxBuffer:2*1024*1024});
+  // Rebuilding an outlined PDF takes about 6 minutes the first time (telerama-outline-text.py).
+  const timeout=process.env.SELECTION_TV_TELERAMA_REFERENCE_PDFS?900000:180000;
+  await promisify(execFile)(pythonCommand(),args,{cwd,env,timeout,maxBuffer:2*1024*1024});
   return JSON.parse(fs.readFileSync(out,'utf8'));
 }
 
