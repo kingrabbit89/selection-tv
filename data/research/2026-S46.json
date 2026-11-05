@@ -4602,8 +4602,8 @@
       "mode": "session",
       "prompt_revision": "production-session-2026-10-16",
       "started_at": "2026-11-05T14:40:21.117Z",
-      "ended_at": null,
-      "run_state": "running",
+      "ended_at": "2026-11-05T15:33:39.073Z",
+      "run_state": "stopped",
       "duration_basis": "Horloge réelle relevée par scripts/editorial-session.mjs à chaque transition ; les phases peuvent se chevaucher et ne s’additionnent pas.",
       "phases": {
         "import": {
@@ -4628,11 +4628,32 @@
         },
         "checks": {
           "started_at": "2026-11-05T15:24:04.136Z",
-          "ended_at": null
+          "ended_at": "2026-11-05T15:33:38.691Z",
+          "note": "9 validateurs locaux et validate-layout verts ; revue navigateur 30 pages sans débordement ni image cassée"
+        },
+        "shortlist": {
+          "skipped": "Présélection menée pendant l’import, avant le lancement des sous-agents"
+        },
+        "publication_chain": {
+          "started_at": "2026-11-05T15:33:38.898Z",
+          "ended_at": null,
+          "basis": "La chaîne protégée continue sur GitHub après le dernier commit de la candidate ; sa fin se constate sur latest.html et figure dans le compte rendu de la session."
         }
       },
-      "deliverables_changed": [],
-      "stop_reason": null,
+      "deliverables_changed": [
+        "data/coverage/2026-S46.json",
+        "data/inventory/2026-S46.json",
+        "data/links.json",
+        "data/manifest.json",
+        "data/radar-reserves/2026-S46.json",
+        "data/releases.json",
+        "data/research/2026-S46.json",
+        "data/weeks/2026-S46.json",
+        "data/works.json",
+        "semaines/2026-S46/index.html",
+        "assets/posters/*.webp (115)"
+      ],
+      "stop_reason": "ready_handed_off",
       "next_useful_batch": null
     }
   ],
