@@ -397,7 +397,7 @@
     }
   ],
   "independent_crosscheck_complete": false,
-  "full_week_reaudit_completed": false,
+  "full_week_reaudit_completed": true,
   "grid_inventory": {
     "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
     "source_path": "data/editorial-inputs/2026-S46/telerama.json",
@@ -719,7 +719,8 @@
       "Écart habituel de plus de 4 h 00 entre deux horaires imprimés d’une journée (heures non imprimées ou longs blocs) : Planète+ (15 h 10), Ciné+ Family (15 h 05), Ciné+ Frisson (14 h 55), Toute l’Histoire (14 h 20), Ushuaïa TV (14 h 05), Ciné+ Emotion (13 h 30), Action (13 h 20), Canal+ Docs (12 h 40), Canal+ Grand Écran (12 h 40), Polar+ (12 h 20), Canal+ Box Office (11 h 50), RTL9 (11 h 20), Canal+ Kids (11 h 00), Mezzo (9 h 10), Canal+ Cinéma (8 h 15), Paris Première (7 h 45), Ciné+ Classic (6 h 30), CStar (6 h 15), France 4 (6 h 05), RMC Découverte (5 h 55), Histoire TV (5 h 45), W9 (5 h 25), Ciné+ Festival (5 h 10), Ciné+ OCS (5 h 00), T18 (5 h 00), 6ter (4 h 55), RMC Life (4 h 45), TCM Cinéma (4 h 35), France 5 (4 h 25), L’Équipe (4 h 15), TMC (4 h 15).",
       "Aucune ligne 00:00–05:59 imprimée : RMC Story, TF1 Séries Films, TFX, W9.",
       "Le magazine n’imprime pas toutes les heures : aucune chaîne n’est relevée comme complète. Les heures non imprimées (films de nuit ou du matin des chaînes cinéma notamment) ne sont pas relevées ; les compléter par l’import Web ordinaire seulement si une piste l’exige.",
-      "La nuit 00:00–05:59 du premier samedi est imprimée dans le numéro précédent."
+      "La nuit 00:00–05:59 du premier samedi est imprimée dans le numéro précédent.",
+      "Texte reconstruit depuis les tracés vectoriels du PDF (aucune couche de texte) ; tolérance d’alignement des heures portée à 3,4 pt pour l’extraction de cette semaine ; deux lignes dont le titre commence par un nombre collé à l’heure restent hors inventaire (p. 105 à 1.00, p. 135 à 21.45)."
     ],
     "transcription_review": {
       "reviewed_at": "2026-11-05T14:42:47.000Z",
@@ -1926,5 +1927,7 @@
         "decision": "retenu : vendredi-selection rang 6 (21:10 Canal+)"
       }
     ]
-  }
+  },
+  "full_week_reaudit_basis": "Attesté le 05/11/2026 après la revue réelle : inventaire tiré de la grille imprimée du Télérama n° 4008 (mode telerama-grid-authority, 28 pages, 3445 lignes, 51 chaînes). Ce PDF n’a pas de couche de texte : caractères reconstruits en identifiant chaque tracé vectoriel parmi les polices des numéros S43 à S45. Revue de transcription par sondage de 7 pages entières relues à l’image et 70 lignes, 8 corrections sur les pages relues, omissions signalées réintégrées, huit créneaux à deux titres conservés tels qu’imprimés, revue d’impact sans effet sur les propositions, passe documentaire dédiée et rappel éditorial des 39 critiques. Les heures non imprimées restent des limites consignées ; aucune chaîne n’est déclarée complète.",
+  "independent_crosscheck_note": "Indépendance non établie : la grille du PDF fourni fait autorité sur son périmètre par décision de l’utilisateur ; aucun second guide n’a été comparé ligne à ligne."
 }

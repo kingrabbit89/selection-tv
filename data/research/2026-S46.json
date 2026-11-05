@@ -1,36 +1,4600 @@
 {
   "schema_version": 1,
   "week": "2026-S46",
-  "stage": "inventory",
+  "stage": "ready",
   "status": "in_progress",
   "base_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
-  "remaining": [
-    "Constituer et sauvegarder l’inventaire primaire des sept jours du du 7 au 13 novembre 2026 depuis la grille imprimée du Télérama fourni (mode telerama-grid-authority, empreinte sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709), avec au moins 30 lignes par jour, une ligne de nuit par jour, toutes les chaînes actives obligatoires, pages, comptes par chaîne, portée imprimée et limites consignées.",
-    "Effectuer et sauvegarder la revue de transcription par sondage de l’inventaire de grille (au moins 7 pages relues en entier, au moins 35 lignes dont 3 par jour, décisions matches/corrected/added, créneaux à deux titres relus) dans coverage.grid_inventory.transcription_review, puis la revue d’impact des conflits publiés.",
-    "Effectuer le rappel éditorial et la prospection documentaire dédiée Arte, France 5, France 2/3/4, france.tv, TV5MONDE et autres sources pertinentes, avec offres linéaires/replay/exclusivités/expirations, décisions et preuves critiques exactes sauvegardées dans le bilan de couverture.",
-    "Constituer puis tenir une présélection sourcée par jour et par rubrique, environ 1,5 à 2 fois les positions à pourvoir sans titre faible, en priorisant les appréciations Télérama positives importées et en conservant alternatives, rejets et reports.",
-    "Vérifier complètement chaque choix, réserve, ligne de grille et proposition de rubrique au niveau 3 : identité et version, diffusion (grille Télérama relue sur son périmètre, sinon preuve Web admissible), disponibilité ou expiration, réception critique, métadonnées, notes ou raison spécifique, liens directs exacts et visuel réel.",
-    "Produire trois choix développés par jour et au moins dix candidats complets distincts par jour, objectif quinze si la qualité le permet, avec synopsis et justification propres, pools de réserves publiables et toute pénurie structurée réellement sourcée.",
-    "Compléter les rubriques obligatoires et leurs seuils sans remplissage faible : rendez-vous, replay, plateformes gratuites et abonnement film-first, sorties physiques et streaming, expirations et sommaire, avec pagination lisible et réserves effectives lorsqu’elles sont requises.",
-    "Compléter les radars selon les seuils inchangés : popularité avec cinq choix, cinq cartes de sillonnage et au moins cinq réserves distinctes, puis radar 1080p avec dix choix visibles et une réserve distincte visant dix œuvres, sans compter les primaires comme réserves.",
-    "Appliquer la déduplication, la fraîcheur inter-numéros et l’équilibre cinéma/documentaire/rubriques ; conserver toute exception de fraîcheur ou pénurie sous forme structurée, précise et sourcée.",
-    "Construire et revoir tous les livrables autorisés de 2026-S46, ainsi que les enrichissements vérifiés de works, links et releases, en gardant manifest.latest à 2026-S45 et tous les statuts 2026-S46 en draft.",
-    "Exécuter les contrôles pertinents de données, liens, fraîcheur, réserves, images et présentation sur la tête exacte, inspecter les pages modifiées, résoudre les causes réelles sans baisser les critères et conserver les résultats liés au SHA et à sa base.",
-    "Après résolution réelle de remaining, effectuer la revue éditoriale complète des livrables, sceller les empreintes exactes, passer stage à ready, puis laisser la fusion candidate et la promotion protégées suivre leurs contrôles et leur publication vérifiée."
-  ],
+  "remaining": [],
   "completed_batches": [],
   "blockers": [],
   "research_attempts": [],
-  "verification_records": [],
+  "verification_records": [
+    {
+      "work_id": "france-2021",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=96",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "23:10",
+      "applies_to": {
+        "date": "2026-11-07",
+        "channel": "France 4",
+        "start": "23:10"
+      }
+    },
+    {
+      "work_id": "j-d-vance-la-revanche-d-une-amerique-2025",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=97",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:00",
+      "applies_to": {
+        "date": "2026-11-07",
+        "channel": "LCP",
+        "start": "21:00"
+      }
+    },
+    {
+      "work_id": "chien-51-2025",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=98",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "15:10",
+      "applies_to": {
+        "date": "2026-11-07",
+        "channel": "Canal+ Box Office",
+        "start": "15:10"
+      }
+    },
+    {
+      "work_id": "super-rafales-un-phenomene-sous-surveillance-2026",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=96",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "22:25",
+      "applies_to": {
+        "date": "2026-11-07",
+        "channel": "Arte",
+        "start": "22:25"
+      }
+    },
+    {
+      "work_id": "enzo-2025",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=98",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "11:40",
+      "applies_to": {
+        "date": "2026-11-07",
+        "channel": "Ciné+ Festival",
+        "start": "11:40"
+      }
+    },
+    {
+      "work_id": "aline-2020",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=98",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "14:50",
+      "applies_to": {
+        "date": "2026-11-07",
+        "channel": "Ciné+ OCS",
+        "start": "14:50"
+      }
+    },
+    {
+      "work_id": "la-mule",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=98",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "15:20",
+      "applies_to": {
+        "date": "2026-11-07",
+        "channel": "Canal+ Grand Écran",
+        "start": "15:20"
+      }
+    },
+    {
+      "work_id": "superstar-2012",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=98",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "23:20",
+      "applies_to": {
+        "date": "2026-11-07",
+        "channel": "Ciné+ OCS",
+        "start": "23:20"
+      }
+    },
+    {
+      "work_id": "gourou-2025",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=98",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "13:10",
+      "applies_to": {
+        "date": "2026-11-07",
+        "channel": "Canal+ Box Office",
+        "start": "13:10"
+      }
+    },
+    {
+      "work_id": "mr-wolff-2016",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=98",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "13:20",
+      "applies_to": {
+        "date": "2026-11-07",
+        "channel": "Canal+ Grand Écran",
+        "start": "13:20"
+      }
+    },
+    {
+      "work_id": "heat-1995",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=104",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:00",
+      "applies_to": {
+        "date": "2026-11-08",
+        "channel": "Canal+ Grand Écran",
+        "start": "21:00"
+      }
+    },
+    {
+      "work_id": "sept-jours-en-mai-1964",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=96",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "00:10",
+      "applies_to": {
+        "date": "2026-11-08",
+        "channel": "France 3",
+        "start": "00:10"
+      }
+    },
+    {
+      "work_id": "au-nom-des-enfants-perdus-2026",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=102",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "22:50",
+      "applies_to": {
+        "date": "2026-11-08",
+        "channel": "France 5",
+        "start": "22:50"
+      }
+    },
+    {
+      "work_id": "rock-n-roll-2017",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=103",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:10",
+      "applies_to": {
+        "date": "2026-11-08",
+        "channel": "RMC Life",
+        "start": "21:10"
+      }
+    },
+    {
+      "work_id": "novembre-2022",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=102",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:10",
+      "applies_to": {
+        "date": "2026-11-08",
+        "channel": "France 2",
+        "start": "21:10"
+      }
+    },
+    {
+      "work_id": "les-pleins-pouvoirs-1997",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=102",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:00",
+      "applies_to": {
+        "date": "2026-11-08",
+        "channel": "Arte",
+        "start": "21:00"
+      }
+    },
+    {
+      "work_id": "la-fabrique-du-mensonge-2026",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=102",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:05",
+      "applies_to": {
+        "date": "2026-11-08",
+        "channel": "France 5",
+        "start": "21:05"
+      }
+    },
+    {
+      "work_id": "holy-lola-2004",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=104",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "14:40",
+      "applies_to": {
+        "date": "2026-11-08",
+        "channel": "Ciné+ Festival",
+        "start": "14:40"
+      }
+    },
+    {
+      "work_id": "orfeu-negro-1959",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=105",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "08:55",
+      "applies_to": {
+        "date": "2026-11-08",
+        "channel": "TCM Cinéma",
+        "start": "08:55"
+      }
+    },
+    {
+      "work_id": "terre-damnee-1950",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=105",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "16:05",
+      "applies_to": {
+        "date": "2026-11-08",
+        "channel": "TCM Cinéma",
+        "start": "16:05"
+      }
+    },
+    {
+      "work_id": "better-man-2024",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=104",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "23:10",
+      "applies_to": {
+        "date": "2026-11-08",
+        "channel": "Ciné+ OCS",
+        "start": "23:10"
+      }
+    },
+    {
+      "work_id": "clint-eastwood-la-derniere-legende-2022",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=102",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "22:55",
+      "applies_to": {
+        "date": "2026-11-08",
+        "channel": "Arte",
+        "start": "22:55"
+      }
+    },
+    {
+      "work_id": "un-singe-en-hiver-1962",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=108",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:10",
+      "applies_to": {
+        "date": "2026-11-09",
+        "channel": "France 3",
+        "start": "21:10"
+      }
+    },
+    {
+      "work_id": "travail-force-enfants-voles-l-irlande-au-tribunal-2025",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=108",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "22:35",
+      "applies_to": {
+        "date": "2026-11-09",
+        "channel": "Arte",
+        "start": "22:35"
+      }
+    },
+    {
+      "work_id": "le-mepris-1963",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=110",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "17:40",
+      "applies_to": {
+        "date": "2026-11-09",
+        "channel": "Ciné+ Classic",
+        "start": "17:40"
+      }
+    },
+    {
+      "work_id": "revoir-paris-2022",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=108",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "20:55",
+      "applies_to": {
+        "date": "2026-11-09",
+        "channel": "Arte",
+        "start": "20:55"
+      }
+    },
+    {
+      "work_id": "sorda-2025",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=110",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "20:50",
+      "applies_to": {
+        "date": "2026-11-09",
+        "channel": "Ciné+ Festival",
+        "start": "20:50"
+      }
+    },
+    {
+      "work_id": "patients-2016",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=110",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "17:20",
+      "applies_to": {
+        "date": "2026-11-09",
+        "channel": "Ciné+ Emotion",
+        "start": "17:20"
+      }
+    },
+    {
+      "work_id": "sur-la-piste-du-casoar-2026",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=108",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:05",
+      "applies_to": {
+        "date": "2026-11-09",
+        "channel": "France 5",
+        "start": "21:05"
+      }
+    },
+    {
+      "work_id": "vendredi-noir-2025",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=109",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "20:40",
+      "applies_to": {
+        "date": "2026-11-09",
+        "channel": "LCP",
+        "start": "20:40"
+      }
+    },
+    {
+      "work_id": "piranha-3d-2010",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=110",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "22:10",
+      "applies_to": {
+        "date": "2026-11-09",
+        "channel": "Ciné+ Frisson",
+        "start": "22:10"
+      }
+    },
+    {
+      "work_id": "diamond-island-2016",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=111",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:05",
+      "applies_to": {
+        "date": "2026-11-09",
+        "channel": "TV5MONDE",
+        "start": "21:05"
+      }
+    },
+    {
+      "work_id": "gazon-maudit-1995",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=110",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "19:20",
+      "applies_to": {
+        "date": "2026-11-09",
+        "channel": "Canal+ Grand Écran",
+        "start": "19:20"
+      }
+    },
+    {
+      "work_id": "super-8-2011",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=110",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "20:50",
+      "applies_to": {
+        "date": "2026-11-09",
+        "channel": "Ciné+ Family",
+        "start": "20:50"
+      }
+    },
+    {
+      "work_id": "un-francais-nomme-gabin-2016",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=108",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "22:50",
+      "applies_to": {
+        "date": "2026-11-09",
+        "channel": "France 3",
+        "start": "22:50"
+      }
+    },
+    {
+      "work_id": "marty-supreme-2025",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=116",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:10",
+      "applies_to": {
+        "date": "2026-11-10",
+        "channel": "Canal+",
+        "start": "21:10"
+      }
+    },
+    {
+      "work_id": "criminel-nazi-cherche-employeur-la-cavale-de-walter-rauff-2026",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=114",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "20:55",
+      "applies_to": {
+        "date": "2026-11-10",
+        "channel": "Arte",
+        "start": "20:55"
+      }
+    },
+    {
+      "work_id": "the-world-of-love-2025",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=116",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "20:50",
+      "applies_to": {
+        "date": "2026-11-10",
+        "channel": "Ciné+ Festival",
+        "start": "20:50"
+      }
+    },
+    {
+      "work_id": "la-vente-secrete-des-juifs-de-roumanie-2025",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=114",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "22:40",
+      "applies_to": {
+        "date": "2026-11-10",
+        "channel": "Arte",
+        "start": "22:40"
+      }
+    },
+    {
+      "work_id": "vendee-globe-seuls-autour-du-monde-2026",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=114",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:10",
+      "applies_to": {
+        "date": "2026-11-10",
+        "channel": "France 2",
+        "start": "21:10"
+      }
+    },
+    {
+      "work_id": "good-bye-lenin-2003",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=114",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:00",
+      "applies_to": {
+        "date": "2026-11-10",
+        "channel": "France 4",
+        "start": "21:00"
+      }
+    },
+    {
+      "work_id": "vaudou-1943",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=117",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "09:35",
+      "applies_to": {
+        "date": "2026-11-10",
+        "channel": "TCM Cinéma",
+        "start": "09:35"
+      }
+    },
+    {
+      "work_id": "le-stratege-2011",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=116",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "16:40",
+      "applies_to": {
+        "date": "2026-11-10",
+        "channel": "Ciné+ Emotion",
+        "start": "16:40"
+      }
+    },
+    {
+      "work_id": "falbalas",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=110",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "00:30",
+      "applies_to": {
+        "date": "2026-11-10",
+        "channel": "Ciné+ Classic",
+        "start": "00:30"
+      }
+    },
+    {
+      "work_id": "un-poete-2025",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=110",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "03:50",
+      "applies_to": {
+        "date": "2026-11-10",
+        "channel": "Ciné+ Festival",
+        "start": "03:50"
+      }
+    },
+    {
+      "work_id": "la-riviere-2023",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=117",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "14:05",
+      "applies_to": {
+        "date": "2026-11-10",
+        "channel": "TV5MONDE",
+        "start": "14:05"
+      }
+    },
+    {
+      "work_id": "les-trois-freres-1995",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=115",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:10",
+      "applies_to": {
+        "date": "2026-11-10",
+        "channel": "TFX",
+        "start": "21:10"
+      }
+    },
+    {
+      "work_id": "le-quai-des-brumes-1938",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=120",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "20:55",
+      "applies_to": {
+        "date": "2026-11-11",
+        "channel": "Arte",
+        "start": "20:55"
+      }
+    },
+    {
+      "work_id": "jean-gabin-la-guerre-c-est-pas-du-cinema-2026",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=120",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "22:30",
+      "applies_to": {
+        "date": "2026-11-11",
+        "channel": "Arte",
+        "start": "22:30"
+      }
+    },
+    {
+      "work_id": "birdman-2014",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=122",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "16:00",
+      "applies_to": {
+        "date": "2026-11-11",
+        "channel": "Ciné+ Frisson",
+        "start": "16:00"
+      }
+    },
+    {
+      "work_id": "interceptes-2024",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=114",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "00:35",
+      "applies_to": {
+        "date": "2026-11-11",
+        "channel": "Arte",
+        "start": "00:35"
+      }
+    },
+    {
+      "work_id": "toy-story-4-2019",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=121",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "19:00",
+      "applies_to": {
+        "date": "2026-11-11",
+        "channel": "6ter",
+        "start": "19:00"
+      }
+    },
+    {
+      "work_id": "babysitter-2022",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=122",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "19:00",
+      "applies_to": {
+        "date": "2026-11-11",
+        "channel": "Ciné+ Festival",
+        "start": "19:00"
+      }
+    },
+    {
+      "work_id": "l-affaire-d-outreau-2023",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=120",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "23:00",
+      "applies_to": {
+        "date": "2026-11-11",
+        "channel": "France 2",
+        "start": "23:00"
+      }
+    },
+    {
+      "work_id": "nuremberg",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=122",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "16:30",
+      "applies_to": {
+        "date": "2026-11-11",
+        "channel": "Canal+ Cinéma(s)",
+        "start": "16:30"
+      }
+    },
+    {
+      "work_id": "l-ours-1988",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=121",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "16:00",
+      "applies_to": {
+        "date": "2026-11-11",
+        "channel": "6ter",
+        "start": "16:00"
+      }
+    },
+    {
+      "work_id": "cluedo-1985",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=120",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "23:30",
+      "applies_to": {
+        "date": "2026-11-11",
+        "channel": "Arte",
+        "start": "23:30"
+      }
+    },
+    {
+      "work_id": "artus-le-show-xxl-2026",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=122",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:10",
+      "applies_to": {
+        "date": "2026-11-11",
+        "channel": "Canal+",
+        "start": "21:10"
+      }
+    },
+    {
+      "work_id": "edward-aux-mains-d-argent-1990",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=127",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:10",
+      "applies_to": {
+        "date": "2026-11-12",
+        "channel": "Novo19",
+        "start": "21:10"
+      }
+    },
+    {
+      "work_id": "babylon-2022",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=127",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:10",
+      "applies_to": {
+        "date": "2026-11-12",
+        "channel": "M6",
+        "start": "21:10"
+      }
+    },
+    {
+      "work_id": "la-science-des-reves-2006",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=126",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:00",
+      "applies_to": {
+        "date": "2026-11-12",
+        "channel": "France 4",
+        "start": "21:00"
+      }
+    },
+    {
+      "work_id": "six-jours-ce-printemps-la-2025",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=128",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:00",
+      "applies_to": {
+        "date": "2026-11-12",
+        "channel": "Canal+ Cinéma(s)",
+        "start": "21:00"
+      }
+    },
+    {
+      "work_id": "jossi-2026",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=126",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "20:55",
+      "applies_to": {
+        "date": "2026-11-12",
+        "channel": "Arte",
+        "start": "20:55"
+      }
+    },
+    {
+      "work_id": "gta-le-jeu-no-limit-2026",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=126",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "22:40",
+      "applies_to": {
+        "date": "2026-11-12",
+        "channel": "France 4",
+        "start": "22:40"
+      }
+    },
+    {
+      "work_id": "la-civilisation-perdue-d-amazonie-2024",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=126",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:10",
+      "applies_to": {
+        "date": "2026-11-12",
+        "channel": "France 5",
+        "start": "21:10"
+      }
+    },
+    {
+      "work_id": "l-experience",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=120",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "02:00",
+      "applies_to": {
+        "date": "2026-11-12",
+        "channel": "Arte",
+        "start": "02:00"
+      }
+    },
+    {
+      "work_id": "jane-eyre-2011",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=128",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "15:40",
+      "applies_to": {
+        "date": "2026-11-12",
+        "channel": "Ciné+ Emotion",
+        "start": "15:40"
+      }
+    },
+    {
+      "work_id": "mr-73-2008",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=128",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "18:50",
+      "applies_to": {
+        "date": "2026-11-12",
+        "channel": "Ciné+ Frisson",
+        "start": "18:50"
+      }
+    },
+    {
+      "work_id": "le-cid-1961",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=129",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "22:45",
+      "applies_to": {
+        "date": "2026-11-12",
+        "channel": "TCM Cinéma",
+        "start": "22:45"
+      }
+    },
+    {
+      "work_id": "l-ecrivain-et-l-assassin-l-adversaire-d-emmanuel-carrere-2024",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=126",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "23:55",
+      "applies_to": {
+        "date": "2026-11-12",
+        "channel": "Arte",
+        "start": "23:55"
+      }
+    },
+    {
+      "work_id": "klaus-nomi-chanteur-du-troisieme-type-2025",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=132",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "22:30",
+      "applies_to": {
+        "date": "2026-11-13",
+        "channel": "Arte",
+        "start": "22:30"
+      }
+    },
+    {
+      "work_id": "le-chat-1971",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=132",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:05",
+      "applies_to": {
+        "date": "2026-11-13",
+        "channel": "France 5",
+        "start": "21:05"
+      }
+    },
+    {
+      "work_id": "l-innocent-1976",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=134",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "22:50",
+      "applies_to": {
+        "date": "2026-11-13",
+        "channel": "Ciné+ Classic",
+        "start": "22:50"
+      }
+    },
+    {
+      "work_id": "l-arnacoeur-2010",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=134",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "19:20",
+      "applies_to": {
+        "date": "2026-11-13",
+        "channel": "Canal+ Grand Écran",
+        "start": "19:20"
+      }
+    },
+    {
+      "work_id": "revelations-200-ans-de-photographie-2026",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=132",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "22:35",
+      "applies_to": {
+        "date": "2026-11-13",
+        "channel": "France 5",
+        "start": "22:35"
+      }
+    },
+    {
+      "work_id": "l-enfant-du-desert-2026",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=134",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:10",
+      "applies_to": {
+        "date": "2026-11-13",
+        "channel": "Canal+",
+        "start": "21:10"
+      }
+    },
+    {
+      "work_id": "talking-heads-stop-making-sense-live-at-pantages-theatre-1983-1984",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=132",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "23:25",
+      "applies_to": {
+        "date": "2026-11-13",
+        "channel": "Arte",
+        "start": "23:25"
+      }
+    },
+    {
+      "work_id": "le-crime-2026",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=134",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:00",
+      "applies_to": {
+        "date": "2026-11-13",
+        "channel": "Canal+ Box Office",
+        "start": "21:00"
+      }
+    },
+    {
+      "work_id": "the-north-sea-2021",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=135",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:00",
+      "applies_to": {
+        "date": "2026-11-13",
+        "channel": "Paris Première",
+        "start": "21:00"
+      }
+    },
+    {
+      "work_id": "cactus-jack-1979",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=135",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "09:45",
+      "applies_to": {
+        "date": "2026-11-13",
+        "channel": "TCM Cinéma",
+        "start": "09:45"
+      }
+    },
+    {
+      "work_id": "l-idee-d-etre-avec-toi-2024",
+      "url": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709#page=133",
+      "checked_at": "2026-11-05T15:28:04Z",
+      "field": "broadcast.start",
+      "result": "verified",
+      "value": "21:10",
+      "applies_to": {
+        "date": "2026-11-13",
+        "channel": "TFX",
+        "start": "21:10"
+      }
+    },
+    {
+      "work_id": "france-2021",
+      "url": "https://www.senscritique.com/film/france/39281781",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2021 · Bruno Dumont"
+    },
+    {
+      "work_id": "j-d-vance-la-revanche-d-une-amerique-2025",
+      "url": "https://www.senscritique.com/film/j_d_vance_la_revanche_d_une_amerique/133855981",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2025 · David Thomson, Christophe Astruc"
+    },
+    {
+      "work_id": "chien-51-2025",
+      "url": "https://www.senscritique.com/film/chien_51/83701178",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2025 · Cédric Jimenez"
+    },
+    {
+      "work_id": "super-rafales-un-phenomene-sous-surveillance-2026",
+      "url": "https://www.arte.tv/fr/videos/128037-000-A/super-rafales-un-phenomene-sous-surveillance/",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2026 · Tom Ranson"
+    },
+    {
+      "work_id": "enzo-2025",
+      "url": "https://www.senscritique.com/film/enzo/95867836",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2025 · Robin Campillo"
+    },
+    {
+      "work_id": "aline-2020",
+      "url": "https://www.senscritique.com/film/aline/33689209",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2020 · Valérie Lemercier"
+    },
+    {
+      "work_id": "la-mule",
+      "url": "https://www.senscritique.com/film/la_mule/29879514",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2018 · Clint Eastwood"
+    },
+    {
+      "work_id": "superstar-2012",
+      "url": "https://www.senscritique.com/film/superstar/410046",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2012 · Xavier Giannoli"
+    },
+    {
+      "work_id": "gourou-2025",
+      "url": "https://www.senscritique.com/film/gourou/82130194",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2025 · Yann Gozlan"
+    },
+    {
+      "work_id": "mr-wolff-2016",
+      "url": "https://www.senscritique.com/film/mr_wolff/13524863",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2016 · Gavin O'Connor"
+    },
+    {
+      "work_id": "heat-1995",
+      "url": "https://www.senscritique.com/film/heat/466023",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1995 · Michael Mann"
+    },
+    {
+      "work_id": "sept-jours-en-mai-1964",
+      "url": "https://www.senscritique.com/film/sept_jours_en_mai/415618",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1964 · John Frankenheimer"
+    },
+    {
+      "work_id": "au-nom-des-enfants-perdus-2026",
+      "url": "https://www.francetvpro.fr/contenu-de-presse/78500345",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2026 · Tal Zana"
+    },
+    {
+      "work_id": "rock-n-roll-2017",
+      "url": "https://www.senscritique.com/film/rock_n_roll/19232825",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2017 · Guillaume Canet"
+    },
+    {
+      "work_id": "novembre-2022",
+      "url": "https://www.senscritique.com/film/novembre/44747759",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2022 · Cédric Jimenez"
+    },
+    {
+      "work_id": "les-pleins-pouvoirs-1997",
+      "url": "https://www.senscritique.com/film/les_pleins_pouvoirs/491686",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1997 · Clint Eastwood"
+    },
+    {
+      "work_id": "la-fabrique-du-mensonge-2026",
+      "url": "https://www.francetvpro.fr/contenu-de-presse/77047961",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2026 · Lisa Monin"
+    },
+    {
+      "work_id": "holy-lola-2004",
+      "url": "https://www.senscritique.com/film/holy_lola/459450",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2004 · Bertrand Tavernier"
+    },
+    {
+      "work_id": "orfeu-negro-1959",
+      "url": "https://www.senscritique.com/film/orfeu_negro/485521",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1959 · Marcel Camus"
+    },
+    {
+      "work_id": "terre-damnee-1950",
+      "url": "https://www.senscritique.com/film/terre_damnee/17626459",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1950 · John Farrow"
+    },
+    {
+      "work_id": "better-man-2024",
+      "url": "https://www.senscritique.com/film/better_man/100376247",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2024 · Michael Gracey"
+    },
+    {
+      "work_id": "clint-eastwood-la-derniere-legende-2022",
+      "url": "https://www.senscritique.com/film/clint_eastwood_la_derniere_legende/53041565",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2022 · Clélia Cohen"
+    },
+    {
+      "work_id": "un-singe-en-hiver-1962",
+      "url": "https://www.senscritique.com/film/un_singe_en_hiver/361917",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1962 · Henri Verneuil"
+    },
+    {
+      "work_id": "travail-force-enfants-voles-l-irlande-au-tribunal-2025",
+      "url": "https://www.arte.tv/fr/videos/114597-000-A/travail-force-enfants-voles-l-irlande-au-tribunal/",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2025 · Aoife Kelleher"
+    },
+    {
+      "work_id": "le-mepris-1963",
+      "url": "https://www.senscritique.com/film/le_mepris/476344",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1963 · Jean-Luc Godard"
+    },
+    {
+      "work_id": "revoir-paris-2022",
+      "url": "https://www.senscritique.com/film/revoir_paris/45395174",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2022 · Alice Winocour"
+    },
+    {
+      "work_id": "sorda-2025",
+      "url": "https://www.senscritique.com/film/sorda/106895276",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2025 · Eva Libertad"
+    },
+    {
+      "work_id": "patients-2016",
+      "url": "https://www.senscritique.com/film/patients/23203018",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2017 · Grand Corps Malade"
+    },
+    {
+      "work_id": "sur-la-piste-du-casoar-2026",
+      "url": "https://www.francetvpro.fr/contenu-de-presse/79036691",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2026 · Jérémy Frey, Rémi Dupouy"
+    },
+    {
+      "work_id": "vendredi-noir-2025",
+      "url": "https://www.senscritique.com/film/vendredi_noir_13_novembre_2015/139042002",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2025 · Daniel Psenny, Franck Zahler"
+    },
+    {
+      "work_id": "piranha-3d-2010",
+      "url": "https://www.senscritique.com/film/piranha_3d/410051",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2010 · Alexandre Aja"
+    },
+    {
+      "work_id": "diamond-island-2016",
+      "url": "https://www.senscritique.com/film/diamond_island/18806346",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2016 · Davy Chou"
+    },
+    {
+      "work_id": "gazon-maudit-1995",
+      "url": "https://www.senscritique.com/film/gazon_maudit/471226",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1995 · Josiane Balasko"
+    },
+    {
+      "work_id": "super-8-2011",
+      "url": "https://www.senscritique.com/film/super_8/475306",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2011 · J. J. Abrams"
+    },
+    {
+      "work_id": "un-francais-nomme-gabin-2016",
+      "url": "https://www.senscritique.com/film/un_francais_nomme_gabin/25262752",
+      "checked_at": "2026-11-05T14:58:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2016 · Yves Jeuland"
+    },
+    {
+      "work_id": "marty-supreme-2025",
+      "url": "https://www.senscritique.com/film/marty_supreme/95985390",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2025 · Joshua Safdie"
+    },
+    {
+      "work_id": "criminel-nazi-cherche-employeur-la-cavale-de-walter-rauff-2026",
+      "url": "https://www.arte.tv/fr/videos/127472-001-A/criminel-nazi-cherche-employeur-1-2/",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2026 · Jean-Christophe Klotz"
+    },
+    {
+      "work_id": "the-world-of-love-2025",
+      "url": "https://www.senscritique.com/film/the_world_of_love/123753287",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2025 · Yoon Ga-eun"
+    },
+    {
+      "work_id": "la-vente-secrete-des-juifs-de-roumanie-2025",
+      "url": "https://www.arte.tv/fr/videos/122164-000-A/la-vente-secrete-des-juifs-de-roumanie/",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2025 · Pierre Goetschel"
+    },
+    {
+      "work_id": "vendee-globe-seuls-autour-du-monde-2026",
+      "url": "https://www.senscritique.com/serie/vendee_globe_seuls_autour_du_monde/140055618",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2026 · Thomas Sametin"
+    },
+    {
+      "work_id": "good-bye-lenin-2003",
+      "url": "https://www.senscritique.com/film/good_bye_lenin/383889",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2003 · Wolfgang Becker"
+    },
+    {
+      "work_id": "vaudou-1943",
+      "url": "https://www.senscritique.com/film/vaudou/474103",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1943 · Jacques Tourneur"
+    },
+    {
+      "work_id": "le-stratege-2011",
+      "url": "https://www.senscritique.com/film/le_stratege/389511",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2011 · Bennett Miller"
+    },
+    {
+      "work_id": "falbalas",
+      "url": "https://www.senscritique.com/film/falbalas/418294",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1945 · Jacques Becker"
+    },
+    {
+      "work_id": "un-poete-2025",
+      "url": "https://www.senscritique.com/film/un_poete/111672928",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2025 · Simón Mesa Soto"
+    },
+    {
+      "work_id": "la-riviere-2023",
+      "url": "https://www.senscritique.com/film/la_riviere/56641148",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2023 · Dominique Marchais"
+    },
+    {
+      "work_id": "les-trois-freres-1995",
+      "url": "https://www.senscritique.com/film/les_trois_freres/370588",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1995 · Didier Bourdon / Bernard Campan"
+    },
+    {
+      "work_id": "le-quai-des-brumes-1938",
+      "url": "https://www.senscritique.com/film/le_quai_des_brumes/490357",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1938 · Marcel Carné"
+    },
+    {
+      "work_id": "jean-gabin-la-guerre-c-est-pas-du-cinema-2026",
+      "url": "https://www.arte.tv/fr/videos/132105-000-A/jean-gabin-la-guerre-c-est-pas-du-cinema/",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2026 · Patrick Jeudy"
+    },
+    {
+      "work_id": "birdman-2014",
+      "url": "https://www.senscritique.com/film/birdman/8463636",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2014 · Alejandro González Iñárritu"
+    },
+    {
+      "work_id": "interceptes-2024",
+      "url": "https://www.senscritique.com/film/interceptes/79931734",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2024 · Oksana Karpovych"
+    },
+    {
+      "work_id": "toy-story-4-2019",
+      "url": "https://www.senscritique.com/film/toy_story_4/12747427",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2019 · Josh Cooley"
+    },
+    {
+      "work_id": "babysitter-2022",
+      "url": "https://www.senscritique.com/film/babysitter/45450321",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2022 · Monia Chokri"
+    },
+    {
+      "work_id": "l-affaire-d-outreau-2023",
+      "url": "https://www.senscritique.com/serie/l_affaire_d_outreau/54642003",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2023 · Olivier Ayache-Vidal, Agnès Pizzini"
+    },
+    {
+      "work_id": "nuremberg",
+      "url": "https://www.senscritique.com/film/nuremberg/68329247",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2025 · James Vanderbilt"
+    },
+    {
+      "work_id": "l-ours-1988",
+      "url": "https://www.senscritique.com/film/l_ours/444435",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1988 · Jean-Jacques Annaud"
+    },
+    {
+      "work_id": "cluedo-1985",
+      "url": "https://www.senscritique.com/film/cluedo/436653",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1985 · Jonathan Lynn"
+    },
+    {
+      "work_id": "artus-le-show-xxl-2026",
+      "url": "https://www.pathe.fr/films/artus-le-show-xxl-au-cinema-52069",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2026 · Julien Faustino, Artus"
+    },
+    {
+      "work_id": "edward-aux-mains-d-argent-1990",
+      "url": "https://www.senscritique.com/film/edward_aux_mains_d_argent/481959",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1990 · Tim Burton"
+    },
+    {
+      "work_id": "babylon-2022",
+      "url": "https://www.senscritique.com/film/Babylon/39750335",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2022 · Damien Chazelle"
+    },
+    {
+      "work_id": "la-science-des-reves-2006",
+      "url": "https://www.senscritique.com/film/La_Science_des_reves/430697",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2006 · Michel Gondry"
+    },
+    {
+      "work_id": "six-jours-ce-printemps-la-2025",
+      "url": "https://www.senscritique.com/film/six_jours_ce_printemps_la/119515582",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2025 · Joachim Lafosse"
+    },
+    {
+      "work_id": "jossi-2026",
+      "url": "https://www.arte.tv/fr/videos/120398-001-A/jossi-1-6/",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2026 · Dimitrij Schaad"
+    },
+    {
+      "work_id": "gta-le-jeu-no-limit-2026",
+      "url": "https://www.francetvpro.fr/contenu-de-presse/79036655",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2026 · Sonia Dauger"
+    },
+    {
+      "work_id": "la-civilisation-perdue-d-amazonie-2024",
+      "url": "https://www.francetvpro.fr/contenu-de-presse/69974603",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2024 · Franck Cuveillier, Eric Ellena"
+    },
+    {
+      "work_id": "l-experience",
+      "url": "https://www.senscritique.com/film/L_Experience/496539",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2001 · Oliver Hirschbiegel"
+    },
+    {
+      "work_id": "jane-eyre-2011",
+      "url": "https://www.senscritique.com/film/jane_eyre/414210",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2011 · Cary Joji Fukunaga"
+    },
+    {
+      "work_id": "mr-73-2008",
+      "url": "https://www.senscritique.com/film/mr_73/414200",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2008 · Olivier Marchal"
+    },
+    {
+      "work_id": "le-cid-1961",
+      "url": "https://www.senscritique.com/film/Le_Cid/488404",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1961 · Anthony Mann"
+    },
+    {
+      "work_id": "l-ecrivain-et-l-assassin-l-adversaire-d-emmanuel-carrere-2024",
+      "url": "https://www.arte.tv/fr/videos/117755-000-A/l-adversaire-d-emmanuel-carrere/",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2024 · Camille Juza"
+    },
+    {
+      "work_id": "klaus-nomi-chanteur-du-troisieme-type-2025",
+      "url": "https://www.arte.tv/fr/videos/128081-000-A/klaus-nomi-chanteur-du-troisieme-type/",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2025 · Thomas Boujut"
+    },
+    {
+      "work_id": "le-chat-1971",
+      "url": "https://www.senscritique.com/film/le_chat/487919",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1971 · Pierre Granier-Deferre"
+    },
+    {
+      "work_id": "l-innocent-1976",
+      "url": "https://www.senscritique.com/film/l_innocent/465719",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1976 · Luchino Visconti"
+    },
+    {
+      "work_id": "l-arnacoeur-2010",
+      "url": "https://www.senscritique.com/film/l_arnacoeur/424201",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2010 · Pascal Chaumeil"
+    },
+    {
+      "work_id": "revelations-200-ans-de-photographie-2026",
+      "url": "https://www.francetvpro.fr/contenu-de-presse/79036652",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2026 · Grégory Monro"
+    },
+    {
+      "work_id": "l-enfant-du-desert-2026",
+      "url": "https://www.senscritique.com/film/l_enfant_du_desert/133849086",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2026 · Gilles de Maistre"
+    },
+    {
+      "work_id": "talking-heads-stop-making-sense-live-at-pantages-theatre-1983-1984",
+      "url": "https://www.senscritique.com/film/stop_making_sense/491103",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1984 · Jonathan Demme"
+    },
+    {
+      "work_id": "le-crime-2026",
+      "url": "https://www.senscritique.com/film/le_crime_du_3e_etage/107116359",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2026 · Rémi Bezançon"
+    },
+    {
+      "work_id": "the-north-sea-2021",
+      "url": "https://www.senscritique.com/film/the_north_sea/45441468",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2021 · John Andreas Andersen"
+    },
+    {
+      "work_id": "cactus-jack-1979",
+      "url": "https://www.senscritique.com/film/cactus_jack/498155",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1979 · Hal Needham"
+    },
+    {
+      "work_id": "l-idee-d-etre-avec-toi-2024",
+      "url": "https://www.senscritique.com/film/l_idee_d_etre_avec_toi/50613251",
+      "checked_at": "2026-11-05T11:00:00Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2024 · Michael Showalter"
+    },
+    {
+      "work_id": "sailor-suit-and-machine-gun-1981",
+      "url": "https://www.senscritique.com/film/sailor_suit_and_machine_gun/8289911",
+      "checked_at": "2026-11-05T15:14:45Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1981 · Shinji Sômai"
+    },
+    {
+      "work_id": "the-eye-2003",
+      "url": "https://www.senscritique.com/film/the_eye/463256",
+      "checked_at": "2026-11-05T15:14:45Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "2002 · Danny Pang / Oxide Pang"
+    },
+    {
+      "work_id": "mon-oncle-1958",
+      "url": "https://www.senscritique.com/film/mon_oncle/401580",
+      "checked_at": "2026-11-05T15:14:45Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1958 · Jacques Tati"
+    },
+    {
+      "work_id": "les-vacances-de-m-hulot-1953",
+      "url": "https://www.senscritique.com/film/les_vacances_de_m_hulot/477726",
+      "checked_at": "2026-11-05T15:14:45Z",
+      "field": "identity",
+      "result": "verified",
+      "value": "1953 · Jacques Tati"
+    }
+  ],
   "shortlist": {
-    "entries": []
+    "entries": [
+      {
+        "id": "sl-samedi-selection-france-2021",
+        "title": "France",
+        "work_id": "france-2021",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Louis Guichard) : Bruno Dumont filme une star de l’information en continu, entre reportages chocs et débats manichéens, jusqu’à la descente aux enfers. Style dissonant, satire peu flatteuse, inquiétude morale intacte ; Léa Seydoux, au sommet, rend ce parcours complexe et attachant.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 94,
+            "bbox": [
+              103.92,
+              352.25,
+              195.82,
+              385.94
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/2"
+            }
+          },
+          {
+            "kind": "sélection",
+            "note": "Sélection officielle en compétition au Festival de Cannes 2021",
+            "source_url": "https://fr.wikipedia.org/wiki/France_(film,_2021)"
+          },
+          {
+            "kind": "nomination",
+            "note": "Nomination au César 2022 de la meilleure actrice (Léa Seydoux)",
+            "source_url": "https://fr.wikipedia.org/wiki/France_(film,_2021)"
+          }
+        ],
+        "decision_note": "samedi-selection rang 1 (23:10 France 4) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-samedi-selection-j-d-vance-la-revanche-d-une-amerique-2025",
+        "title": "J. D. Vance : la revanche d’une Amérique",
+        "work_id": "j-d-vance-la-revanche-d-une-amerique-2025",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Bien » (Olivier Pascal-Moussellard) : Portrait du vice-président américain, de l’enfance pauvre à Middletown jusqu’au pouvoir : la critique trouve cette ascension, racontée par ceux qui l’ont connu, fascinante et inquiétante, et y voit l’un des idéologues les plus radicaux de la droite dure.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 94,
+            "bbox": [
+              103.4,
+              48.21,
+              311.41,
+              73.24
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/0"
+            }
+          }
+        ],
+        "decision_note": "samedi-selection rang 2 (21:00 LCP) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-samedi-selection-chien-51-2025",
+        "title": "Chien 51",
+        "work_id": "chien-51-2025",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "sélection",
+            "note": "Film de clôture hors compétition de la Mostra de Venise 2025 ; sélection TIFF 2025 (Special Presentations)",
+            "source_url": "https://fr.wikipedia.org/wiki/Chien_51"
+          },
+          {
+            "kind": "nomination",
+            "note": "Nommé aux César 2026 (meilleurs effets visuels, meilleurs décors)",
+            "source_url": "https://fr.wikipedia.org/wiki/Chien_51"
+          }
+        ],
+        "decision_note": "samedi-selection rang 3 (15:10 Canal+ Box Office) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-samedi-selection-super-rafales-un-phenomene-sous-surveillance-2026",
+        "title": "Super-rafales, un phénomène sous surveillance",
+        "work_id": "super-rafales-un-phenomene-sous-surveillance-2026",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Bien » (Marie-Hélène Soenen) : Documentaire pédagogique sur la formation des giga-tempêtes, de plus en plus fréquentes avec le réchauffement ; séquences d’observation spectaculaires avec un chasseur de tempêtes, à éviter pour qui redoute les orages ou l’avion.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 94,
+            "bbox": [
+              343.19,
+              48.25,
+              515.32,
+              84.24
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/1"
+            }
+          }
+        ],
+        "decision_note": "samedi-selection rang 4 (22:25 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-samedi-selection-enzo-2025",
+        "title": "Enzo",
+        "work_id": "enzo-2025",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "sélection",
+            "note": "Sélection à la Quinzaine des cinéastes, Festival de Cannes 2025",
+            "source_url": "https://fr.wikipedia.org/wiki/Enzo_(film)"
+          }
+        ],
+        "decision_note": "samedi-selection rang 5 (11:40 Ciné+ Festival) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-samedi-selection-aline-2020",
+        "title": "Aline",
+        "work_id": "aline-2020",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "prix",
+            "note": "César 2022 de la meilleure actrice pour Valérie Lemercier",
+            "source_url": "https://fr.wikipedia.org/wiki/Aline_(film,_2020)"
+          },
+          {
+            "kind": "sélection",
+            "note": "Festival de Cannes 2021, hors compétition",
+            "source_url": "https://fr.wikipedia.org/wiki/Aline_(film,_2020)"
+          }
+        ],
+        "decision_note": "samedi-selection rang 6 (14:50 Ciné+ OCS) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-samedi-selection-la-mule",
+        "title": "La Mule",
+        "work_id": "la-mule",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "presse",
+            "note": "Rotten Tomatoes : 70 % sur 166 critiques ; Metacritic 58/100 (fiche Wikipédia)",
+            "source_url": "https://fr.wikipedia.org/wiki/La_Mule_(film,_2018)"
+          }
+        ],
+        "decision_note": "samedi-selection rang 7 (15:20 Canal+ Grand Écran) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-samedi-selection-superstar-2012",
+        "title": "Superstar",
+        "work_id": "superstar-2012",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "sélection",
+            "note": "En compétition pour le Lion d'or à la Mostra de Venise 2012",
+            "source_url": "https://fr.wikipedia.org/wiki/Superstar_(film,_2012)"
+          }
+        ],
+        "decision_note": "samedi-selection rang 8 (23:20 Ciné+ OCS) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-samedi-selection-gourou-2025",
+        "title": "Gourou",
+        "work_id": "gourou-2025",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "presse",
+            "note": "AlloCiné : 3,1/5 sur 41 critiques de presse (fiche Wikipédia)",
+            "source_url": "https://fr.wikipedia.org/wiki/Gourou_(film)"
+          }
+        ],
+        "decision_note": "samedi-selection rang 9 (13:10 Canal+ Box Office) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-samedi-selection-mr-wolff-2016",
+        "title": "Mr Wolff",
+        "work_id": "mr-wolff-2016",
+        "scope": {
+          "day": "samedi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "presse",
+            "note": "AlloCiné : 3/5 (24 titres de presse) ; Rotten Tomatoes 50 % (fiche Wikipédia)",
+            "source_url": "https://fr.wikipedia.org/wiki/Mr._Wolff"
+          }
+        ],
+        "decision_note": "samedi-selection rang 10 (13:20 Canal+ Grand Écran) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-dimanche-selection-heat-1995",
+        "title": "Heat",
+        "work_id": "heat-1995",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "presse",
+            "note": "Rotten Tomatoes 87 % (83 critiques), Metacritic 76/100 ; IMDb 8,3/10 selon la fiche Wikipédia",
+            "source_url": "https://fr.wikipedia.org/wiki/Heat_(film,_1995)"
+          },
+          {
+            "kind": "nomination",
+            "note": "Saturn Awards 1996 : nomination meilleur film d'action/aventure",
+            "source_url": "https://fr.wikipedia.org/wiki/Heat_(film,_1995)"
+          }
+        ],
+        "decision_note": "dimanche-selection rang 1 (21:00 Canal+ Grand Écran) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-dimanche-selection-sept-jours-en-mai-1964",
+        "title": "Sept Jours en mai",
+        "work_id": "sept-jours-en-mai-1964",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Guillemette Odicino) : Complot militaire contre un président américain qui signe un traité de désarmement : Frankenheimer signe un plaidoyer antinucléaire captivant, à la mise en scène inventive, où chaque cadre étouffant traduit la paranoïa des bellicistes face à une démocratie fatiguée mais digne.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 95,
+            "bbox": [
+              21.05,
+              504.25,
+              112.93,
+              528.88
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/3"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "Golden Globe du meilleur second rôle masculin pour Edmond O'Brien ; deux nominations aux Oscars 1965",
+            "source_url": "https://fr.wikipedia.org/wiki/Sept_jours_en_mai"
+          }
+        ],
+        "decision_note": "dimanche-selection rang 2 (00:10 France 3) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-dimanche-selection-au-nom-des-enfants-perdus-2026",
+        "title": "Au nom des enfants perdus",
+        "work_id": "au-nom-des-enfants-perdus-2026",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Samuel Gontier) : Partant de l’évasion de Belle-Île-en-Mer en 1934, Tal Zana raconte la lutte pour la protection de l’enfance à travers Alexis Danan, journaliste de Paris-Soir. Récit très original, archives inattendues et montage virtuose révèlent une figure trop peu connue.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 101,
+            "bbox": [
+              100.74,
+              48.25,
+              258.84,
+              81.58
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/8"
+            }
+          }
+        ],
+        "decision_note": "dimanche-selection rang 3 (22:50 France 5) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-dimanche-selection-rock-n-roll-2017",
+        "title": "Rock’n’roll",
+        "work_id": "rock-n-roll-2017",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Pierre Murat) : Guillaume Canet, à qui l’on dit qu’il n’est plus rock’n’roll, se lance dans une transformation absurde. Malgré des scènes pesantes, sa drôlerie féroce et son audace font de cette comédie une jolie satire d’un monde figé dans le culte de la jeunesse.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 100,
+            "bbox": [
+              422.94,
+              399.7,
+              514.76,
+              424.38
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/7"
+            }
+          },
+          {
+            "kind": "nomination",
+            "note": "César 2018 : nomination du meilleur acteur pour Guillaume Canet",
+            "source_url": "https://fr.wikipedia.org/wiki/Rock'n_Roll_(film,_2017)"
+          },
+          {
+            "kind": "presse",
+            "note": "AlloCiné : 3,3/5 pour la presse (28 titres)",
+            "source_url": "https://fr.wikipedia.org/wiki/Rock'n_Roll_(film,_2017)"
+          }
+        ],
+        "decision_note": "dimanche-selection rang 4 (21:10 RMC Life) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-dimanche-selection-novembre-2022",
+        "title": "Novembre",
+        "work_id": "novembre-2022",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Bien » (Marie Sauvion) : Les cinq jours d’enquête de la sous-direction antiterroriste après le 13-Novembre, attentats laissés hors champ. Efficace et saisissant au montage, mais le thriller réduit ses héros à leur fonction : mécanique aussi huilée que désincarnée, sans véritable propos.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 100,
+            "bbox": [
+              103.93,
+              48.25,
+              189.03,
+              73.24
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/5"
+            }
+          },
+          {
+            "kind": "sélection",
+            "note": "Sélection officielle hors compétition, Festival de Cannes 2022",
+            "source_url": "https://fr.wikipedia.org/wiki/Novembre_(film)"
+          },
+          {
+            "kind": "nomination",
+            "note": "Sept nominations aux César 2023, dont meilleure réalisation et meilleur acteur",
+            "source_url": "https://fr.wikipedia.org/wiki/Novembre_(film)"
+          }
+        ],
+        "decision_note": "dimanche-selection rang 5 (21:10 France 2) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-dimanche-selection-les-pleins-pouvoirs-1997",
+        "title": "Les Pleins Pouvoirs",
+        "work_id": "les-pleins-pouvoirs-1997",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Bien » (François Gorin) : Un cambrioleur surprend le président des États-Unis dans une scène violente. Ni vrai thriller politique ni pur exercice hitchcockien, le film culmine dans sa séquence initiale de voyeur et le plaisir contagieux d’Eastwood acteur, malgré un dénouement expédié.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 101,
+            "bbox": [
+              260.6,
+              523.25,
+              361.26,
+              548.24
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/10"
+            }
+          },
+          {
+            "kind": "sélection",
+            "note": "Film de clôture du Festival de Cannes 1997",
+            "source_url": "https://fr.wikipedia.org/wiki/Les_Pleins_Pouvoirs"
+          },
+          {
+            "kind": "presse",
+            "note": "Rotten Tomatoes 45 % (42 critiques) ; Metacritic 52/100",
+            "source_url": "https://fr.wikipedia.org/wiki/Les_Pleins_Pouvoirs"
+          }
+        ],
+        "decision_note": "dimanche-selection rang 6 (21:00 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-dimanche-selection-la-fabrique-du-mensonge-2026",
+        "title": "La fabrique du mensonge",
+        "work_id": "la-fabrique-du-mensonge-2026",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Bien » (Marie-Joëlle Gros) : Retour sur la campagne de dénigrement visant Blake Lively autour de Jamais plus. L’intérêt tient aux pièces à conviction, qui exposent la mécanique de l’humiliation en ligne et l’usage des influenceurs ; le récit foisonnant perd toutefois un peu le spectateur.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 100,
+            "bbox": [
+              103.93,
+              238.2,
+              329.12,
+              271.94
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/6"
+            }
+          }
+        ],
+        "decision_note": "dimanche-selection rang 7 (21:05 France 5) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-dimanche-selection-holy-lola-2004",
+        "title": "Holy Lola",
+        "work_id": "holy-lola-2004",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "prix",
+            "note": "Prix du public au Festival de Saint-Sébastien",
+            "source_url": "https://fr.wikipedia.org/wiki/Holy_Lola"
+          }
+        ],
+        "decision_note": "dimanche-selection rang 8 (14:40 Ciné+ Festival) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-dimanche-selection-orfeu-negro-1959",
+        "title": "Orfeu negro",
+        "work_id": "orfeu-negro-1959",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "prix",
+            "note": "Palme d'or, Festival de Cannes 1959",
+            "source_url": "https://fr.wikipedia.org/wiki/Orfeu_Negro"
+          },
+          {
+            "kind": "prix",
+            "note": "Oscar du meilleur film étranger (1960) et Golden Globe du meilleur film en langue étrangère",
+            "source_url": "https://fr.wikipedia.org/wiki/Orfeu_Negro"
+          }
+        ],
+        "decision_note": "dimanche-selection rang 9 (08:55 TCM Cinéma) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-dimanche-selection-terre-damnee-1950",
+        "title": "Terre damnée",
+        "work_id": "terre-damnee-1950",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "broadcaster_or_catalogue_page",
+            "note": "Fiche exacte consultée le 5 novembre 2026 ; appréciation dans la grille Télérama n° 4008 : TT.",
+            "source_url": "https://www.senscritique.com/film/terre_damnee/17626459"
+          }
+        ],
+        "decision_note": "dimanche-selection rang 10 (16:05 TCM Cinéma) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-dimanche-selection-better-man-2024",
+        "title": "Better Man",
+        "work_id": "better-man-2024",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "prix",
+            "note": "Neuf prix aux AACTA Awards 2025, dont meilleur film et meilleure réalisation",
+            "source_url": "https://fr.wikipedia.org/wiki/Better_Man_(film)"
+          },
+          {
+            "kind": "nomination",
+            "note": "Nommé à l'Oscar 2025 des meilleurs effets visuels",
+            "source_url": "https://fr.wikipedia.org/wiki/Better_Man_(film)"
+          }
+        ],
+        "decision_note": "dimanche-selection rang 11 (23:10 Ciné+ OCS) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-dimanche-selection-clint-eastwood-la-derniere-legende-2022",
+        "title": "Clint Eastwood, la dernière légende",
+        "work_id": "clint-eastwood-la-derniere-legende-2022",
+        "scope": {
+          "day": "dimanche"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "community_rating",
+            "note": "Note SensCritique 7,5/10.",
+            "source_url": "https://www.senscritique.com/film/clint_eastwood_la_derniere_legende/53041565"
+          }
+        ],
+        "decision_note": "dimanche-selection rang 12 (22:55 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-lundi-selection-un-singe-en-hiver-1962",
+        "title": "Un singe en hiver",
+        "work_id": "un-singe-en-hiver-1962",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Guillemette Odicino) : Rencontre alcoolisée entre Gabin et Belmondo, duo grandiose servi par les dialogues d’Audiard adaptant Blondin. Ode amère aux voyages et mélancolie stendhalienne sous la gouaille célinienne, jusqu’à la gueule de bois finale.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 106,
+            "bbox": [
+              24.14,
+              485.25,
+              114.22,
+              510.24
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/12"
+            }
+          },
+          {
+            "kind": "public",
+            "note": "Plus de 2 millions d'entrées à la sortie initiale en France (fiche Wikipédia)",
+            "source_url": "https://fr.wikipedia.org/wiki/Un_singe_en_hiver_(film)"
+          }
+        ],
+        "decision_note": "lundi-selection rang 1 (21:10 France 3) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-lundi-selection-travail-force-enfants-voles-l-irlande-au-tribunal-2025",
+        "title": "Travail forcé, enfants volés : l’Irlande au tribunal",
+        "work_id": "travail-force-enfants-voles-l-irlande-au-tribunal-2025",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Tiphaine Thuillier) : Témoignages, archives et reconstitutions donnent voix aux survivantes des foyers catholiques irlandais et aux militantes qui ont fait reconnaître la responsabilité de l’État. Documentaire bouleversant, dont les visages et les mots déchirants hantent longtemps.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 106,
+            "bbox": [
+              103.94,
+              304.66,
+              260.86,
+              339.05
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/11"
+            }
+          },
+          {
+            "kind": "presse",
+            "note": "Critique de Screen Daily (« raw, defiant doc ») ; page non lue en entier, issue des résultats de recherche",
+            "source_url": "https://www.screendaily.com/reviews/testimony-review-raw-defiant-doc-gives-voice-to-survivors-of-irelands-magdalene-laundries/5211174.article"
+          }
+        ],
+        "decision_note": "lundi-selection rang 2 (22:35 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-lundi-selection-le-mepris-1963",
+        "title": "Le Mépris",
+        "work_id": "le-mepris-1963",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "public",
+            "note": "235 000 entrées en France à la sortie ; salué par Louis Aragon et Jean-Louis Bory (fiche Wikipédia)",
+            "source_url": "https://fr.wikipedia.org/wiki/Le_M%C3%A9pris_(film)"
+          },
+          {
+            "kind": "community_rating",
+            "note": "Note SensCritique 6,8/10 ; appréciation dans la grille Télérama n° 4008 : TTTT.",
+            "source_url": "https://www.senscritique.com/film/le_mepris/476344"
+          }
+        ],
+        "decision_note": "lundi-selection rang 3 (17:40 Ciné+ Classic) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-lundi-selection-revoir-paris-2022",
+        "title": "Revoir Paris",
+        "work_id": "revoir-paris-2022",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Mathilde Blottière) : Rescapée d’un attentat, une traductrice recompose ses souvenirs avec d’autres victimes. Alice Winocour montre l’importance du collectif dans la reconstruction ; Virginie Efira, magnifiquement juste, et Benoît Magimel portent ce film délicat.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 107,
+            "bbox": [
+              21.34,
+              323.75,
+              98.28,
+              348.74
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/15"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "César 2023 de la meilleure actrice pour Virginie Efira",
+            "source_url": "https://fr.wikipedia.org/wiki/Revoir_Paris"
+          },
+          {
+            "kind": "sélection",
+            "note": "Quinzaine des réalisateurs, Festival de Cannes 2022",
+            "source_url": "https://fr.wikipedia.org/wiki/Revoir_Paris"
+          }
+        ],
+        "decision_note": "lundi-selection rang 4 (20:55 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-lundi-selection-sorda-2025",
+        "title": "Sorda",
+        "work_id": "sorda-2025",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Marie Sauvion) : Une femme sourde et son compagnon entendant attendent un enfant et le verdict sur son audition. Premier film très maîtrisé d’Eva Libertad, primé aux Goya, révélant la captivante Miriam Garlo ; la mise en scène finit par épouser le point de vue de l’héroïne.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 107,
+            "bbox": [
+              340.35,
+              361.75,
+              455.34,
+              394.56
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/16"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "Prix du public Panorama, Berlinale 2025",
+            "source_url": "https://fr.wikipedia.org/wiki/Sorda"
+          },
+          {
+            "kind": "prix",
+            "note": "Biznaga d'or du meilleur film espagnol, Festival de Malaga 2025",
+            "source_url": "https://fr.wikipedia.org/wiki/Sorda"
+          }
+        ],
+        "decision_note": "lundi-selection rang 5 (20:50 Ciné+ Festival) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-lundi-selection-patients-2016",
+        "title": "Patients",
+        "work_id": "patients-2016",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "prix",
+            "note": "Salamandre d'or du meilleur film, Festival du film de Sarlat 2016",
+            "source_url": "https://fr.wikipedia.org/wiki/Patients_(film)"
+          },
+          {
+            "kind": "nomination",
+            "note": "Quatre nominations aux César 2018 dont meilleur premier film",
+            "source_url": "https://fr.wikipedia.org/wiki/Patients_(film)"
+          }
+        ],
+        "decision_note": "lundi-selection rang 6 (17:20 Ciné+ Emotion) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-lundi-selection-sur-la-piste-du-casoar-2026",
+        "title": "Sur la piste du casoar",
+        "work_id": "sur-la-piste-du-casoar-2026",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Bien » (François Ekchajzer) : Expédition gonzo en Papouasie-Nouvelle-Guinée, avec l’anthropologue Florence Brunois-Pasina, sur la trace d’un oiseau redoutable et mythique pour les Kasua. Plaisant et grand public, mais la dimension naturaliste et ethnographique reste survolée.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 107,
+            "bbox": [
+              21.34,
+              48.25,
+              147.53,
+              72.67
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/14"
+            }
+          }
+        ],
+        "decision_note": "lundi-selection rang 7 (21:05 France 5) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-lundi-selection-vendredi-noir-2025",
+        "title": "Vendredi noir",
+        "work_id": "vendredi-noir-2025",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "broadcaster_or_catalogue_page",
+            "note": "Fiche exacte consultée le 5 novembre 2026.",
+            "source_url": "https://lcp.fr/programmes/vendredi-noir-409530"
+          }
+        ],
+        "decision_note": "lundi-selection rang 8 (20:40 LCP) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-lundi-selection-piranha-3d-2010",
+        "title": "Piranha 3D",
+        "work_id": "piranha-3d-2010",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "community_rating",
+            "note": "Note SensCritique 5,0/10 ; appréciation dans la grille Télérama n° 4008 : TTT.",
+            "source_url": "https://www.senscritique.com/film/piranha_3d/410051"
+          }
+        ],
+        "decision_note": "lundi-selection rang 9 (22:10 Ciné+ Frisson) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-lundi-selection-diamond-island-2016",
+        "title": "Diamond Island",
+        "work_id": "diamond-island-2016",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "prix",
+            "note": "Prix SACD, Semaine de la critique, Festival de Cannes 2016",
+            "source_url": "https://fr.wikipedia.org/wiki/Diamond_Island"
+          },
+          {
+            "kind": "prix",
+            "note": "Grand Prix du Festival du film de Cabourg 2016",
+            "source_url": "https://fr.wikipedia.org/wiki/Diamond_Island"
+          }
+        ],
+        "decision_note": "lundi-selection rang 10 (21:05 TV5MONDE) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-lundi-selection-gazon-maudit-1995",
+        "title": "Gazon maudit",
+        "work_id": "gazon-maudit-1995",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "prix",
+            "note": "César 1996 du meilleur scénario original ou adapté (Josiane Balasko et Telsche Boorman)",
+            "source_url": "https://fr.wikipedia.org/wiki/Gazon_maudit"
+          },
+          {
+            "kind": "nomination",
+            "note": "Cinq nominations aux César 1996 dont meilleur film et meilleur réalisateur ; Golden Globe 1996 du meilleur film étranger (nomination)",
+            "source_url": "https://fr.wikipedia.org/wiki/Gazon_maudit"
+          }
+        ],
+        "decision_note": "lundi-selection rang 11 (19:20 Canal+ Grand Écran) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-lundi-selection-super-8-2011",
+        "title": "Super 8",
+        "work_id": "super-8-2011",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "prix",
+            "note": "Saturn Awards 2012 : meilleure réalisation (J.J. Abrams) et meilleure musique",
+            "source_url": "https://fr.wikipedia.org/wiki/Super_8_(film)"
+          },
+          {
+            "kind": "presse",
+            "note": "Rotten Tomatoes 81 % (295 critiques) ; Metacritic 72/100 ; AlloCiné presse 3,8/5",
+            "source_url": "https://fr.wikipedia.org/wiki/Super_8_(film)"
+          }
+        ],
+        "decision_note": "lundi-selection rang 12 (20:50 Ciné+ Family) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-lundi-selection-un-francais-nomme-gabin-2016",
+        "title": "Un Français nommé Gabin",
+        "work_id": "un-francais-nomme-gabin-2016",
+        "scope": {
+          "day": "lundi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "grid_mark",
+            "note": "Appréciation dans la grille Télérama n° 4008 : TTT ; fiche exacte consultée le 5 novembre 2026.",
+            "source_url": "https://www.senscritique.com/film/un_francais_nomme_gabin/25262752"
+          }
+        ],
+        "decision_note": "lundi-selection rang 13 (22:50 France 3) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mardi-selection-marty-supreme-2025",
+        "title": "Marty Supreme",
+        "work_id": "marty-supreme-2025",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Bravo » (Frédéric Strauss) : Un jeune New-Yorkais veut devenir champion de ping-pong en 1952, à tout prix. Josh Safdie signe un film-fleuve d’une énergie et d’une précision éblouissantes, élan vital plus que biographie ; Timothée Chalamet y livre un show drôle et émouvant.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 113,
+            "bbox": [
+              101.09,
+              295.18,
+              240.37,
+              328.58
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/20"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "Golden Globe et Critics' Choice du meilleur acteur pour Timothée Chalamet",
+            "source_url": "https://fr.wikipedia.org/wiki/Marty_Supreme"
+          },
+          {
+            "kind": "nominations",
+            "note": "Neuf nominations aux Oscars (98e cérémonie), dont meilleur film et réalisateur",
+            "source_url": "https://fr.wikipedia.org/wiki/Marty_Supreme"
+          }
+        ],
+        "decision_note": "mardi-selection rang 1 (21:10 Canal+) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mardi-selection-criminel-nazi-cherche-employeur-la-cavale-de-walter-rauff-2026",
+        "title": "Criminel nazi cherche employeur : la cavale de Walter Rauff",
+        "work_id": "criminel-nazi-cherche-employeur-la-cavale-de-walter-rauff-2026",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Valérie Lehoux) : Enquête passionnante quoique touffue sur Walter Rauff, responsable des camions à gaz, au service de services secrets et de dictatures après-guerre. Rendue possible par des archives déclassifiées, elle expose le cynisme d’un meurtrier de masse resté impuni.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 112,
+            "bbox": [
+              24.18,
+              333.26,
+              141.39,
+              404.58
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/19"
+            }
+          }
+        ],
+        "decision_note": "mardi-selection rang 2 (20:55 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mardi-selection-the-world-of-love-2025",
+        "title": "The World of Love",
+        "work_id": "the-world-of-love-2025",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Caroline Besse) : Yoon Ga-eun suit une lycéenne vive qui refuse de signer une pétition contre un prédateur, révélant un passé douloureux. Regard très sensible sur l’après des violences sexuelles, sans choisir entre traumatisme et guérison, porté par de beaux personnages secondaires.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 113,
+            "bbox": [
+              100.16,
+              532.75,
+              216.07,
+              557.74
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/21"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "Montgolfière d'or au Festival des 3 Continents ; prix du jury et du public à Pingyao",
+            "source_url": "https://fr.wikipedia.org/wiki/The_World_of_Love"
+          },
+          {
+            "kind": "sélection",
+            "note": "Présenté au Festival de Toronto 2025 (Platform)",
+            "source_url": "https://fr.wikipedia.org/wiki/The_World_of_Love"
+          }
+        ],
+        "decision_note": "mardi-selection rang 3 (20:50 Ciné+ Festival) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mardi-selection-la-vente-secrete-des-juifs-de-roumanie-2025",
+        "title": "La Vente secrète des Juifs de Roumanie",
+        "work_id": "la-vente-secrete-des-juifs-de-roumanie-2025",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (François Ekchajzer) : Adapté de Sonia Devillers, ce film-enquête saisissant révèle comment, de 1958 à 1989, la Roumanie communiste a monnayé l’exil de ses Juifs. Récit captivant et remarquablement articulé, fait de documents déclassifiés et de témoignages.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 112,
+            "bbox": [
+              343.19,
+              48.24,
+              548.46,
+              72.88
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/17"
+            }
+          }
+        ],
+        "decision_note": "mardi-selection rang 4 (22:40 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mardi-selection-vendee-globe-seuls-autour-du-monde-2026",
+        "title": "Vendée Globe, seuls autour du monde",
+        "work_id": "vendee-globe-seuls-autour-du-monde-2026",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (François Ekchajzer) : Série en six volets sur six concurrents de l’édition 2024, leurs images croisées avec le quotidien des familles à terre. Récit polyphonique captivant et émouvant, qui dépasse la performance sportive pour toucher à l’aventure humaine.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 112,
+            "bbox": [
+              103.1,
+              48.25,
+              301.05,
+              72.88
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/18"
+            }
+          },
+          {
+            "kind": "sélection",
+            "note": "Présentée en première mondiale à Canneséries 2026 (selon résultat de recherche)",
+            "source_url": "https://www.serie-news.com/non-classe/51322-vendee-globe-seuls-autour-du-monde-sur-france-2-la-serie-documentaire-evenement-au-coeur-de-la-course-en-solitaire-25-09-2026/"
+          }
+        ],
+        "decision_note": "mardi-selection rang 5 (21:10 France 2) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mardi-selection-good-bye-lenin-2003",
+        "title": "Good Bye Lenin!",
+        "work_id": "good-bye-lenin-2003",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "prix",
+            "note": "Prix du meilleur film européen aux European Film Awards, Ange bleu à la Berlinale 2003",
+            "source_url": "https://fr.wikipedia.org/wiki/Good_Bye_Lenin!"
+          },
+          {
+            "kind": "prix",
+            "note": "César du meilleur film de l'Union européenne 2004, neuf Deutscher Filmpreis",
+            "source_url": "https://fr.wikipedia.org/wiki/Good_Bye_Lenin!"
+          }
+        ],
+        "decision_note": "mardi-selection rang 6 (21:00 France 4) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mardi-selection-vaudou-1943",
+        "title": "Vaudou",
+        "work_id": "vaudou-1943",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "héritage",
+            "note": "Hommage d'Apichatpong Weerasethakul dans Memoria (2021), selon Wikipédia",
+            "source_url": "https://fr.wikipedia.org/wiki/Vaudou_(film,_1943)"
+          },
+          {
+            "kind": "broadcaster_or_catalogue_page",
+            "note": "Fiche exacte consultée le 5 novembre 2026 ; appréciation dans la grille Télérama n° 4008 : TTT.",
+            "source_url": "https://www.senscritique.com/film/vaudou/474103"
+          }
+        ],
+        "decision_note": "mardi-selection rang 7 (09:35 TCM Cinéma) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mardi-selection-le-stratege-2011",
+        "title": "Le Stratège",
+        "work_id": "le-stratege-2011",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "nominations",
+            "note": "Six nominations aux Oscars 2012 dont meilleur film et meilleur acteur (Brad Pitt)",
+            "source_url": "https://fr.wikipedia.org/wiki/Le_Stratège"
+          }
+        ],
+        "decision_note": "mardi-selection rang 8 (16:40 Ciné+ Emotion) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mardi-selection-falbalas",
+        "title": "Falbalas",
+        "work_id": "falbalas",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "community_rating",
+            "note": "Note SensCritique 6,8/10 ; appréciation dans la grille Télérama n° 4008 : TTT.",
+            "source_url": "https://www.senscritique.com/film/falbalas/418294"
+          }
+        ],
+        "decision_note": "mardi-selection rang 9 (00:30 Ciné+ Classic) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mardi-selection-un-poete-2025",
+        "title": "Un poète",
+        "work_id": "un-poete-2025",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "prix",
+            "note": "Prix du jury Un certain regard, Cannes 2025",
+            "source_url": "https://fr.wikipedia.org/wiki/Un_poète"
+          }
+        ],
+        "decision_note": "mardi-selection rang 10 (03:50 Ciné+ Festival) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mardi-selection-la-riviere-2023",
+        "title": "La Rivière",
+        "work_id": "la-riviere-2023",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "prix",
+            "note": "Prix Jean Vigo 2023 (selon un résultat de recherche, page non lue)",
+            "source_url": "https://moreliafilmfest.com/en/dominique-marchais-presented-la-riviere-winner-jean-vigo-prize-2023-22nd-ficm"
+          },
+          {
+            "kind": "community_rating",
+            "note": "Note SensCritique 6,7/10 ; appréciation dans la grille Télérama n° 4008 : TTT.",
+            "source_url": "https://www.senscritique.com/film/la_riviere/56641148"
+          }
+        ],
+        "decision_note": "mardi-selection rang 11 (14:05 TV5MONDE) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mardi-selection-les-trois-freres-1995",
+        "title": "Les Trois Frères",
+        "work_id": "les-trois-freres-1995",
+        "scope": {
+          "day": "mardi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "prix",
+            "note": "César du meilleur premier film 1996",
+            "source_url": "https://fr.wikipedia.org/wiki/Les_Trois_Frères"
+          },
+          {
+            "kind": "public",
+            "note": "Environ 6,9 millions d'entrées en France",
+            "source_url": "https://fr.wikipedia.org/wiki/Les_Trois_Frères"
+          }
+        ],
+        "decision_note": "mardi-selection rang 12 (21:10 TFX) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mercredi-selection-le-quai-des-brumes-1938",
+        "title": "Le Quai des brumes",
+        "work_id": "le-quai-des-brumes-1938",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Pierre Murat) : Le film a pris un léger coup de vieux, et Gabin sera meilleur ailleurs, selon la critique, qui rappelle la moquerie de Renoir. Reste Michèle Morgan, béret et ciré noirs, encore un peu malhabile mais déjà splendide.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 119,
+            "bbox": [
+              21.34,
+              352.25,
+              124.21,
+              376.89
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/25"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "Prix Louis-Delluc 1938 ; recommandation spéciale pour la réalisation à Venise 1938",
+            "source_url": "https://fr.wikipedia.org/wiki/Le_Quai_des_brumes_(film)"
+          }
+        ],
+        "decision_note": "mercredi-selection rang 1 (20:55 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mercredi-selection-jean-gabin-la-guerre-c-est-pas-du-cinema-2026",
+        "title": "Jean Gabin, la guerre c’est pas du cinéma",
+        "work_id": "jean-gabin-la-guerre-c-est-pas-du-cinema-2026",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Frédéric Strauss) : Documentaire de Patrick Jeudy sur l’engagement de Gabin dans les forces navales libres, loin des projecteurs. L’adresse directe à l’acteur limite parfois le propos, mais le récit fluide et les images rares et émouvantes suscitent l’admiration.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 118,
+            "bbox": [
+              422.04,
+              48.2,
+              527.43,
+              119.58
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/22"
+            }
+          }
+        ],
+        "decision_note": "mercredi-selection rang 2 (22:30 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mercredi-selection-birdman-2014",
+        "title": "Birdman",
+        "work_id": "birdman-2014",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "prix",
+            "note": "Quatre Oscars 2015 dont meilleur film et meilleur réalisateur",
+            "source_url": "https://fr.wikipedia.org/wiki/Birdman_(film)"
+          }
+        ],
+        "decision_note": "mercredi-selection rang 3 (16:00 Ciné+ Frisson) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mercredi-selection-interceptes-2024",
+        "title": "Interceptés",
+        "work_id": "interceptes-2024",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "prix",
+            "note": "Mention spéciale du jury œcuménique et prix Amnesty International, Berlinale 2024 (selon résultats de recherche)",
+            "source_url": "https://www.senscritique.com/film/interceptes/79931734"
+          }
+        ],
+        "decision_note": "mercredi-selection rang 4 (00:35 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mercredi-selection-toy-story-4-2019",
+        "title": "Toy Story 4",
+        "work_id": "toy-story-4-2019",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "prix",
+            "note": "Oscar du meilleur film d'animation (92e cérémonie)",
+            "source_url": "https://fr.wikipedia.org/wiki/Toy_Story_4"
+          }
+        ],
+        "decision_note": "mercredi-selection rang 5 (19:00 6ter) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mercredi-selection-babysitter-2022",
+        "title": "Babysitter",
+        "work_id": "babysitter-2022",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "sélection",
+            "note": "Présenté à Sundance 2022",
+            "source_url": "https://fr.wikipedia.org/wiki/Babysitter_(film)"
+          },
+          {
+            "kind": "prix",
+            "note": "Meilleur film au Festival de la comédie de Monte-Carlo 2022",
+            "source_url": "https://fr.wikipedia.org/wiki/Babysitter_(film)"
+          }
+        ],
+        "decision_note": "mercredi-selection rang 6 (19:00 Ciné+ Festival) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mercredi-selection-l-affaire-d-outreau-2023",
+        "title": "L’Affaire d’Outreau",
+        "work_id": "l-affaire-d-outreau-2023",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "broadcaster_or_catalogue_page",
+            "note": "Fiche exacte consultée le 5 novembre 2026.",
+            "source_url": "https://www.senscritique.com/serie/l_affaire_d_outreau/54642003"
+          }
+        ],
+        "decision_note": "mercredi-selection rang 7 (23:00 France 2) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mercredi-selection-nuremberg",
+        "title": "Nuremberg",
+        "work_id": "nuremberg",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "sélection",
+            "note": "Présenté au Festival de Toronto 2025",
+            "source_url": "https://fr.wikipedia.org/wiki/Nuremberg_(film,_2025)"
+          },
+          {
+            "kind": "presse",
+            "note": "Critiques majoritairement positives, jeu de Russell Crowe le plus salué",
+            "source_url": "https://fr.wikipedia.org/wiki/Nuremberg_(film,_2025)"
+          }
+        ],
+        "decision_note": "mercredi-selection rang 8 (16:30 Canal+ Cinéma(s)) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mercredi-selection-l-ours-1988",
+        "title": "L’Ours",
+        "work_id": "l-ours-1988",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "prix",
+            "note": "Césars 1989 : meilleur réalisateur et meilleur montage",
+            "source_url": "https://fr.wikipedia.org/wiki/L'Ours_(film,_1988)"
+          },
+          {
+            "kind": "nominations",
+            "note": "Nomination à l'Oscar du meilleur montage",
+            "source_url": "https://fr.wikipedia.org/wiki/L'Ours_(film,_1988)"
+          }
+        ],
+        "decision_note": "mercredi-selection rang 9 (16:00 6ter) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mercredi-selection-cluedo-1985",
+        "title": "Cluedo",
+        "work_id": "cluedo-1985",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "presse",
+            "note": "Accueil initial mitigé, Metacritic 39/100 ; devenu culte depuis (non sourcé)",
+            "source_url": "https://fr.wikipedia.org/wiki/Cluedo_(film)"
+          }
+        ],
+        "decision_note": "mercredi-selection rang 10 (23:30 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-mercredi-selection-artus-le-show-xxl-2026",
+        "title": "Artus : Le Show XXL",
+        "work_id": "artus-le-show-xxl-2026",
+        "scope": {
+          "day": "mercredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Bien » (Aurélien Martinez) : Captation à la Plenitude Arena avec orchestre, chorale et invités. Humour gras et inégal, quelques saillies efficaces et un moment fort avec la troupe d’Un p’tit truc en plus ; un show parfaitement mené et généreux.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 119,
+            "bbox": [
+              340,
+              399.75,
+              459.35,
+              433.08
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/26"
+            }
+          }
+        ],
+        "decision_note": "mercredi-selection rang 11 (21:10 Canal+) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-jeudi-selection-edward-aux-mains-d-argent-1990",
+        "title": "Edward aux mains d’argent",
+        "work_id": "edward-aux-mains-d-argent-1990",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Bravo » (Frédéric Strauss) : L’un des plus beaux films de Tim Burton : conte de fées où un garçon inachevé découvre l’Amérique pastel. Merveilleux, contrastes visuels subtils et belle fable sur la tolérance et la peur de l’autre.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 124,
+            "bbox": [
+              263.43,
+              475.75,
+              404.9,
+              500.38
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/29"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "Hugo Award du meilleur film 1991, BAFTA de la meilleure direction artistique, Saturn Award du meilleur film fantastique",
+            "source_url": "https://fr.wikipedia.org/wiki/Edward_aux_mains_d'argent"
+          },
+          {
+            "kind": "agrégateur",
+            "note": "Rotten Tomatoes 91 % ; Metacritic 74/100",
+            "source_url": "https://fr.wikipedia.org/wiki/Edward_aux_mains_d'argent"
+          }
+        ],
+        "decision_note": "jeudi-selection rang 1 (21:10 Novo19) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-jeudi-selection-babylon-2022",
+        "title": "Babylon",
+        "work_id": "babylon-2022",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Frédéric Strauss) : Damien Chazelle fait du Hollywood du muet une fresque folle et généreuse, trois heures au souffle de marathonien portées par Brad Pitt, Margot Robbie et Diego Calva. Folie d’auteur enthousiaste, échec américain mais message mieux compris en France.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 125,
+            "bbox": [
+              21.34,
+              48.25,
+              90.79,
+              72.88
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/30"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "Golden Globe de la meilleure musique originale ; BAFTA de la meilleure direction artistique ; 3 nominations aux Oscars",
+            "source_url": "https://fr.wikipedia.org/wiki/Babylon_(film,_2022)"
+          },
+          {
+            "kind": "presse",
+            "note": "Moyenne presse française 4/5 sur AlloCiné (45 titres) ; accueil américain partagé (Metacritic 60/100)",
+            "source_url": "https://fr.wikipedia.org/wiki/Babylon_(film,_2022)"
+          }
+        ],
+        "decision_note": "jeudi-selection rang 2 (21:10 M6) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-jeudi-selection-la-science-des-reves-2006",
+        "title": "La Science des rêves",
+        "work_id": "la-science-des-reves-2006",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Aurélien Ferenczi) : Michel Gondry mêle animation et marivaudage autour d’un jeune homme qui confond rêve et réalité. Fantaisie savoureuse où le meilleur tient aux scènes à deux, et direction d’acteurs formidable pour Gael García Bernal et Charlotte Gainsbourg.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 124,
+            "bbox": [
+              24.18,
+              475.66,
+              132.85,
+              500.74
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/28"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "Prix du cinéma européen 2006 (contribution artistique) ; prix du public au festival de Catalogne 2006",
+            "source_url": "https://fr.wikipedia.org/wiki/La_Science_des_rêves"
+          }
+        ],
+        "decision_note": "jeudi-selection rang 3 (21:00 France 4) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-jeudi-selection-six-jours-ce-printemps-la-2025",
+        "title": "Six Jours, ce printemps-là",
+        "work_id": "six-jours-ce-printemps-la-2025",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Bien » (Marie Sauvion) : Joachim Lafosse suit une mère divorcée revenue en cachette avec ses fils dans la villa de son ex-belle-famille. Film bref, radieux et mélancolique, en mode mineur, où la violence de classe éclate à la fin ; Eye Haïdara remarquable, conclusion splendide.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 125,
+            "bbox": [
+              340.35,
+              48.25,
+              567.5,
+              81.94
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/31"
+            }
+          },
+          {
+            "kind": "festival",
+            "note": "Saint-Sébastien 2025 : Coquille d'argent de la mise en scène et prix du scénario",
+            "source_url": "https://en.wikipedia.org/wiki/Six_Days_in_Spring"
+          },
+          {
+            "kind": "presse",
+            "note": "Cineuropa salue la justesse de Lafosse et le jeu d'Eye Haïdara",
+            "source_url": "https://en.wikipedia.org/wiki/Six_Days_in_Spring"
+          }
+        ],
+        "decision_note": "jeudi-selection rang 4 (21:00 Canal+ Cinéma(s)) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-jeudi-selection-jossi-2026",
+        "title": "Jossi",
+        "work_id": "jossi-2026",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Bien » (Marianne Levy) : Série allemande : un comédien non juif ment pour décrocher le rôle d’un rescapé des camps. Comédie corrosive qui pousse tous les curseurs pour dénoncer préjugés et appropriation culturelle, drôle pour certains, dérangeante pour d’autres : clivante.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 124,
+            "bbox": [
+              103.19,
+              295.25,
+              180.05,
+              328.94
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/27"
+            }
+          }
+        ],
+        "decision_note": "jeudi-selection rang 5 (20:55 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-jeudi-selection-gta-le-jeu-no-limit-2026",
+        "title": "GTA, le jeu no limit",
+        "work_id": "gta-le-jeu-no-limit-2026",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Bien » (Thomas Bécard) : Histoire de la série Grand Theft Auto, de Dundee à Rockstar Games. Documentaire un peu fourre-tout et paresseux dans ses interviews de journalistes, mais didactique et qui n’élude pas les aspects problématiques, dont le sexisme.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 125,
+            "bbox": [
+              21.34,
+              475.76,
+              149.51,
+              500.38
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/32"
+            }
+          }
+        ],
+        "decision_note": "jeudi-selection rang 6 (22:40 France 4) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-jeudi-selection-la-civilisation-perdue-d-amazonie-2024",
+        "title": "La Civilisation perdue d’Amazonie",
+        "work_id": "la-civilisation-perdue-d-amazonie-2024",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "broadcaster_or_catalogue_page",
+            "note": "Fiche exacte consultée le 5 novembre 2026.",
+            "source_url": "https://www.francetvpro.fr/contenu-de-presse/69974603"
+          }
+        ],
+        "decision_note": "jeudi-selection rang 7 (21:10 France 5) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-jeudi-selection-l-experience",
+        "title": "L’expérience",
+        "work_id": "l-experience",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "community_rating",
+            "note": "Note SensCritique 7,1/10 ; appréciation dans la grille Télérama n° 4008 : TT.",
+            "source_url": "https://www.senscritique.com/film/L_Experience/496539"
+          }
+        ],
+        "decision_note": "jeudi-selection rang 8 (02:00 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-jeudi-selection-jane-eyre-2011",
+        "title": "Jane Eyre",
+        "work_id": "jane-eyre-2011",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "presse",
+            "note": "Rotten Tomatoes globalement favorable ; Richard Corliss (Time) range la performance de Mia Wasikowska dans son top 10 2011",
+            "source_url": "https://fr.wikipedia.org/wiki/Jane_Eyre_(film,_2011)"
+          },
+          {
+            "kind": "prix",
+            "note": "Evening Standard British Film Awards 2012 : meilleur acteur pour Michael Fassbender",
+            "source_url": "https://fr.wikipedia.org/wiki/Jane_Eyre_(film,_2011)"
+          }
+        ],
+        "decision_note": "jeudi-selection rang 9 (15:40 Ciné+ Emotion) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-jeudi-selection-mr-73-2008",
+        "title": "MR 73",
+        "work_id": "mr-73-2008",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "community_rating",
+            "note": "Note SensCritique 5,8/10 ; appréciation dans la grille Télérama n° 4008 : TT.",
+            "source_url": "https://www.senscritique.com/film/mr_73/414200"
+          }
+        ],
+        "decision_note": "jeudi-selection rang 10 (18:50 Ciné+ Frisson) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-jeudi-selection-le-cid-1961",
+        "title": "Le Cid",
+        "work_id": "le-cid-1961",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "community_rating",
+            "note": "Note SensCritique 6,8/10 ; appréciation dans la grille Télérama n° 4008 : TT.",
+            "source_url": "https://www.senscritique.com/film/Le_Cid/488404"
+          }
+        ],
+        "decision_note": "jeudi-selection rang 11 (22:45 TCM Cinéma) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-jeudi-selection-l-ecrivain-et-l-assassin-l-adversaire-d-emmanuel-carrere-2024",
+        "title": "L’Écrivain et l’assassin : L’Adversaire, d’Emmanuel Carrère",
+        "work_id": "l-ecrivain-et-l-assassin-l-adversaire-d-emmanuel-carrere-2024",
+        "scope": {
+          "day": "jeudi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "broadcaster_or_catalogue_page",
+            "note": "Fiche exacte consultée le 5 novembre 2026.",
+            "source_url": "https://www.arte.tv/fr/videos/117755-000-A/l-adversaire-d-emmanuel-carrere/"
+          }
+        ],
+        "decision_note": "jeudi-selection rang 12 (23:55 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-vendredi-selection-klaus-nomi-chanteur-du-troisieme-type-2025",
+        "title": "Klaus Nomi : chanteur du troisième type",
+        "work_id": "klaus-nomi-chanteur-du-troisieme-type-2025",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Anne Berthod) : Hommage éclairant à l’artiste allemand qui fusionna new wave et opéra dans le New York underground. Témoignages d’anciens complices et de Christine and the Queens retracent un parcours fulgurant, jusqu’à sa mort du sida à 39 ans.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 130,
+            "bbox": [
+              422.94,
+              276.25,
+              539.45,
+              309.07
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/34"
+            }
+          }
+        ],
+        "decision_note": "vendredi-selection rang 1 (22:30 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-vendredi-selection-le-chat-1971",
+        "title": "Le Chat",
+        "work_id": "le-chat-1971",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Bien » (Cécile Mury) : Un vieux couple ne se parle plus depuis que l’épouse a tué le chat du mari. Granier-Deferre adapte Simenon avec une cruauté poisseuse ; interprétation férocement pessimiste de la passion, où Gabin et Signoret s’affrontent magistralement.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 131,
+            "bbox": [
+              21.34,
+              485.26,
+              108.18,
+              509.89
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/37"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "Ours d'argent d'interprétation à Berlin pour Jean Gabin et Simone Signoret (mentionné dans une critique SensCritique, non vérifié ailleurs)",
+            "source_url": "https://www.senscritique.com/film/le_chat/critique/228453585"
+          }
+        ],
+        "decision_note": "vendredi-selection rang 2 (21:05 France 5) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-vendredi-selection-l-innocent-1976",
+        "title": "L’Innocent",
+        "work_id": "l-innocent-1976",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "community_rating",
+            "note": "Note SensCritique 7,1/10 ; appréciation dans la grille Télérama n° 4008 : TTT.",
+            "source_url": "https://www.senscritique.com/film/l_innocent/465719"
+          }
+        ],
+        "decision_note": "vendredi-selection rang 3 (22:50 Ciné+ Classic) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-vendredi-selection-l-arnacoeur-2010",
+        "title": "L’Arnacœur",
+        "work_id": "l-arnacoeur-2010",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "community_rating",
+            "note": "Note SensCritique 6,0/10 ; appréciation dans la grille Télérama n° 4008 : TTT.",
+            "source_url": "https://www.senscritique.com/film/l_arnacoeur/424201"
+          }
+        ],
+        "decision_note": "vendredi-selection rang 4 (19:20 Canal+ Grand Écran) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-vendredi-selection-revelations-200-ans-de-photographie-2026",
+        "title": "Révélations, 200 ans de photographie",
+        "work_id": "revelations-200-ans-de-photographie-2026",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Bien » (Jean-Baptiste Duchenne) : Pour le bicentenaire de la photographie, images et propos de photographes, de Niépce à l’IA. Touffu et lyrique, on s’y perd un peu sur la fin, mais le montage est habile et le récit donne aussi la parole à des auteurs moins connus.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 130,
+            "bbox": [
+              103.93,
+              48.25,
+              234.81,
+              83.89
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/33"
+            }
+          }
+        ],
+        "decision_note": "vendredi-selection rang 5 (22:35 France 5) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-vendredi-selection-l-enfant-du-desert-2026",
+        "title": "L’Enfant du désert",
+        "work_id": "l-enfant-du-desert-2026",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Bien » (Guillemette Odicino) : Gilles de Maistre conte l’histoire d’un enfant nomade recueilli par des autruches. Grands espaces splendides et animaux expressifs rattrapent certaines naïvetés de ce gentil conte pour toute la famille.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 131,
+            "bbox": [
+              260.6,
+              599.22,
+              355.41,
+              623.68
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/38"
+            }
+          }
+        ],
+        "decision_note": "vendredi-selection rang 6 (21:10 Canal+) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-vendredi-selection-talking-heads-stop-making-sense-live-at-pantages-theatre-1983-1984",
+        "title": "Talking Heads : Stop Making Sense – Live at Pantages Theatre, 1983",
+        "work_id": "talking-heads-stop-making-sense-live-at-pantages-theatre-1983-1984",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "presse",
+            "note": "Cité par une critique SensCritique comme le meilleur film-concert selon Rolling Stone (non vérifié à la source)",
+            "source_url": "https://www.senscritique.com/film/stop_making_sense/critique/44610515"
+          }
+        ],
+        "decision_note": "vendredi-selection rang 7 (23:25 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-vendredi-selection-le-crime-2026",
+        "title": "Le Crime du 3e étage",
+        "work_id": "le-crime-2026",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "presse",
+            "note": "AlloCiné : presse 3,0/5 (27 critiques), spectateurs 3,2/5 ; première mondiale à Rotterdam 2026",
+            "source_url": "https://allocine.fr/film/fichefilm_gen_cfilm=1000020100.html"
+          },
+          {
+            "kind": "community_rating",
+            "note": "Note SensCritique 5,8/10 ; appréciation dans la grille Télérama n° 4008 : TT.",
+            "source_url": "https://www.senscritique.com/film/le_crime_du_3e_etage/107116359"
+          }
+        ],
+        "decision_note": "vendredi-selection rang 8 (21:00 Canal+ Box Office) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-vendredi-selection-the-north-sea-2021",
+        "title": "The North Sea",
+        "work_id": "the-north-sea-2021",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "festival",
+            "note": "Sélection officielle au Festival de Rome 2021 (source : fiche de recherche, non recoupée)",
+            "source_url": "https://trustnordisk.com/movie/the-north-sea"
+          },
+          {
+            "kind": "community_rating",
+            "note": "Note SensCritique 6,2/10 ; appréciation dans la grille Télérama n° 4008 : TT.",
+            "source_url": "https://www.senscritique.com/film/the_north_sea/45441468"
+          }
+        ],
+        "decision_note": "vendredi-selection rang 9 (21:00 Paris Première) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-vendredi-selection-cactus-jack-1979",
+        "title": "Cactus Jack",
+        "work_id": "cactus-jack-1979",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "community_rating",
+            "note": "Note SensCritique 5,0/10 ; appréciation dans la grille Télérama n° 4008 : TT.",
+            "source_url": "https://www.senscritique.com/film/cactus_jack/498155"
+          }
+        ],
+        "decision_note": "vendredi-selection rang 10 (09:45 TCM Cinéma) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-vendredi-selection-l-idee-d-etre-avec-toi-2024",
+        "title": "L’Idée d’être avec toi",
+        "work_id": "l-idee-d-etre-avec-toi-2024",
+        "scope": {
+          "day": "vendredi"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "community_rating",
+            "note": "Note SensCritique 5,3/10.",
+            "source_url": "https://www.senscritique.com/film/l_idee_d_etre_avec_toi/50613251"
+          }
+        ],
+        "decision_note": "vendredi-selection rang 11 (21:10 TFX) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-1-marty-supreme-2025",
+        "title": "Marty Supreme",
+        "work_id": "marty-supreme-2025",
+        "scope": {
+          "rubrique": "rendezvous-1"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Bravo » (Frédéric Strauss) : Un jeune New-Yorkais veut devenir champion de ping-pong en 1952, à tout prix. Josh Safdie signe un film-fleuve d’une énergie et d’une précision éblouissantes, élan vital plus que biographie ; Timothée Chalamet y livre un show drôle et émouvant.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 113,
+            "bbox": [
+              101.09,
+              295.18,
+              240.37,
+              328.58
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/20"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "Golden Globe et Critics' Choice du meilleur acteur pour Timothée Chalamet",
+            "source_url": "https://fr.wikipedia.org/wiki/Marty_Supreme"
+          },
+          {
+            "kind": "nominations",
+            "note": "Neuf nominations aux Oscars (98e cérémonie), dont meilleur film et réalisateur",
+            "source_url": "https://fr.wikipedia.org/wiki/Marty_Supreme"
+          }
+        ],
+        "decision_note": "rendezvous-1 rang 1 (21:10 Canal+) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-1-heat-1995",
+        "title": "Heat",
+        "work_id": "heat-1995",
+        "scope": {
+          "rubrique": "rendezvous-1"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "presse",
+            "note": "Rotten Tomatoes 87 % (83 critiques), Metacritic 76/100 ; IMDb 8,3/10 selon la fiche Wikipédia",
+            "source_url": "https://fr.wikipedia.org/wiki/Heat_(film,_1995)"
+          },
+          {
+            "kind": "nomination",
+            "note": "Saturn Awards 1996 : nomination meilleur film d'action/aventure",
+            "source_url": "https://fr.wikipedia.org/wiki/Heat_(film,_1995)"
+          }
+        ],
+        "decision_note": "rendezvous-1 rang 2 (21:00 Canal+ Grand Écran) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-1-edward-aux-mains-d-argent-1990",
+        "title": "Edward aux mains d’argent",
+        "work_id": "edward-aux-mains-d-argent-1990",
+        "scope": {
+          "rubrique": "rendezvous-1"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Bravo » (Frédéric Strauss) : L’un des plus beaux films de Tim Burton : conte de fées où un garçon inachevé découvre l’Amérique pastel. Merveilleux, contrastes visuels subtils et belle fable sur la tolérance et la peur de l’autre.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 124,
+            "bbox": [
+              263.43,
+              475.75,
+              404.9,
+              500.38
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/29"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "Hugo Award du meilleur film 1991, BAFTA de la meilleure direction artistique, Saturn Award du meilleur film fantastique",
+            "source_url": "https://fr.wikipedia.org/wiki/Edward_aux_mains_d'argent"
+          },
+          {
+            "kind": "agrégateur",
+            "note": "Rotten Tomatoes 91 % ; Metacritic 74/100",
+            "source_url": "https://fr.wikipedia.org/wiki/Edward_aux_mains_d'argent"
+          }
+        ],
+        "decision_note": "rendezvous-1 rang 3 (21:10 Novo19) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-1-babylon-2022",
+        "title": "Babylon",
+        "work_id": "babylon-2022",
+        "scope": {
+          "rubrique": "rendezvous-1"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Frédéric Strauss) : Damien Chazelle fait du Hollywood du muet une fresque folle et généreuse, trois heures au souffle de marathonien portées par Brad Pitt, Margot Robbie et Diego Calva. Folie d’auteur enthousiaste, échec américain mais message mieux compris en France.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 125,
+            "bbox": [
+              21.34,
+              48.25,
+              90.79,
+              72.88
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/30"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "Golden Globe de la meilleure musique originale ; BAFTA de la meilleure direction artistique ; 3 nominations aux Oscars",
+            "source_url": "https://fr.wikipedia.org/wiki/Babylon_(film,_2022)"
+          },
+          {
+            "kind": "presse",
+            "note": "Moyenne presse française 4/5 sur AlloCiné (45 titres) ; accueil américain partagé (Metacritic 60/100)",
+            "source_url": "https://fr.wikipedia.org/wiki/Babylon_(film,_2022)"
+          }
+        ],
+        "decision_note": "rendezvous-1 rang 4 (21:10 M6) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-1-un-singe-en-hiver-1962",
+        "title": "Un singe en hiver",
+        "work_id": "un-singe-en-hiver-1962",
+        "scope": {
+          "rubrique": "rendezvous-1"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Guillemette Odicino) : Rencontre alcoolisée entre Gabin et Belmondo, duo grandiose servi par les dialogues d’Audiard adaptant Blondin. Ode amère aux voyages et mélancolie stendhalienne sous la gouaille célinienne, jusqu’à la gueule de bois finale.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 106,
+            "bbox": [
+              24.14,
+              485.25,
+              114.22,
+              510.24
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/12"
+            }
+          },
+          {
+            "kind": "public",
+            "note": "Plus de 2 millions d'entrées à la sortie initiale en France (fiche Wikipédia)",
+            "source_url": "https://fr.wikipedia.org/wiki/Un_singe_en_hiver_(film)"
+          }
+        ],
+        "decision_note": "rendezvous-1 rang 5 (21:10 France 3) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-1-le-mepris-1963",
+        "title": "Le Mépris",
+        "work_id": "le-mepris-1963",
+        "scope": {
+          "rubrique": "rendezvous-1"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "public",
+            "note": "235 000 entrées en France à la sortie ; salué par Louis Aragon et Jean-Louis Bory (fiche Wikipédia)",
+            "source_url": "https://fr.wikipedia.org/wiki/Le_M%C3%A9pris_(film)"
+          },
+          {
+            "kind": "community_rating",
+            "note": "Note SensCritique 6,8/10 ; appréciation dans la grille Télérama n° 4008 : TTTT.",
+            "source_url": "https://www.senscritique.com/film/le_mepris/476344"
+          }
+        ],
+        "decision_note": "rendezvous-1 rang 6 (17:40 Ciné+ Classic) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-1-france-2021",
+        "title": "France",
+        "work_id": "france-2021",
+        "scope": {
+          "rubrique": "rendezvous-1"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Louis Guichard) : Bruno Dumont filme une star de l’information en continu, entre reportages chocs et débats manichéens, jusqu’à la descente aux enfers. Style dissonant, satire peu flatteuse, inquiétude morale intacte ; Léa Seydoux, au sommet, rend ce parcours complexe et attachant.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 94,
+            "bbox": [
+              103.92,
+              352.25,
+              195.82,
+              385.94
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/2"
+            }
+          },
+          {
+            "kind": "sélection",
+            "note": "Sélection officielle en compétition au Festival de Cannes 2021",
+            "source_url": "https://fr.wikipedia.org/wiki/France_(film,_2021)"
+          },
+          {
+            "kind": "nomination",
+            "note": "Nomination au César 2022 de la meilleure actrice (Léa Seydoux)",
+            "source_url": "https://fr.wikipedia.org/wiki/France_(film,_2021)"
+          }
+        ],
+        "decision_note": "rendezvous-1 rang 7 (23:10 France 4) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-1-revoir-paris-2022",
+        "title": "Revoir Paris",
+        "work_id": "revoir-paris-2022",
+        "scope": {
+          "rubrique": "rendezvous-1"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Mathilde Blottière) : Rescapée d’un attentat, une traductrice recompose ses souvenirs avec d’autres victimes. Alice Winocour montre l’importance du collectif dans la reconstruction ; Virginie Efira, magnifiquement juste, et Benoît Magimel portent ce film délicat.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 107,
+            "bbox": [
+              21.34,
+              323.75,
+              98.28,
+              348.74
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/15"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "César 2023 de la meilleure actrice pour Virginie Efira",
+            "source_url": "https://fr.wikipedia.org/wiki/Revoir_Paris"
+          },
+          {
+            "kind": "sélection",
+            "note": "Quinzaine des réalisateurs, Festival de Cannes 2022",
+            "source_url": "https://fr.wikipedia.org/wiki/Revoir_Paris"
+          }
+        ],
+        "decision_note": "rendezvous-1 rang 8 (20:55 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-1-le-quai-des-brumes-1938",
+        "title": "Le Quai des brumes",
+        "work_id": "le-quai-des-brumes-1938",
+        "scope": {
+          "rubrique": "rendezvous-1"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Pierre Murat) : Le film a pris un léger coup de vieux, et Gabin sera meilleur ailleurs, selon la critique, qui rappelle la moquerie de Renoir. Reste Michèle Morgan, béret et ciré noirs, encore un peu malhabile mais déjà splendide.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 119,
+            "bbox": [
+              21.34,
+              352.25,
+              124.21,
+              376.89
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/25"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "Prix Louis-Delluc 1938 ; recommandation spéciale pour la réalisation à Venise 1938",
+            "source_url": "https://fr.wikipedia.org/wiki/Le_Quai_des_brumes_(film)"
+          }
+        ],
+        "decision_note": "rendezvous-1 rang 9 (20:55 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-1-criminel-nazi-cherche-employeur-la-cavale-de-walter-rauff-2026",
+        "title": "Criminel nazi cherche employeur : la cavale de Walter Rauff",
+        "work_id": "criminel-nazi-cherche-employeur-la-cavale-de-walter-rauff-2026",
+        "scope": {
+          "rubrique": "rendezvous-1"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Valérie Lehoux) : Enquête passionnante quoique touffue sur Walter Rauff, responsable des camions à gaz, au service de services secrets et de dictatures après-guerre. Rendue possible par des archives déclassifiées, elle expose le cynisme d’un meurtrier de masse resté impuni.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 112,
+            "bbox": [
+              24.18,
+              333.26,
+              141.39,
+              404.58
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/19"
+            }
+          }
+        ],
+        "decision_note": "rendezvous-1 rang 10 (20:55 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-2-le-chat-1971",
+        "title": "Le Chat",
+        "work_id": "le-chat-1971",
+        "scope": {
+          "rubrique": "rendezvous-2"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Bien » (Cécile Mury) : Un vieux couple ne se parle plus depuis que l’épouse a tué le chat du mari. Granier-Deferre adapte Simenon avec une cruauté poisseuse ; interprétation férocement pessimiste de la passion, où Gabin et Signoret s’affrontent magistralement.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 131,
+            "bbox": [
+              21.34,
+              485.26,
+              108.18,
+              509.89
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/37"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "Ours d'argent d'interprétation à Berlin pour Jean Gabin et Simone Signoret (mentionné dans une critique SensCritique, non vérifié ailleurs)",
+            "source_url": "https://www.senscritique.com/film/le_chat/critique/228453585"
+          }
+        ],
+        "decision_note": "rendezvous-2 rang 1 (21:05 France 5) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-2-travail-force-enfants-voles-l-irlande-au-tribunal-2025",
+        "title": "Travail forcé, enfants volés : l’Irlande au tribunal",
+        "work_id": "travail-force-enfants-voles-l-irlande-au-tribunal-2025",
+        "scope": {
+          "rubrique": "rendezvous-2"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Tiphaine Thuillier) : Témoignages, archives et reconstitutions donnent voix aux survivantes des foyers catholiques irlandais et aux militantes qui ont fait reconnaître la responsabilité de l’État. Documentaire bouleversant, dont les visages et les mots déchirants hantent longtemps.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 106,
+            "bbox": [
+              103.94,
+              304.66,
+              260.86,
+              339.05
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/11"
+            }
+          },
+          {
+            "kind": "presse",
+            "note": "Critique de Screen Daily (« raw, defiant doc ») ; page non lue en entier, issue des résultats de recherche",
+            "source_url": "https://www.screendaily.com/reviews/testimony-review-raw-defiant-doc-gives-voice-to-survivors-of-irelands-magdalene-laundries/5211174.article"
+          }
+        ],
+        "decision_note": "rendezvous-2 rang 2 (22:35 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-2-the-world-of-love-2025",
+        "title": "The World of Love",
+        "work_id": "the-world-of-love-2025",
+        "scope": {
+          "rubrique": "rendezvous-2"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Caroline Besse) : Yoon Ga-eun suit une lycéenne vive qui refuse de signer une pétition contre un prédateur, révélant un passé douloureux. Regard très sensible sur l’après des violences sexuelles, sans choisir entre traumatisme et guérison, porté par de beaux personnages secondaires.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 113,
+            "bbox": [
+              100.16,
+              532.75,
+              216.07,
+              557.74
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/21"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "Montgolfière d'or au Festival des 3 Continents ; prix du jury et du public à Pingyao",
+            "source_url": "https://fr.wikipedia.org/wiki/The_World_of_Love"
+          },
+          {
+            "kind": "sélection",
+            "note": "Présenté au Festival de Toronto 2025 (Platform)",
+            "source_url": "https://fr.wikipedia.org/wiki/The_World_of_Love"
+          }
+        ],
+        "decision_note": "rendezvous-2 rang 3 (20:50 Ciné+ Festival) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-2-sorda-2025",
+        "title": "Sorda",
+        "work_id": "sorda-2025",
+        "scope": {
+          "rubrique": "rendezvous-2"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Marie Sauvion) : Une femme sourde et son compagnon entendant attendent un enfant et le verdict sur son audition. Premier film très maîtrisé d’Eva Libertad, primé aux Goya, révélant la captivante Miriam Garlo ; la mise en scène finit par épouser le point de vue de l’héroïne.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 107,
+            "bbox": [
+              340.35,
+              361.75,
+              455.34,
+              394.56
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/16"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "Prix du public Panorama, Berlinale 2025",
+            "source_url": "https://fr.wikipedia.org/wiki/Sorda"
+          },
+          {
+            "kind": "prix",
+            "note": "Biznaga d'or du meilleur film espagnol, Festival de Malaga 2025",
+            "source_url": "https://fr.wikipedia.org/wiki/Sorda"
+          }
+        ],
+        "decision_note": "rendezvous-2 rang 4 (20:50 Ciné+ Festival) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-2-la-science-des-reves-2006",
+        "title": "La Science des rêves",
+        "work_id": "la-science-des-reves-2006",
+        "scope": {
+          "rubrique": "rendezvous-2"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Aurélien Ferenczi) : Michel Gondry mêle animation et marivaudage autour d’un jeune homme qui confond rêve et réalité. Fantaisie savoureuse où le meilleur tient aux scènes à deux, et direction d’acteurs formidable pour Gael García Bernal et Charlotte Gainsbourg.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 124,
+            "bbox": [
+              24.18,
+              475.66,
+              132.85,
+              500.74
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/28"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "Prix du cinéma européen 2006 (contribution artistique) ; prix du public au festival de Catalogne 2006",
+            "source_url": "https://fr.wikipedia.org/wiki/La_Science_des_rêves"
+          }
+        ],
+        "decision_note": "rendezvous-2 rang 5 (21:00 France 4) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-2-birdman-2014",
+        "title": "Birdman",
+        "work_id": "birdman-2014",
+        "scope": {
+          "rubrique": "rendezvous-2"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "prix",
+            "note": "Quatre Oscars 2015 dont meilleur film et meilleur réalisateur",
+            "source_url": "https://fr.wikipedia.org/wiki/Birdman_(film)"
+          }
+        ],
+        "decision_note": "rendezvous-2 rang 6 (16:00 Ciné+ Frisson) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-2-sept-jours-en-mai-1964",
+        "title": "Sept Jours en mai",
+        "work_id": "sept-jours-en-mai-1964",
+        "scope": {
+          "rubrique": "rendezvous-2"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Guillemette Odicino) : Complot militaire contre un président américain qui signe un traité de désarmement : Frankenheimer signe un plaidoyer antinucléaire captivant, à la mise en scène inventive, où chaque cadre étouffant traduit la paranoïa des bellicistes face à une démocratie fatiguée mais digne.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 95,
+            "bbox": [
+              21.05,
+              504.25,
+              112.93,
+              528.88
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/3"
+            }
+          },
+          {
+            "kind": "prix",
+            "note": "Golden Globe du meilleur second rôle masculin pour Edmond O'Brien ; deux nominations aux Oscars 1965",
+            "source_url": "https://fr.wikipedia.org/wiki/Sept_jours_en_mai"
+          }
+        ],
+        "decision_note": "rendezvous-2 rang 7 (00:10 France 3) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-2-klaus-nomi-chanteur-du-troisieme-type-2025",
+        "title": "Klaus Nomi : chanteur du troisième type",
+        "work_id": "klaus-nomi-chanteur-du-troisieme-type-2025",
+        "scope": {
+          "rubrique": "rendezvous-2"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (Anne Berthod) : Hommage éclairant à l’artiste allemand qui fusionna new wave et opéra dans le New York underground. Témoignages d’anciens complices et de Christine and the Queens retracent un parcours fulgurant, jusqu’à sa mort du sida à 39 ans.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 130,
+            "bbox": [
+              422.94,
+              276.25,
+              539.45,
+              309.07
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/34"
+            }
+          }
+        ],
+        "decision_note": "rendezvous-2 rang 8 (22:30 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-2-vendee-globe-seuls-autour-du-monde-2026",
+        "title": "Vendée Globe, seuls autour du monde",
+        "work_id": "vendee-globe-seuls-autour-du-monde-2026",
+        "scope": {
+          "rubrique": "rendezvous-2"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (François Ekchajzer) : Série en six volets sur six concurrents de l’édition 2024, leurs images croisées avec le quotidien des familles à terre. Récit polyphonique captivant et émouvant, qui dépasse la performance sportive pour toucher à l’aventure humaine.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 112,
+            "bbox": [
+              103.1,
+              48.25,
+              301.05,
+              72.88
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/18"
+            }
+          },
+          {
+            "kind": "sélection",
+            "note": "Présentée en première mondiale à Canneséries 2026 (selon résultat de recherche)",
+            "source_url": "https://www.serie-news.com/non-classe/51322-vendee-globe-seuls-autour-du-monde-sur-france-2-la-serie-documentaire-evenement-au-coeur-de-la-course-en-solitaire-25-09-2026/"
+          }
+        ],
+        "decision_note": "rendezvous-2 rang 9 (21:10 France 2) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-rendezvous-2-la-vente-secrete-des-juifs-de-roumanie-2025",
+        "title": "La Vente secrète des Juifs de Roumanie",
+        "work_id": "la-vente-secrete-des-juifs-de-roumanie-2025",
+        "scope": {
+          "rubrique": "rendezvous-2"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "provided_magazine_criticism",
+            "note": "Télérama « Très bien » (François Ekchajzer) : Adapté de Sonia Devillers, ce film-enquête saisissant révèle comment, de 1958 à 1989, la Roumanie communiste a monnayé l’exil de ses Juifs. Récit captivant et remarquablement articulé, fait de documents déclassifiés et de témoignages.",
+            "publisher": "Télérama",
+            "source_ref": "sha256:29bcae2e0531fcef61f722cd41de19c1b0399e42f6ddb5624b5ea0f88bdf1709",
+            "pdf_page": 112,
+            "bbox": [
+              343.19,
+              48.24,
+              548.46,
+              72.88
+            ],
+            "provenance": {
+              "source_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
+              "path": "data/editorial-inputs/2026-S46/telerama-editorial.json",
+              "json_pointer": "/reviews/17"
+            }
+          }
+        ],
+        "decision_note": "rendezvous-2 rang 10 (22:40 Arte) ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-sorties-physiques-sailor-suit-and-machine-gun-1981",
+        "title": "Sailor Suit and Machine Gun",
+        "work_id": "sailor-suit-and-machine-gun-1981",
+        "scope": {
+          "rubrique": "sorties-physiques"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "community_rating",
+            "note": "Note SensCritique 6,5/10.",
+            "source_url": "https://www.senscritique.com/film/sailor_suit_and_machine_gun/8289911"
+          }
+        ],
+        "decision_note": "sorties-physiques rang 1 ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-sorties-physiques-the-eye-2003",
+        "title": "The Eye",
+        "work_id": "the-eye-2003",
+        "scope": {
+          "rubrique": "sorties-physiques"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "community_rating",
+            "note": "Note SensCritique 5,8/10.",
+            "source_url": "https://www.senscritique.com/film/the_eye/463256"
+          }
+        ],
+        "decision_note": "sorties-physiques rang 2 ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-sorties-physiques-mon-oncle-1958",
+        "title": "Mon oncle",
+        "work_id": "mon-oncle-1958",
+        "scope": {
+          "rubrique": "sorties-physiques"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "community_rating",
+            "note": "Note SensCritique 7,6/10.",
+            "source_url": "https://www.senscritique.com/film/mon_oncle/401580"
+          }
+        ],
+        "decision_note": "sorties-physiques rang 3 ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-sorties-physiques-les-vacances-de-m-hulot-1953",
+        "title": "Les Vacances de M. Hulot",
+        "work_id": "les-vacances-de-m-hulot-1953",
+        "scope": {
+          "rubrique": "sorties-physiques"
+        },
+        "status": "card_drafted",
+        "signals": [
+          {
+            "kind": "edition",
+            "note": "Restauré en 4K dans le coffret Tati de Studiocanal, annoncé pour novembre 2026.",
+            "source_url": "https://www.avcesar.com/les-tati-sont-eternels-surtout-en-4k-restauree"
+          }
+        ],
+        "decision_note": "sorties-physiques rang 4 ; carte rédigée le 2026-11-05."
+      },
+      {
+        "id": "sl-x-festival-de-grenade-hommage-a-manuel-de-falla",
+        "title": "Festival de Grenade : hommage à Manuel de Falla",
+        "scope": {
+          "rubrique": "pistes-ecartees"
+        },
+        "status": "rejected",
+        "signals": [],
+        "decision_note": "Critique « Bravo », mais ni fiche exacte ni visuel vérifiable."
+      },
+      {
+        "id": "sl-x-the-batman",
+        "title": "The Batman",
+        "scope": {
+          "rubrique": "pistes-ecartees"
+        },
+        "status": "rejected",
+        "signals": [],
+        "decision_note": "Fiche SensCritique introuvable et visuel non vérifiable le jour de la production."
+      },
+      {
+        "id": "sl-x-les-infiltres",
+        "title": "Les Infiltrés",
+        "scope": {
+          "rubrique": "pistes-ecartees"
+        },
+        "status": "rejected",
+        "signals": [],
+        "decision_note": "Déjà publié en S44 (fraîcheur inter-numéros)."
+      },
+      {
+        "id": "sl-x-une-famille",
+        "title": "Une famille",
+        "scope": {
+          "rubrique": "pistes-ecartees"
+        },
+        "status": "rejected",
+        "signals": [],
+        "decision_note": "Déjà publié en S45 (fraîcheur inter-numéros)."
+      },
+      {
+        "id": "sl-x-verdun-300-jours-300-nuits",
+        "title": "Verdun : 300 jours, 300 nuits",
+        "scope": {
+          "rubrique": "pistes-ecartees"
+        },
+        "status": "rejected",
+        "signals": [],
+        "decision_note": "Critique Télérama « Hélas »."
+      },
+      {
+        "id": "sl-x-la-passion-de-dodin-bouffant",
+        "title": "La Passion de Dodin Bouffant",
+        "scope": {
+          "rubrique": "pistes-ecartees"
+        },
+        "status": "rejected",
+        "signals": [],
+        "decision_note": "Avis partagés Pour/Contre, déjà mis en avant les semaines de sa sortie ; samedi déjà complet."
+      }
+    ]
   },
   "resume": {
     "candidate_branch": "auto/2026-S46",
     "main_sha": "a49f7f6faf05c0274972cf471dfb52e11effb062",
-    "first_incomplete_stage": "inventory",
+    "first_incomplete_stage": null,
     "next_actions": [
-      "Construire l’inventaire de grille depuis le PDF Télérama et sa revue de transcription, puis la présélection."
+      "Scellement, push sous bail court et suivi de la chaîne protégée jusqu’à latest.html."
     ]
   },
   "run_metrics": [
@@ -72,5 +4636,5 @@
       "next_useful_batch": null
     }
   ],
-  "updated_at": "2026-11-05T14:38:28Z"
+  "updated_at": "2026-11-05T15:28:04Z"
 }
