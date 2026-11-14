@@ -275,7 +275,10 @@
         "TV Breizh",
         "TV5MONDE",
         "Ushuaïa TV",
-        "W9"
+        "W9",
+        "6ter",
+        "RMC Story",
+        "RMC Découverte"
       ]
     },
     {
@@ -392,7 +395,7 @@
     }
   ],
   "independent_crosscheck_complete": false,
-  "full_week_reaudit_completed": false,
+  "full_week_reaudit_completed": true,
   "grid_inventory": {
     "source_ref": "sha256:4114a9290495f151366ba2c9685fb916bb38e5152b06057a71a9a9e77ed5519d",
     "source_path": "data/editorial-inputs/2026-S47/telerama.json",
@@ -714,7 +717,8 @@
       "Écart habituel de plus de 4 h 00 entre deux horaires imprimés d’une journée (heures non imprimées ou longs blocs) : Ciné+ Family (15 h 30), Planète+ (15 h 20), Ciné+ Emotion (13 h 50), Ciné+ Frisson (13 h 45), Toute l’Histoire (13 h 25), Canal+ Box Office (13 h 10), Ushuaïa TV (13 h 00), Canal+ Docs (12 h 40), Canal+ Grand Écran (12 h 25), Action (11 h 50), Canal+ Kids (11 h 00), Canal+ Cinéma (10 h 50), CStar (9 h 00), RTL9 (8 h 55), Polar+ (8 h 50), Mezzo (8 h 45), Paris Première (7 h 45), Canal+ (6 h 15), France 4 (6 h 05), RMC Découverte (5 h 45), Ciné+ Festival (5 h 40), Histoire TV (5 h 35), W9 (5 h 25), Ciné+ Classic (5 h 20), Ciné+ OCS (5 h 00), TCM Cinéma (5 h 00), 6ter (4 h 55), RMC Life (4 h 55), France 5 (4 h 15), TMC (4 h 15).",
       "Aucune ligne 00:00–05:59 imprimée : RMC Story, TF1 Séries Films.",
       "Le magazine n’imprime pas toutes les heures : aucune chaîne n’est relevée comme complète. Les heures non imprimées (films de nuit ou du matin des chaînes cinéma notamment) ne sont pas relevées ; les compléter par l’import Web ordinaire seulement si une piste l’exige.",
-      "La nuit 00:00–05:59 du premier samedi est imprimée dans le numéro précédent."
+      "La nuit 00:00–05:59 du premier samedi est imprimée dans le numéro précédent.",
+      "Mercredi 18 novembre, p. 121 : le magazine imprime les colonnes 6ter, RMC Story, RMC Découverte, T18, Novo19 et TFX sans aucune ligne de programme (en-têtes et cases de soirée vides, vérifié à l’image) ; ces chaînes sont consignées lues avec 0 ligne pour ce jour, sans relevé de substitution."
     ],
     "transcription_review": {
       "reviewed_at": "2026-11-14T17:53:31.000Z",
@@ -2160,5 +2164,7 @@
         "decision": "retenu : vendredi-selection rang 4 (22:20 France 4)"
       }
     ]
-  }
+  },
+  "full_week_reaudit_basis": "Attesté le 14/11/2026 après la revue réelle : inventaire tiré de la grille imprimée du Télérama n° 4009 (mode telerama-grid-authority, 28 pages, 3418 lignes, 51 chaînes). Revue de transcription par sondage de 7 pages entières relues à l’image et 114 lignes, 14 corrections, nuit du samedi 21 (hors semaine) écartée, sept créneaux à deux titres conservés tels qu’imprimés, revue d’impact sans effet sur les propositions, passe documentaire dédiée et rappel éditorial des 40 critiques. Défaut d’impression consigné p. 121 (six colonnes vides le mercredi 18). Les heures non imprimées restent des limites consignées ; aucune chaîne n’est déclarée complète.",
+  "independent_crosscheck_note": "Indépendance non établie : la grille du PDF fourni fait autorité sur son périmètre par décision de l’utilisateur ; aucun second guide n’a été comparé ligne à ligne."
 }
