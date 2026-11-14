@@ -161,7 +161,26 @@
     }
   ],
   "page_count": 29,
-  "section_shortages": {},
+  "section_shortages": {
+    "plateformes-abonnement": {
+      "reason": "Seuls six films sur abonnement ont une offre datée lisible cette semaine (MUBI) ; le catalogue LaCinetek se charge côté client et n’a pas pu être lu sans deviner d’URL, Netflix et Prime Video ne sont pas lisibles par nos outils.",
+      "searched_sources": [
+        "https://mubi.com/fr/fr/films/matewan",
+        "https://www.lacinetek.com/fr/",
+        "https://www.netflix.com/fr/"
+      ],
+      "verified_count": 6
+    },
+    "sorties-streaming": {
+      "reason": "Deux arrivées en ligne vérifiées et datées cette semaine hors programmes télé du numéro ; Fedora, arrivé sur ARTE le 15 novembre, figure déjà dans la sélection du dimanche.",
+      "searched_sources": [
+        "https://mubi.com/fr/fr/films/cairo-conspiracy",
+        "https://www.arte.tv/fr/videos/115124-000-A/when-we-were-sisters/",
+        "https://www.arte.tv/fr/videos/052395-000-A/fedora/"
+      ],
+      "verified_count": 2
+    }
+  },
   "personalization": {
     "schema_version": 1,
     "pools": {
@@ -1708,7 +1727,8 @@
               "imdb": "https://www.imdb.com/title/tt0087884/",
               "sc": "https://www.senscritique.com/film/paris_texas/414147",
               "wiki": "https://fr.wikipedia.org/wiki/Paris,_Texas",
-              "allocine": "https://www.allocine.fr/film/fichefilm_gen_cfilm=263.html"
+              "allocine": "https://www.allocine.fr/film/fichefilm_gen_cfilm=263.html",
+              "wikipedia": "https://fr.wikipedia.org/wiki/Paris,_Texas"
             },
             "ratings": {
               "imdb": "8,1",
