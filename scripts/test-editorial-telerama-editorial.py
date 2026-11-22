@@ -94,5 +94,13 @@ class EditorialTests(unittest.TestCase):
         self.assertEqual((rows[0]['channel_printed'],rows[0]['programme_kind']),('Canal+ Docs','Documentaire'))
 
 
+    def test_headers_just_below_the_section_band_are_daily_reviews(self):
+        # S48: review headers printed at top 38, under « TNT » (top 13), were missed.
+        data=chars('TNT',24,13,size=8.5,bold=True)+review('u','Werther',x=24,top=38,time='0.00')
+        rows,_=module.page_reviews(data,dt.date(2026,11,21),100,592)
+        self.assertEqual([r['title'] for r in rows],['Werther'])
+        self.assertEqual(module.page_band(data),'TNT')
+        self.assertEqual(module.page_band(data+chars('u 21.00 Arte Film',300,38)),'TNT')
+
 if __name__=='__main__':
     unittest.main()
