@@ -1,23 +1,10 @@
 {
   "schema_version": 1,
   "week": "2026-S48",
-  "stage": "inventory",
+  "stage": "ready",
   "status": "in_progress",
   "base_sha": "953b88d47aafff0961f9041ae7c0224e1975ea25",
-  "remaining": [
-    "Constituer et sauvegarder l’inventaire primaire des sept jours du du 21 au 27 novembre 2026 depuis la grille imprimée du Télérama fourni (mode telerama-grid-authority, empreinte sha256:4411c09f829c44ccb4463704b7097fb51421cd4a178314b3d90d20259b2f002f), avec au moins 30 lignes par jour, une ligne de nuit par jour, toutes les chaînes actives obligatoires, pages, comptes par chaîne, portée imprimée et limites consignées.",
-    "Effectuer et sauvegarder la revue de transcription par sondage de l’inventaire de grille (au moins 7 pages relues en entier, au moins 35 lignes dont 3 par jour, décisions matches/corrected/added, créneaux à deux titres relus) dans coverage.grid_inventory.transcription_review, puis la revue d’impact des conflits publiés.",
-    "Effectuer le rappel éditorial et la prospection documentaire dédiée Arte, France 5, France 2/3/4, france.tv, TV5MONDE et autres sources pertinentes, avec offres linéaires/replay/exclusivités/expirations, décisions et preuves critiques exactes sauvegardées dans le bilan de couverture.",
-    "Constituer puis tenir une présélection sourcée par jour et par rubrique, environ 1,5 à 2 fois les positions à pourvoir sans titre faible, en priorisant les appréciations Télérama positives importées et en conservant alternatives, rejets et reports.",
-    "Vérifier complètement chaque choix, réserve, ligne de grille et proposition de rubrique au niveau 3 : identité et version, diffusion (grille Télérama relue sur son périmètre, sinon preuve Web admissible), disponibilité ou expiration, réception critique, métadonnées, notes ou raison spécifique, liens directs exacts et visuel réel.",
-    "Produire trois choix développés par jour et au moins dix candidats complets distincts par jour, objectif quinze si la qualité le permet, avec synopsis et justification propres, pools de réserves publiables et toute pénurie structurée réellement sourcée.",
-    "Compléter les rubriques obligatoires et leurs seuils sans remplissage faible : rendez-vous, replay, plateformes gratuites et abonnement film-first, sorties physiques et streaming, expirations et sommaire, avec pagination lisible et réserves effectives lorsqu’elles sont requises.",
-    "Compléter les radars selon les seuils inchangés : popularité avec cinq choix, cinq cartes de sillonnage et au moins cinq réserves distinctes, puis radar 1080p avec dix choix visibles et une réserve distincte visant dix œuvres, sans compter les primaires comme réserves.",
-    "Appliquer la déduplication, la fraîcheur inter-numéros et l’équilibre cinéma/documentaire/rubriques ; conserver toute exception de fraîcheur ou pénurie sous forme structurée, précise et sourcée.",
-    "Construire et revoir tous les livrables autorisés de 2026-S48, ainsi que les enrichissements vérifiés de works, links et releases, en gardant manifest.latest à 2026-S47 et tous les statuts 2026-S48 en draft.",
-    "Exécuter les contrôles pertinents de données, liens, fraîcheur, réserves, images et présentation sur la tête exacte, inspecter les pages modifiées, résoudre les causes réelles sans baisser les critères et conserver les résultats liés au SHA et à sa base.",
-    "Après résolution réelle de remaining, effectuer la revue éditoriale complète des livrables, sceller les empreintes exactes, passer stage à ready, puis laisser la fusion candidate et la promotion protégées suivre leurs contrôles et leur publication vérifiée."
-  ],
+  "remaining": [],
   "completed_batches": [],
   "blockers": [],
   "research_attempts": [],
@@ -4641,10 +4628,10 @@
   },
   "resume": {
     "candidate_branch": "auto/2026-S48",
-    "main_sha": "953b88d47aafff0961f9041ae7c0224e1975ea25",
-    "first_incomplete_stage": "inventory",
+    "main_sha": "eef4819",
+    "first_incomplete_stage": null,
     "next_actions": [
-      "Construire l’inventaire de grille depuis le PDF Télérama et sa revue de transcription, puis la présélection."
+      "Scellement, push sous bail court et suivi de la chaîne protégée jusqu’à latest.html."
     ]
   },
   "run_metrics": [
@@ -4652,8 +4639,8 @@
       "mode": "session",
       "prompt_revision": "production-session-2026-10-16",
       "started_at": "2026-11-22T15:55:52.847Z",
-      "ended_at": null,
-      "run_state": "running",
+      "ended_at": "2026-11-22T17:14:17.610Z",
+      "run_state": "stopped",
       "duration_basis": "Horloge réelle relevée par scripts/editorial-session.mjs à chaque transition ; les phases peuvent se chevaucher et ne s’additionnent pas.",
       "phases": {
         "import": {
@@ -4683,13 +4670,31 @@
         },
         "checks": {
           "started_at": "2026-11-22T17:10:13.106Z",
-          "ended_at": null
+          "ended_at": "2026-11-22T17:14:17.061Z",
+          "note": "10 validateurs locaux verts dont validate-layout ; revue navigateur de la couverture et des 41 pages sans image cassée ni erreur console"
+        },
+        "publication_chain": {
+          "started_at": "2026-11-22T17:14:17.338Z",
+          "ended_at": null,
+          "basis": "La chaîne protégée continue sur GitHub après le dernier commit de la candidate ; sa fin se constate sur latest.html et figure dans le compte rendu de la session."
         }
       },
-      "deliverables_changed": [],
-      "stop_reason": null,
-      "next_useful_batch": null
+      "deliverables_changed": [
+        "data/coverage/2026-S48.json",
+        "data/inventory/2026-S48.json",
+        "data/links.json",
+        "data/manifest.json",
+        "data/radar-reserves/2026-S48.json",
+        "data/releases.json",
+        "data/research/2026-S48.json",
+        "data/weeks/2026-S48.json",
+        "data/works.json",
+        "semaines/2026-S48/index.html",
+        "assets/posters/*.webp (110)"
+      ],
+      "stop_reason": "ready_handed_off",
+      "next_useful_batch": "Push sous bail, CI, publicateur protégé"
     }
   ],
-  "updated_at": "2026-11-22T17:10:54Z"
+  "updated_at": "2026-11-22T20:30:00+01:00"
 }
