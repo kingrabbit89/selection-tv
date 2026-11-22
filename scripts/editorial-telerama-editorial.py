@@ -19,10 +19,10 @@ spec.loader.exec_module(grid)
 RATINGS = {"r": ("Hélas", None), "t": ("Bof", 1), "y": ("Bien", 2),
            "u": ("Très bien", 3), "i": ("Bravo", 4)}
 # Programme kinds printed at the end of a review header; S44 also printed
-# « Divertissement » and the short « Doc ».
+# « Divertissement » and the short « Doc », S48 « Télé-réalité ».
 GENRES = ("Seul-en-scène", "Documentaire", "Téléfilm", "Spectacle", "Théâtre",
           "Magazine", "Animation", "Concert", "Série", "Film", "Opéra",
-          "Divertissement", "Doc")
+          "Divertissement", "Télé-réalité", "Doc")
 
 
 def contiguous(chars, max_gap):
@@ -50,8 +50,11 @@ def header_candidates(chars):
                  and 7.5 <= c["size"] <= 10 and 30 <= c["top"] < 715]
         for index, mark in enumerate(marks):
             right = marks[index + 1]["x0"] - 2 if index + 1 < len(marks) else 10000
-            header = contiguous([c for c in line if mark["x0"] <= c["x0"] < right and
-                                 "Graphik" in c.get("fontname", "") and 7.5 <= c["size"] <= 10], 8)
+            # A superscript (« 13ème Rue ») sits slightly higher and may form its own
+            # line group: read the header band around the mark, not only its line.
+            band = [c for c in chars if mark["top"] - 1.5 <= c["top"] <= mark["top"] + 2.5]
+            header = contiguous([c for c in band if mark["x0"] <= c["x0"] < right and
+                                 "Graphik" in c.get("fontname", "") and 6 <= c["size"] <= 10], 8)
             text = grid.compose(header)
             matched = re.fullmatch(r"(\d{1,2})[.:](\d{2})\s+(.+?)\s+(" + "|".join(GENRES) + r")", text)
             if not matched or int(matched[1]) > 23 or int(matched[2]) > 59:
