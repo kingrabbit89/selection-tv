@@ -721,7 +721,418 @@
       "Le magazine n’imprime pas toutes les heures : aucune chaîne n’est relevée comme complète. Les heures non imprimées (films de nuit ou du matin des chaînes cinéma notamment) ne sont pas relevées ; les compléter par l’import Web ordinaire seulement si une piste l’exige.",
       "La nuit 00:00–05:59 du premier samedi est imprimée dans le numéro précédent."
     ],
-    "transcription_review": null
+    "transcription_review": {
+      "reviewed_at": "2026-11-22T15:59:32.000Z",
+      "method": "Pages de grille 102, 108, 114, 120, 126, 132 et 138 lues en entier sur rendu 3,2 px/pt (4 quarts par page, colonnes TF1, France 2, France 3, France 4, France 5 et Arte, journée, soirée et nuit), comparaison ligne à ligne avec rows.json de chaque page (titre, heure, chaîne) ; créneaux à deux titres vérifiés sur un rendu des pages Canal+ 116, 122 et 140 du PDF Télérama 4010.",
+      "pages_reread": [
+        102,
+        108,
+        114,
+        120,
+        126,
+        132,
+        138
+      ],
+      "sampled_rows": [
+        {
+          "date": "2026-11-21",
+          "pdf_page": 102,
+          "title": "Jeunesse...",
+          "start": "05:00",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 102)."
+        },
+        {
+          "date": "2026-11-21",
+          "pdf_page": 102,
+          "title": "Petits plats en équilibre",
+          "start": "11:45",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 102)."
+        },
+        {
+          "date": "2026-11-21",
+          "pdf_page": 102,
+          "title": "Grizzy et les lemmings",
+          "start": "13:40",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 102)."
+        },
+        {
+          "date": "2026-11-21",
+          "pdf_page": 102,
+          "title": "Rencontres à XV",
+          "start": "20:20",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 102)."
+        },
+        {
+          "date": "2026-11-21",
+          "pdf_page": 102,
+          "title": "Rugby",
+          "start": "17:30",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 102)."
+        },
+        {
+          "date": "2026-11-22",
+          "pdf_page": 108,
+          "title": "Jeunesse...",
+          "start": "05:00",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 108)."
+        },
+        {
+          "date": "2026-11-22",
+          "pdf_page": 108,
+          "title": "Messe",
+          "start": "11:00",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 108)."
+        },
+        {
+          "date": "2026-11-22",
+          "pdf_page": 108,
+          "title": "Une maison, un artiste",
+          "start": "13:35",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 108)."
+        },
+        {
+          "date": "2026-11-22",
+          "pdf_page": 108,
+          "title": "Les enfants de la télé",
+          "start": "18:05",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 108)."
+        },
+        {
+          "date": "2026-11-22",
+          "pdf_page": 108,
+          "title": "C politique, la suite",
+          "start": "20:00",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 108)."
+        },
+        {
+          "date": "2026-11-23",
+          "pdf_page": 114,
+          "title": "Jeunesse...",
+          "start": "05:00",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 114)."
+        },
+        {
+          "date": "2026-11-23",
+          "pdf_page": 114,
+          "title": "C’est toujours pas sorcier",
+          "start": "13:30",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 114)."
+        },
+        {
+          "date": "2026-11-23",
+          "pdf_page": 114,
+          "title": "JT 20h",
+          "start": "20:00",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 114)."
+        },
+        {
+          "date": "2026-11-23",
+          "pdf_page": 114,
+          "title": "Thalassa, aventures extrêmes",
+          "start": "10:25",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 114)."
+        },
+        {
+          "date": "2026-11-23",
+          "pdf_page": 114,
+          "title": "Okoo-koo",
+          "start": "17:20",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 114)."
+        },
+        {
+          "date": "2026-11-24",
+          "pdf_page": 120,
+          "title": "Jeunesse...",
+          "start": "05:00",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 120)."
+        },
+        {
+          "date": "2026-11-24",
+          "pdf_page": 120,
+          "title": "Les Feux de l’amour",
+          "start": "10:55",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 120)."
+        },
+        {
+          "date": "2026-11-24",
+          "pdf_page": 120,
+          "title": "Les Pleins Pouvoirs",
+          "start": "13:35",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 120)."
+        },
+        {
+          "date": "2026-11-24",
+          "pdf_page": 120,
+          "title": "Stade 2 la quotidienne",
+          "start": "20:00",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 120)."
+        },
+        {
+          "date": "2026-11-24",
+          "pdf_page": 120,
+          "title": "Invitation au voyage",
+          "start": "17:20",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 120)."
+        },
+        {
+          "date": "2026-11-25",
+          "pdf_page": 126,
+          "title": "Jeunesse...",
+          "start": "05:00",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 126)."
+        },
+        {
+          "date": "2026-11-25",
+          "pdf_page": 126,
+          "title": "Chacun son tour",
+          "start": "10:50",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 126)."
+        },
+        {
+          "date": "2026-11-25",
+          "pdf_page": 126,
+          "title": "Les Enfants des autres",
+          "start": "13:35",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 126)."
+        },
+        {
+          "date": "2026-11-25",
+          "pdf_page": 126,
+          "title": "Okoo-koo",
+          "start": "17:10",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 126)."
+        },
+        {
+          "date": "2026-11-25",
+          "pdf_page": 126,
+          "title": "C à vous la suite",
+          "start": "20:00",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 126)."
+        },
+        {
+          "date": "2026-11-26",
+          "pdf_page": 132,
+          "title": "Jeunesse",
+          "start": "05:05",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 132)."
+        },
+        {
+          "date": "2026-11-26",
+          "pdf_page": 132,
+          "title": "Les Feux de l’amour",
+          "start": "10:55",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 132)."
+        },
+        {
+          "date": "2026-11-26",
+          "pdf_page": 132,
+          "title": "Silence, ça pousse !",
+          "start": "13:35",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 132)."
+        },
+        {
+          "date": "2026-11-26",
+          "pdf_page": 132,
+          "title": "Mot de passe",
+          "start": "17:25",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 132)."
+        },
+        {
+          "date": "2026-11-26",
+          "pdf_page": 132,
+          "title": "C à vous, la suite",
+          "start": "20:00",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 132)."
+        },
+        {
+          "date": "2026-11-27",
+          "pdf_page": 138,
+          "title": "Pays et marchés du monde",
+          "start": "05:00",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 138)."
+        },
+        {
+          "date": "2026-11-27",
+          "pdf_page": 138,
+          "title": "Escales en France",
+          "start": "10:30",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 138)."
+        },
+        {
+          "date": "2026-11-27",
+          "pdf_page": 138,
+          "title": "C’est toujours pas sorcier",
+          "start": "13:30",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 138)."
+        },
+        {
+          "date": "2026-11-27",
+          "pdf_page": 138,
+          "title": "Invitation au voyage",
+          "start": "17:20",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 138)."
+        },
+        {
+          "date": "2026-11-27",
+          "pdf_page": 138,
+          "title": "Vies de famille",
+          "start": "20:00",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé : titre, heure et chaîne identiques à la ligne imprimée (p. 138)."
+        },
+        {
+          "date": "2026-11-21",
+          "pdf_page": 102,
+          "title": "Meurtres à...",
+          "start": "21:10",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé (soirée ou nuit) : identique."
+        },
+        {
+          "date": "2026-11-22",
+          "pdf_page": 108,
+          "title": "Organisation super nsolite",
+          "start": "18:20",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Identique à l'imprimé : le magazine imprime bien « super nsolite » (coquille probable du magazine pour « insolite ») ; la transcription la reproduit fidèlement."
+        },
+        {
+          "date": "2026-11-23",
+          "pdf_page": 114,
+          "title": "Je suis toujours là",
+          "start": "21:00",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé (soirée ou nuit) : identique."
+        },
+        {
+          "date": "2026-11-24",
+          "pdf_page": 120,
+          "title": "Il était une fois Gaza",
+          "start": "21:00",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé (soirée ou nuit) : identique."
+        },
+        {
+          "date": "2026-11-25",
+          "pdf_page": 126,
+          "title": "Le Roman de Jim",
+          "start": "21:00",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé (soirée ou nuit) : identique."
+        },
+        {
+          "date": "2026-11-26",
+          "pdf_page": 132,
+          "title": "Blue Velvet",
+          "start": "21:00",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé (soirée ou nuit) : identique."
+        },
+        {
+          "date": "2026-11-27",
+          "pdf_page": 138,
+          "title": "Rabia",
+          "start": "23:30",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Relu sur l'imprimé (soirée ou nuit) : identique."
+        }
+      ],
+      "discrepancies": [
+        "Aucune erreur de lecture (titre, heure ou chaîne) relevée sur les quelque 1 000 lignes des sept pages : accents, apostrophes typographiques, « œ », « & », points de suspension et deux-points sont fidèlement repris.",
+        "Page 138 (vendredi 27) : toute la tranche de nuit imprimée après minuit (TF1, France 2, France 3, France 4, France 5 et Arte, 23 lignes) est absente de la transcription, sauf Arte 23.30 Rabia ; ces lignes seraient datées du samedi 28, donc hors semaine — à confirmer si l'extracteur les écarte volontairement (outside_week vaut 0 dans le rapport : elles ne sont même pas comptées comme hors semaine).",
+        "Sous-segments non gras imprimés dans les blocs de soirée et non transcrits, ce qui est cohérent avec la convention (parties d'une même diffusion) : TF1 17.15 et 23.00 « Le mag. » (rugby, 21/11), Arte 23.15 « Un été atlantique » (21/11), France 5 21.40 et 22.10 (22/11), France 5 21.55 (23/11 et 26/11), France 5 et Arte 21.55 (24/11), France 2 23.45 à 2.25 « Justice en France » (24/11), France 2 23.50 « Les 1001 nuits » (27/11).",
+        "Coquille du magazine reproduite fidèlement : France 4, 22/11, 18.20 « Organisation super nsolite » (sans doute « insolite »).",
+        "Titres tronqués à l'impression reproduits tels quels (pas une erreur) : « Meurtres à... », « Jeunesse... », « Les Nouvelles Stars du classique : Anna Lapwood, Hayato Sumino et Marcin ».",
+        "Page 138 : 23 lignes imprimées après minuit dans la nuit du vendredi 27 au samedi 28 (TF1, France 2, France 3, France 4, France 5, Arte) sont datées du 28 novembre, hors semaine : non ajoutées à l'inventaire.",
+        "Créneau à deux titres Canal+ 2026-11-23 18:50 (En aparté / La boîte à questions) : p. 116, colonne Canal+ : « 18.50 La boîte à questions » puis « 18.50 En aparté Invité : Michael Jones. » — deux lignes imprimées à la même heure. Les deux lignes sont conservées.",
+        "Créneau à deux titres Canal+ 2026-11-23 19:30 (Clique / Un Clique par jour) : p. 116, colonne Canal+ : « 19.30 Un Clique par jour Tootsie. » puis « 19.30 Clique » — deux lignes imprimées à la même heure. Les deux lignes sont conservées.",
+        "Créneau à deux titres Canal+ Kids 2026-11-24 20:00 (Au tableau ! / Nos mots nomades) : p. 122, colonne Canal+ Kids : « 20.00 Nos mots nomades » puis « 20.00 Au tableau ! » — deux lignes imprimées à la même heure. Les deux lignes sont conservées.",
+        "Créneau à deux titres Canal+ 2026-11-27 20:00 (En aparté / Un clique par jour) : p. 140, colonne Canal+ : « 20.00 Un clique par jour Les K d’or. » puis « 20.00 En aparté » — deux lignes imprimées à la même heure. Les deux lignes sont conservées.",
+        "Créneau à deux titres Canal+ Kids 2026-11-27 20:00 (La Rivière à l’envers / Pif et Hercule se mettent au vert) : p. 140, colonne Canal+ Kids : « 20.00 Pif et Hercule se mettent au vert » puis « 20.00 La Rivière à l’envers Comme un parfum d’hiver… » — deux lignes imprimées à la même heure. Les deux lignes sont conservées.",
+        "Revue d’impact : aucune ligne mal lue, donc aucune correction ne touche un programme retenu. Les 23 omissions de la nuit du 27 au 28 (p. 138) ne correspondent à aucune sélection de picks.json ; on y trouve une rediffusion d'un programme retenu (France 5, 0.50, « Malraux, la poésie de l’action », retenu le 22/11 à 22.50) et deux titres notés hors semaine (Arte 1.05 « Confession d’une pécheresse », 2.30 « Itinéraire d’un enfant soldat », TTT). Les cinq créneaux Canal+ / Canal+ Kids à deux titres sont bien imprimés deux fois : « keep both », sans effet sur la sélection."
+      ],
+      "corrections_applied": {
+        "page_corrections": 0,
+        "global_corrections": 0,
+        "rows_added": 0
+      }
+    }
   },
   "updated_at": "2026-11-22T15:55:17.263Z"
 }
