@@ -151,7 +151,9 @@ def run_printed(args):
                 result.append({"pick": pick, "error": "no printed row at this date, start and title"})
                 continue
             page, box = document.pages[observation["pdf_page"] - 1], observation["bbox"]
-            crop = page.crop((max(0, box[0] - 25), box[1] - 2, min(page.width, box[0] + 175), min(page.height, box[1] + 62)))
+            # The page box may not start at 0 (S48: x0 2.88): clamp to it, not to the size.
+            x0, y0, x1, y1 = page.bbox
+            crop = page.crop((max(x0, box[0] - 25), max(y0, box[1] - 2), min(x1, box[0] + 175), min(y1, box[1] + 62)))
             text = " ".join((crop.extract_text() or "").split())
             result.append({"pick": pick, "observation": f"/observations/{index}", "pdf_page": observation["pdf_page"],
                            "channel": observation["channel"], "printed": text[:330]})
