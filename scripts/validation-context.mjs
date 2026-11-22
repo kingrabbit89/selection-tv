@@ -4,7 +4,7 @@ import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
 import {assertCandidatePaths, isCandidatePoster, digest, planImport} from './editorial-handoff.mjs';
 import {reviewedCandidate} from './weekly-publisher.mjs';
-import {calendarTarget, addDays} from './week-calendar.mjs';
+import {acceptedTargets, addDays} from './week-calendar.mjs';
 import {checkProgressStructures} from './editorial-progress.mjs';
 import {GRID_AUTHORITY_MODE, gridAuthority, itemEvidenceError} from './inventory-evidence.mjs';
 
@@ -31,8 +31,8 @@ export function validationContext(branch, read, baseRead, paths, today) {
   assert(progress.remaining.length > 0, 'preparation must describe unfinished work');
   assert(progress.editorial_review_completed !== true && progress.editorial_review?.completed !== true,
     'unfinished preparation cannot claim completed review');
-  const target = calendarTarget(today);
-  assert.equal(week, target.week, 'preparation must match current cycle');
+  const target = acceptedTargets(today).find(t => t.week === week);
+  assert(target, 'preparation must match current cycle (upcoming issue or issue still on air)');
   // Reuse the import invariants: latest and all other issues remain unchanged.
   // Posters are binary: their bytes are checked by poster-copy.mjs --check.
   const files = paths.filter(p => !isCandidatePoster(p)).map(p => {

@@ -1,13 +1,23 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {calendarTarget,validateCandidateCalendar} from './week-calendar.mjs';
+import {acceptedTargets,calendarTarget,validateCandidateCalendar} from './week-calendar.mjs';
 test('Thursday, Friday and Saturday share one cycle',()=>{
   for(const date of ['2026-10-08','2026-10-09','2026-10-10'])assert.deepEqual(calendarTarget(date),{week:'2026-S42',short:'S42',from:'2026-10-10',to:'2026-10-16'});
 });
 test('missed S42 cannot block S43 or publish stale S42',()=>{
   const latest={from:'2026-10-03'};
   assert.deepEqual(validateCandidateCalendar(latest,calendarTarget('2026-10-15'),'2026-10-15'),['2026-S42']);
-  assert.throws(()=>validateCandidateCalendar(latest,calendarTarget('2026-10-08'),'2026-10-15'));
+  assert.throws(()=>validateCandidateCalendar(latest,calendarTarget('2026-10-08'),'2026-10-17'));
+});
+test('the issue still on air may be published late, never an older one',()=>{
+  const latest={from:'2026-10-03'},s42=calendarTarget('2026-10-08');
+  for(const today of ['2026-10-11','2026-10-15','2026-10-16'])
+    assert.deepEqual(validateCandidateCalendar(latest,s42,today),[]);
+  assert.deepEqual(acceptedTargets('2026-10-15').map(t=>t.week),['2026-S43','2026-S42']);
+  assert.deepEqual(acceptedTargets('2026-10-10').map(t=>t.week),['2026-S42']);
+  assert.deepEqual(acceptedTargets('2026-10-17').map(t=>t.week),['2026-S43']);
+  assert.throws(()=>validateCandidateCalendar(latest,s42,'2026-10-17'),/obsolete backlog/);
+  assert.throws(()=>validateCandidateCalendar({from:'2026-09-26'},calendarTarget('2026-10-01'),'2026-10-15'),/obsolete backlog/);
 });
 test('year rollover and DST weekends',()=>{
   assert.equal(calendarTarget('2026-12-31').week,'2027-S01');
