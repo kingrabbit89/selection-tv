@@ -94,5 +94,21 @@ class EditorialTests(unittest.TestCase):
         self.assertEqual((rows[0]['channel_printed'],rows[0]['programme_kind']),('Canal+ Docs','Documentaire'))
 
 
+    def test_headers_just_below_the_section_band_are_daily_reviews(self):
+        # S48: review headers printed at top 38, under « TNT » (top 13), were missed.
+        data=chars('TNT',24,13,size=8.5,bold=True)+review('u','Werther',x=24,top=38,time='0.00')
+        rows,_=module.page_reviews(data,dt.date(2026,11,21),100,592)
+        self.assertEqual([r['title'] for r in rows],['Werther'])
+        self.assertEqual(module.page_band(data),'TNT')
+        self.assertEqual(module.page_band(data+chars('u 21.00 Arte Film',300,38)),'TNT')
+
+    def test_superscript_channel_and_reality_tv_headers_are_daily_reviews(self):
+        # S48: « 21.00 13ème Rue Série » (superscript at 6.7 pt) and « Télé-réalité » were missed.
+        data=chars('t',24,100,icon=True)+chars('21.00 13',34,100)+chars('ème',66,98.6,size=6.7)+chars('Rue Série',80,100)
+        data+=chars('Nuits blanches',24,114,size=11,bold=True)
+        data+=chars('r',300,100,icon=True)+chars('21.10 RMC Life Télé-réalité',310,100)+chars('Shopping',300,114,size=11,bold=True)
+        rows,_=module.page_reviews(data,dt.date(2026,11,22),107,592)
+        self.assertEqual(sorted((r['channel'],r['programme_kind']) for r in rows),[('13e Rue','Série'),('RMC Life','Télé-réalité')])
+
 if __name__=='__main__':
     unittest.main()

@@ -37,7 +37,7 @@ CHANNEL_ALIASES = {
     "arte": "Arte", "tv5 monde": "TV5MONDE", "ocs": "Ciné+ OCS",
     "canal+ cinema(s)": "Canal+ Cinéma", "canal+ box ofice": "Canal+ Box Office",
     "canal+ box office": "Canal+ Box Office", "canal+ grand ecran": "Canal+ Grand Écran",
-    "cine+ emotion": "Ciné+ Emotion", "13 rue": "13e Rue",
+    "cine+ emotion": "Ciné+ Emotion", "13 rue": "13e Rue", "13eme rue": "13e Rue",
     "rmc lifestory": "RMC Story", "rmc life": "RMC Life", "rmc story": "RMC Story",
 }
 
