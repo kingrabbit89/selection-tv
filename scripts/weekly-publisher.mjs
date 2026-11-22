@@ -4,7 +4,7 @@ import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
 import {recoverPromotion} from './recover-promotion.mjs';
 import {synchronizePromotion} from './synchronize-promotion.mjs';
-import {calendarTarget} from './week-calendar.mjs';
+import {acceptedTargets,calendarTarget} from './week-calendar.mjs';
 import {allowedPaths,assertCandidatePaths,digest} from './editorial-handoff.mjs';
 import {github,readContent,commitFiles,branchSha,openPR} from './github-weekly-api.mjs';
 import {PENDING_EXIT} from './verify-promotion-attestation.mjs';
@@ -235,4 +235,18 @@ async function advancePublication({api,repo,week,verify,log,now}){
   const pr=openPR(api,repo,promotion,`Publier ${week}`,`Promotion après revalidation du commit ${main}. Seuls le manifeste et le statut de la semaine changent. Les contrôles obligatoires doivent réussir avant fusion.`);
   log(`Promotion PR: ${pr.html_url}. With GITHUB_TOKEN, approve workflows if requested by GitHub. The publisher never approves or bypasses them.`);
 }
-if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href)await runPublisher();
+// The issue still on air is advanced only while it has work in flight: a draft
+// on main or an open candidate/promotion PR. Otherwise the upcoming issue.
+export function publisherWeek({api=github(),repo=process.env.GITHUB_REPOSITORY,today}={}){
+  const [next,late]=acceptedTargets(today);
+  if(!late)return next.week;
+  const manifest=JSON.parse(readContent(api,branchSha(api,'main'),'data/manifest.json'));
+  if(manifest.weeks.find(w=>w.week===late.week)?.status==='draft')return late.week;
+  const heads=['auto/'+late.week,'promote/'+late.week];
+  const prs=api('pulls?state=open&base=main&per_page=100');
+  return prs.some(p=>heads.includes(p.head.ref)&&p.head.repo?.full_name===repo)?late.week:next.week;
+}
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
+  const api=github();
+  await runPublisher({api,week:publisherWeek({api})});
+}

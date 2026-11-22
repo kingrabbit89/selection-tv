@@ -150,7 +150,7 @@ test('missed cycle cannot be promoted later and does not displace the next calen
   const entry = {week: '2026-S42', from: '2026-10-10', to: '2026-10-16', status: 'draft'};
   const manifest = f.json('data/manifest.json'); manifest.weeks.unshift(entry);
   f.write('data/manifest.json', manifest); f.write('data/weeks/2026-S42.json', {week: entry.week, publication_status: 'draft'});
-  const env = {SELECTION_TV_TODAY: '2026-10-16'}, before = f.read('data/manifest.json');
+  const env = {SELECTION_TV_TODAY: '2026-10-17'}, before = f.read('data/manifest.json');
   const run = f.run('./promote-week.mjs', ['2026-S42'], env);
   assert.notEqual(run.status, 0); assert.match(run.stderr, /obsolete backlog/);
   assert.equal(f.read('data/manifest.json'), before);
