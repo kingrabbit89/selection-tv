@@ -62,7 +62,7 @@ test('wrong week/date, stale cycle, false review and incorrect counts fail prepa
   for(const mutate of [f=>f.progress.week='2026-S43',f=>f.progress.remaining=[],f=>f.progress.editorial_review_completed=true,f=>f.progress.editorial_review={completed:true},f=>f.progress.stage='unknown',f=>f.inventory.days[0].date='2026-10-17',f=>f.inventory.days[0].channel_counts.Arte=2,f=>f.inventory.days[0].items[0].start='24:30']){
     const f=fixture();mutate(f);f.save();assert.throws(f.resolve);
   }
-  const f=fixture();assert.throws(()=>validationContext(branch,p=>f.files[p]??null,()=>null,[], '2026-10-15'),/current cycle/);
+  const f=fixture();assert.throws(()=>validationContext(branch,p=>f.files[p]??null,()=>null,[], '2026-10-17'),/current cycle/);
 });
 test('a Télérama grid-authority inventory cites the PDF saved on the base, never one supplied by the candidate',()=>{
   const sha='c'.repeat(64),input=`data/editorial-inputs/${week}/telerama.json`;

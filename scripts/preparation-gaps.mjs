@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import {spawnSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
-import {addDays, calendarTarget, parisToday} from './week-calendar.mjs';
+import {acceptedTargets, addDays, parisToday} from './week-calendar.mjs';
 import {days, lastRunGaps, shortlistSummary} from './editorial-progress.mjs';
 import {compactEvidenceGaps} from './editorial-evidence.mjs';
 import path from 'node:path';
@@ -118,7 +118,7 @@ function main() {
     const config = read('data/editorial-config.json') || {};
     const manifestEntry = read('data/manifest.json')?.weeks?.find(w => w.week === week);
     const from = read(`data/weeks/${week}.json`)?.from || manifestEntry?.from ||
-      (calendarTarget().week === week ? calendarTarget().from : null);
+      (acceptedTargets().find(t => t.week === week)?.from ?? null);
     const sections = [...Object.keys(config.quality_gates?.strict_section_targets || {}), 'avant-disparition',
       ...days.flatMap(day => [day + '-selection', day + '-grille'])];
     const env = {...process.env, SELECTION_TV_VALIDATE_WEEK: week, SELECTION_TV_CANDIDATE: '1'};

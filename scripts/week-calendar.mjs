@@ -20,12 +20,22 @@ export function calendarTarget(today=parisToday()){
   const week=weekForSaturday(from);
   return {week,short:week.slice(5),from,to:addDays(from,6)};
 }
+// The issue whose Saturday has passed but whose Friday has not: still on air.
+export function runningIssue(today=parisToday()){
+  return calendarTarget(addDays(today,-6));
+}
+// The upcoming issue first; the issue still on air may be published late
+// (user decision, 22 Nov. 2026). Anything older remains an obsolete backlog.
+export function acceptedTargets(today=parisToday()){
+  const next=calendarTarget(today),late=runningIssue(today);
+  return late.week===next.week?[next]:[next,late];
+}
 export function validateCandidateCalendar(current,entry,today=parisToday()){
   assert(current?.from&&entry?.from,'publication dates missing');
   assert.equal(entry.week,weekForSaturday(entry.from),'week ID/calendar mismatch');
   assert.equal(entry.to,addDays(entry.from,6),'issue must end on Friday');
   assert(entry.from>current.from,'candidate must advance the published issue');
-  assert.equal(entry.from,calendarTarget(today).from,'candidate must match the current cycle; do not publish an obsolete backlog');
+  assert(acceptedTargets(today).some(t=>t.from===entry.from),'candidate must match the upcoming issue or the issue still on air; do not publish an obsolete backlog');
   const skipped=[];
   for(let date=addDays(current.from,7);date<entry.from;date=addDays(date,7))skipped.push(weekForSaturday(date));
   return skipped;

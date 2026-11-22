@@ -43,13 +43,13 @@ jobs:
           node --input-type=module <<'JS'
           import fs from 'node:fs';
           import {execFileSync} from 'node:child_process';
-          import {calendarTarget} from './scripts/week-calendar.mjs';
+          import {acceptedTargets} from './scripts/week-calendar.mjs';
           const manifest=JSON.parse(fs.readFileSync('data/manifest.json'));
-          const target=calendarTarget().week;
+          const targets=acceptedTargets().map(t=>t.week),target=targets[0];
           const requested=(process.env.REQUESTED_WEEK||target).replace(/^auto\//,'');
           if(!/^\d{4}-S\d{2}$/.test(requested))throw Error('Invalid requested week');
           const entry=manifest.weeks.find(x=>x.week===requested);
-          if(requested===target&&entry?.status==='draft'){
+          if(targets.includes(requested)&&entry?.status==='draft'){
             const sha=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
             fs.appendFileSync(process.env.GITHUB_OUTPUT,'week='+requested+'\nsha='+sha+'\n');
           }else console.log('No current draft to promote; public issue unchanged.');

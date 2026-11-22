@@ -348,3 +348,21 @@ test('a stuck phantom is rerun instead of failing; a stuck second attempt still 
   await assert.rejects(second.run(),/they are stuck, not running/);
   assert.deepEqual(second.mutations,[]);
 });
+
+test('publisher advances the issue still on air only while it has work in flight', async () => {
+  const {publisherWeek} = await import('./weekly-publisher.mjs');
+  const fake = ({status, prs = []}) => route => {
+    if (route.startsWith('git/ref/heads/main')) return {object: {sha: 'm'.repeat(40)}};
+    if (route.startsWith('contents/data/manifest.json')) return {encoding: 'base64', content: Buffer.from(JSON.stringify(
+      {latest: '2026-S41', weeks: status ? [{week: '2026-S42', status}] : []})).toString('base64')};
+    if (route.startsWith('pulls?')) return prs;
+    throw Error('unexpected route '+route);
+  };
+  const repo = 'owner/repo', today = '2026-10-15';
+  assert.equal(publisherWeek({api: fake({}), repo, today}), '2026-S43');
+  assert.equal(publisherWeek({api: fake({status: 'draft'}), repo, today}), '2026-S42');
+  assert.equal(publisherWeek({api: fake({status: 'published'}), repo, today}), '2026-S43');
+  assert.equal(publisherWeek({api: fake({prs: [{head: {ref: 'auto/2026-S42', repo: {full_name: repo}}}]}), repo, today}), '2026-S42');
+  assert.equal(publisherWeek({api: fake({prs: [{head: {ref: 'auto/2026-S42', repo: {full_name: 'fork/repo'}}}]}), repo, today}), '2026-S43');
+  assert.equal(publisherWeek({api: () => { throw Error('no API call on Saturday'); }, repo, today: '2026-10-17'}), '2026-S43');
+});
