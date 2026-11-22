@@ -19,10 +19,10 @@ spec.loader.exec_module(grid)
 RATINGS = {"r": ("Hélas", None), "t": ("Bof", 1), "y": ("Bien", 2),
            "u": ("Très bien", 3), "i": ("Bravo", 4)}
 # Programme kinds printed at the end of a review header; S44 also printed
-# « Divertissement » and the short « Doc ».
+# « Divertissement » and the short « Doc », S48 « Télé-réalité ».
 GENRES = ("Seul-en-scène", "Documentaire", "Téléfilm", "Spectacle", "Théâtre",
           "Magazine", "Animation", "Concert", "Série", "Film", "Opéra",
-          "Divertissement", "Doc")
+          "Divertissement", "Télé-réalité", "Doc")
 
 
 def contiguous(chars, max_gap):
@@ -36,15 +36,25 @@ def contiguous(chars, max_gap):
     return run
 
 
+def page_band(chars):
+    # The section band (« TNT », « AUTRES CHAÎNES LUNDI 23 ») is the first printed
+    # line. S48 prints review headers just below it (top 38), above top 40.
+    lines = grid.line_groups([c for c in chars if c["top"] < 30])
+    return grid.compose(lines[0]).strip() if lines else ""
+
+
 def header_candidates(chars):
     result = []
     for line in grid.line_groups(chars):
         marks = [c for c in line if grid.icon(c) and c["text"] in RATINGS
-                 and 7.5 <= c["size"] <= 10 and 40 <= c["top"] < 715]
+                 and 7.5 <= c["size"] <= 10 and 30 <= c["top"] < 715]
         for index, mark in enumerate(marks):
             right = marks[index + 1]["x0"] - 2 if index + 1 < len(marks) else 10000
-            header = contiguous([c for c in line if mark["x0"] <= c["x0"] < right and
-                                 "Graphik" in c.get("fontname", "") and 7.5 <= c["size"] <= 10], 8)
+            # A superscript (« 13ème Rue ») sits slightly higher and may form its own
+            # line group: read the header band around the mark, not only its line.
+            band = [c for c in chars if mark["top"] - 1.5 <= c["top"] <= mark["top"] + 2.5]
+            header = contiguous([c for c in band if mark["x0"] <= c["x0"] < right and
+                                 "Graphik" in c.get("fontname", "") and 6 <= c["size"] <= 10], 8)
             text = grid.compose(header)
             matched = re.fullmatch(r"(\d{1,2})[.:](\d{2})\s+(.+?)\s+(" + "|".join(GENRES) + r")", text)
             if not matched or int(matched[1]) > 23 or int(matched[2]) > 59:
@@ -144,9 +154,8 @@ def extract(path, week, library_file_id=None, reference_pdfs=None):
                 if number > 1:
                     previous = document.pages[number - 2]
                     prev_chars = grid.dedupe_chars(previous.chars)
-                    top = " ".join(grid.compose(line) for line in grid.line_groups([c for c in prev_chars if c["top"] < 40]))
                     prev_date, prev_error = grid.date_header(prev_chars, start, end)
-                    if top.strip() == "TNT" and not prev_error and not grid.grid_columns(prev_chars) and (not prev_date or prev_date == date):
+                    if page_band(prev_chars) == "TNT" and not prev_error and not grid.grid_columns(prev_chars) and (not prev_date or prev_date == date):
                         targets[number - 1] = date
             page.flush_cache()
         for number, nominal in sorted(targets.items()):
