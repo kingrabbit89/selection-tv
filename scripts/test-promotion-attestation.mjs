@@ -168,3 +168,22 @@ test('the CLI exits 0 with a proof, PENDING_EXIT while pending and fails every o
     assert.equal(outcome.exitCode, 1); assert.match(outcome.message, /never bypass this gate/);
   }
 });
+
+test('a run cancelled before any job started does not hide or block a successful revalidation', () => {
+  for (const order of [[1, 2], [2, 1]]) {
+    const cancelled = run(order[0], {conclusion: 'cancelled'});
+    const r = check([cancelled, run(order[1])], {jobs: {[cancelled.id]: []}});
+    assert.equal(r.verified, true); assert.equal(r.run_id, order[1]); assert.deepEqual(r.read, [order[1]]);
+  }
+  const alone = check([run(1, {conclusion: 'cancelled'})], {jobs: {1: []}});
+  assert.equal(alone.verified, false); assert.match(alone.reason, /No post-merge revalidation/);
+});
+
+test('a run cancelled after a job started, or with jobs of an older attempt only, still blocks', () => {
+  const started = run(2, {conclusion: 'cancelled'});
+  const r = check([run(1), started], {jobs: {2: validated(started).slice(0, 1)}});
+  assert.equal(r.verified, false); assert.match(r.reason, /cancelled/);
+  const rerun = run(2, {conclusion: 'cancelled', run_attempt: 2});
+  const stale = check([run(1), rerun], {jobs: {2: validated(run(2))}});
+  assert.equal(stale.verified, false); assert.match(stale.reason, /unavailable/);
+});

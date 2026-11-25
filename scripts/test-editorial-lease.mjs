@@ -99,3 +99,28 @@ test('scoped chat writer preserves falsy thrown errors and releases',async()=>{
  await assert.rejects(withEditorialLease(api,{week,owner:'a',clock:()=>0},async()=>{throw 0;}),error=>error===0);
  assert.equal(manageLease(api,{week,action:'acquire',owner:'b',mode:'chat',now:1}).owner,'b');
 });
+
+test('a just-written lock read back late is confirmed after a short wait, never another owner',()=>{
+ for(const existing of [false,true]){
+  const {api,refs}=fixture();const branch='locks/editorial-'+week;
+  if(existing)manageLease(api,{week,action:'acquire',owner:'a',now:0});
+  const before=refs[branch];let stale=2,waits=[];
+  const lagging=(p,m,b)=>{
+   if(p==='git/ref/heads/'+branch&&refs[branch]!==before&&stale>0){stale--;if(!before){const e=Error('missing');e.stderr='HTTP 404';throw e;}return {object:{sha:before}};}
+   return api(p,m,b);
+  };
+  const action=existing?'renew':'acquire';
+  const lease=manageLease(lagging,{week,action,owner:'a',now:1,sleep:ms=>waits.push(ms)});
+  assert.equal(lease.owner,'a');assert.equal(lease.sha,refs[branch]);assert.deepEqual(waits,[250,500]);
+ }
+});
+test('a lock that stays stale or moves to another commit still fails closed',()=>{
+ const {api,refs}=fixture();const branch='locks/editorial-'+week;let waits=0;
+ const never=(p,m,b)=>{if(p==='git/ref/heads/'+branch){const e=Error('missing');e.stderr='HTTP 404';throw e;}return api(p,m,b);};
+ assert.throws(()=>manageLease(never,{week,action:'acquire',owner:'a',now:0,sleep:()=>waits++}),/changed during operation/);
+ assert.equal(waits,5);
+ const fresh=fixture();let moved=0;
+ const other=(p,m,b)=>{if(p==='git/ref/heads/'+branch&&fresh.refs[branch]){fresh.commits.x={message:JSON.stringify({kind:'selection-tv-editorial-lease',week,owner:'z',expires_at:new Date(9e9).toISOString(),released:false}),tree:{sha:'tree'}};return {object:{sha:'x'}};}return fresh.api(p,m,b);};
+ assert.throws(()=>manageLease(other,{week,action:'acquire',owner:'a',now:0,sleep:()=>moved++}),/changed during operation/);
+ assert.equal(moved,0);
+});

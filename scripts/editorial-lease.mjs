@@ -7,6 +7,10 @@ import {github,branchSha} from './github-weekly-api.mjs';
 // only for the critical section that writes an already prepared editorial lot.
 const LEGACY_TTL=60*60*1000;
 const CHAT_TTL=10*60*1000;
+// GitHub can serve a just-written ref a moment late (404 or the previous SHA).
+// Only that stale read is retried; any other SHA is a real competing write.
+export const CONFIRM_DELAYS_MS=[250,500,1000,2000,4000];
+const sleepSync=ms=>Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,ms);
 
 export function inspectLease(api,week){
   assert.match(week,/^\d{4}-S\d{2}$/);
@@ -21,7 +25,7 @@ export function inspectLease(api,week){
   return {branch,sha,lease,tree:commit.tree.sha};
 }
 
-export function manageLease(api,{week,action,owner=randomUUID(),now=Date.now(),mode}){
+export function manageLease(api,{week,action,owner=randomUUID(),now=Date.now(),mode,sleep=sleepSync}){
   assert(['acquire','check','renew','release'].includes(action));
   assert(mode===undefined||['legacy','chat'].includes(mode),'Unsupported lease mode');
   const current=inspectLease(api,week);
@@ -39,7 +43,11 @@ export function manageLease(api,{week,action,owner=randomUUID(),now=Date.now(),m
   const commit=api('git/commits','POST',{tree,parents:[parent],message:JSON.stringify(lease)});
   if(current.sha)api('git/refs/heads/'+current.branch,'PATCH',{sha:commit.sha,force:false});
   else api('git/refs','POST',{ref:'refs/heads/'+current.branch,sha:commit.sha});
-  const confirmed=inspectLease(api,week);
+  let confirmed=inspectLease(api,week);
+  for(const delay of CONFIRM_DELAYS_MS){
+    if(confirmed.sha===commit.sha||confirmed.sha!==current.sha)break;
+    sleep(delay);confirmed=inspectLease(api,week);
+  }
   assert.equal(confirmed.sha,commit.sha,'Lease changed during operation');
   assert.equal(confirmed.lease.owner,owner,'Lease ownership not confirmed');
   return {...confirmed.lease,sha:confirmed.sha};
