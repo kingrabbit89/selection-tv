@@ -6780,11 +6780,16 @@
       },
       "duration": "83 min (SensCritique ; wikidata 85 min)",
       "duration_source_url": "https://www.senscritique.com/film/magma/72956748",
-      "image": "https://media.senscritique.com/media/000023541291/600/magma.jpg",
+      "image": "assets/posters/s41-magma.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/magma/72956748",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000023541291/600/magma.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000023541291/600/magma.jpg"
+      ],
+      "image_sha256": "deccc7f952dfe1120e0afe1f3f58fb81e42cf1d90c1a958175a041ee2d87c7d9"
     },
     {
       "id": "la-garconniere-1960",
@@ -7593,11 +7598,16 @@
       },
       "duration": "116 min (SensCritique ; wikidata 117 min)",
       "duration_source_url": "https://www.senscritique.com/film/rue_malaga/109003436",
-      "image": "https://media.senscritique.com/media/000023436102/600/rue_malaga.png",
+      "image": "assets/posters/s41-rue-malaga.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/rue_malaga/109003436",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000023436102/600/rue_malaga.png",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000023436102/600/rue_malaga.png"
+      ],
+      "image_sha256": "52146d0fe4cca2b7c8cc313d5b52b25bb30c7afb748229c4f811d7a885a667dd"
     },
     {
       "id": "usual-suspects-1995",
@@ -14561,7 +14571,7 @@
       "image_fallbacks": [
         "https://media.senscritique.com/media/000004631833/600/polisse.jpg"
       ],
-      "image_sha256": "25c714d78c258fe3f0a5194b2fb4e549cdb730fd1828a70e547fa5de845af1b7"
+      "image_sha256": "c473f85c8d89ed338b15d4d8031d8a54d24dcd51c5376bc3598d9b335dbec198"
     },
     {
       "id": "sorry-baby-2025",
@@ -15648,7 +15658,7 @@
       "image_fallbacks": [
         "https://media.senscritique.com/media/000016446195/600/sully.jpg"
       ],
-      "image_sha256": "0c881996fe08e77457ee432a3f72d248a1905add8064c1b45a2bfb0756e3ace5"
+      "image_sha256": "b97e73851c626f406cf2c824424e5bcc94e6fd839fa2ad16a4dc0f627e265fd5"
     },
     {
       "id": "coupez-2022",
@@ -34361,14 +34371,17 @@
           "ratings.senscritique": "https://www.senscritique.com/film/un_cerveau_d_un_milliard_de_dollars/467143"
         }
       },
-      "image": "https://media.senscritique.com/media/000018603470/600/un_cerveau_d_un_milliard_de_dollars.jpg",
+      "image": "assets/posters/un-cerveau-d-un-milliard-de-dollars-1967.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/un_cerveau_d_un_milliard_de_dollars/467143",
       "image_checked": "2026-11-22",
       "image_strategy": "resolver:senscritique",
       "image_fallbacks": [
+        "https://media.senscritique.com/media/000018603470/600/un_cerveau_d_un_milliard_de_dollars.jpg",
         "https://api-cdn.arte.tv/img/v2/image/CPaKxUcn6owDvLUm7QeJRn/940x530"
-      ]
+      ],
+      "image_remote": "https://media.senscritique.com/media/000018603470/600/un_cerveau_d_un_milliard_de_dollars.jpg",
+      "image_sha256": "a55f87cd669e845b118baba993718e65f9e15c2ded8854129756f90d4903d03b"
     },
     {
       "id": "les-indiens-a-hollywood-2024",
@@ -36125,11 +36138,16 @@
       "director": "Maïlys Khider",
       "genre": "Documentaire",
       "ratings_unavailable_reason": "Programme télévisé 2026 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche absente des deux bases).",
-      "image": "https://massalaproduction.com/wp-content/uploads/2025/09/cuba-web-apjpg.webp",
+      "image": "assets/posters/demain-la-havane-2026.webp",
       "image_type": "still",
       "image_source_url": "https://massalaproduction.com/?p=53800",
       "image_checked": "2026-11-25",
-      "image_strategy": "dossier:official"
+      "image_strategy": "dossier:official",
+      "image_remote": "https://massalaproduction.com/wp-content/uploads/2025/09/cuba-web-apjpg.webp",
+      "image_fallbacks": [
+        "https://massalaproduction.com/wp-content/uploads/2025/09/cuba-web-apjpg.webp"
+      ],
+      "image_sha256": "78c1e8d3dc777fb1e80b26001acd62b9361ca999c2222e1d6cead30d4825e334"
     },
     {
       "id": "histoire-d-un-pacte-avec-les-nazis-2026",
@@ -36151,11 +36169,16 @@
       "director": "André Schäfer",
       "genre": "Documentaire",
       "ratings_unavailable_reason": "Programme télévisé 2026 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche absente des deux bases).",
-      "image": "https://api-cdn.arte.tv/img/v2/image/chzbRPuWNQoUTzWJAkbxJB/1920x1080?type=TEXT&watermark=true",
+      "image": "assets/posters/histoire-d-un-pacte-avec-les-nazis-2026.webp",
       "image_type": "still",
       "image_source_url": "https://www.arte.tv/fr/videos/121392-000-A/histoire-d-un-pacte-avec-les-nazis/",
       "image_checked": "2026-11-25",
-      "image_strategy": "dossier:official"
+      "image_strategy": "dossier:official",
+      "image_remote": "https://api-cdn.arte.tv/img/v2/image/chzbRPuWNQoUTzWJAkbxJB/1920x1080?type=TEXT&watermark=true",
+      "image_fallbacks": [
+        "https://api-cdn.arte.tv/img/v2/image/chzbRPuWNQoUTzWJAkbxJB/1920x1080?type=TEXT&watermark=true"
+      ],
+      "image_sha256": "626fbd4af7b63232ec1fcd22c155ba5df3dab486bbb6d054db1b57a845ea9654"
     },
     {
       "id": "thea-fritz-2026",
@@ -36184,11 +36207,16 @@
       "country": "France",
       "genre": "Documentaire",
       "ratings_unavailable_reason": "Programme télévisé 2026 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche SensCritique sans vote).",
-      "image": "https://media.senscritique.com/media/000023554629/600/thea_fritz_les_amants_de_metropolis.jpg",
+      "image": "assets/posters/thea-fritz-2026.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/thea_fritz_les_amants_de_metropolis/135278576",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000023554629/600/thea_fritz_les_amants_de_metropolis.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000023554629/600/thea_fritz_les_amants_de_metropolis.jpg"
+      ],
+      "image_sha256": "4779d93b04e517e28115f30a79258eec2e416cf5521573816392984d90b6f017"
     },
     {
       "id": "showgirls-1995",
@@ -36220,11 +36248,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/showgirls/468358"
         }
       },
-      "image": "https://media.senscritique.com/media/000013820893/600/showgirls.jpg",
+      "image": "assets/posters/showgirls-1995.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/showgirls/468358",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000013820893/600/showgirls.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000013820893/600/showgirls.jpg"
+      ],
+      "image_sha256": "886714419e91dc3230b3f515eb6f13c0f9b27d6099dd1599e8c9a3b968f29daf"
     },
     {
       "id": "a-bicyclette-2024",
@@ -36255,11 +36288,16 @@
       "duration": "88 min (SensCritique ; wikidata 89 min)",
       "duration_source_url": "https://www.senscritique.com/film/a_bicyclette/98710593",
       "year": 2024,
-      "image": "https://media.senscritique.com/media/000022605178/600/a_bicyclette.png",
+      "image": "assets/posters/a-bicyclette-2024.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/a_bicyclette/98710593",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000022605178/600/a_bicyclette.png",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000022605178/600/a_bicyclette.png"
+      ],
+      "image_sha256": "2f1893c0555d521dfd134f0dd64650fe0ba1baabbe370c711b80a4e57305e0f1"
     },
     {
       "id": "trois-amigos-1986",
@@ -36294,11 +36332,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/3_amigos/415009"
         }
       },
-      "image": "https://media.senscritique.com/media/000019347889/600/3_amigos.jpg",
+      "image": "assets/posters/trois-amigos-1986.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/3_amigos/415009",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000019347889/600/3_amigos.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000019347889/600/3_amigos.jpg"
+      ],
+      "image_sha256": "2990734387ce61f64361b78ffcc75e8dfb5a720bc042ed57eebe505eebb128bc"
     },
     {
       "id": "meres-et-filles-2009",
@@ -36329,11 +36372,16 @@
         }
       },
       "country": "France / Canada",
-      "image": "https://media.senscritique.com/media/000005528602/600/meres_et_filles.jpg",
+      "image": "assets/posters/meres-et-filles-2009.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/meres_et_filles/424042",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000005528602/600/meres_et_filles.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000005528602/600/meres_et_filles.jpg"
+      ],
+      "image_sha256": "7f4fc71e1ba53f72808a70fd9ca78ed67e1ce8ba023919825862194e18a67db5"
     },
     {
       "id": "au-pan-coupe-1967",
@@ -36365,11 +36413,16 @@
         }
       },
       "year": 1967,
-      "image": "https://media.senscritique.com/media/000019818489/600/au_pan_coupe.jpg",
+      "image": "assets/posters/au-pan-coupe-1967.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/au_pan_coupe/478975",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000019818489/600/au_pan_coupe.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000019818489/600/au_pan_coupe.jpg"
+      ],
+      "image_sha256": "e80eca8526a2c1186c1705afa1310ce0899c7d6675a1fbfa8db6c9809bb8b19e"
     },
     {
       "id": "oppenheimer-2023",
@@ -36401,11 +36454,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/oppenheimer/45419890"
         }
       },
-      "image": "https://media.senscritique.com/media/000021348116/600/oppenheimer.png",
+      "image": "assets/posters/oppenheimer-2023.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/oppenheimer/45419890",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000021348116/600/oppenheimer.png",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000021348116/600/oppenheimer.png"
+      ],
+      "image_sha256": "4369ecfe82b1e7a3394b6d83b746d04d3f8154118755abe3beda66d5b4334aca"
     },
     {
       "id": "l-homme-de-la-plaine-1955",
@@ -36440,11 +36498,16 @@
       },
       "duration": "103 min (SensCritique ; wikidata 101 min)",
       "duration_source_url": "https://www.senscritique.com/film/l_homme_de_la_plaine/457179",
-      "image": "https://media.senscritique.com/media/000017634691/600/l_homme_de_la_plaine.jpg",
+      "image": "assets/posters/l-homme-de-la-plaine-1955.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/l_homme_de_la_plaine/457179",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000017634691/600/l_homme_de_la_plaine.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000017634691/600/l_homme_de_la_plaine.jpg"
+      ],
+      "image_sha256": "c46b990d46c2c17dbdff4476339a9b54edebce19c3832dd7acce4d47e78f1815"
     },
     {
       "id": "l-amour-ouf-2024",
@@ -36475,11 +36538,16 @@
       },
       "duration": "161 min (SensCritique ; wikidata 166 min)",
       "duration_source_url": "https://www.senscritique.com/film/l_amour_ouf/45084171",
-      "image": "https://media.senscritique.com/media/000022338430/600/l_amour_ouf.png",
+      "image": "assets/posters/l-amour-ouf-2024.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/l_amour_ouf/45084171",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000022338430/600/l_amour_ouf.png",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000022338430/600/l_amour_ouf.png"
+      ],
+      "image_sha256": "57bd84e2e2b3b6d2c8ef7d0c86ff38bc2eb87a5c2352e6691abd7eb670a45e4f"
     },
     {
       "id": "je-me-souviendrai-de-presque-tout-2026",
@@ -36501,11 +36569,16 @@
       "director": "Julien Boisselier (mise en scène) ; Ybao Benedetti (réalisation TV)",
       "genre": "Théâtre",
       "ratings_unavailable_reason": "Programme télévisé 2026 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche absente des deux bases).",
-      "image": "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1785685_0.jpg",
+      "image": "assets/posters/je-me-souviendrai-de-presque-tout-2026.webp",
       "image_type": "official-program-art",
       "image_source_url": "https://www.francetvpro.fr/contenu-de-presse/79232768",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:francetvpro"
+      "image_strategy": "resolver:francetvpro",
+      "image_remote": "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1785685_0.jpg",
+      "image_fallbacks": [
+        "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1785685_0.jpg"
+      ],
+      "image_sha256": "b99f9a8c8162531cc41b2f7f58fb19b41bb21d4de01e39efeb5c1386dc4aa420"
     },
     {
       "id": "l-art-nouveau-de-victor-horta-2026",
@@ -36528,11 +36601,16 @@
       "director": "Stéphane Ghez",
       "genre": "Documentaire",
       "ratings_unavailable_reason": "Programme télévisé 2026 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche absente des deux bases).",
-      "image": "https://api-cdn.arte.tv/img/v2/image/cDjkaAyFQQpyz3zek9V3LM/940x530",
+      "image": "assets/posters/l-art-nouveau-de-victor-horta-2026.webp",
       "image_type": "official-program-art",
       "image_source_url": "https://www.arte.tv/fr/videos/129919-000-A/l-art-nouveau-de-victor-horta/",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:arte"
+      "image_strategy": "resolver:arte",
+      "image_remote": "https://api-cdn.arte.tv/img/v2/image/cDjkaAyFQQpyz3zek9V3LM/940x530",
+      "image_fallbacks": [
+        "https://api-cdn.arte.tv/img/v2/image/cDjkaAyFQQpyz3zek9V3LM/940x530"
+      ],
+      "image_sha256": "3e147ccf00dfa522328a84fb87c73053ca1efe30075add93c8354dfe8591b051"
     },
     {
       "id": "vert-de-rage-2025",
@@ -36559,14 +36637,17 @@
       "duration_source_url": "https://www.francetvpro.fr/contenu-de-presse/70390233",
       "director": "Mathilde Cusin et Manon de Couët",
       "ratings_unavailable_reason": "Programme télévisé 2018 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche SensCritique sans vote).",
-      "image": "https://media.senscritique.com/media/000020725771/600/vert_de_rage.jpg",
+      "image": "assets/posters/vert-de-rage-2025.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/serie/vert_de_rage/47803236",
       "image_checked": "2026-11-25",
       "image_strategy": "resolver:senscritique",
       "image_fallbacks": [
+        "https://media.senscritique.com/media/000020725771/600/vert_de_rage.jpg",
         "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1607519_0.jpg"
-      ]
+      ],
+      "image_remote": "https://media.senscritique.com/media/000020725771/600/vert_de_rage.jpg",
+      "image_sha256": "242e91e84b66bcf8e660cae2edbf94b280007d14ad371a3f93c2f8d50d85f255"
     },
     {
       "id": "los-tigres-2025",
@@ -36597,11 +36678,16 @@
         }
       },
       "country": "Espagne / France",
-      "image": "https://media.senscritique.com/media/000023279174/600/los_tigres.jpg",
+      "image": "assets/posters/los-tigres-2025.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/los_tigres/117901107",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000023279174/600/los_tigres.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000023279174/600/los_tigres.jpg"
+      ],
+      "image_sha256": "9938bacec18cddeb2d25eec59f2d1c38a0650fb604899201f053e9835ba4bc6b"
     },
     {
       "id": "tenet-2020",
@@ -36633,11 +36719,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/tenet/38918801"
         }
       },
-      "image": "https://media.senscritique.com/media/000019525188/600/tenet.jpg",
+      "image": "assets/posters/tenet-2020.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/tenet/38918801",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000019525188/600/tenet.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000019525188/600/tenet.jpg"
+      ],
+      "image_sha256": "5de38abd0c33fed40e70f1b5bc6a6eb212c050ae2db35484d006921b2752a9e9"
     },
     {
       "id": "chinatown-1974",
@@ -36669,11 +36760,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/chinatown/463073"
         }
       },
-      "image": "https://media.senscritique.com/media/000010819307/600/chinatown.jpg",
+      "image": "assets/posters/chinatown-1974.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/chinatown/463073",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000010819307/600/chinatown.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000010819307/600/chinatown.jpg"
+      ],
+      "image_sha256": "7f64b27607c8f9177c52d70764c09bf0c0cff2544ef9547289fefd4a9ba8d932"
     },
     {
       "id": "skyfall-2012",
@@ -36705,11 +36801,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/skyfall/380733"
         }
       },
-      "image": "https://media.senscritique.com/media/000004236591/600/skyfall.jpg",
+      "image": "assets/posters/skyfall-2012.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/skyfall/380733",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000004236591/600/skyfall.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000004236591/600/skyfall.jpg"
+      ],
+      "image_sha256": "db4a05c5b82f4f0dd948ae1e50a65e3e07f8aa7b266032bfc09ae7696c9e0706"
     },
     {
       "id": "charlie-chaplin-2020",
@@ -36740,11 +36841,16 @@
         }
       },
       "country": "France",
-      "image": "https://media.senscritique.com/media/000020029205/600/charlie_chaplin_le_genie_de_la_liberte.jpg",
+      "image": "assets/posters/charlie-chaplin-2020.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/charlie_chaplin_le_genie_de_la_liberte/43801564",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000020029205/600/charlie_chaplin_le_genie_de_la_liberte.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000020029205/600/charlie_chaplin_le_genie_de_la_liberte.jpg"
+      ],
+      "image_sha256": "9e1dbab6ab3cbb2e000d3b4cd848bfe79019fb03969fbc23f9ec6da43031e8ac"
     },
     {
       "id": "la-derniere-bobine-2026",
@@ -36766,11 +36872,16 @@
       "director": "Clément Gargoullaud",
       "genre": "Documentaire",
       "ratings_unavailable_reason": "Programme télévisé 2026 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche absente des deux bases).",
-      "image": "https://lcp.fr/sites/lcp.fr/files/styles/entete_contenu_1030x570/public/2026-11/shonedoefer%20copie.jpg?h=d1cb525d&itok=FHHMd6BQ",
+      "image": "assets/posters/la-derniere-bobine-2026.webp",
       "image_type": "still",
       "image_source_url": "https://lcp.fr/programmes/la-derniere-bobine-pierre-schoendoerffer-et-les-images-perdues-de-dien-bien-phu-444450",
       "image_checked": "2026-11-25",
-      "image_strategy": "dossier:official"
+      "image_strategy": "dossier:official",
+      "image_remote": "https://lcp.fr/sites/lcp.fr/files/styles/entete_contenu_1030x570/public/2026-11/shonedoefer%20copie.jpg?h=d1cb525d&itok=FHHMd6BQ",
+      "image_fallbacks": [
+        "https://lcp.fr/sites/lcp.fr/files/styles/entete_contenu_1030x570/public/2026-11/shonedoefer%20copie.jpg?h=d1cb525d&itok=FHHMd6BQ"
+      ],
+      "image_sha256": "c8b1e3186e5a64c99ebe7cc32da479cbd70768a6c5e731eaf394ffbe61c6e70f"
     },
     {
       "id": "telethon-tout-pour-la-vie-2026",
@@ -36792,11 +36903,16 @@
       "director": "Lucie Boudaud",
       "genre": "Documentaire",
       "ratings_unavailable_reason": "Programme télévisé 2026 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche absente des deux bases).",
-      "image": "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1780964_0.jpg",
+      "image": "assets/posters/telethon-tout-pour-la-vie-2026.webp",
       "image_type": "official-program-art",
       "image_source_url": "https://www.francetvpro.fr/contenu-de-presse/79053850",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:francetvpro"
+      "image_strategy": "resolver:francetvpro",
+      "image_remote": "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1780964_0.jpg",
+      "image_fallbacks": [
+        "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1780964_0.jpg"
+      ],
+      "image_sha256": "148a00c0e354ceeaf0aa454afbf740cf009cc0c6de051477ef0d72ee71417831"
     },
     {
       "id": "los-delincuentes-2023",
@@ -36827,11 +36943,16 @@
       },
       "duration": "189 min (SensCritique ; wikidata 180 min)",
       "duration_source_url": "https://www.senscritique.com/film/los_delincuentes/55674615",
-      "image": "https://media.senscritique.com/media/000021886277/600/los_delincuentes.jpg",
+      "image": "assets/posters/los-delincuentes-2023.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/los_delincuentes/55674615",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000021886277/600/los_delincuentes.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000021886277/600/los_delincuentes.jpg"
+      ],
+      "image_sha256": "10b17c0ba98787fe12462508aa8f6af1b537fc8fe6bf62eb907e1c00355f15ae"
     },
     {
       "id": "chroniques-2024",
@@ -36866,11 +36987,16 @@
         }
       },
       "year": 2024,
-      "image": "https://media.senscritique.com/media/000023092326/600/chroniques_d_haifa_histoires_palestiniennes.png",
+      "image": "assets/posters/chroniques-2024.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/chroniques_d_haifa_histoires_palestiniennes/96414994",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000023092326/600/chroniques_d_haifa_histoires_palestiniennes.png",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000023092326/600/chroniques_d_haifa_histoires_palestiniennes.png"
+      ],
+      "image_sha256": "3d6a0b15e8ac3932fce31846076a9a52adc23a137d6e173258c385e0485e2dbf"
     },
     {
       "id": "un-nuage-entre-les-dents-1974",
@@ -36902,11 +37028,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/un_nuage_entre_les_dents/12233634"
         }
       },
-      "image": "https://media.senscritique.com/media/000022056231/600/un_nuage_entre_les_dents.png",
+      "image": "assets/posters/un-nuage-entre-les-dents-1974.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/un_nuage_entre_les_dents/12233634",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000022056231/600/un_nuage_entre_les_dents.png",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000022056231/600/un_nuage_entre_les_dents.png"
+      ],
+      "image_sha256": "31e8770247ea282d9e6d0afd8c901d84d9559c23dd1511756fdec6928ecbe0dc"
     },
     {
       "id": "big-jake-1971",
@@ -36938,11 +37069,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/big_jake/440774"
         }
       },
-      "image": "https://media.senscritique.com/media/000019746654/600/big_jake.jpg",
+      "image": "assets/posters/big-jake-1971.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/big_jake/440774",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000019746654/600/big_jake.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000019746654/600/big_jake.jpg"
+      ],
+      "image_sha256": "4ae2e0719c795df9c62d9aa0dae03148b2c1a85aec995395cebf7d56c5dd831b"
     },
     {
       "id": "l-esclavage-et-ses-reseaux-2026",
@@ -36964,11 +37100,16 @@
       "director": "Sarah Vianney, Martin Carazo Mendez",
       "genre": "Documentaire",
       "ratings_unavailable_reason": "Programme télévisé 2026 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche absente des deux bases).",
-      "image": "https://api-cdn.arte.tv/img/v2/image/LkkWs75MxWMtMFXbCHj7h8/940x530",
+      "image": "assets/posters/l-esclavage-et-ses-reseaux-2026.webp",
       "image_type": "still",
       "image_source_url": "https://www.arte.tv/fr/videos/120441-000-A/l-esclavage-et-ses-reseaux/",
       "image_checked": "2026-11-25",
-      "image_strategy": "dossier:official"
+      "image_strategy": "dossier:official",
+      "image_remote": "https://api-cdn.arte.tv/img/v2/image/LkkWs75MxWMtMFXbCHj7h8/940x530",
+      "image_fallbacks": [
+        "https://api-cdn.arte.tv/img/v2/image/LkkWs75MxWMtMFXbCHj7h8/940x530"
+      ],
+      "image_sha256": "11a3b62efbab5c40d04af4746c0d1c686708e309b45d66943efda5d561d69241"
     },
     {
       "id": "sauvages-2018",
@@ -36999,14 +37140,17 @@
       "duration": "95 min (SensCritique ; arte 92 min)",
       "duration_source_url": "https://www.senscritique.com/film/sauvages_au_coeur_des_zoos_humains/37662721",
       "country": "France",
-      "image": "https://media.senscritique.com/media/000020393392/600/sauvages_au_coeur_des_zoos_humains.jpg",
+      "image": "assets/posters/sauvages-2018.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/sauvages_au_coeur_des_zoos_humains/37662721",
       "image_checked": "2026-11-25",
       "image_strategy": "resolver:senscritique",
       "image_fallbacks": [
+        "https://media.senscritique.com/media/000020393392/600/sauvages_au_coeur_des_zoos_humains.jpg",
         "https://api-cdn.arte.tv/img/v2/image/fqfGedgaMufBcffgQCCfCC/940x530"
-      ]
+      ],
+      "image_remote": "https://media.senscritique.com/media/000020393392/600/sauvages_au_coeur_des_zoos_humains.jpg",
+      "image_sha256": "2787e0fd7ccf1426b2028957171a683d9c56f3efb4361a2fb34b5ec2b9d310fe"
     },
     {
       "id": "la-guerre-des-prix-2026",
@@ -37038,11 +37182,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/la_guerre_des_prix/130775501"
         }
       },
-      "image": "https://media.senscritique.com/media/000023452217/600/la_guerre_des_prix.jpg",
+      "image": "assets/posters/la-guerre-des-prix-2026.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/la_guerre_des_prix/130775501",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000023452217/600/la_guerre_des_prix.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000023452217/600/la_guerre_des_prix.jpg"
+      ],
+      "image_sha256": "68de4cc9c3843eb4cba4d410440dffde693922441fdded0e64c44ad3b4090e29"
     },
     {
       "id": "enquete-de-sante-2026",
@@ -37064,11 +37213,16 @@
       "genre": "Magazine",
       "ratings_unavailable_reason": "Programme télévisé 2026 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche absente des deux bases).",
       "duration": "105 min",
-      "image": "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1784344_0.jpg",
+      "image": "assets/posters/enquete-de-sante-2026.webp",
       "image_type": "official-program-art",
       "image_source_url": "https://www.francetvpro.fr/contenu-de-presse/79227206",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:francetvpro"
+      "image_strategy": "resolver:francetvpro",
+      "image_remote": "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1784344_0.jpg",
+      "image_fallbacks": [
+        "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1784344_0.jpg"
+      ],
+      "image_sha256": "ad40523134732d7cf63e81d2aa1df66aeda05820f727c4d4e960837a6b631701"
     },
     {
       "id": "un-sourire-en-plus-2026",
@@ -37090,11 +37244,16 @@
           "duration": "Télérama n° 4011 (ligne imprimée), p. 129"
         }
       },
-      "image": "https://www.serie-news.com/app/uploads/2026/11/un-sourire-en-plus-une.webp",
+      "image": "assets/posters/un-sourire-en-plus-2026.webp",
       "image_type": "still",
       "image_source_url": "https://www.serie-news.com/tnt/tmc/68149-un-sourire-en-plus-sur-tmc-un-documentaire-sur-la-trisomie-21-mardi-1er-decembre-10-11-2026/",
       "image_checked": "2026-11-25",
-      "image_strategy": "dossier:official"
+      "image_strategy": "dossier:official",
+      "image_remote": "https://www.serie-news.com/app/uploads/2026/11/un-sourire-en-plus-une.webp",
+      "image_fallbacks": [
+        "https://www.serie-news.com/app/uploads/2026/11/un-sourire-en-plus-une.webp"
+      ],
+      "image_sha256": "254007942c422412b7eab123be905c347ef8ef212d1a6ec204b146be3cee5e73"
     },
     {
       "id": "inspecteur-lavardin-1986",
@@ -37126,11 +37285,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/inspecteur_lavardin/491504"
         }
       },
-      "image": "https://media.senscritique.com/media/000004784086/600/inspecteur_lavardin.jpg",
+      "image": "assets/posters/inspecteur-lavardin-1986.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/inspecteur_lavardin/491504",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000004784086/600/inspecteur_lavardin.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000004784086/600/inspecteur_lavardin.jpg"
+      ],
+      "image_sha256": "bad75f0215511c549abf9ae71b43075fd6d5191d570d4b951d6a45e9b193ccbe"
     },
     {
       "id": "le-sang-a-la-tete-1956",
@@ -37161,11 +37325,16 @@
       },
       "duration": "83 min (SensCritique ; wikidata 86 min)",
       "duration_source_url": "https://www.senscritique.com/film/le_sang_a_la_tete/494698",
-      "image": "https://media.senscritique.com/media/000020033206/600/le_sang_a_la_tete.jpg",
+      "image": "assets/posters/le-sang-a-la-tete-1956.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/le_sang_a_la_tete/494698",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000020033206/600/le_sang_a_la_tete.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000020033206/600/le_sang_a_la_tete.jpg"
+      ],
+      "image_sha256": "c490fff54017f856cb944518334e1c647a1a74acca4e6c4cd43598ed2b774167"
     },
     {
       "id": "differente-2025",
@@ -37197,11 +37366,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/differente/108510634"
         }
       },
-      "image": "https://media.senscritique.com/media/000022791502/600/differente.png",
+      "image": "assets/posters/differente-2025.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/differente/108510634",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000022791502/600/differente.png",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000022791502/600/differente.png"
+      ],
+      "image_sha256": "32cd52d9cae3747ffc5f6db71e8b3e5d68863bfaae712128aa7e5721b4189c30"
     },
     {
       "id": "l-amant-double-2017",
@@ -37233,11 +37407,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/l_amant_double/24890677"
         }
       },
-      "image": "https://media.senscritique.com/media/000019622171/600/l_amant_double.jpg",
+      "image": "assets/posters/l-amant-double-2017.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/l_amant_double/24890677",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000019622171/600/l_amant_double.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000019622171/600/l_amant_double.jpg"
+      ],
+      "image_sha256": "e9aeda9cff20f67e838c46f58bc40f63b231f5723da04707f4ac30739a6401ef"
     },
     {
       "id": "le-marquis-de-sade-2026",
@@ -37263,11 +37442,16 @@
       "director": "Aurélien Guégan",
       "genre": "Documentaire",
       "ratings_unavailable_reason": "Programme télévisé 2026 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche absente des deux bases).",
-      "image": "https://api-cdn.arte.tv/img/v2/image/fyDocUXRDwXg6CTuk9BBgA/940x530",
+      "image": "assets/posters/le-marquis-de-sade-2026.webp",
       "image_type": "official-program-art",
       "image_source_url": "https://www.arte.tv/fr/videos/118648-000-A/le-marquis-de-sade-ou-les-malheurs-de-justine/",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:arte"
+      "image_strategy": "resolver:arte",
+      "image_remote": "https://api-cdn.arte.tv/img/v2/image/fyDocUXRDwXg6CTuk9BBgA/940x530",
+      "image_fallbacks": [
+        "https://api-cdn.arte.tv/img/v2/image/fyDocUXRDwXg6CTuk9BBgA/940x530"
+      ],
+      "image_sha256": "6af714a585d31d76366c4845253f0d89ee771a6a8aaa47814cceaca2f49bb018"
     },
     {
       "id": "father-2025",
@@ -37302,11 +37486,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/father/119600579"
         }
       },
-      "image": "https://media.senscritique.com/media/000023572272/600/father.jpg",
+      "image": "assets/posters/father-2025.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/father/119600579",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000023572272/600/father.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000023572272/600/father.jpg"
+      ],
+      "image_sha256": "017cc24c21672e7f95612a579a54dc1259d343dec117020df40411f969270c38"
     },
     {
       "id": "le-pays-d-arto-2025",
@@ -37337,11 +37526,16 @@
       },
       "year": 2025,
       "director": "Tamara Stepanyan",
-      "image": "https://media.senscritique.com/media/000023258621/600/le_pays_d_arto.jpg",
+      "image": "assets/posters/le-pays-d-arto-2025.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/le_pays_d_arto/112160862",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000023258621/600/le_pays_d_arto.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000023258621/600/le_pays_d_arto.jpg"
+      ],
+      "image_sha256": "489cf2e184ce6695484a39d5a0a70d2688b7656cbb2c6416afa6aa74c6af0b9c"
     },
     {
       "id": "luidji-a-l-accor-arena-2024",
@@ -37368,14 +37562,17 @@
       },
       "country": "France",
       "ratings_unavailable_reason": "Programme télévisé 2024 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche SensCritique sans vote).",
-      "image": "https://media.senscritique.com/media/000022464180/600/luidji_a_l_accor_arena.jpg",
+      "image": "assets/posters/luidji-a-l-accor-arena-2024.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/luidji_a_l_accor_arena/103664669",
       "image_checked": "2026-11-25",
       "image_strategy": "resolver:senscritique",
       "image_fallbacks": [
+        "https://media.senscritique.com/media/000022464180/600/luidji_a_l_accor_arena.jpg",
         "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1785695_1.jpg"
-      ]
+      ],
+      "image_remote": "https://media.senscritique.com/media/000022464180/600/luidji_a_l_accor_arena.jpg",
+      "image_sha256": "c011eca4269dd198f91e17ad67064a6e17a4dab2f39e01a9e738bb5249e03396"
     },
     {
       "id": "bac-nord-2020",
@@ -37406,11 +37603,16 @@
       },
       "duration": "104 min (SensCritique ; wikidata 105 min)",
       "duration_source_url": "https://www.senscritique.com/film/bac_nord/40270657",
-      "image": "https://media.senscritique.com/media/000020103815/600/bac_nord.jpg",
+      "image": "assets/posters/bac-nord-2020.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/bac_nord/40270657",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000020103815/600/bac_nord.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000020103815/600/bac_nord.jpg"
+      ],
+      "image_sha256": "b802cd9f79b1ee25461d7d5488f579af03e3e8e8e2f720f89a139d1bdb4b9c31"
     },
     {
       "id": "babygirl-2024",
@@ -37441,11 +37643,16 @@
         }
       },
       "country": "États-Unis/Pays-Bas",
-      "image": "https://media.senscritique.com/media/000022574299/600/babygirl.png",
+      "image": "assets/posters/babygirl-2024.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/babygirl/73470454",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000022574299/600/babygirl.png",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000022574299/600/babygirl.png"
+      ],
+      "image_sha256": "0122bcf5f22ab43a0851aa4ee6038a6128dfef22291de66e7fd2bc6b90dcb57b"
     },
     {
       "id": "sabrina-1954",
@@ -37476,11 +37683,16 @@
         }
       },
       "country": "États-Unis",
-      "image": "https://media.senscritique.com/media/000014706031/600/sabrina.jpg",
+      "image": "assets/posters/sabrina-1954.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/sabrina/371353",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000014706031/600/sabrina.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000014706031/600/sabrina.jpg"
+      ],
+      "image_sha256": "dc940fed5e3123bac040c26608c3607b55e109d68e4642b667aac93a4f8a6364"
     },
     {
       "id": "rebuilding-2025",
@@ -37512,11 +37724,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/rebuilding/57190618"
         }
       },
-      "image": "https://media.senscritique.com/media/000023190818/600/rebuilding.png",
+      "image": "assets/posters/rebuilding-2025.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/rebuilding/57190618",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000023190818/600/rebuilding.png",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000023190818/600/rebuilding.png"
+      ],
+      "image_sha256": "a5f18358c79e67f6baa6b49bad7178cd278cad3d4bceb96322568b1f7932fd31"
     },
     {
       "id": "la-french-2014",
@@ -37547,11 +37764,16 @@
         }
       },
       "country": "France/Belgique",
-      "image": "https://media.senscritique.com/media/000007958807/600/la_french.jpg",
+      "image": "assets/posters/la-french-2014.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/la_french/10736169",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000007958807/600/la_french.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000007958807/600/la_french.jpg"
+      ],
+      "image_sha256": "870f7a318d769dbc213e507b619cd685bb095945ea7c2fcbd66daae6ce266a78"
     },
     {
       "id": "le-maitre-d-ecole-1981",
@@ -37582,11 +37804,16 @@
         }
       },
       "country": "France",
-      "image": "https://media.senscritique.com/media/000017388680/600/le_maitre_d_ecole.jpg",
+      "image": "assets/posters/le-maitre-d-ecole-1981.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/le_maitre_d_ecole/368676",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000017388680/600/le_maitre_d_ecole.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000017388680/600/le_maitre_d_ecole.jpg"
+      ],
+      "image_sha256": "35cdef1a1541a86fb91121aca5650cfd40bd560253ede4a0f7a5ef7a811106ae"
     },
     {
       "id": "court-circuit-2026",
@@ -37609,11 +37836,16 @@
       "ratings_unavailable_reason": "Programme télévisé 2026 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche absente des deux bases).",
       "director": "May Resh, Sarina Nihei, Nieto (courts présentés)",
       "duration": "55 min",
-      "image": "https://api-cdn.arte.tv/img/v2/image/F82t5DfRkFHuAbQvsuUtoD/1920x1080",
+      "image": "assets/posters/court-circuit-2026.webp",
       "image_type": "still",
       "image_source_url": "https://www.arte.tv/fr/videos/128693-025-A/court-circuit/",
       "image_checked": "2026-11-25",
-      "image_strategy": "dossier:official"
+      "image_strategy": "dossier:official",
+      "image_remote": "https://api-cdn.arte.tv/img/v2/image/F82t5DfRkFHuAbQvsuUtoD/1920x1080",
+      "image_fallbacks": [
+        "https://api-cdn.arte.tv/img/v2/image/F82t5DfRkFHuAbQvsuUtoD/1920x1080"
+      ],
+      "image_sha256": "7b79567229c4b10dde93b92604eeb3377c3a391fb4e78e4b0d482999bec0758e"
     },
     {
       "id": "westend-girl-2026",
@@ -37635,11 +37867,16 @@
       "director": "Pola Beck",
       "genre": "Série",
       "ratings_unavailable_reason": "Programme télévisé 2026 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche absente des deux bases).",
-      "image": "https://api-cdn.arte.tv/img/v2/image/Nc8CGWrQRrou8iuWNWaAvJ/1920x1080",
+      "image": "assets/posters/westend-girl-2026.webp",
       "image_type": "still",
       "image_source_url": "https://www.arte.tv/fr/videos/126166-001-A/westend-girl-1-6/",
       "image_checked": "2026-11-25",
-      "image_strategy": "dossier:official"
+      "image_strategy": "dossier:official",
+      "image_remote": "https://api-cdn.arte.tv/img/v2/image/Nc8CGWrQRrou8iuWNWaAvJ/1920x1080",
+      "image_fallbacks": [
+        "https://api-cdn.arte.tv/img/v2/image/Nc8CGWrQRrou8iuWNWaAvJ/1920x1080"
+      ],
+      "image_sha256": "9152e7da3d873a7aee4b57014c2d1cc7f702a99b6f19751e92452f547cb89403"
     },
     {
       "id": "le-souffle-de-la-terre-2026",
@@ -37661,11 +37898,16 @@
       "director": "Thibault Férié",
       "genre": "Documentaire",
       "ratings_unavailable_reason": "Programme télévisé 2026 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche absente des deux bases).",
-      "image": "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1786342_0.jpg",
+      "image": "assets/posters/le-souffle-de-la-terre-2026.webp",
       "image_type": "official-program-art",
       "image_source_url": "https://www.francetvpro.fr/contenu-de-presse/79245241",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:francetvpro"
+      "image_strategy": "resolver:francetvpro",
+      "image_remote": "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1786342_0.jpg",
+      "image_fallbacks": [
+        "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1786342_0.jpg"
+      ],
+      "image_sha256": "7aa7748494a851d356091725bfcd59f27d5dd5f944b40f4d3bd3e2d4082a2a67"
     },
     {
       "id": "mon-beau-pere-mes-parents-et-moi-2004",
@@ -37699,11 +37941,16 @@
       },
       "duration": "116 min (SensCritique ; wikidata 110 min)",
       "duration_source_url": "https://www.senscritique.com/film/mon_beau_pere_mes_parents_et_moi/488707",
-      "image": "https://media.senscritique.com/media/000000045497/600/mon_beau_pere_mes_parents_et_moi.jpg",
+      "image": "assets/posters/mon-beau-pere-mes-parents-et-moi-2004.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/mon_beau_pere_mes_parents_et_moi/488707",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000000045497/600/mon_beau_pere_mes_parents_et_moi.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000000045497/600/mon_beau_pere_mes_parents_et_moi.jpg"
+      ],
+      "image_sha256": "675342ea715f700d5c5ea2d4d210bce67b86c1c3663d83b278b2222683070060"
     },
     {
       "id": "eva-en-aout-2019",
@@ -37737,11 +37984,16 @@
         }
       },
       "country": "Espagne",
-      "image": "https://media.senscritique.com/media/000019504136/600/eva_en_aout.jpg",
+      "image": "assets/posters/eva-en-aout-2019.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/eva_en_aout/40371387",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000019504136/600/eva_en_aout.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000019504136/600/eva_en_aout.jpg"
+      ],
+      "image_sha256": "1ac4db87e62abc5eee7aba1f44d6c78f3bb33319773395e9ca0096b632f817ac"
     },
     {
       "id": "tralala-2021",
@@ -37773,11 +38025,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/tralala/42848940"
         }
       },
-      "image": "https://media.senscritique.com/media/000022295520/600/tralala.jpg",
+      "image": "assets/posters/tralala-2021.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/tralala/42848940",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000022295520/600/tralala.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000022295520/600/tralala.jpg"
+      ],
+      "image_sha256": "18e3f97bce19cd0fbed0720e34e3a7617bceb9b33aba3d03324e1631f45cae84"
     },
     {
       "id": "un-silence-2024",
@@ -37808,11 +38065,16 @@
       },
       "duration": "101 min (SensCritique ; wikidata 99 min)",
       "duration_source_url": "https://www.senscritique.com/film/un_silence/54739114",
-      "image": "https://media.senscritique.com/media/000021852823/600/un_silence.jpg",
+      "image": "assets/posters/un-silence-2024.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/un_silence/54739114",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000021852823/600/un_silence.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000021852823/600/un_silence.jpg"
+      ],
+      "image_sha256": "d9c8133acf488fb458089755a267c48e4aa37292b51b1c891ca6c36cb9feab9e"
     },
     {
       "id": "jusqu-ici-tout-va-bien-2019",
@@ -37844,11 +38106,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/jusqu_ici_tout_va_bien/36042874"
         }
       },
-      "image": "https://media.senscritique.com/media/000018355362/600/jusqu_ici_tout_va_bien.jpg",
+      "image": "assets/posters/jusqu-ici-tout-va-bien-2019.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/jusqu_ici_tout_va_bien/36042874",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000018355362/600/jusqu_ici_tout_va_bien.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000018355362/600/jusqu_ici_tout_va_bien.jpg"
+      ],
+      "image_sha256": "1ab561bb0ddcc0576d822c39e25775afefc6b85e460b0fc400d4e18b643bce22"
     },
     {
       "id": "pour-elle-2008",
@@ -37879,11 +38146,16 @@
       },
       "duration": "96 min (SensCritique ; wikidata 95 min)",
       "duration_source_url": "https://www.senscritique.com/film/pour_elle/474821",
-      "image": "https://media.senscritique.com/media/000005525018/600/pour_elle.jpg",
+      "image": "assets/posters/pour-elle-2008.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/pour_elle/474821",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000005525018/600/pour_elle.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000005525018/600/pour_elle.jpg"
+      ],
+      "image_sha256": "38521234e68f48577e5f7b4d87e5cd88eac198fef1cc2d20a93fd3419c8d84a9"
     },
     {
       "id": "regarde-2025",
@@ -37915,11 +38187,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/regarde/101884446"
         }
       },
-      "image": "https://media.senscritique.com/media/000022913154/600/regarde.png",
+      "image": "assets/posters/regarde-2025.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/regarde/101884446",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000022913154/600/regarde.png",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000022913154/600/regarde.png"
+      ],
+      "image_sha256": "415f7c2a6158762c5ff2d8c7e525aa28116a3b1e08f161a4b74b1c4079aabd61"
     },
     {
       "id": "lio-2025",
@@ -37951,14 +38228,17 @@
         }
       },
       "country": "France",
-      "image": "https://media.senscritique.com/media/000023192422/600/lio.webp",
+      "image": "assets/posters/lio-2025.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/lio/127328258",
       "image_checked": "2026-11-25",
       "image_strategy": "resolver:senscritique",
       "image_fallbacks": [
+        "https://media.senscritique.com/media/000023192422/600/lio.webp",
         "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1676291_1.jpg"
-      ]
+      ],
+      "image_remote": "https://media.senscritique.com/media/000023192422/600/lio.webp",
+      "image_sha256": "193467f6ead9833b0950785b590729056d7e8086ee2d2fa5719ffdcb39f75faa"
     },
     {
       "id": "l-affaire-thomas-crown-1968",
@@ -37993,11 +38273,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/l_affaire_thomas_crown/427433"
         }
       },
-      "image": "https://media.senscritique.com/media/000018239124/600/l_affaire_thomas_crown.jpg",
+      "image": "assets/posters/l-affaire-thomas-crown-1968.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/l_affaire_thomas_crown/427433",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000018239124/600/l_affaire_thomas_crown.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000018239124/600/l_affaire_thomas_crown.jpg"
+      ],
+      "image_sha256": "d05598c9bee9676aa0fdc6487b8bb662e15b4cd5af9c8b0e5e22849a3ec5efcf"
     },
     {
       "id": "secret-de-famille-au-musee-d-orsay-2026",
@@ -38019,11 +38304,16 @@
       "director": "Anne Richard",
       "genre": "Documentaire",
       "ratings_unavailable_reason": "Programme télévisé 2026 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche absente des deux bases).",
-      "image": "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1786751_0.jpg",
+      "image": "assets/posters/secret-de-famille-au-musee-d-orsay-2026.webp",
       "image_type": "official-program-art",
       "image_source_url": "https://www.francetvpro.fr/contenu-de-presse/79245252",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:francetvpro"
+      "image_strategy": "resolver:francetvpro",
+      "image_remote": "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1786751_0.jpg",
+      "image_fallbacks": [
+        "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1786751_0.jpg"
+      ],
+      "image_sha256": "d6e2fe98ad8a4fa4e001506c0089e0af0b4be816fa7a25739fddefe6ec6dba6c"
     },
     {
       "id": "billy-idol-punk-rebelle-survivant-2025",
@@ -38053,14 +38343,17 @@
       "duration_source_url": "https://www.senscritique.com/film/billy_idol_should_be_dead/140214595",
       "year": 2025,
       "ratings_unavailable_reason": "Programme télévisé 2025 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche SensCritique sans vote).",
-      "image": "https://media.senscritique.com/media/000024231661/600/billy_idol_should_be_dead.png",
+      "image": "assets/posters/billy-idol-punk-rebelle-survivant-2025.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/billy_idol_should_be_dead/140214595",
       "image_checked": "2026-11-25",
       "image_strategy": "resolver:senscritique",
       "image_fallbacks": [
+        "https://media.senscritique.com/media/000024231661/600/billy_idol_should_be_dead.png",
         "https://api-cdn.arte.tv/img/v2/image/dvdkf87caWr3LXgP6qX9GD/940x530"
-      ]
+      ],
+      "image_remote": "https://media.senscritique.com/media/000024231661/600/billy_idol_should_be_dead.png",
+      "image_sha256": "6cdd90b92eff290e72c98c8dc617c3de051e692c588a93ec1cf7271c44009ae2"
     },
     {
       "id": "la-haine-jusqu-ici-rien-n-a-change-2025",
@@ -38087,14 +38380,17 @@
       },
       "country": "France",
       "ratings_unavailable_reason": "Programme télévisé 2025 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche SensCritique sans vote).",
-      "image": "https://media.senscritique.com/media/000023414780/600/la_haine_jusqu_ici_rien_n_a_change.webp",
+      "image": "assets/posters/la-haine-jusqu-ici-rien-n-a-change-2025.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/la_haine_jusqu_ici_rien_n_a_change/133849522",
       "image_checked": "2026-11-25",
       "image_strategy": "resolver:senscritique",
       "image_fallbacks": [
+        "https://media.senscritique.com/media/000023414780/600/la_haine_jusqu_ici_rien_n_a_change.webp",
         "https://www.francetvpro.fr/sites/default/files/telechargements/images/DSC02102%20DSC01956%20%40x.interlude.jpg.jpg"
-      ]
+      ],
+      "image_remote": "https://media.senscritique.com/media/000023414780/600/la_haine_jusqu_ici_rien_n_a_change.webp",
+      "image_sha256": "dddae43ceae1fd9a08f12c126fbde0b6e67a503b7bcffd73b3dc109439fc95f5"
     },
     {
       "id": "rim-k-a-l-adidas-arena-2025",
@@ -38121,14 +38417,17 @@
       },
       "country": "France",
       "ratings_unavailable_reason": "Programme télévisé 2025 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche SensCritique sans vote).",
-      "image": "https://media.senscritique.com/media/000023384956/600/rim_k_a_l_adidas_arena.jpg",
+      "image": "assets/posters/rim-k-a-l-adidas-arena-2025.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/rim_k_a_l_adidas_arena/133633956",
       "image_checked": "2026-11-25",
       "image_strategy": "resolver:senscritique",
       "image_fallbacks": [
+        "https://media.senscritique.com/media/000023384956/600/rim_k_a_l_adidas_arena.jpg",
         "https://www.francetvpro.fr/sites/default/files/telechargements/images/RIM_K_EN_CONCERT_A_L_ADIDAS_ARENA__2%20%284%29.jpg"
-      ]
+      ],
+      "image_remote": "https://media.senscritique.com/media/000023384956/600/rim_k_a_l_adidas_arena.jpg",
+      "image_sha256": "6452f10ad64a051a631a770ccf0c70dba96fa9cec837253e66a6d390e0386fbf"
     },
     {
       "id": "loups-garous-2026",
@@ -38159,11 +38458,16 @@
       "country": "France",
       "director": "Fary et Panayotis Pascot (créateurs et animateurs)",
       "duration": "90 min (2 × 45 min)",
-      "image": "https://media.senscritique.com/media/000022438478/600/loups_garous.png",
+      "image": "assets/posters/loups-garous-2026.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/serie/loups_garous/100849657",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000022438478/600/loups_garous.png",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000022438478/600/loups_garous.png"
+      ],
+      "image_sha256": "eb226e810ca282d8ea36eee9c1b310a4f6ab1088899684f165dae6a8a542157f"
     },
     {
       "id": "une-nuit-2023",
@@ -38194,11 +38498,16 @@
       },
       "duration": "92 min (SensCritique ; wikidata 90 min)",
       "duration_source_url": "https://www.senscritique.com/film/une_nuit/55808711",
-      "image": "https://media.senscritique.com/media/000021373870/600/une_nuit.jpg",
+      "image": "assets/posters/une-nuit-2023.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/une_nuit/55808711",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000021373870/600/une_nuit.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000021373870/600/une_nuit.jpg"
+      ],
+      "image_sha256": "f5491028e8c1b5dc5f0868de2fb548df97827b9d2fd1ea15b66bfba5c9a02b1d"
     },
     {
       "id": "here-les-plus-belles-annees-de-notre-vie-2024",
@@ -38232,11 +38541,16 @@
       },
       "duration": "103 min (SensCritique ; wikidata 104 min)",
       "duration_source_url": "https://www.senscritique.com/film/here_les_plus_belles_annees_de_notre_vie/51416388",
-      "image": "https://media.senscritique.com/media/000022506316/600/here_les_plus_belles_annees_de_notre_vie.png",
+      "image": "assets/posters/here-les-plus-belles-annees-de-notre-vie-2024.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/here_les_plus_belles_annees_de_notre_vie/51416388",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000022506316/600/here_les_plus_belles_annees_de_notre_vie.png",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000022506316/600/here_les_plus_belles_annees_de_notre_vie.png"
+      ],
+      "image_sha256": "f81504537744fd4e1dc9dc6d109dfa2a765dc856a1e65bbd14d4d1ecab45880e"
     },
     {
       "id": "escape-2024",
@@ -38270,11 +38584,16 @@
           "ratings.senscritique": "https://www.senscritique.com/film/escape_from_the_21st_century/97622952"
         }
       },
-      "image": "https://media.senscritique.com/media/000023020458/600/escape_from_the_21st_century.png",
+      "image": "assets/posters/escape-2024.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/escape_from_the_21st_century/97622952",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000023020458/600/escape_from_the_21st_century.png",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000023020458/600/escape_from_the_21st_century.png"
+      ],
+      "image_sha256": "17f1494c024efa7b008b00b75dfe07437943ecec61b6b76af0c1dbf58a709695"
     },
     {
       "id": "leonard-de-vinci-2024",
@@ -38309,11 +38628,16 @@
       "duration": "174 min",
       "duration_source_url": "https://www.arte.tv/fr/videos/117713-001-A/leonard-de-vinci-1-2/",
       "director": "Ken Burns, Sarah Burns, David McMahon",
-      "image": "https://media.senscritique.com/media/000022795133/600/leonard_de_vinci.jpg",
+      "image": "assets/posters/leonard-de-vinci-2024.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/serie/leonard_de_vinci/111578057",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000022795133/600/leonard_de_vinci.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000022795133/600/leonard_de_vinci.jpg"
+      ],
+      "image_sha256": "10064e25dfb2e0700762ca438f959bdfca4c4d6dea19e6bfc699f8d0c6d18c37"
     },
     {
       "id": "nadia-comaneci-la-gymnaste-et-le-dictateur-2016",
@@ -38345,11 +38669,16 @@
         }
       },
       "country": "France",
-      "image": "https://media.senscritique.com/media/000018597263/600/nadia_comaneci_la_gymnaste_et_le_dictateur.jpg",
+      "image": "assets/posters/nadia-comaneci-la-gymnaste-et-le-dictateur-2016.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/nadia_comaneci_la_gymnaste_et_le_dictateur/22529549",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000018597263/600/nadia_comaneci_la_gymnaste_et_le_dictateur.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000018597263/600/nadia_comaneci_la_gymnaste_et_le_dictateur.jpg"
+      ],
+      "image_sha256": "0bb22a8729e5642f5a5cd216abd3ec3dad5fc4934aa799e4d4eb0bd137ef0710"
     },
     {
       "id": "irresistible-gary-cooper-2019",
@@ -38380,14 +38709,17 @@
       "duration": "53 min (SensCritique ; arte 54 min)",
       "duration_source_url": "https://www.senscritique.com/film/irresistible_gary_cooper/44127734",
       "country": "France",
-      "image": "https://media.senscritique.com/media/000020399609/600/irresistible_gary_cooper.jpg",
+      "image": "assets/posters/irresistible-gary-cooper-2019.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/irresistible_gary_cooper/44127734",
       "image_checked": "2026-11-25",
       "image_strategy": "resolver:senscritique",
       "image_fallbacks": [
+        "https://media.senscritique.com/media/000020399609/600/irresistible_gary_cooper.jpg",
         "https://api-cdn.arte.tv/img/v2/image/Rph3raLaebCQ5Qce7eYcFa/940x530"
-      ]
+      ],
+      "image_remote": "https://media.senscritique.com/media/000020399609/600/irresistible_gary_cooper.jpg",
+      "image_sha256": "b223c6f60ea6aba040edf6315bd84dc2e27249d2256e180814c0a6b9ab5aa4d6"
     },
     {
       "id": "maico-marie-claude-vaillant-couturier-la-revoltee-2024",
@@ -38409,11 +38741,16 @@
       "director": "Madeleine Leroyer",
       "genre": "Documentaire",
       "ratings_unavailable_reason": "Programme télévisé 2024 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche absente des deux bases).",
-      "image": "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1637550_0.jpg",
+      "image": "assets/posters/maico-marie-claude-vaillant-couturier-la-revoltee-2024.webp",
       "image_type": "official-program-art",
       "image_source_url": "https://www.francetvpro.fr/contenu-de-presse/72815071",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:francetvpro"
+      "image_strategy": "resolver:francetvpro",
+      "image_remote": "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1637550_0.jpg",
+      "image_fallbacks": [
+        "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1637550_0.jpg"
+      ],
+      "image_sha256": "bcf8752afb417aaa017ff2030cbe88d31f41f0ed2cd607db056ce573394d8f6d"
     },
     {
       "id": "dr-jack-mr-nicholson-2018",
@@ -38445,14 +38782,17 @@
         }
       },
       "country": "France",
-      "image": "https://media.senscritique.com/media/000018637970/600/dr_jack_mr_nicholson.jpg",
+      "image": "assets/posters/dr-jack-mr-nicholson-2018.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/dr_jack_mr_nicholson/39751622",
       "image_checked": "2026-11-25",
       "image_strategy": "resolver:senscritique",
       "image_fallbacks": [
+        "https://media.senscritique.com/media/000018637970/600/dr_jack_mr_nicholson.jpg",
         "https://api-cdn.arte.tv/img/v2/image/iAx2c7nAWHafojuSPgotyj/940x530"
-      ]
+      ],
+      "image_remote": "https://media.senscritique.com/media/000018637970/600/dr_jack_mr_nicholson.jpg",
+      "image_sha256": "0232c10fd0d1fb4a8dfb5f6fb14ec40118ab20e1b29d531c72758c4687a4993b"
     },
     {
       "id": "l-ia-mon-confident-mortel-2026",
@@ -38474,11 +38814,16 @@
       "director": "Jacqueline Dubuis",
       "genre": "Documentaire",
       "ratings_unavailable_reason": "Programme télévisé 2026 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche absente des deux bases).",
-      "image": "https://lcp.fr/sites/lcp.fr/files/styles/max_650x650/public/2026-11/IA%20confident%20mortel%20visuel.jpg?itok=-J28Baxh",
+      "image": "assets/posters/l-ia-mon-confident-mortel-2026.webp",
       "image_type": "still",
       "image_source_url": "https://lcp.fr/presse/communiques-de-presse/l-ia-mon-confident-mortel-debatdoc-mardi-1er-decembre-a-20h40-inedit",
       "image_checked": "2026-11-25",
-      "image_strategy": "dossier:official"
+      "image_strategy": "dossier:official",
+      "image_remote": "https://lcp.fr/sites/lcp.fr/files/styles/max_650x650/public/2026-11/IA%20confident%20mortel%20visuel.jpg?itok=-J28Baxh",
+      "image_fallbacks": [
+        "https://lcp.fr/sites/lcp.fr/files/styles/max_650x650/public/2026-11/IA%20confident%20mortel%20visuel.jpg?itok=-J28Baxh"
+      ],
+      "image_sha256": "0cf51300ffd2b56670a6fd500775bff113420f114cea79bf6ac33895e034d5f2"
     },
     {
       "id": "la-fleur-au-fusil-2026",
@@ -38503,14 +38848,17 @@
       "year": "2026",
       "genre": "Documentaire",
       "ratings_unavailable_reason": "Programme télévisé 2026 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche SensCritique sans vote).",
-      "image": "https://media.senscritique.com/media/000024243665/600/la_fleur_au_fusil.jpg",
+      "image": "assets/posters/la-fleur-au-fusil-2026.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/la_fleur_au_fusil/140290780",
       "image_checked": "2026-11-25",
       "image_strategy": "resolver:senscritique",
       "image_fallbacks": [
+        "https://media.senscritique.com/media/000024243665/600/la_fleur_au_fusil.jpg",
         "https://www.francetvpro.fr/sites/default/files/telechargements/images/phototele-1778141_1.jpg"
-      ]
+      ],
+      "image_remote": "https://media.senscritique.com/media/000024243665/600/la_fleur_au_fusil.jpg",
+      "image_sha256": "7c956d8854aa7323341b09add64a0cd554ebd2716591cd55d42aad8a1f870015"
     },
     {
       "id": "la-tragique-histoire-de-fritz-l-elephant-2023",
@@ -38536,14 +38884,17 @@
       "country": "France",
       "year": "2023",
       "ratings_unavailable_reason": "Programme télévisé 2023 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche SensCritique sans vote).",
-      "image": "https://media.senscritique.com/media/000022363809/600/la_tragique_histoire_de_fritz_l_elephant.jpg",
+      "image": "assets/posters/la-tragique-histoire-de-fritz-l-elephant-2023.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/la_tragique_histoire_de_fritz_l_elephant/99612369",
       "image_checked": "2026-11-25",
       "image_strategy": "resolver:senscritique",
       "image_fallbacks": [
+        "https://media.senscritique.com/media/000022363809/600/la_tragique_histoire_de_fritz_l_elephant.jpg",
         "https://api-cdn.arte.tv/img/v2/image/jfkMdGe792iDBoggJ6kxAh/940x530"
-      ]
+      ],
+      "image_remote": "https://media.senscritique.com/media/000022363809/600/la_tragique_histoire_de_fritz_l_elephant.jpg",
+      "image_sha256": "eeb26a8eb7803b332c4ec94ef6375f7da5b7d83092b550af8866ec1a50a43121"
     },
     {
       "id": "primaires-une-machine-a-perdre-2026",
@@ -38570,11 +38921,16 @@
       },
       "country": "France",
       "ratings_unavailable_reason": "Programme télévisé 2026 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche SensCritique sans vote).",
-      "image": "https://media.senscritique.com/media/000024167236/600/primaires_une_machine_a_perdre.jpg",
+      "image": "assets/posters/primaires-une-machine-a-perdre-2026.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/primaires_une_machine_a_perdre/139887570",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000024167236/600/primaires_une_machine_a_perdre.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000024167236/600/primaires_une_machine_a_perdre.jpg"
+      ],
+      "image_sha256": "b8ea205be9ada4c2b05fe25e4f05c43c1684c83e960d79ca9ed367d50dfda888"
     },
     {
       "id": "act-up-ou-le-chaos-2024",
@@ -38600,11 +38956,16 @@
       "country": "France",
       "year": "2024",
       "ratings_unavailable_reason": "Programme télévisé 2024 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche SensCritique sans vote).",
-      "image": "https://media.senscritique.com/media/000023567661/600/act_up_ou_le_chaos.jpg",
+      "image": "assets/posters/act-up-ou-le-chaos-2024.webp",
       "image_type": "poster",
       "image_source_url": "https://www.senscritique.com/film/act_up_ou_le_chaos/104101926",
       "image_checked": "2026-11-25",
-      "image_strategy": "resolver:senscritique"
+      "image_strategy": "resolver:senscritique",
+      "image_remote": "https://media.senscritique.com/media/000023567661/600/act_up_ou_le_chaos.jpg",
+      "image_fallbacks": [
+        "https://media.senscritique.com/media/000023567661/600/act_up_ou_le_chaos.jpg"
+      ],
+      "image_sha256": "4e0df2855c31adb106a15ad79aa036e7121221b6d97c88d5f534500786e1c3a2"
     },
     {
       "id": "l-homosexualite-au-cinema-les-chemins-de-la-victoire-2024",
@@ -38626,11 +38987,16 @@
       "director": "Sonia Medina",
       "genre": "Documentaire",
       "ratings_unavailable_reason": "Programme télévisé 2024 : aucune note IMDb ni SensCritique publiée au 25/11/2026 (fiche absente des deux bases).",
-      "image": "https://assets.tv5mondeplus.com/imagescaler002/tv5monde/tv5mondeplus/assets/107281240_74079A/posters/39abd2e4ed0da0f53555a3d4ab1947fb/39abd2e4ed0da0f53555a3d4ab1947fb.jpg?w=960",
+      "image": "assets/posters/l-homosexualite-au-cinema-les-chemins-de-la-victoire-2024.webp",
       "image_type": "still",
       "image_source_url": "https://www.tv5mondeplus.com/api/psi/programs-grid?language=fr&timezone=Europe%2FParis&channel=6&day=2026-12-03&page=4&limit=10",
       "image_checked": "2026-11-25",
-      "image_strategy": "dossier:official"
+      "image_strategy": "dossier:official",
+      "image_remote": "https://assets.tv5mondeplus.com/imagescaler002/tv5monde/tv5mondeplus/assets/107281240_74079A/posters/39abd2e4ed0da0f53555a3d4ab1947fb/39abd2e4ed0da0f53555a3d4ab1947fb.jpg?w=960",
+      "image_fallbacks": [
+        "https://assets.tv5mondeplus.com/imagescaler002/tv5monde/tv5mondeplus/assets/107281240_74079A/posters/39abd2e4ed0da0f53555a3d4ab1947fb/39abd2e4ed0da0f53555a3d4ab1947fb.jpg?w=960"
+      ],
+      "image_sha256": "a7bdef9704d58e33a8dc22c97dfdaf789f921689f81cc4a4962dcce8f1394d3b"
     }
   ]
 }
