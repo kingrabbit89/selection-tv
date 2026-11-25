@@ -4985,8 +4985,8 @@
       "mode": "session",
       "prompt_revision": "production-session-2026-10-16",
       "started_at": "2026-11-25T13:26:52.786Z",
-      "ended_at": null,
-      "run_state": "running",
+      "ended_at": "2026-11-25T14:05:23.983Z",
+      "run_state": "stopped",
       "duration_basis": "Horloge réelle relevée par scripts/editorial-session.mjs à chaque transition ; les phases peuvent se chevaucher et ne s’additionnent pas.",
       "phases": {
         "import": {
@@ -5016,16 +5016,46 @@
         },
         "publication_chain": {
           "started_at": "2026-11-25T14:04:35.459Z",
-          "ended_at": null
+          "ended_at": null,
+          "basis": "La chaîne protégée continue sur GitHub après le dernier commit de la candidate ; sa fin se constate sur latest.html et figure dans le compte rendu de la session."
         },
         "shortlist": {
           "skipped": "Transition de session écrasée par une écriture d’outil sur le checkpoint ; d’après les commits, présélection menée de 13:27:35Z (e84e372) à 13:44:58Z (début des cartes), en parallèle des sous-agents lancés dès l’import : 77 choix initiaux sur candidats Télérama (fraîcheur 4 semaines) + 12 de la passe documentaire, 2 retirés (Le Crime du 3e étage déjà en S48, Le Poison de la vengeance jugé faible)."
         }
       },
-      "deliverables_changed": [],
-      "stop_reason": null,
+      "deliverables_changed": [
+        "data/coverage/2026-S49.json",
+        "data/inventory/2026-S49.json",
+        "data/links.json",
+        "data/manifest.json",
+        "data/radar-reserves/2026-S49.json",
+        "data/releases.json",
+        "data/research/2026-S49.json",
+        "data/weeks/2026-S49.json",
+        "data/works.json",
+        "semaines/2026-S49/index.html",
+        "assets/posters/*.webp (136)"
+      ],
+      "stop_reason": "ready_handed_off",
       "next_useful_batch": null
     }
   ],
-  "updated_at": "2026-11-25T13:59:51Z"
+  "updated_at": "2026-11-25T13:59:51Z",
+  "editorial_review_completed": true,
+  "editorial_review": {
+    "completed": true,
+    "reviewed_at": "2026-11-25T14:05:19.286Z"
+  },
+  "reviewed_at": "2026-11-25T14:05:19.286Z",
+  "reviewed_files": {
+    "data/works.json": "d72e5e6a745b20ebfb1ed356142295159f1ea5f13976f2fd5fe5cffc5f276ef8",
+    "data/links.json": "15a964f2e8587e3afeac3af4d06c54fc6541f518aefb5c45bee107c2e457a784",
+    "data/releases.json": "011740510ec95138df2c8677872aa1c47ffb220047fc177e98599bf4125199ec",
+    "data/manifest.json": "330ec38331c7ed20ea491aa920c03929bd0f528796aa82ff0fbe738c6613284e",
+    "data/inventory/2026-S49.json": "5be1e648f33414d166770623504ad24c6dd8070ca3e416868b8b57cb9fb93b8e",
+    "data/coverage/2026-S49.json": "8f1311ec3c37c1589b62595b120484497c8ed054a0e0e84a94b92589eedd3083",
+    "data/weeks/2026-S49.json": "8e073c984a9d424fedf6c549ad6b1099d94ae7b6809a215beb31cb5aa9b14030",
+    "data/radar-reserves/2026-S49.json": "b5a9e9876d65ab8e060fe9179defff3d58ba9e1b8e59242d7d2a4ed3eaa38510",
+    "semaines/2026-S49/index.html": "718b4bffd5ada3de7323aafb297d92bd60d390c596529c6771c416a91eb4c891"
+  }
 }
