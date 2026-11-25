@@ -1160,5 +1160,373 @@
       }
     }
   },
-  "updated_at": "2026-11-25T13:27:06.679Z"
+  "updated_at": "2026-11-25T13:27:06.679Z",
+  "documentary_pass": {
+    "checked_at": "2026-11-25",
+    "scope": "Toutes les lignes genre_hint=Documentaire de telerama.json sur Arte, France 2, France 3, France 4, France 5, LCP et TV5MONDE, du samedi 28 nov. au vendredi 4 déc. 2026 (≈200 lignes) ; notes de grille W/grid-ratings.json et critiques W/import/telerama-editorial.json ; guides arte.tv/fr/guide du 28/11 au 04/12 ; grille XML francetvpro (France 3, 4, 5, semaine) ; API TV5MONDE+ (canal 6, 3 et 4 déc.) ; communiqués lcp.fr ; fraîcheur contrôlée dans data/weeks/2026-S45…S48.",
+    "sources_consulted": [],
+    "retained": [
+      {
+        "title": "Léonard de Vinci",
+        "placements": [
+          "samedi-selection rang 9 (20:55 Arte)"
+        ]
+      },
+      {
+        "title": "Nadia Comaneci, la gymnaste et le dictateur",
+        "placements": [
+          "samedi-selection rang 10 (22:30 LCP)"
+        ]
+      },
+      {
+        "title": "Irrésistible Gary Cooper",
+        "placements": [
+          "dimanche-selection rang 12 (20:05 Arte)"
+        ]
+      },
+      {
+        "title": "Maïco : Marie-Claude Vaillant-Couturier, la révoltée",
+        "placements": [
+          "dimanche-selection rang 13 (00:40 France 5)"
+        ]
+      },
+      {
+        "title": "Dr Jack & Mr Nicholson",
+        "placements": [
+          "lundi-selection rang 12 (23:05 Arte)"
+        ]
+      },
+      {
+        "title": "Un Français nommé Gabin",
+        "placements": [
+          "lundi-selection rang 13 (23:25 France 4)"
+        ]
+      },
+      {
+        "title": "L'IA, mon confident mortel",
+        "placements": [
+          "mardi-selection rang 12 (20:40 LCP)"
+        ]
+      },
+      {
+        "title": "La Fleur au fusil",
+        "placements": [
+          "mardi-selection rang 13 (01:20 France 3)"
+        ]
+      },
+      {
+        "title": "La Tragique Histoire de Fritz l'éléphant",
+        "placements": [
+          "mercredi-selection rang 13 (00:05 Arte)"
+        ]
+      },
+      {
+        "title": "Primaires, une machine à perdre ?",
+        "placements": [
+          "mercredi-selection rang 14 (20:40 LCP)"
+        ]
+      },
+      {
+        "title": "Act Up ou le chaos",
+        "placements": [
+          "jeudi-selection rang 13 (23:10 TV5MONDE)"
+        ]
+      },
+      {
+        "title": "L'Homosexualité au cinéma, les chemins de la victoire",
+        "placements": [
+          "vendredi-selection rang 11 (00:10 TV5MONDE)"
+        ]
+      }
+    ],
+    "examined_not_retained": [],
+    "additional_proposals": [],
+    "also_noted": [],
+    "limits": [
+      "IMDb non consulté (notes IMDb à null partout).",
+      "Pas de guide officiel LCP/Public Sénat de la semaine lu : créneaux LCP pris dans la grille imprimée et les communiqués LCP (Nadia Comaneci non confirmé).",
+      "France 2 : seuls des documentaires de nuit (Courant d'art, Pays et marchés du monde, etc.) apparaissent, aucun retenu.",
+      "Aucune œuvre retenue n'a de note Télérama de grille ; les notes SC sont lues via l'API GraphQL SensCritique le 25/11/2026.",
+      "Images ARTE : URL api-cdn sans filigrane (1920x1080), testées HTTP 200 ; images francetvpro en webp recadré."
+    ],
+    "distribution": {
+      "daily_cards": 87,
+      "daily_distinct_works": 87,
+      "documentary_cards": 29,
+      "documentary_distinct_works": 29,
+      "note": "Au moins un documentaire par jour dans les pools quotidiens, en plus des documentaires critiqués par Télérama (19 documentaires et magazines au total)."
+    }
+  },
+  "editorial_reminder": {
+    "checked_at": "2026-11-25",
+    "source": "data/editorial-inputs/2026-S49/telerama-editorial.json (38 critiques relues ; Rappel éditorial : critiques du jour Télérama n° 4011 (38 relues), notes de grille (210 lignes notées) et candidats classés par editorial-kit candidates ; fraîcheur S45–S48 contrôlée.)",
+    "decisions": [
+      {
+        "review": "/reviews/0",
+        "title": "Demain La Havane",
+        "rating": "Bien",
+        "slot": "2026-11-28 21:00 LCP-Public Sénat",
+        "decision": "retenu : samedi-selection rang 1 (21:00 LCP)"
+      },
+      {
+        "review": "/reviews/1",
+        "title": "Histoire d’un pacte avec les nazis",
+        "rating": "Bien",
+        "slot": "2026-11-28 23:50 Arte",
+        "decision": "retenu : samedi-selection rang 2 (23:50 Arte)"
+      },
+      {
+        "review": "/reviews/2",
+        "title": "Au pan coupé",
+        "rating": "Très bien",
+        "slot": "2026-11-29 00:15 France 3",
+        "decision": "retenu : dimanche-selection rang 3 (00:15 France 3)"
+      },
+      {
+        "review": "/reviews/3",
+        "title": "Thea & Fritz",
+        "rating": "Bien",
+        "slot": "2026-11-28 19:40 C iné+ Classic",
+        "decision": "retenu : samedi-selection rang 4 (19:40 Ciné+ Classic)"
+      },
+      {
+        "review": "/reviews/4",
+        "title": "Mères et filles",
+        "rating": "Bof",
+        "slot": "2026-11-28 21:00 France 4",
+        "decision": "retenu : samedi-selection rang 8 (21:00 France 4)"
+      },
+      {
+        "review": "/reviews/5",
+        "title": "L’Art nouveau de Victor Horta",
+        "rating": "Très bien",
+        "slot": "2026-11-29 17:45 Arte",
+        "decision": "retenu : dimanche-selection rang 6 (17:45 Arte)"
+      },
+      {
+        "review": "/reviews/6",
+        "title": "Oppenheimer",
+        "rating": "Très bien",
+        "slot": "2026-11-29 21:10 TF1",
+        "decision": "retenu : dimanche-selection rang 1 (21:10 TF1) ; rendezvous-1 rang 1 (21:10 TF1)"
+      },
+      {
+        "review": "/reviews/7",
+        "title": "Je me souviendrai... de presque tout",
+        "rating": "Bien",
+        "slot": "2026-11-29 21:00 France 4",
+        "decision": "retenu : dimanche-selection rang 5 (21:00 France 4)"
+      },
+      {
+        "review": "/reviews/8",
+        "title": "L’Homme de la plaine",
+        "rating": "Très bien",
+        "slot": "2026-11-29 21:00 Arte",
+        "decision": "retenu : dimanche-selection rang 2 (21:00 Arte) ; rendezvous-1 rang 8 (21:00 Arte)"
+      },
+      {
+        "review": "/reviews/9",
+        "title": "Charlie Chaplin",
+        "rating": "Bravo",
+        "slot": "2026-11-30 21:00 France 4",
+        "decision": "retenu : lundi-selection rang 3 (21:00 France 4) ; rendezvous-1 rang 4 (21:00 France 4)"
+      },
+      {
+        "review": "/reviews/10",
+        "title": "Los delincuentes",
+        "rating": "Bravo",
+        "slot": "2026-12-01 00:00 Arte",
+        "decision": "retenu : mardi-selection rang 4 (00:00 Arte) ; rendezvous-1 rang 3 (00:00 Arte)"
+      },
+      {
+        "review": "/reviews/11",
+        "title": "La Dernière Bobine",
+        "rating": "Bien",
+        "slot": "2026-11-30 20:40 LCP-AN",
+        "decision": "retenu : lundi-selection rang 5 (20:40 LCP)"
+      },
+      {
+        "review": "/reviews/12",
+        "title": "Chinatown",
+        "rating": "Très bien",
+        "slot": "2026-11-30 20:55 Arte",
+        "decision": "retenu : lundi-selection rang 1 (20:55 Arte) ; rendezvous-1 rang 2 (20:55 Arte)"
+      },
+      {
+        "review": "/reviews/13",
+        "title": "Téléthon, tout pour la vie",
+        "rating": "Bien",
+        "slot": "2026-11-30 23:25 France 3",
+        "decision": "retenu : lundi-selection rang 6 (23:25 France 3)"
+      },
+      {
+        "review": "/reviews/14",
+        "title": "Skyfall",
+        "rating": "Très bien",
+        "slot": "2026-11-30 21:10 France 3",
+        "decision": "retenu : lundi-selection rang 2 (21:10 France 3) ; rendezvous-2 rang 9 (21:10 France 3)"
+      },
+      {
+        "review": "/reviews/15",
+        "title": "L’Esclavage et ses réseaux",
+        "rating": "Bien",
+        "slot": "2026-12-01 21:00 Arte",
+        "decision": "retenu : mardi-selection rang 1 (21:00 Arte)"
+      },
+      {
+        "review": "/reviews/16",
+        "title": "Élodie Poux & Friends",
+        "rating": "Bof",
+        "slot": "2026-12-01 21:10 M6",
+        "decision": "Non retenu : critique « Bof » de Télérama (gala Juste pour rire inégal) ; pas au niveau de la sélection."
+      },
+      {
+        "review": "/reviews/17",
+        "title": "Sauvages",
+        "rating": "Bravo",
+        "slot": "2026-12-01 22:30 Arte",
+        "decision": "retenu : mardi-selection rang 2 (22:30 Arte) ; rendezvous-1 rang 6 (22:30 Arte)"
+      },
+      {
+        "review": "/reviews/18",
+        "title": "La Guerre des prix",
+        "rating": "Bien",
+        "slot": "2026-12-01 21:10 Canal+",
+        "decision": "retenu : mardi-selection rang 3 (21:10 Canal+)"
+      },
+      {
+        "review": "/reviews/19",
+        "title": "Enquête de santé",
+        "rating": "Bien",
+        "slot": "2026-12-01 21:10 France 5",
+        "decision": "retenu : mardi-selection rang 5 (21:10 France 5)"
+      },
+      {
+        "review": "/reviews/20",
+        "title": "Un sourire en plus",
+        "rating": "Bien",
+        "slot": "2026-12-01 21:25 TMC",
+        "decision": "retenu : mardi-selection rang 6 (21:25 TMC)"
+      },
+      {
+        "review": "/reviews/21",
+        "title": "Le Marquis de Sade",
+        "rating": "Très bien",
+        "slot": "2026-12-02 22:40 Arte",
+        "decision": "retenu : mercredi-selection rang 2 (22:40 Arte) ; rendezvous-2 rang 10 (22:40 Arte)"
+      },
+      {
+        "review": "/reviews/22",
+        "title": "Court-circuit",
+        "rating": "Bien",
+        "slot": "2026-12-03 01:35 Arte",
+        "decision": "retenu : jeudi-selection rang 4 (01:35 Arte)"
+      },
+      {
+        "review": "/reviews/23",
+        "title": "L’Amant double",
+        "rating": "Très bien",
+        "slot": "2026-12-02 20:55 Arte",
+        "decision": "retenu : mercredi-selection rang 1 (20:55 Arte) ; rendezvous-1 rang 10 (20:55 Arte)"
+      },
+      {
+        "review": "/reviews/24",
+        "title": "Luidji à l’Accor Arena",
+        "rating": "Très bien",
+        "slot": "2026-12-02 23:15 France 4",
+        "decision": "retenu : mercredi-selection rang 5 (23:15 France 4)"
+      },
+      {
+        "review": "/reviews/25",
+        "title": "Father",
+        "rating": "Très bien",
+        "slot": "2026-12-02 20:50 Ciné+ Festival",
+        "decision": "retenu : mercredi-selection rang 3 (20:50 Ciné+ Festival) ; rendezvous-1 rang 5 (20:50 Ciné+ Festival)"
+      },
+      {
+        "review": "/reviews/26",
+        "title": "Le Pays d’Arto",
+        "rating": "Bien",
+        "slot": "2026-12-02 22:30 Canal+ Cinéma",
+        "decision": "retenu : mercredi-selection rang 4 (22:30 Canal+ Cinéma)"
+      },
+      {
+        "review": "/reviews/27",
+        "title": "Mon beau-père, mes parents et moi",
+        "rating": "Bien",
+        "slot": "2026-12-03 21:10 TF1",
+        "decision": "retenu : jeudi-selection rang 5 (21:10 TF1)"
+      },
+      {
+        "review": "/reviews/28",
+        "title": "Un silence",
+        "rating": "Bof",
+        "slot": "2026-12-03 21:00 France 4",
+        "decision": "retenu : jeudi-selection rang 8 (21:00 France 4)"
+      },
+      {
+        "review": "/reviews/29",
+        "title": "Le Souffle de la Terre",
+        "rating": "Bien",
+        "slot": "2026-12-03 21:10 France 5",
+        "decision": "retenu : jeudi-selection rang 2 (21:10 France 5)"
+      },
+      {
+        "review": "/reviews/30",
+        "title": "Westend Girl",
+        "rating": "Bien",
+        "slot": "2026-12-03 20:55 Arte",
+        "decision": "retenu : jeudi-selection rang 1 (20:55 Arte) ; rendezvous-2 rang 2 (20:55 Arte)"
+      },
+      {
+        "review": "/reviews/31",
+        "title": "Obsession",
+        "rating": "Très bien",
+        "slot": "2026-12-03 21:10 Canal+",
+        "decision": "Non retenu : Obsession a déjà été publié en S48 (radar popularité) ; fraîcheur inter-numéros."
+      },
+      {
+        "review": "/reviews/32",
+        "title": "La Haine : jusqu’ici rien n’a changé",
+        "rating": "Bien",
+        "slot": "2026-12-04 21:00 France 4",
+        "decision": "retenu : vendredi-selection rang 5 (21:00 France 4)"
+      },
+      {
+        "review": "/reviews/33",
+        "title": "Secret de famille au musée d’Orsay",
+        "rating": "Très bien",
+        "slot": "2026-12-04 22:50 France 5",
+        "decision": "retenu : vendredi-selection rang 2 (22:50 France 5) ; rendezvous-2 rang 6 (22:50 France 5)"
+      },
+      {
+        "review": "/reviews/34",
+        "title": "L’Affaire Thomas Crown",
+        "rating": "Très bien",
+        "slot": "2026-12-04 21:05 France 5",
+        "decision": "retenu : vendredi-selection rang 1 (21:05 France 5) ; rendezvous-2 rang 5 (21:05 France 5)"
+      },
+      {
+        "review": "/reviews/35",
+        "title": "Billy Idol : punk, rebelle, survivant",
+        "rating": "Bien",
+        "slot": "2026-12-04 22:30 Arte",
+        "decision": "retenu : vendredi-selection rang 4 (22:30 Arte)"
+      },
+      {
+        "review": "/reviews/36",
+        "title": "Rim’K à l’Adidas Arena",
+        "rating": "Bien",
+        "slot": "2026-12-04 22:45 France 4",
+        "decision": "retenu : vendredi-selection rang 6 (22:45 France 4)"
+      },
+      {
+        "review": "/reviews/37",
+        "title": "Loups-garous",
+        "rating": "Très bien",
+        "slot": "2026-12-04 21:10 Canal+",
+        "decision": "retenu : vendredi-selection rang 3 (21:10 Canal+) ; rendezvous-2 rang 1 (21:10 Canal+)"
+      }
+    ]
+  }
 }
