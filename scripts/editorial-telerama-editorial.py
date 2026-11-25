@@ -19,10 +19,11 @@ spec.loader.exec_module(grid)
 RATINGS = {"r": ("Hélas", None), "t": ("Bof", 1), "y": ("Bien", 2),
            "u": ("Très bien", 3), "i": ("Bravo", 4)}
 # Programme kinds printed at the end of a review header; S44 also printed
-# « Divertissement » and the short « Doc », S48 « Télé-réalité ».
-GENRES = ("Seul-en-scène", "Documentaire", "Téléfilm", "Spectacle", "Théâtre",
+# « Divertissement » and the short « Doc », S48 « Télé-réalité », S49 « Humour »,
+# « Comédie musicale » and « Jeu ».
+GENRES = ("Seul-en-scène", "Seule-en-scène", "Documentaire", "Téléfilm", "Spectacle", "Théâtre",
           "Magazine", "Animation", "Concert", "Série", "Film", "Opéra",
-          "Divertissement", "Télé-réalité", "Doc")
+          "Divertissement", "Télé-réalité", "Comédie musicale", "Humour", "Jeu", "Doc")
 
 
 def contiguous(chars, max_gap):
