@@ -721,7 +721,444 @@
       "Le magazine n’imprime pas toutes les heures : aucune chaîne n’est relevée comme complète. Les heures non imprimées (films de nuit ou du matin des chaînes cinéma notamment) ne sont pas relevées ; les compléter par l’import Web ordinaire seulement si une piste l’exige.",
       "La nuit 00:00–05:59 du premier samedi est imprimée dans le numéro précédent."
     ],
-    "transcription_review": null
+    "transcription_review": {
+      "reviewed_at": "2026-11-25T13:27:00.000Z",
+      "method": "Relecture visuelle des pages 112, 118, 124, 130, 136, 142 et 148 du PDF Télérama 4011 (une page TNT par jour, samedi 28 nov. → vendredi 4 déc.), rendues avec pypdfium2 à l’échelle 3 puis découpées en quatre quarts lus à l’écran. Pour chaque page, comparaison ligne à ligne de toutes les lignes extraites des colonnes TF1, France 2, France 3, France 4, France 5 et Arte (journée, cases de soirée 1re et 2e partie, nuit) avec l’imprimé : titre, heure, chaîne et date (bascule après minuit). 985 lignes extraites relues sur ces 7 pages ; 3 titres corrigés, aucune ligne imprimée absente dans la période couverte. Créneaux à deux titres relus sur les pages Canal+ / Canal+ Kids 126, 132, 144 et 150.",
+      "pages_reread": [
+        112,
+        118,
+        124,
+        130,
+        136,
+        142,
+        148
+      ],
+      "sampled_rows": [
+        {
+          "date": "2026-11-28",
+          "pdf_page": 112,
+          "title": "Jeunesse...",
+          "start": "05:05",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 112)."
+        },
+        {
+          "date": "2026-11-28",
+          "pdf_page": 112,
+          "title": "Météo",
+          "start": "11:45",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 112)."
+        },
+        {
+          "date": "2026-11-28",
+          "pdf_page": 112,
+          "title": "Grands reportages",
+          "start": "13:40",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 112)."
+        },
+        {
+          "date": "2026-11-28",
+          "pdf_page": 112,
+          "title": "Tout le monde a son mot à dire",
+          "start": "17:55",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 112)."
+        },
+        {
+          "date": "2026-11-28",
+          "pdf_page": 112,
+          "title": "C’est bon à savoir",
+          "start": "20:25",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 112)."
+        },
+        {
+          "date": "2026-11-29",
+          "pdf_page": 118,
+          "title": "Jeunesse...",
+          "start": "05:05",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 118)."
+        },
+        {
+          "date": "2026-11-29",
+          "pdf_page": 118,
+          "title": "Automoto",
+          "start": "10:00",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 118)."
+        },
+        {
+          "date": "2026-11-29",
+          "pdf_page": 118,
+          "title": "La p’tite librairie",
+          "start": "17:20",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 118)."
+        },
+        {
+          "date": "2026-11-29",
+          "pdf_page": 118,
+          "title": "La Grippe espagnole, la grande tueuse",
+          "start": "23:20",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 118)."
+        },
+        {
+          "date": "2026-11-29",
+          "pdf_page": 118,
+          "title": "JT 13h",
+          "start": "13:00",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 118)."
+        },
+        {
+          "date": "2026-11-30",
+          "pdf_page": 124,
+          "title": "Les matinales",
+          "start": "05:05",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 124)."
+        },
+        {
+          "date": "2026-11-30",
+          "pdf_page": 124,
+          "title": "Chacun son tour",
+          "start": "10:50",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 124)."
+        },
+        {
+          "date": "2026-11-30",
+          "pdf_page": 124,
+          "title": "C’est toujours pas sorcier",
+          "start": "13:30",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 124)."
+        },
+        {
+          "date": "2026-11-30",
+          "pdf_page": 124,
+          "title": "Okoo-koo",
+          "start": "17:10",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 124)."
+        },
+        {
+          "date": "2026-11-30",
+          "pdf_page": 124,
+          "title": "Journal",
+          "start": "20:00",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 124)."
+        },
+        {
+          "date": "2026-12-01",
+          "pdf_page": 130,
+          "title": "Jeunesse...",
+          "start": "05:05",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 130)."
+        },
+        {
+          "date": "2026-12-01",
+          "pdf_page": 130,
+          "title": "Les Feux de l’amour",
+          "start": "10:55",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 130)."
+        },
+        {
+          "date": "2026-12-01",
+          "pdf_page": 130,
+          "title": "Un cerveau d’un milliard de dollars",
+          "start": "13:35",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 130)."
+        },
+        {
+          "date": "2026-12-01",
+          "pdf_page": 130,
+          "title": "C à vous la suite",
+          "start": "20:00",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 130)."
+        },
+        {
+          "date": "2026-12-01",
+          "pdf_page": 130,
+          "title": "Invitation au voyage",
+          "start": "17:25",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 130)."
+        },
+        {
+          "date": "2026-12-02",
+          "pdf_page": 136,
+          "title": "La Civilisation des arbres",
+          "start": "05:00",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 136)."
+        },
+        {
+          "date": "2026-12-02",
+          "pdf_page": 136,
+          "title": "Homard et cordon bleu",
+          "start": "11:00",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 136)."
+        },
+        {
+          "date": "2026-12-02",
+          "pdf_page": 136,
+          "title": "Petits plats en équilibre",
+          "start": "13:50",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 136)."
+        },
+        {
+          "date": "2026-12-02",
+          "pdf_page": 136,
+          "title": "C dans l’air",
+          "start": "23:50",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 136)."
+        },
+        {
+          "date": "2026-12-02",
+          "pdf_page": 136,
+          "title": "Mot de passe",
+          "start": "17:25",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 136)."
+        },
+        {
+          "date": "2026-12-03",
+          "pdf_page": 142,
+          "title": "Pays et marchés du monde",
+          "start": "05:00",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 142)."
+        },
+        {
+          "date": "2026-12-03",
+          "pdf_page": 142,
+          "title": "L’Homme de l’Ouest",
+          "start": "13:35",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 142)."
+        },
+        {
+          "date": "2026-12-03",
+          "pdf_page": 142,
+          "title": "C pas si loin",
+          "start": "16:55",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 142)."
+        },
+        {
+          "date": "2026-12-03",
+          "pdf_page": 142,
+          "title": "Météo",
+          "start": "19:55",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 142)."
+        },
+        {
+          "date": "2026-12-03",
+          "pdf_page": 142,
+          "title": "Chacun son tour",
+          "start": "10:50",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 142)."
+        },
+        {
+          "date": "2026-12-04",
+          "pdf_page": 148,
+          "title": "Jeunesse...",
+          "start": "05:05",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 148)."
+        },
+        {
+          "date": "2026-12-04",
+          "pdf_page": 148,
+          "title": "Homard et cordon bleu",
+          "start": "11:00",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 148)."
+        },
+        {
+          "date": "2026-12-04",
+          "pdf_page": 148,
+          "title": "La p’tite librairie",
+          "start": "13:50",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 148)."
+        },
+        {
+          "date": "2026-12-04",
+          "pdf_page": 148,
+          "title": "C dans l’air l’invité",
+          "start": "17:25",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 148)."
+        },
+        {
+          "date": "2026-12-04",
+          "pdf_page": 148,
+          "title": "28 minutes",
+          "start": "20:05",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 148)."
+        },
+        {
+          "date": "2026-11-28",
+          "pdf_page": 112,
+          "title": "Star academy",
+          "start": "21:10",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 112)."
+        },
+        {
+          "date": "2026-11-29",
+          "pdf_page": 118,
+          "title": "L’Amour ouf",
+          "start": "21:10",
+          "channel": "France 2",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 118)."
+        },
+        {
+          "date": "2026-11-30",
+          "pdf_page": 124,
+          "title": "Skyfall",
+          "start": "21:10",
+          "channel": "France 3",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 124)."
+        },
+        {
+          "date": "2026-12-01",
+          "pdf_page": 130,
+          "title": "Passage des arts",
+          "start": "21:00",
+          "channel": "France 4",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 130)."
+        },
+        {
+          "date": "2026-12-02",
+          "pdf_page": 136,
+          "title": "L’Amant double",
+          "start": "20:55",
+          "channel": "Arte",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 136)."
+        },
+        {
+          "date": "2026-12-03",
+          "pdf_page": 142,
+          "title": "Le Souffle de la Terre",
+          "start": "21:10",
+          "channel": "France 5",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 142)."
+        },
+        {
+          "date": "2026-12-04",
+          "pdf_page": 148,
+          "title": "Duos mystères",
+          "start": "21:10",
+          "channel": "TF1",
+          "decision": "matches",
+          "note": "Relu sur l’imprimé : titre, heure et chaîne identiques (p. 148)."
+        },
+        {
+          "date": "2026-12-01",
+          "pdf_page": 130,
+          "title": "Les îles irlandaises, avant-postes de l’océan",
+          "start": "11:25",
+          "channel": "Arte",
+          "decision": "corrected",
+          "note": "Césure de fin de ligne conservée à l’extraction (« avant- postes ») ; imprimé « avant-postes » (p. 130)."
+        },
+        {
+          "date": "2026-12-04",
+          "pdf_page": 148,
+          "title": "Téléthon 2026 : 40e édition",
+          "start": "18:40",
+          "channel": "France 2",
+          "decision": "corrected",
+          "note": "Titre tronqué à l’extraction (exposant « e » de « 40e » perdu) ; imprimé « Téléthon 2026 : 40e édition » (p. 148)."
+        },
+        {
+          "date": "2026-12-04",
+          "pdf_page": 148,
+          "title": "Téléthon 2026 : 40e édition",
+          "start": "21:10",
+          "channel": "France 3",
+          "decision": "corrected",
+          "note": "Exposant « e » déplacé à l’extraction (« e 40 édition ») ; imprimé « Téléthon 2026 : 40e édition » (p. 148)."
+        }
+      ],
+      "discrepancies": [
+        "p. 112, TF1, 28 nov. 18:00 : l’imprimé porte lui-même « 50 mn Iiside » (coquille du magazine pour « 50 mn Inside ») ; transcription fidèle, titre laissé tel qu’imprimé.",
+        "p. 148 : les programmes imprimés après minuit dans la nuit du vendredi 4 au samedi 5 déc. (TF1 0.35 Vendredi, tout est permis avec Arthur, 2.20 Tirage de l’EuroMillions ; France 2 0.05 à 4.20 Téléthon ; France 3 0.35 Corsu Mezu Mezu…, 3.30 L’Ombre, 4.30–4.45 ; France 4 0.30 Paname…, 1.55 Misié Sadik, 3.25 Vildanden, 4.50 ; France 5 2.10 C à vous, 4.00 Vivre loin du monde, 4.40 Imprévus ; Arte 0.25 Arte Concert Festival, 1.45 Les Cigales, 3.20 Des repas légendaires, 4.00 Quand la Méditerranée surchauffe) sont datés du 5 déc., hors de la plage 28 nov.–4 déc. : non extraits par construction, ce ne sont pas des omissions de transcription.",
+        "Césures de fin de ligne conservées ailleurs dans la grille (hors pages relues) : « Détrompez- vous », « Reviens- moi », « Souviens- toi... l’été dernier », « Louis- Vuitton », « González- Monjas », « Grand- Théâtre », « Francois- Xavier » ; corrigées par fix_broken_hyphenation.",
+        "Passe de correction appliquée à l’inventaire entier pour les mêmes défauts d’extraction hors pages relues : 11 titres corrigés.",
+        "Créneau à deux titres Canal+ 2026-11-30 18:50 (En aparté / La boîte à questions) : p. 126, colonne Canal+ : « 18.50 La boîte à questions » puis « 18.50 En aparté », deux programmes courts imprimés au même horaire. Les deux lignes sont conservées.",
+        "Créneau à deux titres Canal+ 2026-11-30 19:30 (Clique / Un Clique par jour) : p. 126, colonne Canal+ : « 19.30 Un Clique par jour » puis « 19.30 Clique », deux lignes imprimées au même horaire. Les deux lignes sont conservées.",
+        "Créneau à deux titres Canal+ Kids 2026-12-01 22:10 (Les Croquemoutard / L’Histoire racontée par des chaussettes) : p. 132, colonne Canal+ Kids : « 22.10 L’Histoire racontée par des chaussettes » puis « 22.10 Les Croquemoutard », deux programmes courts imprimés au même horaire. Les deux lignes sont conservées.",
+        "Créneau à deux titres Canal+ Kids 2026-12-03 20:00 (Kaeloo / L’Histoire racontée par des chaussettes) : p. 144, colonne Canal+ Kids : « 20.00 L’Histoire racontée par des chaussettes » puis « 20.00 Kaeloo Série », deux lignes imprimées au même horaire. Les deux lignes sont conservées.",
+        "Créneau à deux titres Canal+ 2026-12-04 20:00 (En aparté / Un Clique par jour) : p. 150, colonne Canal+ : « 20.00 Un Clique par jour » puis « 20.00 En aparté », deux lignes imprimées au même horaire. Les deux lignes sont conservées.",
+        "Créneau à deux titres Canal+ Kids 2026-12-04 20:00 (La Rivière à l’envers / Pif et Hercule se mettent au vert) : p. 150, colonne Canal+ Kids : « 20.00 Pif et Hercule se mettent au vert » puis « 20.00 La Rivière à l’envers », deux programmes courts imprimés au même horaire. Les deux lignes sont conservées.",
+        "Revue d’impact : les trois corrections touchent des titres (une césure sur Arte, le titre du Téléthon sur France 2 et France 3) sans changer ni heure, ni chaîne, ni date ; aucune omission dans la plage de la semaine ; les six créneaux à deux titres sont deux programmes courts réellement imprimés au même horaire sur Canal+ / Canal+ Kids et sont conservés. Aucune carte ni aucun conflit publié n’est affecté, hormis l’affichage du titre « Téléthon 2026 : 40e édition » si une carte le cite."
+      ],
+      "corrections_applied": {
+        "page_corrections": 3,
+        "global_corrections": 11,
+        "rows_added": 0
+      }
+    }
   },
   "updated_at": "2026-11-25T13:27:06.679Z"
 }
