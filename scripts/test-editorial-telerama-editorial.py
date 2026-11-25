@@ -109,6 +109,12 @@ class EditorialTests(unittest.TestCase):
         data+=chars('r',300,100,icon=True)+chars('21.10 RMC Life Télé-réalité',310,100)+chars('Shopping',300,114,size=11,bold=True)
         rows,_=module.page_reviews(data,dt.date(2026,11,22),107,592)
         self.assertEqual(sorted((r['channel'],r['programme_kind']) for r in rows),[('13e Rue','Série'),('RMC Life','Télé-réalité')])
+    def test_humour_musical_and_game_headers_are_daily_reviews(self):
+        # S49: « 21.10 M6 Humour », « 21.00 France 4 Comédie musicale » and « 21.10 Canal+ Jeu » were missed.
+        for channel,kind in [('M6','Humour'),('France 4','Comédie musicale'),('Canal+','Jeu'),('Paris Première','Seule-en-scène')]:
+            data=chars('u',24,100,icon=True)+chars('21.10 '+channel+' '+kind,34,100)+chars('A show',24,114,size=11,bold=True)
+            rows,_=module.page_reviews(data,dt.date(2026,11,28),110,592)
+            self.assertEqual([(r['channel_printed'],r['programme_kind']) for r in rows],[(channel,kind)])
 
 if __name__=='__main__':
     unittest.main()
