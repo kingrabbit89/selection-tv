@@ -38,8 +38,13 @@ export function selectAttestation({runs, jobsFor, artifactsFor, readProof, week,
     // disappear behind a newer ID whose earlier attempt succeeded.
     if (run.status !== 'completed') return unfinished(run, base, now);
     // filter=latest returns the jobs of the newest attempt; refuse stale attempts.
-    const jobs = jobsFor(run).filter(job => job.run_id === run.id &&
+    const listed = jobsFor(run);
+    const jobs = listed.filter(job => job.run_id === run.id &&
       (run.run_attempt === undefined || job.run_attempt === undefined || job.run_attempt === run.run_attempt));
+    // A run cancelled before any job started (superseded in its concurrency
+    // group) validated nothing and produced no proof: it carries no verdict.
+    // A cancellation after any job started still blocks older proofs below.
+    if (run.conclusion === 'cancelled' && listed.length === 0) continue;
     const resolvers = jobs.filter(job => job.name === 'resolve');
     if (resolvers.length !== 1)
       return {verified: false, reason: `Jobs of the latest attempt of run ${run.id} are unavailable; the attestation step cannot be proven.`};
